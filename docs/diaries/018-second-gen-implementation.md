@@ -1,7 +1,7 @@
 # Diary 018: Second Gen Implementation
 
 **Date:** 2026-04-13
-**Status:** Not started
+**Status:** Complete
 
 ## Goal
 
@@ -82,8 +82,19 @@ Same event types, same `BattleState`, same `BattleLoop`. Different rules.
 
 ## Validation
 
-| Step | Validation |
-|------|-----------|
-| 1-3 | `./gradlew test` — new gen tests pass |
-| 4 | `./gradlew test` — comparison test passes |
-| All | All existing GenV tests still pass unchanged |
+| Step | Validation | Result |
+|------|-----------|--------|
+| 1 | SimplifiedDamageCalculator — different damage from GenV | PASS |
+| 2 | SimplifiedSpeedResolver — paralyzed Pokemon not slowed | PASS |
+| 3 | SimplifiedEndOfTurnPhase — doubled burn, no weather damage | PASS |
+| 4 | Full battle comparison — same state, different outcomes | PASS |
+| 4 | Rendered output visibly different per gen | PASS |
+| All | 116 tests (110 existing + 6 new), 0 failures | PASS |
+
+## What this proves
+
+The injectable architecture works. Same `BattleState`, same `BattleEvent` types, same
+`BattleLoop`, same `TextRenderer` — different rules. Swapping `GenVDamageCalculator` for
+`SimplifiedDamageCalculator` changes damage output. Swapping `GenVSpeedResolver` for
+`SimplifiedSpeedResolver` changes move ordering. Swapping `EndOfTurnPhase` for
+`SimplifiedEndOfTurnPhase` changes end-of-turn effects. No model or engine changes needed.
