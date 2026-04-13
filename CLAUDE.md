@@ -50,7 +50,7 @@ Each feature or chunk of work follows this cycle:
    - Open design questions discovered along the way
 3. **Implement incrementally** — Work through the plan step by step. Run `./gradlew compileKotlin` or `./gradlew test` after each step to stay green.
 4. **Validate** — Every step must have a concrete "green" signal before moving on. Tests are the primary validation mechanism since the core logic is pure functions.
-5. **Code review** — After implementation, review all changed files for: duplicated logic, mutation where pure functions are expected, stringly-typed or unidiomatic patterns, missing abstractions, and extensibility concerns. Write findings to `docs/diaries/temp/` as a temporary review doc. Fix the obvious ones, flag architectural questions for discussion.
+5. **Code review** — After implementation, review all changed files for: duplicated logic, mutation where pure functions are expected, stringly-typed or unidiomatic patterns, missing abstractions, extensibility concerns, and colocation (is understanding one concept scattered across the codebase, or can a developer find everything about it in one place?). Write findings to `docs/diaries/temp/` as a temporary review doc. Fix the obvious ones, flag architectural questions for discussion.
 6. **Update the diary** — Mark steps done, record decisions made, note anything surprising.
 7. **Commit** — When the user asks, commit the completed work.
 
