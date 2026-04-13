@@ -68,7 +68,7 @@ Each feature or chunk of work follows this cycle:
    - Do the changes fit cleanly into the existing layers, or is the new code blurring them together?
    - If we needed to remove this, how easy would it be? Is it entangled with code that should be independent?
    - Does anything else feel off that isn't covered above? Flag it — the checklist has blind spots.
-   - Think about other codebases, domains, or resources on the Internet. Is there a question we can add to the checklist to catch any problems we had this time? Can we add an axis to our thinking?
+   - Think about other codebases, domains, or resources on the Internet (use web search). Is there a question we can add to the checklist to catch any problems we had this time? Can we add an axis to our thinking?
 6. **Clean up** — Delete the temp review doc from `docs/diaries/temp/` once fixes are applied.
 7. **Update the diary** — Mark steps done, record decisions made, note anything surprising.
 8. **Look ahead** — Where should we go from here? What do these changes let us work on next?
