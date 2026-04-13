@@ -36,10 +36,7 @@ class AbilityTest {
     private val ghostSpecies = Species("Ghost", listOf(Type.GHOST, Type.POISON), 60, 65, 60, 130, 75, 110)
     private val groundSpecies = Species("Ground", listOf(Type.GROUND), 80, 100, 80, 80, 80, 60)
 
-    private fun pokemon(
-        species: Species,
-        ability: Ability? = null,
-    ) = Pokemon(species, level = 50)
+    private fun pokemon(species: Species) = Pokemon(species, level = 50)
 
     private fun state(
         pokemon: Pokemon,

@@ -45,7 +45,6 @@ class GameLoopTest {
     ) = PokemonState(pokemon, currentHp = hp)
 
     private val tackle = Move("Tackle", Type.NORMAL, MoveCategory.PHYSICAL, 40)
-    private val flamethrower = Move("Flamethrower", Type.FIRE, MoveCategory.SPECIAL, 90)
 
     private val fixedRoll: (IntRange) -> Int = { 100 }
     private val noChance: ChanceCheck = { _, _ -> false }

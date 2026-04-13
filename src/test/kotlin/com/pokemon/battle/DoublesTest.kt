@@ -41,7 +41,6 @@ class DoublesTest {
 
     private val fireType = Species("FireMon", listOf(Type.FIRE), 80, 100, 80, 80, 80, 80)
     private val groundType = Species("GroundMon", listOf(Type.GROUND), 80, 100, 80, 80, 80, 80)
-    private val flyingType = Species("FlyingMon", listOf(Type.FLYING), 80, 100, 80, 80, 80, 80)
 
     private val tackle = Move("Tackle", Type.NORMAL, MoveCategory.PHYSICAL, 40)
     private val earthquake = Move("Earthquake", Type.GROUND, MoveCategory.PHYSICAL, 100, target = MoveTarget.ALL_OTHER)
@@ -220,9 +219,6 @@ class DoublesTest {
                 state(pokemon(midFast)),
                 state(pokemon(midSlow)),
             )
-        // Compare: single-target tackle vs spread hyper voice against same defender
-        val singleState = BattleState.singles(state(pokemon(fast)), state(pokemon(midFast)))
-
         val attacker = state(pokemon(fast))
         val defender = state(pokemon(midFast))
 

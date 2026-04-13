@@ -48,8 +48,8 @@ object Pokedex {
     ): Type {
         return try {
             Type.valueOf(value)
-        } catch (e: IllegalArgumentException) {
-            error("Unknown type '$value' for species '$speciesName'")
+        } catch (ex: IllegalArgumentException) {
+            error("Unknown type '$value' for species '$speciesName': ${ex.message}")
         }
     }
 }

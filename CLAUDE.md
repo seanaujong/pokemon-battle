@@ -9,6 +9,8 @@ Kotlin project implementing an event-sourced turn-resolution pipeline for Pokemo
 **Stack:** Kotlin 2.2.10, JVM 17, Gradle 8.14, kotlin-test + JUnit Platform, ktlint.
 **Package:** `com.pokemon.battle`
 **Linting:** `./gradlew ktlintCheck` runs ktlint. `./gradlew ktlintFormat` auto-fixes. Disabled rules are documented in `.editorconfig`.
+**Static analysis:** `./gradlew detekt` runs detekt. Config in `detekt.yml` with documented threshold adjustments.
+**Coverage:** `./gradlew test` generates JaCoCo report at `build/reports/jacoco/test/html/index.html`.
 
 ## Architecture
 
