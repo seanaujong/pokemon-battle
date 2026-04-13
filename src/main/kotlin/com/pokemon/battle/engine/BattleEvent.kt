@@ -149,13 +149,9 @@ data class SwitchOut(
 ) : BattleEvent {
     override fun apply(state: BattleState): BattleState {
         val pokemon = state.pokemonFor(slot)
-        // Clear volatiles and stat stages on switch-out; status persists
-        val cleared = pokemon.copy(volatiles = emptySet(), statStages = StatStages())
         val side = slot.side
-        val newBench = state.benchFor(side) + cleared
-        return state
-            .withPokemon(slot, cleared)
-            .copy(bench = state.bench + (side to newBench))
+        val newBench = state.benchFor(side) + pokemon
+        return state.copy(bench = state.bench + (side to newBench))
     }
 }
 

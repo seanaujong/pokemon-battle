@@ -241,7 +241,6 @@ All gen-specific behavior is in **phases**, not in the model or engine:
 
 - `PokemonState.effectiveSpeed()` applies paralysis speed modifier (model layer)
 - `DamageCalc` contains burn penalty and STAB (engine layer)
-- `SwitchOut.apply()` hardcodes volatile/stat clearing (event layer)
 
 These are acceptable for single-gen. For multi-gen, they'd move to phases.
 

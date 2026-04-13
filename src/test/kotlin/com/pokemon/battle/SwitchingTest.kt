@@ -109,14 +109,23 @@ class SwitchingTest {
         val benched = state(pokemon(speciesC))
 
         val battleState = BattleState.singles(boosted, active2, p1Bench = listOf(benched))
+        val choices = TurnChoices.singles(
+            TurnChoice.Switch(benchIndex = 0),
+            TurnChoice.UseMove(tackle)
+        )
 
-        val switchOut = SwitchOut(Slot.p1())
-        val stateAfterOut = switchOut.apply(battleState)
+        val phase = SwitchPhase()
+        val events = phase.resolve(battleState, choices)
+        val newState = events.fold(battleState) { s, e -> e.apply(s) }
 
         // The Pokemon on bench should have cleared volatiles and stat stages
-        val benchedPokemon = stateAfterOut.benchFor(Side.SIDE_1).last()
+        val benchedPokemon = newState.benchFor(Side.SIDE_1).last()
         assertEquals(StatStages(), benchedPokemon.statStages, "Stat stages should be cleared")
         assertEquals(emptySet(), benchedPokemon.volatiles, "Volatiles should be cleared")
+
+        // Clearing should appear as events in the log
+        assertTrue(events.any { it is VolatileChanged }, "Volatile clearing should be logged")
+        assertTrue(events.any { it is StatChanged }, "Stat clearing should be logged")
     }
 
     @Test
@@ -129,12 +138,17 @@ class SwitchingTest {
         val benched = state(pokemon(speciesC))
 
         val battleState = BattleState.singles(burned, active2, p1Bench = listOf(benched))
+        val choices = TurnChoices.singles(
+            TurnChoice.Switch(benchIndex = 0),
+            TurnChoice.UseMove(tackle)
+        )
 
-        val switchOut = SwitchOut(Slot.p1())
-        val stateAfterOut = switchOut.apply(battleState)
+        val phase = SwitchPhase()
+        val events = phase.resolve(battleState, choices)
+        val newState = events.fold(battleState) { s, e -> e.apply(s) }
 
         // Status should persist on the benched Pokemon
-        val benchedPokemon = stateAfterOut.benchFor(Side.SIDE_1).last()
+        val benchedPokemon = newState.benchFor(Side.SIDE_1).last()
         assertEquals(StatusCondition.BURN, benchedPokemon.status, "Status should persist through switch")
     }
 
