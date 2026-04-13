@@ -174,6 +174,34 @@ Existing events and phases don't change. Here are some examples:
 
 The pipeline is open for extension. You add new things by writing new code, not by modifying what's already working.
 
+## The event log as a rendering source
+
+If you've played a Pokemon game, you know the battle is experienced through text messages and animations. The event log maps directly to these:
+
+| Game text | Event | How to render |
+|-----------|-------|---------------|
+| "Charizard used Flamethrower!" | `MoveAttempted(P1, Flamethrower)` | Look up `state.pokemonFor(P1).pokemon.species.name` |
+| *Flamethrower animation plays* | `MoveAttempted` | Trigger animation for the move |
+| "It's super effective!" | `DamageDealt(effectiveness=SUPER_EFFECTIVE)` | Check effectiveness field |
+| *HP bar drains* | `DamageDealt(amount=162)` | Animate HP from current to current - amount |
+| "A critical hit!" | `DamageDealt(critical=true)` | Check critical field |
+| "Venusaur fainted!" | `PokemonFainted(P2)` | Look up name from state |
+| "Charizard is fully paralyzed!" | `MoveFailed(P1, FULLY_PARALYZED)` | Look up name, match reason |
+| "Pikachu is fast asleep." | `MoveFailed(P1, ASLEEP)` | Same pattern |
+| "Pikachu woke up!" | `StatusCleared(P1, SLEEP)` | Same pattern |
+| "Swampert's burn hurt it!" | `StatusDamage(P2, BURN)` | Look up name, match source |
+| "Swampert restored HP using its Leftovers!" | `ItemHealing(P2, LEFTOVERS)` | Look up name, match item |
+
+A renderer walks the event list sequentially, looks up Pokemon names from the state (tracking state by applying each event as it goes), and produces text + animations. The event order matches the order messages appear in the games.
+
+### What a renderer needs to track
+
+Events reference players by `Player` (P1/P2), not by name. The renderer needs to maintain a running state alongside the event list — apply each event to get the current state, then read names and HP values from it. This is the right separation: events describe *what happened*, state describes *who is who*.
+
+### Known gaps
+
+- **Weather announcements** — "The sandstorm rages." plays as a header before individual `WeatherDamage` events. We don't emit a separate announcement event for this. A renderer could synthesize it from seeing the first `WeatherDamage` in a turn, or we could add a `WeatherAnnouncement` event later.
+
 ## The code layout
 
 ```

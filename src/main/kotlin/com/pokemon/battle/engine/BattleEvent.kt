@@ -8,7 +8,7 @@ sealed interface BattleEvent {
 
 data class MoveOrderDecided(
     val firstAttacker: Player,
-    val reason: String
+    val reason: OrderReason
 ) : BattleEvent {
     override fun apply(state: BattleState): BattleState = state // informational
 }

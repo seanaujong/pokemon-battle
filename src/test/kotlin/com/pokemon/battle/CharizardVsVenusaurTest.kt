@@ -68,7 +68,7 @@ class CharizardVsVenusaurTest {
         // Event 1: Charizard goes first (higher speed)
         val order = events[0] as MoveOrderDecided
         assertEquals(Player.P1, order.firstAttacker)
-        assertEquals("speed", order.reason)
+        assertEquals(OrderReason.SPEED, order.reason)
 
         // Event 2: Charizard attempts Flamethrower
         val attempt = events[1] as MoveAttempted

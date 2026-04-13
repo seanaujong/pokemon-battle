@@ -81,7 +81,7 @@ class InfernapeVsSwampertTest {
         // Event 1: Infernape goes first due to priority (not speed)
         val order = assertIs<MoveOrderDecided>(events[0])
         assertEquals(Player.P1, order.firstAttacker)
-        assertEquals("priority", order.reason)
+        assertEquals(OrderReason.PRIORITY, order.reason)
 
         // Event 2: Infernape attempts Mach Punch
         val attempt1 = assertIs<MoveAttempted>(events[1])

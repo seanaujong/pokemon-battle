@@ -77,7 +77,7 @@ class StatusMechanicsTest {
         val order = resolveMoveOrder(state, bothTackle)
 
         assertEquals(Player.P2, order.first)
-        assertEquals("speed", order.reason)
+        assertEquals(OrderReason.SPEED, order.reason)
     }
 
     @Test
@@ -258,7 +258,7 @@ class StatusMechanicsTest {
         // Event 1: P2 goes first (speed 55 > 50)
         val order = assertIs<MoveOrderDecided>(events[0])
         assertEquals(Player.P2, order.firstAttacker)
-        assertEquals("speed", order.reason)
+        assertEquals(OrderReason.SPEED, order.reason)
 
         // Event 2-3: P2 is asleep (volatile change + move failed)
         val volatileChanged = assertIs<VolatileChanged>(events[1])
