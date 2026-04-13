@@ -379,14 +379,48 @@ Resolved by paired `SwitchIn`. Only a problem if `SwitchOut` is emitted alone.
 - Choice locks, Encore, Disable
 - Critical hit calculation
 - Protect / Substitute mechanics
-- Overridable types (Terastallization, Camomons)
-- Injectable type chart (Inverse Battles)
+- CLI / REPL for interactive play
 
 These can all be modeled as new phases, events, effects, and injectable interfaces.
 
+## Lessons Learned
+
+Principles discovered during development, not obvious at the start.
+
+**Resist the god object.** We almost put `moves: List<Move>` on `Pokemon` because
+"that's how the games work." But the engine never reads a Pokemon's move pool — it
+only sees the chosen move via `TurnChoice`. Move pools belong to the choice layer
+(AI, CLI), not the model. Ask: "does the engine actually read this?" before adding
+fields.
+
+**Name the concept, not the implementation.** `Player` conflated three things: which
+side (Side), which field position (Slot), and who makes decisions (Controller). It
+took the Eterna Forest co-op example to expose this. When a name starts feeling
+overloaded, it probably represents multiple concepts.
+
+**Events are mechanical, rules live in phases.** `SwitchOut.apply()` originally cleared
+volatiles and stat stages. That's a game rule, not a state transformation. Moving it
+to `SwitchPhase` made Baton Pass possible without changing the event. If an event's
+`apply()` has `if` branches based on game rules, the logic is in the wrong place.
+
+**Start concrete, extract when the pattern repeats.** Abilities started as direct
+`when` dispatch in phases. The damage calc started as a free function. Speed
+calculation started on `PokemonState`. Each became injectable (`DamageCalculator`,
+`SpeedResolver`, `TypeChart`) only when multi-gen support demanded it — not before.
+
+**The engine doesn't enforce legality.** No learnset validation, no move count limits,
+no species-ability restrictions. This wasn't a shortcut — it's a design choice that
+makes custom formats (Hackmons, Almost Any Ability) work without engine changes.
+Legality is a team-building concern, a layer above the engine.
+
+**Don't calculate — let the code tell you.** Mental math for damage formulas is
+error-prone. Run the code with fixed inputs, read the output, assert on that. The
+code is deterministic; your head isn't.
+
 ## Project Stats
 
-- **49 source files** across 7 packages
-- **96 tests** including singles, doubles, status, stat changes, switching, abilities,
-  game loop, data layer, renderer, AI, and custom format scenarios
-- **~4500 lines** of Kotlin
+- **53 source files** across 8 packages + 1 gen package
+- **116 tests** including singles, doubles, status, stat changes, switching, abilities,
+  game loop, data layer, renderer, AI, custom format scenarios, and multi-gen comparison
+- **~6500 lines** of Kotlin
+- **18 diary entries** documenting decisions and discoveries
