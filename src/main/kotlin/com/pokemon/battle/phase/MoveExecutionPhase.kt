@@ -5,12 +5,13 @@ import com.pokemon.battle.engine.*
 
 class MoveExecutionPhase(
     private val damageCalculator: DamageCalculator = GenVDamageCalculator,
+    private val speedResolver: SpeedResolver = GenVSpeedResolver,
     private val roll: (IntRange) -> Int = { range -> range.random() },
     private val chanceCheck: ChanceCheck = defaultChanceCheck
 ) : Phase {
 
     override fun resolve(state: BattleState, choices: TurnChoices): List<BattleEvent> {
-        val order = resolveMoveOrder(state, choices).order
+        val order = resolveMoveOrder(state, choices, speedResolver).order
         val events = mutableListOf<BattleEvent>()
         var currentState = state
 

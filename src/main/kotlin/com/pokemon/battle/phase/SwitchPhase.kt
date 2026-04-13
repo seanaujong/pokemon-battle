@@ -11,14 +11,16 @@ import com.pokemon.battle.engine.*
  * Clearing volatiles and stat stages on switch-out is a game rule (gen-specific),
  * so it lives here in the phase, not in SwitchOut.apply().
  */
-class SwitchPhase : Phase {
+class SwitchPhase(
+    private val speedResolver: SpeedResolver = GenVSpeedResolver
+) : Phase {
     override fun resolve(state: BattleState, choices: TurnChoices): List<BattleEvent> {
         val events = mutableListOf<BattleEvent>()
         var currentState = state
 
         val switchingSlots = currentState.allSlots()
             .filter { choices.choiceFor(it) is TurnChoice.Switch }
-            .sortedByDescending { GenVSpeedResolver.effectiveSpeed(currentState.pokemonFor(it)) }
+            .sortedByDescending { speedResolver.effectiveSpeed(currentState.pokemonFor(it)) }
 
         for (slot in switchingSlots) {
             val choice = choices.choiceFor(slot) as TurnChoice.Switch
@@ -59,14 +61,7 @@ class SwitchPhase : Phase {
 
         // Reset stat stages
         for (stat in StatType.entries) {
-            val stage = pokemon.statStages.withChange(stat, 0) // read current
-            val current = when (stat) {
-                StatType.ATTACK -> pokemon.statStages.attack
-                StatType.DEFENSE -> pokemon.statStages.defense
-                StatType.SPECIAL_ATTACK -> pokemon.statStages.specialAttack
-                StatType.SPECIAL_DEFENSE -> pokemon.statStages.specialDefense
-                StatType.SPEED -> pokemon.statStages.speed
-            }
+            val current = pokemon.statStages.forStat(stat)
             if (current != 0) {
                 events.add(StatChanged(slot, stat, -current))
             }

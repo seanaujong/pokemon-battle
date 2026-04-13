@@ -15,6 +15,14 @@ data class StatStages(
         require(speed in -6..6)
     }
 
+    fun forStat(stat: StatType): Int = when (stat) {
+        StatType.ATTACK -> attack
+        StatType.DEFENSE -> defense
+        StatType.SPECIAL_ATTACK -> specialAttack
+        StatType.SPECIAL_DEFENSE -> specialDefense
+        StatType.SPEED -> speed
+    }
+
     fun withChange(stat: StatType, stages: Int): StatStages = when (stat) {
         StatType.ATTACK -> copy(attack = (attack + stages).coerceIn(-6, 6))
         StatType.DEFENSE -> copy(defense = (defense + stages).coerceIn(-6, 6))
