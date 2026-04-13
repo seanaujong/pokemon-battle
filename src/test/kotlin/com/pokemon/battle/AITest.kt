@@ -36,21 +36,17 @@ class AITest {
 
         val ai = RandomAI(
             movePools = mapOf(
-                Slot.p1() to listOf(flamethrower, thunderbolt),
-                Slot.p2() to listOf(earthquake, swordsDance)
+                "Charizard" to listOf(flamethrower, thunderbolt),
+                "Venusaur" to listOf(earthquake, swordsDance)
             ),
-            random = java.util.Random(42) // deterministic
+            random = java.util.Random(42)
         )
 
         val choices = ai.getChoices(state)
-
-        // Both slots should have a UseMove choice
         val p1Choice = choices.choiceFor(Slot.p1())
         val p2Choice = choices.choiceFor(Slot.p2())
         assertTrue(p1Choice is TurnChoice.UseMove)
         assertTrue(p2Choice is TurnChoice.UseMove)
-
-        // Moves should be from the respective pools
         assertTrue((p1Choice as TurnChoice.UseMove).move in listOf(flamethrower, thunderbolt))
         assertTrue((p2Choice as TurnChoice.UseMove).move in listOf(earthquake, swordsDance))
     }
@@ -61,19 +57,17 @@ class AITest {
         val venusaur = Pokemon(pokedex["Venusaur"]!!, level = 50)
 
         val state = BattleState.singles(
-            PokemonState(charizard, currentHp = 0), // fainted
+            PokemonState(charizard, currentHp = 0),
             PokemonState(venusaur, currentHp = venusaur.maxHp)
         )
 
-        val ai = RandomAI(
-            movePools = mapOf(
-                Slot.p1() to listOf(flamethrower),
-                Slot.p2() to listOf(earthquake)
-            )
-        )
+        val ai = RandomAI(movePools = mapOf(
+            "Charizard" to listOf(flamethrower),
+            "Venusaur" to listOf(earthquake)
+        ))
 
         val choices = ai.getChoices(state)
-        assertEquals(null, choices.choiceFor(Slot.p1()), "Fainted slot should have no choice")
+        assertEquals(null, choices.choiceFor(Slot.p1()))
         assertTrue(choices.choiceFor(Slot.p2()) is TurnChoice.UseMove)
     }
 
@@ -89,64 +83,54 @@ class AITest {
             PokemonState(venusaur, currentHp = venusaur.maxHp)
         )
 
-        // Charizard has Flamethrower (super-effective vs Grass) and Thunderbolt (neutral vs Grass/Poison)
         val ai = TypeAI(movePools = mapOf(
-            Slot.p1() to listOf(thunderbolt, flamethrower),
-            Slot.p2() to listOf(earthquake)
+            "Charizard" to listOf(thunderbolt, flamethrower),
+            "Venusaur" to listOf(earthquake)
         ))
 
         val choices = ai.getChoices(state)
         val p1Move = (choices.choiceFor(Slot.p1()) as TurnChoice.UseMove).move
-
-        assertEquals("Flamethrower", p1Move.name, "Should pick super-effective Flamethrower over neutral Thunderbolt")
+        assertEquals("Flamethrower", p1Move.name)
     }
 
     @Test
     fun `TypeAI considers STAB`() {
         val charizard = Pokemon(pokedex["Charizard"]!!, level = 50)
-        val snorlax = Pokemon(pokedex["Snorlax"]!!, level = 50) // Normal type, neutral to both Fire and Electric
+        val snorlax = Pokemon(pokedex["Snorlax"]!!, level = 50)
 
         val state = BattleState.singles(
             PokemonState(charizard, currentHp = charizard.maxHp),
             PokemonState(snorlax, currentHp = snorlax.maxHp)
         )
 
-        // Both neutral effectiveness, but Flamethrower gets STAB (Fire on Fire-type Charizard)
-        // Flamethrower: 1.0 * 1.5 * 90 = 135
-        // Thunderbolt:  1.0 * 1.0 * 90 = 90
         val ai = TypeAI(movePools = mapOf(
-            Slot.p1() to listOf(thunderbolt, flamethrower),
-            Slot.p2() to listOf(tackle)
+            "Charizard" to listOf(thunderbolt, flamethrower),
+            "Snorlax" to listOf(tackle)
         ))
 
         val choices = ai.getChoices(state)
         val p1Move = (choices.choiceFor(Slot.p1()) as TurnChoice.UseMove).move
-
-        assertEquals("Flamethrower", p1Move.name, "Should pick STAB Flamethrower over non-STAB Thunderbolt")
+        assertEquals("Flamethrower", p1Move.name)
     }
 
     @Test
     fun `TypeAI picks highest power when effectiveness is equal`() {
         val pikachu = Pokemon(pokedex["Pikachu"]!!, level = 50)
-        val gyarados = Pokemon(pokedex["Gyarados"]!!, level = 50) // Water/Flying, 4x weak to Electric
+        val gyarados = Pokemon(pokedex["Gyarados"]!!, level = 50)
 
         val state = BattleState.singles(
             PokemonState(pikachu, currentHp = pikachu.maxHp),
             PokemonState(gyarados, currentHp = gyarados.maxHp)
         )
 
-        // Both Thunderbolt (90) and a weaker electric move would be super-effective
-        // Thunderbolt: 4.0 * 1.5 (STAB) * 90 = 540
-        // Tackle: 1.0 * 1.0 * 40 = 40
         val ai = TypeAI(movePools = mapOf(
-            Slot.p1() to listOf(tackle, thunderbolt),
-            Slot.p2() to listOf(tackle)
+            "Pikachu" to listOf(tackle, thunderbolt),
+            "Gyarados" to listOf(tackle)
         ))
 
         val choices = ai.getChoices(state)
         val p1Move = (choices.choiceFor(Slot.p1()) as TurnChoice.UseMove).move
-
-        assertEquals("Thunderbolt", p1Move.name, "Should pick 4x effective STAB Thunderbolt")
+        assertEquals("Thunderbolt", p1Move.name)
     }
 
     @Test
@@ -160,14 +144,13 @@ class AITest {
         )
 
         val ai = TypeAI(movePools = mapOf(
-            Slot.p1() to listOf(swordsDance), // only status move
-            Slot.p2() to listOf(tackle)
+            "Charizard" to listOf(swordsDance),
+            "Venusaur" to listOf(tackle)
         ))
 
         val choices = ai.getChoices(state)
         val p1Move = (choices.choiceFor(Slot.p1()) as TurnChoice.UseMove).move
-
-        assertEquals("Swords Dance", p1Move.name, "Should fall back to the only available move")
+        assertEquals("Swords Dance", p1Move.name)
     }
 
     // --- Integration: AI vs AI battle ---
@@ -186,15 +169,19 @@ class AITest {
             p2Bench = listOf(PokemonState(blastoise, currentHp = blastoise.maxHp))
         )
 
-        val p1Moves = mapOf(
-            Slot.p1() to listOf(flamethrower, thunderbolt, earthquake, iceBeam)
-        )
-        val p2Moves = mapOf(
-            Slot.p2() to listOf(MoveDex.SLUDGE_BOMB, earthquake, tackle, swordsDance)
+        val side1AI = TypeAI(movePools = mapOf(
+            "Charizard" to listOf(flamethrower, thunderbolt, earthquake, iceBeam),
+            "Garchomp" to listOf(earthquake, iceBeam, flamethrower, swordsDance)
+        ))
+        val side2AI = RandomAI(
+            movePools = mapOf(
+                "Venusaur" to listOf(MoveDex.SLUDGE_BOMB, earthquake, tackle, swordsDance),
+                "Blastoise" to listOf(iceBeam, earthquake, tackle, MoveDex.SLUDGE_BOMB)
+            ),
+            random = java.util.Random(123)
         )
 
-        val typeAI = TypeAI(movePools = p1Moves)
-        val randomAI = RandomAI(movePools = p2Moves, random = java.util.Random(123))
+        val ai = SidedAI(side1 = side1AI to side1AI, side2 = side2AI to side2AI)
 
         val pipeline = TurnPipeline(listOf(
             MoveOrderPhase(), SwitchPhase(),
@@ -204,25 +191,12 @@ class AITest {
 
         val result = BattleLoop(
             pipeline = pipeline,
-            choiceProvider = { state ->
-                // Merge choices from both AIs
-                val p1Choices = typeAI.getChoices(state)
-                val p2Choices = randomAI.getChoices(state)
-                TurnChoices(p1Choices.choices + p2Choices.choices)
-            },
-            faintReplacementProvider = { state, slot ->
-                if (slot.side == Side.SIDE_1) typeAI.getReplacement(state, slot)
-                else randomAI.getReplacement(state, slot)
-            },
+            choiceProvider = ai,
+            faintReplacementProvider = ai,
             maxTurns = 20
         ).run(initialState)
 
-        assertTrue(result.turnHistory.isNotEmpty(), "Should have at least one turn")
+        assertTrue(result.turnHistory.isNotEmpty())
         assertTrue(result.winner != null, "Someone should win within 20 turns")
-
-        // Print the battle
-        println("\n=== TYPE AI vs RANDOM AI ===")
-        renderBattle(result, initialState).forEach(::println)
-        println("=== END ===\n")
     }
 }

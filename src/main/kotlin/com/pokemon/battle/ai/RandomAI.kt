@@ -7,11 +7,11 @@ import com.pokemon.battle.loop.*
 /**
  * Picks a random move for each slot. Baseline AI for testing.
  *
- * [movePools] maps each slot to the moves available to that slot's Pokemon.
+ * [movePools] maps species name to available moves.
  * [random] is injectable for deterministic tests.
  */
 class RandomAI(
-    private val movePools: Map<Slot, List<Move>>,
+    private val movePools: Map<String, List<Move>>,
     private val random: java.util.Random = java.util.Random()
 ) : ChoiceProvider, FaintReplacementProvider {
 
@@ -22,7 +22,7 @@ class RandomAI(
             val pokemon = state.pokemonFor(slot)
             if (pokemon.isFainted) continue
 
-            val moves = movePools[slot] ?: continue
+            val moves = movePools[pokemon.pokemon.species.name] ?: continue
             if (moves.isEmpty()) continue
 
             val move = moves[random.nextInt(moves.size)]

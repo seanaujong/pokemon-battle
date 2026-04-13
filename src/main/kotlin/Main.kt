@@ -30,16 +30,21 @@ fun main() {
         )
     )
 
-    // Both sides use TypeAI with diverse move pools
-    val side1Moves = mapOf(
-        Slot.p1() to listOf(MoveDex.FLAMETHROWER, MoveDex.THUNDERBOLT, MoveDex.EARTHQUAKE, MoveDex.ICE_BEAM)
-    )
-    val side2Moves = mapOf(
-        Slot.p2() to listOf(MoveDex.SLUDGE_BOMB, MoveDex.EARTHQUAKE, MoveDex.ICE_BEAM, MoveDex.AURA_SPHERE)
-    )
+    val side1AI = TypeAI(movePools = mapOf(
+        "Charizard" to listOf(MoveDex.FLAMETHROWER, MoveDex.THUNDERBOLT, MoveDex.EARTHQUAKE, MoveDex.ICE_BEAM),
+        "Garchomp" to listOf(MoveDex.EARTHQUAKE, MoveDex.ICE_BEAM, MoveDex.FLAMETHROWER, MoveDex.SWORDS_DANCE),
+        "Lucario" to listOf(MoveDex.AURA_SPHERE, MoveDex.ICE_BEAM, MoveDex.THUNDERBOLT, MoveDex.SWORDS_DANCE)
+    ))
+    val side2AI = TypeAI(movePools = mapOf(
+        "Venusaur" to listOf(MoveDex.SLUDGE_BOMB, MoveDex.EARTHQUAKE, MoveDex.ICE_BEAM, MoveDex.GROWL),
+        "Blastoise" to listOf(MoveDex.ICE_BEAM, MoveDex.EARTHQUAKE, MoveDex.AURA_SPHERE, MoveDex.SLUDGE_BOMB),
+        "Togekiss" to listOf(MoveDex.AURA_SPHERE, MoveDex.ICE_BEAM, MoveDex.THUNDERBOLT, MoveDex.FLAMETHROWER)
+    ))
 
-    val side1AI = TypeAI(movePools = side1Moves)
-    val side2AI = TypeAI(movePools = side2Moves)
+    val ai = SidedAI(
+        side1 = side1AI to side1AI,
+        side2 = side2AI to side2AI
+    )
 
     val pipeline = TurnPipeline(listOf(
         MoveOrderPhase(),
@@ -50,15 +55,8 @@ fun main() {
 
     val result = BattleLoop(
         pipeline = pipeline,
-        choiceProvider = { state ->
-            val p1 = side1AI.getChoices(state)
-            val p2 = side2AI.getChoices(state)
-            TurnChoices(p1.choices + p2.choices)
-        },
-        faintReplacementProvider = { state, slot ->
-            if (slot.side == Side.SIDE_1) side1AI.getReplacement(state, slot)
-            else side2AI.getReplacement(state, slot)
-        },
+        choiceProvider = ai,
+        faintReplacementProvider = ai,
         maxTurns = 30
     ).run(initialState)
 

@@ -9,10 +9,11 @@ import com.pokemon.battle.loop.*
  * Scores each move by: type effectiveness * STAB * power.
  * For doubles, evaluates all (move, target) combinations.
  *
+ * [movePools] maps species name to available moves.
  * Falls back to the first available move if no damaging moves exist.
  */
 class TypeAI(
-    private val movePools: Map<Slot, List<Move>>
+    private val movePools: Map<String, List<Move>>
 ) : ChoiceProvider, FaintReplacementProvider {
 
     override fun getChoices(state: BattleState): TurnChoices {
@@ -22,7 +23,7 @@ class TypeAI(
             val pokemon = state.pokemonFor(slot)
             if (pokemon.isFainted) continue
 
-            val moves = movePools[slot] ?: continue
+            val moves = movePools[pokemon.pokemon.species.name] ?: continue
             if (moves.isEmpty()) continue
 
             val choice = pickBestMove(state, slot, pokemon, moves)
@@ -45,13 +46,13 @@ class TypeAI(
         var bestTarget: Slot? = null
 
         for (move in moves) {
-            if (move.power == 0) continue // skip status moves for scoring
+            if (move.power == 0) continue
 
             val targets = when (move.target) {
                 MoveTarget.ONE_OPPONENT -> opponents
-                MoveTarget.ALL_OPPONENTS -> listOf(opponents.first()) // score against one representative
+                MoveTarget.ALL_OPPONENTS -> listOf(opponents.first())
                 MoveTarget.ALL_OTHER -> listOf(opponents.first())
-                MoveTarget.SELF -> continue // self-targeting moves don't score against opponents
+                MoveTarget.SELF -> continue
             }
 
             for (target in targets) {
@@ -78,12 +79,10 @@ class TypeAI(
 
         if (opponents.isEmpty() || bench.isEmpty()) return 0
 
-        // Pick the bench Pokemon with the best type matchup against the first opponent
         val opponentTypes = state.pokemonFor(opponents.first()).pokemon.species.types
 
         return bench.indices.maxByOrNull { i ->
             val benchTypes = bench[i].pokemon.species.types
-            // Score: average effectiveness of bench types against opponent types
             benchTypes.sumOf { atkType ->
                 typeEffectiveness(atkType, opponentTypes)
             } / benchTypes.size
