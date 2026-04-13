@@ -87,3 +87,10 @@ When adding or configuring linters, static analysis, or other tools:
 3. **Use inline `@Suppress` with rationale over global threshold changes.** A global threshold loosens the net for all future code. An inline suppress documents why *this specific case* is an exception.
 4. **Disable a rule honestly rather than configuring it into irrelevance.** If you're ignoring 25 magic numbers, you've disabled the rule with extra steps. Just disable it and document why.
 5. **Check the tool's version.** Configuration property names change between versions. Search for the exact version's docs instead of guessing.
+
+## Testing Principles
+
+1. **Don't calculate — let the code tell you.** Don't do mental math for damage formulas or stat calculations. Run the code with fixed inputs, read the output, then assert on that value. Mental math is error-prone; the code is deterministic.
+2. **Assert on relationships, not assumptions about direction.** Write `assertNotEquals(genV, simplified)` rather than `assertTrue(genV > simplified)` unless the relationship is guaranteed by the mechanic. "Different" is safer than "bigger" when you haven't verified which formula produces more.
+3. **Use exact values at fixed rolls.** With `roll = { 100 }`, damage is deterministic. Assert `assertEquals(133, result.damage)` — not a fuzzy range. The code is the authority.
+4. **Use qualitative checks for type interactions.** `assertEquals(Effectiveness.SUPER_EFFECTIVE, ...)` — the type chart knows the answer, you don't need to multiply.
