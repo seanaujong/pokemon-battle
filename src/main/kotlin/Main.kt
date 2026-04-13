@@ -1,10 +1,17 @@
-import com.pokemon.battle.ai.*
-import com.pokemon.battle.data.*
-import com.pokemon.battle.engine.*
-import com.pokemon.battle.loop.*
-import com.pokemon.battle.model.*
-import com.pokemon.battle.phase.*
-import com.pokemon.battle.render.*
+import com.pokemon.battle.ai.SidedAI
+import com.pokemon.battle.ai.TypeAI
+import com.pokemon.battle.data.MoveDex
+import com.pokemon.battle.data.Pokedex
+import com.pokemon.battle.engine.BattleState
+import com.pokemon.battle.engine.TurnPipeline
+import com.pokemon.battle.loop.BattleLoop
+import com.pokemon.battle.model.Pokemon
+import com.pokemon.battle.model.PokemonState
+import com.pokemon.battle.phase.EndOfTurnPhase
+import com.pokemon.battle.phase.MoveExecutionPhase
+import com.pokemon.battle.phase.MoveOrderPhase
+import com.pokemon.battle.phase.SwitchPhase
+import com.pokemon.battle.render.renderBattle
 
 fun main() {
     val pokedex = Pokedex.loadFromClasspath()

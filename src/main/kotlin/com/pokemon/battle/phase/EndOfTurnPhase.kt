@@ -1,7 +1,19 @@
 package com.pokemon.battle.phase
 
-import com.pokemon.battle.engine.*
-import com.pokemon.battle.model.*
+import com.pokemon.battle.engine.BattleEvent
+import com.pokemon.battle.engine.BattleState
+import com.pokemon.battle.engine.ItemHealing
+import com.pokemon.battle.engine.Phase
+import com.pokemon.battle.engine.PokemonFainted
+import com.pokemon.battle.engine.StatusDamage
+import com.pokemon.battle.engine.TurnChoices
+import com.pokemon.battle.engine.WeatherDamage
+import com.pokemon.battle.engine.WeatherTick
+import com.pokemon.battle.model.Item
+import com.pokemon.battle.model.StatusCondition
+import com.pokemon.battle.model.Type
+import com.pokemon.battle.model.Weather
+import com.pokemon.battle.model.isWeatherImmune
 
 class EndOfTurnPhase : Phase {
     override fun resolve(

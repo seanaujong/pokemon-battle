@@ -1,7 +1,17 @@
 package com.pokemon.battle
 
-import com.pokemon.battle.engine.*
-import com.pokemon.battle.model.*
+import com.pokemon.battle.engine.calculateDamage
+import com.pokemon.battle.model.Move
+import com.pokemon.battle.model.MoveCategory
+import com.pokemon.battle.model.Nature
+import com.pokemon.battle.model.Pokemon
+import com.pokemon.battle.model.PokemonState
+import com.pokemon.battle.model.Species
+import com.pokemon.battle.model.StatBlock
+import com.pokemon.battle.model.StatType
+import com.pokemon.battle.model.Type
+import com.pokemon.battle.model.calcMaxHp
+import com.pokemon.battle.model.calcStat
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue

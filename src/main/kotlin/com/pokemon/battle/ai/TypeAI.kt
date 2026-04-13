@@ -5,7 +5,11 @@ import com.pokemon.battle.engine.TurnChoice
 import com.pokemon.battle.engine.TurnChoices
 import com.pokemon.battle.loop.ChoiceProvider
 import com.pokemon.battle.loop.FaintReplacementProvider
-import com.pokemon.battle.model.*
+import com.pokemon.battle.model.Move
+import com.pokemon.battle.model.MoveTarget
+import com.pokemon.battle.model.PokemonState
+import com.pokemon.battle.model.Slot
+import com.pokemon.battle.model.typeEffectiveness
 
 /**
  * Picks the move with the best type effectiveness against the opponent.

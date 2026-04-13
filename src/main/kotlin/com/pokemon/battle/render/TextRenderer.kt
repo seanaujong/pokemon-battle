@@ -1,7 +1,34 @@
 package com.pokemon.battle.render
 
-import com.pokemon.battle.engine.*
-import com.pokemon.battle.model.*
+import com.pokemon.battle.engine.AbilityBlocked
+import com.pokemon.battle.engine.AbilityTriggered
+import com.pokemon.battle.engine.BattleEvent
+import com.pokemon.battle.engine.BattleState
+import com.pokemon.battle.engine.DamageDealt
+import com.pokemon.battle.engine.ItemHealing
+import com.pokemon.battle.engine.MoveAttempted
+import com.pokemon.battle.engine.MoveFailed
+import com.pokemon.battle.engine.MoveOrderDecided
+import com.pokemon.battle.engine.PokemonFainted
+import com.pokemon.battle.engine.StatChanged
+import com.pokemon.battle.engine.StatusApplied
+import com.pokemon.battle.engine.StatusCleared
+import com.pokemon.battle.engine.StatusDamage
+import com.pokemon.battle.engine.SwitchIn
+import com.pokemon.battle.engine.SwitchOut
+import com.pokemon.battle.engine.TypeChanged
+import com.pokemon.battle.engine.VolatileChanged
+import com.pokemon.battle.engine.WeatherDamage
+import com.pokemon.battle.engine.WeatherSet
+import com.pokemon.battle.engine.WeatherTick
+import com.pokemon.battle.model.Ability
+import com.pokemon.battle.model.Effectiveness
+import com.pokemon.battle.model.FailReason
+import com.pokemon.battle.model.Item
+import com.pokemon.battle.model.Slot
+import com.pokemon.battle.model.StatType
+import com.pokemon.battle.model.StatusCondition
+import com.pokemon.battle.model.Weather
 
 /** Renders battle events as game-style text messages. */
 object TextRenderer : BattleRenderer {

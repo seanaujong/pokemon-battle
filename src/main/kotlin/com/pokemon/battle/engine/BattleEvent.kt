@@ -1,6 +1,10 @@
 package com.pokemon.battle.engine
 
-import com.pokemon.battle.model.*
+import com.pokemon.battle.model.Effectiveness
+import com.pokemon.battle.model.FailReason
+import com.pokemon.battle.model.Move
+import com.pokemon.battle.model.OrderReason
+import com.pokemon.battle.model.Slot
 
 sealed interface BattleEvent {
     fun apply(state: BattleState): BattleState

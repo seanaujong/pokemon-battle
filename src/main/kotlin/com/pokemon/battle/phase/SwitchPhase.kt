@@ -1,6 +1,17 @@
 package com.pokemon.battle.phase
 
-import com.pokemon.battle.engine.*
+import com.pokemon.battle.engine.BattleEvent
+import com.pokemon.battle.engine.BattleState
+import com.pokemon.battle.engine.GenVSpeedResolver
+import com.pokemon.battle.engine.Phase
+import com.pokemon.battle.engine.SpeedResolver
+import com.pokemon.battle.engine.StatChanged
+import com.pokemon.battle.engine.SwitchIn
+import com.pokemon.battle.engine.SwitchOut
+import com.pokemon.battle.engine.TurnChoice
+import com.pokemon.battle.engine.TurnChoices
+import com.pokemon.battle.engine.VolatileChanged
+import com.pokemon.battle.engine.resolveSwitchInAbility
 import com.pokemon.battle.model.Slot
 import com.pokemon.battle.model.StatType
 

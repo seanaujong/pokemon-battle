@@ -1,7 +1,12 @@
 package com.pokemon.battle.data
 
 import com.pokemon.battle.data.MoveDex.register
-import com.pokemon.battle.model.*
+import com.pokemon.battle.model.Move
+import com.pokemon.battle.model.MoveCategory
+import com.pokemon.battle.model.MoveEffect
+import com.pokemon.battle.model.MoveTarget
+import com.pokemon.battle.model.StatType
+import com.pokemon.battle.model.Type
 
 /**
  * Move definitions. Each move is fully specified in one place:

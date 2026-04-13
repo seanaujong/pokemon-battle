@@ -1,6 +1,12 @@
 package com.pokemon.battle.engine
 
-import com.pokemon.battle.model.*
+import com.pokemon.battle.model.Effectiveness
+import com.pokemon.battle.model.Move
+import com.pokemon.battle.model.MoveCategory
+import com.pokemon.battle.model.PokemonState
+import com.pokemon.battle.model.StatType
+import com.pokemon.battle.model.StatusCondition
+import com.pokemon.battle.model.stageMultiplier
 
 data class DamageResult(val damage: Int, val effectiveness: Effectiveness)
 

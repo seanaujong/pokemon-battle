@@ -1,9 +1,5 @@
 root = true
 
 [*.{kt,kts}]
-# Wildcard imports for internal packages — ktlint can't auto-correct these,
-# and explicit imports for tightly-coupled internal packages add noise.
-# External/stdlib imports use explicit imports per ktlint default.
-ktlint_standard_no-wildcard-imports = disabled
-# Concept-named files (MoveOrder.kt) over class-named files (MoveOrderResult.kt)
-ktlint_standard_filename = disabled
+# No disabled rules — trust ktlint defaults.
+# IntelliJ configured to use single name imports (no wildcards).
