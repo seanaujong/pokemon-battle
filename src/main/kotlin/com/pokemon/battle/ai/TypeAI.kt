@@ -1,0 +1,92 @@
+package com.pokemon.battle.ai
+
+import com.pokemon.battle.model.*
+import com.pokemon.battle.engine.*
+import com.pokemon.battle.loop.*
+
+/**
+ * Picks the move with the best type effectiveness against the opponent.
+ * Scores each move by: type effectiveness * STAB * power.
+ * For doubles, evaluates all (move, target) combinations.
+ *
+ * Falls back to the first available move if no damaging moves exist.
+ */
+class TypeAI(
+    private val movePools: Map<Slot, List<Move>>
+) : ChoiceProvider, FaintReplacementProvider {
+
+    override fun getChoices(state: BattleState): TurnChoices {
+        val choices = mutableMapOf<Slot, TurnChoice>()
+
+        for (slot in state.allSlots()) {
+            val pokemon = state.pokemonFor(slot)
+            if (pokemon.isFainted) continue
+
+            val moves = movePools[slot] ?: continue
+            if (moves.isEmpty()) continue
+
+            val choice = pickBestMove(state, slot, pokemon, moves)
+            choices[slot] = choice
+        }
+
+        return TurnChoices(choices)
+    }
+
+    private fun pickBestMove(state: BattleState, slot: Slot, pokemon: PokemonState, moves: List<Move>): TurnChoice {
+        val opponents = state.opponentSlots(slot)
+            .filter { !state.pokemonFor(it).isFainted }
+
+        if (opponents.isEmpty()) {
+            return TurnChoice.UseMove(moves.first())
+        }
+
+        var bestScore = -1.0
+        var bestMove = moves.first()
+        var bestTarget: Slot? = null
+
+        for (move in moves) {
+            if (move.power == 0) continue // skip status moves for scoring
+
+            val targets = when (move.target) {
+                MoveTarget.ONE_OPPONENT -> opponents
+                MoveTarget.ALL_OPPONENTS -> listOf(opponents.first()) // score against one representative
+                MoveTarget.ALL_OTHER -> listOf(opponents.first())
+                MoveTarget.SELF -> continue // self-targeting moves don't score against opponents
+            }
+
+            for (target in targets) {
+                val defender = state.pokemonFor(target)
+                val effectiveness = typeEffectiveness(move.type, defender.pokemon.species.types)
+                val stab = if (move.type in pokemon.pokemon.species.types) 1.5 else 1.0
+                val score = effectiveness * stab * move.power
+
+                if (score > bestScore) {
+                    bestScore = score
+                    bestMove = move
+                    bestTarget = if (move.target == MoveTarget.ONE_OPPONENT) target else null
+                }
+            }
+        }
+
+        return TurnChoice.UseMove(bestMove, targetSlot = bestTarget)
+    }
+
+    override fun getReplacement(state: BattleState, faintedSlot: Slot): Int {
+        val bench = state.benchFor(faintedSlot.side)
+        val opponents = state.opponentSlots(faintedSlot)
+            .filter { !state.pokemonFor(it).isFainted }
+
+        if (opponents.isEmpty() || bench.isEmpty()) return 0
+
+        // Pick the bench Pokemon with the best type matchup against the first opponent
+        val opponentTypes = state.pokemonFor(opponents.first()).pokemon.species.types
+
+        return bench.indices.maxByOrNull { i ->
+            val benchTypes = bench[i].pokemon.species.types
+            // Score: average effectiveness of bench types against opponent types
+            benchTypes.sumOf { atkType ->
+                typeEffectiveness(atkType, opponentTypes)
+            } / benchTypes.size
+        } ?: 0
+    }
+}
