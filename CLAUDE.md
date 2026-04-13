@@ -62,6 +62,7 @@ Each feature or chunk of work follows this cycle:
    - What happens when this fails? Are the failure modes visible, not silent?
    - Is there duplicated logic?
    - Can this represent an illegal state that shouldn't exist?
+   - What assumptions or invariants does this code rely on? Are they enforced or just in our heads?
    - Is there mutation where a pure function is expected?
    - Do the names match the domain? Would a domain expert use these words, or have we invented jargon? Are we using one name for two different concepts?
    - If we needed to remove this, how easy would it be? Is it entangled with code that should be independent?
