@@ -77,3 +77,29 @@ data class WeatherDamage(
         return state.withPokemon(target, pokemon.copy(currentHp = newHp))
     }
 }
+
+data class ItemHealing(
+    val target: Player,
+    val amount: Int,
+    val item: Item
+) : BattleEvent {
+    override fun apply(state: BattleState): BattleState {
+        val pokemon = state.pokemonFor(target)
+        val newHp = (pokemon.currentHp + amount).coerceAtMost(pokemon.maxHp)
+        return state.withPokemon(target, pokemon.copy(currentHp = newHp))
+    }
+}
+
+data class WeatherTick(
+    val weather: Weather,
+    val turnsRemaining: Int
+) : BattleEvent {
+    override fun apply(state: BattleState): BattleState {
+        val newField = if (turnsRemaining <= 0) {
+            state.field.copy(weather = null, weatherTurnsRemaining = 0)
+        } else {
+            state.field.copy(weatherTurnsRemaining = turnsRemaining)
+        }
+        return state.copy(field = newField)
+    }
+}

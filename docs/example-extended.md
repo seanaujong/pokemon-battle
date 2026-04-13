@@ -67,16 +67,17 @@ Event: MoveAttempted(attacker=Swampert, move=Earthquake)
 
 Damage calculation:
 - Earthquake is Ground-type vs Fire/Fighting
-- Fire is neutral to Ground (1x), Fighting is neutral to Ground (1x) → 1x
+- Fire is weak to Ground (2x), Fighting is neutral to Ground (1x) → **2x total**
 - Level 50, base power 100, 130 Atk vs 91 Def
 - **Burn halves physical damage** → effective Atk = 65 for this calculation
-- Damage ≈ 52–62. Roll gives **56 damage**
+- Super-effective 2x, but burn halving offsets it
+- Damage ≈ 100–120. Roll gives **110 damage**
 
 ```
-Event: DamageDealt(target=Infernape, amount=56, effectiveness=NEUTRAL, critical=false)
+Event: DamageDealt(target=Infernape, amount=110, effectiveness=SUPER_EFFECTIVE, critical=false)
 ```
 
-State: Infernape HP = 152 - 56 = **96**
+State: Infernape HP = 152 - 110 = **42**
 
 Neither Pokemon fainted. No `PokemonFainted` events.
 
@@ -89,14 +90,14 @@ gets tested — multiple independent mechanics each emit their own events.
 
 Sandstorm damages all Pokemon not Rock, Ground, or Steel type.
 
-- Infernape is Fire/Fighting → takes sandstorm damage: 152 / 16 = **9 damage**
+- Infernape is Fire/Fighting → takes sandstorm damage: 152 / 16 = **9 damage** (rounded down)
 - Swampert is Water/Ground → **immune** to sandstorm damage
 
 ```
 Event: WeatherDamage(target=Infernape, amount=9, weather=SANDSTORM)
 ```
 
-State: Infernape HP = 96 - 9 = **87**
+State: Infernape HP = 42 - 9 = **33**
 
 **3b. Status damage (Burn):**
 
@@ -138,7 +139,7 @@ Event: WeatherTick(weather=SANDSTORM, turnsRemaining=2)
  2. MoveAttempted(attacker=Infernape, move=Mach Punch)
  3. DamageDealt(target=Swampert, amount=30, effectiveness=NEUTRAL, critical=false)
  4. MoveAttempted(attacker=Swampert, move=Earthquake)
- 5. DamageDealt(target=Infernape, amount=56, effectiveness=NEUTRAL, critical=false)
+ 5. DamageDealt(target=Infernape, amount=110, effectiveness=SUPER_EFFECTIVE, critical=false)
  6. WeatherDamage(target=Infernape, amount=9, weather=SANDSTORM)
  7. StatusDamage(target=Swampert, amount=10, source=BURN)
  8. ItemHealing(target=Swampert, amount=10, item=LEFTOVERS)
@@ -149,7 +150,7 @@ Event: WeatherTick(weather=SANDSTORM, turnsRemaining=2)
 
 | Field   | Infernape    | Swampert     |
 |---------|--------------|--------------|
-| HP      | 87 / 152     | 142 / 172    |
+| HP      | 33 / 152     | 142 / 172    |
 | Status  | None         | Burn         |
 | Item    | None         | Leftovers    |
 
@@ -187,6 +188,6 @@ special-cased anywhere — it falls out naturally from the event sequence. The l
 makes this visible in a way that a final-state-only system would obscure.
 
 ### The order of events is deterministic and auditable
-A test can assert not just "Infernape has 87 HP" but the exact sequence:
-took 56 from Earthquake, then 9 from sandstorm = 87. If a bug causes sandstorm
+A test can assert not just "Infernape has 33 HP" but the exact sequence:
+took 110 from Earthquake, then 9 from sandstorm = 33. If a bug causes sandstorm
 to tick before move execution, the event order would catch it immediately.

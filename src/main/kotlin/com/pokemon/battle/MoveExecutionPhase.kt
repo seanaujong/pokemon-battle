@@ -6,18 +6,24 @@ class MoveExecutionPhase(
     override fun resolve(state: BattleState, choices: TurnChoices): List<BattleEvent> {
         val order = resolveMoveOrder(state, choices)
         val players = listOf(order.first, order.first.opponent())
+        val events = mutableListOf<BattleEvent>()
+        var currentState = state
 
-        return players.fold(state to emptyList<BattleEvent>()) { (currentState, events), player ->
+        for (player in players) {
             val choice = choices.choiceFor(player)
-            if (choice !is TurnChoice.UseMove) return@fold currentState to events
+            if (choice !is TurnChoice.UseMove) continue
 
             val attacker = currentState.pokemonFor(player)
-            if (attacker.isFainted) return@fold currentState to events
+            if (attacker.isFainted) continue
 
             val newEvents = executeMove(currentState, player, choice.move)
-            val newState = newEvents.fold(currentState) { s, event -> event.apply(s) }
-            newState to events + newEvents
-        }.second
+            for (event in newEvents) {
+                events.add(event)
+                currentState = event.apply(currentState)
+            }
+        }
+
+        return events
     }
 
     private fun executeMove(state: BattleState, player: Player, move: Move): List<BattleEvent> {
