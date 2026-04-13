@@ -18,7 +18,7 @@ fun interface DamageCalculator {
  * Standard Gen V+ damage formula with IVs/EVs/Nature.
  * Gen-specific rules: burn penalty (0.5x physical), STAB (1.5x), formula structure.
  */
-val GenVDamageCalculator = DamageCalculator { attacker, defender, move, roll, spreadModifier ->
+fun GenVDamageCalculator(typeChart: TypeChart = StandardTypeChart) = DamageCalculator { attacker, defender, move, roll, spreadModifier ->
     val level = attacker.pokemon.level
 
     val isPhysical = move.category == MoveCategory.PHYSICAL
@@ -32,7 +32,7 @@ val GenVDamageCalculator = DamageCalculator { attacker, defender, move, roll, sp
 
     val burnMod = if (attacker.status == StatusCondition.BURN && isPhysical) 0.5 else 1.0
 
-    val typeMultiplier = typeEffectiveness(move.type, defender.effectiveTypes)
+    val typeMultiplier = typeChart.effectiveness(move.type, defender.effectiveTypes)
     val effectiveness = Effectiveness.from(typeMultiplier)
 
     val stab = if (move.type in attacker.effectiveTypes) 1.5 else 1.0
@@ -46,11 +46,11 @@ val GenVDamageCalculator = DamageCalculator { attacker, defender, move, roll, sp
     DamageResult(damage, effectiveness)
 }
 
-/** Convenience function using the default Gen V+ calculator. */
+/** Convenience function using the default Gen V+ calculator with standard type chart. */
 fun calculateDamage(
     attacker: PokemonState,
     defender: PokemonState,
     move: Move,
     roll: (IntRange) -> Int = { range -> range.random() },
     spreadModifier: Double = 1.0
-): DamageResult = GenVDamageCalculator.calculate(attacker, defender, move, roll, spreadModifier)
+): DamageResult = GenVDamageCalculator().calculate(attacker, defender, move, roll, spreadModifier)

@@ -1,7 +1,7 @@
 # Diary 017: Injectable Type Chart
 
 **Date:** 2026-04-13
-**Status:** Not started
+**Status:** Complete
 
 ## Goal
 
