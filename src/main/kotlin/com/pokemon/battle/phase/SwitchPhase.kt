@@ -10,7 +10,7 @@ import com.pokemon.battle.engine.SwitchIn
 import com.pokemon.battle.engine.SwitchOut
 import com.pokemon.battle.engine.TurnChoice
 import com.pokemon.battle.engine.TurnChoices
-import com.pokemon.battle.engine.VolatileChanged
+import com.pokemon.battle.engine.VolatileRemoved
 import com.pokemon.battle.engine.resolveSwitchInAbility
 import com.pokemon.battle.model.Slot
 import com.pokemon.battle.model.StatType
@@ -75,7 +75,7 @@ class SwitchPhase(
 
         // Clear each volatile
         for (volatile in pokemon.volatiles) {
-            events.add(VolatileChanged(slot, volatile, null))
+            events.add(VolatileRemoved(slot, volatile))
         }
 
         // Reset stat stages

@@ -10,6 +10,7 @@ import com.pokemon.battle.engine.MoveAttempted
 import com.pokemon.battle.engine.MoveFailed
 import com.pokemon.battle.engine.MoveOrderDecided
 import com.pokemon.battle.engine.PokemonFainted
+import com.pokemon.battle.engine.ProtectBlocked
 import com.pokemon.battle.engine.StatChanged
 import com.pokemon.battle.engine.StatusApplied
 import com.pokemon.battle.engine.StatusCleared
@@ -17,7 +18,8 @@ import com.pokemon.battle.engine.StatusDamage
 import com.pokemon.battle.engine.SwitchIn
 import com.pokemon.battle.engine.SwitchOut
 import com.pokemon.battle.engine.TypeChanged
-import com.pokemon.battle.engine.VolatileChanged
+import com.pokemon.battle.engine.VolatileAdded
+import com.pokemon.battle.engine.VolatileRemoved
 import com.pokemon.battle.engine.WeatherDamage
 import com.pokemon.battle.engine.WeatherSet
 import com.pokemon.battle.engine.WeatherTick
@@ -45,6 +47,7 @@ object TextRenderer : BattleRenderer {
             is MoveFailed -> renderMoveFailed(event, stateBefore)
             is DamageDealt -> renderDamageDealt(event, stateBefore, stateAfter)
             is PokemonFainted -> renderFainted(event, stateBefore)
+            is ProtectBlocked -> renderProtectBlocked(event, stateBefore)
             is StatChanged -> renderStatChanged(event, stateBefore)
             is StatusApplied -> renderStatusApplied(event, stateBefore)
             is StatusCleared -> renderStatusCleared(event, stateBefore)
@@ -58,7 +61,8 @@ object TextRenderer : BattleRenderer {
             is AbilityTriggered -> renderAbilityTriggered(event, stateAfter)
             is AbilityBlocked -> renderAbilityBlocked(event, stateBefore)
             is TypeChanged -> renderTypeChanged(event, stateAfter)
-            is VolatileChanged -> emptyList()
+            is VolatileAdded -> emptyList()
+            is VolatileRemoved -> emptyList()
         }
     }
 
@@ -86,6 +90,7 @@ object TextRenderer : BattleRenderer {
                 FailReason.FULLY_PARALYZED -> "$pokemonName is fully paralyzed!"
                 FailReason.FLINCHED -> "$pokemonName flinched!"
                 FailReason.CONFUSION_SELF_HIT -> "$pokemonName hurt itself in its confusion!"
+                FailReason.PROTECT_FAILED -> "But it failed!"
             },
         )
     }
@@ -122,6 +127,11 @@ object TextRenderer : BattleRenderer {
         event: PokemonFainted,
         state: BattleState,
     ): List<String> = listOf("${name(state, event.slot)} fainted!")
+
+    private fun renderProtectBlocked(
+        event: ProtectBlocked,
+        state: BattleState,
+    ): List<String> = listOf("${name(state, event.slot)} protected itself!")
 
     // --- Stats ---
 

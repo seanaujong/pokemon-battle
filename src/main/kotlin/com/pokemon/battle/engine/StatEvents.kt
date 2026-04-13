@@ -26,15 +26,22 @@ data class TypeChanged(
     }
 }
 
-data class VolatileChanged(
+data class VolatileAdded(
     val target: Slot,
-    val old: Volatile,
-    val new: Volatile?,
+    val volatile: Volatile,
 ) : BattleEvent {
     override fun apply(state: BattleState): BattleState {
         val pokemon = state.pokemonFor(target)
-        val without = pokemon.volatiles.filterNot { it == old }.toSet()
-        val newVolatiles = if (new != null) without + new else without
-        return state.withPokemon(target, pokemon.copy(volatiles = newVolatiles))
+        return state.withPokemon(target, pokemon.copy(volatiles = pokemon.volatiles + volatile))
+    }
+}
+
+data class VolatileRemoved(
+    val target: Slot,
+    val volatile: Volatile,
+) : BattleEvent {
+    override fun apply(state: BattleState): BattleState {
+        val pokemon = state.pokemonFor(target)
+        return state.withPokemon(target, pokemon.copy(volatiles = pokemon.volatiles - volatile))
     }
 }

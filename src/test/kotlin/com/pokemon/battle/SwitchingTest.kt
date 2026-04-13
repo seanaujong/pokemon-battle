@@ -10,7 +10,7 @@ import com.pokemon.battle.engine.SwitchOut
 import com.pokemon.battle.engine.TurnChoice
 import com.pokemon.battle.engine.TurnChoices
 import com.pokemon.battle.engine.TurnPipeline
-import com.pokemon.battle.engine.VolatileChanged
+import com.pokemon.battle.engine.VolatileRemoved
 import com.pokemon.battle.engine.resolveMoveOrder
 import com.pokemon.battle.model.Effectiveness
 import com.pokemon.battle.model.Move
@@ -157,7 +157,7 @@ class SwitchingTest {
         assertEquals(emptySet(), benchedPokemon.volatiles, "Volatiles should be cleared")
 
         // Clearing should appear as events in the log
-        assertTrue(events.any { it is VolatileChanged }, "Volatile clearing should be logged")
+        assertTrue(events.any { it is VolatileRemoved }, "Volatile clearing should be logged")
         assertTrue(events.any { it is StatChanged }, "Stat clearing should be logged")
     }
 

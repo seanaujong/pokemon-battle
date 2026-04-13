@@ -35,6 +35,11 @@ import kotlin.test.assertNotEquals
 import kotlin.test.assertTrue
 
 /**
+ * **Custom-format / extensibility tests.** This entire file demonstrates that the engine
+ * supports multiple "gen" implementations (different damage formulas, speed rules,
+ * end-of-turn behavior) sharing the same event types and pipeline. The "SimplifiedDamageCalculator"
+ * etc. are not real Pokemon mechanics — they exist to prove the gen-swap seam works.
+ *
  * Tests proving two different gen implementations produce different results
  * from the same battle state, using the same event types and pipeline.
  */

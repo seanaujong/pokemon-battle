@@ -29,6 +29,10 @@ class TypeChartTest {
     private val fixedRoll: (IntRange) -> Int = { 100 }
     private val noChance: ChanceCheck = { _, _ -> false }
 
+    // ============================================================
+    // Mainline Pokemon mechanics — reachable in normal play
+    // ============================================================
+
     // --- Standard chart sanity ---
 
     @Test
@@ -42,6 +46,12 @@ class TypeChartTest {
         val multiplier = StandardTypeChart.effectiveness(Type.GROUND, listOf(Type.FLYING))
         assertEquals(0.0, multiplier)
     }
+
+    // ============================================================
+    // Custom-format / extensibility — Inverse Battle is a Battle
+    // Maison challenge format, not part of standard play. These
+    // tests verify the engine supports swapping the type chart.
+    // ============================================================
 
     // --- Inverse chart ---
 

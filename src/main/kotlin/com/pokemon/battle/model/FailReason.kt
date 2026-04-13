@@ -6,4 +6,5 @@ enum class FailReason {
     FROZEN,
     FLINCHED,
     CONFUSION_SELF_HIT,
+    PROTECT_FAILED,
 }

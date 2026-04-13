@@ -10,7 +10,8 @@ import com.pokemon.battle.engine.StatusCleared
 import com.pokemon.battle.engine.TurnChoice
 import com.pokemon.battle.engine.TurnChoices
 import com.pokemon.battle.engine.TurnPipeline
-import com.pokemon.battle.engine.VolatileChanged
+import com.pokemon.battle.engine.VolatileAdded
+import com.pokemon.battle.engine.VolatileRemoved
 import com.pokemon.battle.engine.resolveMoveOrder
 import com.pokemon.battle.model.FailReason
 import com.pokemon.battle.model.Move
@@ -151,10 +152,12 @@ class StatusMechanicsTest {
         val phase = MoveExecutionPhase(roll = { 100 }, chanceCheck = { _, _ -> false })
         val events = phase.resolve(state, bothTackle)
 
-        val volatileChanged = events.filterIsInstance<VolatileChanged>()
-        assertEquals(1, volatileChanged.size)
-        assertEquals(Volatile.Sleep(2), volatileChanged[0].old)
-        assertEquals(Volatile.Sleep(1), volatileChanged[0].new)
+        val removed = events.filterIsInstance<VolatileRemoved>()
+        val added = events.filterIsInstance<VolatileAdded>()
+        assertEquals(1, removed.size)
+        assertEquals(Volatile.Sleep(2), removed[0].volatile)
+        assertEquals(1, added.size)
+        assertEquals(Volatile.Sleep(1), added[0].volatile)
 
         val moveFailed = events.filterIsInstance<MoveFailed>()
         assertEquals(1, moveFailed.size)
@@ -243,16 +246,18 @@ class StatusMechanicsTest {
         assertEquals(Slot.p2(), order.order.first())
         assertEquals(OrderReason.SPEED, order.leadReason)
 
-        val volatileChanged = assertIs<VolatileChanged>(events[1])
-        assertEquals(Slot.p2(), volatileChanged.target)
-        val failed = assertIs<MoveFailed>(events[2])
+        val removed = assertIs<VolatileRemoved>(events[1])
+        assertEquals(Slot.p2(), removed.target)
+        val added = assertIs<VolatileAdded>(events[2])
+        assertEquals(Slot.p2(), added.target)
+        val failed = assertIs<MoveFailed>(events[3])
         assertEquals(Slot.p2(), failed.attacker)
         assertEquals(FailReason.ASLEEP, failed.reason)
 
-        val attempt = assertIs<MoveAttempted>(events[3])
+        val attempt = assertIs<MoveAttempted>(events[4])
         assertEquals(Slot.p1(), attempt.attacker)
 
-        val damage = assertIs<DamageDealt>(events[4])
+        val damage = assertIs<DamageDealt>(events[5])
         assertEquals(Slot.p2(), damage.target)
     }
 }

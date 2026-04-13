@@ -51,3 +51,9 @@ data class PokemonFainted(
 ) : BattleEvent {
     override fun apply(state: BattleState): BattleState = state
 }
+
+data class ProtectBlocked(
+    val slot: Slot,
+) : BattleEvent {
+    override fun apply(state: BattleState): BattleState = state
+}

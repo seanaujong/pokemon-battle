@@ -7,6 +7,7 @@ import com.pokemon.battle.model.MoveEffect
 import com.pokemon.battle.model.MoveTarget
 import com.pokemon.battle.model.StatType
 import com.pokemon.battle.model.Type
+import com.pokemon.battle.model.Volatile
 
 /**
  * Move definitions. Each move is fully specified in one place:
@@ -102,6 +103,19 @@ object MoveDex {
                 0,
                 target = MoveTarget.ONE_OPPONENT,
                 effects = listOf(MoveEffect.StatBoost(StatType.ATTACK, -1)),
+            ),
+        )
+
+    val PROTECT =
+        register(
+            Move(
+                "Protect",
+                Type.NORMAL,
+                MoveCategory.STATUS,
+                0,
+                priority = 4,
+                target = MoveTarget.SELF,
+                effects = listOf(MoveEffect.SetVolatile(Volatile.Protect)),
             ),
         )
 

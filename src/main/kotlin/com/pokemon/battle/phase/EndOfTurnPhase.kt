@@ -7,11 +7,13 @@ import com.pokemon.battle.engine.Phase
 import com.pokemon.battle.engine.PokemonFainted
 import com.pokemon.battle.engine.StatusDamage
 import com.pokemon.battle.engine.TurnChoices
+import com.pokemon.battle.engine.VolatileRemoved
 import com.pokemon.battle.engine.WeatherDamage
 import com.pokemon.battle.engine.WeatherTick
 import com.pokemon.battle.model.Item
 import com.pokemon.battle.model.StatusCondition
 import com.pokemon.battle.model.Type
+import com.pokemon.battle.model.Volatile
 import com.pokemon.battle.model.Weather
 import com.pokemon.battle.model.isWeatherImmune
 
@@ -39,9 +41,19 @@ class EndOfTurnPhase : Phase {
             currentState = event.apply(currentState)
         }
         events.addAll(weatherTick(currentState))
+        events.addAll(clearProtect(currentState))
 
         return events
     }
+
+    private fun clearProtect(state: BattleState): List<BattleEvent> =
+        state.allSlots().mapNotNull { slot ->
+            if (Volatile.Protect in state.pokemonFor(slot).volatiles) {
+                VolatileRemoved(slot, Volatile.Protect)
+            } else {
+                null
+            }
+        }
 
     private fun checkFaint(
         event: BattleEvent,

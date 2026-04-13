@@ -12,12 +12,14 @@ import com.pokemon.battle.engine.MoveAttempted
 import com.pokemon.battle.engine.MoveFailed
 import com.pokemon.battle.engine.Phase
 import com.pokemon.battle.engine.PokemonFainted
+import com.pokemon.battle.engine.ProtectBlocked
 import com.pokemon.battle.engine.SpeedResolver
 import com.pokemon.battle.engine.StatChanged
 import com.pokemon.battle.engine.StatusCleared
 import com.pokemon.battle.engine.TurnChoice
 import com.pokemon.battle.engine.TurnChoices
-import com.pokemon.battle.engine.VolatileChanged
+import com.pokemon.battle.engine.VolatileAdded
+import com.pokemon.battle.engine.VolatileRemoved
 import com.pokemon.battle.engine.defaultChanceCheck
 import com.pokemon.battle.engine.resolveMoveOrder
 import com.pokemon.battle.model.Ability
@@ -31,6 +33,7 @@ import com.pokemon.battle.model.StatusCondition
 import com.pokemon.battle.model.Type
 import com.pokemon.battle.model.Volatile
 
+@Suppress("TooManyFunctions") // Move execution decomposed into focused helpers
 class MoveExecutionPhase(
     private val damageCalculator: DamageCalculator = GenVDamageCalculator(),
     private val speedResolver: SpeedResolver = GenVSpeedResolver,
@@ -80,7 +83,8 @@ class MoveExecutionPhase(
             val remaining = sleepVolatile.turnsRemaining - 1
             if (remaining > 0) {
                 return listOf(
-                    VolatileChanged(slot, sleepVolatile, Volatile.Sleep(remaining)),
+                    VolatileRemoved(slot, sleepVolatile),
+                    VolatileAdded(slot, Volatile.Sleep(remaining)),
                     MoveFailed(slot, FailReason.ASLEEP),
                 )
             } else {
@@ -118,10 +122,30 @@ class MoveExecutionPhase(
         val events = mutableListOf<BattleEvent>(MoveAttempted(attackerSlot, move))
         var currentState = state
 
-        val allTargets = resolveTargetSlots(currentState, attackerSlot, move.target, choice.targetSlot)
-        val damageTargets = allTargets.filter { it != attackerSlot }
+        // Protection moves (Protect, Detect, …) have diminishing-success semantics and
+        // bypass the standard target/damage/effect flow.
+        if (isProtectionMove(move)) {
+            val protectionEvents = resolveProtectionMove(currentState, attackerSlot)
+            events.addAll(protectionEvents)
+            return events
+        }
 
-        // Damage
+        // Any non-protection move resets the user's protection counter.
+        val counterReset = clearProtectCounter(currentState, attackerSlot)
+        for (event in counterReset) {
+            events.add(event)
+            currentState = event.apply(currentState)
+        }
+
+        val allTargets = resolveTargetSlots(currentState, attackerSlot, move.target, choice.targetSlot)
+
+        // Per-target Protect gate: applies to BOTH damage and effects so status moves like
+        // Toxic or Growl are blocked too. Self-target moves are not blocked (you can boost
+        // yourself behind Protect).
+        val (unblockedTargets, blockEvents) = applyProtectGate(currentState, attackerSlot, allTargets)
+        events.addAll(blockEvents)
+
+        val damageTargets = unblockedTargets.filter { it != attackerSlot }
         if (move.power > 0) {
             val damageEvents = resolveDamage(currentState, attackerSlot, move, damageTargets)
             for (event in damageEvents) {
@@ -130,15 +154,63 @@ class MoveExecutionPhase(
             }
         }
 
-        // Effects
         val faintedSlots = events.filterIsInstance<PokemonFainted>().map { it.slot }.toSet()
-        val effectEvents = resolveEffects(move.effects, allTargets, faintedSlots)
+        val effectEvents = resolveEffects(move.effects, unblockedTargets, faintedSlots)
         for (event in effectEvents) {
             events.add(event)
             currentState = event.apply(currentState)
         }
 
         return events
+    }
+
+    // --- Protect handling ---
+
+    private fun isProtectionMove(move: Move): Boolean = move.effects.any { it is MoveEffect.SetVolatile && it.volatile == Volatile.Protect }
+
+    private fun resolveProtectionMove(
+        state: BattleState,
+        attackerSlot: Slot,
+    ): List<BattleEvent> {
+        val attacker = state.pokemonFor(attackerSlot)
+        val existingCounter = attacker.volatiles.filterIsInstance<Volatile.ProtectCounter>().firstOrNull()
+        val consecutive = existingCounter?.consecutive ?: 0
+
+        // Success chance halves each consecutive use: 100, 50, 25, 12, 6, 3, 1
+        val successPercent = (100 shr consecutive).coerceAtLeast(1)
+        val succeeded = chanceCheck(successPercent, FailReason.PROTECT_FAILED)
+
+        val events = mutableListOf<BattleEvent>()
+        // Counter increments regardless of success
+        if (existingCounter != null) events.add(VolatileRemoved(attackerSlot, existingCounter))
+        events.add(VolatileAdded(attackerSlot, Volatile.ProtectCounter(consecutive + 1)))
+
+        if (succeeded) {
+            events.add(VolatileAdded(attackerSlot, Volatile.Protect))
+        } else {
+            events.add(MoveFailed(attackerSlot, FailReason.PROTECT_FAILED))
+        }
+        return events
+    }
+
+    private fun clearProtectCounter(
+        state: BattleState,
+        slot: Slot,
+    ): List<BattleEvent> =
+        state.pokemonFor(slot).volatiles
+            .filterIsInstance<Volatile.ProtectCounter>()
+            .map { VolatileRemoved(slot, it) }
+
+    private fun applyProtectGate(
+        state: BattleState,
+        attackerSlot: Slot,
+        targets: List<Slot>,
+    ): Pair<List<Slot>, List<BattleEvent>> {
+        val (protected, unblocked) =
+            targets.partition { target ->
+                target != attackerSlot && Volatile.Protect in state.pokemonFor(target).volatiles
+            }
+        return unblocked to protected.map { ProtectBlocked(it) }
     }
 
     // --- Per-target damage resolution ---
@@ -212,6 +284,7 @@ class MoveExecutionPhase(
     ): List<BattleEvent> {
         return when (effect) {
             is MoveEffect.StatBoost -> listOf(StatChanged(targetSlot, effect.stat, effect.stages))
+            is MoveEffect.SetVolatile -> listOf(VolatileAdded(targetSlot, effect.volatile))
         }
     }
 

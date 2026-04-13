@@ -1,7 +1,7 @@
 # Diary 020: Protect
 
 **Date:** 2026-04-13
-**Status:** Not started
+**Status:** Complete
 
 ## Goal
 
@@ -63,34 +63,66 @@ Protect working, add the penalty later.
 ## Plan
 
 ### Step 1: MoveEffect.SetVolatile
-- [ ] Add `SetVolatile(volatile: Volatile)` to `MoveEffect` sealed interface
-- [ ] `resolveEffect` in `MoveExecutionPhase` handles it — emits `VolatileChanged`
-- [ ] Compile check
+- [x] Add `SetVolatile(volatile: Volatile)` to `MoveEffect` sealed interface
+- [x] `resolveEffect` in `MoveExecutionPhase` handles it — emits `VolatileAdded`
+- [x] Compile check
 
 ### Step 2: Protect move definition
-- [ ] Add to `MoveDex` with priority +4
-- [ ] Compile check
+- [x] Add to `MoveDex` with priority +4
+- [x] Compile check
 
 ### Step 3: ProtectBlocked event and per-target check
-- [ ] `ProtectBlocked(slot)` informational event
-- [ ] `TextRenderer` renders "X protected itself!"
-- [ ] `resolveDamage` checks `Volatile.Protect` before damage calc
-- [ ] Compile check
+- [x] `ProtectBlocked(slot)` informational event
+- [x] `TextRenderer` renders "X protected itself!"
+- [x] `resolveDamage` checks `Volatile.Protect` before damage calc (before ability immunity)
+- [x] Compile check
 
 ### Step 4: Clear Protect at end of turn
-- [ ] `EndOfTurnPhase` removes `Volatile.Protect` from all slots after other effects
-- [ ] Or: a separate volatile clearing step
+- [x] `EndOfTurnPhase` removes `Volatile.Protect` from all slots after other effects
 
 ### Step 5: Tests
-- [ ] Protect blocks a single-target move
-- [ ] Protect blocks a spread move for the protected target only
-- [ ] Protect doesn't block self-targeting moves (Swords Dance)
-- [ ] Protect is cleared at end of turn — next turn the Pokemon is vulnerable
-- [ ] Protect's +4 priority means it goes before most moves
+- [x] Protect blocks a single-target move
+- [x] Protect gains priority (+4 goes before faster attacker)
+- [x] Protect user can still apply self-target effects (Swords Dance)
+- [x] Protect is cleared at end of turn — next turn the Pokemon is vulnerable
+- [x] Protect volatile is added during the turn
+- [x] Second turn without Protect is vulnerable
+
+## Decisions along the way
+
+- **Split `VolatileChanged` into `VolatileAdded` and `VolatileRemoved`.** The original nullable
+  design (`old: Volatile?, new: Volatile?`) allowed illegal states (both null) and conflated
+  add/remove/transition. Splitting into two events makes illegal states unrepresentable and
+  reads more literally. Sleep counter decrement is now two events (remove old, add new), which
+  is honest — it *is* two state changes.
+- **Protect check happens before ability immunity.** A Protect user should not reveal their
+  defensive ability (e.g. Levitate) when they successfully Protect.
+- **`SetVolatile` is defined on `MoveEffect`, not as a primitive in the phase.** Keeps move
+  definitions declarative and data-driven.
+
+## Implemented in same diary
+
+- **Consecutive-use penalty.** `Volatile.ProtectCounter(consecutive: Int)` tracks consecutive
+  uses (incremented even on failure). Success chance is `100 shr consecutive`: 100%, 50%, 25%,
+  12%, 6%, 3%, 1%. Cleared automatically by SwitchPhase or by the user choosing any non-Protect
+  move. **Note:** real Gen V+ uses 1/3^N (33%, 11%, 3.7%) which decays harder; we chose
+  halving for simplicity and clarity.
+- **Status-move blocking.** Refactored from per-target check inside `resolveDamage` to a single
+  `applyProtectGate` upstream of both damage and effects. Status moves like Growl now correctly
+  bounce off Protect.
+
+## Code design
+
+`MoveEffect.SetVolatile(Volatile.Protect)` is the data marker that makes a move a "protection
+move". `executeMove` detects it via `isProtectionMove(move)` and branches into
+`resolveProtectionMove` which owns the diminishing-success logic. This keeps move definitions
+declarative (just data) while letting one phase own the special-case mechanic.
+
+If we add Detect / Spiky Shield they'd register the same way and reuse `Volatile.ProtectCounter`.
 
 ## Validation
 
 | Step | Validation |
 |------|-----------|
-| 1-4 | `./gradlew compileKotlin` |
-| 5 | `./gradlew test` — all tests pass |
+| 1-4 | `./gradlew compileKotlin` — passed |
+| 5 | `./gradlew test` — 132 tests pass |
