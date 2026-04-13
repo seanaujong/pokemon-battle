@@ -6,6 +6,8 @@ import com.pokemon.battle.model.MoveCategory
 import com.pokemon.battle.model.PokemonState
 import com.pokemon.battle.model.StatType
 import com.pokemon.battle.model.StatusCondition
+import com.pokemon.battle.model.Type
+import com.pokemon.battle.model.Weather
 import com.pokemon.battle.model.stageMultiplier
 
 data class DamageResult(val damage: Int, val effectiveness: Effectiveness)
@@ -19,6 +21,7 @@ fun interface DamageCalculator {
         roll: (IntRange) -> Int,
         spreadModifier: Double,
         isCritical: Boolean,
+        weather: Weather?,
     ): DamageResult
 }
 
@@ -36,6 +39,7 @@ class GenVDamageCalculator(
         roll: (IntRange) -> Int,
         spreadModifier: Double,
         isCritical: Boolean,
+        weather: Weather?,
     ): DamageResult {
         val level = attacker.pokemon.level
 
@@ -54,6 +58,7 @@ class GenVDamageCalculator(
 
         val burnMod = if (attacker.status == StatusCondition.BURN && isPhysical) 0.5 else 1.0
         val critMod = if (isCritical) 1.5 else 1.0
+        val weatherMod = weatherDamageModifier(weather, move.type)
 
         val typeMultiplier = typeChart.effectiveness(move.type, defender.effectiveTypes)
         val effectiveness = Effectiveness.from(typeMultiplier)
@@ -64,12 +69,36 @@ class GenVDamageCalculator(
 
         val baseDamage = ((2.0 * level / 5.0 + 2.0) * move.power * atk / def) / 50.0 + 2.0
         val damage =
-            (baseDamage * stab * typeMultiplier * burnMod * critMod * spreadModifier * randomRoll / 100.0).toInt()
+            (baseDamage * stab * typeMultiplier * burnMod * critMod * weatherMod * spreadModifier * randomRoll / 100.0).toInt()
                 .coerceAtLeast(if (typeMultiplier > 0.0) 1 else 0)
 
         return DamageResult(damage, effectiveness)
     }
 }
+
+/**
+ * Gen V+ weather damage modifier. Rain boosts Water and weakens Fire; Sun inverts.
+ * Hail and Sandstorm don't modify move damage. Returns 1.0 when there's no relevant weather.
+ */
+internal fun weatherDamageModifier(
+    weather: Weather?,
+    moveType: Type,
+): Double =
+    when (weather) {
+        Weather.RAIN ->
+            when (moveType) {
+                Type.WATER -> 1.5
+                Type.FIRE -> 0.5
+                else -> 1.0
+            }
+        Weather.SUN ->
+            when (moveType) {
+                Type.FIRE -> 1.5
+                Type.WATER -> 0.5
+                else -> 1.0
+            }
+        else -> 1.0
+    }
 
 /** Convenience function using the default Gen V+ calculator with standard type chart. */
 @Suppress("LongParameterList") // Mirrors DamageCalculator.calculate with defaults
@@ -80,4 +109,5 @@ fun calculateDamage(
     roll: (IntRange) -> Int = { range -> range.random() },
     spreadModifier: Double = 1.0,
     isCritical: Boolean = false,
-): DamageResult = GenVDamageCalculator().calculate(attacker, defender, move, roll, spreadModifier, isCritical)
+    weather: Weather? = null,
+): DamageResult = GenVDamageCalculator().calculate(attacker, defender, move, roll, spreadModifier, isCritical, weather)

@@ -91,10 +91,10 @@ class TypeChartTest {
 
         val standardResult =
             GenVDamageCalculator(StandardTypeChart)
-                .calculate(attacker, defender, MoveDex.FLAMETHROWER, fixedRoll, 1.0, false)
+                .calculate(attacker, defender, MoveDex.FLAMETHROWER, fixedRoll, 1.0, false, null)
         val inverseResult =
             GenVDamageCalculator(InverseTypeChart)
-                .calculate(attacker, defender, MoveDex.FLAMETHROWER, fixedRoll, 1.0, false)
+                .calculate(attacker, defender, MoveDex.FLAMETHROWER, fixedRoll, 1.0, false, null)
 
         // Standard: Fire vs Water = 0.5x (not very effective)
         assertEquals(Effectiveness.NOT_VERY_EFFECTIVE, standardResult.effectiveness)

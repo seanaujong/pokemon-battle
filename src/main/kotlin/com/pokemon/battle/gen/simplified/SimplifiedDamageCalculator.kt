@@ -8,6 +8,7 @@ import com.pokemon.battle.model.Effectiveness
 import com.pokemon.battle.model.MoveCategory
 import com.pokemon.battle.model.PokemonState
 import com.pokemon.battle.model.StatType
+import com.pokemon.battle.model.Weather
 import com.pokemon.battle.model.stageMultiplier
 
 /**
@@ -25,6 +26,7 @@ class SimplifiedDamageCalculator(
         roll: (IntRange) -> Int,
         spreadModifier: Double,
         isCritical: Boolean,
+        weather: Weather?,
     ): DamageResult {
         // Simplified gen ignores critical hits
         val isPhysical = move.category == MoveCategory.PHYSICAL

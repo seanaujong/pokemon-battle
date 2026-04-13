@@ -89,8 +89,8 @@ class SecondGenTest {
         val defender = PokemonState(venusaur, currentHp = venusaur.maxHp)
 
         // Flamethrower: Fire-type Charizard gets STAB in GenV, not in Simplified
-        val genVDamage = GenVDamageCalculator().calculate(attacker, defender, MoveDex.FLAMETHROWER, fixedRoll, 1.0, false)
-        val simpleDamage = SimplifiedDamageCalculator().calculate(attacker, defender, MoveDex.FLAMETHROWER, fixedRoll, 1.0, false)
+        val genVDamage = GenVDamageCalculator().calculate(attacker, defender, MoveDex.FLAMETHROWER, fixedRoll, 1.0, false, null)
+        val simpleDamage = SimplifiedDamageCalculator().calculate(attacker, defender, MoveDex.FLAMETHROWER, fixedRoll, 1.0, false, null)
 
         // Different formulas produce different damage
         assertNotEquals(
@@ -109,8 +109,8 @@ class SecondGenTest {
         val defender = PokemonState(infernape, currentHp = infernape.maxHp)
 
         // Physical Earthquake from a burned attacker
-        val genVDamage = GenVDamageCalculator().calculate(burnedAttacker, defender, MoveDex.EARTHQUAKE, fixedRoll, 1.0, false)
-        val simpleDamage = SimplifiedDamageCalculator().calculate(burnedAttacker, defender, MoveDex.EARTHQUAKE, fixedRoll, 1.0, false)
+        val genVDamage = GenVDamageCalculator().calculate(burnedAttacker, defender, MoveDex.EARTHQUAKE, fixedRoll, 1.0, false, null)
+        val simpleDamage = SimplifiedDamageCalculator().calculate(burnedAttacker, defender, MoveDex.EARTHQUAKE, fixedRoll, 1.0, false, null)
 
         // GenV halves physical damage when burned; Simplified doesn't
         assertTrue(
