@@ -311,6 +311,19 @@ a rule (a number, a condition, a formula), it belongs in a phase. If it's a defi
 (a type, a stat, a structure), it belongs in the model. Gen-specific logic leaking
 into the model or engine is a sign something is in the wrong layer.
 
+## Known Limitations
+
+### MoveExecutionPhase doesn't track intermediate state during effects
+
+`executeMove` returns a flat list of events without applying them between steps.
+Currently fine because `StatBoost` is self-contained. But effects that depend on
+post-damage state (drain: heal based on damage dealt, recoil: self-damage based on
+damage dealt) will need the phase to apply events incrementally — similar to how
+`resolve()` applies events between players, but within a single move's execution.
+
+When adding drain/recoil/multi-hit: refactor `executeMove` to track `currentState`
+across damage and effects, same pattern as the outer loop.
+
 ## What This Design Does NOT Cover (yet)
 
 - Team selection / team preview

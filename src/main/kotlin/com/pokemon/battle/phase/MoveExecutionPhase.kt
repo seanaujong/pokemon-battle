@@ -71,27 +71,54 @@ class MoveExecutionPhase(
     }
 
     private fun executeMove(state: BattleState, player: Player, move: Move): List<BattleEvent> {
-        val attacker = state.pokemonFor(player)
-        val defender = state.pokemonFor(player.opponent())
-
         val events = mutableListOf<BattleEvent>(MoveAttempted(player, move))
 
-        if (defender.isFainted) return events
+        // Damage phase: if the move targets the opponent and has power, calculate damage
+        if (move.target == MoveTarget.OPPONENT && move.power > 0) {
+            val attacker = state.pokemonFor(player)
+            val defender = state.pokemonFor(player.opponent())
 
-        val result = calculateDamage(attacker, defender, move, roll)
-        val damageEvent = DamageDealt(
-            target = player.opponent(),
-            amount = result.damage,
-            effectiveness = result.effectiveness,
-            critical = false // TODO: critical hit logic
-        )
-        events.add(damageEvent)
+            if (!defender.isFainted) {
+                val result = calculateDamage(attacker, defender, move, roll)
+                val damageEvent = DamageDealt(
+                    target = player.opponent(),
+                    amount = result.damage,
+                    effectiveness = result.effectiveness,
+                    critical = false // TODO: critical hit logic
+                )
+                events.add(damageEvent)
 
-        val stateAfterDamage = damageEvent.apply(state)
-        if (stateAfterDamage.pokemonFor(player.opponent()).isFainted) {
-            events.add(PokemonFainted(player.opponent()))
+                val stateAfterDamage = damageEvent.apply(state)
+                if (stateAfterDamage.pokemonFor(player.opponent()).isFainted) {
+                    events.add(PokemonFainted(player.opponent()))
+                }
+            }
+        }
+
+        // Effects phase: process move effects (stat boosts, etc.)
+        // Skip opponent-targeting effects if the opponent fainted from damage
+        val opponentFainted = events.any { it is PokemonFainted }
+        for (effect in move.effects) {
+            val effectTarget = when (move.target) {
+                MoveTarget.SELF -> player
+                MoveTarget.OPPONENT -> player.opponent()
+            }
+            if (effectTarget == player.opponent() && opponentFainted) continue
+            events.addAll(resolveEffect(effect, player, move))
         }
 
         return events
+    }
+
+    private fun resolveEffect(effect: MoveEffect, player: Player, move: Move): List<BattleEvent> {
+        return when (effect) {
+            is MoveEffect.StatBoost -> {
+                val target = when (move.target) {
+                    MoveTarget.SELF -> player
+                    MoveTarget.OPPONENT -> player.opponent()
+                }
+                listOf(StatChanged(target, effect.stat, effect.stages))
+            }
+        }
     }
 }

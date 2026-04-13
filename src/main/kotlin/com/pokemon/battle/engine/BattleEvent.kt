@@ -106,6 +106,17 @@ data class WeatherTick(
     }
 }
 
+data class StatChanged(
+    val target: Player,
+    val stat: StatType,
+    val stages: Int
+) : BattleEvent {
+    override fun apply(state: BattleState): BattleState {
+        val pokemon = state.pokemonFor(target)
+        return state.withPokemon(target, pokemon.copy(statStages = pokemon.statStages.withChange(stat, stages)))
+    }
+}
+
 data class VolatileChanged(
     val target: Player,
     val old: Volatile,

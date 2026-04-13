@@ -14,6 +14,14 @@ data class StatStages(
         require(specialDefense in -6..6)
         require(speed in -6..6)
     }
+
+    fun withChange(stat: StatType, stages: Int): StatStages = when (stat) {
+        StatType.ATTACK -> copy(attack = (attack + stages).coerceIn(-6, 6))
+        StatType.DEFENSE -> copy(defense = (defense + stages).coerceIn(-6, 6))
+        StatType.SPECIAL_ATTACK -> copy(specialAttack = (specialAttack + stages).coerceIn(-6, 6))
+        StatType.SPECIAL_DEFENSE -> copy(specialDefense = (specialDefense + stages).coerceIn(-6, 6))
+        StatType.SPEED -> copy(speed = (speed + stages).coerceIn(-6, 6))
+    }
 }
 
 /** Standard Gen V+ HP stat formula (no IVs/EVs/Nature for now). */
