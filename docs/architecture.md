@@ -42,9 +42,9 @@ inner over events — in roughly 5 lines. All interesting logic lives in phases 
 events, which are independently testable. If the orchestrator is complex, logic is
 in the wrong place.
 
-**Derive, don't store.** Stats are calculated from base + stages at the point of
-use, never cached on state. This eliminates staleness bugs at the cost of
-recalculation, which is negligible for this domain.
+**Derive, don't store.** Stats are calculated from base + IVs/EVs/Nature + stages
+at the point of use, never cached on state. This eliminates staleness bugs at the
+cost of recalculation, which is negligible for this domain.
 
 **Separate data by lifecycle.** Species (eternal, shared) → Pokemon (per-battle) →
 PokemonState (per-turn). Each layer changes at a different rate, so separating
@@ -52,22 +52,45 @@ them makes it obvious where each piece of data belongs.
 
 **Sealed hierarchies as domain catalogs.** The sealed event hierarchy is a readable
 catalog of everything that can happen in a turn. A new developer opens
-`BattleEvent.kt` and sees the whole domain.
+`BattleEvent.kt` and sees the whole domain. Events are split by concern across
+files but share the same sealed interface.
 
 **Immutability makes the audit trail free.** Because state is never mutated, the
 event history *is* the audit trail — no logging layer needed on top. Every state
 can be explained by replaying its events.
 
+**The engine doesn't enforce legality.** No learnset validation, no move count
+limits, no species-ability restrictions. The engine resolves whatever it's given.
+Legality is a team-building concern — a layer above the engine. This makes custom
+formats (Hackmons, Almost Any Ability, etc.) work without engine changes.
+
+**Move pools belong to the choice layer, not the model.** A Pokemon's identity
+(species + level + IVs/EVs/nature) is separate from what moves are available to it.
+The AI owns move pools. This prevents Pokemon from becoming a god object.
+
 ## Layers
 
 ```
+ai/         — choice logic (RandomAI, TypeAI, SidedAI)
+render/     — presentation (TextRenderer, renderBattle)
 loop/       — game orchestration (BattleLoop, providers, results)
 phase/      — turn resolution logic (gen-specific rules)
 engine/     — pipeline plumbing (events, state, damage calc)
+data/       — loading and lookup (Pokedex CSV, MoveDex definitions)
 model/      — pure data (species, pokemon, moves, types)
 ```
 
-Each layer depends only on the ones below it.
+Dependency graph (each layer depends only on those below it):
+
+```
+ai      →  engine, model, loop
+render  →  engine, model, loop
+loop    →  engine, model
+phase   →  engine, model
+data    →  model
+engine  →  model
+model   →  (nothing)
+```
 
 ## Core Types
 
@@ -78,9 +101,9 @@ model that supports singles, doubles, triples, and co-op formats.
 
 ```kotlin
 data class BattleState(
-    val slots: Map<Slot, PokemonState>,     // active Pokemon on the field
-    val bench: Map<Side, List<PokemonState>>, // per-side reserves
-    val field: FieldState,                  // weather, terrain
+    val slots: Map<Slot, PokemonState>,       // active Pokemon on the field
+    val bench: Map<Side, List<PokemonState>>,  // per-side reserves
+    val field: FieldState,                     // weather, terrain
     val turn: Int
 )
 
@@ -103,17 +126,18 @@ Species  →  Pokemon  →  PokemonState
 ```
 
 - **`Species`** — what a Charizard *is*. Base stats, types. Shared across all Charizards.
-  Has `baseStat(StatType)` accessor.
+  Has `baseStat(StatType)` accessor. Loaded from CSV via `Pokedex`.
 - **`Pokemon`** — a specific Charizard. Species + level + IVs + EVs + Nature.
   Has `maxHp` and `calcStat(StatType)` using the full Gen V+ formula.
 - **`PokemonState`** — that Charizard *in battle*. Current HP, stat stages, status,
-  volatiles, ability, item. Has `isFainted`, `maxHp`, `effectiveSpeed()`.
+  volatiles, ability, item. Has `isFainted`, `maxHp`, `baseEffectiveSpeed()`.
 
 All fields are `val`. State changes happen exclusively through events.
 
 ### Volatile
 
-Temporary battle conditions cleared on switch-out. Contrast with status conditions
+Temporary battle conditions cleared on switch-out (by `SwitchPhase`, not by the
+event — clearing is a gen-specific rule). Contrast with status conditions
 (burn, poison) which persist. Stored as a `Set` on `PokemonState`.
 
 ```kotlin
@@ -147,30 +171,22 @@ sealed interface MoveEffect {
 
 `MoveTarget` determines which slots the move affects. `MoveEffect` describes
 secondary/primary effects beyond damage. Both are extensible via new enum values
-and sealed subclasses.
+and sealed subclasses. Move definitions live in `MoveDex` with effects colocated.
 
 ### BattleEvent
 
-A sealed hierarchy — every possible thing that can happen during a turn. Each
-event has `apply(state): BattleState`.
+A sealed hierarchy split across 7 files by concern. Each event has
+`apply(state): BattleState`.
 
-```
-MoveOrderDecided    — informational: who goes in what order, and why
-MoveAttempted       — informational: a Pokemon attempts a move
-MoveFailed          — informational: a Pokemon can't act (sleep, freeze, paralysis)
-DamageDealt         — subtracts HP from target
-PokemonFainted      — informational: HP reached 0
-StatusApplied       — sets a status condition
-StatusCleared       — clears a status + related volatiles
-StatusDamage        — end-of-turn burn/poison damage
-WeatherDamage       — end-of-turn weather damage
-ItemHealing         — end-of-turn item healing (Leftovers)
-WeatherTick         — decrements weather counter
-StatChanged         — modifies stat stages (clamped to -6..+6)
-VolatileChanged     — updates a volatile (e.g., sleep counter decrement)
-SwitchOut           — moves Pokemon to bench, clears volatiles/stat stages
-SwitchIn            — moves bench Pokemon to slot
-```
+| File | Events |
+|------|--------|
+| `BattleEvent.kt` | `MoveOrderDecided`, `MoveAttempted`, `MoveFailed`, `DamageDealt`, `PokemonFainted` |
+| `StatusEvents.kt` | `StatusApplied`, `StatusDamage`, `StatusCleared` |
+| `WeatherEvents.kt` | `WeatherDamage`, `WeatherTick`, `WeatherSet` |
+| `SwitchEvents.kt` | `SwitchOut`, `SwitchIn` |
+| `StatEvents.kt` | `StatChanged`, `VolatileChanged` |
+| `AbilityEvents.kt` | `AbilityTriggered`, `AbilityBlocked` |
+| `ItemEvents.kt` | `ItemHealing` |
 
 Events that are purely informational return the state unchanged. They still
 appear in the log for rendering and debugging.
@@ -186,9 +202,6 @@ sealed interface TurnChoice {
 }
 ```
 
-`targetSlot` is used for `ONE_OPPONENT` moves in doubles where the player
-selects which opposing slot to target.
-
 ### Phase and TurnPipeline
 
 ```kotlin
@@ -201,17 +214,17 @@ class TurnPipeline(private val phases: List<Phase>) {
 }
 ```
 
-The pipeline is a nested fold — outer over phases, inner over events — with no
-mutable state. The complexity lives in the phases and events, not the orchestration.
-
 ## Phases
 
 | Order | Phase                | Responsibility |
 |-------|----------------------|----------------|
-| 1     | `MoveOrderPhase`     | Sort slots by priority then speed. Emit `MoveOrderDecided`. |
-| 2     | `SwitchPhase`        | Process voluntary switches in speed order. Emit `SwitchOut` + `SwitchIn`. |
-| 3     | `MoveExecutionPhase` | For each slot in order: status checks, damage calc, effects. |
+| 1     | `MoveOrderPhase`     | Sort slots by priority then speed via `SpeedResolver`. |
+| 2     | `SwitchPhase`        | Clear volatiles/stat stages, switch, trigger switch-in abilities. |
+| 3     | `MoveExecutionPhase` | Status checks, per-target damage (with ability immunity), effects. |
 | 4     | `EndOfTurnPhase`     | Weather damage, status damage, item effects, weather tick. |
+
+`MoveExecutionPhase` is structured as sub-functions: `checkStatusThenExecute` →
+`executeMove` → `resolveDamage` (per-target) + `resolveEffects`.
 
 New phases slot in without touching existing code.
 
@@ -226,77 +239,64 @@ class BattleLoop(
 )
 ```
 
-The game loop collects choices, runs the pipeline, handles faint replacements,
-and checks win conditions. `ChoiceProvider` and `FaintReplacementProvider` are
-callback interfaces — tests pass lambdas, a real game implements with UI.
+Collects choices, runs the pipeline, handles faint replacements (with switch-in
+ability triggers), and checks win conditions. `TurnResult` separates pipeline
+events from replacement events. `BattleResult` reports the winner, final state,
+and full turn history.
 
-`TurnResult` separates pipeline events from replacement events. `BattleResult`
-reports the winner, final state, and full turn history.
+## Application Layer
 
-## Application Layer (not yet implemented)
+### Data (implemented)
 
-The layers above the game loop that make the engine usable from the outside.
+- **`Pokedex`** — loads species from `data/species.csv` (20 species).
+  `Pokedex.loadFromClasspath()` returns `Map<String, Species>`.
+- **`MoveDex`** — Kotlin-defined moves with colocated effects (14 moves).
+  Auto-registered via `register()` pattern. `MoveDex["Flamethrower"]` for lookup.
 
-### Species and move database
+### Renderer (implemented)
 
-Currently, tests construct `Species` and `Move` objects by hand. A real application
-needs a data source — CSV or JSON files loaded into `Map<String, Species>` and
-`Map<String, Move>` at startup. Readable format for easy iteration; not an ORM.
+`TextRenderer` converts events to game-style text ("Charizard used Flamethrower!").
+`BattleRenderer` interface takes `(event, stateBefore, stateAfter)` — swappable for
+HTML, animation, etc. `renderBattle()` replays from initial state to produce complete
+output.
 
-### Battle renderer
+### AI (implemented)
 
-Walk the event log and produce text output, matching the game's message sequence.
-The event-to-text mapping is documented in `guide.md`. A renderer tracks state
-alongside events (applying each to know current HP, names, etc.) and produces
-messages like "Charizard used Flamethrower!" from `MoveAttempted(slot, move)`.
+- **`RandomAI`** — picks random moves. Baseline. Injectable `Random` for tests.
+- **`TypeAI`** — scores moves by type effectiveness × STAB × power.
+- **`SidedAI`** — composes two AIs by side.
 
-### AI opponents
+Move pools are `Map<String, List<Move>>` keyed by species name, owned by the AI.
 
-`ChoiceProvider` implementations that select moves based on type effectiveness,
-damage calculation, or random selection. The interface already supports this —
-an AI receives the current `BattleState` and returns `TurnChoices`.
+### CLI battle runner (not yet implemented)
 
-### CLI battle runner
+Interactive play via stdin. `ChoiceProvider` backed by user input.
 
-Ties everything together: load teams from the database, collect human input via
-stdin as a `ChoiceProvider`, run the game loop, render output to stdout. The
-"can I actually play this?" integration test.
+### Analytics pipeline (not yet implemented)
 
-### Analytics pipeline
-
-The event log is structured data — every battle produces a `List<TurnResult>` with
-typed events. This is a natural input for analytics: win rates by species, move
-usage statistics, average battle length, type effectiveness trends. A light pipeline
-could aggregate event logs across battles into summary statistics, feeding into
-team-building insights or game balance analysis.
-
-## Extensibility Model
-
-Adding new mechanics follows a consistent pattern:
-
-1. **Define new `BattleEvent` subclass(es)** with their `apply()` logic
-2. **Create a new `Phase`** or extend an existing one to emit those events
-3. **Register the phase** in the pipeline at the right position
-
-Existing phases and events don't need to change.
+Aggregate event logs across battles for win rates, move usage, balance analysis.
 
 ## Multi-Gen Support
 
-Different Pokemon generations change the rules. The architecture supports this
+Different generations change the rules. The architecture supports this
 by building different phase implementations, not config flags.
 
 ### Where gen-specific rules live
-
-All gen-specific behavior is in **phases**, not in the model or engine:
 
 | What varies | Where it lives |
 |-------------|---------------|
 | Paralysis skip rate | `MoveExecutionPhase` |
 | Burn damage fraction | `EndOfTurnPhase` |
-| Damage formula modifiers | `DamageCalculator` (injectable) |
-| Speed modifiers (paralysis, abilities, items) | `SpeedResolver` (injectable) |
+| Damage formula | `DamageCalculator` (injectable) |
+| Speed modifiers | `SpeedResolver` (injectable) |
 | End-of-turn effect order | `EndOfTurnPhase` |
 | Spread damage modifier | `MoveExecutionPhase` |
+| Volatile/stat clearing on switch | `SwitchPhase` |
+
+### Injectable gen-specific logic
+
+- **`DamageCalculator`** — `fun interface`. `GenVDamageCalculator` default.
+- **`SpeedResolver`** — `fun interface`. `GenVSpeedResolver` default.
 
 ### What NOT to do
 
@@ -304,38 +304,34 @@ All gen-specific behavior is in **phases**, not in the model or engine:
 - Don't put gen-specific constants in the model
 - Don't put gen-specific logic in events — `apply()` is mechanical
 
-### Injectable gen-specific logic
+## Custom Format Compatibility
 
-- **`DamageCalculator`** — `fun interface` in engine. `GenVDamageCalculator` is the
-  default. `MoveExecutionPhase` takes it as a constructor parameter.
-- **`SpeedResolver`** — `fun interface` in engine. `GenVSpeedResolver` is the default.
-  `resolveMoveOrder` and `SwitchPhase` use it. `PokemonState.baseEffectiveSpeed()`
-  provides the gen-agnostic base (stat + stages only).
+The engine makes few assumptions about what's "legal," so most Showdown/Smogon
+custom formats work without engine changes.
 
-### Keeping ourselves honest
+### What works out of the box
 
-When adding new mechanics, ask: "is this a game rule or a data definition?"
-Rules belong in phases. Definitions belong in the model.
+| Format | Why it works |
+|--------|-------------|
+| Almost Any Ability | `PokemonState.ability` is independent of species |
+| Balanced Hackmons | Arbitrary stats, any ability, any move |
+| Pure Hackmons | No learnset enforcement |
+| 6+ moveslots | Move pools are `List<Move>` with no size limit |
+| Little Cup (Level 1) | Stat formula handles any level |
+| 350 Cup | Construct modified `Species` at team-building |
+| Mix and Mega | Modified `Move` objects passed to `TurnChoice` |
 
-## Resolved Architectural Debt
+### What needs architectural changes
 
-These items were identified and fixed in diary 012:
-
-- **MoveExecutionPhase** — extracted `resolveDamage`, `resolveEffects`, and
-  `resolveTargetSlots` as focused sub-functions. Effects now track intermediate state.
-- **DamageCalc** — now `DamageCalculator` fun interface with `GenVDamageCalculator`
-  as the default. Injectable via `MoveExecutionPhase` constructor.
-- **SpeedResolver** — extracted from `PokemonState.effectiveSpeed()`. Paralysis
-  modifier now lives in `GenVSpeedResolver`, not in the model.
-- **BattleEvent** — split across 7 files by concern (core, status, weather, switch,
-  stat, ability, item). Sealed hierarchy spans files within `engine/` package.
+| Change | Enables |
+|--------|---------|
+| Overridable types on `PokemonState` | Terastallization, Camomons, STABmons |
+| Injectable type chart | Inverse Battles |
+| Move-use ability trigger in `MoveExecutionPhase` | Trademarked format |
+| Side-wide ability queries | Shared Power format |
+| Phase-level move modification | Terrain Pulse, Weather Ball |
 
 ## Known Limitations
-
-### Effects don't track intermediate state
-
-The effects loop at the end of `executeMove` doesn't apply events between effects.
-Fine for `StatBoost`. Drain/recoil will need incremental state tracking.
 
 ### MoveOrderResult.leadReason only describes top-two ordering
 
@@ -343,88 +339,23 @@ Informational only, doesn't affect behavior. Can be misleading in multi-slot for
 
 ### SwitchIn uses benchIndex (position-based)
 
-Bench shifts between events, so individual `SwitchIn` events aren't self-describing.
-Correct during sequential replay. If event log portability is needed, reference bench
-Pokemon by identity instead of index.
+Bench shifts between events, so individual events aren't self-describing.
+Correct during sequential replay. Fix if event log portability is needed.
 
 ### SwitchOut leaves Pokemon in slot AND bench temporarily
 
-Resolved by paired `SwitchIn`. Only a problem if `SwitchOut` is emitted without a
-following `SwitchIn` (a bug, not a design case).
-
-## Custom Format Compatibility
-
-The engine makes few assumptions about what's "legal," which means most Showdown/Smogon
-custom formats work without engine changes. The format rules live in the team-building
-or choice layer, not the battle engine.
-
-### What works out of the box
-
-| Format | Why it works |
-|--------|-------------|
-| Almost Any Ability | `PokemonState.ability` is independent of species |
-| Balanced Hackmons | Arbitrary stats (custom `Species`), any ability, any move |
-| Pure Hackmons | No learnset enforcement — engine resolves any `Move` on any Pokemon |
-| 6+ moveslots | Move pools are `List<Move>` with no size limit |
-| Level 1 (Little Cup) | `level = 5` in `Pokemon` — stat formula handles any level |
-| 350 Cup | Construct modified `Species` with doubled base stats at team-building |
-| Mix and Mega | Modified `Move` objects (altered power/type) passed to `TurnChoice` |
-
-### What needs one architectural change: overridable types
-
-Several formats modify a Pokemon's types at team-building or during battle:
-
-- **Camomons** — types match first two moves' types
-- **Terastallization** — type changes mid-battle
-- **STABmons** — STAB applies to team-wide types
-
-Currently, types are always read from `species.types` in the damage calc and STAB
-check. To support these formats, types need to be overridable on `PokemonState`
-(e.g., `val typeOverride: List<Type>?`) with the damage calc reading
-`typeOverride ?: species.types`.
-
-### What needs new check points
-
-- **Trademarked** — abilities trigger on move use, not switch-in. Needs a new ability
-  check in `MoveExecutionPhase` after `MoveAttempted`.
-- **Shared Power** — ability checks consider all allies' abilities. `abilityBlockingMove`
-  would need to query the whole side, not just the defender.
-
-### What needs phase-level move modification
-
-- **Terrain Pulse / Weather Ball** — move type changes based on field state. The phase
-  would create a modified `Move` copy before passing to `calculateDamage`. The move
-  is immutable during the turn choice but the phase can derive a context-specific
-  version.
-
-### What's injectable via type chart
-
-- **Inverse Battles** — type effectiveness flipped. Currently `typeEffectiveness` reads
-  a static chart. Making it injectable (like `DamageCalculator`) would support inverse.
+Resolved by paired `SwitchIn`. Only a problem if `SwitchOut` is emitted alone.
 
 ## Future Scenarios
 
-### Switching mid-turn (Pursuit, U-turn)
-
-U-turn works as a `MoveEffect` triggering switch after damage. Pursuit needs
-pre-execution awareness of pending switches — a new timing concept.
-
-### Mega Evolution / Dynamax / Terastallization
-
-Pre-order transformation phase. `TurnChoice` needs compound choices
-("use this move AND Mega evolve").
-
-### Ally targeting (Heal Pulse, Helping Hand)
-
-Add `MoveTarget.ONE_ALLY`. `resolveTargetSlots` gets a new case.
-
-### Triples adjacency
-
-`Slot.position` supports it. Add `MoveTarget.ONE_ADJACENT` and adjacency helpers.
-
-### Out of scope: Rotation battles
-
-Needs active-vs-bench within a side — different `BattleState` shape.
+| Scenario | Approach | Complexity |
+|----------|----------|------------|
+| U-turn / Volt Switch | `MoveEffect.SelfSwitch` after damage | Low |
+| Pursuit | Pre-execution switch awareness | Medium |
+| Mega Evolution / Dynamax | Pre-order transformation phase + compound `TurnChoice` | Medium |
+| Ally targeting (Heal Pulse) | `MoveTarget.ONE_ALLY` + new `resolveTargetSlots` case | Low |
+| Triples adjacency | `Slot.position` + adjacency helpers | Low |
+| Rotation battles | Different `BattleState` shape (active vs bench within side) | Out of scope |
 
 ## What This Design Does NOT Cover (yet)
 
@@ -432,10 +363,16 @@ Needs active-vs-bench within a side — different `BattleState` shape.
 - Entry hazards (Stealth Rock, Spikes)
 - Multi-turn moves (Fly, Dig, Solar Beam)
 - Choice locks, Encore, Disable
-- Mega Evolution, Z-Moves, Dynamax, Terastallization
 - Critical hit calculation
 - Protect / Substitute mechanics
-- Overridable types (needed for Terastallization, Camomons, etc.)
-- Injectable type chart (needed for Inverse Battles)
+- Overridable types (Terastallization, Camomons)
+- Injectable type chart (Inverse Battles)
 
-These can all be modeled as new phases, events, and effects.
+These can all be modeled as new phases, events, effects, and injectable interfaces.
+
+## Project Stats
+
+- **49 source files** across 7 packages
+- **96 tests** including singles, doubles, status, stat changes, switching, abilities,
+  game loop, data layer, renderer, AI, and custom format scenarios
+- **~4500 lines** of Kotlin
