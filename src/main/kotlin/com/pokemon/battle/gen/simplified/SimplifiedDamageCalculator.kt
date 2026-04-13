@@ -17,13 +17,16 @@ import com.pokemon.battle.model.stageMultiplier
 class SimplifiedDamageCalculator(
     private val typeChart: TypeChart = StandardTypeChart,
 ) : DamageCalculator {
+    @Suppress("UNUSED_PARAMETER")
     override fun calculate(
         attacker: PokemonState,
         defender: PokemonState,
         move: com.pokemon.battle.model.Move,
         roll: (IntRange) -> Int,
         spreadModifier: Double,
+        isCritical: Boolean,
     ): DamageResult {
+        // Simplified gen ignores critical hits
         val isPhysical = move.category == MoveCategory.PHYSICAL
         val atkStat = if (isPhysical) StatType.ATTACK else StatType.SPECIAL_ATTACK
         val defStat = if (isPhysical) StatType.DEFENSE else StatType.SPECIAL_DEFENSE

@@ -11,18 +11,20 @@ import com.pokemon.battle.model.stageMultiplier
 data class DamageResult(val damage: Int, val effectiveness: Effectiveness)
 
 fun interface DamageCalculator {
+    @Suppress("LongParameterList") // Core damage calc — each param is a distinct modifier
     fun calculate(
         attacker: PokemonState,
         defender: PokemonState,
         move: Move,
         roll: (IntRange) -> Int,
         spreadModifier: Double,
+        isCritical: Boolean,
     ): DamageResult
 }
 
 /**
  * Standard Gen V+ damage formula with IVs/EVs/Nature.
- * Gen-specific rules: burn penalty (0.5x physical), STAB (1.5x), formula structure.
+ * Gen-specific rules: burn penalty (0.5x physical), STAB (1.5x), crit (1.5x + ignore stages).
  */
 class GenVDamageCalculator(
     private val typeChart: TypeChart = StandardTypeChart,
@@ -33,6 +35,7 @@ class GenVDamageCalculator(
         move: Move,
         roll: (IntRange) -> Int,
         spreadModifier: Double,
+        isCritical: Boolean,
     ): DamageResult {
         val level = attacker.pokemon.level
 
@@ -42,10 +45,15 @@ class GenVDamageCalculator(
         val atkStage = if (isPhysical) attacker.statStages.attack else attacker.statStages.specialAttack
         val defStage = if (isPhysical) defender.statStages.defense else defender.statStages.specialDefense
 
-        val atk = (attacker.pokemon.calcStat(atkStat) * stageMultiplier(atkStage)).toInt()
-        val def = (defender.pokemon.calcStat(defStat) * stageMultiplier(defStage)).toInt()
+        // Crits: ignore attacker's negative stages and defender's positive stages
+        val effectiveAtkStage = if (isCritical) maxOf(atkStage, 0) else atkStage
+        val effectiveDefStage = if (isCritical) minOf(defStage, 0) else defStage
+
+        val atk = (attacker.pokemon.calcStat(atkStat) * stageMultiplier(effectiveAtkStage)).toInt()
+        val def = (defender.pokemon.calcStat(defStat) * stageMultiplier(effectiveDefStage)).toInt()
 
         val burnMod = if (attacker.status == StatusCondition.BURN && isPhysical) 0.5 else 1.0
+        val critMod = if (isCritical) 1.5 else 1.0
 
         val typeMultiplier = typeChart.effectiveness(move.type, defender.effectiveTypes)
         val effectiveness = Effectiveness.from(typeMultiplier)
@@ -56,7 +64,7 @@ class GenVDamageCalculator(
 
         val baseDamage = ((2.0 * level / 5.0 + 2.0) * move.power * atk / def) / 50.0 + 2.0
         val damage =
-            (baseDamage * stab * typeMultiplier * burnMod * spreadModifier * randomRoll / 100.0).toInt()
+            (baseDamage * stab * typeMultiplier * burnMod * critMod * spreadModifier * randomRoll / 100.0).toInt()
                 .coerceAtLeast(if (typeMultiplier > 0.0) 1 else 0)
 
         return DamageResult(damage, effectiveness)
@@ -64,10 +72,12 @@ class GenVDamageCalculator(
 }
 
 /** Convenience function using the default Gen V+ calculator with standard type chart. */
+@Suppress("LongParameterList") // Mirrors DamageCalculator.calculate with defaults
 fun calculateDamage(
     attacker: PokemonState,
     defender: PokemonState,
     move: Move,
     roll: (IntRange) -> Int = { range -> range.random() },
     spreadModifier: Double = 1.0,
-): DamageResult = GenVDamageCalculator().calculate(attacker, defender, move, roll, spreadModifier)
+    isCritical: Boolean = false,
+): DamageResult = GenVDamageCalculator().calculate(attacker, defender, move, roll, spreadModifier, isCritical)

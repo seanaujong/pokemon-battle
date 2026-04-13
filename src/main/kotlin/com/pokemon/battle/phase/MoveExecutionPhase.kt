@@ -166,13 +166,15 @@ class MoveExecutionPhase(
                 continue
             }
 
-            val result = damageCalculator.calculate(attacker, defender, move, roll, spreadMod)
+            // Crit roll: 1 in 24 chance (~4.2%) in Gen V+
+            val isCritical = roll(1..24) == 1
+            val result = damageCalculator.calculate(attacker, defender, move, roll, spreadMod, isCritical)
             val damageEvent =
                 DamageDealt(
                     target = targetSlot,
                     amount = result.damage,
                     effectiveness = result.effectiveness,
-                    critical = false,
+                    critical = isCritical,
                 )
             events.add(damageEvent)
             currentState = damageEvent.apply(currentState)
