@@ -417,10 +417,3 @@ Legality is a team-building concern, a layer above the engine.
 error-prone. Run the code with fixed inputs, read the output, assert on that. The
 code is deterministic; your head isn't.
 
-## Project Stats
-
-- **53 source files** across 8 packages + 1 gen package
-- **116 tests** including singles, doubles, status, stat changes, switching, abilities,
-  game loop, data layer, renderer, AI, custom format scenarios, and multi-gen comparison
-- **~6500 lines** of Kotlin
-- **18 diary entries** documenting decisions and discoveries
