@@ -1,10 +1,13 @@
 package com.pokemon.battle.phase
 
-import com.pokemon.battle.model.*
 import com.pokemon.battle.engine.*
+import com.pokemon.battle.model.*
 
 class EndOfTurnPhase : Phase {
-    override fun resolve(state: BattleState, choices: TurnChoices): List<BattleEvent> {
+    override fun resolve(
+        state: BattleState,
+        choices: TurnChoices,
+    ): List<BattleEvent> {
         val events = mutableListOf<BattleEvent>()
         var currentState = state
 
@@ -28,12 +31,17 @@ class EndOfTurnPhase : Phase {
         return events
     }
 
-    private fun checkFaint(event: BattleEvent, state: BattleState, events: MutableList<BattleEvent>): BattleState {
-        val target = when (event) {
-            is WeatherDamage -> event.target
-            is StatusDamage -> event.target
-            else -> return state
-        }
+    private fun checkFaint(
+        event: BattleEvent,
+        state: BattleState,
+        events: MutableList<BattleEvent>,
+    ): BattleState {
+        val target =
+            when (event) {
+                is WeatherDamage -> event.target
+                is StatusDamage -> event.target
+                else -> return state
+            }
         if (state.pokemonFor(target).isFainted) {
             val faintEvent = PokemonFainted(target)
             events.add(faintEvent)
@@ -46,11 +54,12 @@ class EndOfTurnPhase : Phase {
         val weather = state.field.weather ?: return emptyList()
         if (weather != Weather.SANDSTORM && weather != Weather.HAIL) return emptyList()
 
-        val immuneTypes = when (weather) {
-            Weather.SANDSTORM -> setOf(Type.ROCK, Type.GROUND, Type.STEEL)
-            Weather.HAIL -> setOf(Type.ICE)
-            else -> emptySet()
-        }
+        val immuneTypes =
+            when (weather) {
+                Weather.SANDSTORM -> setOf(Type.ROCK, Type.GROUND, Type.STEEL)
+                Weather.HAIL -> setOf(Type.ICE)
+                else -> emptySet()
+            }
 
         return state.allSlots().mapNotNull { slot ->
             val pokemon = state.pokemonFor(slot)
@@ -92,7 +101,9 @@ class EndOfTurnPhase : Phase {
                     if (pokemon.currentHp < pokemon.maxHp) {
                         val healing = pokemon.maxHp / 16
                         ItemHealing(target = slot, amount = healing, item = Item.LEFTOVERS)
-                    } else null
+                    } else {
+                        null
+                    }
                 }
                 else -> null
             }

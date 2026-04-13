@@ -1,15 +1,14 @@
 package com.pokemon.battle
 
 import com.pokemon.battle.data.*
-import com.pokemon.battle.model.*
 import com.pokemon.battle.engine.*
+import com.pokemon.battle.model.*
 import com.pokemon.battle.phase.*
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
 class TypeChartTest {
-
     private val pokedex = Pokedex.loadFromClasspath()
     private val fixedRoll: (IntRange) -> Int = { 100 }
     private val noChance: ChanceCheck = { _, _ -> false }
@@ -64,18 +63,22 @@ class TypeChartTest {
         val attacker = PokemonState(charizard, currentHp = charizard.maxHp)
         val defender = PokemonState(blastoise, currentHp = blastoise.maxHp)
 
-        val standardResult = GenVDamageCalculator(StandardTypeChart)
-            .calculate(attacker, defender, MoveDex.FLAMETHROWER, fixedRoll, 1.0)
-        val inverseResult = GenVDamageCalculator(InverseTypeChart)
-            .calculate(attacker, defender, MoveDex.FLAMETHROWER, fixedRoll, 1.0)
+        val standardResult =
+            GenVDamageCalculator(StandardTypeChart)
+                .calculate(attacker, defender, MoveDex.FLAMETHROWER, fixedRoll, 1.0)
+        val inverseResult =
+            GenVDamageCalculator(InverseTypeChart)
+                .calculate(attacker, defender, MoveDex.FLAMETHROWER, fixedRoll, 1.0)
 
         // Standard: Fire vs Water = 0.5x (not very effective)
         assertEquals(Effectiveness.NOT_VERY_EFFECTIVE, standardResult.effectiveness)
         // Inverse: Fire vs Water = 2.0x (super effective)
         assertEquals(Effectiveness.SUPER_EFFECTIVE, inverseResult.effectiveness)
 
-        assertTrue(inverseResult.damage > standardResult.damage,
-            "Inverse should deal more damage (${inverseResult.damage} vs ${standardResult.damage})")
+        assertTrue(
+            inverseResult.damage > standardResult.damage,
+            "Inverse should deal more damage (${inverseResult.damage} vs ${standardResult.damage})",
+        )
     }
 
     @Test
@@ -83,26 +86,31 @@ class TypeChartTest {
         val charizard = Pokemon(pokedex["Charizard"]!!, level = 50)
         val blastoise = Pokemon(pokedex["Blastoise"]!!, level = 50)
 
-        val state = BattleState.singles(
-            PokemonState(charizard, currentHp = charizard.maxHp),
-            PokemonState(blastoise, currentHp = blastoise.maxHp)
-        )
+        val state =
+            BattleState.singles(
+                PokemonState(charizard, currentHp = charizard.maxHp),
+                PokemonState(blastoise, currentHp = blastoise.maxHp),
+            )
 
-        val inversePipeline = TurnPipeline(listOf(
-            MoveOrderPhase(),
-            SwitchPhase(),
-            MoveExecutionPhase(
-                damageCalculator = GenVDamageCalculator(InverseTypeChart),
-                roll = fixedRoll,
-                chanceCheck = noChance
-            ),
-            EndOfTurnPhase()
-        ))
+        val inversePipeline =
+            TurnPipeline(
+                listOf(
+                    MoveOrderPhase(),
+                    SwitchPhase(),
+                    MoveExecutionPhase(
+                        damageCalculator = GenVDamageCalculator(InverseTypeChart),
+                        roll = fixedRoll,
+                        chanceCheck = noChance,
+                    ),
+                    EndOfTurnPhase(),
+                ),
+            )
 
-        val choices = TurnChoices.singles(
-            TurnChoice.UseMove(MoveDex.FLAMETHROWER),
-            TurnChoice.UseMove(MoveDex.ICE_BEAM)
-        )
+        val choices =
+            TurnChoices.singles(
+                TurnChoice.UseMove(MoveDex.FLAMETHROWER),
+                TurnChoice.UseMove(MoveDex.ICE_BEAM),
+            )
 
         val result = inversePipeline.resolve(state, choices)
         val damageEvents = result.events.filterIsInstance<DamageDealt>()

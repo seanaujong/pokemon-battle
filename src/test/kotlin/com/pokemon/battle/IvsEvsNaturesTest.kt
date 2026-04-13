@@ -1,18 +1,23 @@
 package com.pokemon.battle
 
-import com.pokemon.battle.model.*
 import com.pokemon.battle.engine.*
+import com.pokemon.battle.model.*
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
 class IvsEvsNaturesTest {
-
-    private val species = Species(
-        name = "TestMon", types = listOf(Type.NORMAL),
-        baseHp = 80, baseAttack = 100, baseDefense = 80,
-        baseSpecialAttack = 80, baseSpecialDefense = 80, baseSpeed = 100
-    )
+    private val species =
+        Species(
+            name = "TestMon",
+            types = listOf(Type.NORMAL),
+            baseHp = 80,
+            baseAttack = 100,
+            baseDefense = 80,
+            baseSpecialAttack = 80,
+            baseSpecialDefense = 80,
+            baseSpeed = 100,
+        )
 
     // --- Stat formula ---
 
@@ -65,12 +70,14 @@ class IvsEvsNaturesTest {
 
     @Test
     fun `Pokemon calcStat uses IVs EVs and nature`() {
-        val adamantPokemon = Pokemon(
-            species, level = 50,
-            ivs = StatBlock.uniform(31),
-            evs = StatBlock(hp = 0, attack = 252, defense = 0, specialAttack = 0, specialDefense = 0, speed = 0),
-            nature = Nature.ADAMANT
-        )
+        val adamantPokemon =
+            Pokemon(
+                species,
+                level = 50,
+                ivs = StatBlock.uniform(31),
+                evs = StatBlock(hp = 0, attack = 252, defense = 0, specialAttack = 0, specialDefense = 0, speed = 0),
+                nature = Nature.ADAMANT,
+            )
         // Attack: base 100, 31 IV, 252 EV, Adamant (1.1x)
         // ((200+31+63)*50)/100 + 5 = 152, * 1.1 = 167.2 → 167
         assertEquals(167, adamantPokemon.calcStat(StatType.ATTACK))
@@ -85,25 +92,35 @@ class IvsEvsNaturesTest {
     @Test
     fun `EV investment increases damage output`() {
         val basePokemon = Pokemon(species, level = 50)
-        val investedPokemon = Pokemon(
-            species, level = 50,
-            evs = StatBlock(hp = 0, attack = 252, defense = 0, specialAttack = 0, specialDefense = 0, speed = 0)
-        )
+        val investedPokemon =
+            Pokemon(
+                species,
+                level = 50,
+                evs = StatBlock(hp = 0, attack = 252, defense = 0, specialAttack = 0, specialDefense = 0, speed = 0),
+            )
 
         val defender = PokemonState(basePokemon, currentHp = basePokemon.maxHp)
         val tackle = Move("Tackle", Type.NORMAL, MoveCategory.PHYSICAL, power = 40)
 
-        val baseDamage = calculateDamage(
-            PokemonState(basePokemon, currentHp = basePokemon.maxHp),
-            defender, tackle, roll = { 100 }
-        )
-        val investedDamage = calculateDamage(
-            PokemonState(investedPokemon, currentHp = investedPokemon.maxHp),
-            defender, tackle, roll = { 100 }
-        )
+        val baseDamage =
+            calculateDamage(
+                PokemonState(basePokemon, currentHp = basePokemon.maxHp),
+                defender,
+                tackle,
+                roll = { 100 },
+            )
+        val investedDamage =
+            calculateDamage(
+                PokemonState(investedPokemon, currentHp = investedPokemon.maxHp),
+                defender,
+                tackle,
+                roll = { 100 },
+            )
 
-        assertTrue(investedDamage.damage > baseDamage.damage,
-            "252 Atk EVs ($investedDamage) should deal more than 0 EVs ($baseDamage)")
+        assertTrue(
+            investedDamage.damage > baseDamage.damage,
+            "252 Atk EVs ($investedDamage) should deal more than 0 EVs ($baseDamage)",
+        )
     }
 
     @Test
@@ -114,16 +131,24 @@ class IvsEvsNaturesTest {
         val defender = PokemonState(neutralPokemon, currentHp = neutralPokemon.maxHp)
         val tackle = Move("Tackle", Type.NORMAL, MoveCategory.PHYSICAL, power = 40)
 
-        val neutralDamage = calculateDamage(
-            PokemonState(neutralPokemon, currentHp = neutralPokemon.maxHp),
-            defender, tackle, roll = { 100 }
-        )
-        val adamantDamage = calculateDamage(
-            PokemonState(adamantPokemon, currentHp = adamantPokemon.maxHp),
-            defender, tackle, roll = { 100 }
-        )
+        val neutralDamage =
+            calculateDamage(
+                PokemonState(neutralPokemon, currentHp = neutralPokemon.maxHp),
+                defender,
+                tackle,
+                roll = { 100 },
+            )
+        val adamantDamage =
+            calculateDamage(
+                PokemonState(adamantPokemon, currentHp = adamantPokemon.maxHp),
+                defender,
+                tackle,
+                roll = { 100 },
+            )
 
-        assertTrue(adamantDamage.damage > neutralDamage.damage,
-            "Adamant ($adamantDamage) should deal more physical damage than neutral ($neutralDamage)")
+        assertTrue(
+            adamantDamage.damage > neutralDamage.damage,
+            "Adamant ($adamantDamage) should deal more physical damage than neutral ($neutralDamage)",
+        )
     }
 }

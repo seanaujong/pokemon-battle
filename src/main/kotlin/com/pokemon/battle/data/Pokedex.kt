@@ -5,7 +5,6 @@ import com.pokemon.battle.model.Type
 import java.io.InputStream
 
 object Pokedex {
-
     fun load(input: InputStream): Map<String, Species> {
         return input.bufferedReader().useLines { lines ->
             lines.drop(1) // skip header
@@ -16,8 +15,9 @@ object Pokedex {
     }
 
     fun loadFromClasspath(path: String = "data/species.csv"): Map<String, Species> {
-        val stream = Pokedex::class.java.classLoader.getResourceAsStream(path)
-            ?: error("Species CSV not found on classpath: $path")
+        val stream =
+            Pokedex::class.java.classLoader.getResourceAsStream(path)
+                ?: error("Species CSV not found on classpath: $path")
         return load(stream)
     }
 
@@ -38,11 +38,14 @@ object Pokedex {
             baseDefense = parts[5].toInt(),
             baseSpecialAttack = parts[6].toInt(),
             baseSpecialDefense = parts[7].toInt(),
-            baseSpeed = parts[8].toInt()
+            baseSpeed = parts[8].toInt(),
         )
     }
 
-    private fun parseType(value: String, speciesName: String): Type {
+    private fun parseType(
+        value: String,
+        speciesName: String,
+    ): Type {
         return try {
             Type.valueOf(value)
         } catch (e: IllegalArgumentException) {

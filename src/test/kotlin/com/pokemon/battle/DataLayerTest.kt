@@ -1,16 +1,15 @@
 package com.pokemon.battle
 
 import com.pokemon.battle.data.*
-import com.pokemon.battle.model.*
 import com.pokemon.battle.engine.*
-import com.pokemon.battle.phase.*
 import com.pokemon.battle.loop.*
+import com.pokemon.battle.model.*
+import com.pokemon.battle.phase.*
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
 class DataLayerTest {
-
     // --- Pokedex ---
 
     @Test
@@ -91,22 +90,30 @@ class DataLayerTest {
         val charizard = Pokemon(pokedex["Charizard"]!!, level = 50)
         val venusaur = Pokemon(pokedex["Venusaur"]!!, level = 50)
 
-        val state = BattleState.singles(
-            PokemonState(charizard, currentHp = charizard.maxHp),
-            PokemonState(venusaur, currentHp = venusaur.maxHp)
-        )
+        val state =
+            BattleState.singles(
+                PokemonState(charizard, currentHp = charizard.maxHp),
+                PokemonState(venusaur, currentHp = venusaur.maxHp),
+            )
 
-        val pipeline = TurnPipeline(listOf(
-            MoveOrderPhase(),
-            SwitchPhase(),
-            MoveExecutionPhase(roll = { 100 }, chanceCheck = { _, _ -> false }),
-            EndOfTurnPhase()
-        ))
+        val pipeline =
+            TurnPipeline(
+                listOf(
+                    MoveOrderPhase(),
+                    SwitchPhase(),
+                    MoveExecutionPhase(roll = { 100 }, chanceCheck = { _, _ -> false }),
+                    EndOfTurnPhase(),
+                ),
+            )
 
-        val result = pipeline.resolve(state, TurnChoices.singles(
-            TurnChoice.UseMove(MoveDex["Flamethrower"]),
-            TurnChoice.UseMove(MoveDex["Sludge Bomb"])
-        ))
+        val result =
+            pipeline.resolve(
+                state,
+                TurnChoices.singles(
+                    TurnChoice.UseMove(MoveDex["Flamethrower"]),
+                    TurnChoice.UseMove(MoveDex["Sludge Bomb"]),
+                ),
+            )
 
         // Charizard is faster (base 100 vs 80), uses super-effective Flamethrower
         val order = result.events.filterIsInstance<MoveOrderDecided>()

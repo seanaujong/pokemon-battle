@@ -10,21 +10,21 @@ sealed interface BattleEvent {
 
 data class MoveOrderDecided(
     val order: List<Slot>,
-    val leadReason: OrderReason
+    val leadReason: OrderReason,
 ) : BattleEvent {
     override fun apply(state: BattleState): BattleState = state
 }
 
 data class MoveAttempted(
     val attacker: Slot,
-    val move: Move
+    val move: Move,
 ) : BattleEvent {
     override fun apply(state: BattleState): BattleState = state
 }
 
 data class MoveFailed(
     val attacker: Slot,
-    val reason: FailReason
+    val reason: FailReason,
 ) : BattleEvent {
     override fun apply(state: BattleState): BattleState = state
 }
@@ -33,7 +33,7 @@ data class DamageDealt(
     val target: Slot,
     val amount: Int,
     val effectiveness: Effectiveness,
-    val critical: Boolean
+    val critical: Boolean,
 ) : BattleEvent {
     override fun apply(state: BattleState): BattleState {
         val pokemon = state.pokemonFor(target)
@@ -43,7 +43,7 @@ data class DamageDealt(
 }
 
 data class PokemonFainted(
-    val slot: Slot
+    val slot: Slot,
 ) : BattleEvent {
     override fun apply(state: BattleState): BattleState = state
 }

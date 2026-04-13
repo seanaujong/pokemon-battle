@@ -1,7 +1,7 @@
 package com.pokemon.battle
 
-import com.pokemon.battle.model.*
 import com.pokemon.battle.engine.*
+import com.pokemon.battle.model.*
 import com.pokemon.battle.phase.*
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -12,32 +12,47 @@ import kotlin.test.assertTrue
  * Charizard KOs Venusaur with Flamethrower.
  */
 class CharizardVsVenusaurTest {
+    private val charizardSpecies =
+        Species(
+            name = "Charizard",
+            types = listOf(Type.FIRE, Type.FLYING),
+            baseHp = 78,
+            baseAttack = 84,
+            baseDefense = 78,
+            baseSpecialAttack = 109,
+            baseSpecialDefense = 85,
+            baseSpeed = 100,
+        )
 
-    private val charizardSpecies = Species(
-        name = "Charizard",
-        types = listOf(Type.FIRE, Type.FLYING),
-        baseHp = 78, baseAttack = 84, baseDefense = 78,
-        baseSpecialAttack = 109, baseSpecialDefense = 85, baseSpeed = 100
-    )
-
-    private val venusaurSpecies = Species(
-        name = "Venusaur",
-        types = listOf(Type.GRASS, Type.POISON),
-        baseHp = 80, baseAttack = 82, baseDefense = 83,
-        baseSpecialAttack = 100, baseSpecialDefense = 100, baseSpeed = 80
-    )
+    private val venusaurSpecies =
+        Species(
+            name = "Venusaur",
+            types = listOf(Type.GRASS, Type.POISON),
+            baseHp = 80,
+            baseAttack = 82,
+            baseDefense = 83,
+            baseSpecialAttack = 100,
+            baseSpecialDefense = 100,
+            baseSpeed = 80,
+        )
 
     private val charizard = Pokemon(charizardSpecies, level = 50)
     private val venusaur = Pokemon(venusaurSpecies, level = 50)
 
-    private val flamethrower = Move(
-        name = "Flamethrower", type = Type.FIRE,
-        category = MoveCategory.SPECIAL, power = 90
-    )
-    private val sludgeBomb = Move(
-        name = "Sludge Bomb", type = Type.POISON,
-        category = MoveCategory.SPECIAL, power = 90
-    )
+    private val flamethrower =
+        Move(
+            name = "Flamethrower",
+            type = Type.FIRE,
+            category = MoveCategory.SPECIAL,
+            power = 90,
+        )
+    private val sludgeBomb =
+        Move(
+            name = "Sludge Bomb",
+            type = Type.POISON,
+            category = MoveCategory.SPECIAL,
+            power = 90,
+        )
 
     @Test
     fun `Charizard outspeeds and KOs Venusaur with super-effective Flamethrower`() {
@@ -47,20 +62,22 @@ class CharizardVsVenusaurTest {
         val venusaurState = PokemonState(venusaur, currentHp = 130)
 
         val initialState = BattleState.singles(charizardState, venusaurState)
-        val choices = TurnChoices.singles(
-            TurnChoice.UseMove(flamethrower),
-            TurnChoice.UseMove(sludgeBomb)
-        )
+        val choices =
+            TurnChoices.singles(
+                TurnChoice.UseMove(flamethrower),
+                TurnChoice.UseMove(sludgeBomb),
+            )
 
         val fixedRoll: (IntRange) -> Int = { 100 }
 
-        val pipeline = TurnPipeline(
-            listOf(
-                MoveOrderPhase(),
-                MoveExecutionPhase(roll = fixedRoll),
-                EndOfTurnPhase()
+        val pipeline =
+            TurnPipeline(
+                listOf(
+                    MoveOrderPhase(),
+                    MoveExecutionPhase(roll = fixedRoll),
+                    EndOfTurnPhase(),
+                ),
             )
-        )
 
         val result = pipeline.resolve(initialState, choices)
         val events = result.events

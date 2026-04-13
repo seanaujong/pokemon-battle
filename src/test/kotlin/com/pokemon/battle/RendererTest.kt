@@ -1,27 +1,29 @@
 package com.pokemon.battle
 
 import com.pokemon.battle.data.*
-import com.pokemon.battle.model.*
 import com.pokemon.battle.engine.*
-import com.pokemon.battle.phase.*
 import com.pokemon.battle.loop.*
+import com.pokemon.battle.model.*
+import com.pokemon.battle.phase.*
 import com.pokemon.battle.render.*
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
 class RendererTest {
-
     private val pokedex = Pokedex.loadFromClasspath()
     private val fixedRoll: (IntRange) -> Int = { 100 }
     private val noChance: ChanceCheck = { _, _ -> false }
 
-    private fun pipeline() = TurnPipeline(listOf(
-        MoveOrderPhase(),
-        SwitchPhase(),
-        MoveExecutionPhase(roll = fixedRoll, chanceCheck = noChance),
-        EndOfTurnPhase()
-    ))
+    private fun pipeline() =
+        TurnPipeline(
+            listOf(
+                MoveOrderPhase(),
+                SwitchPhase(),
+                MoveExecutionPhase(roll = fixedRoll, chanceCheck = noChance),
+                EndOfTurnPhase(),
+            ),
+        )
 
     // --- Single turn rendering ---
 
@@ -29,14 +31,16 @@ class RendererTest {
     fun `render Charizard vs Venusaur turn`() {
         val charizard = Pokemon(pokedex["Charizard"]!!, level = 50)
         val venusaur = Pokemon(pokedex["Venusaur"]!!, level = 50)
-        val state = BattleState.singles(
-            PokemonState(charizard, currentHp = charizard.maxHp),
-            PokemonState(venusaur, currentHp = venusaur.maxHp)
-        )
-        val choices = TurnChoices.singles(
-            TurnChoice.UseMove(MoveDex.FLAMETHROWER),
-            TurnChoice.UseMove(MoveDex.SLUDGE_BOMB)
-        )
+        val state =
+            BattleState.singles(
+                PokemonState(charizard, currentHp = charizard.maxHp),
+                PokemonState(venusaur, currentHp = venusaur.maxHp),
+            )
+        val choices =
+            TurnChoices.singles(
+                TurnChoice.UseMove(MoveDex.FLAMETHROWER),
+                TurnChoice.UseMove(MoveDex.SLUDGE_BOMB),
+            )
 
         val result = pipeline().resolve(state, choices)
         var currentState = state
@@ -58,10 +62,11 @@ class RendererTest {
     @Test
     fun `render paralysis failure`() {
         val species = Species("TestMon", listOf(Type.NORMAL), 80, 100, 80, 80, 80, 100)
-        val state = BattleState.singles(
-            PokemonState(Pokemon(species, 50), currentHp = 100, status = StatusCondition.PARALYSIS),
-            PokemonState(Pokemon(species, 50), currentHp = 100)
-        )
+        val state =
+            BattleState.singles(
+                PokemonState(Pokemon(species, 50), currentHp = 100, status = StatusCondition.PARALYSIS),
+                PokemonState(Pokemon(species, 50), currentHp = 100),
+            )
 
         val event = MoveFailed(Slot.p1(), FailReason.FULLY_PARALYZED)
         val lines = TextRenderer.render(event, state, state)
@@ -72,10 +77,11 @@ class RendererTest {
     @Test
     fun `render sleep and wake`() {
         val species = Species("Sleepy", listOf(Type.NORMAL), 80, 100, 80, 80, 80, 100)
-        val state = BattleState.singles(
-            PokemonState(Pokemon(species, 50), currentHp = 100, status = StatusCondition.SLEEP),
-            PokemonState(Pokemon(species, 50), currentHp = 100)
-        )
+        val state =
+            BattleState.singles(
+                PokemonState(Pokemon(species, 50), currentHp = 100, status = StatusCondition.SLEEP),
+                PokemonState(Pokemon(species, 50), currentHp = 100),
+            )
 
         val sleepLines = TextRenderer.render(MoveFailed(Slot.p1(), FailReason.ASLEEP), state, state)
         assertEquals(listOf("Sleepy is fast asleep!"), sleepLines)
@@ -89,10 +95,11 @@ class RendererTest {
     @Test
     fun `render stat boosts with correct phrasing`() {
         val species = Species("Fighter", listOf(Type.FIGHTING), 80, 100, 80, 80, 80, 100)
-        val state = BattleState.singles(
-            PokemonState(Pokemon(species, 50), currentHp = 100),
-            PokemonState(Pokemon(species, 50), currentHp = 100)
-        )
+        val state =
+            BattleState.singles(
+                PokemonState(Pokemon(species, 50), currentHp = 100),
+                PokemonState(Pokemon(species, 50), currentHp = 100),
+            )
 
         val rose1 = TextRenderer.render(StatChanged(Slot.p1(), StatType.ATTACK, 1), state, state)
         assertEquals(listOf("Fighter's Attack rose!"), rose1)
@@ -116,11 +123,12 @@ class RendererTest {
         val pokemonA = Pokemon(speciesA, 50)
         val pokemonB = Pokemon(speciesB, 50)
 
-        val stateBefore = BattleState.singles(
-            PokemonState(pokemonA, currentHp = pokemonA.maxHp),
-            PokemonState(Pokemon(speciesB, 50), currentHp = 100),
-            p1Bench = listOf(PokemonState(pokemonB, currentHp = pokemonB.maxHp))
-        )
+        val stateBefore =
+            BattleState.singles(
+                PokemonState(pokemonA, currentHp = pokemonA.maxHp),
+                PokemonState(Pokemon(speciesB, 50), currentHp = 100),
+                p1Bench = listOf(PokemonState(pokemonB, currentHp = pokemonB.maxHp)),
+            )
 
         val switchOutLines = TextRenderer.render(SwitchOut(Slot.p1()), stateBefore, stateBefore)
         assertEquals(listOf("Charizard, come back!"), switchOutLines)
@@ -136,11 +144,12 @@ class RendererTest {
     @Test
     fun `render weather events`() {
         val species = Species("TestMon", listOf(Type.FIRE), 80, 100, 80, 80, 80, 100)
-        val state = BattleState.singles(
-            PokemonState(Pokemon(species, 50), currentHp = 100),
-            PokemonState(Pokemon(species, 50), currentHp = 100),
-            field = FieldState(weather = Weather.SANDSTORM, weatherTurnsRemaining = 2)
-        )
+        val state =
+            BattleState.singles(
+                PokemonState(Pokemon(species, 50), currentHp = 100),
+                PokemonState(Pokemon(species, 50), currentHp = 100),
+                field = FieldState(weather = Weather.SANDSTORM, weatherTurnsRemaining = 2),
+            )
 
         val dmgLines = TextRenderer.render(WeatherDamage(Slot.p1(), 9, Weather.SANDSTORM), state, state)
         assertEquals(listOf("TestMon is buffeted by the sandstorm!"), dmgLines)
@@ -163,20 +172,24 @@ class RendererTest {
         val venusaur = Pokemon(pokedex["Venusaur"]!!, level = 50)
         val blastoise = Pokemon(pokedex["Blastoise"]!!, level = 50)
 
-        val initialState = BattleState.singles(
-            PokemonState(charizard, currentHp = charizard.maxHp),
-            PokemonState(venusaur, currentHp = 1), // KO first turn
-            p2Bench = listOf(PokemonState(blastoise, currentHp = 1)) // KO second turn
-        )
+        val initialState =
+            BattleState.singles(
+                PokemonState(charizard, currentHp = charizard.maxHp),
+                PokemonState(venusaur, currentHp = 1), // KO first turn
+                p2Bench = listOf(PokemonState(blastoise, currentHp = 1)), // KO second turn
+            )
 
-        val result = BattleLoop(
-            pipeline = pipeline(),
-            choiceProvider = { TurnChoices.singles(
-                TurnChoice.UseMove(MoveDex.FLAMETHROWER),
-                TurnChoice.UseMove(MoveDex.SLUDGE_BOMB)
-            )},
-            faintReplacementProvider = { _, _ -> 0 }
-        ).run(initialState)
+        val result =
+            BattleLoop(
+                pipeline = pipeline(),
+                choiceProvider = {
+                    TurnChoices.singles(
+                        TurnChoice.UseMove(MoveDex.FLAMETHROWER),
+                        TurnChoice.UseMove(MoveDex.SLUDGE_BOMB),
+                    )
+                },
+                faintReplacementProvider = { _, _ -> 0 },
+            ).run(initialState)
 
         val text = renderBattle(result, initialState)
 

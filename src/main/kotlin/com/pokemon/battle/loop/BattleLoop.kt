@@ -1,33 +1,36 @@
 package com.pokemon.battle.loop
 
-import com.pokemon.battle.model.*
 import com.pokemon.battle.engine.*
+import com.pokemon.battle.model.*
 
 fun interface ChoiceProvider {
     fun getChoices(state: BattleState): TurnChoices
 }
 
 fun interface FaintReplacementProvider {
-    fun getReplacement(state: BattleState, faintedSlot: Slot): Int
+    fun getReplacement(
+        state: BattleState,
+        faintedSlot: Slot,
+    ): Int
 }
 
 data class TurnResult(
     val turnNumber: Int,
     val events: List<BattleEvent>,
-    val replacementEvents: List<BattleEvent> = emptyList()
+    val replacementEvents: List<BattleEvent> = emptyList(),
 )
 
 data class BattleResult(
     val winner: Side?,
     val finalState: BattleState,
-    val turnHistory: List<TurnResult>
+    val turnHistory: List<TurnResult>,
 )
 
 class BattleLoop(
     private val pipeline: TurnPipeline,
     private val choiceProvider: ChoiceProvider,
     private val faintReplacementProvider: FaintReplacementProvider,
-    private val maxTurns: Int = 100
+    private val maxTurns: Int = 100,
 ) {
     fun run(initialState: BattleState): BattleResult {
         var state = initialState
@@ -65,7 +68,10 @@ class BattleLoop(
         return BattleResult(winner = null, finalState = state, turnHistory = turnHistory)
     }
 
-    private fun handleFaintReplacements(state: BattleState, events: MutableList<BattleEvent>): BattleState {
+    private fun handleFaintReplacements(
+        state: BattleState,
+        events: MutableList<BattleEvent>,
+    ): BattleState {
         var currentState = state
 
         for (slot in currentState.allSlots()) {

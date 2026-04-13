@@ -4,7 +4,7 @@ import com.pokemon.battle.model.*
 
 data class StatusApplied(
     val target: Slot,
-    val status: StatusCondition
+    val status: StatusCondition,
 ) : BattleEvent {
     override fun apply(state: BattleState): BattleState {
         val pokemon = state.pokemonFor(target)
@@ -15,7 +15,7 @@ data class StatusApplied(
 data class StatusDamage(
     val target: Slot,
     val amount: Int,
-    val source: StatusCondition
+    val source: StatusCondition,
 ) : BattleEvent {
     override fun apply(state: BattleState): BattleState {
         val pokemon = state.pokemonFor(target)
@@ -26,14 +26,15 @@ data class StatusDamage(
 
 data class StatusCleared(
     val target: Slot,
-    val status: StatusCondition
+    val status: StatusCondition,
 ) : BattleEvent {
     override fun apply(state: BattleState): BattleState {
         val pokemon = state.pokemonFor(target)
-        val newVolatiles = when (status) {
-            StatusCondition.SLEEP -> pokemon.volatiles.filterNot { it is Volatile.Sleep }.toSet()
-            else -> pokemon.volatiles
-        }
+        val newVolatiles =
+            when (status) {
+                StatusCondition.SLEEP -> pokemon.volatiles.filterNot { it is Volatile.Sleep }.toSet()
+                else -> pokemon.volatiles
+            }
         return state.withPokemon(target, pokemon.copy(status = null, volatiles = newVolatiles))
     }
 }

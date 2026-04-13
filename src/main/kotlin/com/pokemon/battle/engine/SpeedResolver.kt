@@ -7,7 +7,8 @@ fun interface SpeedResolver {
 }
 
 /** Gen V+ speed: base * stage * paralysis (0.5x). Future: Choice Scarf, Swift Swim, etc. */
-val GenVSpeedResolver = SpeedResolver { pokemon ->
-    val base = pokemon.baseEffectiveSpeed()
-    if (pokemon.status == StatusCondition.PARALYSIS) base * 0.5 else base
-}
+val GenVSpeedResolver =
+    SpeedResolver { pokemon ->
+        val base = pokemon.baseEffectiveSpeed()
+        if (pokemon.status == StatusCondition.PARALYSIS) base * 0.5 else base
+    }

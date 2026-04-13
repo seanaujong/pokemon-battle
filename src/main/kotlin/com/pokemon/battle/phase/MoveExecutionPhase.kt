@@ -1,16 +1,18 @@
 package com.pokemon.battle.phase
 
-import com.pokemon.battle.model.*
 import com.pokemon.battle.engine.*
+import com.pokemon.battle.model.*
 
 class MoveExecutionPhase(
     private val damageCalculator: DamageCalculator = GenVDamageCalculator(),
     private val speedResolver: SpeedResolver = GenVSpeedResolver,
     private val roll: (IntRange) -> Int = { range -> range.random() },
-    private val chanceCheck: ChanceCheck = defaultChanceCheck
+    private val chanceCheck: ChanceCheck = defaultChanceCheck,
 ) : Phase {
-
-    override fun resolve(state: BattleState, choices: TurnChoices): List<BattleEvent> {
+    override fun resolve(
+        state: BattleState,
+        choices: TurnChoices,
+    ): List<BattleEvent> {
         val order = resolveMoveOrder(state, choices, speedResolver).order
         val events = mutableListOf<BattleEvent>()
         var currentState = state
@@ -34,7 +36,11 @@ class MoveExecutionPhase(
 
     // --- Status checks ---
 
-    private fun checkStatusThenExecute(state: BattleState, slot: Slot, choice: TurnChoice.UseMove): List<BattleEvent> {
+    private fun checkStatusThenExecute(
+        state: BattleState,
+        slot: Slot,
+        choice: TurnChoice.UseMove,
+    ): List<BattleEvent> {
         val attacker = state.pokemonFor(slot)
 
         if (attacker.status == StatusCondition.SLEEP) {
@@ -47,7 +53,7 @@ class MoveExecutionPhase(
             if (remaining > 0) {
                 return listOf(
                     VolatileChanged(slot, sleepVolatile, Volatile.Sleep(remaining)),
-                    MoveFailed(slot, FailReason.ASLEEP)
+                    MoveFailed(slot, FailReason.ASLEEP),
                 )
             } else {
                 val cleared = StatusCleared(slot, StatusCondition.SLEEP)
@@ -75,7 +81,11 @@ class MoveExecutionPhase(
 
     // --- Move execution ---
 
-    private fun executeMove(state: BattleState, attackerSlot: Slot, choice: TurnChoice.UseMove): List<BattleEvent> {
+    private fun executeMove(
+        state: BattleState,
+        attackerSlot: Slot,
+        choice: TurnChoice.UseMove,
+    ): List<BattleEvent> {
         val move = choice.move
         val events = mutableListOf<BattleEvent>(MoveAttempted(attackerSlot, move))
         var currentState = state
@@ -106,7 +116,10 @@ class MoveExecutionPhase(
     // --- Per-target damage resolution ---
 
     private fun resolveDamage(
-        state: BattleState, attackerSlot: Slot, move: Move, targets: List<Slot>
+        state: BattleState,
+        attackerSlot: Slot,
+        move: Move,
+        targets: List<Slot>,
     ): List<BattleEvent> {
         val events = mutableListOf<BattleEvent>()
         var currentState = state
@@ -126,12 +139,13 @@ class MoveExecutionPhase(
             }
 
             val result = damageCalculator.calculate(attacker, defender, move, roll, spreadMod)
-            val damageEvent = DamageDealt(
-                target = targetSlot,
-                amount = result.damage,
-                effectiveness = result.effectiveness,
-                critical = false
-            )
+            val damageEvent =
+                DamageDealt(
+                    target = targetSlot,
+                    amount = result.damage,
+                    effectiveness = result.effectiveness,
+                    critical = false,
+                )
             events.add(damageEvent)
             currentState = damageEvent.apply(currentState)
 
@@ -148,7 +162,9 @@ class MoveExecutionPhase(
     // --- Effect resolution ---
 
     private fun resolveEffects(
-        effects: List<MoveEffect>, targets: List<Slot>, faintedSlots: Set<Slot>
+        effects: List<MoveEffect>,
+        targets: List<Slot>,
+        faintedSlots: Set<Slot>,
     ): List<BattleEvent> {
         val events = mutableListOf<BattleEvent>()
         for (effect in effects) {
@@ -160,7 +176,10 @@ class MoveExecutionPhase(
         return events
     }
 
-    private fun resolveEffect(effect: MoveEffect, targetSlot: Slot): List<BattleEvent> {
+    private fun resolveEffect(
+        effect: MoveEffect,
+        targetSlot: Slot,
+    ): List<BattleEvent> {
         return when (effect) {
             is MoveEffect.StatBoost -> listOf(StatChanged(targetSlot, effect.stat, effect.stages))
         }
@@ -168,7 +187,12 @@ class MoveExecutionPhase(
 
     // --- Target resolution ---
 
-    private fun resolveTargetSlots(state: BattleState, attackerSlot: Slot, target: MoveTarget, chosenTarget: Slot?): List<Slot> {
+    private fun resolveTargetSlots(
+        state: BattleState,
+        attackerSlot: Slot,
+        target: MoveTarget,
+        chosenTarget: Slot?,
+    ): List<Slot> {
         return when (target) {
             MoveTarget.SELF -> listOf(attackerSlot)
             MoveTarget.ONE_OPPONENT -> {
@@ -188,8 +212,12 @@ class MoveExecutionPhase(
 
     // --- Ability checks ---
 
-    private fun abilityBlockingMove(defender: PokemonState, move: Move): Ability? = when (defender.ability) {
-        Ability.LEVITATE -> if (move.type == Type.GROUND && move.power > 0) Ability.LEVITATE else null
-        else -> null
-    }
+    private fun abilityBlockingMove(
+        defender: PokemonState,
+        move: Move,
+    ): Ability? =
+        when (defender.ability) {
+            Ability.LEVITATE -> if (move.type == Type.GROUND && move.power > 0) Ability.LEVITATE else null
+            else -> null
+        }
 }

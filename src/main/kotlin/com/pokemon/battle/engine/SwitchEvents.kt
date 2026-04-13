@@ -3,7 +3,7 @@ package com.pokemon.battle.engine
 import com.pokemon.battle.model.*
 
 data class SwitchOut(
-    val slot: Slot
+    val slot: Slot,
 ) : BattleEvent {
     override fun apply(state: BattleState): BattleState {
         val pokemon = state.pokemonFor(slot)
@@ -15,7 +15,7 @@ data class SwitchOut(
 
 data class SwitchIn(
     val slot: Slot,
-    val benchIndex: Int
+    val benchIndex: Int,
 ) : BattleEvent {
     override fun apply(state: BattleState): BattleState {
         val side = slot.side

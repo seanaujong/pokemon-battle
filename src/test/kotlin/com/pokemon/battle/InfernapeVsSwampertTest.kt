@@ -1,39 +1,55 @@
 package com.pokemon.battle
 
-import com.pokemon.battle.model.*
 import com.pokemon.battle.engine.*
+import com.pokemon.battle.model.*
 import com.pokemon.battle.phase.*
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertIs
 
 class InfernapeVsSwampertTest {
+    private val infernapeSpecies =
+        Species(
+            name = "Infernape",
+            types = listOf(Type.FIRE, Type.FIGHTING),
+            baseHp = 76,
+            baseAttack = 104,
+            baseDefense = 71,
+            baseSpecialAttack = 104,
+            baseSpecialDefense = 71,
+            baseSpeed = 108,
+        )
 
-    private val infernapeSpecies = Species(
-        name = "Infernape",
-        types = listOf(Type.FIRE, Type.FIGHTING),
-        baseHp = 76, baseAttack = 104, baseDefense = 71,
-        baseSpecialAttack = 104, baseSpecialDefense = 71, baseSpeed = 108
-    )
-
-    private val swampertSpecies = Species(
-        name = "Swampert",
-        types = listOf(Type.WATER, Type.GROUND),
-        baseHp = 100, baseAttack = 110, baseDefense = 90,
-        baseSpecialAttack = 85, baseSpecialDefense = 90, baseSpeed = 60
-    )
+    private val swampertSpecies =
+        Species(
+            name = "Swampert",
+            types = listOf(Type.WATER, Type.GROUND),
+            baseHp = 100,
+            baseAttack = 110,
+            baseDefense = 90,
+            baseSpecialAttack = 85,
+            baseSpecialDefense = 90,
+            baseSpeed = 60,
+        )
 
     private val infernape = Pokemon(infernapeSpecies, level = 50)
     private val swampert = Pokemon(swampertSpecies, level = 50)
 
-    private val machPunch = Move(
-        name = "Mach Punch", type = Type.FIGHTING,
-        category = MoveCategory.PHYSICAL, power = 40, priority = 1
-    )
-    private val earthquake = Move(
-        name = "Earthquake", type = Type.GROUND,
-        category = MoveCategory.PHYSICAL, power = 100
-    )
+    private val machPunch =
+        Move(
+            name = "Mach Punch",
+            type = Type.FIGHTING,
+            category = MoveCategory.PHYSICAL,
+            power = 40,
+            priority = 1,
+        )
+    private val earthquake =
+        Move(
+            name = "Earthquake",
+            type = Type.GROUND,
+            category = MoveCategory.PHYSICAL,
+            power = 100,
+        )
 
     private val infernapeMaxHp = calcMaxHp(infernapeSpecies.baseHp, 50)
     private val swampertMaxHp = calcMaxHp(swampertSpecies.baseHp, 50)
@@ -41,24 +57,31 @@ class InfernapeVsSwampertTest {
     @Test
     fun `full turn with priority, burn, sandstorm, and Leftovers`() {
         val infernapeState = PokemonState(infernape, currentHp = infernapeMaxHp)
-        val swampertState = PokemonState(
-            swampert, currentHp = swampertMaxHp,
-            status = StatusCondition.BURN, item = Item.LEFTOVERS
-        )
+        val swampertState =
+            PokemonState(
+                swampert,
+                currentHp = swampertMaxHp,
+                status = StatusCondition.BURN,
+                item = Item.LEFTOVERS,
+            )
 
-        val initialState = BattleState.singles(
-            infernapeState, swampertState,
-            field = FieldState(weather = Weather.SANDSTORM, weatherTurnsRemaining = 3)
-        )
-        val choices = TurnChoices.singles(
-            TurnChoice.UseMove(machPunch),
-            TurnChoice.UseMove(earthquake)
-        )
+        val initialState =
+            BattleState.singles(
+                infernapeState,
+                swampertState,
+                field = FieldState(weather = Weather.SANDSTORM, weatherTurnsRemaining = 3),
+            )
+        val choices =
+            TurnChoices.singles(
+                TurnChoice.UseMove(machPunch),
+                TurnChoice.UseMove(earthquake),
+            )
 
         val fixedRoll: (IntRange) -> Int = { 100 }
-        val pipeline = TurnPipeline(
-            listOf(MoveOrderPhase(), MoveExecutionPhase(roll = fixedRoll), EndOfTurnPhase())
-        )
+        val pipeline =
+            TurnPipeline(
+                listOf(MoveOrderPhase(), MoveExecutionPhase(roll = fixedRoll), EndOfTurnPhase()),
+            )
 
         val result = pipeline.resolve(initialState, choices)
         val events = result.events
@@ -104,14 +127,17 @@ class InfernapeVsSwampertTest {
 
     @Test
     fun `Swampert is immune to sandstorm via Ground typing`() {
-        val state = BattleState.singles(
-            PokemonState(infernape, currentHp = infernapeMaxHp),
-            PokemonState(swampert, currentHp = swampertMaxHp),
-            field = FieldState(weather = Weather.SANDSTORM, weatherTurnsRemaining = 3)
-        )
-        val choices = TurnChoices.singles(
-            TurnChoice.UseMove(machPunch), TurnChoice.UseMove(earthquake)
-        )
+        val state =
+            BattleState.singles(
+                PokemonState(infernape, currentHp = infernapeMaxHp),
+                PokemonState(swampert, currentHp = swampertMaxHp),
+                field = FieldState(weather = Weather.SANDSTORM, weatherTurnsRemaining = 3),
+            )
+        val choices =
+            TurnChoices.singles(
+                TurnChoice.UseMove(machPunch),
+                TurnChoice.UseMove(earthquake),
+            )
         val events = EndOfTurnPhase().resolve(state, choices)
 
         val weatherEvents = events.filterIsInstance<WeatherDamage>()
@@ -121,14 +147,17 @@ class InfernapeVsSwampertTest {
 
     @Test
     fun `ability-based sandstorm immunity works`() {
-        val state = BattleState.singles(
-            PokemonState(infernape, currentHp = infernapeMaxHp, ability = Ability.SAND_VEIL),
-            PokemonState(swampert, currentHp = swampertMaxHp),
-            field = FieldState(weather = Weather.SANDSTORM, weatherTurnsRemaining = 3)
-        )
-        val choices = TurnChoices.singles(
-            TurnChoice.UseMove(machPunch), TurnChoice.UseMove(earthquake)
-        )
+        val state =
+            BattleState.singles(
+                PokemonState(infernape, currentHp = infernapeMaxHp, ability = Ability.SAND_VEIL),
+                PokemonState(swampert, currentHp = swampertMaxHp),
+                field = FieldState(weather = Weather.SANDSTORM, weatherTurnsRemaining = 3),
+            )
+        val choices =
+            TurnChoices.singles(
+                TurnChoice.UseMove(machPunch),
+                TurnChoice.UseMove(earthquake),
+            )
         val events = EndOfTurnPhase().resolve(state, choices)
 
         assertEquals(0, events.filterIsInstance<WeatherDamage>().size)

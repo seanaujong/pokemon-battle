@@ -8,7 +8,7 @@ data class PokemonState(
     val volatiles: Set<Volatile> = emptySet(),
     val ability: Ability? = null,
     val item: Item? = null,
-    val typeOverride: List<Type>? = null
+    val typeOverride: List<Type>? = null,
 ) {
     val isFainted: Boolean get() = currentHp <= 0
 
@@ -18,6 +18,5 @@ data class PokemonState(
     val effectiveTypes: List<Type> get() = typeOverride ?: pokemon.species.types
 
     /** Base speed with stat stages applied. No status/ability/item modifiers — those are gen-specific. */
-    fun baseEffectiveSpeed(): Double =
-        pokemon.calcStat(StatType.SPEED) * stageMultiplier(statStages.speed)
+    fun baseEffectiveSpeed(): Double = pokemon.calcStat(StatType.SPEED) * stageMultiplier(statStages.speed)
 }

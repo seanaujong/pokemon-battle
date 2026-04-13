@@ -7,7 +7,10 @@ import com.pokemon.battle.model.*
  * Called by SwitchPhase (voluntary switches), BattleLoop (faint replacements),
  * and future forced-switch logic.
  */
-fun resolveSwitchInAbility(state: BattleState, slot: Slot): List<BattleEvent> {
+fun resolveSwitchInAbility(
+    state: BattleState,
+    slot: Slot,
+): List<BattleEvent> {
     val pokemon = state.pokemonFor(slot)
     return when (pokemon.ability) {
         Ability.INTIMIDATE -> {
@@ -20,10 +23,11 @@ fun resolveSwitchInAbility(state: BattleState, slot: Slot): List<BattleEvent> {
             }
             events
         }
-        Ability.DRIZZLE -> listOf(
-            AbilityTriggered(slot, Ability.DRIZZLE),
-            WeatherSet(Weather.RAIN, 5)
-        )
+        Ability.DRIZZLE ->
+            listOf(
+                AbilityTriggered(slot, Ability.DRIZZLE),
+                WeatherSet(Weather.RAIN, 5),
+            )
         else -> emptyList()
     }
 }

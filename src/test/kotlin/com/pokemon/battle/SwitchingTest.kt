@@ -1,7 +1,7 @@
 package com.pokemon.battle
 
-import com.pokemon.battle.model.*
 import com.pokemon.battle.engine.*
+import com.pokemon.battle.model.*
 import com.pokemon.battle.phase.*
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -9,12 +9,12 @@ import kotlin.test.assertIs
 import kotlin.test.assertTrue
 
 class SwitchingTest {
-
     private val speciesA = Species("SpeciesA", listOf(Type.FIRE), 80, 100, 80, 80, 80, 100)
     private val speciesB = Species("SpeciesB", listOf(Type.WATER), 80, 100, 80, 80, 80, 80)
     private val speciesC = Species("SpeciesC", listOf(Type.GRASS), 80, 100, 80, 80, 80, 60)
 
     private fun pokemon(species: Species) = Pokemon(species, level = 50)
+
     private fun state(pokemon: Pokemon) = PokemonState(pokemon, currentHp = pokemon.maxHp)
 
     private val tackle = Move("Tackle", Type.NORMAL, MoveCategory.PHYSICAL, 40)
@@ -31,10 +31,11 @@ class SwitchingTest {
         val benched = state(pokemon(speciesC))
 
         val battleState = BattleState.singles(active1, active2, p1Bench = listOf(benched))
-        val choices = TurnChoices.singles(
-            TurnChoice.Switch(benchIndex = 0),
-            TurnChoice.UseMove(tackle)
-        )
+        val choices =
+            TurnChoices.singles(
+                TurnChoice.Switch(benchIndex = 0),
+                TurnChoice.UseMove(tackle),
+            )
 
         val phase = SwitchPhase()
         val events = phase.resolve(battleState, choices)
@@ -64,17 +65,21 @@ class SwitchingTest {
         val benched = state(pokemon(speciesC))
 
         val battleState = BattleState.singles(active1, active2, p1Bench = listOf(benched))
-        val choices = TurnChoices.singles(
-            TurnChoice.Switch(benchIndex = 0),
-            TurnChoice.UseMove(tackle)
-        )
+        val choices =
+            TurnChoices.singles(
+                TurnChoice.Switch(benchIndex = 0),
+                TurnChoice.UseMove(tackle),
+            )
 
-        val pipeline = TurnPipeline(listOf(
-            MoveOrderPhase(),
-            SwitchPhase(),
-            MoveExecutionPhase(roll = fixedRoll, chanceCheck = noChance),
-            EndOfTurnPhase()
-        ))
+        val pipeline =
+            TurnPipeline(
+                listOf(
+                    MoveOrderPhase(),
+                    SwitchPhase(),
+                    MoveExecutionPhase(roll = fixedRoll, chanceCheck = noChance),
+                    EndOfTurnPhase(),
+                ),
+            )
 
         val result = pipeline.resolve(battleState, choices)
         val events = result.events
@@ -100,19 +105,22 @@ class SwitchingTest {
 
     @Test
     fun `switch clears volatiles and stat stages`() {
-        val boosted = PokemonState(
-            pokemon(speciesA), currentHp = pokemon(speciesA).maxHp,
-            statStages = StatStages(attack = 2),
-            volatiles = setOf(Volatile.Confusion(3))
-        )
+        val boosted =
+            PokemonState(
+                pokemon(speciesA),
+                currentHp = pokemon(speciesA).maxHp,
+                statStages = StatStages(attack = 2),
+                volatiles = setOf(Volatile.Confusion(3)),
+            )
         val active2 = state(pokemon(speciesB))
         val benched = state(pokemon(speciesC))
 
         val battleState = BattleState.singles(boosted, active2, p1Bench = listOf(benched))
-        val choices = TurnChoices.singles(
-            TurnChoice.Switch(benchIndex = 0),
-            TurnChoice.UseMove(tackle)
-        )
+        val choices =
+            TurnChoices.singles(
+                TurnChoice.Switch(benchIndex = 0),
+                TurnChoice.UseMove(tackle),
+            )
 
         val phase = SwitchPhase()
         val events = phase.resolve(battleState, choices)
@@ -130,18 +138,21 @@ class SwitchingTest {
 
     @Test
     fun `switch preserves status condition`() {
-        val burned = PokemonState(
-            pokemon(speciesA), currentHp = pokemon(speciesA).maxHp,
-            status = StatusCondition.BURN
-        )
+        val burned =
+            PokemonState(
+                pokemon(speciesA),
+                currentHp = pokemon(speciesA).maxHp,
+                status = StatusCondition.BURN,
+            )
         val active2 = state(pokemon(speciesB))
         val benched = state(pokemon(speciesC))
 
         val battleState = BattleState.singles(burned, active2, p1Bench = listOf(benched))
-        val choices = TurnChoices.singles(
-            TurnChoice.Switch(benchIndex = 0),
-            TurnChoice.UseMove(tackle)
-        )
+        val choices =
+            TurnChoices.singles(
+                TurnChoice.Switch(benchIndex = 0),
+                TurnChoice.UseMove(tackle),
+            )
 
         val phase = SwitchPhase()
         val events = phase.resolve(battleState, choices)
@@ -174,25 +185,34 @@ class SwitchingTest {
 
     @Test
     fun `one slot switches while the other attacks in doubles`() {
-        val battleState = BattleState.doubles(
-            state(pokemon(speciesA)), state(pokemon(speciesB)),
-            state(pokemon(speciesA)), state(pokemon(speciesB)),
-            p1Bench = listOf(state(pokemon(speciesC)))
-        )
+        val battleState =
+            BattleState.doubles(
+                state(pokemon(speciesA)),
+                state(pokemon(speciesB)),
+                state(pokemon(speciesA)),
+                state(pokemon(speciesB)),
+                p1Bench = listOf(state(pokemon(speciesC))),
+            )
 
-        val choices = TurnChoices(mapOf(
-            Slot.p1(0) to TurnChoice.Switch(benchIndex = 0),  // switch
-            Slot.p1(1) to TurnChoice.UseMove(tackle),          // attack
-            Slot.p2(0) to TurnChoice.UseMove(tackle),
-            Slot.p2(1) to TurnChoice.UseMove(tackle)
-        ))
+        val choices =
+            TurnChoices(
+                mapOf(
+                    Slot.p1(0) to TurnChoice.Switch(benchIndex = 0), // switch
+                    Slot.p1(1) to TurnChoice.UseMove(tackle), // attack
+                    Slot.p2(0) to TurnChoice.UseMove(tackle),
+                    Slot.p2(1) to TurnChoice.UseMove(tackle),
+                ),
+            )
 
-        val pipeline = TurnPipeline(listOf(
-            MoveOrderPhase(),
-            SwitchPhase(),
-            MoveExecutionPhase(roll = fixedRoll, chanceCheck = noChance),
-            EndOfTurnPhase()
-        ))
+        val pipeline =
+            TurnPipeline(
+                listOf(
+                    MoveOrderPhase(),
+                    SwitchPhase(),
+                    MoveExecutionPhase(roll = fixedRoll, chanceCheck = noChance),
+                    EndOfTurnPhase(),
+                ),
+            )
 
         val result = pipeline.resolve(battleState, choices)
         val events = result.events
@@ -210,15 +230,18 @@ class SwitchingTest {
 
     @Test
     fun `switching slot is excluded from move ordering`() {
-        val battleState = BattleState.singles(
-            state(pokemon(speciesA)), state(pokemon(speciesB)),
-            p1Bench = listOf(state(pokemon(speciesC)))
-        )
+        val battleState =
+            BattleState.singles(
+                state(pokemon(speciesA)),
+                state(pokemon(speciesB)),
+                p1Bench = listOf(state(pokemon(speciesC))),
+            )
 
-        val choices = TurnChoices.singles(
-            TurnChoice.Switch(benchIndex = 0),
-            TurnChoice.UseMove(tackle)
-        )
+        val choices =
+            TurnChoices.singles(
+                TurnChoice.Switch(benchIndex = 0),
+                TurnChoice.UseMove(tackle),
+            )
 
         val order = resolveMoveOrder(battleState, choices)
 

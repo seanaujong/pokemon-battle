@@ -5,5 +5,5 @@ enum class FailReason {
     ASLEEP,
     FROZEN,
     FLINCHED,
-    CONFUSION_SELF_HIT
+    CONFUSION_SELF_HIT,
 }

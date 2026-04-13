@@ -1,8 +1,8 @@
 package com.pokemon.battle.ai
 
-import com.pokemon.battle.model.*
 import com.pokemon.battle.engine.*
 import com.pokemon.battle.loop.*
+import com.pokemon.battle.model.*
 import kotlin.random.Random
 
 /**
@@ -13,9 +13,8 @@ import kotlin.random.Random
  */
 class RandomAI(
     private val movePools: Map<String, List<Move>>,
-    private val random: Random = Random
+    private val random: Random = Random,
 ) : ChoiceProvider, FaintReplacementProvider {
-
     override fun getChoices(state: BattleState): TurnChoices {
         val choices = mutableMapOf<Slot, TurnChoice>()
 
@@ -33,5 +32,8 @@ class RandomAI(
         return TurnChoices(choices)
     }
 
-    override fun getReplacement(state: BattleState, faintedSlot: Slot): Int = 0
+    override fun getReplacement(
+        state: BattleState,
+        faintedSlot: Slot,
+    ): Int = 0
 }

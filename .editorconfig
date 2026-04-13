@@ -1,0 +1,18 @@
+root = true
+
+[*.{kt,kts}]
+# Wildcard imports: our packages are well-scoped (model, engine, phase, etc.)
+# and wildcards reduce import noise without ambiguity risk.
+ktlint_standard_no-wildcard-imports = disabled
+
+# Files like MoveOrder.kt contain a data class + a top-level function.
+# Ktlint wants the file named after the single class, but our naming
+# reflects the concept (MoveOrder) not the class (MoveOrderResult).
+ktlint_standard_filename = disabled
+
+# We use inline comments in constructor args for readability, e.g.,
+# BattleState.doubles(p1Left, p1Right, // side 1
+#                     p2Left, p2Right)  // side 2
+ktlint_standard_value-argument-comment = disabled
+ktlint_standard_value-parameter-comment = disabled
+ktlint_standard_discouraged-comment-location = disabled

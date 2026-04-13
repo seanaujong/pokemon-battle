@@ -36,11 +36,13 @@ enum class Nature(val boosted: StatType?, val penalized: StatType?) {
     TIMID(StatType.SPEED, StatType.ATTACK),
     HASTY(StatType.SPEED, StatType.DEFENSE),
     JOLLY(StatType.SPEED, StatType.SPECIAL_ATTACK),
-    NAIVE(StatType.SPEED, StatType.SPECIAL_DEFENSE);
+    NAIVE(StatType.SPEED, StatType.SPECIAL_DEFENSE),
+    ;
 
-    fun modifier(stat: StatType): Double = when (stat) {
-        boosted -> 1.1
-        penalized -> 0.9
-        else -> 1.0
-    }
+    fun modifier(stat: StatType): Double =
+        when (stat) {
+            boosted -> 1.1
+            penalized -> 0.9
+            else -> 1.0
+        }
 }

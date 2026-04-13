@@ -5,7 +5,7 @@ import com.pokemon.battle.model.*
 data class ItemHealing(
     val target: Slot,
     val amount: Int,
-    val item: Item
+    val item: Item,
 ) : BattleEvent {
     override fun apply(state: BattleState): BattleState {
         val pokemon = state.pokemonFor(target)

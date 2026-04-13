@@ -6,8 +6,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Kotlin project implementing an event-sourced turn-resolution pipeline for Pokemon singles battles. The design is specified in `docs/`. Implementation is underway — see diary entries in `docs/diaries/` for current progress.
 
-**Stack:** Kotlin 2.2.10, JVM 17, Gradle 8.14, kotlin-test + JUnit Platform.
+**Stack:** Kotlin 2.2.10, JVM 17, Gradle 8.14, kotlin-test + JUnit Platform, ktlint.
 **Package:** `com.pokemon.battle`
+**Linting:** `./gradlew ktlintCheck` runs ktlint. `./gradlew ktlintFormat` auto-fixes. Disabled rules are documented in `.editorconfig`.
 
 ## Architecture
 

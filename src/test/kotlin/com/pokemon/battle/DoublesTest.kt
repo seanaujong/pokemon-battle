@@ -1,15 +1,13 @@
 package com.pokemon.battle
 
-import com.pokemon.battle.model.*
 import com.pokemon.battle.engine.*
+import com.pokemon.battle.model.*
 import com.pokemon.battle.phase.*
 import kotlin.test.Test
 import kotlin.test.assertEquals
-import kotlin.test.assertIs
 import kotlin.test.assertTrue
 
 class DoublesTest {
-
     // Four distinct species with different speeds for clear ordering
     private val fast = Species("Fast", listOf(Type.NORMAL), 80, 100, 80, 80, 80, 120)
     private val midFast = Species("MidFast", listOf(Type.NORMAL), 80, 100, 80, 80, 80, 100)
@@ -26,6 +24,7 @@ class DoublesTest {
     private val machPunch = Move("Mach Punch", Type.FIGHTING, MoveCategory.PHYSICAL, 40, priority = 1)
 
     private fun pokemon(species: Species) = Pokemon(species, level = 50)
+
     private fun state(pokemon: Pokemon) = PokemonState(pokemon, currentHp = pokemon.maxHp)
 
     private val fixedRoll: (IntRange) -> Int = { 100 }
@@ -35,16 +34,22 @@ class DoublesTest {
 
     @Test
     fun `4-slot battle orders all slots by speed`() {
-        val battleState = BattleState.doubles(
-            state(pokemon(fast)), state(pokemon(slow)),        // side 1
-            state(pokemon(midFast)), state(pokemon(midSlow))   // side 2
-        )
-        val choices = TurnChoices(mapOf(
-            Slot.p1(0) to TurnChoice.UseMove(tackle),
-            Slot.p1(1) to TurnChoice.UseMove(tackle),
-            Slot.p2(0) to TurnChoice.UseMove(tackle),
-            Slot.p2(1) to TurnChoice.UseMove(tackle)
-        ))
+        val battleState =
+            BattleState.doubles(
+                state(pokemon(fast)),
+                state(pokemon(slow)), // side 1
+                state(pokemon(midFast)),
+                state(pokemon(midSlow)), // side 2
+            )
+        val choices =
+            TurnChoices(
+                mapOf(
+                    Slot.p1(0) to TurnChoice.UseMove(tackle),
+                    Slot.p1(1) to TurnChoice.UseMove(tackle),
+                    Slot.p2(0) to TurnChoice.UseMove(tackle),
+                    Slot.p2(1) to TurnChoice.UseMove(tackle),
+                ),
+            )
 
         val order = resolveMoveOrder(battleState, choices)
 
@@ -58,16 +63,22 @@ class DoublesTest {
 
     @Test
     fun `all 4 Pokemon act in a doubles turn`() {
-        val battleState = BattleState.doubles(
-            state(pokemon(fast)), state(pokemon(slow)),
-            state(pokemon(midFast)), state(pokemon(midSlow))
-        )
-        val choices = TurnChoices(mapOf(
-            Slot.p1(0) to TurnChoice.UseMove(tackle),
-            Slot.p1(1) to TurnChoice.UseMove(tackle),
-            Slot.p2(0) to TurnChoice.UseMove(tackle),
-            Slot.p2(1) to TurnChoice.UseMove(tackle)
-        ))
+        val battleState =
+            BattleState.doubles(
+                state(pokemon(fast)),
+                state(pokemon(slow)),
+                state(pokemon(midFast)),
+                state(pokemon(midSlow)),
+            )
+        val choices =
+            TurnChoices(
+                mapOf(
+                    Slot.p1(0) to TurnChoice.UseMove(tackle),
+                    Slot.p1(1) to TurnChoice.UseMove(tackle),
+                    Slot.p2(0) to TurnChoice.UseMove(tackle),
+                    Slot.p2(1) to TurnChoice.UseMove(tackle),
+                ),
+            )
 
         val phase = MoveExecutionPhase(roll = fixedRoll, chanceCheck = noChance)
         val events = phase.resolve(battleState, choices)
@@ -80,17 +91,23 @@ class DoublesTest {
 
     @Test
     fun `player can target a specific opponent slot`() {
-        val battleState = BattleState.doubles(
-            state(pokemon(fast)), state(pokemon(slow)),
-            state(pokemon(midFast)), state(pokemon(midSlow))
-        )
+        val battleState =
+            BattleState.doubles(
+                state(pokemon(fast)),
+                state(pokemon(slow)),
+                state(pokemon(midFast)),
+                state(pokemon(midSlow)),
+            )
         // P1 slot 0 targets P2 slot 1 specifically
-        val choices = TurnChoices(mapOf(
-            Slot.p1(0) to TurnChoice.UseMove(tackle, targetSlot = Slot.p2(1)),
-            Slot.p1(1) to TurnChoice.UseMove(tackle),
-            Slot.p2(0) to TurnChoice.UseMove(tackle),
-            Slot.p2(1) to TurnChoice.UseMove(tackle)
-        ))
+        val choices =
+            TurnChoices(
+                mapOf(
+                    Slot.p1(0) to TurnChoice.UseMove(tackle, targetSlot = Slot.p2(1)),
+                    Slot.p1(1) to TurnChoice.UseMove(tackle),
+                    Slot.p2(0) to TurnChoice.UseMove(tackle),
+                    Slot.p2(1) to TurnChoice.UseMove(tackle),
+                ),
+            )
 
         val phase = MoveExecutionPhase(roll = fixedRoll, chanceCheck = noChance)
         val events = phase.resolve(battleState, choices)
@@ -104,16 +121,22 @@ class DoublesTest {
 
     @Test
     fun `ALL_OPPONENTS move hits both opposing slots`() {
-        val battleState = BattleState.doubles(
-            state(pokemon(fast)), state(pokemon(slow)),
-            state(pokemon(midFast)), state(pokemon(midSlow))
-        )
-        val choices = TurnChoices(mapOf(
-            Slot.p1(0) to TurnChoice.UseMove(hyperVoice),
-            Slot.p1(1) to TurnChoice.UseMove(tackle),
-            Slot.p2(0) to TurnChoice.UseMove(tackle),
-            Slot.p2(1) to TurnChoice.UseMove(tackle)
-        ))
+        val battleState =
+            BattleState.doubles(
+                state(pokemon(fast)),
+                state(pokemon(slow)),
+                state(pokemon(midFast)),
+                state(pokemon(midSlow)),
+            )
+        val choices =
+            TurnChoices(
+                mapOf(
+                    Slot.p1(0) to TurnChoice.UseMove(hyperVoice),
+                    Slot.p1(1) to TurnChoice.UseMove(tackle),
+                    Slot.p2(0) to TurnChoice.UseMove(tackle),
+                    Slot.p2(1) to TurnChoice.UseMove(tackle),
+                ),
+            )
 
         val phase = MoveExecutionPhase(roll = fixedRoll, chanceCheck = noChance)
         val events = phase.resolve(battleState, choices)
@@ -131,16 +154,22 @@ class DoublesTest {
 
     @Test
     fun `ALL_OTHER move hits ally and both opponents`() {
-        val battleState = BattleState.doubles(
-            state(pokemon(fast)), state(pokemon(slow)),
-            state(pokemon(midFast)), state(pokemon(midSlow))
-        )
-        val choices = TurnChoices(mapOf(
-            Slot.p1(0) to TurnChoice.UseMove(earthquake),
-            Slot.p1(1) to TurnChoice.UseMove(tackle),
-            Slot.p2(0) to TurnChoice.UseMove(tackle),
-            Slot.p2(1) to TurnChoice.UseMove(tackle)
-        ))
+        val battleState =
+            BattleState.doubles(
+                state(pokemon(fast)),
+                state(pokemon(slow)),
+                state(pokemon(midFast)),
+                state(pokemon(midSlow)),
+            )
+        val choices =
+            TurnChoices(
+                mapOf(
+                    Slot.p1(0) to TurnChoice.UseMove(earthquake),
+                    Slot.p1(1) to TurnChoice.UseMove(tackle),
+                    Slot.p2(0) to TurnChoice.UseMove(tackle),
+                    Slot.p2(1) to TurnChoice.UseMove(tackle),
+                ),
+            )
 
         val phase = MoveExecutionPhase(roll = fixedRoll, chanceCheck = noChance)
         val events = phase.resolve(battleState, choices)
@@ -159,10 +188,13 @@ class DoublesTest {
 
     @Test
     fun `spread moves deal 75 percent damage`() {
-        val battleState = BattleState.doubles(
-            state(pokemon(fast)), state(pokemon(slow)),
-            state(pokemon(midFast)), state(pokemon(midSlow))
-        )
+        val battleState =
+            BattleState.doubles(
+                state(pokemon(fast)),
+                state(pokemon(slow)),
+                state(pokemon(midFast)),
+                state(pokemon(midSlow)),
+            )
         // Compare: single-target tackle vs spread hyper voice against same defender
         val singleState = BattleState.singles(state(pokemon(fast)), state(pokemon(midFast)))
 
@@ -181,16 +213,22 @@ class DoublesTest {
     @Test
     fun `fainted target is skipped during spread move`() {
         // P2 slot 0 has 1 HP — will faint from Earthquake. P2 slot 1 should still take damage.
-        val battleState = BattleState.doubles(
-            state(pokemon(fast)), state(pokemon(slow)),
-            PokemonState(pokemon(midFast), currentHp = 1), state(pokemon(midSlow))
-        )
-        val choices = TurnChoices(mapOf(
-            Slot.p1(0) to TurnChoice.UseMove(earthquake),
-            Slot.p1(1) to TurnChoice.UseMove(tackle),
-            Slot.p2(0) to TurnChoice.UseMove(tackle),
-            Slot.p2(1) to TurnChoice.UseMove(tackle)
-        ))
+        val battleState =
+            BattleState.doubles(
+                state(pokemon(fast)),
+                state(pokemon(slow)),
+                PokemonState(pokemon(midFast), currentHp = 1),
+                state(pokemon(midSlow)),
+            )
+        val choices =
+            TurnChoices(
+                mapOf(
+                    Slot.p1(0) to TurnChoice.UseMove(earthquake),
+                    Slot.p1(1) to TurnChoice.UseMove(tackle),
+                    Slot.p2(0) to TurnChoice.UseMove(tackle),
+                    Slot.p2(1) to TurnChoice.UseMove(tackle),
+                ),
+            )
 
         val phase = MoveExecutionPhase(roll = fixedRoll, chanceCheck = noChance)
         val events = phase.resolve(battleState, choices)
@@ -208,19 +246,23 @@ class DoublesTest {
 
     @Test
     fun `end-of-turn effects tick for all 4 slots`() {
-        val battleState = BattleState.doubles(
-            PokemonState(pokemon(fireType), currentHp = pokemon(fireType).maxHp),
-            PokemonState(pokemon(groundType), currentHp = pokemon(groundType).maxHp, status = StatusCondition.BURN),
-            PokemonState(pokemon(fireType), currentHp = pokemon(fireType).maxHp),
-            PokemonState(pokemon(groundType), currentHp = pokemon(groundType).maxHp, item = Item.LEFTOVERS),
-            field = FieldState(weather = Weather.SANDSTORM, weatherTurnsRemaining = 3)
-        )
-        val choices = TurnChoices(mapOf(
-            Slot.p1(0) to TurnChoice.UseMove(tackle),
-            Slot.p1(1) to TurnChoice.UseMove(tackle),
-            Slot.p2(0) to TurnChoice.UseMove(tackle),
-            Slot.p2(1) to TurnChoice.UseMove(tackle)
-        ))
+        val battleState =
+            BattleState.doubles(
+                PokemonState(pokemon(fireType), currentHp = pokemon(fireType).maxHp),
+                PokemonState(pokemon(groundType), currentHp = pokemon(groundType).maxHp, status = StatusCondition.BURN),
+                PokemonState(pokemon(fireType), currentHp = pokemon(fireType).maxHp),
+                PokemonState(pokemon(groundType), currentHp = pokemon(groundType).maxHp, item = Item.LEFTOVERS),
+                field = FieldState(weather = Weather.SANDSTORM, weatherTurnsRemaining = 3),
+            )
+        val choices =
+            TurnChoices(
+                mapOf(
+                    Slot.p1(0) to TurnChoice.UseMove(tackle),
+                    Slot.p1(1) to TurnChoice.UseMove(tackle),
+                    Slot.p2(0) to TurnChoice.UseMove(tackle),
+                    Slot.p2(1) to TurnChoice.UseMove(tackle),
+                ),
+            )
 
         val events = EndOfTurnPhase().resolve(battleState, choices)
 
@@ -247,16 +289,22 @@ class DoublesTest {
 
     @Test
     fun `priority move goes first regardless of speed in doubles`() {
-        val battleState = BattleState.doubles(
-            state(pokemon(slow)), state(pokemon(fast)),  // slow uses Mach Punch
-            state(pokemon(midFast)), state(pokemon(midSlow))
-        )
-        val choices = TurnChoices(mapOf(
-            Slot.p1(0) to TurnChoice.UseMove(machPunch),  // slow but +1 priority
-            Slot.p1(1) to TurnChoice.UseMove(tackle),
-            Slot.p2(0) to TurnChoice.UseMove(tackle),
-            Slot.p2(1) to TurnChoice.UseMove(tackle)
-        ))
+        val battleState =
+            BattleState.doubles(
+                state(pokemon(slow)),
+                state(pokemon(fast)), // slow uses Mach Punch
+                state(pokemon(midFast)),
+                state(pokemon(midSlow)),
+            )
+        val choices =
+            TurnChoices(
+                mapOf(
+                    Slot.p1(0) to TurnChoice.UseMove(machPunch), // slow but +1 priority
+                    Slot.p1(1) to TurnChoice.UseMove(tackle),
+                    Slot.p2(0) to TurnChoice.UseMove(tackle),
+                    Slot.p2(1) to TurnChoice.UseMove(tackle),
+                ),
+            )
 
         val order = resolveMoveOrder(battleState, choices)
 

@@ -1,8 +1,8 @@
 package com.pokemon.battle.ai
 
-import com.pokemon.battle.model.*
 import com.pokemon.battle.engine.*
 import com.pokemon.battle.loop.*
+import com.pokemon.battle.model.*
 
 /**
  * Picks the move with the best type effectiveness against the opponent.
@@ -13,9 +13,8 @@ import com.pokemon.battle.loop.*
  * Falls back to the first available move if no damaging moves exist.
  */
 class TypeAI(
-    private val movePools: Map<String, List<Move>>
+    private val movePools: Map<String, List<Move>>,
 ) : ChoiceProvider, FaintReplacementProvider {
-
     override fun getChoices(state: BattleState): TurnChoices {
         val choices = mutableMapOf<Slot, TurnChoice>()
 
@@ -33,9 +32,15 @@ class TypeAI(
         return TurnChoices(choices)
     }
 
-    private fun pickBestMove(state: BattleState, slot: Slot, pokemon: PokemonState, moves: List<Move>): TurnChoice {
-        val opponents = state.opponentSlots(slot)
-            .filter { !state.pokemonFor(it).isFainted }
+    private fun pickBestMove(
+        state: BattleState,
+        slot: Slot,
+        pokemon: PokemonState,
+        moves: List<Move>,
+    ): TurnChoice {
+        val opponents =
+            state.opponentSlots(slot)
+                .filter { !state.pokemonFor(it).isFainted }
 
         if (opponents.isEmpty()) {
             return TurnChoice.UseMove(moves.first())
@@ -48,12 +53,13 @@ class TypeAI(
         for (move in moves) {
             if (move.power == 0) continue
 
-            val targets = when (move.target) {
-                MoveTarget.ONE_OPPONENT -> opponents
-                MoveTarget.ALL_OPPONENTS -> listOf(opponents.first())
-                MoveTarget.ALL_OTHER -> listOf(opponents.first())
-                MoveTarget.SELF -> continue
-            }
+            val targets =
+                when (move.target) {
+                    MoveTarget.ONE_OPPONENT -> opponents
+                    MoveTarget.ALL_OPPONENTS -> listOf(opponents.first())
+                    MoveTarget.ALL_OTHER -> listOf(opponents.first())
+                    MoveTarget.SELF -> continue
+                }
 
             for (target in targets) {
                 val defender = state.pokemonFor(target)
@@ -72,10 +78,14 @@ class TypeAI(
         return TurnChoice.UseMove(bestMove, targetSlot = bestTarget)
     }
 
-    override fun getReplacement(state: BattleState, faintedSlot: Slot): Int {
+    override fun getReplacement(
+        state: BattleState,
+        faintedSlot: Slot,
+    ): Int {
         val bench = state.benchFor(faintedSlot.side)
-        val opponents = state.opponentSlots(faintedSlot)
-            .filter { !state.pokemonFor(it).isFainted }
+        val opponents =
+            state.opponentSlots(faintedSlot)
+                .filter { !state.pokemonFor(it).isFainted }
 
         if (opponents.isEmpty() || bench.isEmpty()) return 0
 

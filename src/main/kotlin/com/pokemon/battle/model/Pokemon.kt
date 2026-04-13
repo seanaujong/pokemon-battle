@@ -5,7 +5,7 @@ data class Pokemon(
     val level: Int,
     val ivs: StatBlock = StatBlock.uniform(31),
     val evs: StatBlock = StatBlock.uniform(0),
-    val nature: Nature = Nature.HARDY
+    val nature: Nature = Nature.HARDY,
 ) {
     init {
         require(ivs.all { it in 0..31 }) { "IVs must be 0-31" }
@@ -14,6 +14,5 @@ data class Pokemon(
 
     val maxHp: Int get() = calcMaxHp(species.baseHp, level, ivs.hp, evs.hp)
 
-    fun calcStat(stat: StatType): Int =
-        calcStat(species.baseStat(stat), level, ivs.forStat(stat), evs.forStat(stat), nature.modifier(stat))
+    fun calcStat(stat: StatType): Int = calcStat(species.baseStat(stat), level, ivs.forStat(stat), evs.forStat(stat), nature.modifier(stat))
 }

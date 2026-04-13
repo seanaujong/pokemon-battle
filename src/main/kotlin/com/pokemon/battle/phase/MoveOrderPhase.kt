@@ -1,10 +1,13 @@
 package com.pokemon.battle.phase
 
-import com.pokemon.battle.model.*
 import com.pokemon.battle.engine.*
+import com.pokemon.battle.model.*
 
 class MoveOrderPhase : Phase {
-    override fun resolve(state: BattleState, choices: TurnChoices): List<BattleEvent> {
+    override fun resolve(
+        state: BattleState,
+        choices: TurnChoices,
+    ): List<BattleEvent> {
         val result = resolveMoveOrder(state, choices)
         return listOf(MoveOrderDecided(result.order, result.leadReason))
     }

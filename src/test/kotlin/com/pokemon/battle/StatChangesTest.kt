@@ -1,41 +1,55 @@
 package com.pokemon.battle
 
-import com.pokemon.battle.model.*
 import com.pokemon.battle.engine.*
+import com.pokemon.battle.model.*
 import com.pokemon.battle.phase.*
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
 class StatChangesTest {
-
-    private val species = Species(
-        name = "Balanced", types = listOf(Type.NORMAL),
-        baseHp = 80, baseAttack = 100, baseDefense = 100,
-        baseSpecialAttack = 100, baseSpecialDefense = 100, baseSpeed = 100
-    )
+    private val species =
+        Species(
+            name = "Balanced",
+            types = listOf(Type.NORMAL),
+            baseHp = 80,
+            baseAttack = 100,
+            baseDefense = 100,
+            baseSpecialAttack = 100,
+            baseSpecialDefense = 100,
+            baseSpeed = 100,
+        )
 
     private val pokemon = Pokemon(species, level = 50)
     private val maxHp = calcMaxHp(species.baseHp, 50)
 
-    private val tackle = Move(
-        name = "Tackle", type = Type.NORMAL,
-        category = MoveCategory.PHYSICAL, power = 40
-    )
+    private val tackle =
+        Move(
+            name = "Tackle",
+            type = Type.NORMAL,
+            category = MoveCategory.PHYSICAL,
+            power = 40,
+        )
 
-    private val swordsDance = Move(
-        name = "Swords Dance", type = Type.NORMAL,
-        category = MoveCategory.STATUS, power = 0,
-        target = MoveTarget.SELF,
-        effects = listOf(MoveEffect.StatBoost(StatType.ATTACK, 2))
-    )
+    private val swordsDance =
+        Move(
+            name = "Swords Dance",
+            type = Type.NORMAL,
+            category = MoveCategory.STATUS,
+            power = 0,
+            target = MoveTarget.SELF,
+            effects = listOf(MoveEffect.StatBoost(StatType.ATTACK, 2)),
+        )
 
-    private val growl = Move(
-        name = "Growl", type = Type.NORMAL,
-        category = MoveCategory.STATUS, power = 0,
-        target = MoveTarget.ONE_OPPONENT,
-        effects = listOf(MoveEffect.StatBoost(StatType.ATTACK, -1))
-    )
+    private val growl =
+        Move(
+            name = "Growl",
+            type = Type.NORMAL,
+            category = MoveCategory.STATUS,
+            power = 0,
+            target = MoveTarget.ONE_OPPONENT,
+            effects = listOf(MoveEffect.StatBoost(StatType.ATTACK, -1)),
+        )
 
     private fun makeState(): BattleState {
         val p1 = PokemonState(pokemon, currentHp = maxHp)
@@ -46,10 +60,11 @@ class StatChangesTest {
     @Test
     fun `Swords Dance raises user attack by 2 stages`() {
         val state = makeState()
-        val choices = TurnChoices.singles(
-            TurnChoice.UseMove(swordsDance),
-            TurnChoice.UseMove(tackle)
-        )
+        val choices =
+            TurnChoices.singles(
+                TurnChoice.UseMove(swordsDance),
+                TurnChoice.UseMove(tackle),
+            )
         val phase = MoveExecutionPhase(roll = { 100 }, chanceCheck = { _, _ -> false })
         val events = phase.resolve(state, choices)
 
@@ -70,19 +85,21 @@ class StatChangesTest {
         val fixedRoll: (IntRange) -> Int = { 100 }
         val phase = MoveExecutionPhase(roll = fixedRoll, chanceCheck = { _, _ -> false })
 
-        val turn1Choices = TurnChoices.singles(
-            TurnChoice.UseMove(swordsDance),
-            TurnChoice.UseMove(tackle)
-        )
+        val turn1Choices =
+            TurnChoices.singles(
+                TurnChoice.UseMove(swordsDance),
+                TurnChoice.UseMove(tackle),
+            )
         val turn1Events = phase.resolve(state, turn1Choices)
         val stateAfterTurn1 = turn1Events.fold(state) { s, e -> e.apply(s) }
 
         assertEquals(2, stateAfterTurn1.pokemonFor(Slot.p1()).statStages.attack)
 
-        val turn2Choices = TurnChoices.singles(
-            TurnChoice.UseMove(tackle),
-            TurnChoice.UseMove(tackle)
-        )
+        val turn2Choices =
+            TurnChoices.singles(
+                TurnChoice.UseMove(tackle),
+                TurnChoice.UseMove(tackle),
+            )
         val turn2Events = phase.resolve(stateAfterTurn1, turn2Choices)
 
         val damageEvents = turn2Events.filterIsInstance<DamageDealt>()
@@ -102,10 +119,11 @@ class StatChangesTest {
     @Test
     fun `Growl lowers opponent attack by 1 stage`() {
         val state = makeState()
-        val choices = TurnChoices.singles(
-            TurnChoice.UseMove(growl),
-            TurnChoice.UseMove(tackle)
-        )
+        val choices =
+            TurnChoices.singles(
+                TurnChoice.UseMove(growl),
+                TurnChoice.UseMove(tackle),
+            )
         val phase = MoveExecutionPhase(roll = { 100 }, chanceCheck = { _, _ -> false })
         val events = phase.resolve(state, choices)
 
@@ -121,19 +139,21 @@ class StatChangesTest {
         val fixedRoll: (IntRange) -> Int = { 100 }
         val phase = MoveExecutionPhase(roll = fixedRoll, chanceCheck = { _, _ -> false })
 
-        val choices = TurnChoices.singles(
-            TurnChoice.UseMove(growl),
-            TurnChoice.UseMove(tackle)
-        )
+        val choices =
+            TurnChoices.singles(
+                TurnChoice.UseMove(growl),
+                TurnChoice.UseMove(tackle),
+            )
         val turn1Events = phase.resolve(state, choices)
         val stateAfterGrowl = turn1Events.fold(state) { s, e -> e.apply(s) }
 
         assertEquals(-1, stateAfterGrowl.pokemonFor(Slot.p2()).statStages.attack)
 
-        val turn2Choices = TurnChoices.singles(
-            TurnChoice.UseMove(tackle),
-            TurnChoice.UseMove(tackle)
-        )
+        val turn2Choices =
+            TurnChoices.singles(
+                TurnChoice.UseMove(tackle),
+                TurnChoice.UseMove(tackle),
+            )
         val turn2Events = phase.resolve(stateAfterGrowl, turn2Choices)
 
         val damageEvents = turn2Events.filterIsInstance<DamageDealt>()

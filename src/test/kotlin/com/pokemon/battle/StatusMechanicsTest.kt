@@ -1,7 +1,7 @@
 package com.pokemon.battle
 
-import com.pokemon.battle.model.*
 import com.pokemon.battle.engine.*
+import com.pokemon.battle.model.*
 import com.pokemon.battle.phase.*
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -9,23 +9,37 @@ import kotlin.test.assertIs
 import kotlin.test.assertTrue
 
 class StatusMechanicsTest {
+    private val fastSpecies =
+        Species(
+            name = "Fast",
+            types = listOf(Type.NORMAL),
+            baseHp = 80,
+            baseAttack = 100,
+            baseDefense = 80,
+            baseSpecialAttack = 80,
+            baseSpecialDefense = 80,
+            baseSpeed = 100,
+        )
 
-    private val fastSpecies = Species(
-        name = "Fast", types = listOf(Type.NORMAL),
-        baseHp = 80, baseAttack = 100, baseDefense = 80,
-        baseSpecialAttack = 80, baseSpecialDefense = 80, baseSpeed = 100
-    )
+    private val slowSpecies =
+        Species(
+            name = "Slow",
+            types = listOf(Type.NORMAL),
+            baseHp = 80,
+            baseAttack = 100,
+            baseDefense = 80,
+            baseSpecialAttack = 80,
+            baseSpecialDefense = 80,
+            baseSpeed = 50,
+        )
 
-    private val slowSpecies = Species(
-        name = "Slow", types = listOf(Type.NORMAL),
-        baseHp = 80, baseAttack = 100, baseDefense = 80,
-        baseSpecialAttack = 80, baseSpecialDefense = 80, baseSpeed = 50
-    )
-
-    private val tackle = Move(
-        name = "Tackle", type = Type.NORMAL,
-        category = MoveCategory.PHYSICAL, power = 40
-    )
+    private val tackle =
+        Move(
+            name = "Tackle",
+            type = Type.NORMAL,
+            category = MoveCategory.PHYSICAL,
+            power = 40,
+        )
 
     private fun makeState(
         p1Status: StatusCondition? = null,
@@ -33,25 +47,30 @@ class StatusMechanicsTest {
         p2Status: StatusCondition? = null,
         p2Volatiles: Set<Volatile> = emptySet(),
         p1Species: Species = fastSpecies,
-        p2Species: Species = slowSpecies
+        p2Species: Species = slowSpecies,
     ): BattleState {
-        val p1 = PokemonState(
-            Pokemon(p1Species, 50),
-            currentHp = calcMaxHp(p1Species.baseHp, 50),
-            status = p1Status, volatiles = p1Volatiles
-        )
-        val p2 = PokemonState(
-            Pokemon(p2Species, 50),
-            currentHp = calcMaxHp(p2Species.baseHp, 50),
-            status = p2Status, volatiles = p2Volatiles
-        )
+        val p1 =
+            PokemonState(
+                Pokemon(p1Species, 50),
+                currentHp = calcMaxHp(p1Species.baseHp, 50),
+                status = p1Status,
+                volatiles = p1Volatiles,
+            )
+        val p2 =
+            PokemonState(
+                Pokemon(p2Species, 50),
+                currentHp = calcMaxHp(p2Species.baseHp, 50),
+                status = p2Status,
+                volatiles = p2Volatiles,
+            )
         return BattleState.singles(p1, p2)
     }
 
-    private val bothTackle = TurnChoices.singles(
-        TurnChoice.UseMove(tackle),
-        TurnChoice.UseMove(tackle)
-    )
+    private val bothTackle =
+        TurnChoices.singles(
+            TurnChoice.UseMove(tackle),
+            TurnChoice.UseMove(tackle),
+        )
 
     // --- Paralysis ---
 
@@ -61,7 +80,7 @@ class StatusMechanicsTest {
         val paralyzed = normal.copy(status = StatusCondition.PARALYSIS)
         assertEquals(
             GenVSpeedResolver.effectiveSpeed(normal) * 0.5,
-            GenVSpeedResolver.effectiveSpeed(paralyzed)
+            GenVSpeedResolver.effectiveSpeed(paralyzed),
         )
     }
 
@@ -99,10 +118,11 @@ class StatusMechanicsTest {
 
     @Test
     fun `sleeping Pokemon cannot act and counter decrements`() {
-        val state = makeState(
-            p1Status = StatusCondition.SLEEP,
-            p1Volatiles = setOf(Volatile.Sleep(turnsRemaining = 2))
-        )
+        val state =
+            makeState(
+                p1Status = StatusCondition.SLEEP,
+                p1Volatiles = setOf(Volatile.Sleep(turnsRemaining = 2)),
+            )
         val phase = MoveExecutionPhase(roll = { 100 }, chanceCheck = { _, _ -> false })
         val events = phase.resolve(state, bothTackle)
 
@@ -118,10 +138,11 @@ class StatusMechanicsTest {
 
     @Test
     fun `Pokemon wakes up when sleep counter reaches zero`() {
-        val state = makeState(
-            p1Status = StatusCondition.SLEEP,
-            p1Volatiles = setOf(Volatile.Sleep(turnsRemaining = 1))
-        )
+        val state =
+            makeState(
+                p1Status = StatusCondition.SLEEP,
+                p1Volatiles = setOf(Volatile.Sleep(turnsRemaining = 1)),
+            )
         val phase = MoveExecutionPhase(roll = { 100 }, chanceCheck = { _, _ -> false })
         val events = phase.resolve(state, bothTackle)
 
@@ -135,10 +156,11 @@ class StatusMechanicsTest {
 
     @Test
     fun `sleep lasts exactly N turns then wakes`() {
-        var state = makeState(
-            p1Status = StatusCondition.SLEEP,
-            p1Volatiles = setOf(Volatile.Sleep(turnsRemaining = 2))
-        )
+        var state =
+            makeState(
+                p1Status = StatusCondition.SLEEP,
+                p1Volatiles = setOf(Volatile.Sleep(turnsRemaining = 2)),
+            )
         val phase = MoveExecutionPhase(roll = { 100 }, chanceCheck = { _, _ -> false })
 
         // Turn 1: P1 sleeps
@@ -181,11 +203,12 @@ class StatusMechanicsTest {
 
     @Test
     fun `paralyzed fast Pokemon goes after slower sleeping Pokemon`() {
-        val state = makeState(
-            p1Status = StatusCondition.PARALYSIS,
-            p2Status = StatusCondition.SLEEP,
-            p2Volatiles = setOf(Volatile.Sleep(turnsRemaining = 2))
-        )
+        val state =
+            makeState(
+                p1Status = StatusCondition.PARALYSIS,
+                p2Status = StatusCondition.SLEEP,
+                p2Volatiles = setOf(Volatile.Sleep(turnsRemaining = 2)),
+            )
         val phase = MoveExecutionPhase(roll = { 100 }, chanceCheck = { _, _ -> false })
         val pipeline = TurnPipeline(listOf(MoveOrderPhase(), phase, EndOfTurnPhase()))
         val result = pipeline.resolve(state, bothTackle)

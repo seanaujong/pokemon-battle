@@ -1,15 +1,23 @@
 package com.pokemon.battle.render
 
 import com.pokemon.battle.engine.*
-import com.pokemon.battle.model.*
 import com.pokemon.battle.loop.*
+import com.pokemon.battle.model.*
 
 fun interface BattleRenderer {
-    fun render(event: BattleEvent, stateBefore: BattleState, stateAfter: BattleState): List<String>
+    fun render(
+        event: BattleEvent,
+        stateBefore: BattleState,
+        stateAfter: BattleState,
+    ): List<String>
 }
 
 /** Render a full battle result into text lines, replaying from the initial state. */
-fun renderBattle(result: BattleResult, initialState: BattleState, renderer: BattleRenderer = TextRenderer): List<String> {
+fun renderBattle(
+    result: BattleResult,
+    initialState: BattleState,
+    renderer: BattleRenderer = TextRenderer,
+): List<String> {
     val lines = mutableListOf<String>()
     var currentState = initialState
 

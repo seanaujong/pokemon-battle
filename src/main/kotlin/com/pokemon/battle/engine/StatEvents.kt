@@ -5,7 +5,7 @@ import com.pokemon.battle.model.*
 data class StatChanged(
     val target: Slot,
     val stat: StatType,
-    val stages: Int
+    val stages: Int,
 ) : BattleEvent {
     override fun apply(state: BattleState): BattleState {
         val pokemon = state.pokemonFor(target)
@@ -15,7 +15,7 @@ data class StatChanged(
 
 data class TypeChanged(
     val target: Slot,
-    val newTypes: List<Type>
+    val newTypes: List<Type>,
 ) : BattleEvent {
     override fun apply(state: BattleState): BattleState {
         val pokemon = state.pokemonFor(target)
@@ -26,7 +26,7 @@ data class TypeChanged(
 data class VolatileChanged(
     val target: Slot,
     val old: Volatile,
-    val new: Volatile?
+    val new: Volatile?,
 ) : BattleEvent {
     override fun apply(state: BattleState): BattleState {
         val pokemon = state.pokemonFor(target)

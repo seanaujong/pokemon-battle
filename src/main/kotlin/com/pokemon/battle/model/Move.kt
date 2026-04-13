@@ -9,5 +9,5 @@ data class Move(
     val power: Int,
     val priority: Int = 0,
     val target: MoveTarget = MoveTarget.ONE_OPPONENT,
-    val effects: List<MoveEffect> = emptyList()
+    val effects: List<MoveEffect> = emptyList(),
 )

@@ -4,7 +4,7 @@ import com.pokemon.battle.model.*
 
 data class MoveOrderResult(
     val order: List<Slot>,
-    val leadReason: OrderReason
+    val leadReason: OrderReason,
 )
 
 /**
@@ -14,26 +14,29 @@ data class MoveOrderResult(
 fun resolveMoveOrder(
     state: BattleState,
     choices: TurnChoices,
-    speedResolver: SpeedResolver = GenVSpeedResolver
+    speedResolver: SpeedResolver = GenVSpeedResolver,
 ): MoveOrderResult {
-    val slotsWithPriority = state.allSlots().mapNotNull { slot ->
-        val choice = choices.choiceFor(slot) as? TurnChoice.UseMove ?: return@mapNotNull null
-        val priority = choice.move.priority
-        val speed = speedResolver.effectiveSpeed(state.pokemonFor(slot))
-        Triple(slot, priority, speed)
-    }
+    val slotsWithPriority =
+        state.allSlots().mapNotNull { slot ->
+            val choice = choices.choiceFor(slot) as? TurnChoice.UseMove ?: return@mapNotNull null
+            val priority = choice.move.priority
+            val speed = speedResolver.effectiveSpeed(state.pokemonFor(slot))
+            Triple(slot, priority, speed)
+        }
 
-    val sorted = slotsWithPriority.sortedWith(
-        compareByDescending<Triple<Slot, Int, Double>> { it.second }
-            .thenByDescending { it.third }
-    )
+    val sorted =
+        slotsWithPriority.sortedWith(
+            compareByDescending<Triple<Slot, Int, Double>> { it.second }
+                .thenByDescending { it.third },
+        )
 
-    val leadReason = when {
-        sorted.size < 2 -> OrderReason.SPEED
-        sorted[0].second != sorted[1].second -> OrderReason.PRIORITY
-        sorted[0].third != sorted[1].third -> OrderReason.SPEED
-        else -> OrderReason.SPEED_TIE
-    }
+    val leadReason =
+        when {
+            sorted.size < 2 -> OrderReason.SPEED
+            sorted[0].second != sorted[1].second -> OrderReason.PRIORITY
+            sorted[0].third != sorted[1].third -> OrderReason.SPEED
+            else -> OrderReason.SPEED_TIE
+        }
 
     return MoveOrderResult(sorted.map { it.first }, leadReason)
 }

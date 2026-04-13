@@ -10,7 +10,7 @@ fun interface DamageCalculator {
         defender: PokemonState,
         move: Move,
         roll: (IntRange) -> Int,
-        spreadModifier: Double
+        spreadModifier: Double,
     ): DamageResult
 }
 
@@ -19,11 +19,14 @@ fun interface DamageCalculator {
  * Gen-specific rules: burn penalty (0.5x physical), STAB (1.5x), formula structure.
  */
 class GenVDamageCalculator(
-    private val typeChart: TypeChart = StandardTypeChart
+    private val typeChart: TypeChart = StandardTypeChart,
 ) : DamageCalculator {
     override fun calculate(
-        attacker: PokemonState, defender: PokemonState, move: Move,
-        roll: (IntRange) -> Int, spreadModifier: Double
+        attacker: PokemonState,
+        defender: PokemonState,
+        move: Move,
+        roll: (IntRange) -> Int,
+        spreadModifier: Double,
     ): DamageResult {
         val level = attacker.pokemon.level
 
@@ -46,8 +49,9 @@ class GenVDamageCalculator(
         val randomRoll = roll(85..100)
 
         val baseDamage = ((2.0 * level / 5.0 + 2.0) * move.power * atk / def) / 50.0 + 2.0
-        val damage = (baseDamage * stab * typeMultiplier * burnMod * spreadModifier * randomRoll / 100.0).toInt()
-            .coerceAtLeast(if (typeMultiplier > 0.0) 1 else 0)
+        val damage =
+            (baseDamage * stab * typeMultiplier * burnMod * spreadModifier * randomRoll / 100.0).toInt()
+                .coerceAtLeast(if (typeMultiplier > 0.0) 1 else 0)
 
         return DamageResult(damage, effectiveness)
     }
@@ -59,5 +63,5 @@ fun calculateDamage(
     defender: PokemonState,
     move: Move,
     roll: (IntRange) -> Int = { range -> range.random() },
-    spreadModifier: Double = 1.0
+    spreadModifier: Double = 1.0,
 ): DamageResult = GenVDamageCalculator().calculate(attacker, defender, move, roll, spreadModifier)

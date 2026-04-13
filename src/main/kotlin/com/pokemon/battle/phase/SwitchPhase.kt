@@ -1,7 +1,7 @@
 package com.pokemon.battle.phase
 
-import com.pokemon.battle.model.*
 import com.pokemon.battle.engine.*
+import com.pokemon.battle.model.*
 
 /**
  * Resolves voluntary switches before moves execute.
@@ -12,15 +12,19 @@ import com.pokemon.battle.engine.*
  * so it lives here in the phase, not in SwitchOut.apply().
  */
 class SwitchPhase(
-    private val speedResolver: SpeedResolver = GenVSpeedResolver
+    private val speedResolver: SpeedResolver = GenVSpeedResolver,
 ) : Phase {
-    override fun resolve(state: BattleState, choices: TurnChoices): List<BattleEvent> {
+    override fun resolve(
+        state: BattleState,
+        choices: TurnChoices,
+    ): List<BattleEvent> {
         val events = mutableListOf<BattleEvent>()
         var currentState = state
 
-        val switchingSlots = currentState.allSlots()
-            .filter { choices.choiceFor(it) is TurnChoice.Switch }
-            .sortedByDescending { speedResolver.effectiveSpeed(currentState.pokemonFor(it)) }
+        val switchingSlots =
+            currentState.allSlots()
+                .filter { choices.choiceFor(it) is TurnChoice.Switch }
+                .sortedByDescending { speedResolver.effectiveSpeed(currentState.pokemonFor(it)) }
 
         for (slot in switchingSlots) {
             val choice = choices.choiceFor(slot) as TurnChoice.Switch
@@ -50,7 +54,10 @@ class SwitchPhase(
     }
 
     /** Emit events to clear volatiles and stat stages before switching out. */
-    private fun clearOnSwitchOut(state: BattleState, slot: Slot): List<BattleEvent> {
+    private fun clearOnSwitchOut(
+        state: BattleState,
+        slot: Slot,
+    ): List<BattleEvent> {
         val pokemon = state.pokemonFor(slot)
         val events = mutableListOf<BattleEvent>()
 
