@@ -24,13 +24,13 @@ data class StatStages(
     }
 }
 
-/** Standard Gen V+ HP stat formula (no IVs/EVs/Nature for now). */
-fun calcMaxHp(base: Int, level: Int): Int =
-    ((2 * base * level) / 100) + level + 10
+/** Gen V+ HP formula: ((2*base + iv + ev/4) * level) / 100 + level + 10 */
+fun calcMaxHp(base: Int, level: Int, iv: Int = 31, ev: Int = 0): Int =
+    ((2 * base + iv + ev / 4) * level) / 100 + level + 10
 
-/** Standard Gen V+ non-HP stat formula (no IVs/EVs/Nature for now). */
-fun calcStat(base: Int, level: Int): Int =
-    ((2 * base * level) / 100) + 5
+/** Gen V+ stat formula: (((2*base + iv + ev/4) * level) / 100 + 5) * nature */
+fun calcStat(base: Int, level: Int, iv: Int = 31, ev: Int = 0, natureMod: Double = 1.0): Int =
+    ((((2 * base + iv + ev / 4) * level) / 100 + 5) * natureMod).toInt()
 
 /** Stat stage multiplier: stage 0 = 1.0, +1 = 1.5, -1 = 0.667, etc. */
 fun stageMultiplier(stage: Int): Double {

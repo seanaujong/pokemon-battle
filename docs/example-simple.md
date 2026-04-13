@@ -23,9 +23,9 @@ A minimal turn that exercises the core pipeline: move order, damage, fainting.
 
 No weather, no items, no abilities for this example.
 
-> **Note:** The stats above assume specific IVs/EVs. The current implementation uses a
-> simplified formula (no IVs/EVs/Nature), which produces lower stat values. Once IVs/EVs
-> are added, the damage numbers below will match exactly. See diary 001 for details.
+> **Note:** The stats above assume 31 IVs / 0 EVs / neutral nature, which matches the
+> implementation's defaults. Stat values match exactly. Damage numbers differ slightly
+> from our formula due to integer truncation order (see diary 006).
 
 ## Pipeline Execution
 

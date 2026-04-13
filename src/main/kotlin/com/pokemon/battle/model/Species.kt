@@ -9,4 +9,12 @@ data class Species(
     val baseSpecialAttack: Int,
     val baseSpecialDefense: Int,
     val baseSpeed: Int
-)
+) {
+    fun baseStat(stat: StatType): Int = when (stat) {
+        StatType.ATTACK -> baseAttack
+        StatType.DEFENSE -> baseDefense
+        StatType.SPECIAL_ATTACK -> baseSpecialAttack
+        StatType.SPECIAL_DEFENSE -> baseSpecialDefense
+        StatType.SPEED -> baseSpeed
+    }
+}

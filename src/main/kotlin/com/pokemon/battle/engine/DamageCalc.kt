@@ -2,10 +2,8 @@ package com.pokemon.battle.engine
 
 import com.pokemon.battle.model.*
 
-import com.pokemon.battle.model.*
-
 /**
- * Standard Gen V+ damage formula (simplified: no IVs/EVs/Nature/items/abilities yet).
+ * Standard Gen V+ damage formula with IVs/EVs/Nature.
  *
  * [roll] controls the random factor (85..100 in real games). Pass a fixed lambda for testing.
  */
@@ -18,13 +16,13 @@ fun calculateDamage(
     val level = attacker.pokemon.level
 
     val isPhysical = move.category == MoveCategory.PHYSICAL
-    val atkBase = if (isPhysical) attacker.pokemon.species.baseAttack else attacker.pokemon.species.baseSpecialAttack
-    val defBase = if (isPhysical) defender.pokemon.species.baseDefense else defender.pokemon.species.baseSpecialDefense
+    val atkStat = if (isPhysical) StatType.ATTACK else StatType.SPECIAL_ATTACK
+    val defStat = if (isPhysical) StatType.DEFENSE else StatType.SPECIAL_DEFENSE
     val atkStage = if (isPhysical) attacker.statStages.attack else attacker.statStages.specialAttack
     val defStage = if (isPhysical) defender.statStages.defense else defender.statStages.specialDefense
 
-    val atk = (calcStat(atkBase, level) * stageMultiplier(atkStage)).toInt()
-    val def = (calcStat(defBase, level) * stageMultiplier(defStage)).toInt()
+    val atk = (attacker.pokemon.calcStat(atkStat) * stageMultiplier(atkStage)).toInt()
+    val def = (defender.pokemon.calcStat(defStat) * stageMultiplier(defStage)).toInt()
 
     // Burn halves physical attack damage
     val burnMod = if (attacker.status == StatusCondition.BURN && isPhysical) 0.5 else 1.0

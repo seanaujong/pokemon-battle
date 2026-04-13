@@ -11,10 +11,10 @@ data class PokemonState(
 ) {
     val isFainted: Boolean get() = currentHp <= 0
 
-    val maxHp: Int get() = calcMaxHp(pokemon.species.baseHp, pokemon.level)
+    val maxHp: Int get() = pokemon.maxHp
 
     fun effectiveSpeed(): Double {
-        val base = calcStat(pokemon.species.baseSpeed, pokemon.level) * stageMultiplier(statStages.speed)
+        val base = pokemon.calcStat(StatType.SPEED) * stageMultiplier(statStages.speed)
         return if (status == StatusCondition.PARALYSIS) base * 0.5 else base
     }
 }

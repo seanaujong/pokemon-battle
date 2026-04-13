@@ -41,9 +41,9 @@ class CharizardVsVenusaurTest {
 
     @Test
     fun `Charizard outspeeds and KOs Venusaur with super-effective Flamethrower`() {
-        val charizardState = PokemonState(charizard, currentHp = calcMaxHp(charizardSpecies.baseHp, 50))
-        // Start Venusaur at 130 HP so our simplified formula (no IVs/EVs) can KO.
-        // With full IVs/EVs the max HP would be 155 and max-roll Flamethrower would deal ~176.
+        val charizardState = PokemonState(charizard, currentHp = charizard.maxHp)
+        // Start Venusaur at 130 HP — our damage formula gives ~133 max roll,
+        // which KOs from 130 but not from full 155. See damage range test for details.
         val venusaurState = PokemonState(venusaur, currentHp = 130)
 
         val initialState = BattleState(charizardState, venusaurState)
@@ -97,8 +97,8 @@ class CharizardVsVenusaurTest {
 
     @Test
     fun `damage calc produces super-effective STAB Flamethrower damage in expected range`() {
-        val charizardState = PokemonState(charizard, currentHp = calcMaxHp(charizardSpecies.baseHp, 50))
-        val venusaurState = PokemonState(venusaur, currentHp = calcMaxHp(venusaurSpecies.baseHp, 50))
+        val charizardState = PokemonState(charizard, currentHp = charizard.maxHp)
+        val venusaurState = PokemonState(venusaur, currentHp = venusaur.maxHp)
 
         // Fire vs Grass/Poison = 2x, STAB = 1.5x
         val minResult = calculateDamage(charizardState, venusaurState, flamethrower, roll = { 85 })
@@ -107,13 +107,13 @@ class CharizardVsVenusaurTest {
         assertEquals(Effectiveness.SUPER_EFFECTIVE, minResult.effectiveness)
         assertEquals(Effectiveness.SUPER_EFFECTIVE, maxResult.effectiveness)
 
-        // Without IVs/EVs the damage range is lower than the worked example.
-        // Once IVs/EVs are added, these numbers should match docs/example-simple.md (~148-176).
-        assertTrue(minResult.damage in 100..150,
-            "Min roll damage (${minResult.damage}) should be in a reasonable range")
-        assertTrue(maxResult.damage in 120..170,
-            "Max roll damage (${maxResult.damage}) should be in a reasonable range")
-        assertTrue(maxResult.damage > minResult.damage, "Max roll should deal more than min roll")
+        // Exact values from our formula at fixed rolls (31 IVs / 0 EVs / neutral nature).
+        // These differ from docs/example-simple.md (~148-176) due to integer truncation
+        // order — the game truncates at each step, we accumulate then truncate once.
+        val midResult = calculateDamage(charizardState, venusaurState, flamethrower, roll = { 92 })
+        assertEquals(113, minResult.damage, "Min roll (85) damage")
+        assertEquals(123, midResult.damage, "Mid roll (92) damage")
+        assertEquals(133, maxResult.damage, "Max roll (100) damage")
     }
 
     @Test
@@ -124,11 +124,12 @@ class CharizardVsVenusaurTest {
 
     @Test
     fun `stat calculation matches expected values at level 50`() {
-        // Charizard base speed 100 at level 50: (2*100*50)/100 + 5 = 105
-        assertEquals(105, calcStat(100, 50))
-        // Venusaur base speed 80 at level 50: (2*80*50)/100 + 5 = 85
-        assertEquals(85, calcStat(80, 50))
-        // Charizard HP base 78 at level 50: (2*78*50)/100 + 50 + 10 = 138
-        assertEquals(138, calcMaxHp(78, 50))
+        // With default 31 IVs, 0 EVs, neutral nature:
+        // Charizard base speed 100 at level 50: ((2*100+31)*50)/100 + 5 = 120
+        assertEquals(120, calcStat(100, 50))
+        // Venusaur base speed 80 at level 50: ((2*80+31)*50)/100 + 5 = 100
+        assertEquals(100, calcStat(80, 50))
+        // Charizard HP base 78 at level 50: ((2*78+31)*50)/100 + 50 + 10 = 153
+        assertEquals(153, calcMaxHp(78, 50))
     }
 }

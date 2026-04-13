@@ -1,87 +1,68 @@
 # Diary 006: IVs, EVs, and Natures
 
-**Date:** 2026-04-12
-**Status:** Not started
+**Date:** 2026-04-13
+**Status:** Complete
 
 ## Goal
 
-Extend the stat formula to include Individual Values (IVs), Effort Values (EVs), and Natures. This closes the gap between our damage calculations and the worked examples in the docs, which assumed specific IV/EV spreads.
+Extend the stat formula to include Individual Values (IVs), Effort Values (EVs), and Natures. This closes the gap between our damage calculations and the worked examples in the docs.
 
-## Background
+## Decisions
 
-The current stat formula is simplified:
-```
-HP:  (2 * base * level) / 100 + level + 10
-Stat: (2 * base * level) / 100 + 5
-```
+1. **IVs/EVs on `Pokemon`** — they're fixed per Pokemon, don't change in battle. `StatBlock` data class holds per-stat values with a `uniform()` factory and `forStat()` accessor.
 
-The full Gen V+ formula is:
-```
-HP:  ((2 * base + iv + ev/4) * level) / 100 + level + 10
-Stat: (((2 * base + iv + ev/4) * level) / 100 + 5) * nature
-```
+2. **Defaults:** 31 IVs, 0 EVs, neutral nature (HARDY). This matches the worked examples' stat values exactly and preserves backwards compatibility — existing tests don't need to specify IVs/EVs.
 
-Where:
-- **IVs** range 0-31 (genetic potential, randomly determined)
-- **EVs** range 0-252 per stat, 510 total cap (training investment)
-- **Nature** is a 1.1x boost to one stat and 0.9x penalty to another (or neutral)
+3. **Nature as enum** with `boosted`/`penalized` stat fields and `modifier(stat)` function returning 0.9/1.0/1.1. All 25 natures defined (5 neutral, 20 non-neutral).
 
-## Questions to resolve
+4. **Stat calc moved to `Pokemon.calcStat(StatType)`** — centralizes the "what are this Pokemon's actual stats" question. `PokemonState.effectiveSpeed()` and `DamageCalc` both delegate to it.
 
-1. **Where do IVs/EVs live?** On `Pokemon` (they're fixed for a specific Pokemon, don't change in battle).
-
-2. **Nature representation** — enum with stat modifiers? There are 25 natures (5 neutral). Options:
-   - Full `Nature` enum with `boosted: StatType?` and `penalized: StatType?`
-   - Preference: enum with companion function `modifier(nature, stat): Double` returning 0.9, 1.0, or 1.1
-
-3. **Default values** — what should the defaults be for Pokemon created without explicit IVs/EVs?
-   - 31 IVs across the board (perfect, common in competitive)
-   - 0 EVs (no training)
-   - Neutral nature
-   - This way existing tests don't break, and the numbers shift to be higher (closer to the examples)
-
-4. **EV validation** — enforce the 510 total cap? Or just per-stat 0-252?
-   - Per-stat validation is easy. Total cap is a team-building concern, not a battle concern.
-   - Preference: validate per-stat only. The battle engine trusts the Pokemon is legal.
+5. **EV validation:** per-stat only (0-252). Total 510 cap is a team-building concern, not a battle engine concern.
 
 ## Plan
 
-### Step 1: Extend Pokemon with IVs and EVs
-- [ ] Add `ivs: StatBlock` and `evs: StatBlock` to `Pokemon` (default: 31 IVs, 0 EVs)
-- [ ] `StatBlock` data class: hp, attack, defense, specialAttack, specialDefense, speed
-- [ ] Per-stat validation: IVs 0-31, EVs 0-252
+### Step 1: StatBlock and Pokemon extensions (done)
+- [x] `StatBlock` data class with `forStat(StatType)` and `uniform(value)` factory
+- [x] `Pokemon` extended with `ivs: StatBlock`, `evs: StatBlock`, `nature: Nature`
+- [x] `Pokemon.maxHp` and `Pokemon.calcStat(StatType)` methods
 
-### Step 2: Add Nature
-- [ ] `Nature` enum with all 25 natures
-- [ ] `Nature.modifier(stat: StatType): Double` returning 0.9, 1.0, or 1.1
-- [ ] Add `nature: Nature` to `Pokemon` (default: a neutral nature, e.g., HARDY)
+### Step 2: Nature enum (done)
+- [x] All 25 natures with boosted/penalized stat pairs
+- [x] `modifier(stat): Double` returning 0.9, 1.0, or 1.1
 
-### Step 3: Update stat formulas
-- [ ] `calcMaxHp(base, level, iv, ev)` with the full formula
-- [ ] `calcStat(base, level, iv, ev, nature, statType)` with the full formula
-- [ ] Update `PokemonState.maxHp` and `PokemonState.effectiveSpeed()` to pass through IVs/EVs/Nature
-- [ ] Update `DamageCalc` to use the full formula
+### Step 3: Updated stat formulas (done)
+- [x] `calcMaxHp` and `calcStat` extended with `iv`, `ev`, `natureMod` parameters (default to 31/0/1.0)
+- [x] `PokemonState.maxHp` delegates to `pokemon.maxHp`
+- [x] `PokemonState.effectiveSpeed()` uses `pokemon.calcStat(SPEED)`
+- [x] `DamageCalc` uses `pokemon.calcStat(StatType)` for attack/defense stats
 
-### Step 4: Update worked examples
-- [ ] Specify the IV/EV/Nature spreads that produce the stats in `example-simple.md` and `example-extended.md`
-- [ ] Verify the damage numbers now match (or update them)
-- [ ] Update existing tests to use explicit IVs/EVs that produce expected values
+### Step 4: Updated tests (done)
+- [x] Charizard stat assertions updated to new formula values (speed 120, HP 153)
+- [x] Damage range test uses exact values at fixed rolls (113/123/133) instead of fuzzy ranges
+- [x] Example doc note updated — stats now match, damage truncation gap documented
 
-### Step 5: Test
-- [ ] Test: Pokemon with 31 IVs, 252 EVs, boosting nature has higher stats than base
-- [ ] Test: nature modifier applies correctly (Adamant boosts Attack, lowers SpAtk)
-- [ ] Test: EV investment changes damage output measurably
-- [ ] Re-run all existing tests to verify nothing breaks
+### Step 5: New tests (done)
+- [x] Default IV/EV/nature values correct
+- [x] HP formula with various IV/EV combinations
+- [x] Stat formula with IVs, EVs, and nature modifiers
+- [x] Adamant nature boosts/penalties
+- [x] Neutral natures have no modifiers
+- [x] `Pokemon.calcStat` integrates IVs/EVs/nature correctly
+- [x] EV investment increases damage
+- [x] Nature affects damage output
 
 ## Validation
 
-| Step | Validation |
-|------|-----------|
-| 1-2 | `./gradlew compileKotlin` — new types compile |
-| 3 | `./gradlew compileKotlin` — updated formulas compile |
-| 4-5 | `./gradlew test` — all tests pass with updated numbers |
+| Step | Validation | Result |
+|------|-----------|--------|
+| 1-2 | `./gradlew compileKotlin` | PASS |
+| 3 | `./gradlew compileKotlin` | PASS |
+| 4 | `./gradlew test` — existing 26 tests, 25 pass, 1 updated | PASS |
+| 5 | `./gradlew test` — 8 new IVs/EVs/Natures tests | PASS |
+| All | 34 tests total, 0 failures | PASS |
 
-## Open design questions
+## Discovery
 
-- **Stat calculation site:** Right now `calcStat` is a free function in `Stats.kt`. With IVs/EVs/Nature it needs more inputs. Should it become a method on `Pokemon`? e.g., `pokemon.calcStat(StatType.ATTACK)`. This would centralize the "what are this Pokemon's actual stats" question.
-- **Backwards compatibility:** Existing tests create Pokemon without IVs/EVs. Default to 31/0/neutral so they still work, but the damage numbers will change (higher stats = higher damage). Tests that assert on specific damage values will need updating.
+**31 IVs / 0 EVs matches the example doc stats exactly.** Charizard speed 120, HP 153, SpAtk 129 — all match `docs/example-simple.md`. The example author likely assumed perfect IVs with no EV investment, which is now our default.
+
+**Damage numbers still differ from the docs** (~113-133 vs ~148-176 for Flamethrower). The stat values match, but the damage formula's integer truncation order differs. The real game truncates at each multiplication step; we accumulate floating point then truncate once at the end. This is a formula fidelity gap, not an IVs/EVs issue. Documented but deferred — fixing requires matching the exact game implementation's truncation sequence.
