@@ -4,9 +4,11 @@ import com.pokemon.battle.model.*
 import com.pokemon.battle.engine.*
 
 class MoveExecutionPhase(
+    private val damageCalculator: DamageCalculator = GenVDamageCalculator,
     private val roll: (IntRange) -> Int = { range -> range.random() },
     private val chanceCheck: ChanceCheck = defaultChanceCheck
 ) : Phase {
+
     override fun resolve(state: BattleState, choices: TurnChoices): List<BattleEvent> {
         val order = resolveMoveOrder(state, choices).order
         val events = mutableListOf<BattleEvent>()
@@ -29,13 +31,14 @@ class MoveExecutionPhase(
         return events
     }
 
+    // --- Status checks ---
+
     private fun checkStatusThenExecute(state: BattleState, slot: Slot, choice: TurnChoice.UseMove): List<BattleEvent> {
         val attacker = state.pokemonFor(slot)
 
         if (attacker.status == StatusCondition.SLEEP) {
             val sleepVolatile = attacker.volatiles.filterIsInstance<Volatile.Sleep>().firstOrNull()
             if (sleepVolatile == null) {
-                // Inconsistent state: status is SLEEP but no Volatile.Sleep — clear and act
                 val cleared = StatusCleared(slot, StatusCondition.SLEEP)
                 return listOf(cleared) + executeMove(cleared.apply(state), slot, choice)
             }
@@ -69,64 +72,101 @@ class MoveExecutionPhase(
         return executeMove(state, slot, choice)
     }
 
+    // --- Move execution ---
+
     private fun executeMove(state: BattleState, attackerSlot: Slot, choice: TurnChoice.UseMove): List<BattleEvent> {
         val move = choice.move
         val events = mutableListOf<BattleEvent>(MoveAttempted(attackerSlot, move))
         var currentState = state
 
-        // Resolve target slots based on move target type
         val allTargets = resolveTargetSlots(currentState, attackerSlot, move.target, choice.targetSlot)
-        // For damage, exclude self (SELF-targeting moves don't deal damage to the user)
         val damageTargets = allTargets.filter { it != attackerSlot }
-        val isSpread = damageTargets.size > 1
-        val spreadMod = if (isSpread) 0.75 else 1.0
 
-        // Damage phase: if the move has power, calculate damage per target
+        // Damage
         if (move.power > 0) {
-            for (targetSlot in damageTargets) {
-                val attacker = currentState.pokemonFor(attackerSlot)
-                val defender = currentState.pokemonFor(targetSlot)
-
-                if (defender.isFainted) continue
-
-                // Ability immunity check
-                val blockingAbility = abilityBlockingMove(defender, move)
-                if (blockingAbility != null) {
-                    events.add(AbilityBlocked(targetSlot, blockingAbility))
-                    continue
-                }
-
-                val result = calculateDamage(attacker, defender, move, roll, spreadMod)
-                val damageEvent = DamageDealt(
-                    target = targetSlot,
-                    amount = result.damage,
-                    effectiveness = result.effectiveness,
-                    critical = false // TODO: critical hit logic
-                )
-                events.add(damageEvent)
-                currentState = damageEvent.apply(currentState)
-
-                if (currentState.pokemonFor(targetSlot).isFainted) {
-                    val faintEvent = PokemonFainted(targetSlot)
-                    events.add(faintEvent)
-                    currentState = faintEvent.apply(currentState)
-                }
+            val damageEvents = resolveDamage(currentState, attackerSlot, move, damageTargets)
+            for (event in damageEvents) {
+                events.add(event)
+                currentState = event.apply(currentState)
             }
         }
 
-        // Effects phase: process move effects (stat boosts, etc.)
+        // Effects
         val faintedSlots = events.filterIsInstance<PokemonFainted>().map { it.slot }.toSet()
-        for (effect in move.effects) {
-            for (effectTarget in allTargets) {
-                if (effectTarget in faintedSlots) continue
-                events.addAll(resolveEffect(effect, attackerSlot, effectTarget))
+        val effectEvents = resolveEffects(move.effects, allTargets, faintedSlots)
+        for (event in effectEvents) {
+            events.add(event)
+            currentState = event.apply(currentState)
+        }
+
+        return events
+    }
+
+    // --- Per-target damage resolution ---
+
+    private fun resolveDamage(
+        state: BattleState, attackerSlot: Slot, move: Move, targets: List<Slot>
+    ): List<BattleEvent> {
+        val events = mutableListOf<BattleEvent>()
+        var currentState = state
+        val isSpread = targets.size > 1
+        val spreadMod = if (isSpread) 0.75 else 1.0
+
+        for (targetSlot in targets) {
+            val attacker = currentState.pokemonFor(attackerSlot)
+            val defender = currentState.pokemonFor(targetSlot)
+
+            if (defender.isFainted) continue
+
+            val blockingAbility = abilityBlockingMove(defender, move)
+            if (blockingAbility != null) {
+                events.add(AbilityBlocked(targetSlot, blockingAbility))
+                continue
+            }
+
+            val result = damageCalculator.calculate(attacker, defender, move, roll, spreadMod)
+            val damageEvent = DamageDealt(
+                target = targetSlot,
+                amount = result.damage,
+                effectiveness = result.effectiveness,
+                critical = false
+            )
+            events.add(damageEvent)
+            currentState = damageEvent.apply(currentState)
+
+            if (currentState.pokemonFor(targetSlot).isFainted) {
+                val faintEvent = PokemonFainted(targetSlot)
+                events.add(faintEvent)
+                currentState = faintEvent.apply(currentState)
             }
         }
 
         return events
     }
 
-    /** Resolve which slots a move affects. SELF returns the attacker slot. */
+    // --- Effect resolution ---
+
+    private fun resolveEffects(
+        effects: List<MoveEffect>, targets: List<Slot>, faintedSlots: Set<Slot>
+    ): List<BattleEvent> {
+        val events = mutableListOf<BattleEvent>()
+        for (effect in effects) {
+            for (target in targets) {
+                if (target in faintedSlots) continue
+                events.addAll(resolveEffect(effect, target))
+            }
+        }
+        return events
+    }
+
+    private fun resolveEffect(effect: MoveEffect, targetSlot: Slot): List<BattleEvent> {
+        return when (effect) {
+            is MoveEffect.StatBoost -> listOf(StatChanged(targetSlot, effect.stat, effect.stages))
+        }
+    }
+
+    // --- Target resolution ---
+
     private fun resolveTargetSlots(state: BattleState, attackerSlot: Slot, target: MoveTarget, chosenTarget: Slot?): List<Slot> {
         return when (target) {
             MoveTarget.SELF -> listOf(attackerSlot)
@@ -145,13 +185,8 @@ class MoveExecutionPhase(
         }
     }
 
-    private fun resolveEffect(effect: MoveEffect, attackerSlot: Slot, targetSlot: Slot): List<BattleEvent> {
-        return when (effect) {
-            is MoveEffect.StatBoost -> listOf(StatChanged(targetSlot, effect.stat, effect.stages))
-        }
-    }
+    // --- Ability checks ---
 
-    /** Returns the ability that blocks this move, or null if not blocked. */
     private fun abilityBlockingMove(defender: PokemonState, move: Move): Ability? = when (defender.ability) {
         Ability.LEVITATE -> if (move.type == Type.GROUND && move.power > 0) Ability.LEVITATE else null
         else -> null

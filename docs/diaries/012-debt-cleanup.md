@@ -1,7 +1,7 @@
 # Diary 012: Architectural Debt Cleanup
 
 **Date:** 2026-04-13
-**Status:** Not started
+**Status:** Complete
 
 ## Goal
 
@@ -92,7 +92,10 @@ The effects loop at the end of `executeMove` doesn't apply events between effect
 
 ## Validation
 
-| Step | Validation |
-|------|-----------|
-| Each step | `./gradlew test` — all 66 tests pass |
-| Final | No new tests needed — this is refactoring |
+| Step | Validation | Result |
+|------|-----------|--------|
+| 1 | BattleEvent split — 7 files | PASS |
+| 2+5 | MoveExecutionPhase extraction + effects state | PASS |
+| 3 | Injectable DamageCalculator | PASS |
+| 4 | SpeedResolver extraction | PASS |
+| All | 66 tests, 0 failures | PASS |

@@ -13,8 +13,7 @@ data class PokemonState(
 
     val maxHp: Int get() = pokemon.maxHp
 
-    fun effectiveSpeed(): Double {
-        val base = pokemon.calcStat(StatType.SPEED) * stageMultiplier(statStages.speed)
-        return if (status == StatusCondition.PARALYSIS) base * 0.5 else base
-    }
+    /** Base speed with stat stages applied. No status/ability/item modifiers — those are gen-specific. */
+    fun baseEffectiveSpeed(): Double =
+        pokemon.calcStat(StatType.SPEED) * stageMultiplier(statStages.speed)
 }

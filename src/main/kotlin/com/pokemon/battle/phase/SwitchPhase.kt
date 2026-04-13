@@ -18,7 +18,7 @@ class SwitchPhase : Phase {
 
         val switchingSlots = currentState.allSlots()
             .filter { choices.choiceFor(it) is TurnChoice.Switch }
-            .sortedByDescending { currentState.pokemonFor(it).effectiveSpeed() }
+            .sortedByDescending { GenVSpeedResolver.effectiveSpeed(currentState.pokemonFor(it)) }
 
         for (slot in switchingSlots) {
             val choice = choices.choiceFor(slot) as TurnChoice.Switch

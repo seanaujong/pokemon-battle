@@ -264,7 +264,8 @@ All gen-specific behavior is in **phases**, not in the model or engine:
 |-------------|---------------|
 | Paralysis skip rate | `MoveExecutionPhase` |
 | Burn damage fraction | `EndOfTurnPhase` |
-| Damage formula modifiers | `DamageCalc` |
+| Damage formula modifiers | `DamageCalculator` (injectable) |
+| Speed modifiers (paralysis, abilities, items) | `SpeedResolver` (injectable) |
 | End-of-turn effect order | `EndOfTurnPhase` |
 | Spread damage modifier | `MoveExecutionPhase` |
 
@@ -274,49 +275,31 @@ All gen-specific behavior is in **phases**, not in the model or engine:
 - Don't put gen-specific constants in the model
 - Don't put gen-specific logic in events — `apply()` is mechanical
 
-### Known gen-specific leaks
+### Injectable gen-specific logic
 
-- `PokemonState.effectiveSpeed()` applies paralysis speed modifier (model layer)
-- `DamageCalc` contains burn penalty and STAB (engine layer)
-
-These are acceptable for single-gen. For multi-gen, they'd move to phases.
+- **`DamageCalculator`** — `fun interface` in engine. `GenVDamageCalculator` is the
+  default. `MoveExecutionPhase` takes it as a constructor parameter.
+- **`SpeedResolver`** — `fun interface` in engine. `GenVSpeedResolver` is the default.
+  `resolveMoveOrder` and `SwitchPhase` use it. `PokemonState.baseEffectiveSpeed()`
+  provides the gen-agnostic base (stat + stages only).
 
 ### Keeping ourselves honest
 
 When adding new mechanics, ask: "is this a game rule or a data definition?"
 Rules belong in phases. Definitions belong in the model.
 
-## Architectural Debt
+## Resolved Architectural Debt
 
-### MoveExecutionPhase is doing too many things
+These items were identified and fixed in diary 012:
 
-At ~160 lines, it handles status checks, target resolution, ability immunity,
-damage calculation, faint checks, and effect processing. Each new mechanic
-(Protect, Substitute, confusion, critical hits) adds to this file linearly.
-
-The per-target resolution sequence is becoming its own mini-pipeline:
-ability check → (future: Protect check) → (future: Substitute check) → damage → faint.
-
-**Refactor path:** Extract per-target resolution into composable steps or a dedicated
-function that takes a list of pre-damage checks. Status checks could also move to
-their own helper — `checkStatusThenExecute` is already half-way there.
-
-### DamageCalc is a free function but gen-specific
-
-The entire function contains game rules — burn penalty, STAB multiplier, the damage
-formula itself. It lives in `engine/` for reuse but is functionally phase logic.
-
-**Refactor path:** Make `DamageCalc` a strategy/interface that phases inject. Each gen
-provides its own implementation. The function signature stays the same; the
-implementation varies.
-
-### BattleEvent sealed hierarchy is growing
-
-16 event types in one file (193 lines). Each mechanic adds 10-15 lines.
-
-**Refactor path:** Split across files within `engine/` package — Kotlin sealed
-hierarchies can span files within the same package (Kotlin 1.5+). Group by concern:
-core events, weather events, switch events, ability events, status events.
+- **MoveExecutionPhase** — extracted `resolveDamage`, `resolveEffects`, and
+  `resolveTargetSlots` as focused sub-functions. Effects now track intermediate state.
+- **DamageCalc** — now `DamageCalculator` fun interface with `GenVDamageCalculator`
+  as the default. Injectable via `MoveExecutionPhase` constructor.
+- **SpeedResolver** — extracted from `PokemonState.effectiveSpeed()`. Paralysis
+  modifier now lives in `GenVSpeedResolver`, not in the model.
+- **BattleEvent** — split across 7 files by concern (core, status, weather, switch,
+  stat, ability, item). Sealed hierarchy spans files within `engine/` package.
 
 ## Known Limitations
 

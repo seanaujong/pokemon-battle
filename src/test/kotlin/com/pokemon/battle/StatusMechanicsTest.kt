@@ -59,7 +59,10 @@ class StatusMechanicsTest {
     fun `paralysis halves effective speed`() {
         val normal = PokemonState(Pokemon(fastSpecies, 50), currentHp = 100)
         val paralyzed = normal.copy(status = StatusCondition.PARALYSIS)
-        assertEquals(normal.effectiveSpeed() * 0.5, paralyzed.effectiveSpeed())
+        assertEquals(
+            GenVSpeedResolver.effectiveSpeed(normal) * 0.5,
+            GenVSpeedResolver.effectiveSpeed(paralyzed)
+        )
     }
 
     @Test
