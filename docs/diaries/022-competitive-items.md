@@ -1,7 +1,7 @@
 # Diary 022: Competitive Items — Choice, Life Orb, Focus Sash, Eviolite
 
 **Date:** 2026-04-13
-**Status:** Not started
+**Status:** In progress — Focus Sash done
 
 ## Goal
 
@@ -53,12 +53,28 @@ Choice Scarf modifies speed — belongs in `GenVSpeedResolver`.
 
 ## Plan
 
-### Step 1: Item consumption event
-### Step 2: Focus Sash (pre-apply damage modification)
+### Step 1: Item consumption event ✅
+- `ItemConsumed(slot, item)` event added to `ItemHealing.kt` (colocated with other item events).
+  On apply, sets `PokemonState.item = null`.
+
+### Step 2: Focus Sash (pre-apply damage modification) ✅
+- Pre-DamageDealt check in `resolveDamage`: if defender has Focus Sash, is at full HP, and
+  `result.damage >= defender.currentHp`, cap damage at `currentHp - 1` and emit `ItemConsumed`.
+- No PokemonFainted event fires (Pokemon survives).
+- 4 tests in `FocusSashTest.kt`.
+
 ### Step 3: Life Orb (post-damage attacker self-damage)
 ### Step 4: Choice items (stat boost + move locking)
 ### Step 5: Eviolite (defensive stat boost in calc)
 ### Step 6: Sitrus Berry (HP threshold trigger)
+
+## Notes
+
+- **Item-enum modeling smell noticed.** TextRenderer's `when (event.item)` branches for both
+  `ItemHealing` and `ItemConsumed` have cross-branches that are unreachable (Leftovers in
+  ItemConsumed, Focus Sash in ItemHealing) because one `Item` enum spans all behaviors.
+  As items grow, these unreachable branches multiply. Revisit when 5+ items exist; possibly
+  split into behavior-specific enums or use event-specific item subtypes.
 
 ## Validation
 

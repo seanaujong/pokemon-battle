@@ -5,6 +5,7 @@ import com.pokemon.battle.engine.AbilityTriggered
 import com.pokemon.battle.engine.BattleEvent
 import com.pokemon.battle.engine.BattleState
 import com.pokemon.battle.engine.DamageDealt
+import com.pokemon.battle.engine.ItemConsumed
 import com.pokemon.battle.engine.ItemHealing
 import com.pokemon.battle.engine.MoveAttempted
 import com.pokemon.battle.engine.MoveFailed
@@ -56,6 +57,7 @@ object TextRenderer : BattleRenderer {
             is WeatherTick -> renderWeatherTick(event)
             is WeatherSet -> renderWeatherSet(event)
             is ItemHealing -> renderItemHealing(event, stateBefore)
+            is ItemConsumed -> renderItemConsumed(event, stateBefore)
             is SwitchOut -> renderSwitchOut(event, stateBefore)
             is SwitchIn -> renderSwitchIn(event, stateAfter)
             is AbilityTriggered -> renderAbilityTriggered(event, stateAfter)
@@ -273,6 +275,20 @@ object TextRenderer : BattleRenderer {
         return listOf(
             when (event.item) {
                 Item.LEFTOVERS -> "$pokemonName restored a little HP using its Leftovers!"
+                Item.FOCUS_SASH -> "$pokemonName restored HP with its Focus Sash!" // unreachable: Focus Sash doesn't heal
+            },
+        )
+    }
+
+    private fun renderItemConsumed(
+        event: ItemConsumed,
+        state: BattleState,
+    ): List<String> {
+        val pokemonName = name(state, event.target)
+        return listOf(
+            when (event.item) {
+                Item.FOCUS_SASH -> "$pokemonName hung on using its Focus Sash!"
+                Item.LEFTOVERS -> "$pokemonName's Leftovers was consumed." // unreachable: Leftovers isn't consumed
             },
         )
     }

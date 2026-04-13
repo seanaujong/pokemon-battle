@@ -14,3 +14,13 @@ data class ItemHealing(
         return state.withPokemon(target, pokemon.copy(currentHp = newHp))
     }
 }
+
+data class ItemConsumed(
+    val target: Slot,
+    val item: Item,
+) : BattleEvent {
+    override fun apply(state: BattleState): BattleState {
+        val pokemon = state.pokemonFor(target)
+        return state.withPokemon(target, pokemon.copy(item = null))
+    }
+}

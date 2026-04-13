@@ -8,6 +8,7 @@ import com.pokemon.battle.engine.DamageCalculator
 import com.pokemon.battle.engine.DamageDealt
 import com.pokemon.battle.engine.GenVDamageCalculator
 import com.pokemon.battle.engine.GenVSpeedResolver
+import com.pokemon.battle.engine.ItemConsumed
 import com.pokemon.battle.engine.MoveAttempted
 import com.pokemon.battle.engine.MoveFailed
 import com.pokemon.battle.engine.Phase
@@ -28,6 +29,7 @@ import com.pokemon.battle.engine.resolveSwitchInAbility
 import com.pokemon.battle.engine.resolveSwitchOutClearing
 import com.pokemon.battle.model.Ability
 import com.pokemon.battle.model.FailReason
+import com.pokemon.battle.model.Item
 import com.pokemon.battle.model.Move
 import com.pokemon.battle.model.MoveEffect
 import com.pokemon.battle.model.MoveTarget
@@ -296,15 +298,29 @@ class MoveExecutionPhase(
             // Crit roll: 1 in 24 chance (~4.2%) in Gen V+
             val isCritical = roll(1..24) == 1
             val result = damageCalculator.calculate(attacker, defender, move, roll, spreadMod, isCritical, currentState.field.weather)
+
+            // Focus Sash: if at full HP and the hit would KO, survive at 1 HP and consume the item.
+            val sashTriggers =
+                defender.item == Item.FOCUS_SASH &&
+                    defender.currentHp == defender.maxHp &&
+                    result.damage >= defender.currentHp
+            val finalDamage = if (sashTriggers) defender.currentHp - 1 else result.damage
+
             val damageEvent =
                 DamageDealt(
                     target = targetSlot,
-                    amount = result.damage,
+                    amount = finalDamage,
                     effectiveness = result.effectiveness,
                     critical = isCritical,
                 )
             events.add(damageEvent)
             currentState = damageEvent.apply(currentState)
+
+            if (sashTriggers) {
+                val consumed = ItemConsumed(targetSlot, Item.FOCUS_SASH)
+                events.add(consumed)
+                currentState = consumed.apply(currentState)
+            }
 
             if (currentState.pokemonFor(targetSlot).isFainted) {
                 val faintEvent = PokemonFainted(targetSlot)
