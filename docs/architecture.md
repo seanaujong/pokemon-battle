@@ -352,6 +352,56 @@ Pokemon by identity instead of index.
 Resolved by paired `SwitchIn`. Only a problem if `SwitchOut` is emitted without a
 following `SwitchIn` (a bug, not a design case).
 
+## Custom Format Compatibility
+
+The engine makes few assumptions about what's "legal," which means most Showdown/Smogon
+custom formats work without engine changes. The format rules live in the team-building
+or choice layer, not the battle engine.
+
+### What works out of the box
+
+| Format | Why it works |
+|--------|-------------|
+| Almost Any Ability | `PokemonState.ability` is independent of species |
+| Balanced Hackmons | Arbitrary stats (custom `Species`), any ability, any move |
+| Pure Hackmons | No learnset enforcement — engine resolves any `Move` on any Pokemon |
+| 6+ moveslots | Move pools are `List<Move>` with no size limit |
+| Level 1 (Little Cup) | `level = 5` in `Pokemon` — stat formula handles any level |
+| 350 Cup | Construct modified `Species` with doubled base stats at team-building |
+| Mix and Mega | Modified `Move` objects (altered power/type) passed to `TurnChoice` |
+
+### What needs one architectural change: overridable types
+
+Several formats modify a Pokemon's types at team-building or during battle:
+
+- **Camomons** — types match first two moves' types
+- **Terastallization** — type changes mid-battle
+- **STABmons** — STAB applies to team-wide types
+
+Currently, types are always read from `species.types` in the damage calc and STAB
+check. To support these formats, types need to be overridable on `PokemonState`
+(e.g., `val typeOverride: List<Type>?`) with the damage calc reading
+`typeOverride ?: species.types`.
+
+### What needs new check points
+
+- **Trademarked** — abilities trigger on move use, not switch-in. Needs a new ability
+  check in `MoveExecutionPhase` after `MoveAttempted`.
+- **Shared Power** — ability checks consider all allies' abilities. `abilityBlockingMove`
+  would need to query the whole side, not just the defender.
+
+### What needs phase-level move modification
+
+- **Terrain Pulse / Weather Ball** — move type changes based on field state. The phase
+  would create a modified `Move` copy before passing to `calculateDamage`. The move
+  is immutable during the turn choice but the phase can derive a context-specific
+  version.
+
+### What's injectable via type chart
+
+- **Inverse Battles** — type effectiveness flipped. Currently `typeEffectiveness` reads
+  a static chart. Making it injectable (like `DamageCalculator`) would support inverse.
+
 ## Future Scenarios
 
 ### Switching mid-turn (Pursuit, U-turn)
@@ -378,15 +428,14 @@ Needs active-vs-bench within a side — different `BattleState` shape.
 
 ## What This Design Does NOT Cover (yet)
 
-- Team selection / team preview
-- Species and move database (currently hardcoded in tests)
-- Battle renderer (event log → text/animation output)
-- AI opponents
+- Team selection / team preview / learnset validation
 - Entry hazards (Stealth Rock, Spikes)
 - Multi-turn moves (Fly, Dig, Solar Beam)
 - Choice locks, Encore, Disable
 - Mega Evolution, Z-Moves, Dynamax, Terastallization
 - Critical hit calculation
 - Protect / Substitute mechanics
+- Overridable types (needed for Terastallization, Camomons, etc.)
+- Injectable type chart (needed for Inverse Battles)
 
 These can all be modeled as new phases, events, and effects.
