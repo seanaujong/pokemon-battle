@@ -52,8 +52,7 @@ Each feature or chunk of work follows this cycle:
 4. **Validate** — Every step must have a concrete "green" signal before moving on. Tests are the primary validation mechanism since the core logic is pure functions.
 5. **Code review** — After implementation, review all changed files by asking these diagnostic questions. Write findings to `docs/diaries/temp/` as a temporary review doc. Fix the obvious ones, flag architectural questions for discussion.
    - Is it testable in isolation? If not, what's blocking it?
-   - Is it readable? Could a new team member understand the intent?
-   - Is it intuitive? Does the API/structure match how you'd explain it to a junior?
+   - Is it readable? Is it intuitive? Could a new team member understand the intent and would the API match how you'd explain it?
    - What layer does each piece belong to? Does it depend on things it shouldn't?
    - Is understanding colocated, or is one concept scattered across the codebase?
    - Are we making a choice that's hard to reverse later?
@@ -65,11 +64,13 @@ Each feature or chunk of work follows this cycle:
    - What assumptions or invariants does this code rely on? Are they enforced or just in our heads?
    - Is there mutation where a pure function is expected?
    - Do the names match the domain? Would a domain expert use these words, or have we invented jargon? Are we using one name for two different concepts?
+   - Do the changes fit cleanly into the existing layers, or is the new code blurring them together?
    - If we needed to remove this, how easy would it be? Is it entangled with code that should be independent?
    - Does anything else feel off that isn't covered above? Flag it — the checklist has blind spots.
    - Think about other codebases, domains, or resources on the Internet. Is there a question we can add to the checklist to catch any problems we had this time? Can we add an axis to our thinking?
 6. **Clean up** — Delete the temp review doc from `docs/diaries/temp/` once fixes are applied.
 7. **Update the diary** — Mark steps done, record decisions made, note anything surprising.
-8. **Commit** — When the user asks, commit the completed work.
+8. **Look ahead** — Where should we go from here? What do these changes let us work on next?
+9. **Commit** — When the user asks, commit the completed work.
 
 Diary entries are the paper trail. They capture *why* decisions were made, not just *what* was built.
