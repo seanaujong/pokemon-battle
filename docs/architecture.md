@@ -268,13 +268,27 @@ output.
 
 Move pools are `Map<String, List<Move>>` keyed by species name, owned by the AI.
 
-### CLI battle runner (not yet implemented)
+### UI layer (not yet implemented)
 
-Interactive play via stdin. `ChoiceProvider` backed by user input.
+The true test of layer separation: multiple consumers using the same engine
+interfaces. `ChoiceProvider` and `BattleRenderer` are the integration points.
+
+| Consumer | ChoiceProvider | Renderer | Transport |
+|----------|---------------|----------|-----------|
+| REPL | stdin reader | `TextRenderer` to stdout | None (in-process) |
+| TUI | terminal UI library | Formatted text with HP bars | None (in-process) |
+| REST API | POST endpoint, waits for response | JSON event stream | HTTP |
+| React site | REST API underneath | Frontend consumes event JSON | HTTP + WebSocket |
+| MCP server | Tool calls for choices | Events as tool responses | MCP protocol |
+
+The engine doesn't change. `BattleResult` with its event log is the universal
+output format. Each consumer reads it through its own renderer.
 
 ### Analytics pipeline (not yet implemented)
 
 Aggregate event logs across battles for win rates, move usage, balance analysis.
+The event log is structured data — typed events with slot references, damage
+amounts, effectiveness. Natural input for batch analytics.
 
 ## Multi-Gen Support
 
