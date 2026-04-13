@@ -4,6 +4,7 @@ import com.pokemon.battle.data.*
 import com.pokemon.battle.model.*
 import com.pokemon.battle.engine.*
 import com.pokemon.battle.phase.*
+import com.pokemon.battle.render.*
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
@@ -104,6 +105,23 @@ class TypeOverrideTest {
         assertEquals(1, weatherDamage.size)
         assertEquals(Slot.p2(), weatherDamage[0].target,
             "Only the Normal-type should take sandstorm damage")
+    }
+
+    // --- Renderer ---
+
+    @Test
+    fun `TypeChanged renders correctly`() {
+        val charizard = Pokemon(pokedex["Charizard"]!!, level = 50)
+        val state = BattleState.singles(
+            PokemonState(charizard, currentHp = charizard.maxHp),
+            PokemonState(charizard, currentHp = charizard.maxHp)
+        )
+
+        val event = TypeChanged(Slot.p1(), listOf(Type.WATER))
+        val stateAfter = event.apply(state)
+        val lines = TextRenderer.render(event, state, stateAfter)
+
+        assertEquals(listOf("Charizard's type changed to Water!"), lines)
     }
 
     // --- Default behavior unchanged ---
