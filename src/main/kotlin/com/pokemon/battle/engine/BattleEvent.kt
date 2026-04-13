@@ -2,8 +2,6 @@ package com.pokemon.battle.engine
 
 import com.pokemon.battle.model.*
 
-import com.pokemon.battle.model.*
-
 sealed interface BattleEvent {
     fun apply(state: BattleState): BattleState
 }
@@ -24,7 +22,7 @@ data class MoveAttempted(
 
 data class MoveFailed(
     val attacker: Player,
-    val reason: String
+    val reason: FailReason
 ) : BattleEvent {
     override fun apply(state: BattleState): BattleState = state // informational
 }
@@ -105,5 +103,33 @@ data class WeatherTick(
             state.field.copy(weatherTurnsRemaining = turnsRemaining)
         }
         return state.copy(field = newField)
+    }
+}
+
+data class VolatileChanged(
+    val target: Player,
+    val old: Volatile,
+    val new: Volatile?
+) : BattleEvent {
+    override fun apply(state: BattleState): BattleState {
+        val pokemon = state.pokemonFor(target)
+        val without = pokemon.volatiles.filterNot { it == old }.toSet()
+        val newVolatiles = if (new != null) without + new else without
+        return state.withPokemon(target, pokemon.copy(volatiles = newVolatiles))
+    }
+}
+
+data class StatusCleared(
+    val target: Player,
+    val status: StatusCondition
+) : BattleEvent {
+    override fun apply(state: BattleState): BattleState {
+        val pokemon = state.pokemonFor(target)
+        // Clear the status and remove any related volatile (e.g., Volatile.Sleep)
+        val newVolatiles = when (status) {
+            StatusCondition.SLEEP -> pokemon.volatiles.filterNot { it is Volatile.Sleep }.toSet()
+            else -> pokemon.volatiles
+        }
+        return state.withPokemon(target, pokemon.copy(status = null, volatiles = newVolatiles))
     }
 }

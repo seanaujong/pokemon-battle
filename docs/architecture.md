@@ -243,6 +243,74 @@ closed for modification.
 - **History is free**: The event list is a complete, ordered record of the turn.
   No separate logging system needed.
 
+## Multi-Gen Support
+
+Different Pokemon generations (and games like Pokemon Champions) change the rules:
+paralysis skip rates, burn damage fractions, speed modifiers, status durations, even
+which mechanics exist. The architecture supports this without parameterization.
+
+### Where gen-specific rules live
+
+All gen-specific behavior is in **phases**, not in the model or engine:
+
+| What varies | Where it lives | Example |
+|-------------|---------------|---------|
+| Paralysis skip rate (25% vs other) | `MoveExecutionPhase` | Status check before move attempt |
+| Burn damage fraction (1/16 vs 1/8) | `EndOfTurnPhase` | Status damage sub-concern |
+| Speed modifier for paralysis (0.5x vs 0.25x) | `PokemonState.effectiveSpeed()` | Called by `resolveMoveOrder` |
+| Damage formula modifiers | `DamageCalc` | Burn penalty, crit multiplier |
+| End-of-turn effect order | `EndOfTurnPhase` | Sub-concern ordering |
+
+### How to support a different gen
+
+Build different phase implementations, not config flags:
+
+```kotlin
+// Gen V+ rules
+val genVPipeline = TurnPipeline(listOf(
+    MoveOrderPhase(),
+    GenVMoveExecutionPhase(),
+    GenVEndOfTurnPhase()
+))
+
+// Pokemon Champions rules
+val championsPipeline = TurnPipeline(listOf(
+    MoveOrderPhase(),
+    ChampionsMoveExecutionPhase(),
+    ChampionsEndOfTurnPhase()
+))
+```
+
+The pipeline, events, and model layer are gen-agnostic. Different gens produce the
+same event types (`MoveFailed`, `DamageDealt`, `StatusDamage`) — they just disagree
+on the numbers and conditions. A `DamageDealt` event doesn't know or care which gen
+calculated it.
+
+### What NOT to do
+
+- **Don't add gen parameters to phases.** `MoveExecutionPhase(gen = Gen.V)` leads to
+  phases full of `if (gen == CHAMPIONS)` branches. Separate implementations are
+  smaller, testable, and don't accumulate dead branches.
+- **Don't put gen-specific constants in the model.** `StatusCondition.BURN` is the
+  same across gens. The *effect* of burn (how much damage, which stats it modifies)
+  is phase logic, not data.
+- **Don't put gen-specific logic in events.** `DamageDealt.apply()` just subtracts
+  HP. The number it subtracts was decided by a phase — that's where gen rules belong.
+
+### Known gen-specific leak
+
+`PokemonState.effectiveSpeed()` applies the paralysis speed modifier (0.5x). This is
+a gen-specific rule living in the model layer. It's acceptable while we target a single
+gen, but for multi-gen support this logic would move into the phase or engine layer
+(e.g., a gen-specific speed resolver that `resolveMoveOrder` delegates to).
+
+### Keeping ourselves honest
+
+When adding new mechanics, ask: "is this a game rule or a data definition?" If it's
+a rule (a number, a condition, a formula), it belongs in a phase. If it's a definition
+(a type, a stat, a structure), it belongs in the model. Gen-specific logic leaking
+into the model or engine is a sign something is in the wrong layer.
+
 ## What This Design Does NOT Cover (yet)
 
 - Team selection / team preview
