@@ -50,8 +50,25 @@ Each feature or chunk of work follows this cycle:
    - Open design questions discovered along the way
 3. **Implement incrementally** — Work through the plan step by step. Run `./gradlew compileKotlin` or `./gradlew test` after each step to stay green.
 4. **Validate** — Every step must have a concrete "green" signal before moving on. Tests are the primary validation mechanism since the core logic is pure functions.
-5. **Code review** — After implementation, review all changed files for: duplicated logic, mutation where pure functions are expected, stringly-typed or unidiomatic patterns, missing abstractions, extensibility concerns, and colocation (is understanding one concept scattered across the codebase, or can a developer find everything about it in one place?). Write findings to `docs/diaries/temp/` as a temporary review doc. Fix the obvious ones, flag architectural questions for discussion.
-6. **Update the diary** — Mark steps done, record decisions made, note anything surprising.
-7. **Commit** — When the user asks, commit the completed work.
+5. **Code review** — After implementation, review all changed files by asking these diagnostic questions. Write findings to `docs/diaries/temp/` as a temporary review doc. Fix the obvious ones, flag architectural questions for discussion.
+   - Is it testable in isolation? If not, what's blocking it?
+   - Is it readable? Could a new team member understand the intent?
+   - Is it intuitive? Does the API/structure match how you'd explain it to a junior?
+   - What layer does each piece belong to? Does it depend on things it shouldn't?
+   - Is understanding colocated, or is one concept scattered across the codebase?
+   - Are we making a choice that's hard to reverse later?
+   - Is it auditable? If this produced unexpected output, could you trace back *why* from the system's own records?
+   - What's the happy path? Can you state the main success flow simply?
+   - What happens when this fails? Are the failure modes visible, not silent?
+   - Is there duplicated logic?
+   - Can this represent an illegal state that shouldn't exist?
+   - Is there mutation where a pure function is expected?
+   - Do the names match the domain? Would a domain expert use these words, or have we invented jargon? Are we using one name for two different concepts?
+   - If we needed to remove this, how easy would it be? Is it entangled with code that should be independent?
+   - Does anything else feel off that isn't covered above? Flag it — the checklist has blind spots.
+   - Think about other codebases, domains, or resources on the Internet. Is there a question we can add to the checklist to catch any problems we had this time? Can we add an axis to our thinking?
+6. **Clean up** — Delete the temp review doc from `docs/diaries/temp/` once fixes are applied.
+7. **Update the diary** — Mark steps done, record decisions made, note anything surprising.
+8. **Commit** — When the user asks, commit the completed work.
 
 Diary entries are the paper trail. They capture *why* decisions were made, not just *what* was built.

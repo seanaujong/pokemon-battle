@@ -29,6 +29,35 @@ TurnChoices + BattleState
 The pipeline is wrapped by a **game loop** that collects choices, runs turns,
 handles faint replacements, and checks win conditions.
 
+## Design Rationale
+
+These are the key design decisions and why they were made.
+
+**Start from one concrete scenario, then layer.** The first working code resolved
+"Charizard KOs Venusaur with Flamethrower" end-to-end. Every abstraction earned
+its place against a real flow before the next mechanic was added.
+
+**Keep orchestration trivial.** The pipeline is a nested fold — outer over phases,
+inner over events — in roughly 5 lines. All interesting logic lives in phases and
+events, which are independently testable. If the orchestrator is complex, logic is
+in the wrong place.
+
+**Derive, don't store.** Stats are calculated from base + stages at the point of
+use, never cached on state. This eliminates staleness bugs at the cost of
+recalculation, which is negligible for this domain.
+
+**Separate data by lifecycle.** Species (eternal, shared) → Pokemon (per-battle) →
+PokemonState (per-turn). Each layer changes at a different rate, so separating
+them makes it obvious where each piece of data belongs.
+
+**Sealed hierarchies as domain catalogs.** The sealed event hierarchy is a readable
+catalog of everything that can happen in a turn. A new developer opens
+`BattleEvent.kt` and sees the whole domain.
+
+**Immutability makes the audit trail free.** Because state is never mutated, the
+event history *is* the audit trail — no logging layer needed on top. Every state
+can be explained by replaying its events.
+
 ## Layers
 
 ```
