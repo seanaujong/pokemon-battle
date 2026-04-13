@@ -19,7 +19,7 @@ class MoveExecutionPhase(
             val attacker = currentState.pokemonFor(slot)
             if (attacker.isFainted) continue
 
-            val newEvents = checkStatusThenExecute(currentState, slot, choice.move)
+            val newEvents = checkStatusThenExecute(currentState, slot, choice)
             for (event in newEvents) {
                 events.add(event)
                 currentState = event.apply(currentState)
@@ -29,10 +29,9 @@ class MoveExecutionPhase(
         return events
     }
 
-    private fun checkStatusThenExecute(state: BattleState, slot: Slot, move: Move): List<BattleEvent> {
+    private fun checkStatusThenExecute(state: BattleState, slot: Slot, choice: TurnChoice.UseMove): List<BattleEvent> {
         val attacker = state.pokemonFor(slot)
 
-        // Sleep check: decrement counter, fail if still asleep
         if (attacker.status == StatusCondition.SLEEP) {
             val sleepVolatile = attacker.volatiles.filterIsInstance<Volatile.Sleep>().firstOrNull()
             if (sleepVolatile != null) {
@@ -44,46 +43,48 @@ class MoveExecutionPhase(
                     )
                 } else {
                     val cleared = StatusCleared(slot, StatusCondition.SLEEP)
-                    return listOf(cleared) + executeMove(cleared.apply(state), slot, move)
+                    return listOf(cleared) + executeMove(cleared.apply(state), slot, choice)
                 }
             }
         }
 
-        // Freeze check: per-turn 20% thaw chance
         if (attacker.status == StatusCondition.FREEZE) {
             if (chanceCheck(20, FailReason.FROZEN)) {
                 val cleared = StatusCleared(slot, StatusCondition.FREEZE)
-                return listOf(cleared) + executeMove(cleared.apply(state), slot, move)
+                return listOf(cleared) + executeMove(cleared.apply(state), slot, choice)
             } else {
                 return listOf(MoveFailed(slot, FailReason.FROZEN))
             }
         }
 
-        // Paralysis check: 25% chance to skip
         if (attacker.status == StatusCondition.PARALYSIS) {
             if (chanceCheck(25, FailReason.FULLY_PARALYZED)) {
                 return listOf(MoveFailed(slot, FailReason.FULLY_PARALYZED))
             }
         }
 
-        return executeMove(state, slot, move)
+        return executeMove(state, slot, choice)
     }
 
-    private fun executeMove(state: BattleState, attackerSlot: Slot, move: Move): List<BattleEvent> {
+    private fun executeMove(state: BattleState, attackerSlot: Slot, choice: TurnChoice.UseMove): List<BattleEvent> {
+        val move = choice.move
         val events = mutableListOf<BattleEvent>(MoveAttempted(attackerSlot, move))
+        var currentState = state
 
         // Resolve target slots based on move target type
-        val targetSlots = resolveTargets(state, attackerSlot, move.target)
+        val targetSlots = resolveTargets(currentState, attackerSlot, move.target, choice.targetSlot)
+        val isSpread = targetSlots.size > 1
+        val spreadMod = if (isSpread) 0.75 else 1.0
 
         // Damage phase: if the move has power, calculate damage per target
-        if (move.power > 0 && targetSlots.isNotEmpty()) {
+        if (move.power > 0) {
             for (targetSlot in targetSlots) {
-                val attacker = state.pokemonFor(attackerSlot)
-                val defender = state.pokemonFor(targetSlot)
+                val attacker = currentState.pokemonFor(attackerSlot)
+                val defender = currentState.pokemonFor(targetSlot)
 
                 if (defender.isFainted) continue
 
-                val result = calculateDamage(attacker, defender, move, roll)
+                val result = calculateDamage(attacker, defender, move, roll, spreadMod)
                 val damageEvent = DamageDealt(
                     target = targetSlot,
                     amount = result.damage,
@@ -91,10 +92,12 @@ class MoveExecutionPhase(
                     critical = false // TODO: critical hit logic
                 )
                 events.add(damageEvent)
+                currentState = damageEvent.apply(currentState)
 
-                val stateAfterDamage = damageEvent.apply(state)
-                if (stateAfterDamage.pokemonFor(targetSlot).isFainted) {
-                    events.add(PokemonFainted(targetSlot))
+                if (currentState.pokemonFor(targetSlot).isFainted) {
+                    val faintEvent = PokemonFainted(targetSlot)
+                    events.add(faintEvent)
+                    currentState = faintEvent.apply(currentState)
                 }
             }
         }
@@ -102,7 +105,7 @@ class MoveExecutionPhase(
         // Effects phase: process move effects (stat boosts, etc.)
         val faintedSlots = events.filterIsInstance<PokemonFainted>().map { it.slot }.toSet()
         for (effect in move.effects) {
-            val effectTargets = resolveEffectTargets(state, attackerSlot, move.target)
+            val effectTargets = resolveEffectTargets(currentState, attackerSlot, move.target, choice.targetSlot)
             for (effectTarget in effectTargets) {
                 if (effectTarget in faintedSlots) continue
                 events.addAll(resolveEffect(effect, attackerSlot, effectTarget))
@@ -113,18 +116,28 @@ class MoveExecutionPhase(
     }
 
     /** Resolve which slots a move targets for damage. */
-    private fun resolveTargets(state: BattleState, attackerSlot: Slot, target: MoveTarget): List<Slot> {
+    private fun resolveTargets(state: BattleState, attackerSlot: Slot, target: MoveTarget, chosenTarget: Slot?): List<Slot> {
         return when (target) {
-            MoveTarget.OPPONENT -> state.opponentSlots(attackerSlot).take(1) // singles: one opponent
-            MoveTarget.SELF -> emptyList() // self-targeting moves don't deal damage to others
+            MoveTarget.ONE_OPPONENT -> {
+                if (chosenTarget != null) listOf(chosenTarget)
+                else state.opponentSlots(attackerSlot).take(1)
+            }
+            MoveTarget.ALL_OPPONENTS -> state.opponentSlots(attackerSlot)
+            MoveTarget.ALL_OTHER -> state.allSlots().filter { it != attackerSlot }
+            MoveTarget.SELF -> emptyList()
         }
     }
 
     /** Resolve which slots a move's effects apply to. */
-    private fun resolveEffectTargets(state: BattleState, attackerSlot: Slot, target: MoveTarget): List<Slot> {
+    private fun resolveEffectTargets(state: BattleState, attackerSlot: Slot, target: MoveTarget, chosenTarget: Slot?): List<Slot> {
         return when (target) {
             MoveTarget.SELF -> listOf(attackerSlot)
-            MoveTarget.OPPONENT -> state.opponentSlots(attackerSlot).take(1)
+            MoveTarget.ONE_OPPONENT -> {
+                if (chosenTarget != null) listOf(chosenTarget)
+                else state.opponentSlots(attackerSlot).take(1)
+            }
+            MoveTarget.ALL_OPPONENTS -> state.opponentSlots(attackerSlot)
+            MoveTarget.ALL_OTHER -> state.allSlots().filter { it != attackerSlot }
         }
     }
 

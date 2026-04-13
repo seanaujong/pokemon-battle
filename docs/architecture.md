@@ -313,31 +313,35 @@ into the model or engine is a sign something is in the wrong layer.
 
 ## Known Limitations
 
-### MoveExecutionPhase doesn't track intermediate state during effects
+### Effects don't track intermediate state
 
-`executeMove` returns a flat list of events without applying them between steps.
-Currently fine because `StatBoost` is self-contained. But effects that depend on
-post-damage state (drain: heal based on damage dealt, recoil: self-damage based on
-damage dealt) will need the phase to apply events incrementally — similar to how
-`resolve()` applies events between players, but within a single move's execution.
-
-When adding drain/recoil/multi-hit: refactor `executeMove` to track `currentState`
-across damage and effects, same pattern as the outer loop.
-
-### Doubles target selection not modeled
-
-`resolveTargets` uses `.take(1)` for `MoveTarget.OPPONENT`, silently picking the
-first opposing slot. In doubles, the player selects which opponent to target — this
-selection needs to come from `TurnChoice`, not from the phase guessing. When
-implementing doubles: extend `TurnChoice.UseMove` with an optional `targetSlot: Slot?`
-that the player specifies for single-target moves in multi-slot formats.
+`executeMove` tracks `currentState` across per-target damage (a fainted target is
+skipped for subsequent hits). However, the effects phase at the end of `executeMove`
+doesn't apply effect events to `currentState` between effects. Currently fine because
+`StatBoost` is self-contained. But effects that depend on post-damage state (drain:
+heal based on damage dealt, recoil: self-damage based on damage dealt) will need
+the effects loop to track state incrementally too.
 
 ### MoveOrderResult.reason only describes top-two ordering
 
-The `reason` field compares the first and second slots. In doubles with 4 slots,
+The `reason` field compares the first and second slots. In a 4-slot doubles battle,
 each pair might have different ordering reasons (priority vs speed). The field is
-informational only and doesn't affect behavior, but will be misleading in multi-slot
-formats. Consider per-slot reasons or removing it when implementing doubles.
+informational only and doesn't affect behavior, but can be misleading. Consider
+per-slot reasons or removing it if precision matters.
+
+### No validation on targetSlot in TurnChoice
+
+`TurnChoice.UseMove(move, targetSlot)` doesn't verify that `targetSlot` is a valid
+opponent slot for `ONE_OPPONENT` moves. A caller could pass an ally slot or the
+attacker's own slot. This is an input validation concern for the game loop layer —
+the engine trusts its inputs, same as with IV/EV validation.
+
+### Gen-specific rules in engine and model layers
+
+Documented above under "Known gen-specific leak" and "Multi-Gen Support." The burn
+modifier and STAB live in `DamageCalc` (engine); paralysis speed halving lives in
+`PokemonState.effectiveSpeed()` (model). Both are acceptable for single-gen but would
+need to move to phases for multi-gen support.
 
 ## Future Scenarios
 

@@ -11,7 +11,8 @@ fun calculateDamage(
     attacker: PokemonState,
     defender: PokemonState,
     move: Move,
-    roll: (IntRange) -> Int = { range -> range.random() }
+    roll: (IntRange) -> Int = { range -> range.random() },
+    spreadModifier: Double = 1.0
 ): DamageResult {
     val level = attacker.pokemon.level
 
@@ -37,7 +38,7 @@ fun calculateDamage(
 
     // Standard formula: ((2*level/5 + 2) * power * atk/def) / 50 + 2, then modifiers
     val baseDamage = ((2.0 * level / 5.0 + 2.0) * move.power * atk / def) / 50.0 + 2.0
-    val damage = (baseDamage * stab * typeMultiplier * burnMod * randomRoll / 100.0).toInt()
+    val damage = (baseDamage * stab * typeMultiplier * burnMod * spreadModifier * randomRoll / 100.0).toInt()
         .coerceAtLeast(if (typeMultiplier > 0.0) 1 else 0)
 
     return DamageResult(damage, effectiveness)

@@ -33,7 +33,7 @@ class StatChangesTest {
     private val growl = Move(
         name = "Growl", type = Type.NORMAL,
         category = MoveCategory.STATUS, power = 0,
-        target = MoveTarget.OPPONENT,
+        target = MoveTarget.ONE_OPPONENT,
         effects = listOf(MoveEffect.StatBoost(StatType.ATTACK, -1))
     )
 

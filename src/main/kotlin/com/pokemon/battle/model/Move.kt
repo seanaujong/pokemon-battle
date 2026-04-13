@@ -8,6 +8,6 @@ data class Move(
     val category: MoveCategory,
     val power: Int,
     val priority: Int = 0,
-    val target: MoveTarget = MoveTarget.OPPONENT,
+    val target: MoveTarget = MoveTarget.ONE_OPPONENT,
     val effects: List<MoveEffect> = emptyList()
 )
