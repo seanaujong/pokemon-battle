@@ -204,6 +204,43 @@ callback interfaces — tests pass lambdas, a real game implements with UI.
 `TurnResult` separates pipeline events from replacement events. `BattleResult`
 reports the winner, final state, and full turn history.
 
+## Application Layer (not yet implemented)
+
+The layers above the game loop that make the engine usable from the outside.
+
+### Species and move database
+
+Currently, tests construct `Species` and `Move` objects by hand. A real application
+needs a data source — CSV or JSON files loaded into `Map<String, Species>` and
+`Map<String, Move>` at startup. Readable format for easy iteration; not an ORM.
+
+### Battle renderer
+
+Walk the event log and produce text output, matching the game's message sequence.
+The event-to-text mapping is documented in `guide.md`. A renderer tracks state
+alongside events (applying each to know current HP, names, etc.) and produces
+messages like "Charizard used Flamethrower!" from `MoveAttempted(slot, move)`.
+
+### AI opponents
+
+`ChoiceProvider` implementations that select moves based on type effectiveness,
+damage calculation, or random selection. The interface already supports this —
+an AI receives the current `BattleState` and returns `TurnChoices`.
+
+### CLI battle runner
+
+Ties everything together: load teams from the database, collect human input via
+stdin as a `ChoiceProvider`, run the game loop, render output to stdout. The
+"can I actually play this?" integration test.
+
+### Analytics pipeline
+
+The event log is structured data — every battle produces a `List<TurnResult>` with
+typed events. This is a natural input for analytics: win rates by species, move
+usage statistics, average battle length, type effectiveness trends. A light pipeline
+could aggregate event logs across battles into summary statistics, feeding into
+team-building insights or game balance analysis.
+
 ## Extensibility Model
 
 Adding new mechanics follows a consistent pattern:
