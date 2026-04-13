@@ -89,6 +89,13 @@ class MoveExecutionPhase(
 
                 if (defender.isFainted) continue
 
+                // Ability immunity check
+                val blockingAbility = abilityBlockingMove(defender, move)
+                if (blockingAbility != null) {
+                    events.add(AbilityBlocked(targetSlot, blockingAbility))
+                    continue
+                }
+
                 val result = calculateDamage(attacker, defender, move, roll, spreadMod)
                 val damageEvent = DamageDealt(
                     target = targetSlot,
@@ -142,5 +149,11 @@ class MoveExecutionPhase(
         return when (effect) {
             is MoveEffect.StatBoost -> listOf(StatChanged(targetSlot, effect.stat, effect.stages))
         }
+    }
+
+    /** Returns the ability that blocks this move, or null if not blocked. */
+    private fun abilityBlockingMove(defender: PokemonState, move: Move): Ability? = when (defender.ability) {
+        Ability.LEVITATE -> if (move.type == Type.GROUND && move.power > 0) Ability.LEVITATE else null
+        else -> null
     }
 }

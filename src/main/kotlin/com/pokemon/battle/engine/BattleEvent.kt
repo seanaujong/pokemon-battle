@@ -173,3 +173,25 @@ data class SwitchIn(
             .copy(bench = state.bench + (side to newBench))
     }
 }
+
+data class AbilityTriggered(
+    val slot: Slot,
+    val ability: Ability
+) : BattleEvent {
+    override fun apply(state: BattleState): BattleState = state // informational
+}
+
+data class AbilityBlocked(
+    val slot: Slot,
+    val ability: Ability
+) : BattleEvent {
+    override fun apply(state: BattleState): BattleState = state // informational
+}
+
+data class WeatherSet(
+    val weather: Weather,
+    val turnsRemaining: Int
+) : BattleEvent {
+    override fun apply(state: BattleState): BattleState =
+        state.copy(field = state.field.copy(weather = weather, weatherTurnsRemaining = turnsRemaining))
+}

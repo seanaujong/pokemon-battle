@@ -79,6 +79,12 @@ class BattleLoop(
             val switchIn = SwitchIn(slot, benchIndex)
             events.add(switchIn)
             currentState = switchIn.apply(currentState)
+
+            // Switch-in ability triggers for the replacement
+            for (abilityEvent in resolveSwitchInAbility(currentState, slot)) {
+                events.add(abilityEvent)
+                currentState = abilityEvent.apply(currentState)
+            }
         }
 
         return currentState

@@ -1,7 +1,7 @@
 # Diary 011: Ability System
 
 **Date:** 2026-04-13
-**Status:** Not started
+**Status:** Complete
 
 ## Goal
 
@@ -93,13 +93,14 @@ Need a new informational event: `AbilityBlocked(slot, ability, move)` — "Genga
 
 ## Validation
 
-| Step | Validation |
-|------|-----------|
-| 1 | `./gradlew compileKotlin` |
-| 2 | `./gradlew test` — Levitate tests pass |
-| 3 | `./gradlew test` — Intimidate tests pass |
-| 4 | `./gradlew test` — Drizzle tests pass |
-| 5 | `./gradlew test` — all 58 existing tests pass |
+| Step | Validation | Result |
+|------|-----------|--------|
+| 1 | `./gradlew compileKotlin` | PASS |
+| 2 | `./gradlew test` — Levitate tests (3) | PASS |
+| 3 | `./gradlew test` — Intimidate tests (3) | PASS |
+| 4 | `./gradlew test` — Drizzle tests (2) | PASS |
+| 5 | `./gradlew test` — all 58 existing tests | PASS |
+| All | 66 tests total, 0 failures | PASS |
 
 ## Future accommodation
 

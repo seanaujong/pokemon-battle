@@ -7,6 +7,7 @@ import com.pokemon.battle.engine.*
  * Resolves voluntary switches before moves execute.
  * Switches are processed in speed order (faster Pokemon switches first),
  * which matters for switch-in triggers like Intimidate.
+ * After each switch-in, the incoming Pokemon's ability triggers if applicable.
  */
 class SwitchPhase : Phase {
     override fun resolve(state: BattleState, choices: TurnChoices): List<BattleEvent> {
@@ -27,6 +28,12 @@ class SwitchPhase : Phase {
             val switchIn = SwitchIn(slot, choice.benchIndex)
             events.add(switchIn)
             currentState = switchIn.apply(currentState)
+
+            // Switch-in ability triggers (shared with BattleLoop faint replacements)
+            for (event in resolveSwitchInAbility(currentState, slot)) {
+                events.add(event)
+                currentState = event.apply(currentState)
+            }
         }
 
         return events

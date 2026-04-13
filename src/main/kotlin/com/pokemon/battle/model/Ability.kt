@@ -6,7 +6,10 @@ enum class Ability {
     // Weather immunity
     SAND_VEIL, SAND_RUSH, SAND_FORCE,
     SNOW_CLOAK, ICE_BODY,
-    // Expand as needed
+    // Switch-in triggers
+    INTIMIDATE, DRIZZLE,
+    // Damage immunity
+    LEVITATE,
 }
 
 private val SANDSTORM_IMMUNE = setOf(Ability.SAND_VEIL, Ability.SAND_RUSH, Ability.SAND_FORCE)
