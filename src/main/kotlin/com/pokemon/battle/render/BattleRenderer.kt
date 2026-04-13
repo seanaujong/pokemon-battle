@@ -27,9 +27,6 @@ fun renderBattle(result: BattleResult, initialState: BattleState, renderer: Batt
             lines.addAll(renderer.render(event, currentState, stateAfter))
             currentState = stateAfter
         }
-
-        // Increment turn (BattleLoop does this between turns)
-        currentState = currentState.copy(turn = currentState.turn + 1)
     }
 
     when (result.winner) {

@@ -192,15 +192,12 @@ object TextRenderer : BattleRenderer {
 
     // --- Abilities ---
 
-    private fun renderAbilityTriggered(event: AbilityTriggered, stateAfter: BattleState): List<String> {
-        val pokemonName = name(stateAfter, event.slot)
-        val abilityName = event.ability.name.lowercase().replaceFirstChar { it.uppercase() }
-        return listOf("$pokemonName's $abilityName!")
-    }
+    private fun abilityName(ability: Ability): String =
+        ability.name.lowercase().replace("_", " ").replaceFirstChar { it.uppercase() }
 
-    private fun renderAbilityBlocked(event: AbilityBlocked, state: BattleState): List<String> {
-        val pokemonName = name(state, event.slot)
-        val abilityName = event.ability.name.lowercase().replaceFirstChar { it.uppercase() }
-        return listOf("It doesn't affect $pokemonName... ($abilityName)")
-    }
+    private fun renderAbilityTriggered(event: AbilityTriggered, stateAfter: BattleState): List<String> =
+        listOf("${name(stateAfter, event.slot)}'s ${abilityName(event.ability)}!")
+
+    private fun renderAbilityBlocked(event: AbilityBlocked, state: BattleState): List<String> =
+        listOf("It doesn't affect ${name(state, event.slot)}... (${abilityName(event.ability)})")
 }
