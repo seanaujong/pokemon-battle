@@ -1,7 +1,7 @@
 # Diary 016: Overridable Types on PokemonState
 
 **Date:** 2026-04-13
-**Status:** Not started
+**Status:** Complete
 
 ## Goal
 

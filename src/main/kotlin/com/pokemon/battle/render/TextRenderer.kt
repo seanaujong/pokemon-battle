@@ -25,6 +25,7 @@ object TextRenderer : BattleRenderer {
             is SwitchIn -> renderSwitchIn(event, stateAfter)
             is AbilityTriggered -> renderAbilityTriggered(event, stateAfter)
             is AbilityBlocked -> renderAbilityBlocked(event, stateBefore)
+            is TypeChanged -> renderTypeChanged(event, stateAfter)
             is VolatileChanged -> emptyList()
         }
     }
@@ -200,4 +201,12 @@ object TextRenderer : BattleRenderer {
 
     private fun renderAbilityBlocked(event: AbilityBlocked, state: BattleState): List<String> =
         listOf("It doesn't affect ${name(state, event.slot)}... (${abilityName(event.ability)})")
+
+    // --- Type changes ---
+
+    private fun renderTypeChanged(event: TypeChanged, stateAfter: BattleState): List<String> {
+        val pokemonName = name(stateAfter, event.target)
+        val typeNames = event.newTypes.joinToString("/") { it.name.lowercase().replaceFirstChar { c -> c.uppercase() } }
+        return listOf("$pokemonName's type changed to $typeNames!")
+    }
 }

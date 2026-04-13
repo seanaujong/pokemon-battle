@@ -13,6 +13,16 @@ data class StatChanged(
     }
 }
 
+data class TypeChanged(
+    val target: Slot,
+    val newTypes: List<Type>
+) : BattleEvent {
+    override fun apply(state: BattleState): BattleState {
+        val pokemon = state.pokemonFor(target)
+        return state.withPokemon(target, pokemon.copy(typeOverride = newTypes))
+    }
+}
+
 data class VolatileChanged(
     val target: Slot,
     val old: Volatile,

@@ -55,7 +55,7 @@ class EndOfTurnPhase : Phase {
         return state.allSlots().mapNotNull { slot ->
             val pokemon = state.pokemonFor(slot)
             if (pokemon.isFainted) return@mapNotNull null
-            if (pokemon.pokemon.species.types.any { it in immuneTypes }) return@mapNotNull null
+            if (pokemon.effectiveTypes.any { it in immuneTypes }) return@mapNotNull null
             if (isWeatherImmune(pokemon.ability, weather)) return@mapNotNull null
 
             val damage = pokemon.maxHp / 16

@@ -57,8 +57,8 @@ class TypeAI(
 
             for (target in targets) {
                 val defender = state.pokemonFor(target)
-                val effectiveness = typeEffectiveness(move.type, defender.pokemon.species.types)
-                val stab = if (move.type in pokemon.pokemon.species.types) 1.5 else 1.0
+                val effectiveness = typeEffectiveness(move.type, defender.effectiveTypes)
+                val stab = if (move.type in pokemon.effectiveTypes) 1.5 else 1.0
                 val score = effectiveness * stab * move.power
 
                 if (score > bestScore) {
@@ -79,10 +79,10 @@ class TypeAI(
 
         if (opponents.isEmpty() || bench.isEmpty()) return 0
 
-        val opponentTypes = state.pokemonFor(opponents.first()).pokemon.species.types
+        val opponentTypes = state.pokemonFor(opponents.first()).effectiveTypes
 
         return bench.indices.maxByOrNull { i ->
-            val benchTypes = bench[i].pokemon.species.types
+            val benchTypes = bench[i].effectiveTypes
             benchTypes.sumOf { atkType ->
                 typeEffectiveness(atkType, opponentTypes)
             } / benchTypes.size

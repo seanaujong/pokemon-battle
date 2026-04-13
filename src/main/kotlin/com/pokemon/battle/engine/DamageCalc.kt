@@ -32,10 +32,10 @@ val GenVDamageCalculator = DamageCalculator { attacker, defender, move, roll, sp
 
     val burnMod = if (attacker.status == StatusCondition.BURN && isPhysical) 0.5 else 1.0
 
-    val typeMultiplier = typeEffectiveness(move.type, defender.pokemon.species.types)
+    val typeMultiplier = typeEffectiveness(move.type, defender.effectiveTypes)
     val effectiveness = Effectiveness.from(typeMultiplier)
 
-    val stab = if (move.type in attacker.pokemon.species.types) 1.5 else 1.0
+    val stab = if (move.type in attacker.effectiveTypes) 1.5 else 1.0
 
     val randomRoll = roll(85..100)
 
