@@ -143,3 +143,33 @@ data class StatusCleared(
         return state.withPokemon(target, pokemon.copy(status = null, volatiles = newVolatiles))
     }
 }
+
+data class SwitchOut(
+    val slot: Slot
+) : BattleEvent {
+    override fun apply(state: BattleState): BattleState {
+        val pokemon = state.pokemonFor(slot)
+        // Clear volatiles and stat stages on switch-out; status persists
+        val cleared = pokemon.copy(volatiles = emptySet(), statStages = StatStages())
+        val side = slot.side
+        val newBench = state.benchFor(side) + cleared
+        return state
+            .withPokemon(slot, cleared)
+            .copy(bench = state.bench + (side to newBench))
+    }
+}
+
+data class SwitchIn(
+    val slot: Slot,
+    val benchIndex: Int
+) : BattleEvent {
+    override fun apply(state: BattleState): BattleState {
+        val side = slot.side
+        val bench = state.benchFor(side)
+        val incoming = bench[benchIndex]
+        val newBench = bench.toMutableList().apply { removeAt(benchIndex) }
+        return state
+            .withPokemon(slot, incoming)
+            .copy(bench = state.bench + (side to newBench))
+    }
+}

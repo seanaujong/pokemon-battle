@@ -14,6 +14,10 @@ data class TurnChoices(val choices: Map<Slot, TurnChoice>) {
 sealed interface TurnChoice {
     data class UseMove(
         val move: Move,
-        val targetSlot: Slot? = null  // null = use move's default targeting; non-null = specific target for ONE_OPPONENT in doubles
+        val targetSlot: Slot? = null
+    ) : TurnChoice
+
+    data class Switch(
+        val benchIndex: Int
     ) : TurnChoice
 }

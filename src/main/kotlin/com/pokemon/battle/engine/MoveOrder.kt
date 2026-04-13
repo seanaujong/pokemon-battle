@@ -10,8 +10,8 @@ data class MoveOrderResult(val order: List<Slot>, val reason: OrderReason)
  */
 fun resolveMoveOrder(state: BattleState, choices: TurnChoices): MoveOrderResult {
     val slotsWithPriority = state.allSlots().mapNotNull { slot ->
-        val choice = choices.choiceFor(slot) ?: return@mapNotNull null
-        val priority = (choice as? TurnChoice.UseMove)?.move?.priority ?: 0
+        val choice = choices.choiceFor(slot) as? TurnChoice.UseMove ?: return@mapNotNull null
+        val priority = choice.move.priority
         val speed = state.pokemonFor(slot).effectiveSpeed()
         Triple(slot, priority, speed)
     }
