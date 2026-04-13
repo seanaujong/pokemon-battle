@@ -46,10 +46,10 @@ class CharizardVsVenusaurTest {
         // which KOs from 130 but not from full 155. See damage range test for details.
         val venusaurState = PokemonState(venusaur, currentHp = 130)
 
-        val initialState = BattleState(charizardState, venusaurState)
-        val choices = TurnChoices(
-            p1 = TurnChoice.UseMove(flamethrower),
-            p2 = TurnChoice.UseMove(sludgeBomb)
+        val initialState = BattleState.singles(charizardState, venusaurState)
+        val choices = TurnChoices.singles(
+            TurnChoice.UseMove(flamethrower),
+            TurnChoice.UseMove(sludgeBomb)
         )
 
         val fixedRoll: (IntRange) -> Int = { 100 }
@@ -67,32 +67,32 @@ class CharizardVsVenusaurTest {
 
         // Event 1: Charizard goes first (higher speed)
         val order = events[0] as MoveOrderDecided
-        assertEquals(Player.P1, order.firstAttacker)
+        assertEquals(Slot.p1(), order.order.first())
         assertEquals(OrderReason.SPEED, order.reason)
 
         // Event 2: Charizard attempts Flamethrower
         val attempt = events[1] as MoveAttempted
-        assertEquals(Player.P1, attempt.attacker)
+        assertEquals(Slot.p1(), attempt.attacker)
         assertEquals("Flamethrower", attempt.move.name)
 
         // Event 3: Super-effective damage
         val damage = events[2] as DamageDealt
-        assertEquals(Player.P2, damage.target)
+        assertEquals(Slot.p2(), damage.target)
         assertEquals(Effectiveness.SUPER_EFFECTIVE, damage.effectiveness)
         assertTrue(damage.amount > 0, "Damage should be positive")
 
         // Event 4: Venusaur faints
         val faint = events[3] as PokemonFainted
-        assertEquals(Player.P2, faint.player)
+        assertEquals(Slot.p2(), faint.slot)
 
         // Venusaur's move is skipped because it fainted — no more events from MoveExecutionPhase
         // EndOfTurnPhase emits nothing
         assertEquals(4, events.size, "Expected exactly 4 events: order, attempt, damage, faint")
 
         // Final state checks
-        assertEquals(0, result.finalState.pokemon2.currentHp, "Venusaur should have 0 HP")
-        assertTrue(result.finalState.pokemon2.isFainted)
-        assertEquals(charizardState.currentHp, result.finalState.pokemon1.currentHp, "Charizard should be untouched")
+        assertEquals(0, result.finalState.pokemonFor(Slot.p2()).currentHp, "Venusaur should have 0 HP")
+        assertTrue(result.finalState.pokemonFor(Slot.p2()).isFainted)
+        assertEquals(charizardState.currentHp, result.finalState.pokemonFor(Slot.p1()).currentHp, "Charizard should be untouched")
     }
 
     @Test
@@ -108,8 +108,6 @@ class CharizardVsVenusaurTest {
         assertEquals(Effectiveness.SUPER_EFFECTIVE, maxResult.effectiveness)
 
         // Exact values from our formula at fixed rolls (31 IVs / 0 EVs / neutral nature).
-        // These differ from docs/example-simple.md (~148-176) due to integer truncation
-        // order — the game truncates at each step, we accumulate then truncate once.
         val midResult = calculateDamage(charizardState, venusaurState, flamethrower, roll = { 92 })
         assertEquals(113, minResult.damage, "Min roll (85) damage")
         assertEquals(123, midResult.damage, "Mid roll (92) damage")
@@ -125,11 +123,8 @@ class CharizardVsVenusaurTest {
     @Test
     fun `stat calculation matches expected values at level 50`() {
         // With default 31 IVs, 0 EVs, neutral nature:
-        // Charizard base speed 100 at level 50: ((2*100+31)*50)/100 + 5 = 120
         assertEquals(120, calcStat(100, 50))
-        // Venusaur base speed 80 at level 50: ((2*80+31)*50)/100 + 5 = 100
         assertEquals(100, calcStat(80, 50))
-        // Charizard HP base 78 at level 50: ((2*78+31)*50)/100 + 50 + 10 = 153
         assertEquals(153, calcMaxHp(78, 50))
     }
 }

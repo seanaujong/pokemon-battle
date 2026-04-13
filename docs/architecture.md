@@ -324,6 +324,67 @@ damage dealt) will need the phase to apply events incrementally — similar to h
 When adding drain/recoil/multi-hit: refactor `executeMove` to track `currentState`
 across damage and effects, same pattern as the outer loop.
 
+### Doubles target selection not modeled
+
+`resolveTargets` uses `.take(1)` for `MoveTarget.OPPONENT`, silently picking the
+first opposing slot. In doubles, the player selects which opponent to target — this
+selection needs to come from `TurnChoice`, not from the phase guessing. When
+implementing doubles: extend `TurnChoice.UseMove` with an optional `targetSlot: Slot?`
+that the player specifies for single-target moves in multi-slot formats.
+
+### MoveOrderResult.reason only describes top-two ordering
+
+The `reason` field compares the first and second slots. In doubles with 4 slots,
+each pair might have different ordering reasons (priority vs speed). The field is
+informational only and doesn't affect behavior, but will be misleading in multi-slot
+formats. Consider per-slot reasons or removing it when implementing doubles.
+
+## Future Scenarios
+
+Scenarios that the architecture supports with varying degrees of new work.
+
+### Switching mid-turn (Pursuit, U-turn)
+
+**U-turn** works: it's a move effect that triggers a switch. The slot's `PokemonState`
+changes via `BattleState.withPokemon(slot, newPokemon)`.
+
+**Pursuit** is harder: it needs to know about pending switches *before* moves execute,
+hitting the switching Pokemon at double power. This requires either a pre-execution
+switch resolution phase, or the ability to interrupt the normal execution order. The
+pipeline supports adding phases, but Pursuit's timing is a new concept — it reacts to
+an opponent's *choice*, not the current state.
+
+### Mega Evolution / Dynamax / Terastallization
+
+These transform a Pokemon at the start of a turn, changing types, stats, or abilities.
+The transformation needs to happen before `MoveOrderPhase` (Mega can change speed,
+affecting ordering). A pre-order transformation phase handles this — the pipeline
+supports inserting phases at any position.
+
+The subtlety: the player's *choice* to Mega evolve is submitted alongside their move
+choice but resolved before moves. This means `TurnChoice` needs to express "use this
+move AND Mega evolve" — a compound choice.
+
+### Ally targeting in doubles (Heal Pulse, Helping Hand)
+
+The slot model supports this: `slotsForSide(slot.side).filter { it != slot }` gives
+allied slots. `MoveTarget` needs a `ONE_ALLY` value, and `resolveTargets` needs a
+new case. Straightforward extension.
+
+### Triples — positional adjacency
+
+In triples, position 0 can only target positions 0 and 1 on the opposing side. Position
+1 (center) can target all three. `Slot.position` is already there — adjacency logic is
+a `resolveTargets` extension. Needs `MoveTarget.ONE_ADJACENT` and a helper like
+`BattleState.adjacentSlots(slot)`.
+
+### Out of scope: Rotation battles
+
+Rotation battles need a concept of active vs bench *within* one side's slots. This
+doesn't fit the current model where every slot in `BattleState.slots` is active. A
+rotation battle engine would be a separate implementation sharing the model layer but
+with a different `BattleState` shape.
+
 ## What This Design Does NOT Cover (yet)
 
 - Team selection / team preview

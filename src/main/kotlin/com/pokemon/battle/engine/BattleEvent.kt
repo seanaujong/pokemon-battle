@@ -7,28 +7,28 @@ sealed interface BattleEvent {
 }
 
 data class MoveOrderDecided(
-    val firstAttacker: Player,
+    val order: List<Slot>,
     val reason: OrderReason
 ) : BattleEvent {
     override fun apply(state: BattleState): BattleState = state // informational
 }
 
 data class MoveAttempted(
-    val attacker: Player,
+    val attacker: Slot,
     val move: Move
 ) : BattleEvent {
     override fun apply(state: BattleState): BattleState = state // informational
 }
 
 data class MoveFailed(
-    val attacker: Player,
+    val attacker: Slot,
     val reason: FailReason
 ) : BattleEvent {
     override fun apply(state: BattleState): BattleState = state // informational
 }
 
 data class DamageDealt(
-    val target: Player,
+    val target: Slot,
     val amount: Int,
     val effectiveness: Effectiveness,
     val critical: Boolean
@@ -41,13 +41,13 @@ data class DamageDealt(
 }
 
 data class PokemonFainted(
-    val player: Player
+    val slot: Slot
 ) : BattleEvent {
     override fun apply(state: BattleState): BattleState = state // HP already at 0 from DamageDealt
 }
 
 data class StatusApplied(
-    val target: Player,
+    val target: Slot,
     val status: StatusCondition
 ) : BattleEvent {
     override fun apply(state: BattleState): BattleState {
@@ -57,7 +57,7 @@ data class StatusApplied(
 }
 
 data class StatusDamage(
-    val target: Player,
+    val target: Slot,
     val amount: Int,
     val source: StatusCondition
 ) : BattleEvent {
@@ -69,7 +69,7 @@ data class StatusDamage(
 }
 
 data class WeatherDamage(
-    val target: Player,
+    val target: Slot,
     val amount: Int,
     val weather: Weather
 ) : BattleEvent {
@@ -81,7 +81,7 @@ data class WeatherDamage(
 }
 
 data class ItemHealing(
-    val target: Player,
+    val target: Slot,
     val amount: Int,
     val item: Item
 ) : BattleEvent {
@@ -107,7 +107,7 @@ data class WeatherTick(
 }
 
 data class StatChanged(
-    val target: Player,
+    val target: Slot,
     val stat: StatType,
     val stages: Int
 ) : BattleEvent {
@@ -118,7 +118,7 @@ data class StatChanged(
 }
 
 data class VolatileChanged(
-    val target: Player,
+    val target: Slot,
     val old: Volatile,
     val new: Volatile?
 ) : BattleEvent {
@@ -131,12 +131,11 @@ data class VolatileChanged(
 }
 
 data class StatusCleared(
-    val target: Player,
+    val target: Slot,
     val status: StatusCondition
 ) : BattleEvent {
     override fun apply(state: BattleState): BattleState {
         val pokemon = state.pokemonFor(target)
-        // Clear the status and remove any related volatile (e.g., Volatile.Sleep)
         val newVolatiles = when (status) {
             StatusCondition.SLEEP -> pokemon.volatiles.filterNot { it is Volatile.Sleep }.toSet()
             else -> pokemon.volatiles

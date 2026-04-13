@@ -28,7 +28,6 @@ class EndOfTurnPhase : Phase {
         return events
     }
 
-    /** If the event targeted a player and they're now fainted, emit PokemonFainted. */
     private fun checkFaint(event: BattleEvent, state: BattleState, events: MutableList<BattleEvent>): BattleState {
         val target = when (event) {
             is WeatherDamage -> event.target
@@ -53,30 +52,30 @@ class EndOfTurnPhase : Phase {
             else -> emptySet()
         }
 
-        return Player.entries.mapNotNull { player ->
-            val pokemon = state.pokemonFor(player)
+        return state.allSlots().mapNotNull { slot ->
+            val pokemon = state.pokemonFor(slot)
             if (pokemon.isFainted) return@mapNotNull null
             if (pokemon.pokemon.species.types.any { it in immuneTypes }) return@mapNotNull null
             if (isWeatherImmune(pokemon.ability, weather)) return@mapNotNull null
 
             val damage = pokemon.maxHp / 16
-            WeatherDamage(target = player, amount = damage, weather = weather)
+            WeatherDamage(target = slot, amount = damage, weather = weather)
         }
     }
 
     private fun statusDamage(state: BattleState): List<BattleEvent> {
-        return Player.entries.mapNotNull { player ->
-            val pokemon = state.pokemonFor(player)
+        return state.allSlots().mapNotNull { slot ->
+            val pokemon = state.pokemonFor(slot)
             if (pokemon.isFainted) return@mapNotNull null
 
             when (pokemon.status) {
                 StatusCondition.BURN -> {
                     val damage = pokemon.maxHp / 16
-                    StatusDamage(target = player, amount = damage, source = StatusCondition.BURN)
+                    StatusDamage(target = slot, amount = damage, source = StatusCondition.BURN)
                 }
                 StatusCondition.POISON -> {
                     val damage = pokemon.maxHp / 8
-                    StatusDamage(target = player, amount = damage, source = StatusCondition.POISON)
+                    StatusDamage(target = slot, amount = damage, source = StatusCondition.POISON)
                 }
                 else -> null
             }
@@ -84,15 +83,15 @@ class EndOfTurnPhase : Phase {
     }
 
     private fun itemEffects(state: BattleState): List<BattleEvent> {
-        return Player.entries.mapNotNull { player ->
-            val pokemon = state.pokemonFor(player)
+        return state.allSlots().mapNotNull { slot ->
+            val pokemon = state.pokemonFor(slot)
             if (pokemon.isFainted) return@mapNotNull null
 
             when (pokemon.item) {
                 Item.LEFTOVERS -> {
                     if (pokemon.currentHp < pokemon.maxHp) {
                         val healing = pokemon.maxHp / 16
-                        ItemHealing(target = player, amount = healing, item = Item.LEFTOVERS)
+                        ItemHealing(target = slot, amount = healing, item = Item.LEFTOVERS)
                     } else null
                 }
                 else -> null

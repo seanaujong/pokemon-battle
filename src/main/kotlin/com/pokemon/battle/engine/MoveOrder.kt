@@ -2,23 +2,31 @@ package com.pokemon.battle.engine
 
 import com.pokemon.battle.model.*
 
-data class MoveOrderResult(val first: Player, val reason: OrderReason)
+data class MoveOrderResult(val order: List<Slot>, val reason: OrderReason)
 
+/**
+ * Sorts slots by priority bracket (from their chosen move), then by effective speed.
+ * Works for any number of slots — singles returns 2, doubles returns 4, etc.
+ */
 fun resolveMoveOrder(state: BattleState, choices: TurnChoices): MoveOrderResult {
-    val p1Priority = (choices.p1 as? TurnChoice.UseMove)?.move?.priority ?: 0
-    val p2Priority = (choices.p2 as? TurnChoice.UseMove)?.move?.priority ?: 0
-
-    return when {
-        p1Priority > p2Priority -> MoveOrderResult(Player.P1, OrderReason.PRIORITY)
-        p2Priority > p1Priority -> MoveOrderResult(Player.P2, OrderReason.PRIORITY)
-        else -> {
-            val speed1 = state.pokemon1.effectiveSpeed()
-            val speed2 = state.pokemon2.effectiveSpeed()
-            when {
-                speed1 > speed2 -> MoveOrderResult(Player.P1, OrderReason.SPEED)
-                speed2 > speed1 -> MoveOrderResult(Player.P2, OrderReason.SPEED)
-                else -> MoveOrderResult(Player.P1, OrderReason.SPEED_TIE) // TODO: random tie-break
-            }
-        }
+    val slotsWithPriority = state.allSlots().mapNotNull { slot ->
+        val choice = choices.choiceFor(slot) ?: return@mapNotNull null
+        val priority = (choice as? TurnChoice.UseMove)?.move?.priority ?: 0
+        val speed = state.pokemonFor(slot).effectiveSpeed()
+        Triple(slot, priority, speed)
     }
+
+    val sorted = slotsWithPriority.sortedWith(
+        compareByDescending<Triple<Slot, Int, Double>> { it.second }  // higher priority first
+            .thenByDescending { it.third }                             // higher speed first
+    )
+
+    val reason = when {
+        sorted.size < 2 -> OrderReason.SPEED
+        sorted[0].second != sorted[1].second -> OrderReason.PRIORITY
+        sorted[0].third != sorted[1].third -> OrderReason.SPEED
+        else -> OrderReason.SPEED_TIE // TODO: random tie-break
+    }
+
+    return MoveOrderResult(sorted.map { it.first }, reason)
 }
