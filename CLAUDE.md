@@ -77,3 +77,13 @@ Each feature or chunk of work follows this cycle:
 9. **Commit** — When the user asks, commit the completed work.
 
 Diary entries are the paper trail. They capture *why* decisions were made, not just *what* was built.
+
+## Tooling Principles
+
+When adding or configuring linters, static analysis, or other tools:
+
+1. **Start with defaults.** Run the tool with no configuration and see what it flags before writing any overrides. This shows you what the tool actually cares about.
+2. **Fix code before configuring thresholds.** If the tool flags something, the first question is "is the code wrong?" not "is the threshold too strict?" Most findings are real.
+3. **Use inline `@Suppress` with rationale over global threshold changes.** A global threshold loosens the net for all future code. An inline suppress documents why *this specific case* is an exception.
+4. **Disable a rule honestly rather than configuring it into irrelevance.** If you're ignoring 25 magic numbers, you've disabled the rule with extra steps. Just disable it and document why.
+5. **Check the tool's version.** Configuration property names change between versions. Search for the exact version's docs instead of guessing.
