@@ -1,4 +1,4 @@
-package com.pokemon.battle
+package com.pokemon.battle.model
 
 data class PokemonState(
     val pokemon: Pokemon,

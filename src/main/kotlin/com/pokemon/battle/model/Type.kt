@@ -1,4 +1,4 @@
-package com.pokemon.battle
+package com.pokemon.battle.model
 
 enum class Type {
     NORMAL, FIRE, WATER, ELECTRIC, GRASS, ICE,

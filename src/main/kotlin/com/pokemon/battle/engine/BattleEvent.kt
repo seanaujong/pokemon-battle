@@ -1,4 +1,8 @@
-package com.pokemon.battle
+package com.pokemon.battle.engine
+
+import com.pokemon.battle.model.*
+
+import com.pokemon.battle.model.*
 
 sealed interface BattleEvent {
     fun apply(state: BattleState): BattleState

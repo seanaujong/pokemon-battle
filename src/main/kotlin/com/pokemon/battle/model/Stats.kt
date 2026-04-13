@@ -1,4 +1,4 @@
-package com.pokemon.battle
+package com.pokemon.battle.model
 
 data class StatStages(
     val attack: Int = 0,

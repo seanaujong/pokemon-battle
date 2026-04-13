@@ -1,4 +1,7 @@
-package com.pokemon.battle
+package com.pokemon.battle.phase
+
+import com.pokemon.battle.model.*
+import com.pokemon.battle.engine.*
 
 class MoveExecutionPhase(
     private val roll: (IntRange) -> Int = { range -> range.random() }

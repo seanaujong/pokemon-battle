@@ -1,4 +1,8 @@
-package com.pokemon.battle
+package com.pokemon.battle.engine
+
+import com.pokemon.battle.model.*
+
+import com.pokemon.battle.model.*
 
 /**
  * Standard Gen V+ damage formula (simplified: no IVs/EVs/Nature/items/abilities yet).

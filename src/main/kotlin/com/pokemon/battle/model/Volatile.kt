@@ -1,4 +1,4 @@
-package com.pokemon.battle
+package com.pokemon.battle.model
 
 sealed interface Volatile {
     data object Flinch : Volatile

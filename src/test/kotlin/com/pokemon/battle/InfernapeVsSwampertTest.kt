@@ -1,5 +1,8 @@
 package com.pokemon.battle
 
+import com.pokemon.battle.model.*
+import com.pokemon.battle.engine.*
+import com.pokemon.battle.phase.*
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertIs

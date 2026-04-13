@@ -1,4 +1,8 @@
-package com.pokemon.battle
+package com.pokemon.battle.engine
+
+import com.pokemon.battle.model.*
+
+import com.pokemon.battle.model.*
 
 data class BattleState(
     val pokemon1: PokemonState,
