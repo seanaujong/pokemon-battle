@@ -21,7 +21,7 @@ data class SwitchIn(
         val side = slot.side
         val bench = state.benchFor(side)
         val incoming = bench[benchIndex]
-        val newBench = bench.toMutableList().apply { removeAt(benchIndex) }
+        val newBench = bench.filterIndexed { i, _ -> i != benchIndex }
         return state
             .withPokemon(slot, incoming)
             .copy(bench = state.bench + (side to newBench))

@@ -39,7 +39,7 @@ class AITest {
                 "Charizard" to listOf(flamethrower, thunderbolt),
                 "Venusaur" to listOf(earthquake, swordsDance)
             ),
-            random = java.util.Random(42)
+            random = kotlin.random.Random(42)
         )
 
         val choices = ai.getChoices(state)
@@ -178,7 +178,7 @@ class AITest {
                 "Venusaur" to listOf(MoveDex.SLUDGE_BOMB, earthquake, tackle, swordsDance),
                 "Blastoise" to listOf(iceBeam, earthquake, tackle, MoveDex.SLUDGE_BOMB)
             ),
-            random = java.util.Random(123)
+            random = kotlin.random.Random(123)
         )
 
         val ai = SidedAI(side1 = side1AI to side1AI, side2 = side2AI to side2AI)

@@ -3,6 +3,7 @@ package com.pokemon.battle.ai
 import com.pokemon.battle.model.*
 import com.pokemon.battle.engine.*
 import com.pokemon.battle.loop.*
+import kotlin.random.Random
 
 /**
  * Picks a random move for each slot. Baseline AI for testing.
@@ -12,7 +13,7 @@ import com.pokemon.battle.loop.*
  */
 class RandomAI(
     private val movePools: Map<String, List<Move>>,
-    private val random: java.util.Random = java.util.Random()
+    private val random: Random = Random
 ) : ChoiceProvider, FaintReplacementProvider {
 
     override fun getChoices(state: BattleState): TurnChoices {
@@ -25,7 +26,7 @@ class RandomAI(
             val moves = movePools[pokemon.pokemon.species.name] ?: continue
             if (moves.isEmpty()) continue
 
-            val move = moves[random.nextInt(moves.size)]
+            val move = moves.random(random)
             choices[slot] = TurnChoice.UseMove(move)
         }
 

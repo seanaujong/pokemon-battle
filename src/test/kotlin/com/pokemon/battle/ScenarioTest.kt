@@ -187,9 +187,9 @@ class ScenarioTest {
 
         // Both use Tackle every turn
         val ai = SidedAI(
-            side1 = RandomAI(mapOf("FireTank" to listOf(MoveDex.TACKLE)), java.util.Random(1))
+            side1 = RandomAI(mapOf("FireTank" to listOf(MoveDex.TACKLE)), kotlin.random.Random(1))
                 .let { it to it },
-            side2 = RandomAI(mapOf("SteelTank" to listOf(MoveDex.TACKLE)), java.util.Random(2))
+            side2 = RandomAI(mapOf("SteelTank" to listOf(MoveDex.TACKLE)), kotlin.random.Random(2))
                 .let { it to it }
         )
 
