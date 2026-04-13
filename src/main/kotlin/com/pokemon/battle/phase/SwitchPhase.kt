@@ -5,15 +5,12 @@ import com.pokemon.battle.engine.BattleState
 import com.pokemon.battle.engine.GenVSpeedResolver
 import com.pokemon.battle.engine.Phase
 import com.pokemon.battle.engine.SpeedResolver
-import com.pokemon.battle.engine.StatChanged
 import com.pokemon.battle.engine.SwitchIn
 import com.pokemon.battle.engine.SwitchOut
 import com.pokemon.battle.engine.TurnChoice
 import com.pokemon.battle.engine.TurnChoices
-import com.pokemon.battle.engine.VolatileRemoved
 import com.pokemon.battle.engine.resolveSwitchInAbility
-import com.pokemon.battle.model.Slot
-import com.pokemon.battle.model.StatType
+import com.pokemon.battle.engine.resolveSwitchOutClearing
 
 /**
  * Resolves voluntary switches before moves execute.
@@ -42,7 +39,7 @@ class SwitchPhase(
             val choice = choices.choiceFor(slot) as TurnChoice.Switch
 
             // Clear volatiles and stat stages before switch-out (gen-specific rule)
-            for (event in clearOnSwitchOut(currentState, slot)) {
+            for (event in resolveSwitchOutClearing(currentState, slot)) {
                 events.add(event)
                 currentState = event.apply(currentState)
             }
@@ -59,30 +56,6 @@ class SwitchPhase(
             for (event in resolveSwitchInAbility(currentState, slot)) {
                 events.add(event)
                 currentState = event.apply(currentState)
-            }
-        }
-
-        return events
-    }
-
-    /** Emit events to clear volatiles and stat stages before switching out. */
-    private fun clearOnSwitchOut(
-        state: BattleState,
-        slot: Slot,
-    ): List<BattleEvent> {
-        val pokemon = state.pokemonFor(slot)
-        val events = mutableListOf<BattleEvent>()
-
-        // Clear each volatile
-        for (volatile in pokemon.volatiles) {
-            events.add(VolatileRemoved(slot, volatile))
-        }
-
-        // Reset stat stages
-        for (stat in StatType.entries) {
-            val current = pokemon.statStages.forStat(stat)
-            if (current != 0) {
-                events.add(StatChanged(slot, stat, -current))
             }
         }
 

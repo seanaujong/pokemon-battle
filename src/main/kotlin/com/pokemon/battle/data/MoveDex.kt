@@ -43,6 +43,28 @@ object MoveDex {
 
     val MUD_SLAP = register(Move("Mud-Slap", Type.GROUND, MoveCategory.SPECIAL, 20))
 
+    val U_TURN =
+        register(
+            Move(
+                "U-turn",
+                Type.BUG,
+                MoveCategory.PHYSICAL,
+                70,
+                effects = listOf(MoveEffect.SelfSwitch),
+            ),
+        )
+
+    val VOLT_SWITCH =
+        register(
+            Move(
+                "Volt Switch",
+                Type.ELECTRIC,
+                MoveCategory.SPECIAL,
+                70,
+                effects = listOf(MoveEffect.SelfSwitch),
+            ),
+        )
+
     // --- Special moves ---
 
     val FLAMETHROWER = register(Move("Flamethrower", Type.FIRE, MoveCategory.SPECIAL, 90))

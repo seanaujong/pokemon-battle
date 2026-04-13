@@ -16,12 +16,16 @@ import com.pokemon.battle.engine.ProtectBlocked
 import com.pokemon.battle.engine.SpeedResolver
 import com.pokemon.battle.engine.StatChanged
 import com.pokemon.battle.engine.StatusCleared
+import com.pokemon.battle.engine.SwitchIn
+import com.pokemon.battle.engine.SwitchOut
 import com.pokemon.battle.engine.TurnChoice
 import com.pokemon.battle.engine.TurnChoices
 import com.pokemon.battle.engine.VolatileAdded
 import com.pokemon.battle.engine.VolatileRemoved
 import com.pokemon.battle.engine.defaultChanceCheck
 import com.pokemon.battle.engine.resolveMoveOrder
+import com.pokemon.battle.engine.resolveSwitchInAbility
+import com.pokemon.battle.engine.resolveSwitchOutClearing
 import com.pokemon.battle.model.Ability
 import com.pokemon.battle.model.FailReason
 import com.pokemon.battle.model.Move
@@ -161,6 +165,57 @@ class MoveExecutionPhase(
             currentState = event.apply(currentState)
         }
 
+        // Self-switch (U-turn, Volt Switch): after damage + effects, switch attacker out.
+        if (move.effects.any { it is MoveEffect.SelfSwitch }) {
+            val selfSwitchEvents = resolveSelfSwitch(currentState, attackerSlot, choice, events)
+            for (event in selfSwitchEvents) {
+                events.add(event)
+                currentState = event.apply(currentState)
+            }
+        }
+
+        return events
+    }
+
+    private fun resolveSelfSwitch(
+        state: BattleState,
+        attackerSlot: Slot,
+        choice: TurnChoice.UseMove,
+        priorEvents: List<BattleEvent>,
+    ): List<BattleEvent> {
+        // Don't switch if attacker fainted (recoil etc.) or move was fully blocked
+        // (no damage landed because of Protect / type immunity / ability immunity).
+        if (state.pokemonFor(attackerSlot).isFainted) return emptyList()
+        val damageLanded = priorEvents.any { it is DamageDealt && (it).amount > 0 }
+        if (!damageLanded) return emptyList()
+
+        // Need a valid bench replacement
+        val benchIndex = choice.switchTo ?: return emptyList()
+        val bench = state.benchFor(attackerSlot.side)
+        if (benchIndex !in bench.indices) return emptyList()
+        if (bench[benchIndex].isFainted) return emptyList()
+
+        val events = mutableListOf<BattleEvent>()
+        var currentState = state
+
+        for (event in resolveSwitchOutClearing(currentState, attackerSlot)) {
+            events.add(event)
+            currentState = event.apply(currentState)
+        }
+
+        val switchOut = SwitchOut(attackerSlot)
+        events.add(switchOut)
+        currentState = switchOut.apply(currentState)
+
+        val switchIn = SwitchIn(attackerSlot, benchIndex)
+        events.add(switchIn)
+        currentState = switchIn.apply(currentState)
+
+        for (event in resolveSwitchInAbility(currentState, attackerSlot)) {
+            events.add(event)
+            currentState = event.apply(currentState)
+        }
+
         return events
     }
 
@@ -285,6 +340,8 @@ class MoveExecutionPhase(
         return when (effect) {
             is MoveEffect.StatBoost -> listOf(StatChanged(targetSlot, effect.stat, effect.stages))
             is MoveEffect.SetVolatile -> listOf(VolatileAdded(targetSlot, effect.volatile))
+            // SelfSwitch is handled in executeMove after damage + effects (needs state, bench, choice).
+            is MoveEffect.SelfSwitch -> emptyList()
         }
     }
 

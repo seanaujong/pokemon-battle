@@ -1,7 +1,7 @@
 # Diary 021: Self-Switch Moves (U-turn, Volt Switch)
 
 **Date:** 2026-04-13
-**Status:** Not started
+**Status:** Complete
 
 ## Goal
 
@@ -89,38 +89,56 @@ a private method on `SwitchPhase`. Options:
 ## Plan
 
 ### Step 1: MoveEffect.SelfSwitch
-- [ ] Add `data object SelfSwitch : MoveEffect`
-- [ ] Compile check — `resolveEffect` `when` branch needs updating
+- [x] Add `data object SelfSwitch : MoveEffect`
+- [x] Compile check — `resolveEffect` `when` branch needs updating
 
 ### Step 2: TurnChoice.UseMove.switchTo
-- [ ] Add `switchTo: Int? = null` to `UseMove`
-- [ ] Compile check — existing code unaffected (default null)
+- [x] Add `switchTo: Int? = null` to `UseMove`
+- [x] Compile check — existing code unaffected (default null)
 
 ### Step 3: Extract switch-out clearing
-- [ ] `resolveSwitchOutClearing(state, slot): List<BattleEvent>` in engine
-- [ ] `SwitchPhase` delegates to it
-- [ ] Compile and test — existing switching tests still pass
+- [x] `resolveSwitchOutClearing(state, slot): List<BattleEvent>` in engine
+- [x] `SwitchPhase` delegates to it
+- [x] Compile and test — existing switching tests still pass
 
 ### Step 4: Handle SelfSwitch in MoveExecutionPhase
-- [ ] After damage + effects in `executeMove`, check for `SelfSwitch`
-- [ ] If present and attacker alive and bench available and `switchTo` set:
+- [x] After damage + effects in `executeMove`, check for `SelfSwitch`
+- [x] If present and attacker alive and bench available and `switchTo` set:
       emit clearing events, SwitchOut, SwitchIn, ability triggers
-- [ ] Use `resolveSwitchOutClearing` and `resolveSwitchInAbility`
+- [x] Use `resolveSwitchOutClearing` and `resolveSwitchInAbility`
 
 ### Step 5: Move definitions
-- [ ] Add U-turn and Volt Switch to `MoveDex`
+- [x] Add U-turn and Volt Switch to `MoveDex`
 
 ### Step 6: Tests
-- [ ] U-turn deals damage then switches attacker out
-- [ ] Replacement Pokemon enters with switch-in ability trigger
-- [ ] Volatiles and stat stages cleared on switch
-- [ ] If move is blocked (type immunity), no switch occurs
-- [ ] If bench is empty, no switch occurs (damage still happens)
-- [ ] If attacker faints from... N/A, U-turn has no recoil. Skip.
+- [x] U-turn deals damage then switches attacker out
+- [x] Replacement Pokemon enters with switch-in ability trigger
+- [x] Volatiles and stat stages cleared on switch
+- [x] If move is blocked (type immunity), no switch occurs
+- [x] If bench is empty, no switch occurs (damage still happens)
+- [x] If attacker faints from... N/A, U-turn has no recoil. Skip.
 
 ## Validation
 
 | Step | Validation |
 |------|-----------|
-| 1-5 | `./gradlew compileKotlin` |
-| 6 | `./gradlew test` — all tests pass |
+| 1-5 | `./gradlew compileKotlin` — passed |
+| 6 | `./gradlew test` — 141 tests pass |
+
+## Decisions made
+
+- **`switchTo: Int?` on `UseMove`** rather than a separate `FaintReplacementProvider`-style hook.
+  Choices are submitted upfront for the whole turn; this matches how a player picks U-turn
+  knowing they'll switch.
+- **`damageLanded` proxy for "should we switch"**. Inspect prior events for any `DamageDealt`
+  with `amount > 0`. This naturally handles type immunity (`amount = 0`), ability immunity
+  (no `DamageDealt` emitted), Protect (no `DamageDealt`), and fainted targets (skipped by
+  `resolveDamage`). All four cases tested.
+- **Extracted `resolveSwitchOutClearing` to engine/`** (mirrors `resolveSwitchInAbility`)
+  so SwitchPhase and self-switch share the same clearing logic.
+
+## Deferred
+
+- **`SelfSwitchSkipped` event.** Currently a failed self-switch is silent — the absence of
+  SwitchOut/SwitchIn IS the signal. For debugging it might help to emit a reason event
+  (immune, no bench, no choice). Skip until needed.

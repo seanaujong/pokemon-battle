@@ -18,6 +18,8 @@ sealed interface TurnChoice {
     data class UseMove(
         val move: Move,
         val targetSlot: Slot? = null,
+        /** Bench index to send in if the move is a self-switch (U-turn, Volt Switch). */
+        val switchTo: Int? = null,
     ) : TurnChoice
 
     data class Switch(
