@@ -67,7 +67,7 @@ class StatusMechanicsTest {
         val state = makeState(p1Status = StatusCondition.PARALYSIS)
         val order = resolveMoveOrder(state, bothTackle)
         assertEquals(Slot.p2(), order.order.first())
-        assertEquals(OrderReason.SPEED, order.reason)
+        assertEquals(OrderReason.SPEED, order.leadReason)
     }
 
     @Test
@@ -190,7 +190,7 @@ class StatusMechanicsTest {
 
         val order = assertIs<MoveOrderDecided>(events[0])
         assertEquals(Slot.p2(), order.order.first())
-        assertEquals(OrderReason.SPEED, order.reason)
+        assertEquals(OrderReason.SPEED, order.leadReason)
 
         val volatileChanged = assertIs<VolatileChanged>(events[1])
         assertEquals(Slot.p2(), volatileChanged.target)

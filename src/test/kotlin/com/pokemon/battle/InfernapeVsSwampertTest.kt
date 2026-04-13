@@ -65,7 +65,7 @@ class InfernapeVsSwampertTest {
 
         val order = assertIs<MoveOrderDecided>(events[0])
         assertEquals(Slot.p1(), order.order.first())
-        assertEquals(OrderReason.PRIORITY, order.reason)
+        assertEquals(OrderReason.PRIORITY, order.leadReason)
 
         val attempt1 = assertIs<MoveAttempted>(events[1])
         assertEquals(Slot.p1(), attempt1.attacker)

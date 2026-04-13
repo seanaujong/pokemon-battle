@@ -8,7 +8,7 @@ sealed interface BattleEvent {
 
 data class MoveOrderDecided(
     val order: List<Slot>,
-    val reason: OrderReason
+    val leadReason: OrderReason
 ) : BattleEvent {
     override fun apply(state: BattleState): BattleState = state // informational
 }

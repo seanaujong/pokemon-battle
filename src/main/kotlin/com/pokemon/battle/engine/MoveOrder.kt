@@ -2,7 +2,10 @@ package com.pokemon.battle.engine
 
 import com.pokemon.battle.model.*
 
-data class MoveOrderResult(val order: List<Slot>, val reason: OrderReason)
+data class MoveOrderResult(
+    val order: List<Slot>,
+    val leadReason: OrderReason  // why the first slot leads — may not describe the full ordering in multi-slot formats
+)
 
 /**
  * Sorts slots by priority bracket (from their chosen move), then by effective speed.
@@ -17,16 +20,16 @@ fun resolveMoveOrder(state: BattleState, choices: TurnChoices): MoveOrderResult 
     }
 
     val sorted = slotsWithPriority.sortedWith(
-        compareByDescending<Triple<Slot, Int, Double>> { it.second }  // higher priority first
-            .thenByDescending { it.third }                             // higher speed first
+        compareByDescending<Triple<Slot, Int, Double>> { it.second }
+            .thenByDescending { it.third }
     )
 
-    val reason = when {
+    val leadReason = when {
         sorted.size < 2 -> OrderReason.SPEED
         sorted[0].second != sorted[1].second -> OrderReason.PRIORITY
         sorted[0].third != sorted[1].third -> OrderReason.SPEED
-        else -> OrderReason.SPEED_TIE // TODO: random tie-break
+        else -> OrderReason.SPEED_TIE
     }
 
-    return MoveOrderResult(sorted.map { it.first }, reason)
+    return MoveOrderResult(sorted.map { it.first }, leadReason)
 }

@@ -262,6 +262,6 @@ class DoublesTest {
 
         // Slow Pokemon with Mach Punch should go first
         assertEquals(Slot.p1(0), order.order[0], "Priority +1 should go first")
-        assertEquals(OrderReason.PRIORITY, order.reason)
+        assertEquals(OrderReason.PRIORITY, order.leadReason)
     }
 }

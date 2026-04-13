@@ -5,16 +5,20 @@ import com.pokemon.battle.engine.*
 
 /**
  * Resolves voluntary switches before moves execute.
- * Emits SwitchOut + SwitchIn for each slot that chose to switch.
+ * Switches are processed in speed order (faster Pokemon switches first),
+ * which matters for switch-in triggers like Intimidate.
  */
 class SwitchPhase : Phase {
     override fun resolve(state: BattleState, choices: TurnChoices): List<BattleEvent> {
         val events = mutableListOf<BattleEvent>()
         var currentState = state
 
-        for (slot in currentState.allSlots()) {
-            val choice = choices.choiceFor(slot)
-            if (choice !is TurnChoice.Switch) continue
+        val switchingSlots = currentState.allSlots()
+            .filter { choices.choiceFor(it) is TurnChoice.Switch }
+            .sortedByDescending { currentState.pokemonFor(it).effectiveSpeed() }
+
+        for (slot in switchingSlots) {
+            val choice = choices.choiceFor(slot) as TurnChoice.Switch
 
             val switchOut = SwitchOut(slot)
             events.add(switchOut)
