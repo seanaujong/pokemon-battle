@@ -1,0 +1,17 @@
+#!/bin/sh
+# Pre-commit hook: run ktlint and detekt before allowing commit.
+# Install: git config core.hooksPath .githooks
+
+echo "Running ktlint..."
+./gradlew ktlintCheck --daemon -q || {
+    echo "ktlint failed. Run './gradlew ktlintFormat' to auto-fix."
+    exit 1
+}
+
+echo "Running detekt..."
+./gradlew detekt --daemon -q || {
+    echo "detekt failed. See build/reports/detekt/detekt.txt for details."
+    exit 1
+}
+
+echo "All checks passed."

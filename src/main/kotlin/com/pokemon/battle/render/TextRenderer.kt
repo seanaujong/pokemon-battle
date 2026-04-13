@@ -31,7 +31,9 @@ import com.pokemon.battle.model.StatusCondition
 import com.pokemon.battle.model.Weather
 
 /** Renders battle events as game-style text messages. */
+@Suppress("TooManyFunctions") // One render function per event type — inherently many
 object TextRenderer : BattleRenderer {
+    @Suppress("CyclomaticComplexMethod") // Exhaustive when over all event types — not complex, just thorough
     override fun render(
         event: BattleEvent,
         stateBefore: BattleState,
@@ -123,6 +125,7 @@ object TextRenderer : BattleRenderer {
 
     // --- Stats ---
 
+    @Suppress("CyclomaticComplexMethod") // Maps stage ranges to phrasing tiers
     private fun renderStatChanged(
         event: StatChanged,
         state: BattleState,

@@ -295,6 +295,7 @@ class ScenarioTest {
     // --- Scenario 5: Full 6v6 TypeAI battle ---
 
     @Test
+    @Suppress("LongMethod") // 6v6 integration test — setup is inherently verbose
     fun `full 6v6 battle with TypeAI on both sides`() {
         fun pokemon(name: String) = Pokemon(pokedex[name]!!, level = 50)
 

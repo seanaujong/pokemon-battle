@@ -13,6 +13,7 @@ import com.pokemon.battle.phase.MoveOrderPhase
 import com.pokemon.battle.phase.SwitchPhase
 import com.pokemon.battle.render.renderBattle
 
+@Suppress("LongMethod") // Demo setup — intentionally shows full battle configuration
 fun main() {
     val pokedex = Pokedex.loadFromClasspath()
 

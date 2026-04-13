@@ -1,34 +1,18 @@
-complexity:
-  # TextRenderer.render() is an exhaustive when over all event types
-  CyclomaticComplexMethod:
-    threshold: 25
-  # Integration code (Main.kt, scenario tests) is naturally longer
-  LongMethod:
-    threshold: 80
-  # BattleState.doubles() factory is intentionally parameter-heavy
-  LongParameterList:
-    functionThreshold: 9
-    constructorThreshold: 9
-  # TextRenderer has one render function per event type
-  TooManyFunctions:
-    thresholdInObjects: 25
-  # TypeAI.pickBestMove has nested loops for move × target scoring
-  NestedBlockDepth:
-    threshold: 5
+# Detekt configuration — keep defaults tight, use @Suppress for justified exceptions.
+# Only override thresholds where the default is genuinely too strict for the domain.
 
 style:
-  # Status check functions use early returns idiomatically
+  # Status check functions use early returns idiomatically (default: 2)
   ReturnCount:
     max: 8
-  # Loops with multiple continues for skip-fainted/skip-immune patterns
+  # Loops with multiple continues for skip-fainted/skip-immune patterns (default: 1)
   LoopWithTooManyJumpStatements:
     maxJumpCount: 3
-  # Move pool definitions in tests can be long
+  # Move pool definitions in tests can be long (default: 120)
   MaxLineLength:
     maxLineLength: 140
-  # Pokemon domain constants (stat stages ±6, HP fractions 1/16, STAB 1.5x,
-  # IV bounds 0-31, EV bounds 0-252) are inherent to game formulas.
-  # "maxHp / 16" reads clearer than "maxHp / BURN_DAMAGE_FRACTION" in context.
+  # Pokemon domain constants (stat stages, HP fractions, multipliers) are
+  # inherent to game formulas and read clearer as literals
   MagicNumber:
     active: false
 

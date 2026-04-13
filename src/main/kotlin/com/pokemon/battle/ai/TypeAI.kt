@@ -39,6 +39,7 @@ class TypeAI(
         return TurnChoices(choices)
     }
 
+    @Suppress("NestedBlockDepth") // Nested loops for move × target scoring
     private fun pickBestMove(
         state: BattleState,
         slot: Slot,

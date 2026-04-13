@@ -65,6 +65,7 @@ class StatusMechanicsTest {
             power = 40,
         )
 
+    @Suppress("LongParameterList") // Test helper — all params have defaults
     private fun makeState(
         p1Status: StatusCondition? = null,
         p1Volatiles: Set<Volatile> = emptySet(),

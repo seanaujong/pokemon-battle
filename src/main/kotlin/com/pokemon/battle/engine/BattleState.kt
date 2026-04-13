@@ -31,6 +31,7 @@ data class BattleState(
             benchFor(side).isEmpty()
 
     companion object {
+        @Suppress("LongParameterList") // Factory method — all params have defaults
         fun singles(
             p1: PokemonState,
             p2: PokemonState,
@@ -45,6 +46,7 @@ data class BattleState(
             turn = turn,
         )
 
+        @Suppress("LongParameterList") // Factory method — all params are required
         fun doubles(
             p1Left: PokemonState,
             p1Right: PokemonState,
