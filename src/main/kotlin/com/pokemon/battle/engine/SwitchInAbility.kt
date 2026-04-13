@@ -1,6 +1,9 @@
 package com.pokemon.battle.engine
 
-import com.pokemon.battle.model.*
+import com.pokemon.battle.model.Ability
+import com.pokemon.battle.model.Slot
+import com.pokemon.battle.model.StatType
+import com.pokemon.battle.model.Weather
 
 /**
  * Resolves switch-in ability triggers for a Pokemon that just entered a slot.

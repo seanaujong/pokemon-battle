@@ -1,11 +1,9 @@
 root = true
 
 [*.{kt,kts}]
-# Wildcard imports for internal packages — our package structure is well-scoped
+# Wildcard imports for internal packages — ktlint can't auto-correct these,
+# and explicit imports for tightly-coupled internal packages add noise.
+# External/stdlib imports use explicit imports per ktlint default.
 ktlint_standard_no-wildcard-imports = disabled
 # Concept-named files (MoveOrder.kt) over class-named files (MoveOrderResult.kt)
 ktlint_standard_filename = disabled
-# Inline comments in argument lists for readability in test setup code
-ktlint_standard_value-argument-comment = disabled
-ktlint_standard_value-parameter-comment = disabled
-ktlint_standard_discouraged-comment-location = disabled

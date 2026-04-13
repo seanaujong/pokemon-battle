@@ -197,8 +197,8 @@ class SwitchingTest {
         val choices =
             TurnChoices(
                 mapOf(
-                    Slot.p1(0) to TurnChoice.Switch(benchIndex = 0), // switch
-                    Slot.p1(1) to TurnChoice.UseMove(tackle), // attack
+                    Slot.p1(0) to TurnChoice.Switch(benchIndex = 0),
+                    Slot.p1(1) to TurnChoice.UseMove(tackle),
                     Slot.p2(0) to TurnChoice.UseMove(tackle),
                     Slot.p2(1) to TurnChoice.UseMove(tackle),
                 ),

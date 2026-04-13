@@ -1,6 +1,7 @@
 package com.pokemon.battle.engine
 
-import com.pokemon.battle.model.*
+import com.pokemon.battle.model.Type
+import com.pokemon.battle.model.typeEffectiveness
 
 /**
  * Calculates type effectiveness. Injectable for Inverse Battles and custom formats.

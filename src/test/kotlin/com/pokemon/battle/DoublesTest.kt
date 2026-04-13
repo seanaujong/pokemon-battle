@@ -37,9 +37,9 @@ class DoublesTest {
         val battleState =
             BattleState.doubles(
                 state(pokemon(fast)),
-                state(pokemon(slow)), // side 1
+                state(pokemon(slow)),
                 state(pokemon(midFast)),
-                state(pokemon(midSlow)), // side 2
+                state(pokemon(midSlow)),
             )
         val choices =
             TurnChoices(
@@ -292,14 +292,15 @@ class DoublesTest {
         val battleState =
             BattleState.doubles(
                 state(pokemon(slow)),
-                state(pokemon(fast)), // slow uses Mach Punch
+                state(pokemon(fast)),
                 state(pokemon(midFast)),
                 state(pokemon(midSlow)),
             )
         val choices =
             TurnChoices(
                 mapOf(
-                    Slot.p1(0) to TurnChoice.UseMove(machPunch), // slow but +1 priority
+                    // Slow Pokemon with +1 priority Mach Punch
+                    Slot.p1(0) to TurnChoice.UseMove(machPunch),
                     Slot.p1(1) to TurnChoice.UseMove(tackle),
                     Slot.p2(0) to TurnChoice.UseMove(tackle),
                     Slot.p2(1) to TurnChoice.UseMove(tackle),

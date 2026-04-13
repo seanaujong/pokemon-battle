@@ -1,6 +1,9 @@
 package com.pokemon.battle.engine
 
-import com.pokemon.battle.model.*
+import com.pokemon.battle.model.FieldState
+import com.pokemon.battle.model.PokemonState
+import com.pokemon.battle.model.Side
+import com.pokemon.battle.model.Slot
 
 data class BattleState(
     val slots: Map<Slot, PokemonState>,

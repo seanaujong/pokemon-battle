@@ -1,5 +1,6 @@
 package com.pokemon.battle.data
 
+import com.pokemon.battle.data.MoveDex.register
 import com.pokemon.battle.model.*
 
 /**

@@ -81,10 +81,12 @@ class AbilityTest {
     fun `spread move with one Levitate target still hits others`() {
         val battleState =
             BattleState.doubles(
-                state(pokemon(groundSpecies)), // uses Earthquake
-                state(pokemon(normalSpecies)), // ally, takes damage
-                state(pokemon(normalSpecies)), // opponent, takes damage
-                state(pokemon(ghostSpecies), ability = Ability.LEVITATE), // opponent, immune
+                // P1: Ground user + Normal ally
+                state(pokemon(groundSpecies)),
+                state(pokemon(normalSpecies)),
+                // P2: Normal opponent + Ghost with Levitate (immune)
+                state(pokemon(normalSpecies)),
+                state(pokemon(ghostSpecies), ability = Ability.LEVITATE),
             )
         val choices =
             TurnChoices(

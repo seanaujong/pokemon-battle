@@ -85,10 +85,12 @@ class ScenarioTest {
 
         val state =
             BattleState.doubles(
-                PokemonState(Pokemon(groundSpecies, 50), currentHp = 155), // uses Earthquake
-                PokemonState(Pokemon(flyingSpecies, 50), currentHp = 173), // ally, Flying = immune to Ground
-                PokemonState(Pokemon(normalSpecies, 50), currentHp = 155), // takes damage
-                PokemonState(Pokemon(ghostSpecies, 50), currentHp = 135, ability = Ability.LEVITATE), // Levitate
+                // P1: Ground user + Flying ally (immune to Ground)
+                PokemonState(Pokemon(groundSpecies, 50), currentHp = 155),
+                PokemonState(Pokemon(flyingSpecies, 50), currentHp = 173),
+                // P2: Normal foe (takes damage) + Ghost foe with Levitate
+                PokemonState(Pokemon(normalSpecies, 50), currentHp = 155),
+                PokemonState(Pokemon(ghostSpecies, 50), currentHp = 135, ability = Ability.LEVITATE),
             )
 
         // Only p1(0) uses Earthquake, others use Tackle

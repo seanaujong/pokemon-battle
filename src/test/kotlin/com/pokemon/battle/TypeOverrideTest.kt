@@ -30,7 +30,8 @@ class TypeOverrideTest {
 
         val choices =
             TurnChoices.singles(
-                TurnChoice.UseMove(MoveDex.ICE_BEAM), // Ice vs Fire = not very effective
+                // Ice vs Fire-overridden Snorlax = not very effective
+                TurnChoice.UseMove(MoveDex.ICE_BEAM),
                 TurnChoice.UseMove(MoveDex.TACKLE),
             )
 

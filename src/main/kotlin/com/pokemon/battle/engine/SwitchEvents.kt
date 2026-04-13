@@ -1,6 +1,6 @@
 package com.pokemon.battle.engine
 
-import com.pokemon.battle.model.*
+import com.pokemon.battle.model.Slot
 
 data class SwitchOut(
     val slot: Slot,

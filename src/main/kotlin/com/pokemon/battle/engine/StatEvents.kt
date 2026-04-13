@@ -1,6 +1,9 @@
 package com.pokemon.battle.engine
 
-import com.pokemon.battle.model.*
+import com.pokemon.battle.model.Slot
+import com.pokemon.battle.model.StatType
+import com.pokemon.battle.model.Type
+import com.pokemon.battle.model.Volatile
 
 data class StatChanged(
     val target: Slot,

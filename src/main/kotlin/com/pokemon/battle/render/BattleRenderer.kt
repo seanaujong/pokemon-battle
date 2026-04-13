@@ -1,8 +1,9 @@
 package com.pokemon.battle.render
 
-import com.pokemon.battle.engine.*
-import com.pokemon.battle.loop.*
-import com.pokemon.battle.model.*
+import com.pokemon.battle.engine.BattleEvent
+import com.pokemon.battle.engine.BattleState
+import com.pokemon.battle.loop.BattleResult
+import com.pokemon.battle.model.Side
 
 fun interface BattleRenderer {
     fun render(

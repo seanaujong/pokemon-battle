@@ -1,6 +1,7 @@
 package com.pokemon.battle.engine
 
-import com.pokemon.battle.model.*
+import com.pokemon.battle.model.Item
+import com.pokemon.battle.model.Slot
 
 data class ItemHealing(
     val target: Slot,

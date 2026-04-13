@@ -1,6 +1,7 @@
 package com.pokemon.battle.engine
 
-import com.pokemon.battle.model.*
+import com.pokemon.battle.model.Move
+import com.pokemon.battle.model.Slot
 
 data class TurnChoices(val choices: Map<Slot, TurnChoice>) {
     fun choiceFor(slot: Slot): TurnChoice? = choices[slot]

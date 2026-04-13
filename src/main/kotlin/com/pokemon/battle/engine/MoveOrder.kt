@@ -1,6 +1,7 @@
 package com.pokemon.battle.engine
 
-import com.pokemon.battle.model.*
+import com.pokemon.battle.model.OrderReason
+import com.pokemon.battle.model.Slot
 
 data class MoveOrderResult(
     val order: List<Slot>,

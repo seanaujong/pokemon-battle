@@ -1,6 +1,7 @@
 package com.pokemon.battle.engine
 
-import com.pokemon.battle.model.*
+import com.pokemon.battle.model.Slot
+import com.pokemon.battle.model.Weather
 
 data class WeatherDamage(
     val target: Slot,

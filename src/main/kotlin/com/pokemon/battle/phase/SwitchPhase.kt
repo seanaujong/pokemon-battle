@@ -1,7 +1,8 @@
 package com.pokemon.battle.phase
 
 import com.pokemon.battle.engine.*
-import com.pokemon.battle.model.*
+import com.pokemon.battle.model.Slot
+import com.pokemon.battle.model.StatType
 
 /**
  * Resolves voluntary switches before moves execute.

@@ -175,8 +175,9 @@ class RendererTest {
         val initialState =
             BattleState.singles(
                 PokemonState(charizard, currentHp = charizard.maxHp),
-                PokemonState(venusaur, currentHp = 1), // KO first turn
-                p2Bench = listOf(PokemonState(blastoise, currentHp = 1)), // KO second turn
+                // Both at 1 HP — KO'd on first and second turn
+                PokemonState(venusaur, currentHp = 1),
+                p2Bench = listOf(PokemonState(blastoise, currentHp = 1)),
             )
 
         val result =

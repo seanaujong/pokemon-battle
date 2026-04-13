@@ -1,7 +1,8 @@
 package com.pokemon.battle.loop
 
 import com.pokemon.battle.engine.*
-import com.pokemon.battle.model.*
+import com.pokemon.battle.model.Side
+import com.pokemon.battle.model.Slot
 
 fun interface ChoiceProvider {
     fun getChoices(state: BattleState): TurnChoices

@@ -1,8 +1,11 @@
 package com.pokemon.battle.ai
 
-import com.pokemon.battle.engine.*
-import com.pokemon.battle.loop.*
-import com.pokemon.battle.model.*
+import com.pokemon.battle.engine.BattleState
+import com.pokemon.battle.engine.TurnChoices
+import com.pokemon.battle.loop.ChoiceProvider
+import com.pokemon.battle.loop.FaintReplacementProvider
+import com.pokemon.battle.model.Side
+import com.pokemon.battle.model.Slot
 
 /**
  * Composes two ChoiceProviders/FaintReplacementProviders, one per side.

@@ -240,7 +240,8 @@ class GameLoopTest {
                 choiceIndex++
                 choice
             },
-            faintReplacementProvider = { _, _ -> 0 }, // always send in first bench Pokemon
+            // Always send in first bench Pokemon
+            faintReplacementProvider = { _, _ -> 0 },
         ).run(state)
     }
 

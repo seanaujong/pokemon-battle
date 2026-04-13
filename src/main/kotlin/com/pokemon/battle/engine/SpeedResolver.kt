@@ -1,6 +1,7 @@
 package com.pokemon.battle.engine
 
-import com.pokemon.battle.model.*
+import com.pokemon.battle.model.PokemonState
+import com.pokemon.battle.model.StatusCondition
 
 fun interface SpeedResolver {
     fun effectiveSpeed(pokemon: PokemonState): Double
