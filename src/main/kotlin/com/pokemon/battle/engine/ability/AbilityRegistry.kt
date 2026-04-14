@@ -27,6 +27,7 @@ object AbilityRegistry {
             BlazeEffect,
             OvergrowEffect,
             TorrentEffect,
+            KlutzEffect,
         ).associateBy { it.ability }
 
     fun effectFor(ability: Ability?): AbilityEffect? = ability?.let { effects[it] }

@@ -62,8 +62,8 @@ class GenVDamageCalculator(
         val burnMod = if (attacker.status == StatusCondition.BURN && isPhysical) 0.5 else 1.0
         val critMod = if (isCritical) 1.5 else 1.0
         val weatherMod = weatherDamageModifier(weather, move.type)
-        val attackerItemMod = ItemRegistry.effectFor(attacker.item)?.attackerDamageModifier(attacker, move) ?: 1.0
-        val defenderItemMod = ItemRegistry.effectFor(defender.item)?.defenderDamageModifier(defender, move) ?: 1.0
+        val attackerItemMod = ItemRegistry.effectForHolder(attacker)?.attackerDamageModifier(attacker, move) ?: 1.0
+        val defenderItemMod = ItemRegistry.effectForHolder(defender)?.defenderDamageModifier(defender, move) ?: 1.0
         val attackerAbilityMod = AbilityRegistry.effectFor(attacker.ability)?.attackerDamageModifier(attacker, move) ?: 1.0
         val defenderAbilityMod = AbilityRegistry.effectFor(defender.ability)?.defenderDamageModifier(defender, move) ?: 1.0
         val itemMod = attackerItemMod * defenderItemMod

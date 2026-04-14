@@ -71,6 +71,13 @@ interface AbilityEffect {
     ): Double = 1.0
 
     /**
+     * True if this ability suppresses the holder's held item (Klutz). Consulted by
+     * [com.pokemon.battle.engine.item.ItemRegistry.effectForHolder] to decide if the
+     * item's effect should fire.
+     */
+    fun suppressesHeldItem(holder: PokemonState): Boolean = false
+
+    /**
      * Game-text for when this ability triggers (switch-in announcement, absorb message).
      * Default renders as "X's <AbilityName>!"; abilities with richer flavor text override.
      */

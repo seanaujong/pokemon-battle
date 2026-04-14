@@ -24,4 +24,7 @@ enum class Ability {
 
     // Damage immunity
     LEVITATE,
+
+    // Item suppression
+    KLUTZ,
 }

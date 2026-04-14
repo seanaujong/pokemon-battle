@@ -300,7 +300,7 @@ class MoveExecutionPhase(
             val result = damageCalculator.calculate(attacker, defender, move, roll, spreadMod, isCritical, currentState.field.weather)
 
             // Defender's item may intercept the damage (e.g. Focus Sash).
-            val intercept = ItemRegistry.effectFor(defender.item)?.interceptIncomingDamage(defender, result.damage)
+            val intercept = ItemRegistry.effectForHolder(defender)?.interceptIncomingDamage(defender, result.damage)
             val finalDamage = intercept?.adjustedDamage ?: result.damage
 
             val damageEvent =
@@ -337,7 +337,7 @@ class MoveExecutionPhase(
         priorEvents: List<BattleEvent>,
     ): List<BattleEvent> {
         val attacker = state.pokemonFor(attackerSlot)
-        val effect = ItemRegistry.effectFor(attacker.item) ?: return emptyList()
+        val effect = ItemRegistry.effectForHolder(attacker) ?: return emptyList()
         val anyDamage = priorEvents.any { it is DamageDealt && it.amount > 0 }
         return effect.afterUserMoveDamage(attacker, attackerSlot, anyDamage)
     }

@@ -460,6 +460,18 @@ seam for gen-specific variants (`GenIVItemRegistry` vs `GenVItemRegistry`). Do t
 *when* the pattern is visible, not before — three items was the sweet spot for us.
 Diary 026 has the full story.
 
+**Registries should be context-aware at the query level.** Once the engine has multiple
+registries (items, abilities, eventually moves), cross-cutting "X suppresses Y"
+interactions pile up: Klutz suppresses the holder's item; Embargo suppresses a target's
+item via volatile; Magic Room disables all items field-wide; Neutralizing Gas suppresses
+abilities. The wrong shape is to scatter `if (ability == KLUTZ)` checks across every
+caller. The right shape is for the *lookup itself* to be context-aware:
+`ItemRegistry.effectForHolder(pokemon)` returns null if the item is suppressed, hiding
+the suppression logic inside the registry. Callers remain generic; adding a new
+suppressor (Embargo volatile, Magic Room field) means one signature extension on the
+lookup, not an edit in every caller. Diary 033 establishes this with Klutz as the first
+example.
+
 **Registries turn multi-gen support into a data-loading problem, not an engine problem.**
 Once behavior is extracted from the engine into per-entity effect objects, a gen-specific
 variant of the engine is just a different set of objects registered. The engine itself

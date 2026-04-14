@@ -75,7 +75,7 @@ class SimplifiedEndOfTurnPhase : Phase {
         state.allSlots().flatMap { slot ->
             val pokemon = state.pokemonFor(slot)
             if (pokemon.isFainted) return@flatMap emptyList()
-            ItemRegistry.effectFor(pokemon.item)?.endOfTurn(pokemon, slot) ?: emptyList()
+            ItemRegistry.effectForHolder(pokemon)?.endOfTurn(pokemon, slot) ?: emptyList()
         }
 
     private fun weatherTick(state: BattleState): List<BattleEvent> {
