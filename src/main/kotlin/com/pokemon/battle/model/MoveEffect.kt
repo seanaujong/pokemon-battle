@@ -21,4 +21,18 @@ sealed interface MoveEffect {
      * Toxic Spikes = 2.
      */
     data class SetHazardOnOpposingSide(val hazard: SideHazard, val maxLayers: Int) : MoveEffect
+
+    /**
+     * Clear all entry hazards from the user's own side (Rapid Spin, Defog — user-side
+     * removal scope only; Defog's opponent-side / terrain / evasion effects are deferred).
+     * Emits one [com.pokemon.battle.engine.HazardRemoved] event per hazard present.
+     */
+    data object ClearHazardsOnUserSide : MoveEffect
+
+    /**
+     * Raise or lower the user's own stat by [stages], regardless of the move's target.
+     * Used by damaging moves whose secondary effect is self-targeted (Rapid Spin +1
+     * Speed in Gen 8+), where the move's primary target is the opponent.
+     */
+    data class UserStatBoost(val stat: StatType, val stages: Int) : MoveEffect
 }

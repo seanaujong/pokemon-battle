@@ -9,6 +9,7 @@ import com.pokemon.battle.engine.DamageCalculator
 import com.pokemon.battle.engine.DamageDealt
 import com.pokemon.battle.engine.GenVDamageCalculator
 import com.pokemon.battle.engine.GenVSpeedResolver
+import com.pokemon.battle.engine.HazardRemoved
 import com.pokemon.battle.engine.HazardSet
 import com.pokemon.battle.engine.ItemConsumed
 import com.pokemon.battle.engine.MoveAttempted
@@ -174,7 +175,7 @@ class MoveExecutionPhase(
         }
 
         val faintedSlots = events.filterIsInstance<PokemonFainted>().map { it.slot }.toSet()
-        val effectEvents = resolveEffects(currentState, move.effects, unblockedTargets, faintedSlots)
+        val effectEvents = resolveEffects(currentState, attackerSlot, move.effects, unblockedTargets, faintedSlots)
         for (event in effectEvents) {
             events.add(event)
             currentState = event.apply(currentState)
@@ -441,15 +442,22 @@ class MoveExecutionPhase(
 
     private fun resolveEffects(
         state: BattleState,
+        attackerSlot: Slot,
         effects: List<MoveEffect>,
         targets: List<Slot>,
         faintedSlots: Set<Slot>,
     ): List<BattleEvent> {
         val events = mutableListOf<BattleEvent>()
         for (effect in effects) {
+            // User-sided effects fire once per move (not per target). They're keyed off the
+            // attacker's side, not any target.
+            if (effect is MoveEffect.ClearHazardsOnUserSide || effect is MoveEffect.UserStatBoost) {
+                events.addAll(resolveEffect(state, effect, attackerSlot, attackerSlot))
+                continue
+            }
             for (target in targets) {
                 if (target in faintedSlots) continue
-                events.addAll(resolveEffect(state, effect, target))
+                events.addAll(resolveEffect(state, effect, attackerSlot, target))
             }
         }
         return events
@@ -458,6 +466,7 @@ class MoveExecutionPhase(
     private fun resolveEffect(
         state: BattleState,
         effect: MoveEffect,
+        attackerSlot: Slot,
         targetSlot: Slot,
     ): List<BattleEvent> {
         return when (effect) {
@@ -480,6 +489,14 @@ class MoveExecutionPhase(
                     emptyList()
                 } else {
                     listOf(HazardSet(targetSlot.side, effect.hazard, currentLayers + 1))
+                }
+            }
+            is MoveEffect.UserStatBoost -> listOf(StatChanged(attackerSlot, effect.stat, effect.stages))
+            is MoveEffect.ClearHazardsOnUserSide -> {
+                // Clear every hazard on the attacker's own side. Emits nothing if no hazards
+                // are present — the move still ran (damage / other effects already fired).
+                state.hazardsOn(attackerSlot.side).keys.map { hazard ->
+                    HazardRemoved(attackerSlot.side, hazard)
                 }
             }
         }

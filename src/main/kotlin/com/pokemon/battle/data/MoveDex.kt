@@ -221,6 +221,36 @@ object MoveDex {
             ),
         )
 
+    val RAPID_SPIN =
+        register(
+            Move(
+                "Rapid Spin",
+                Type.NORMAL,
+                MoveCategory.PHYSICAL,
+                power = 50,
+                // Gen 8+: damages an opponent, clears hazards on user's side, +1 Speed to user.
+                effects =
+                    listOf(
+                        MoveEffect.ClearHazardsOnUserSide,
+                        MoveEffect.UserStatBoost(StatType.SPEED, 1),
+                    ),
+            ),
+        )
+
+    val DEFOG =
+        register(
+            Move(
+                "Defog",
+                Type.FLYING,
+                MoveCategory.STATUS,
+                power = 0,
+                target = MoveTarget.SELF,
+                // Scope: clears user-side hazards only. Mainline Defog also clears opposing-side
+                // hazards, lowers target Evasion, and removes terrain — deferred (diary 044).
+                effects = listOf(MoveEffect.ClearHazardsOnUserSide),
+            ),
+        )
+
     val PROTECT =
         register(
             Move(
