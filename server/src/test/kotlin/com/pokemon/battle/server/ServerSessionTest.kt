@@ -1,0 +1,85 @@
+package com.pokemon.battle.server
+
+import com.pokemon.battle.engine.TurnChoice
+import com.pokemon.battle.engine.TurnChoices
+import com.pokemon.battle.engine.serialization.toJson
+import com.pokemon.battle.model.Move
+import com.pokemon.battle.model.Slot
+import com.pokemon.battle.server.protocol.ChoiceSubmit
+import com.pokemon.battle.server.protocol.ClientMessage
+import com.pokemon.battle.server.protocol.FaintReplacement
+import com.pokemon.battle.server.protocol.Ready
+import com.pokemon.battle.server.protocol.Result
+import com.pokemon.battle.server.protocol.ServerMessage
+import com.pokemon.battle.server.protocol.TeamSet
+import com.pokemon.battle.server.protocol.TurnEvents
+import kotlinx.serialization.json.Json
+import java.io.BufferedReader
+import java.io.PrintWriter
+import java.io.StringReader
+import java.io.StringWriter
+import kotlin.test.Test
+import kotlin.test.assertNotNull
+import kotlin.test.assertTrue
+
+class ServerSessionTest {
+    private val json = Json { classDiscriminator = "type" }
+
+    private val side1Team =
+        """
+        Charizard
+        Ability: Blaze
+        Level: 100
+        - Flamethrower
+        """.trimIndent()
+
+    private val side2Team =
+        """
+        Venusaur
+        Ability: Overgrow
+        Level: 100
+        - Sludge Bomb
+        """.trimIndent()
+
+    @Test
+    fun `end-to-end battle via JSONL emits a Result`() {
+        val inputLines = mutableListOf<String>()
+        inputLines.add(encode(TeamSet(side = com.pokemon.battle.model.Side.SIDE_1, team = side1Team)))
+        inputLines.add(encode(TeamSet(side = com.pokemon.battle.model.Side.SIDE_2, team = side2Team)))
+        val flamethrower = Move("Flamethrower", com.pokemon.battle.model.Type.FIRE, com.pokemon.battle.model.MoveCategory.SPECIAL, 90)
+        val sludgeBomb = Move("Sludge Bomb", com.pokemon.battle.model.Type.POISON, com.pokemon.battle.model.MoveCategory.SPECIAL, 90)
+        val choicesPerTurn =
+            encode(
+                ChoiceSubmit(
+                    choices =
+                        TurnChoices(
+                            mapOf(
+                                Slot.p1() to TurnChoice.UseMove(flamethrower),
+                                Slot.p2() to TurnChoice.UseMove(sludgeBomb),
+                            ),
+                        ).toJson(),
+                ),
+            )
+        // Pre-script more choice submits than any reasonable battle will need.
+        repeat(50) { inputLines.add(choicesPerTurn) }
+        // And some faint replacements in case the battle tries to prompt (empty bench → never asked).
+        repeat(10) { inputLines.add(encode(FaintReplacement(slot = Slot.p1(), benchIndex = 0))) }
+
+        val input = BufferedReader(StringReader(inputLines.joinToString("\n") + "\n"))
+        val outputWriter = StringWriter()
+        val output = PrintWriter(outputWriter, true)
+
+        ServerSession(input, output, maxTurns = 20).run()
+
+        val messages = outputWriter.toString().lines().filter { it.isNotBlank() }.map { decode(it) }
+        assertTrue(messages.isNotEmpty(), "server emitted no messages")
+        assertTrue(messages.first() is Ready, "first message should be Ready, got ${messages.first()::class.simpleName}")
+        val result = messages.lastOrNull { it is Result } as Result?
+        assertNotNull(result, "server never emitted a Result")
+        assertTrue(messages.any { it is TurnEvents }, "no TurnEvents emitted")
+    }
+
+    private fun encode(message: ClientMessage): String = json.encodeToString(ClientMessage.serializer(), message)
+
+    private fun decode(line: String): ServerMessage = json.decodeFromString(ServerMessage.serializer(), line)
+}
