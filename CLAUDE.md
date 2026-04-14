@@ -159,21 +159,28 @@ Each feature or chunk of work follows this cycle:
    - Open design questions discovered along the way
 3. **Implement incrementally** — Work through the plan step by step. Run `./gradlew compileKotlin` or `./gradlew test` after each step to stay green.
 4. **Validate** — Every step must have a concrete "green" signal before moving on. Tests are the primary validation mechanism since the core logic is pure functions.
-5. **Code review — inside the diary, not a separate temp doc.** After
-   implementation, write a `## Code review` section in the diary for
-   this work. Walking the diagnostic checklist below is the cost of
-   shipping, not an optional extra. Fix the obvious findings in the
-   same commit; flag architectural questions for discussion in a
-   follow-up. If there are *no* findings, that's a fine outcome — note
-   it explicitly ("reviewed, no changes needed") so the section isn't
-   missing.
+5. **Code review — write it in the diary. Not optional. Not a temp
+   file. Not "later."** Before this diary is marked complete, it MUST
+   contain a `## Code review` section. The section MUST walk the
+   diagnostic checklist below. The section MUST state "no findings"
+   explicitly if the walk found nothing — a missing section is
+   indistinguishable from a skipped review. Fix obvious findings in
+   the same commit; flag architectural ones for a follow-up diary.
 
-   **Why in-diary:** the `docs/diaries/temp/` convention let these
-   reviews quietly go missing. Diary 082 retroactively caught this —
-   we'd skipped the step across a whole refactor wave. Embedding the
-   review in the permanent diary makes skipping visible on grep.
+   **If you are about to close out a diary without a `## Code review`
+   section, stop and write it.** This is the rule that silently failed
+   before diary 082 — the `docs/diaries/temp/` convention made the
+   step invisible when skipped, so it got skipped across a whole
+   refactor wave. In-diary sections show up on grep:
 
-   **Mandatory diagnostics:**
+   ```
+   grep -L "## Code review" docs/diaries/*.md
+   ```
+
+   lists diaries missing the section. Any "Status: Complete" diary
+   that shows up there is a bug.
+
+   **Diagnostics (walk all of these; note which apply):**
    - Is it testable in isolation? If not, what's blocking it?
    - Is it readable? Is it intuitive? Could a new team member
      understand the intent and would the API match how you'd explain it?

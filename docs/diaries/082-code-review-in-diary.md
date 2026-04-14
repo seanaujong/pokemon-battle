@@ -194,9 +194,13 @@ Following the rule: meta-review.
 - *Auditable:* future reviewers can grep diaries for "## Code review"
   sections and find where the process was (or wasn't) followed.
 - *Happy path:* clear — every diary gets a review section inline.
-- *Failure mode:* a contributor skips the section anyway. Mitigation:
-  a test or script that greps diaries for the section. Worth adding
-  when/if we notice drift again.
+- *Failure mode:* a contributor skips the section anyway. Mitigation
+  shipped: `DiaryConventionTest` (engine test) walks
+  `docs/diaries/*.md`, filters to diary ≥ 082 with `Status: Complete`,
+  fails if any is missing `## Code review`. Diaries 001–081 are
+  grandfathered. Verified by dropping a fake `999-test-canary.md`
+  with no review section — test correctly failed and pointed at it.
+  Prose-only conventions fail silently; prose + a test does not.
 - *Duplicated logic:* the 16-question list is now duplicated in
   CLAUDE.md. Single source of truth (CLAUDE.md) is fine; individual
   diaries can refer rather than re-enumerate.
