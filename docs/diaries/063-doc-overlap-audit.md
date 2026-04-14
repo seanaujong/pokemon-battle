@@ -1,7 +1,7 @@
 # Diary 063: Doc overlap audit — architecture.md, CONTRIBUTING.md, CLAUDE.md
 
 **Date:** 2026-04-14
-**Status:** Plan + immediate action
+**Status:** Complete
 
 ## The question
 
@@ -124,9 +124,85 @@ contradicted architecture.md. Every future refactor adds more drift
 unless we either commit to back-editing or strip the rot-prone parts.
 Stripping is dramatically cheaper.
 
+## Alternative considered: flip which doc is the trim target
+
+After the initial write-up, the user raised an alternative: what if
+`CONTRIBUTING.md` becomes a thin redirect ("see architecture.md for design,
+here's the how-tos") and `architecture.md` stays the larger, authoritative
+design home?
+
+Both plans eliminate the duplicated key-invariants; both keep `architecture.md`
+alive. The difference is *which file is the trim target*. Arguments for each:
+
+- **Plan A (trim architecture.md, keep CONTRIBUTING.md as-is).** The drift is
+  *in* architecture.md — type signatures, event tables, "implemented vs not
+  yet." `CONTRIBUTING.md` is currently tight and actionable, and GitHub
+  surfaces it on PR flows as the contributor-facing landing page. Redirecting
+  away from that front door is a worse default than trimming the doc that
+  actually has rot.
+- **Plan B (thin `CONTRIBUTING.md`, keep architecture.md large).** More
+  centralized design; one doc to read for the full picture. But the rot
+  problem doesn't go away — we'd still have to either back-edit
+  architecture.md forever, or trim it anyway. And the how-to content would
+  then have to move *into* architecture.md, which blurs its audience (design
+  doc vs contributor onboarding).
+
+**Picked Plan A.** Plan B doesn't address the root cause (the rot-prone
+content exists regardless of which file "owns" design), and it regresses
+CONTRIBUTING.md, which is currently doing a specific job well. A hybrid
+(keep CONTRIBUTING.md pointing to CLAUDE.md for invariants; trim architecture.md)
+is what we implemented.
+
+## What actually changed (this commit)
+
+1. **`docs/architecture.md`** — stripped time-sensitive content:
+   - Removed `BattleState` field-level data class definition (would drift
+     every time we add a side-effect map).
+   - Removed `Move` / `MoveEffect` / `TurnChoices` / `Phase` /
+     `TurnPipeline.resolve` signatures. Replaced with prose + pointers to
+     `engine/src/main/kotlin/com/pokemon/battle/`.
+   - Removed the 7-file `BattleEvent` catalog table (the file count and the
+     event names had already drifted post-diary-061).
+   - Removed the `BattleLoop` constructor signature (diary 055 added
+     `inputResponder`).
+   - Removed `Pokedex` CSV mention (JSON loader shipped in diary 041).
+   - Removed "as currently implemented" counts (20 species, 14 moves, etc.).
+   - Removed the "What This Design Does NOT Cover" list where items had
+     shipped (entry hazards, CLI/REPL). Folded the still-future items into
+     *Future Scenarios* with an explicit "source + diaries are authoritative
+     for shipped status" note.
+   - Removed "U-turn / Volt Switch" from Future Scenarios (shipped in 055).
+   - Rewrote *Phases* and *Game Loop* sections as prose pointing at source,
+     not as signature transcriptions.
+   - Rewrote *Event-stream consumers* — dropped the full 13-row consumer
+     table (which mixed implemented and speculative) in favor of the
+     module-placement rule plus a short prose summary of what's in-engine
+     vs out-of-engine today.
+   - Added an opening *Scope of this document* callout explicitly saying
+     "code is authoritative for shapes; read this for rationale."
+   - Added a final Lesson Learned entry about this exact exercise, so the
+     reasoning is captured where future readers will see it.
+2. **`CLAUDE.md`** — expanded *Design Principles* into the canonical
+   key-invariants list, including the previously-missing "engine has zero
+   I/O" bullet. Added a one-line framing ("this is the canonical list; the
+   other docs point here").
+3. **`CONTRIBUTING.md`** — replaced the 5-bullet key-invariants list with
+   a one-paragraph summary + pointer to `CLAUDE.md`'s *Design Principles*.
+4. Kept intact (per brief): Design Rationale, Lessons Learned, Custom
+   Format Compatibility in architecture.md; the how-to sections 3–6,
+   testing conventions section 7, and build/lint/commit/merge section 8
+   in CONTRIBUTING.md.
+
+The net effect: one canonical statement of the invariants (in CLAUDE.md),
+two pointers to it (CONTRIBUTING.md, architecture.md). Time-sensitive
+surface in architecture.md shrunk substantially — the remaining content is
+rationale, lessons, and conceptual shape, all of which decay slowly.
+
 ## Related
 
 - **Diary 049** — added CONTRIBUTING.md. Established the "how-to"
   layer.
 - **Diaries 055, 061** — refactors that silently aged architecture.md.
 - **Diary 058** — naming review. Same impulse: audit before drift bites.
+- **Diary 059** — CLAUDE.md reorganization. Made it the right home for
+  the canonical invariants list.

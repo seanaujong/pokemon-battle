@@ -1,5 +1,17 @@
 # Architecture: Event-Sourced Turn Resolution Pipeline
 
+> **Scope of this document.** This is the *why* and *shape* of the engine, not a
+> reference for current type signatures. Code is authoritative for shapes, field
+> lists, and what is currently implemented — this doc drifts the moment you look
+> at it. Read `engine/src/main/kotlin/com/pokemon/battle/` for current types,
+> `docs/diaries/` for the history of decisions, and the sections below for the
+> rationale that ties them together.
+>
+> The canonical statement of the engine's **key invariants** (immutability, events
+> as sole mutation, pure phases, sealed hierarchies, engine-has-zero-I/O) lives in
+> `CLAUDE.md` under *Design Principles*. This document restates them only where a
+> rationale section explains *why* the choice was made.
+
 ## Overview
 
 A Pokemon battle turn — after all players have submitted their choices —
@@ -27,7 +39,10 @@ TurnChoices + BattleState
 ```
 
 The pipeline is wrapped by a **game loop** that collects choices, runs turns,
-handles faint replacements, and checks win conditions.
+handles faint replacements, and checks win conditions. For the current set of
+phases, event subclasses, and pipeline/loop signatures — including mid-turn input
+handling added in diary 055 and the `GameEvent` / `ControlEvent` split in diary
+061 — see the source under `engine/src/main/kotlin/com/pokemon/battle/`.
 
 ## Design Rationale
 
@@ -51,9 +66,9 @@ PokemonState (per-turn). Each layer changes at a different rate, so separating
 them makes it obvious where each piece of data belongs.
 
 **Sealed hierarchies as domain catalogs.** The sealed event hierarchy is a readable
-catalog of everything that can happen in a turn. A new developer opens
-`BattleEvent.kt` and sees the whole domain. Events are split by concern across
-files but share the same sealed interface.
+catalog of everything that can happen in a turn. A new developer opens the
+`engine/` events package and sees the whole domain. Events are split by concern
+across files but share the same sealed interface.
 
 **Immutability makes the audit trail free.** Because state is never mutated, the
 event history *is* the audit trail — no logging layer needed on top. Every state
@@ -71,12 +86,12 @@ The AI owns move pools. This prevents Pokemon from becoming a god object.
 ## Layers
 
 ```
-ai/         — choice logic (RandomAI, TypeAI, SidedAI)
+ai/         — choice logic (RandomAI, TypeAI, SidedAI, ...)
 render/     — presentation (TextRenderer, renderBattle)
 loop/       — game orchestration (BattleLoop, providers, results)
 phase/      — turn resolution logic (gen-specific rules)
 engine/     — pipeline plumbing (events, state, damage calc)
-data/       — loading and lookup (Pokedex CSV, MoveDex definitions)
+data/       — loading and lookup (Pokedex, MoveDex)
 model/      — pure data (species, pokemon, moves, types)
 ```
 
@@ -92,235 +107,100 @@ engine  →  model
 model   →  (nothing)
 ```
 
-## Core Types
-
-### BattleState
-
-An immutable snapshot of the entire battle at a point in time. Uses a slot-based
-model that supports singles, doubles, triples, and co-op formats.
-
-```kotlin
-data class BattleState(
-    val slots: Map<Slot, PokemonState>,       // active Pokemon on the field
-    val bench: Map<Side, List<PokemonState>>,  // per-side reserves
-    val field: FieldState,                     // weather, terrain
-    val turn: Int
-)
-
-enum class Side { SIDE_1, SIDE_2 }
-data class Slot(val side: Side, val position: Int = 0)
-```
-
-Slots identify field positions. Singles has 2 slots, doubles has 4. The bench holds
-reserves for switching and faint replacement.
-
-Helpers: `pokemonFor(slot)`, `withPokemon(slot, state)`, `slotsForSide(side)`,
-`opponentSlots(slot)`, `allSlots()`, `benchFor(side)`, `isDefeated(side)`.
-Factories: `BattleState.singles(...)`, `BattleState.doubles(...)`.
-
-### Data layering
+## Data layering
 
 ```
 Species  →  Pokemon  →  PokemonState
 (what)      (who)       (in battle)
 ```
 
-- **`Species`** — what a Charizard *is*. Base stats, types. Shared across all Charizards.
-  Has `baseStat(StatType)` accessor. Loaded from CSV via `Pokedex`.
+- **`Species`** — what a Charizard *is*. Base stats, types. Shared across all
+  Charizards. Loaded via `Pokedex`.
 - **`Pokemon`** — a specific Charizard. Species + level + IVs + EVs + Nature.
-  Has `maxHp` and `calcStat(StatType)` using the full Gen V+ formula.
-- **`PokemonState`** — that Charizard *in battle*. Current HP, stat stages, status,
-  volatiles, ability, item. Has `isFainted`, `maxHp`, `baseEffectiveSpeed()`.
+  Knows `maxHp` and how to compute stats via the Gen V+ formula.
+- **`PokemonState`** — that Charizard *in battle*. Current HP, stat stages,
+  status, volatiles, ability, item.
 
-All fields are `val`. State changes happen exclusively through events.
+Each layer changes at a different rate, and all fields are `val`. State changes
+happen exclusively through events.
 
-### Volatile
+## The event-sourcing shape
 
-Temporary battle conditions cleared on switch-out (by `SwitchPhase`, not by the
-event — clearing is a gen-specific rule). Contrast with status conditions
-(burn, poison) which persist. Stored as a `Set` on `PokemonState`.
+The engine's defining choice is that **events are the sole means of state
+mutation**. Phases never rewrite state directly; they emit events, and events'
+`apply` methods produce the next state. Consequences:
 
-```kotlin
-sealed interface Volatile {
-    data object Flinch : Volatile
-    data class Confusion(val turnsRemaining: Int) : Volatile
-    data class Sleep(val turnsRemaining: Int) : Volatile
-    data object Protect : Volatile
-}
-```
+- The event log *is* the audit trail, the undo buffer, the replay, and the
+  rendering input.
+- Adding a new mechanic is *typically* adding a new event subclass + the phase
+  that emits it. Existing code stays untouched (open/closed).
+- Events split by concern across multiple files under a shared sealed interface
+  — see `engine/` for the current catalog. Events that are purely informational
+  return the state unchanged; they still appear in the log.
 
-### Move
+For the current split between `GameEvent` (applies to `BattleState`) and
+`ControlEvent` (applies to `PipelineState`, used for mid-turn input), see diary
+061.
 
-```kotlin
-data class Move(
-    val name: String,
-    val type: Type,
-    val category: MoveCategory,     // PHYSICAL, SPECIAL, STATUS
-    val power: Int,
-    val priority: Int = 0,
-    val target: MoveTarget = MoveTarget.ONE_OPPONENT,
-    val effects: List<MoveEffect> = emptyList()
-)
+## Phases and the pipeline
 
-enum class MoveTarget { SELF, ONE_OPPONENT, ALL_OPPONENTS, ALL_OTHER }
+The pipeline is a list of `Phase` functions run in order. Each phase reads the
+current state plus any choices, and returns events to apply. The current phase
+order and responsibilities live in `engine/src/main/kotlin/com/pokemon/battle/phase/`;
+historically the set has been `MoveOrderPhase → SwitchPhase → MoveExecutionPhase
+→ EndOfTurnPhase`, with additions as mechanics shipped.
 
-sealed interface MoveEffect {
-    data class StatBoost(val stat: StatType, val stages: Int) : MoveEffect
-}
-```
+New phases slot in without touching existing code. Phases are pure functions of
+their inputs, which is what makes them testable in isolation.
 
-`MoveTarget` determines which slots the move affects. `MoveEffect` describes
-secondary/primary effects beyond damage. Both are extensible via new enum values
-and sealed subclasses. Move definitions live in `MoveDex` with effects colocated.
+## Game loop
 
-### BattleEvent
+`BattleLoop` wraps the pipeline: collects choices, runs turns, handles faint
+replacements (with switch-in ability triggers), and checks win conditions.
+`TurnRecord` separates pipeline events from replacement events. `BattleResult`
+reports the winner, final state, and full turn history. For the current
+constructor — including `InputResponder` for mid-turn prompts added in diary
+055 — see `engine/loop/BattleLoop.kt`.
 
-A sealed hierarchy split across 7 files by concern. Each event has
-`apply(state): BattleState`.
+## Event-stream consumers
 
-| File | Events |
-|------|--------|
-| `BattleEvent.kt` | `MoveOrderDecided`, `MoveAttempted`, `MoveFailed`, `DamageDealt`, `PokemonFainted` |
-| `StatusEvents.kt` | `StatusApplied`, `StatusDamage`, `StatusCleared` |
-| `WeatherEvents.kt` | `WeatherDamage`, `WeatherTick`, `WeatherSet` |
-| `SwitchEvents.kt` | `SwitchOut`, `SwitchIn` |
-| `StatEvents.kt` | `StatChanged`, `VolatileChanged` |
-| `AbilityEvents.kt` | `AbilityTriggered`, `AbilityBlocked` |
-| `ItemEvents.kt` | `ItemHealing` |
-
-Events that are purely informational return the state unchanged. They still
-appear in the log for rendering and debugging.
-
-### TurnChoices
-
-```kotlin
-data class TurnChoices(val choices: Map<Slot, TurnChoice>)
-
-sealed interface TurnChoice {
-    data class UseMove(val move: Move, val targetSlot: Slot? = null) : TurnChoice
-    data class Switch(val benchIndex: Int) : TurnChoice
-}
-```
-
-### Phase and TurnPipeline
-
-```kotlin
-fun interface Phase {
-    fun resolve(state: BattleState, choices: TurnChoices): List<BattleEvent>
-}
-
-class TurnPipeline(private val phases: List<Phase>) {
-    fun resolve(initialState: BattleState, choices: TurnChoices): Result
-}
-```
-
-## Phases
-
-| Order | Phase                | Responsibility |
-|-------|----------------------|----------------|
-| 1     | `MoveOrderPhase`     | Sort slots by priority then speed via `SpeedResolver`. |
-| 2     | `SwitchPhase`        | Clear volatiles/stat stages, switch, trigger switch-in abilities. |
-| 3     | `MoveExecutionPhase` | Status checks, per-target damage (with ability immunity), effects. |
-| 4     | `EndOfTurnPhase`     | Weather damage, status damage, item effects, weather tick. |
-
-`MoveExecutionPhase` is structured as sub-functions: `checkStatusThenExecute` →
-`executeMove` → `resolveDamage` (per-target) + `resolveEffects`.
-
-New phases slot in without touching existing code.
-
-## Game Loop
-
-```kotlin
-class BattleLoop(
-    pipeline: TurnPipeline,
-    choiceProvider: ChoiceProvider,
-    faintReplacementProvider: FaintReplacementProvider,
-    maxTurns: Int = 100
-)
-```
-
-Collects choices, runs the pipeline, handles faint replacements (with switch-in
-ability triggers), and checks win conditions. `TurnRecord` (one per resolved
-turn) separates pipeline events from replacement events. `BattleResult` reports
-the winner, final state, and full turn history.
-
-## Application Layer
-
-### Data (implemented)
-
-- **`Pokedex`** — loads species from `data/species.csv` (20 species).
-  `Pokedex.loadFromClasspath()` returns `Map<String, Species>`.
-- **`MoveDex`** — Kotlin-defined moves with colocated effects (14 moves).
-  Auto-registered via `register()` pattern. `MoveDex["Flamethrower"]` for lookup.
-
-### Renderer (implemented)
-
-`TextRenderer` converts events to game-style text ("Charizard used Flamethrower!").
-`BattleRenderer` interface takes `(event, stateBefore, stateAfter)` — swappable for
-HTML, animation, etc. `renderBattle()` replays from initial state to produce complete
-output.
-
-### Event-stream consumers
-
-The `BattleEvent` stream is the universal output — every consumer reads the same
-stream and interprets it for its own purpose. Diary 042 makes the analytics framing
-explicit; this table catalogs the full expected consumer set.
-
-| Consumer | Purpose | Lives in | Why |
-|----------|---------|----------|-----|
-| `TextRenderer` (implemented) | Events → game-style text | **engine** | Pure transform, no I/O / no external deps |
-| `BattleAnalyzer` | Single-battle summary (winner, KOs, moves used) | **engine** | Pure aggregation; fits the "events + state → value" shape |
-| `CriticalHitAuditor` / consistency audits | Observed-vs-expected distribution checks | **engine-test** or **analytics** | Pure checks; can live with tests if only dev-facing |
-| `JsonEventSerializer` | Events ↔ JSON for persistence / wire | **analytics** or **replay** | Brings kotlinx-serialization; engine stays dep-free |
-| `ReplayWriter` / `ReplayReader` | Save / load a battle's event log | **replay** | File I/O + serialization |
-| `FileEventLogger` | Append events to rolling log file | **logging** | File I/O |
-| `DatabaseEventLogger` | Persist events to SQL / NoSQL store | **logging** (or its own) | DB driver dep |
-| `MetricsExporter` (Prometheus, etc.) | Dashboard-ready metrics | **analytics** | Metrics format dep |
-| CLI / REPL | stdin choices, text output | **cli** | Stdin/stdout, process lifecycle |
-| TUI | Terminal UI with HP bars | **tui** | Terminal-UI library dep |
-| REST API | HTTP choices, JSON event stream out | **server** | HTTP server framework |
-| Web UI (React / Kotlin/JS) | Browser client consuming event JSON | **web-ui** | JS toolchain, bundler |
-| MCP server | Tool calls for choices, events as tool results | **mcp** | MCP protocol dep |
+The `BattleEvent` stream is the universal output. Every consumer reads the same
+stream and interprets it for its own purpose (rendering, analytics, persistence,
+replay, metrics, UIs). Diary 042 makes this framing explicit.
 
 ### The module-placement rule
 
 > **The engine module has zero I/O and zero serialization deps.** Pure-transform
-> consumers (events in, values out; no file / network / DB / format-specific libs) can
-> live in the engine module. Any consumer that touches I/O, serialization, or a client
-> toolchain goes in a separate module.
+> consumers (events in, values out; no file / network / DB / format-specific
+> libs) can live in the engine module. Any consumer that touches I/O,
+> serialization, or a client toolchain goes in a separate module.
 
 Why this rule holds the line:
-- `./gradlew :engine:test` stays fast (no Node, no HTTP, no DB drivers pulled in)
-- Adding a React UI later doesn't slow down engine tests by one millisecond
-- Each consumer module owns its own deps — upgrading `ktor-client` in `data-ingestion`
-  doesn't touch `engine`'s classpath
-- Dependency direction is enforced: engine knows nothing about any client; clients
-  depend on engine's stable data types
 
-Two consumers *could* go either way today but we choose engine because they're pure:
-- `TextRenderer` (already in engine's `render/` package)
-- `BattleAnalyzer` (future) — pure folds over event lists
+- `./gradlew :engine:test` stays fast (no Node, no HTTP, no DB drivers pulled in).
+- Adding a React UI later doesn't slow down engine tests by one millisecond.
+- Each consumer module owns its own deps — upgrading `ktor-client` in
+  `data-ingestion` doesn't touch `engine`'s classpath.
+- Dependency direction is enforced: engine knows nothing about any client;
+  clients depend on engine's stable data types.
 
-Everything else goes in a dedicated module.
+Pure consumers that live in-engine today: `TextRenderer`, future `BattleAnalyzer`.
+I/O-bound consumers (CLI, replay, analytics, data ingestion, future server / web
+UI / MCP server) live in dedicated modules. For the current module map see
+`settings.gradle.kts`.
 
-### Choice providers (analogous for inputs)
+### Choice providers (the input side of the same layering)
 
-`ChoiceProvider` is the input side of the same layering. Same rule: pure `ChoiceProvider`
-implementations (random AI, heuristic AI) live in the engine; I/O-bound ones (stdin
-reader, HTTP endpoint, MCP tool handler) live in the corresponding consumer module.
-
-Current implementations all live in engine:
-- `RandomAI` — picks random moves. Baseline. Injectable `Random` for tests.
-- `TypeAI` — scores moves by type effectiveness × STAB × power.
-- `SidedAI` — composes two AIs by side.
-
-Move pools are `Map<String, List<Move>>` keyed by species name, owned by the AI
-(not on `Pokemon` — see Lessons Learned).
+`ChoiceProvider` is the input analogue. Same rule: pure providers (random AI,
+heuristic AI) live in the engine; I/O-bound ones (stdin, HTTP, MCP tool handler)
+live in the corresponding consumer module. Move pools are owned by the provider,
+not the `Pokemon` model (see Lessons Learned).
 
 ## Multi-Gen Support
 
 Different generations change the rules. The architecture supports this
-by building different phase implementations, not config flags.
+by building different phase implementations and different registry contents,
+*not* by config flags threaded through the engine.
 
 ### Where gen-specific rules live
 
@@ -334,59 +214,61 @@ by building different phase implementations, not config flags.
 | Spread damage modifier | `MoveExecutionPhase` |
 | Volatile/stat clearing on switch | `SwitchPhase` |
 
-### Injectable gen-specific logic
-
-- **`DamageCalculator`** — `fun interface`. `GenVDamageCalculator` default.
-- **`SpeedResolver`** — `fun interface`. `GenVSpeedResolver` default.
+Injectable seams today include `DamageCalculator` and `SpeedResolver` (both `fun
+interface`, each with a Gen V default implementation). Others will be extracted
+when a second gen's rules demand it.
 
 ### Registry pattern for items, abilities, and moves
 
-Items, abilities, and moves all follow the same shape: a large enum-like catalog where
-each entry has its own behavior, and the catalog differs across gens (e.g. Life Orb
-didn't exist in Gen 3; Fairy type didn't exist before Gen 6; Eviolite is Gen 5+).
-Hardcoding `when (item)` branches inside calculators and phases doesn't scale — at 5 gens
+Items, abilities, and moves are large enum-like catalogs where each entry has its
+own behavior, and the catalog differs across gens (e.g. Life Orb didn't exist in
+Gen 3; Fairy type didn't exist before Gen 6; Eviolite is Gen 5+). Hardcoding
+`when (item)` branches inside calculators and phases doesn't scale — at 5 gens
 and 50 items you get O(items × callers) scattered `if` branches.
 
-**The pattern:** each entity has an `Effect` interface with default no-op hooks into the
-pipeline. Each instance is a small singleton implementing only the hooks that apply. A
-registry maps enum values to their effects. Callers consult the registry:
+**The pattern:** each entity has an `Effect` interface with default no-op hooks
+into the pipeline. Each instance is a small singleton implementing only the
+hooks that apply. A registry maps enum values to their effects, and the lookup
+itself can be context-aware (e.g. `ItemRegistry.effectForHolder(pokemon)`
+returns null if Klutz is suppressing the item). Callers consult the registry:
 
 ```kotlin
+// sketch; see engine/item/ for the live interface
 interface ItemEffect {
     val item: Item
     fun attackerDamageModifier(attacker: PokemonState, move: Move): Double = 1.0
-    fun interceptIncomingDamage(defender: PokemonState, rawDamage: Int): DamageAdjustment? = null
-    fun afterUserMoveDamage(user: PokemonState, userSlot: Slot, damageLanded: Boolean): List<BattleEvent> = emptyList()
     fun endOfTurn(pokemon: PokemonState, slot: Slot): List<BattleEvent> = emptyList()
-    // + rendering hooks
+    // ... additional hooks as mechanics demand
 }
 
-// Per-item:
-object LifeOrbEffect : ItemEffect { override fun attackerDamageModifier(...) = 1.3; ... }
+object LifeOrbEffect : ItemEffect { /* overrides only the hooks it needs */ }
 
-// Callers:
-val itemMod = ItemRegistry.effectFor(attacker.item)?.attackerDamageModifier(attacker, move) ?: 1.0
+val itemMod = ItemRegistry.effectForHolder(attacker)?.attackerDamageModifier(attacker, move) ?: 1.0
 ```
 
 **Benefits:**
-- Adding a new entity is one file + one registry entry — no scattered edits
-- Gen-specific registries (`GenIVItemRegistry`, `GenVItemRegistry`) become the natural
-  seam for multi-gen support — the calc stays untouched, only the registry changes
-- Behavior is colocated with identity
-- No unreachable branches in `when (enum)` switches elsewhere
 
-**Applies to:** items (implemented in `engine/item/`), abilities (TODO), move-level effects
-beyond `MoveEffect` data class (TODO).
+- Adding a new entity is one file + one registry entry — no scattered edits.
+- Gen-specific registries (`GenIVItemRegistry`, `GenVItemRegistry`) become the
+  natural seam for multi-gen support — the calc stays untouched, only the
+  registry changes.
+- Behavior is colocated with identity.
+- No unreachable branches in `when (enum)` switches elsewhere.
 
-See diary 026 for the full refactoring story.
+Applies to: items, abilities, and move-level effects beyond the `MoveEffect`
+data hierarchy (where the `when` in `MoveExecutionPhase.resolveEffect` is the
+current dispatch site; registry extraction tracked in diary 029). See diary 026
+for the first extraction, diary 033 for context-aware lookups (Klutz), and the
+Lessons Learned section below.
 
 ### What NOT to do
 
-- Don't add gen parameters to phases — separate implementations instead
-- Don't put gen-specific constants in the model
-- Don't put gen-specific logic in events — `apply()` is mechanical
-- Don't scatter `when (item)` / `when (ability)` branches inside calculators or phases.
-  Extract behavior into per-entity `Effect` objects and consult the registry.
+- Don't add gen parameters to phases — separate implementations instead.
+- Don't put gen-specific constants in the model.
+- Don't put gen-specific logic in events — `apply()` is mechanical.
+- Don't scatter `when (item)` / `when (ability)` branches inside calculators or
+  phases. Extract behavior into per-entity `Effect` objects and consult the
+  registry.
 
 ## Custom Format Compatibility
 
@@ -432,25 +314,21 @@ Resolved by paired `SwitchIn`. Only a problem if `SwitchOut` is emitted alone.
 
 ## Future Scenarios
 
+Mechanics explored conceptually but not yet scoped. For what is and isn't
+implemented *right now*, the source tree and diary index are authoritative; the
+table below captures the shape of the extension rather than the shipping status.
+
 | Scenario | Approach | Complexity |
 |----------|----------|------------|
-| U-turn / Volt Switch | `MoveEffect.SelfSwitch` after damage | Low |
 | Pursuit | Pre-execution switch awareness | Medium |
 | Mega Evolution / Dynamax | Pre-order transformation phase + compound `TurnChoice` | Medium |
 | Ally targeting (Heal Pulse) | `MoveTarget.ONE_ALLY` + new `resolveTargetSlots` case | Low |
 | Triples adjacency | `Slot.position` + adjacency helpers | Low |
+| Multi-turn moves (Fly, Dig, Solar Beam) | Volatile + deferred phase | Low / Medium |
+| Choice locks, Encore, Disable | Per-Pokemon move restrictions in choice layer | Medium |
+| Substitute | Volatile + damage interception via existing hooks | Low |
+| Team selection / team preview / learnset validation | Layer *above* the engine | Out of scope |
 | Rotation battles | Different `BattleState` shape (active vs bench within side) | Out of scope |
-
-## What This Design Does NOT Cover (yet)
-
-- Team selection / team preview / learnset validation
-- Entry hazards (Stealth Rock, Spikes)
-- Multi-turn moves (Fly, Dig, Solar Beam)
-- Choice locks, Encore, Disable
-- Substitute
-- CLI / REPL for interactive play
-
-These can all be modeled as new phases, events, effects, and injectable interfaces.
 
 ## Lessons Learned
 
@@ -544,3 +422,12 @@ Legality is a team-building concern, a layer above the engine.
 error-prone. Run the code with fixed inputs, read the output, assert on that. The
 code is deterministic; your head isn't.
 
+**Documentation that describes current shape will drift; documentation that
+describes rationale won't.** The original version of this file listed type
+signatures, field-by-field `BattleState` layouts, a file-by-file event catalog,
+and an "implemented vs future" table. Every refactor (diaries 041, 044, 055,
+056, 061) silently invalidated one of them without anyone back-editing. Diary
+063 stripped the time-sensitive surface and kept rationale + lessons + concepts,
+on the theory that rot-prone prose is worse than no prose. Point readers at
+source for shapes; point readers at diaries for history; keep this doc for the
+*why*.

@@ -23,14 +23,10 @@ follow the pointers into `docs/architecture.md` and the numbered diaries under
   `Phase` functions; each phase emits `BattleEvent`s; events are the sole means of
   mutation. See `docs/architecture.md` for the full treatment.
 
-Key invariants (do not break these without a diary entry):
-
-- All data classes use `val` only. No mutable state anywhere in the engine.
-- Every state change goes through a `BattleEvent`. No phase mutates state directly.
-- Phases are pure functions of `(state, choices) -> List<BattleEvent>`.
-- Sealed hierarchies (`BattleEvent`, `MoveEffect`, `Volatile`) enable exhaustive `when`.
-- The engine package has zero I/O. Rendering, persistence, AI all depend on the engine,
-  never the other way around.
+Key invariants: immutability, events as the sole means of mutation, pure phases,
+sealed hierarchies for exhaustive `when`, and a zero-I/O engine package. See
+*Design Principles* in `CLAUDE.md` for the canonical list — don't break them
+without a diary entry.
 
 ---
 

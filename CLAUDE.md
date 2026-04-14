@@ -38,11 +38,22 @@ Initial phases: `MoveOrderPhase` → `MoveExecutionPhase` → `EndOfTurnPhase`. 
 
 ## Design Principles
 
-- All state changes happen exclusively through events (event sourcing)
-- All data classes use `val` only — no mutable state anywhere
-- Sealed hierarchies for `BattleEvent` and `Volatile` enable exhaustiveness checking
-- Phases are pure functions testable in isolation
-- Extensibility via new events + phases (open/closed principle)
+These are the engine's **key invariants** — the canonical list. `CONTRIBUTING.md`
+and `docs/architecture.md` point here rather than restating them, so if one of
+these changes, this is the one place to edit.
+
+- All state changes happen exclusively through events (event sourcing). No phase
+  mutates state directly.
+- All data classes use `val` only — no mutable state anywhere in the engine.
+- Phases are pure functions of `(state, choices) -> List<BattleEvent>`, testable
+  in isolation.
+- Sealed hierarchies (`BattleEvent`, `MoveEffect`, `Volatile`, ...) enable
+  exhaustive `when` so the compiler catches missing branches.
+- Extensibility via new events + phases + registry entries (open/closed
+  principle) — existing code stays untouched when mechanics are added.
+- The engine package has zero I/O and zero serialization dependencies. Rendering,
+  persistence, AI, CLI, and any future UI depend on the engine, never the other
+  way around.
 
 ## Workflow
 
