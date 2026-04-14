@@ -1,5 +1,6 @@
-package com.pokemon.battle.engine.ability
+package com.pokemon.battle.data.ability
 
+import com.pokemon.battle.engine.ability.AbilityEffect
 import com.pokemon.battle.model.Ability
 import com.pokemon.battle.model.Move
 import com.pokemon.battle.model.PokemonState
@@ -32,8 +33,8 @@ private class PinchTypeBoost(
     }
 }
 
-internal object BlazeEffect : AbilityEffect by PinchTypeBoost(Ability.BLAZE, Type.FIRE)
+object BlazeEffect : AbilityEffect by PinchTypeBoost(Ability.BLAZE, Type.FIRE)
 
-internal object OvergrowEffect : AbilityEffect by PinchTypeBoost(Ability.OVERGROW, Type.GRASS)
+object OvergrowEffect : AbilityEffect by PinchTypeBoost(Ability.OVERGROW, Type.GRASS)
 
-internal object TorrentEffect : AbilityEffect by PinchTypeBoost(Ability.TORRENT, Type.WATER)
+object TorrentEffect : AbilityEffect by PinchTypeBoost(Ability.TORRENT, Type.WATER)

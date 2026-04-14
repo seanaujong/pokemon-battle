@@ -1,5 +1,6 @@
 package com.pokemon.battle
 
+import com.pokemon.battle.data.GenVRegistries
 import com.pokemon.battle.data.MoveDex
 import com.pokemon.battle.data.Pokedex
 import com.pokemon.battle.engine.BattleState
@@ -38,10 +39,10 @@ class ProtectTest {
     private fun pipeline(chanceCheck: ChanceCheck = protectSucceeds) =
         TurnPipeline(
             listOf(
-                MoveOrderPhase(),
-                SwitchPhase(),
-                MoveExecutionPhase(roll = fixedRoll, chanceCheck = chanceCheck),
-                EndOfTurnPhase(),
+                MoveOrderPhase(GenVRegistries),
+                SwitchPhase(GenVRegistries),
+                MoveExecutionPhase(GenVRegistries, roll = fixedRoll, chanceCheck = chanceCheck),
+                EndOfTurnPhase(GenVRegistries),
             ),
         )
 

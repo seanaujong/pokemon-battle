@@ -1,5 +1,6 @@
 package com.pokemon.battle
 
+import com.pokemon.battle.data.GenVRegistries
 import com.pokemon.battle.engine.AbilityBlocked
 import com.pokemon.battle.engine.AbilityTriggered
 import com.pokemon.battle.engine.BattleState
@@ -66,7 +67,7 @@ class AbilityTest {
                 TurnChoice.UseMove(tackle),
             )
 
-        val phase = MoveExecutionPhase(roll = fixedRoll, chanceCheck = noChance)
+        val phase = MoveExecutionPhase(GenVRegistries, roll = fixedRoll, chanceCheck = noChance)
         val events = phase.resolve(PipelineState(battleState), choices).events
 
         val blocked = events.filterIsInstance<AbilityBlocked>()
@@ -92,7 +93,7 @@ class AbilityTest {
                 TurnChoice.UseMove(tackle),
             )
 
-        val phase = MoveExecutionPhase(roll = fixedRoll, chanceCheck = noChance)
+        val phase = MoveExecutionPhase(GenVRegistries, roll = fixedRoll, chanceCheck = noChance)
         val events = phase.resolve(PipelineState(battleState), choices).events
 
         val blocked = events.filterIsInstance<AbilityBlocked>()
@@ -120,7 +121,7 @@ class AbilityTest {
                 ),
             )
 
-        val phase = MoveExecutionPhase(roll = fixedRoll, chanceCheck = noChance)
+        val phase = MoveExecutionPhase(GenVRegistries, roll = fixedRoll, chanceCheck = noChance)
         val events = phase.resolve(PipelineState(battleState), choices).events
 
         // Levitate blocks Earthquake for P2 slot 1
@@ -157,7 +158,7 @@ class AbilityTest {
                 TurnChoice.UseMove(tackle),
             )
 
-        val phase = SwitchPhase()
+        val phase = SwitchPhase(GenVRegistries)
         val events = phase.resolve(PipelineState(battleState), choices).events
 
         val triggered = events.filterIsInstance<AbilityTriggered>()
@@ -191,7 +192,7 @@ class AbilityTest {
                 ),
             )
 
-        val phase = SwitchPhase()
+        val phase = SwitchPhase(GenVRegistries)
         val events = phase.resolve(PipelineState(battleState), choices).events
 
         val statChanged = events.filterIsInstance<StatChanged>()
@@ -216,10 +217,10 @@ class AbilityTest {
         val pipeline =
             TurnPipeline(
                 listOf(
-                    MoveOrderPhase(),
-                    SwitchPhase(),
-                    MoveExecutionPhase(roll = fixedRoll, chanceCheck = noChance),
-                    EndOfTurnPhase(),
+                    MoveOrderPhase(GenVRegistries),
+                    SwitchPhase(GenVRegistries),
+                    MoveExecutionPhase(GenVRegistries, roll = fixedRoll, chanceCheck = noChance),
+                    EndOfTurnPhase(GenVRegistries),
                 ),
             )
         val result = pipeline.resolveToCompletion(battleState, choices)
@@ -250,7 +251,7 @@ class AbilityTest {
                 TurnChoice.UseMove(tackle),
             )
 
-        val phase = SwitchPhase()
+        val phase = SwitchPhase(GenVRegistries)
         val events = phase.resolve(PipelineState(battleState), choices).events
         val newState = events.filterIsInstance<com.pokemon.battle.engine.GameEvent>().fold(battleState) { s, e -> e.apply(s) }
 
@@ -277,7 +278,7 @@ class AbilityTest {
                 TurnChoice.UseMove(tackle),
             )
 
-        val phase = SwitchPhase()
+        val phase = SwitchPhase(GenVRegistries)
         val events = phase.resolve(PipelineState(battleState), choices).events
         val newState = events.filterIsInstance<com.pokemon.battle.engine.GameEvent>().fold(battleState) { s, e -> e.apply(s) }
 

@@ -1,8 +1,9 @@
-package com.pokemon.battle.engine.item
+package com.pokemon.battle.data.item
 
 import com.pokemon.battle.engine.BattleState
 import com.pokemon.battle.engine.GameEvent
 import com.pokemon.battle.engine.VolatileAdded
+import com.pokemon.battle.engine.item.ItemEffect
 import com.pokemon.battle.model.Item
 import com.pokemon.battle.model.Move
 import com.pokemon.battle.model.MoveCategory
@@ -54,17 +55,17 @@ private class ChoiceItem(
     }
 }
 
-internal object ChoiceBandEffect : ItemEffect by ChoiceItem(
+object ChoiceBandEffect : ItemEffect by ChoiceItem(
     item = Item.CHOICE_BAND,
     damageBoostCategory = MoveCategory.PHYSICAL,
 )
 
-internal object ChoiceSpecsEffect : ItemEffect by ChoiceItem(
+object ChoiceSpecsEffect : ItemEffect by ChoiceItem(
     item = Item.CHOICE_SPECS,
     damageBoostCategory = MoveCategory.SPECIAL,
 )
 
-internal object ChoiceScarfEffect : ItemEffect by ChoiceItem(
+object ChoiceScarfEffect : ItemEffect by ChoiceItem(
     item = Item.CHOICE_SCARF,
     speedBoost = 1.5,
 )

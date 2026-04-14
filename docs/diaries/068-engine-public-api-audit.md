@@ -79,9 +79,12 @@ than by design.
 Three whole packages:
 
 - **`engine/item/*`** — `ItemEffect` interface + `ItemRegistry` + 10
-  per-item effects. Zero external callers.
+  per-item effects. Zero external callers. *Superseded by diary 071:
+  interface and registry stay in `:engine` (now public), per-item
+  effects moved to `:data/item/*`.*
 - **`engine/ability/*`** — `AbilityEffect` interface + `AbilityRegistry`
-  + 10+ per-ability effects. Zero external callers.
+  + 10+ per-ability effects. Zero external callers. *Same fate as
+  items per diary 071.*
 - **`gen/simplified/*`** — `SimplifiedDamageCalculator`,
   `SimplifiedSpeedResolver`, `SimplifiedEndOfTurnPhase`. Only referenced
   from `engine/src/test/`, which is same-module so `internal` is fine.

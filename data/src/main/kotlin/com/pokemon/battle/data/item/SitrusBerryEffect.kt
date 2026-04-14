@@ -1,9 +1,11 @@
-package com.pokemon.battle.engine.item
+package com.pokemon.battle.data.item
 
 import com.pokemon.battle.engine.BattleState
 import com.pokemon.battle.engine.GameEvent
 import com.pokemon.battle.engine.ItemConsumed
 import com.pokemon.battle.engine.ItemHealing
+import com.pokemon.battle.engine.ability.AbilityRegistry
+import com.pokemon.battle.engine.item.ItemEffect
 import com.pokemon.battle.model.Item
 import com.pokemon.battle.model.Slot
 
@@ -14,13 +16,14 @@ import com.pokemon.battle.model.Slot
  * Triggers at most once per damage event via [onHpThresholdCrossed]. The caller provides
  * the previous HP; this effect compares it against state's current HP to detect the cross.
  */
-internal object SitrusBerryEffect : ItemEffect {
+object SitrusBerryEffect : ItemEffect {
     override val item = Item.SITRUS_BERRY
 
     override fun onHpThresholdCrossed(
         state: BattleState,
         slot: Slot,
         previousHp: Int,
+        abilities: AbilityRegistry,
     ): List<GameEvent> {
         val holder = state.pokemonFor(slot)
         val threshold = holder.maxHp / 2

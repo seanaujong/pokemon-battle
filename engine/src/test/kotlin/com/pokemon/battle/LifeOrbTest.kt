@@ -1,5 +1,6 @@
 package com.pokemon.battle
 
+import com.pokemon.battle.data.GenVRegistries
 import com.pokemon.battle.data.MoveDex
 import com.pokemon.battle.data.Pokedex
 import com.pokemon.battle.engine.BattleState
@@ -30,10 +31,10 @@ class LifeOrbTest {
     private fun pipeline() =
         TurnPipeline(
             listOf(
-                MoveOrderPhase(),
-                SwitchPhase(),
-                MoveExecutionPhase(roll = fixedRoll, chanceCheck = noChance),
-                EndOfTurnPhase(),
+                MoveOrderPhase(GenVRegistries),
+                SwitchPhase(GenVRegistries),
+                MoveExecutionPhase(GenVRegistries, roll = fixedRoll, chanceCheck = noChance),
+                EndOfTurnPhase(GenVRegistries),
             ),
         )
 
@@ -51,10 +52,10 @@ class LifeOrbTest {
         val defender = PokemonState(venusaur, currentHp = venusaur.maxHp)
 
         val plainDamage =
-            GenVDamageCalculator()
+            GenVDamageCalculator(GenVRegistries)
                 .calculate(plain, defender, MoveDex.FLAMETHROWER, fixedRoll, 1.0, false, null).damage
         val orbDamage =
-            GenVDamageCalculator()
+            GenVDamageCalculator(GenVRegistries)
                 .calculate(orb, defender, MoveDex.FLAMETHROWER, fixedRoll, 1.0, false, null).damage
 
         assertTrue(orbDamage > plainDamage, "Life Orb should boost damage: orb=$orbDamage plain=$plainDamage")
@@ -137,10 +138,10 @@ class LifeOrbTest {
         val pipe =
             TurnPipeline(
                 listOf(
-                    MoveOrderPhase(),
-                    SwitchPhase(),
-                    MoveExecutionPhase(roll = fixedRoll, chanceCheck = protectSucceeds),
-                    EndOfTurnPhase(),
+                    MoveOrderPhase(GenVRegistries),
+                    SwitchPhase(GenVRegistries),
+                    MoveExecutionPhase(GenVRegistries, roll = fixedRoll, chanceCheck = protectSucceeds),
+                    EndOfTurnPhase(GenVRegistries),
                 ),
             )
         val result = pipe.resolveToCompletion(state, choices)

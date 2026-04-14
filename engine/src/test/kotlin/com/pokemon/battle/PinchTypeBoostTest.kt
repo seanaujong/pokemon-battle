@@ -1,5 +1,6 @@
 package com.pokemon.battle
 
+import com.pokemon.battle.data.GenVRegistries
 import com.pokemon.battle.data.MoveDex
 import com.pokemon.battle.data.Pokedex
 import com.pokemon.battle.engine.GenVDamageCalculator
@@ -33,10 +34,10 @@ class PinchTypeBoostTest {
         val defender = PokemonState(venusaur, currentHp = venusaur.maxHp)
 
         val fullHpDamage =
-            GenVDamageCalculator()
+            GenVDamageCalculator(GenVRegistries)
                 .calculate(fullHp, defender, MoveDex.FLAMETHROWER, fixedRoll, 1.0, false, null).damage
         val pinchDamage =
-            GenVDamageCalculator()
+            GenVDamageCalculator(GenVRegistries)
                 .calculate(pinchHp, defender, MoveDex.FLAMETHROWER, fixedRoll, 1.0, false, null).damage
 
         assertTrue(
@@ -59,10 +60,10 @@ class PinchTypeBoostTest {
         // Charizard doesn't have many non-Fire special moves, but Flamethrower's type is
         // the main test. Check a non-Fire move with Thunderbolt (neutral against Venusaur).
         val fullHpDamage =
-            GenVDamageCalculator()
+            GenVDamageCalculator(GenVRegistries)
                 .calculate(fullHp, defender, MoveDex.THUNDERBOLT, fixedRoll, 1.0, false, null).damage
         val pinchDamage =
-            GenVDamageCalculator()
+            GenVDamageCalculator(GenVRegistries)
                 .calculate(pinchHp, defender, MoveDex.THUNDERBOLT, fixedRoll, 1.0, false, null).damage
 
         assertEquals(fullHpDamage, pinchDamage, "Blaze should not boost Electric moves")
@@ -82,10 +83,10 @@ class PinchTypeBoostTest {
         // Venusaur doesn't have a Grass move in our MoveDex, but Sludge Bomb (Poison) is available.
         // So test that Overgrow does NOT affect Sludge Bomb damage.
         val fullHpSludge =
-            GenVDamageCalculator()
+            GenVDamageCalculator(GenVRegistries)
                 .calculate(fullHp, defender, MoveDex.SLUDGE_BOMB, fixedRoll, 1.0, false, null).damage
         val pinchSludge =
-            GenVDamageCalculator()
+            GenVDamageCalculator(GenVRegistries)
                 .calculate(pinchHp, defender, MoveDex.SLUDGE_BOMB, fixedRoll, 1.0, false, null).damage
 
         assertEquals(fullHpSludge, pinchSludge, "Overgrow should not boost Poison moves")
@@ -102,14 +103,14 @@ class PinchTypeBoostTest {
             PokemonState(charizard, currentHp = charizard.maxHp / 3, ability = Ability.BLAZE)
 
         val atThresholdDamage =
-            GenVDamageCalculator()
+            GenVDamageCalculator(GenVRegistries)
                 .calculate(atThreshold, defender, MoveDex.FLAMETHROWER, fixedRoll, 1.0, false, null).damage
 
         // Much higher HP — Blaze inactive
         val aboveThreshold =
             PokemonState(charizard, currentHp = charizard.maxHp, ability = Ability.BLAZE)
         val aboveThresholdDamage =
-            GenVDamageCalculator()
+            GenVDamageCalculator(GenVRegistries)
                 .calculate(aboveThreshold, defender, MoveDex.FLAMETHROWER, fixedRoll, 1.0, false, null).damage
 
         assertTrue(

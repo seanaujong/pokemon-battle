@@ -1,5 +1,6 @@
 package com.pokemon.battle
 
+import com.pokemon.battle.data.GenVRegistries
 import com.pokemon.battle.engine.BattleEvent
 import com.pokemon.battle.engine.BattleState
 import com.pokemon.battle.engine.TurnChoice
@@ -86,9 +87,9 @@ class EventSerializationTest {
         val pipeline =
             TurnPipeline(
                 listOf(
-                    MoveOrderPhase(),
-                    MoveExecutionPhase(roll = { 100 }),
-                    EndOfTurnPhase(),
+                    MoveOrderPhase(GenVRegistries),
+                    MoveExecutionPhase(GenVRegistries, roll = { 100 }),
+                    EndOfTurnPhase(GenVRegistries),
                 ),
             )
         val events: List<BattleEvent> = pipeline.resolveToCompletion(initial, choices).events

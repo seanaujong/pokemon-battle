@@ -6,17 +6,17 @@ import com.pokemon.battle.engine.GameEvent
 import com.pokemon.battle.engine.Phase
 import com.pokemon.battle.engine.PhaseOutput
 import com.pokemon.battle.engine.PokemonFainted
+import com.pokemon.battle.engine.Registries
 import com.pokemon.battle.engine.StatusDamage
 import com.pokemon.battle.engine.TurnChoices
 import com.pokemon.battle.engine.WeatherTick
-import com.pokemon.battle.engine.item.ItemRegistry
 import com.pokemon.battle.model.StatusCondition
 
 /**
  * Simplified end-of-turn: burn does 1/8 max HP (double Gen V), no weather damage.
  * Weather still ticks down but doesn't deal damage.
  */
-internal class SimplifiedEndOfTurnPhase : Phase {
+internal class SimplifiedEndOfTurnPhase(private val registries: Registries = Registries.empty) : Phase {
     override fun resolve(
         pipeline: com.pokemon.battle.engine.PipelineState,
         choices: TurnChoices,
@@ -78,7 +78,7 @@ internal class SimplifiedEndOfTurnPhase : Phase {
         state.allSlots().flatMap { slot ->
             val pokemon = state.pokemonFor(slot)
             if (pokemon.isFainted) return@flatMap emptyList()
-            ItemRegistry.effectForHolder(pokemon)?.endOfTurn(state, slot) ?: emptyList()
+            registries.items.effectForHolder(pokemon)?.endOfTurn(state, slot) ?: emptyList()
         }
 
     private fun weatherTick(state: BattleState): List<GameEvent> {

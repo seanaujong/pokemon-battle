@@ -1,5 +1,6 @@
 package com.pokemon.battle
 
+import com.pokemon.battle.data.GenVRegistries
 import com.pokemon.battle.data.MoveDex
 import com.pokemon.battle.data.Pokedex
 import com.pokemon.battle.engine.BattleState
@@ -112,10 +113,10 @@ class CriticalHitTest {
         val critPipeline =
             TurnPipeline(
                 listOf(
-                    MoveOrderPhase(),
-                    SwitchPhase(),
-                    MoveExecutionPhase(roll = { 1 }, chanceCheck = noChance),
-                    EndOfTurnPhase(),
+                    MoveOrderPhase(GenVRegistries),
+                    SwitchPhase(GenVRegistries),
+                    MoveExecutionPhase(GenVRegistries, roll = { 1 }, chanceCheck = noChance),
+                    EndOfTurnPhase(GenVRegistries),
                 ),
             )
 
@@ -145,10 +146,10 @@ class CriticalHitTest {
         val noCritPipeline =
             TurnPipeline(
                 listOf(
-                    MoveOrderPhase(),
-                    SwitchPhase(),
-                    MoveExecutionPhase(roll = { 100 }, chanceCheck = noChance),
-                    EndOfTurnPhase(),
+                    MoveOrderPhase(GenVRegistries),
+                    SwitchPhase(GenVRegistries),
+                    MoveExecutionPhase(GenVRegistries, roll = { 100 }, chanceCheck = noChance),
+                    EndOfTurnPhase(GenVRegistries),
                 ),
             )
 

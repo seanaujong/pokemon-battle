@@ -3,6 +3,7 @@ package com.pokemon.battle.cli
 import com.pokemon.battle.ai.SideProviders
 import com.pokemon.battle.ai.SidedAI
 import com.pokemon.battle.ai.TypeAI
+import com.pokemon.battle.data.GenVRegistries
 import com.pokemon.battle.data.MoveDex
 import com.pokemon.battle.data.Pokedex
 import com.pokemon.battle.engine.BattleState
@@ -72,10 +73,10 @@ fun main() {
     val pipeline =
         TurnPipeline(
             listOf(
-                MoveOrderPhase(),
-                SwitchPhase(),
-                MoveExecutionPhase(roll = { 100 }, chanceCheck = { _, _ -> false }),
-                EndOfTurnPhase(),
+                MoveOrderPhase(GenVRegistries),
+                SwitchPhase(GenVRegistries),
+                MoveExecutionPhase(GenVRegistries, roll = { 100 }, chanceCheck = { _, _ -> false }),
+                EndOfTurnPhase(GenVRegistries),
             ),
         )
 
@@ -84,6 +85,7 @@ fun main() {
             pipeline = pipeline,
             choiceProvider = ai,
             faintReplacementProvider = ai,
+            registries = GenVRegistries,
             maxTurns = 30,
         ).run(initialState)
 

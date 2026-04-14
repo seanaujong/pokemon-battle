@@ -1,13 +1,14 @@
-package com.pokemon.battle.engine.item
+package com.pokemon.battle.data.item
 
 import com.pokemon.battle.engine.DamageAdjustment
+import com.pokemon.battle.engine.item.ItemEffect
 import com.pokemon.battle.model.Item
 import com.pokemon.battle.model.PokemonState
 
 /**
  * Focus Sash: if the holder is at full HP and would be KO'd, survive at 1 HP and consume the item.
  */
-internal object FocusSashEffect : ItemEffect {
+object FocusSashEffect : ItemEffect {
     override val item = Item.FOCUS_SASH
 
     override fun interceptIncomingDamage(

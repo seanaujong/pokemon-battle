@@ -1,15 +1,16 @@
 package com.pokemon.battle.phase
 
 import com.pokemon.battle.engine.GameEvent
-import com.pokemon.battle.engine.GenVSpeedResolver
 import com.pokemon.battle.engine.Phase
 import com.pokemon.battle.engine.PhaseOutput
+import com.pokemon.battle.engine.Registries
 import com.pokemon.battle.engine.SpeedResolver
 import com.pokemon.battle.engine.SwitchIn
 import com.pokemon.battle.engine.SwitchOut
 import com.pokemon.battle.engine.TurnChoice
 import com.pokemon.battle.engine.TurnChoices
 import com.pokemon.battle.engine.VolatileAdded
+import com.pokemon.battle.engine.genVSpeedResolver
 import com.pokemon.battle.engine.resolveHazardsOnSwitchIn
 import com.pokemon.battle.engine.resolveSwitchInAbility
 import com.pokemon.battle.engine.resolveSwitchOutClearing
@@ -24,7 +25,8 @@ import com.pokemon.battle.model.Volatile
  * so it lives here in the phase, not in SwitchOut.apply().
  */
 class SwitchPhase(
-    private val speedResolver: SpeedResolver = GenVSpeedResolver,
+    private val registries: Registries = Registries.empty,
+    private val speedResolver: SpeedResolver = genVSpeedResolver(registries),
 ) : Phase {
     override fun resolve(
         pipeline: com.pokemon.battle.engine.PipelineState,
@@ -62,13 +64,13 @@ class SwitchPhase(
             currentState = justSwitchedIn.apply(currentState)
 
             // Switch-in ability triggers (shared with BattleLoop faint replacements)
-            for (event in resolveSwitchInAbility(currentState, slot)) {
+            for (event in resolveSwitchInAbility(currentState, slot, registries.abilities)) {
                 events.add(event)
                 currentState = event.apply(currentState)
             }
 
             // Entry hazards fire after abilities
-            for (event in resolveHazardsOnSwitchIn(currentState, slot)) {
+            for (event in resolveHazardsOnSwitchIn(currentState, slot, registries.items)) {
                 events.add(event)
                 currentState = event.apply(currentState)
             }

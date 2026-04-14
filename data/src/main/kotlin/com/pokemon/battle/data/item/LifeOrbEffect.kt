@@ -1,9 +1,10 @@
-package com.pokemon.battle.engine.item
+package com.pokemon.battle.data.item
 
 import com.pokemon.battle.engine.BattleState
 import com.pokemon.battle.engine.GameEvent
 import com.pokemon.battle.engine.ItemDamage
 import com.pokemon.battle.engine.PokemonFainted
+import com.pokemon.battle.engine.item.ItemEffect
 import com.pokemon.battle.model.Item
 import com.pokemon.battle.model.Move
 import com.pokemon.battle.model.PokemonState
@@ -13,7 +14,7 @@ import com.pokemon.battle.model.Slot
  * Life Orb: boosts the holder's damage by 1.3x and deals 10% max HP recoil after any move
  * that landed damage. Persistent (not consumed).
  */
-internal object LifeOrbEffect : ItemEffect {
+object LifeOrbEffect : ItemEffect {
     private const val DAMAGE_MULTIPLIER = 1.3
     private const val RECOIL_FRACTION = 10
 

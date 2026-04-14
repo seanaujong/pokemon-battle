@@ -19,10 +19,11 @@ import com.pokemon.battle.model.Type
 internal fun resolveHazardsOnSwitchIn(
     state: BattleState,
     slot: Slot,
+    items: ItemRegistry,
 ): List<GameEvent> {
     val hazards = state.hazardsOn(slot.side)
     if (hazards.isEmpty()) return emptyList()
-    if (bypassesHazards(state.pokemonFor(slot))) return emptyList()
+    if (bypassesHazards(state.pokemonFor(slot), items)) return emptyList()
     return applyHazardsInOrder(state, slot, hazards)
 }
 
@@ -30,7 +31,10 @@ internal fun resolveHazardsOnSwitchIn(
  * Whether [pokemon] ignores entry hazards on switch-in. Today: Heavy-Duty
  * Boots (via [ItemRegistry.effectForHolder] so Klutz suppression applies).
  */
-private fun bypassesHazards(pokemon: PokemonState): Boolean = ItemRegistry.effectForHolder(pokemon)?.blocksHazards(pokemon) == true
+private fun bypassesHazards(
+    pokemon: PokemonState,
+    items: ItemRegistry,
+): Boolean = items.effectForHolder(pokemon)?.blocksHazards(pokemon) == true
 
 private fun applyHazardsInOrder(
     state: BattleState,

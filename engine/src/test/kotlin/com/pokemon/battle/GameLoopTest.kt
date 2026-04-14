@@ -1,5 +1,6 @@
 package com.pokemon.battle
 
+import com.pokemon.battle.data.GenVRegistries
 import com.pokemon.battle.engine.BattleState
 import com.pokemon.battle.engine.ChanceCheck
 import com.pokemon.battle.engine.PokemonFainted
@@ -52,10 +53,10 @@ class GameLoopTest {
     private fun defaultPipeline() =
         TurnPipeline(
             listOf(
-                MoveOrderPhase(),
-                SwitchPhase(),
-                MoveExecutionPhase(roll = fixedRoll, chanceCheck = noChance),
-                EndOfTurnPhase(),
+                MoveOrderPhase(GenVRegistries),
+                SwitchPhase(GenVRegistries),
+                MoveExecutionPhase(GenVRegistries, roll = fixedRoll, chanceCheck = noChance),
+                EndOfTurnPhase(GenVRegistries),
             ),
         )
 

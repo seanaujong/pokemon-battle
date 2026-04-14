@@ -15,7 +15,7 @@ internal data class MoveOrderResult(
 internal fun resolveMoveOrder(
     state: BattleState,
     choices: TurnChoices,
-    speedResolver: SpeedResolver = GenVSpeedResolver,
+    speedResolver: SpeedResolver = genVSpeedResolver(Registries.empty),
 ): MoveOrderResult {
     val slotsWithPriority =
         state.allSlots().mapNotNull { slot ->

@@ -9,7 +9,6 @@ import com.pokemon.battle.engine.DamageCalculator
 import com.pokemon.battle.engine.DamageDealt
 import com.pokemon.battle.engine.GameEvent
 import com.pokemon.battle.engine.GenVDamageCalculator
-import com.pokemon.battle.engine.GenVSpeedResolver
 import com.pokemon.battle.engine.HazardRemoved
 import com.pokemon.battle.engine.HazardSet
 import com.pokemon.battle.engine.ItemConsumed
@@ -20,6 +19,7 @@ import com.pokemon.battle.engine.Phase
 import com.pokemon.battle.engine.PhaseOutput
 import com.pokemon.battle.engine.PokemonFainted
 import com.pokemon.battle.engine.ProtectBlocked
+import com.pokemon.battle.engine.Registries
 import com.pokemon.battle.engine.SideConditionSet
 import com.pokemon.battle.engine.SpeedResolver
 import com.pokemon.battle.engine.StatChanged
@@ -35,9 +35,8 @@ import com.pokemon.battle.engine.TurnChoices
 import com.pokemon.battle.engine.TurnInputResolved
 import com.pokemon.battle.engine.VolatileAdded
 import com.pokemon.battle.engine.VolatileRemoved
-import com.pokemon.battle.engine.ability.AbilityRegistry
 import com.pokemon.battle.engine.defaultChanceCheck
-import com.pokemon.battle.engine.item.ItemRegistry
+import com.pokemon.battle.engine.genVSpeedResolver
 import com.pokemon.battle.engine.resolveHazardsOnSwitchIn
 import com.pokemon.battle.engine.resolveMoveOrder
 import com.pokemon.battle.engine.resolveSwitchInAbility
@@ -54,8 +53,9 @@ import com.pokemon.battle.model.Volatile
 
 @Suppress("TooManyFunctions") // Move execution decomposed into focused helpers
 class MoveExecutionPhase(
-    private val damageCalculator: DamageCalculator = GenVDamageCalculator(),
-    private val speedResolver: SpeedResolver = GenVSpeedResolver,
+    private val registries: Registries = Registries.empty,
+    private val damageCalculator: DamageCalculator = GenVDamageCalculator(registries),
+    private val speedResolver: SpeedResolver = genVSpeedResolver(registries),
     private val roll: (IntRange) -> Int = { range -> range.random() },
     private val chanceCheck: ChanceCheck = defaultChanceCheck,
 ) : Phase {
@@ -343,12 +343,12 @@ class MoveExecutionPhase(
         events.add(justSwitchedIn)
         currentState = justSwitchedIn.apply(currentState)
 
-        for (event in resolveSwitchInAbility(currentState, attackerSlot)) {
+        for (event in resolveSwitchInAbility(currentState, attackerSlot, registries.abilities)) {
             events.add(event)
             currentState = event.apply(currentState)
         }
 
-        for (event in resolveHazardsOnSwitchIn(currentState, attackerSlot)) {
+        for (event in resolveHazardsOnSwitchIn(currentState, attackerSlot, registries.items)) {
             events.add(event)
             currentState = event.apply(currentState)
         }
@@ -482,10 +482,10 @@ class MoveExecutionPhase(
 
         // Defender's ability (Sturdy) or item (Focus Sash) may intercept the damage.
         // Ability checked first — if Sturdy saves, the Sash isn't consumed.
-        val abilityIntercept = AbilityRegistry.effectFor(defender.effectiveAbility)?.interceptIncomingDamage(defender, result.damage)
+        val abilityIntercept = registries.abilities.effectFor(defender.effectiveAbility)?.interceptIncomingDamage(defender, result.damage)
         val itemIntercept =
             if (abilityIntercept == null) {
-                ItemRegistry.effectForHolder(defender)?.interceptIncomingDamage(defender, result.damage)
+                registries.items.effectForHolder(defender)?.interceptIncomingDamage(defender, result.damage)
             } else {
                 null
             }
@@ -535,13 +535,13 @@ class MoveExecutionPhase(
         if (defenderAfter.isFainted) return emptyList()
         val events = mutableListOf<GameEvent>()
         events.addAll(
-            ItemRegistry.effectForHolder(defenderAfter)
-                ?.onHpThresholdCrossed(state, targetSlot, previousHp)
+            registries.items.effectForHolder(defenderAfter)
+                ?.onHpThresholdCrossed(state, targetSlot, previousHp, registries.abilities)
                 ?: emptyList(),
         )
         events.addAll(
-            AbilityRegistry.effectFor(defenderAfter.effectiveAbility)
-                ?.onHpThresholdCrossed(state, targetSlot, previousHp)
+            registries.abilities.effectFor(defenderAfter.effectiveAbility)
+                ?.onHpThresholdCrossed(state, targetSlot, previousHp, registries.abilities)
                 ?: emptyList(),
         )
         return events
@@ -556,8 +556,8 @@ class MoveExecutionPhase(
     ): List<GameEvent> {
         val defender = state.pokemonFor(targetSlot)
         if (defender.isFainted || damageDealt <= 0) return emptyList()
-        return ItemRegistry.effectForHolder(defender)
-            ?.onHolderTookDamage(state, targetSlot, attackerSlot, damageDealt)
+        return registries.items.effectForHolder(defender)
+            ?.onHolderTookDamage(state, targetSlot, attackerSlot, damageDealt, registries.abilities)
             ?: emptyList()
     }
 
@@ -569,7 +569,7 @@ class MoveExecutionPhase(
         priorEvents: List<BattleEvent>,
     ): List<GameEvent> {
         val attacker = state.pokemonFor(attackerSlot)
-        val effect = ItemRegistry.effectForHolder(attacker) ?: return emptyList()
+        val effect = registries.items.effectForHolder(attacker) ?: return emptyList()
         val anyDamage = priorEvents.any { it is DamageDealt && it.amount > 0 }
         return effect.afterUserMoveDamage(state, attackerSlot, move, anyDamage)
     }
@@ -670,7 +670,7 @@ class MoveExecutionPhase(
         move: Move,
     ): Ability? {
         val ability = defender.effectiveAbility ?: return null
-        val effect = AbilityRegistry.effectFor(ability) ?: return null
+        val effect = registries.abilities.effectFor(ability) ?: return null
         return if (effect.blocksMove(defender, move)) ability else null
     }
 }

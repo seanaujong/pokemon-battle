@@ -1,7 +1,7 @@
 # Diary 065: Engine vs. data layering — a structural reframe
 
 **Date:** 2026-04-14
-**Status:** Partial refactor shipped (2026-04-14). Species + MoveDex moved to new `:data` module; items / abilities deferred (engine-internal coupling — see "what shipped" below).
+**Status:** Complete. Phase 1 (2026-04-14): species + MoveDex moved to new `:data` module; items / abilities deferred. Phase 2 (diary 071, 2026-04-14): items / abilities also moved, with the registry-DI refactor that 066 prioritized. The `:engine` module is now data-free; only plugin contracts (`ItemEffect`/`AbilityEffect` interfaces + registry classes) remain in `:engine`.
 
 ## The reframe
 

@@ -96,7 +96,7 @@ test suite. For the authoritative list see `settings.gradle.kts`.
 :data-ingestion  — PokeAPI / Smogon fetchers (auditModelGap, ingestSmogon)
 :ai              — choice strategies (RandomAI, TypeAI, SidedAI)
 :render          — events-to-text (TextRenderer, BattleRenderer, per-item/ability text)
-:data            — catalogs (Pokedex JSON loader, MoveDex)
+:data            — catalogs (Pokedex JSON loader, MoveDex, per-item/ability effects, GenVRegistries)
 :engine          — pipeline, events, model, phases, loop
 ```
 
@@ -120,14 +120,22 @@ because those modules' signatures return or take engine types
 `TextRenderer.render(event: BattleEvent, ...)`, AI strategies return
 `TurnChoice`). Other dependencies are `implementation`.
 
-**Inside `:engine`, `internal` marks the non-contract surface:** whole
-packages (`engine/item/*`, `engine/ability/*`, `gen/simplified/*`) plus
-single-file helpers (`HazardResolver`, `SwitchOutClearing`, default
-`DamageCalculator` / `SpeedResolver` implementations, concrete
-`Ruleset` objects, `TypeChart` charts). External modules can import
-only the types that are part of the public contract — domain models,
-events, pipeline/loop contracts, concrete phases, and extensibility
-interfaces. See diary 068 for the full audit.
+**Inside `:engine`, `internal` marks the non-contract surface:**
+`gen/simplified/*` plus single-file helpers (`HazardResolver`,
+`SwitchOutClearing`, default `DamageCalculator` / `SpeedResolver`
+implementations, concrete `Ruleset` objects, `TypeChart` charts).
+External modules can import only the types that are part of the public
+contract — domain models, events, pipeline/loop contracts, concrete
+phases, and extensibility interfaces. See diary 068 for the audit.
+
+**`engine/item/` and `engine/ability/`** hold *only* the `ItemEffect` /
+`AbilityEffect` interfaces and the registry classes
+(`ItemRegistry`, `AbilityRegistry`) — the plugin contract. The concrete
+per-item / per-ability effect classes live in `:data` under
+`data/item/` / `data/ability/`. Diary 071 did this split: the engine
+defines the shape of an effect, `:data` registers the specific
+entries. Phases take a `Registries` bundle as a constructor parameter
+rather than calling global registry singletons.
 
 ## Data layering
 

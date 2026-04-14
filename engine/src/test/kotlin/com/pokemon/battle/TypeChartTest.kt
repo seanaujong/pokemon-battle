@@ -1,5 +1,6 @@
 package com.pokemon.battle
 
+import com.pokemon.battle.data.GenVRegistries
 import com.pokemon.battle.data.MoveDex
 import com.pokemon.battle.data.Pokedex
 import com.pokemon.battle.engine.BattleState
@@ -90,10 +91,10 @@ class TypeChartTest {
         val defender = PokemonState(blastoise, currentHp = blastoise.maxHp)
 
         val standardResult =
-            GenVDamageCalculator(StandardTypeChart)
+            GenVDamageCalculator(typeChart = StandardTypeChart)
                 .calculate(attacker, defender, MoveDex.FLAMETHROWER, fixedRoll, 1.0, false, null)
         val inverseResult =
-            GenVDamageCalculator(InverseTypeChart)
+            GenVDamageCalculator(typeChart = InverseTypeChart)
                 .calculate(attacker, defender, MoveDex.FLAMETHROWER, fixedRoll, 1.0, false, null)
 
         // Standard: Fire vs Water = 0.5x (not very effective)
@@ -121,14 +122,14 @@ class TypeChartTest {
         val inversePipeline =
             TurnPipeline(
                 listOf(
-                    MoveOrderPhase(),
-                    SwitchPhase(),
+                    MoveOrderPhase(GenVRegistries),
+                    SwitchPhase(GenVRegistries),
                     MoveExecutionPhase(
-                        damageCalculator = GenVDamageCalculator(InverseTypeChart),
+                        damageCalculator = GenVDamageCalculator(typeChart = InverseTypeChart),
                         roll = fixedRoll,
                         chanceCheck = noChance,
                     ),
-                    EndOfTurnPhase(),
+                    EndOfTurnPhase(GenVRegistries),
                 ),
             )
 

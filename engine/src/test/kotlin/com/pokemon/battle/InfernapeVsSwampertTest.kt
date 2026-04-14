@@ -1,5 +1,6 @@
 package com.pokemon.battle
 
+import com.pokemon.battle.data.GenVRegistries
 import com.pokemon.battle.engine.BattleState
 import com.pokemon.battle.engine.DamageDealt
 import com.pokemon.battle.engine.ItemHealing
@@ -83,6 +84,7 @@ class InfernapeVsSwampertTest {
     private val swampertMaxHp = calcMaxHp(swampertSpecies.baseHp, 50)
 
     @Test
+    @Suppress("LongMethod") // Scenario test intentionally threads a full turn's worth of setup and assertions
     fun `full turn with priority, burn, sandstorm, and Leftovers`() {
         val infernapeState = PokemonState(infernape, currentHp = infernapeMaxHp)
         val swampertState =
@@ -108,7 +110,11 @@ class InfernapeVsSwampertTest {
         val fixedRoll: (IntRange) -> Int = { 100 }
         val pipeline =
             TurnPipeline(
-                listOf(MoveOrderPhase(), MoveExecutionPhase(roll = fixedRoll), EndOfTurnPhase()),
+                listOf(
+                    MoveOrderPhase(GenVRegistries),
+                    MoveExecutionPhase(GenVRegistries, roll = fixedRoll),
+                    EndOfTurnPhase(GenVRegistries),
+                ),
             )
 
         val result = pipeline.resolveToCompletion(initialState, choices)
@@ -166,7 +172,7 @@ class InfernapeVsSwampertTest {
                 TurnChoice.UseMove(machPunch),
                 TurnChoice.UseMove(earthquake),
             )
-        val events = EndOfTurnPhase().resolve(PipelineState(state), choices).events
+        val events = EndOfTurnPhase(GenVRegistries).resolve(PipelineState(state), choices).events
 
         val weatherEvents = events.filterIsInstance<WeatherDamage>()
         assertEquals(1, weatherEvents.size)
@@ -186,7 +192,7 @@ class InfernapeVsSwampertTest {
                 TurnChoice.UseMove(machPunch),
                 TurnChoice.UseMove(earthquake),
             )
-        val events = EndOfTurnPhase().resolve(PipelineState(state), choices).events
+        val events = EndOfTurnPhase(GenVRegistries).resolve(PipelineState(state), choices).events
 
         assertEquals(0, events.filterIsInstance<WeatherDamage>().size)
     }

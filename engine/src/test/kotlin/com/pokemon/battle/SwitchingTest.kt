@@ -1,5 +1,6 @@
 package com.pokemon.battle
 
+import com.pokemon.battle.data.GenVRegistries
 import com.pokemon.battle.engine.BattleState
 import com.pokemon.battle.engine.ChanceCheck
 import com.pokemon.battle.engine.DamageDealt
@@ -63,7 +64,7 @@ class SwitchingTest {
                 TurnChoice.UseMove(tackle),
             )
 
-        val phase = SwitchPhase()
+        val phase = SwitchPhase(GenVRegistries)
         val events = phase.resolve(PipelineState(battleState), choices).events
 
         // Should see SwitchOut, SwitchIn, then VolatileAdded(JustSwitchedIn)
@@ -100,10 +101,10 @@ class SwitchingTest {
         val pipeline =
             TurnPipeline(
                 listOf(
-                    MoveOrderPhase(),
-                    SwitchPhase(),
-                    MoveExecutionPhase(roll = fixedRoll, chanceCheck = noChance),
-                    EndOfTurnPhase(),
+                    MoveOrderPhase(GenVRegistries),
+                    SwitchPhase(GenVRegistries),
+                    MoveExecutionPhase(GenVRegistries, roll = fixedRoll, chanceCheck = noChance),
+                    EndOfTurnPhase(GenVRegistries),
                 ),
             )
 
@@ -148,7 +149,7 @@ class SwitchingTest {
                 TurnChoice.UseMove(tackle),
             )
 
-        val phase = SwitchPhase()
+        val phase = SwitchPhase(GenVRegistries)
         val events = phase.resolve(PipelineState(battleState), choices).events
         val newState = events.filterIsInstance<com.pokemon.battle.engine.GameEvent>().fold(battleState) { s, e -> e.apply(s) }
 
@@ -180,7 +181,7 @@ class SwitchingTest {
                 TurnChoice.UseMove(tackle),
             )
 
-        val phase = SwitchPhase()
+        val phase = SwitchPhase(GenVRegistries)
         val events = phase.resolve(PipelineState(battleState), choices).events
         val newState = events.filterIsInstance<com.pokemon.battle.engine.GameEvent>().fold(battleState) { s, e -> e.apply(s) }
 
@@ -233,10 +234,10 @@ class SwitchingTest {
         val pipeline =
             TurnPipeline(
                 listOf(
-                    MoveOrderPhase(),
-                    SwitchPhase(),
-                    MoveExecutionPhase(roll = fixedRoll, chanceCheck = noChance),
-                    EndOfTurnPhase(),
+                    MoveOrderPhase(GenVRegistries),
+                    SwitchPhase(GenVRegistries),
+                    MoveExecutionPhase(GenVRegistries, roll = fixedRoll, chanceCheck = noChance),
+                    EndOfTurnPhase(GenVRegistries),
                 ),
             )
 

@@ -1,10 +1,12 @@
-package com.pokemon.battle.engine.item
+package com.pokemon.battle.data.item
 
 import com.pokemon.battle.engine.BattleState
 import com.pokemon.battle.engine.GameEvent
 import com.pokemon.battle.engine.ItemConsumed
 import com.pokemon.battle.engine.SwitchIn
 import com.pokemon.battle.engine.SwitchOut
+import com.pokemon.battle.engine.ability.AbilityRegistry
+import com.pokemon.battle.engine.item.ItemEffect
 import com.pokemon.battle.engine.resolveSwitchInAbility
 import com.pokemon.battle.engine.resolveSwitchOutClearing
 import com.pokemon.battle.model.Item
@@ -19,7 +21,7 @@ import com.pokemon.battle.model.Slot
  * Limitation: the engine picks the first available bench Pokemon for the attacker.
  * Real games pick randomly. First-available is a pragmatic stand-in.
  */
-internal object RedCardEffect : ItemEffect {
+object RedCardEffect : ItemEffect {
     override val item = Item.RED_CARD
 
     override fun onHolderTookDamage(
@@ -27,6 +29,7 @@ internal object RedCardEffect : ItemEffect {
         holderSlot: Slot,
         attackerSlot: Slot,
         damageDealt: Int,
+        abilities: AbilityRegistry,
     ): List<GameEvent> {
         if (damageDealt <= 0) return emptyList()
         val attacker = state.pokemonFor(attackerSlot)
@@ -43,7 +46,7 @@ internal object RedCardEffect : ItemEffect {
         events.add(SwitchIn(attackerSlot, replacementIndex))
 
         val stateAfterSwitch = events.fold(state) { s, e -> e.apply(s) }
-        events.addAll(resolveSwitchInAbility(stateAfterSwitch, attackerSlot))
+        events.addAll(resolveSwitchInAbility(stateAfterSwitch, attackerSlot, abilities))
 
         return events
     }

@@ -1,7 +1,9 @@
 # Diary 071: Registry DI — move items and abilities from `:engine` to `:data`
 
 **Date:** 2026-04-14
-**Status:** Planning — scope, open questions, execution order.
+**Status:** Complete (2026-04-14). Items and abilities moved to `:data`;
+`:engine` retains only the interfaces and registry classes. All 272
+tests green. Python smoke test still passes.
 
 ## Why this diary exists
 
@@ -163,6 +165,63 @@ explicitly. More churn in the refactor, but correctness is louder.
   `AbilityRegistry` (grep returns zero hits).
 - `EngineImmutabilityInvariantTest` still passes (nothing introduced
   top-level / class-level vars).
+
+## What actually shipped (vs the plan)
+
+**One correction during execution.** The original plan had `ItemEffect` /
+`AbilityEffect` *interfaces* moving to `:data` alongside the concrete
+effects. That would have inverted the dependency: `:engine` phases need
+to call the interface, but `:data` already depends on `:engine`.
+Created a cycle. Fix: interfaces and registry classes stay in
+`:engine/item/` and `:engine/ability/` (the plugin contract), concrete
+effects move to `:data/item/` and `:data/ability/` (the entries). This
+matches Showdown's `sim/dex.ts` (contract) vs `data/items.ts` (entries)
+split that diary 066 cited, closer than the original plan. Caught it
+at the first compile attempt.
+
+**Default registry choice.** Went with `Registries.empty` as the phase-
+constructor default rather than forcing every test to pass
+`GenVRegistries`. The open question in the plan favored "explicit" for
+louder correctness, but the churn was ~80 test-call-site updates for a
+default that tests-without-items don't care about. The empty default
+means a test that *should* see Leftovers healing but forgot to pass
+registries will silently fail the assertion — that's still a loud
+signal in practice, just at test-assertion time instead of constructor
+time. Documenting this tradeoff here so future-us can reverse if the
+silent-pass mode ever bites.
+
+**Hook signature extension.** `ItemEffect.onHpThresholdCrossed` and
+`ItemEffect.onHolderTookDamage` and `AbilityEffect.onHpThresholdCrossed`
+each gained an `abilities: AbilityRegistry` parameter. Required because
+Sitrus Berry / Red Card / Emergency Exit force switches via
+`resolveSwitchInAbility`, which now requires an `AbilityRegistry`.
+Other hooks didn't need it. Minor interface-surface cost for correctness.
+
+## Public API changes
+
+- `ItemEffect`, `AbilityEffect` — interfaces now public (were `internal`
+  in diary 068; the `internal` was specifically because "they're
+  destined to move"). Published in `com.pokemon.battle.engine.{item,ability}`.
+- `ItemRegistry`, `AbilityRegistry` — now classes, not objects.
+  Constructor takes the effect list (plus `AbilityRegistry` for the
+  item registry, for Klutz suppression).
+- `Registries` — new data class bundle, in `com.pokemon.battle.engine`.
+- `GenVRegistries` — top-level `val` in `com.pokemon.battle.data`.
+- `MoveExecutionPhase`, `EndOfTurnPhase`, `MoveOrderPhase`, `SwitchPhase`,
+  `SimplifiedEndOfTurnPhase` — gained `registries: Registries =
+  Registries.empty` constructor parameter.
+- `BattleLoop` — same.
+- `GenVSpeedResolver` — was a `val`, now `genVSpeedResolver(registries)`
+  factory function.
+- `resolveSwitchInAbility(state, slot)` — gained `abilities:
+  AbilityRegistry` parameter.
+- `resolveHazardsOnSwitchIn(state, slot)` — gained `items: ItemRegistry`
+  parameter.
+- `DamageAdjustment` — made `public` (was `internal`); required because
+  it's in `ItemEffect` / `AbilityEffect` method signatures.
+- `resolveSwitchOutClearing` — made `public` (was `internal`); required
+  because `EmergencyExitEffect` and `RedCardEffect` call it and they
+  live in `:data` now.
 
 ## Related
 

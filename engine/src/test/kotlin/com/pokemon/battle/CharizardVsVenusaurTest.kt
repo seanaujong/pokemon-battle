@@ -1,5 +1,6 @@
 package com.pokemon.battle
 
+import com.pokemon.battle.data.GenVRegistries
 import com.pokemon.battle.engine.BattleState
 import com.pokemon.battle.engine.DamageDealt
 import com.pokemon.battle.engine.MoveAttempted
@@ -94,9 +95,9 @@ class CharizardVsVenusaurTest {
         val pipeline =
             TurnPipeline(
                 listOf(
-                    MoveOrderPhase(),
-                    MoveExecutionPhase(roll = fixedRoll),
-                    EndOfTurnPhase(),
+                    MoveOrderPhase(GenVRegistries),
+                    MoveExecutionPhase(GenVRegistries, roll = fixedRoll),
+                    EndOfTurnPhase(GenVRegistries),
                 ),
             )
 

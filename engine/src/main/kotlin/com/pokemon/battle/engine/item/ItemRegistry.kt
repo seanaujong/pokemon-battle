@@ -5,30 +5,24 @@ import com.pokemon.battle.model.Item
 import com.pokemon.battle.model.PokemonState
 
 /**
- * Maps each [Item] to its [ItemEffect]. The calc, phases, and renderer consult this
- * registry instead of switching on the [Item] enum directly.
+ * Maps each [Item] to its [ItemEffect]. Phases consult this registry instead of
+ * switching on the [Item] enum directly. Diary 071 converted this from a global
+ * `object` singleton to an injectable class; the constructor takes an
+ * [AbilityRegistry] because Klutz / Embargo / Unnerve suppression is checked at
+ * lookup time.
  *
- * A gen-specific variant (GenVItemRegistry, GenIVItemRegistry) would register a subset
- * of items — e.g. Gen 3 wouldn't include [Item.LIFE_ORB]. For now we ship one registry
- * since all our items are Gen 4+.
+ * Gen-specific registries are `ItemRegistry(listOf(...), abilityRegistry)` with a
+ * different effect set. See [com.pokemon.battle.data.GenVRegistries] for the
+ * canonical Gen V bundle.
  */
-internal object ItemRegistry {
-    private val effects: Map<Item, ItemEffect> =
-        listOf(
-            LeftoversEffect,
-            FocusSashEffect,
-            LifeOrbEffect,
-            ChoiceBandEffect,
-            ChoiceSpecsEffect,
-            ChoiceScarfEffect,
-            EvioliteEffect,
-            SitrusBerryEffect,
-            RedCardEffect,
-            HeavyDutyBootsEffect,
-        ).associateBy { it.item }
+class ItemRegistry(
+    effects: List<ItemEffect>,
+    private val abilities: AbilityRegistry,
+) {
+    private val byItem: Map<Item, ItemEffect> = effects.associateBy { it.item }
 
     /** Raw lookup — returns the effect regardless of suppression context. Use for rendering. */
-    fun effectFor(item: Item?): ItemEffect? = item?.let { effects[it] }
+    fun effectFor(item: Item?): ItemEffect? = item?.let { byItem[it] }
 
     /**
      * Context-aware lookup: returns the item's effect only if it's active for this holder.
@@ -45,5 +39,5 @@ internal object ItemRegistry {
     }
 
     private fun isItemSuppressedFor(holder: PokemonState): Boolean =
-        AbilityRegistry.effectFor(holder.effectiveAbility)?.suppressesHeldItem(holder) == true
+        abilities.effectFor(holder.effectiveAbility)?.suppressesHeldItem(holder) == true
 }

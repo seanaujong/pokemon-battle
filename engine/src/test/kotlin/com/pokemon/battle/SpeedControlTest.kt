@@ -1,11 +1,11 @@
 package com.pokemon.battle
 
+import com.pokemon.battle.data.GenVRegistries
 import com.pokemon.battle.data.MoveDex
 import com.pokemon.battle.data.Pokedex
 import com.pokemon.battle.engine.BattleState
 import com.pokemon.battle.engine.ChanceCheck
 import com.pokemon.battle.engine.DamageDealt
-import com.pokemon.battle.engine.GenVSpeedResolver
 import com.pokemon.battle.engine.MoveFailed
 import com.pokemon.battle.engine.MoveOrderDecided
 import com.pokemon.battle.engine.SideConditionExpired
@@ -15,6 +15,7 @@ import com.pokemon.battle.engine.TurnChoice
 import com.pokemon.battle.engine.TurnChoices
 import com.pokemon.battle.engine.TurnPipeline
 import com.pokemon.battle.engine.VolatileAdded
+import com.pokemon.battle.engine.genVSpeedResolver
 import com.pokemon.battle.model.FailReason
 import com.pokemon.battle.model.FieldState
 import com.pokemon.battle.model.Pokemon
@@ -39,10 +40,10 @@ class SpeedControlTest {
     private fun pipeline() =
         TurnPipeline(
             listOf(
-                MoveOrderPhase(),
-                SwitchPhase(),
-                MoveExecutionPhase(roll = fixedRoll, chanceCheck = noChance),
-                EndOfTurnPhase(),
+                MoveOrderPhase(GenVRegistries),
+                SwitchPhase(GenVRegistries),
+                MoveExecutionPhase(GenVRegistries, roll = fixedRoll, chanceCheck = noChance),
+                EndOfTurnPhase(GenVRegistries),
             ),
         )
 
@@ -184,8 +185,8 @@ class SpeedControlTest {
         val withoutTailwind =
             BattleState.singles(plain, PokemonState(charizard, currentHp = charizard.maxHp))
 
-        val speedWith = GenVSpeedResolver.effectiveSpeed(plain, Slot.p1(), withTailwind)
-        val speedWithout = GenVSpeedResolver.effectiveSpeed(plain, Slot.p1(), withoutTailwind)
+        val speedWith = genVSpeedResolver(GenVRegistries).effectiveSpeed(plain, Slot.p1(), withTailwind)
+        val speedWithout = genVSpeedResolver(GenVRegistries).effectiveSpeed(plain, Slot.p1(), withoutTailwind)
 
         assertEquals(speedWithout * 2.0, speedWith, absoluteTolerance = 0.01)
     }

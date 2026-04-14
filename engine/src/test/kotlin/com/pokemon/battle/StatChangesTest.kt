@@ -1,5 +1,6 @@
 package com.pokemon.battle
 
+import com.pokemon.battle.data.GenVRegistries
 import com.pokemon.battle.engine.BattleState
 import com.pokemon.battle.engine.DamageDealt
 import com.pokemon.battle.engine.MoveAttempted
@@ -83,7 +84,7 @@ class StatChangesTest {
                 TurnChoice.UseMove(swordsDance),
                 TurnChoice.UseMove(tackle),
             )
-        val phase = MoveExecutionPhase(roll = { 100 }, chanceCheck = { _, _ -> false })
+        val phase = MoveExecutionPhase(GenVRegistries, roll = { 100 }, chanceCheck = { _, _ -> false })
         val events = phase.resolve(PipelineState(state), choices).events
 
         val statChanged = events.filterIsInstance<StatChanged>()
@@ -101,7 +102,7 @@ class StatChangesTest {
     fun `Swords Dance boosts damage on the following turn`() {
         val state = makeState()
         val fixedRoll: (IntRange) -> Int = { 100 }
-        val phase = MoveExecutionPhase(roll = fixedRoll, chanceCheck = { _, _ -> false })
+        val phase = MoveExecutionPhase(GenVRegistries, roll = fixedRoll, chanceCheck = { _, _ -> false })
 
         val turn1Choices =
             TurnChoices.singles(
@@ -142,7 +143,7 @@ class StatChangesTest {
                 TurnChoice.UseMove(growl),
                 TurnChoice.UseMove(tackle),
             )
-        val phase = MoveExecutionPhase(roll = { 100 }, chanceCheck = { _, _ -> false })
+        val phase = MoveExecutionPhase(GenVRegistries, roll = { 100 }, chanceCheck = { _, _ -> false })
         val events = phase.resolve(PipelineState(state), choices).events
 
         val statChanged = events.filterIsInstance<StatChanged>()
@@ -155,7 +156,7 @@ class StatChangesTest {
     fun `Growl reduces opponent damage`() {
         val state = makeState()
         val fixedRoll: (IntRange) -> Int = { 100 }
-        val phase = MoveExecutionPhase(roll = fixedRoll, chanceCheck = { _, _ -> false })
+        val phase = MoveExecutionPhase(GenVRegistries, roll = fixedRoll, chanceCheck = { _, _ -> false })
 
         val choices =
             TurnChoices.singles(

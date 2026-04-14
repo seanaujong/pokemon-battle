@@ -1,16 +1,17 @@
 package com.pokemon.battle
 
+import com.pokemon.battle.data.GenVRegistries
 import com.pokemon.battle.data.MoveDex
 import com.pokemon.battle.data.Pokedex
 import com.pokemon.battle.engine.BattleState
 import com.pokemon.battle.engine.ChanceCheck
 import com.pokemon.battle.engine.GenVDamageCalculator
-import com.pokemon.battle.engine.GenVSpeedResolver
 import com.pokemon.battle.engine.MoveOrderDecided
 import com.pokemon.battle.engine.TurnChoice
 import com.pokemon.battle.engine.TurnChoices
 import com.pokemon.battle.engine.TurnPipeline
 import com.pokemon.battle.engine.VolatileAdded
+import com.pokemon.battle.engine.genVSpeedResolver
 import com.pokemon.battle.model.Item
 import com.pokemon.battle.model.Pokemon
 import com.pokemon.battle.model.PokemonState
@@ -32,10 +33,10 @@ class ChoiceItemsTest {
     private fun pipeline() =
         TurnPipeline(
             listOf(
-                MoveOrderPhase(),
-                SwitchPhase(),
-                MoveExecutionPhase(roll = fixedRoll, chanceCheck = noChance),
-                EndOfTurnPhase(),
+                MoveOrderPhase(GenVRegistries),
+                SwitchPhase(GenVRegistries),
+                MoveExecutionPhase(GenVRegistries, roll = fixedRoll, chanceCheck = noChance),
+                EndOfTurnPhase(GenVRegistries),
             ),
         )
 
@@ -55,10 +56,10 @@ class ChoiceItemsTest {
         val defender = PokemonState(swampert, currentHp = swampert.maxHp)
 
         val plainDmg =
-            GenVDamageCalculator()
+            GenVDamageCalculator(GenVRegistries)
                 .calculate(plain, defender, MoveDex.EARTHQUAKE, fixedRoll, 1.0, false, null).damage
         val bandDmg =
-            GenVDamageCalculator()
+            GenVDamageCalculator(GenVRegistries)
                 .calculate(band, defender, MoveDex.EARTHQUAKE, fixedRoll, 1.0, false, null).damage
 
         assertTrue(bandDmg > plainDmg, "Choice Band should boost physical damage: band=$bandDmg plain=$plainDmg")
@@ -74,10 +75,10 @@ class ChoiceItemsTest {
         val defender = PokemonState(venusaur, currentHp = venusaur.maxHp)
 
         val plainDmg =
-            GenVDamageCalculator()
+            GenVDamageCalculator(GenVRegistries)
                 .calculate(plain, defender, MoveDex.FLAMETHROWER, fixedRoll, 1.0, false, null).damage
         val bandDmg =
-            GenVDamageCalculator()
+            GenVDamageCalculator(GenVRegistries)
                 .calculate(band, defender, MoveDex.FLAMETHROWER, fixedRoll, 1.0, false, null).damage
 
         assertEquals(plainDmg, bandDmg, "Choice Band should NOT boost special damage")
@@ -95,10 +96,10 @@ class ChoiceItemsTest {
         val defender = PokemonState(venusaur, currentHp = venusaur.maxHp)
 
         val plainDmg =
-            GenVDamageCalculator()
+            GenVDamageCalculator(GenVRegistries)
                 .calculate(plain, defender, MoveDex.FLAMETHROWER, fixedRoll, 1.0, false, null).damage
         val specsDmg =
-            GenVDamageCalculator()
+            GenVDamageCalculator(GenVRegistries)
                 .calculate(specs, defender, MoveDex.FLAMETHROWER, fixedRoll, 1.0, false, null).damage
 
         assertTrue(specsDmg > plainDmg, "Choice Specs should boost special damage: specs=$specsDmg plain=$plainDmg")
@@ -114,10 +115,10 @@ class ChoiceItemsTest {
         val defender = PokemonState(swampert, currentHp = swampert.maxHp)
 
         val plainDmg =
-            GenVDamageCalculator()
+            GenVDamageCalculator(GenVRegistries)
                 .calculate(plain, defender, MoveDex.EARTHQUAKE, fixedRoll, 1.0, false, null).damage
         val specsDmg =
-            GenVDamageCalculator()
+            GenVDamageCalculator(GenVRegistries)
                 .calculate(specs, defender, MoveDex.EARTHQUAKE, fixedRoll, 1.0, false, null).damage
 
         assertEquals(plainDmg, specsDmg, "Choice Specs should NOT boost physical damage")
@@ -134,8 +135,8 @@ class ChoiceItemsTest {
 
         val plainState = BattleState.singles(plain, plain)
         val scarfState = BattleState.singles(scarf, plain)
-        val plainSpeed = GenVSpeedResolver.effectiveSpeed(plain, Slot.p1(), plainState)
-        val scarfSpeed = GenVSpeedResolver.effectiveSpeed(scarf, Slot.p1(), scarfState)
+        val plainSpeed = genVSpeedResolver(GenVRegistries).effectiveSpeed(plain, Slot.p1(), plainState)
+        val scarfSpeed = genVSpeedResolver(GenVRegistries).effectiveSpeed(scarf, Slot.p1(), scarfState)
 
         assertTrue(scarfSpeed > plainSpeed, "Scarf should increase speed: scarf=$scarfSpeed plain=$plainSpeed")
         assertEquals(plainSpeed * 1.5, scarfSpeed, absoluteTolerance = 0.01)

@@ -1,5 +1,6 @@
 package com.pokemon.battle
 
+import com.pokemon.battle.data.GenVRegistries
 import com.pokemon.battle.engine.BattleState
 import com.pokemon.battle.engine.ChanceCheck
 import com.pokemon.battle.engine.DamageDealt
@@ -105,7 +106,7 @@ class DoublesTest {
                 ),
             )
 
-        val phase = MoveExecutionPhase(roll = fixedRoll, chanceCheck = noChance)
+        val phase = MoveExecutionPhase(GenVRegistries, roll = fixedRoll, chanceCheck = noChance)
         val events = phase.resolve(PipelineState(battleState), choices).events
 
         val attempts = events.filterIsInstance<MoveAttempted>()
@@ -134,7 +135,7 @@ class DoublesTest {
                 ),
             )
 
-        val phase = MoveExecutionPhase(roll = fixedRoll, chanceCheck = noChance)
+        val phase = MoveExecutionPhase(GenVRegistries, roll = fixedRoll, chanceCheck = noChance)
         val events = phase.resolve(PipelineState(battleState), choices).events
 
         // The fastest Pokemon (P1 slot 0) should deal damage to P2 slot 1
@@ -163,7 +164,7 @@ class DoublesTest {
                 ),
             )
 
-        val phase = MoveExecutionPhase(roll = fixedRoll, chanceCheck = noChance)
+        val phase = MoveExecutionPhase(GenVRegistries, roll = fixedRoll, chanceCheck = noChance)
         val events = phase.resolve(PipelineState(battleState), choices).events
 
         // P1 slot 0 (fastest) uses Hyper Voice — should hit both P2 slots
@@ -196,7 +197,7 @@ class DoublesTest {
                 ),
             )
 
-        val phase = MoveExecutionPhase(roll = fixedRoll, chanceCheck = noChance)
+        val phase = MoveExecutionPhase(GenVRegistries, roll = fixedRoll, chanceCheck = noChance)
         val events = phase.resolve(PipelineState(battleState), choices).events
 
         // P1 slot 0 (fastest) uses Earthquake — should hit P1 slot 1, P2 slot 0, P2 slot 1
@@ -252,7 +253,7 @@ class DoublesTest {
                 ),
             )
 
-        val phase = MoveExecutionPhase(roll = fixedRoll, chanceCheck = noChance)
+        val phase = MoveExecutionPhase(GenVRegistries, roll = fixedRoll, chanceCheck = noChance)
         val events = phase.resolve(PipelineState(battleState), choices).events
 
         // P2 slot 0 should faint from Earthquake
@@ -286,7 +287,7 @@ class DoublesTest {
                 ),
             )
 
-        val events = EndOfTurnPhase().resolve(PipelineState(battleState), choices).events
+        val events = EndOfTurnPhase(GenVRegistries).resolve(PipelineState(battleState), choices).events
 
         // Weather damage: Fire types take sandstorm, Ground types immune
         val weatherDmg = events.filterIsInstance<WeatherDamage>()

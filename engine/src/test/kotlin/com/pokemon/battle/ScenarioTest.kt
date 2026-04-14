@@ -4,6 +4,7 @@ import com.pokemon.battle.ai.RandomAI
 import com.pokemon.battle.ai.SideProviders
 import com.pokemon.battle.ai.SidedAI
 import com.pokemon.battle.ai.TypeAI
+import com.pokemon.battle.data.GenVRegistries
 import com.pokemon.battle.data.MoveDex
 import com.pokemon.battle.data.Pokedex
 import com.pokemon.battle.engine.AbilityBlocked
@@ -55,10 +56,10 @@ class ScenarioTest {
     private fun pipeline() =
         TurnPipeline(
             listOf(
-                MoveOrderPhase(),
-                SwitchPhase(),
-                MoveExecutionPhase(roll = fixedRoll, chanceCheck = noChance),
-                EndOfTurnPhase(),
+                MoveOrderPhase(GenVRegistries),
+                SwitchPhase(GenVRegistries),
+                MoveExecutionPhase(GenVRegistries, roll = fixedRoll, chanceCheck = noChance),
+                EndOfTurnPhase(GenVRegistries),
             ),
         )
 
@@ -137,7 +138,7 @@ class ScenarioTest {
                 ),
             )
 
-        val phase = MoveExecutionPhase(roll = fixedRoll, chanceCheck = noChance)
+        val phase = MoveExecutionPhase(GenVRegistries, roll = fixedRoll, chanceCheck = noChance)
         val events = phase.resolve(PipelineState(state), choices).events
 
         // Find events from Earthquake (first attacker, fastest at speed 100)
@@ -400,7 +401,7 @@ class ScenarioTest {
                 TurnChoice.UseMove(MoveDex.TACKLE),
             )
 
-        val phase = MoveExecutionPhase(roll = fixedRoll, chanceCheck = noChance)
+        val phase = MoveExecutionPhase(GenVRegistries, roll = fixedRoll, chanceCheck = noChance)
         val events = phase.resolve(PipelineState(state), choices).events
 
         val blocked = events.filterIsInstance<AbilityBlocked>()
@@ -449,7 +450,7 @@ class ScenarioTest {
                 TurnChoice.UseMove(MoveDex.TACKLE),
             )
 
-        val phase = MoveExecutionPhase(roll = fixedRoll, chanceCheck = noChance)
+        val phase = MoveExecutionPhase(GenVRegistries, roll = fixedRoll, chanceCheck = noChance)
         val events = phase.resolve(PipelineState(state), choices).events
 
         val firstAttempt = events.filterIsInstance<MoveAttempted>().first()
@@ -477,7 +478,7 @@ class ScenarioTest {
                 TurnChoice.UseMove(MoveDex.TACKLE),
             )
 
-        val phase = MoveExecutionPhase(roll = fixedRoll, chanceCheck = noChance)
+        val phase = MoveExecutionPhase(GenVRegistries, roll = fixedRoll, chanceCheck = noChance)
         val events = phase.resolve(PipelineState(state), choices).events
 
         val damage = events.filterIsInstance<DamageDealt>().filter { it.target == Slot.p2() }

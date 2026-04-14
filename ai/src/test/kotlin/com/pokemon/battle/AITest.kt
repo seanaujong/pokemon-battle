@@ -4,6 +4,7 @@ import com.pokemon.battle.ai.RandomAI
 import com.pokemon.battle.ai.SideProviders
 import com.pokemon.battle.ai.SidedAI
 import com.pokemon.battle.ai.TypeAI
+import com.pokemon.battle.data.GenVRegistries
 import com.pokemon.battle.data.MoveDex
 import com.pokemon.battle.data.Pokedex
 import com.pokemon.battle.engine.BattleState
@@ -234,10 +235,10 @@ class AITest {
         val pipeline =
             TurnPipeline(
                 listOf(
-                    MoveOrderPhase(),
-                    SwitchPhase(),
-                    MoveExecutionPhase(roll = { 100 }, chanceCheck = { _, _ -> false }),
-                    EndOfTurnPhase(),
+                    MoveOrderPhase(GenVRegistries),
+                    SwitchPhase(GenVRegistries),
+                    MoveExecutionPhase(GenVRegistries, roll = { 100 }, chanceCheck = { _, _ -> false }),
+                    EndOfTurnPhase(GenVRegistries),
                 ),
             )
 

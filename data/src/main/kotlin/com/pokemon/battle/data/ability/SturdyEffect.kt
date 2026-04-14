@@ -1,6 +1,7 @@
-package com.pokemon.battle.engine.ability
+package com.pokemon.battle.data.ability
 
 import com.pokemon.battle.engine.DamageAdjustment
+import com.pokemon.battle.engine.ability.AbilityEffect
 import com.pokemon.battle.model.Ability
 import com.pokemon.battle.model.PokemonState
 
@@ -8,7 +9,7 @@ import com.pokemon.battle.model.PokemonState
  * Sturdy: if the holder is at full HP and would be KO'd, survive at 1 HP. Not consumed
  * (it's an ability, not an item). Structurally identical to Focus Sash but permanent.
  */
-internal object SturdyEffect : AbilityEffect {
+object SturdyEffect : AbilityEffect {
     override val ability = Ability.STURDY
 
     override fun interceptIncomingDamage(

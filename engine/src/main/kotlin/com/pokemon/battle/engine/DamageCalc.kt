@@ -1,7 +1,5 @@
 package com.pokemon.battle.engine
 
-import com.pokemon.battle.engine.ability.AbilityRegistry
-import com.pokemon.battle.engine.item.ItemRegistry
 import com.pokemon.battle.model.Effectiveness
 import com.pokemon.battle.model.Move
 import com.pokemon.battle.model.MoveCategory
@@ -32,6 +30,7 @@ fun interface DamageCalculator {
  * Gen-specific rules: burn penalty (0.5x physical), STAB (1.5x), crit (1.5x + ignore stages).
  */
 internal class GenVDamageCalculator(
+    private val registries: Registries = Registries.empty,
     private val typeChart: TypeChart = StandardTypeChart,
 ) : DamageCalculator {
     @Suppress("CyclomaticComplexMethod") // Single-expression damage formula with many independent modifiers
@@ -62,10 +61,10 @@ internal class GenVDamageCalculator(
         val burnMod = if (attacker.status == StatusCondition.BURN && isPhysical) 0.5 else 1.0
         val critMod = if (isCritical) 1.5 else 1.0
         val weatherMod = weatherDamageModifier(weather, move.type)
-        val attackerItemMod = ItemRegistry.effectForHolder(attacker)?.attackerDamageModifier(attacker, move) ?: 1.0
-        val defenderItemMod = ItemRegistry.effectForHolder(defender)?.defenderDamageModifier(defender, move) ?: 1.0
-        val attackerAbilityMod = AbilityRegistry.effectFor(attacker.effectiveAbility)?.attackerDamageModifier(attacker, move) ?: 1.0
-        val defenderAbilityMod = AbilityRegistry.effectFor(defender.effectiveAbility)?.defenderDamageModifier(defender, move) ?: 1.0
+        val attackerItemMod = registries.items.effectForHolder(attacker)?.attackerDamageModifier(attacker, move) ?: 1.0
+        val defenderItemMod = registries.items.effectForHolder(defender)?.defenderDamageModifier(defender, move) ?: 1.0
+        val attackerAbilityMod = registries.abilities.effectFor(attacker.effectiveAbility)?.attackerDamageModifier(attacker, move) ?: 1.0
+        val defenderAbilityMod = registries.abilities.effectFor(defender.effectiveAbility)?.defenderDamageModifier(defender, move) ?: 1.0
         val itemMod = attackerItemMod * defenderItemMod
         val abilityMod = attackerAbilityMod * defenderAbilityMod
 
@@ -120,4 +119,5 @@ internal fun calculateDamage(
     spreadModifier: Double = 1.0,
     isCritical: Boolean = false,
     weather: Weather? = null,
-): DamageResult = GenVDamageCalculator().calculate(attacker, defender, move, roll, spreadModifier, isCritical, weather)
+    registries: Registries = Registries.empty,
+): DamageResult = GenVDamageCalculator(registries).calculate(attacker, defender, move, roll, spreadModifier, isCritical, weather)

@@ -1,5 +1,6 @@
-package com.pokemon.battle.engine.item
+package com.pokemon.battle.data.item
 
+import com.pokemon.battle.engine.item.ItemEffect
 import com.pokemon.battle.model.Item
 import com.pokemon.battle.model.Move
 import com.pokemon.battle.model.MoveCategory
@@ -14,7 +15,7 @@ import com.pokemon.battle.model.PokemonState
  * evolution data lives in the engine; validation belongs in the AI / team-builder layer.
  * (Smogon's engine makes the same choice.)
  */
-internal object EvioliteEffect : ItemEffect {
+object EvioliteEffect : ItemEffect {
     override val item = Item.EVIOLITE
 
     override fun defenderDamageModifier(

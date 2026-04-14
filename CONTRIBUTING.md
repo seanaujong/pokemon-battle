@@ -62,11 +62,14 @@ decouple behavior from callers.
 1. **Add the enum value.** Edit `model/Item.kt` — add the new value in alphabetical or
    grouped position. Enums are one of the known parallel-work chokepoints (diary 043);
    additive insertions merge cleanly.
-2. **Create the effect file.** New file in `engine/item/<Name>Effect.kt`. Implement
-   `ItemEffect`; override only the hooks your item actually uses. Each hook defaults to
-   no-op — do not override hooks you don't need.
-3. **Register it.** Add your singleton object to the `listOf(...)` in
-   `engine/item/ItemRegistry.kt`. Position within the list is cosmetic.
+2. **Create the effect file.** New file in `data/item/<Name>Effect.kt`. Implement
+   `com.pokemon.battle.engine.item.ItemEffect` (the contract interface lives in
+   `:engine`; the concrete effect lives in `:data` — see diary 071). Override only the
+   hooks your item actually uses. Each hook defaults to no-op — do not override hooks
+   you don't need.
+3. **Register it.** Add your singleton object to `GenVRegistries` in
+   `data/src/main/kotlin/com/pokemon/battle/data/Registries.kt`. Position within the
+   list is cosmetic.
 4. **Optional: custom rendering.** If your item has custom text (triggered, consumed,
    healed), create `render/item/<Name>Text.kt` implementing `ItemText`, and register it
    in `render/item/ItemTextRegistry.kt`. Items with no custom text can skip this entirely
@@ -88,9 +91,11 @@ Existing examples: `LifeOrbEffect`, `LeftoversEffect`, `ChoiceItemEffects`,
 Pattern established in **diary 027**. Mirrors items.
 
 1. **Add the enum value** in `model/Ability.kt` if it's not already present.
-2. **Create the effect file** in `engine/ability/<Name>Effect.kt` implementing
-   `AbilityEffect`. Only override hooks you need.
-3. **Register it** in `engine/ability/AbilityRegistry.kt`'s `listOf(...)`.
+2. **Create the effect file** in `data/ability/<Name>Effect.kt` implementing
+   `com.pokemon.battle.engine.ability.AbilityEffect` (contract in `:engine`,
+   concrete effect in `:data` — diary 071). Only override hooks you need.
+3. **Register it** in `GenVRegistries` in
+   `data/src/main/kotlin/com/pokemon/battle/data/Registries.kt`.
 4. **Optional: custom rendering.** `render/ability/<Name>Text.kt` implementing
    `AbilityText`, registered in `render/ability/AbilityTextRegistry.kt`. The renderer
    falls back to a generic `"X's AbilityName!"` if no text entry exists.

@@ -1,15 +1,16 @@
-package com.pokemon.battle.engine.ability
+package com.pokemon.battle.data.ability
 
 import com.pokemon.battle.engine.AbilityTriggered
 import com.pokemon.battle.engine.BattleState
 import com.pokemon.battle.engine.GameEvent
 import com.pokemon.battle.engine.StatChanged
+import com.pokemon.battle.engine.ability.AbilityEffect
 import com.pokemon.battle.model.Ability
 import com.pokemon.battle.model.Slot
 import com.pokemon.battle.model.StatType
 
 /** Intimidate: drops each opponent's Attack by one stage on switch-in. */
-internal object IntimidateEffect : AbilityEffect {
+object IntimidateEffect : AbilityEffect {
     override val ability = Ability.INTIMIDATE
 
     override fun onSwitchIn(

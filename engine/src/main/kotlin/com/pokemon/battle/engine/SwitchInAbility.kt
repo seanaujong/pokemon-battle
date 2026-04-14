@@ -8,13 +8,15 @@ import com.pokemon.battle.model.Slot
  * Called by SwitchPhase (voluntary switches), BattleLoop (faint replacements),
  * and self-switch moves (U-turn / Volt Switch).
  *
- * Delegates to [AbilityRegistry] — adding a new switch-in ability means a new
- * [com.pokemon.battle.engine.ability.AbilityEffect] file + registry entry, no edits here.
+ * Delegates to the injected [AbilityRegistry] — adding a new switch-in ability
+ * means a new [com.pokemon.battle.data.ability.AbilityEffect] file + registry
+ * entry, no edits here.
  */
 fun resolveSwitchInAbility(
     state: BattleState,
     slot: Slot,
+    abilities: AbilityRegistry,
 ): List<GameEvent> {
     val pokemon = state.pokemonFor(slot)
-    return AbilityRegistry.effectFor(pokemon.effectiveAbility)?.onSwitchIn(state, slot) ?: emptyList()
+    return abilities.effectFor(pokemon.effectiveAbility)?.onSwitchIn(state, slot) ?: emptyList()
 }

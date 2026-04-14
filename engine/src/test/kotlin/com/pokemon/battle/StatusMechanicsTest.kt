@@ -1,8 +1,8 @@
 package com.pokemon.battle
 
+import com.pokemon.battle.data.GenVRegistries
 import com.pokemon.battle.engine.BattleState
 import com.pokemon.battle.engine.DamageDealt
-import com.pokemon.battle.engine.GenVSpeedResolver
 import com.pokemon.battle.engine.MoveAttempted
 import com.pokemon.battle.engine.MoveFailed
 import com.pokemon.battle.engine.MoveOrderDecided
@@ -13,6 +13,7 @@ import com.pokemon.battle.engine.TurnChoices
 import com.pokemon.battle.engine.TurnPipeline
 import com.pokemon.battle.engine.VolatileAdded
 import com.pokemon.battle.engine.VolatileRemoved
+import com.pokemon.battle.engine.genVSpeedResolver
 import com.pokemon.battle.engine.resolveMoveOrder
 import com.pokemon.battle.model.FailReason
 import com.pokemon.battle.model.Move
@@ -106,8 +107,8 @@ class StatusMechanicsTest {
         val normal = PokemonState(Pokemon(fastSpecies, 50), currentHp = 100)
         val paralyzed = normal.copy(status = StatusCondition.PARALYSIS)
         assertEquals(
-            GenVSpeedResolver.effectiveSpeed(normal, Slot.p1(), BattleState.singles(normal, normal)) * 0.5,
-            GenVSpeedResolver.effectiveSpeed(paralyzed, Slot.p1(), BattleState.singles(paralyzed, normal)),
+            genVSpeedResolver(GenVRegistries).effectiveSpeed(normal, Slot.p1(), BattleState.singles(normal, normal)) * 0.5,
+            genVSpeedResolver(GenVRegistries).effectiveSpeed(paralyzed, Slot.p1(), BattleState.singles(paralyzed, normal)),
         )
     }
 
@@ -122,7 +123,7 @@ class StatusMechanicsTest {
     @Test
     fun `fully paralyzed Pokemon cannot act`() {
         val state = makeState(p1Status = StatusCondition.PARALYSIS)
-        val phase = MoveExecutionPhase(roll = { 100 }, chanceCheck = { _, _ -> true })
+        val phase = MoveExecutionPhase(GenVRegistries, roll = { 100 }, chanceCheck = { _, _ -> true })
         val events = phase.resolve(PipelineState(state), bothTackle).events
 
         val moveFailed = events.filterIsInstance<MoveFailed>()
@@ -134,7 +135,7 @@ class StatusMechanicsTest {
     @Test
     fun `paralyzed Pokemon acts when chance check fails`() {
         val state = makeState(p1Status = StatusCondition.PARALYSIS)
-        val phase = MoveExecutionPhase(roll = { 100 }, chanceCheck = { _, _ -> false })
+        val phase = MoveExecutionPhase(GenVRegistries, roll = { 100 }, chanceCheck = { _, _ -> false })
         val events = phase.resolve(PipelineState(state), bothTackle).events
 
         assertEquals(0, events.filterIsInstance<MoveFailed>().size)
@@ -150,7 +151,7 @@ class StatusMechanicsTest {
                 p1Status = StatusCondition.SLEEP,
                 p1Volatiles = setOf(Volatile.Sleep(turnsRemaining = 2)),
             )
-        val phase = MoveExecutionPhase(roll = { 100 }, chanceCheck = { _, _ -> false })
+        val phase = MoveExecutionPhase(GenVRegistries, roll = { 100 }, chanceCheck = { _, _ -> false })
         val events = phase.resolve(PipelineState(state), bothTackle).events
 
         val removed = events.filterIsInstance<VolatileRemoved>()
@@ -172,7 +173,7 @@ class StatusMechanicsTest {
                 p1Status = StatusCondition.SLEEP,
                 p1Volatiles = setOf(Volatile.Sleep(turnsRemaining = 1)),
             )
-        val phase = MoveExecutionPhase(roll = { 100 }, chanceCheck = { _, _ -> false })
+        val phase = MoveExecutionPhase(GenVRegistries, roll = { 100 }, chanceCheck = { _, _ -> false })
         val events = phase.resolve(PipelineState(state), bothTackle).events
 
         val cleared = events.filterIsInstance<StatusCleared>()
@@ -190,7 +191,7 @@ class StatusMechanicsTest {
                 p1Status = StatusCondition.SLEEP,
                 p1Volatiles = setOf(Volatile.Sleep(turnsRemaining = 2)),
             )
-        val phase = MoveExecutionPhase(roll = { 100 }, chanceCheck = { _, _ -> false })
+        val phase = MoveExecutionPhase(GenVRegistries, roll = { 100 }, chanceCheck = { _, _ -> false })
 
         // Turn 1: P1 sleeps
         val turn1Events = phase.resolve(PipelineState(state), bothTackle).events
@@ -208,7 +209,7 @@ class StatusMechanicsTest {
     @Test
     fun `frozen Pokemon cannot act when thaw fails`() {
         val state = makeState(p1Status = StatusCondition.FREEZE)
-        val phase = MoveExecutionPhase(roll = { 100 }, chanceCheck = { _, _ -> false })
+        val phase = MoveExecutionPhase(GenVRegistries, roll = { 100 }, chanceCheck = { _, _ -> false })
         val events = phase.resolve(PipelineState(state), bothTackle).events
 
         val moveFailed = events.filterIsInstance<MoveFailed>()
@@ -220,7 +221,7 @@ class StatusMechanicsTest {
     @Test
     fun `frozen Pokemon thaws and acts when thaw succeeds`() {
         val state = makeState(p1Status = StatusCondition.FREEZE)
-        val phase = MoveExecutionPhase(roll = { 100 }, chanceCheck = { _, _ -> true })
+        val phase = MoveExecutionPhase(GenVRegistries, roll = { 100 }, chanceCheck = { _, _ -> true })
         val events = phase.resolve(PipelineState(state), bothTackle).events
 
         assertEquals(StatusCondition.FREEZE, events.filterIsInstance<StatusCleared>()[0].status)
@@ -238,8 +239,8 @@ class StatusMechanicsTest {
                 p2Status = StatusCondition.SLEEP,
                 p2Volatiles = setOf(Volatile.Sleep(turnsRemaining = 2)),
             )
-        val phase = MoveExecutionPhase(roll = { 100 }, chanceCheck = { _, _ -> false })
-        val pipeline = TurnPipeline(listOf(MoveOrderPhase(), phase, EndOfTurnPhase()))
+        val phase = MoveExecutionPhase(GenVRegistries, roll = { 100 }, chanceCheck = { _, _ -> false })
+        val pipeline = TurnPipeline(listOf(MoveOrderPhase(GenVRegistries), phase, EndOfTurnPhase(GenVRegistries)))
         val result = pipeline.resolveToCompletion(state, bothTackle)
         val events = result.events
 

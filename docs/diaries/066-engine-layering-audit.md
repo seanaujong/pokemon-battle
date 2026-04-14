@@ -107,7 +107,8 @@ In priority order (highest value / lowest cost first):
    don't have a server. Maybe `:cli` is fine for now and `:ai` only when
    a second consumer arrives (web UI, MCP).
 
-4. **Registry-DI refactor** for items + abilities. Bigger work because it
+4. **Registry-DI refactor** for items + abilities. *Shipped in diary 071.*
+   Bigger work because it
    touches every phase that calls a registry directly. Required to enable
    moving `engine/item/` and `engine/ability/` into `:data`. Probably a
    diary of its own — call it the "engine accepts its registries" refactor.

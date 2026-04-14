@@ -1,5 +1,6 @@
 package com.pokemon.battle
 
+import com.pokemon.battle.data.GenVRegistries
 import com.pokemon.battle.data.MoveDex
 import com.pokemon.battle.data.Pokedex
 import com.pokemon.battle.engine.BattleState
@@ -31,10 +32,10 @@ class EffectiveAbilityTest {
     private fun pipeline() =
         TurnPipeline(
             listOf(
-                MoveOrderPhase(),
-                SwitchPhase(),
-                MoveExecutionPhase(roll = fixedRoll, chanceCheck = noChance),
-                EndOfTurnPhase(),
+                MoveOrderPhase(GenVRegistries),
+                SwitchPhase(GenVRegistries),
+                MoveExecutionPhase(GenVRegistries, roll = fixedRoll, chanceCheck = noChance),
+                EndOfTurnPhase(GenVRegistries),
             ),
         )
 
@@ -91,10 +92,10 @@ class EffectiveAbilityTest {
         val defender = PokemonState(venusaur, currentHp = venusaur.maxHp)
 
         val normalDmg =
-            GenVDamageCalculator()
+            GenVDamageCalculator(GenVRegistries)
                 .calculate(normal, defender, MoveDex.FLAMETHROWER, fixedRoll, 1.0, false, null).damage
         val overriddenDmg =
-            GenVDamageCalculator()
+            GenVDamageCalculator(GenVRegistries)
                 .calculate(overridden, defender, MoveDex.FLAMETHROWER, fixedRoll, 1.0, false, null).damage
 
         assertTrue(overriddenDmg < normalDmg, "KLUTZ override should disable Life Orb: override=$overriddenDmg normal=$normalDmg")

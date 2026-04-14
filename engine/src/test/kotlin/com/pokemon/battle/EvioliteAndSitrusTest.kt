@@ -1,5 +1,6 @@
 package com.pokemon.battle
 
+import com.pokemon.battle.data.GenVRegistries
 import com.pokemon.battle.data.MoveDex
 import com.pokemon.battle.data.Pokedex
 import com.pokemon.battle.engine.BattleState
@@ -30,10 +31,10 @@ class EvioliteAndSitrusTest {
     private fun pipeline() =
         TurnPipeline(
             listOf(
-                MoveOrderPhase(),
-                SwitchPhase(),
-                MoveExecutionPhase(roll = fixedRoll, chanceCheck = noChance),
-                EndOfTurnPhase(),
+                MoveOrderPhase(GenVRegistries),
+                SwitchPhase(GenVRegistries),
+                MoveExecutionPhase(GenVRegistries, roll = fixedRoll, chanceCheck = noChance),
+                EndOfTurnPhase(GenVRegistries),
             ),
         )
 
@@ -51,10 +52,10 @@ class EvioliteAndSitrusTest {
         val withEviolite = PokemonState(swampert, currentHp = swampert.maxHp, item = Item.EVIOLITE)
 
         val plainDmg =
-            GenVDamageCalculator()
+            GenVDamageCalculator(GenVRegistries)
                 .calculate(attacker, plain, MoveDex.EARTHQUAKE, fixedRoll, 1.0, false, null).damage
         val evioliteDmg =
-            GenVDamageCalculator()
+            GenVDamageCalculator(GenVRegistries)
                 .calculate(attacker, withEviolite, MoveDex.EARTHQUAKE, fixedRoll, 1.0, false, null).damage
 
         assertTrue(evioliteDmg < plainDmg, "Eviolite should reduce damage: eviolite=$evioliteDmg plain=$plainDmg")
@@ -70,10 +71,10 @@ class EvioliteAndSitrusTest {
         val withEviolite = PokemonState(venusaur, currentHp = venusaur.maxHp, item = Item.EVIOLITE)
 
         val plainDmg =
-            GenVDamageCalculator()
+            GenVDamageCalculator(GenVRegistries)
                 .calculate(attacker, plain, MoveDex.FLAMETHROWER, fixedRoll, 1.0, false, null).damage
         val evioliteDmg =
-            GenVDamageCalculator()
+            GenVDamageCalculator(GenVRegistries)
                 .calculate(attacker, withEviolite, MoveDex.FLAMETHROWER, fixedRoll, 1.0, false, null).damage
 
         assertTrue(evioliteDmg < plainDmg, "Eviolite should reduce special damage: eviolite=$evioliteDmg plain=$plainDmg")

@@ -1,12 +1,12 @@
 package com.pokemon.battle
 
+import com.pokemon.battle.data.GenVRegistries
 import com.pokemon.battle.data.MoveDex
 import com.pokemon.battle.data.Pokedex
 import com.pokemon.battle.engine.BattleState
 import com.pokemon.battle.engine.ChanceCheck
 import com.pokemon.battle.engine.DamageDealt
 import com.pokemon.battle.engine.GenVDamageCalculator
-import com.pokemon.battle.engine.GenVSpeedResolver
 import com.pokemon.battle.engine.MoveOrderDecided
 import com.pokemon.battle.engine.PipelineState
 import com.pokemon.battle.engine.StatusDamage
@@ -14,6 +14,7 @@ import com.pokemon.battle.engine.TurnChoice
 import com.pokemon.battle.engine.TurnChoices
 import com.pokemon.battle.engine.TurnPipeline
 import com.pokemon.battle.engine.WeatherDamage
+import com.pokemon.battle.engine.genVSpeedResolver
 import com.pokemon.battle.engine.resolveMoveOrder
 import com.pokemon.battle.gen.simplified.SimplifiedDamageCalculator
 import com.pokemon.battle.gen.simplified.SimplifiedEndOfTurnPhase
@@ -52,30 +53,30 @@ class SecondGenTest {
     private fun genVPipeline() =
         TurnPipeline(
             listOf(
-                MoveOrderPhase(),
-                SwitchPhase(),
+                MoveOrderPhase(GenVRegistries),
+                SwitchPhase(GenVRegistries),
                 MoveExecutionPhase(
                     damageCalculator = GenVDamageCalculator(),
-                    speedResolver = GenVSpeedResolver,
+                    speedResolver = genVSpeedResolver(GenVRegistries),
                     roll = fixedRoll,
                     chanceCheck = noChance,
                 ),
-                EndOfTurnPhase(),
+                EndOfTurnPhase(GenVRegistries),
             ),
         )
 
     private fun simplifiedPipeline() =
         TurnPipeline(
             listOf(
-                MoveOrderPhase(),
-                SwitchPhase(speedResolver = SimplifiedSpeedResolver),
+                MoveOrderPhase(GenVRegistries),
+                SwitchPhase(GenVRegistries, speedResolver = SimplifiedSpeedResolver),
                 MoveExecutionPhase(
                     damageCalculator = SimplifiedDamageCalculator(),
                     speedResolver = SimplifiedSpeedResolver,
                     roll = fixedRoll,
                     chanceCheck = noChance,
                 ),
-                SimplifiedEndOfTurnPhase(),
+                SimplifiedEndOfTurnPhase(GenVRegistries),
             ),
         )
 
@@ -140,7 +141,7 @@ class SecondGenTest {
             )
 
         // GenV: paralysis halves speed → Charizard speed 60 < Venusaur speed 100 → Venusaur first
-        val genVOrder = resolveMoveOrder(state, choices, GenVSpeedResolver)
+        val genVOrder = resolveMoveOrder(state, choices, genVSpeedResolver(GenVRegistries))
         assertEquals(Slot.p2(), genVOrder.order.first(), "GenV: paralyzed Charizard should be slower")
 
         // Simplified: no paralysis modifier → Charizard speed 120 > Venusaur speed 100 → Charizard first
@@ -168,12 +169,12 @@ class SecondGenTest {
             )
 
         // GenV end-of-turn
-        val genVEvents = EndOfTurnPhase().resolve(PipelineState(state), choices).events
+        val genVEvents = EndOfTurnPhase(GenVRegistries).resolve(PipelineState(state), choices).events
         val genVBurn = genVEvents.filterIsInstance<StatusDamage>().first()
         val genVWeather = genVEvents.filterIsInstance<WeatherDamage>()
 
         // Simplified end-of-turn
-        val simpleEvents = SimplifiedEndOfTurnPhase().resolve(PipelineState(state), choices).events
+        val simpleEvents = SimplifiedEndOfTurnPhase(GenVRegistries).resolve(PipelineState(state), choices).events
         val simpleBurn = simpleEvents.filterIsInstance<StatusDamage>().first()
         val simpleWeather = simpleEvents.filterIsInstance<WeatherDamage>()
 

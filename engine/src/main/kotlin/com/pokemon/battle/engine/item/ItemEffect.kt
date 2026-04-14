@@ -3,6 +3,7 @@ package com.pokemon.battle.engine.item
 import com.pokemon.battle.engine.BattleState
 import com.pokemon.battle.engine.DamageAdjustment
 import com.pokemon.battle.engine.GameEvent
+import com.pokemon.battle.engine.ability.AbilityRegistry
 import com.pokemon.battle.model.Item
 import com.pokemon.battle.model.Move
 import com.pokemon.battle.model.PokemonState
@@ -24,7 +25,7 @@ import com.pokemon.battle.model.Slot
  * the registry instead of switching on enum values directly — so adding an item means
  * adding a file + registry entry, not editing scattered callers.
  */
-internal interface ItemEffect {
+interface ItemEffect {
     val item: Item
 
     /** Multiplier applied to damage the holder deals. Called from the damage calc, which
@@ -79,18 +80,24 @@ internal interface ItemEffect {
         state: BattleState,
         slot: Slot,
         previousHp: Int,
+        abilities: AbilityRegistry,
     ): List<GameEvent> = emptyList()
 
     /**
      * Fired after the holder takes damage from an attacker. Used by Red Card (force
      * attacker switch + consume item), Rocky Helmet (damage the contact attacker),
      * and future "on-hit" items that react to the attacker.
+     *
+     * [abilities] is threaded through so effects that force a switch (Red Card) can
+     * trigger the replacement's switch-in ability without reaching for a global
+     * registry.
      */
     fun onHolderTookDamage(
         state: BattleState,
         holderSlot: Slot,
         attackerSlot: Slot,
         damageDealt: Int,
+        abilities: AbilityRegistry,
     ): List<GameEvent> = emptyList()
 
     /**

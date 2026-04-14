@@ -6,19 +6,18 @@ import com.pokemon.battle.engine.GameEvent
 import com.pokemon.battle.engine.Phase
 import com.pokemon.battle.engine.PhaseOutput
 import com.pokemon.battle.engine.PokemonFainted
+import com.pokemon.battle.engine.Registries
 import com.pokemon.battle.engine.StatusDamage
 import com.pokemon.battle.engine.TurnChoices
 import com.pokemon.battle.engine.VolatileRemoved
 import com.pokemon.battle.engine.WeatherDamage
 import com.pokemon.battle.engine.WeatherTick
-import com.pokemon.battle.engine.ability.AbilityRegistry
-import com.pokemon.battle.engine.item.ItemRegistry
 import com.pokemon.battle.model.StatusCondition
 import com.pokemon.battle.model.Type
 import com.pokemon.battle.model.Volatile
 import com.pokemon.battle.model.Weather
 
-class EndOfTurnPhase : Phase {
+class EndOfTurnPhase(private val registries: Registries = Registries.empty) : Phase {
     override fun resolve(
         pipeline: com.pokemon.battle.engine.PipelineState,
         choices: TurnChoices,
@@ -120,7 +119,7 @@ class EndOfTurnPhase : Phase {
             val pokemon = state.pokemonFor(slot)
             if (pokemon.isFainted) return@mapNotNull null
             if (pokemon.effectiveTypes.any { it in immuneTypes }) return@mapNotNull null
-            if (AbilityRegistry.effectFor(pokemon.effectiveAbility)?.blocksWeatherDamage(weather) == true) return@mapNotNull null
+            if (registries.abilities.effectFor(pokemon.effectiveAbility)?.blocksWeatherDamage(weather) == true) return@mapNotNull null
 
             val damage = pokemon.maxHp / 16
             WeatherDamage(target = slot, amount = damage, weather = weather)
@@ -150,7 +149,7 @@ class EndOfTurnPhase : Phase {
         state.allSlots().flatMap { slot ->
             val pokemon = state.pokemonFor(slot)
             if (pokemon.isFainted) return@flatMap emptyList()
-            ItemRegistry.effectForHolder(pokemon)?.endOfTurn(state, slot) ?: emptyList()
+            registries.items.effectForHolder(pokemon)?.endOfTurn(state, slot) ?: emptyList()
         }
 
     private fun weatherTick(state: BattleState): List<GameEvent> {

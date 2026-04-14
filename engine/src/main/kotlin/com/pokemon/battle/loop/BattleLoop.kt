@@ -2,6 +2,7 @@ package com.pokemon.battle.loop
 
 import com.pokemon.battle.engine.BattleEvent
 import com.pokemon.battle.engine.BattleState
+import com.pokemon.battle.engine.Registries
 import com.pokemon.battle.engine.SwitchIn
 import com.pokemon.battle.engine.TurnChoices
 import com.pokemon.battle.engine.TurnPipeline
@@ -38,6 +39,7 @@ class BattleLoop(
     private val choiceProvider: ChoiceProvider,
     private val faintReplacementProvider: FaintReplacementProvider,
     private val inputResponder: InputResponder? = null,
+    private val registries: Registries = Registries.empty,
     private val maxTurns: Int = 100,
 ) {
     fun run(initialState: BattleState): BattleResult {
@@ -121,7 +123,7 @@ class BattleLoop(
             currentState = switchIn.apply(currentState)
 
             // Switch-in ability triggers for the replacement
-            for (abilityEvent in resolveSwitchInAbility(currentState, slot)) {
+            for (abilityEvent in resolveSwitchInAbility(currentState, slot, registries.abilities)) {
                 events.add(abilityEvent)
                 currentState = abilityEvent.apply(currentState)
             }

@@ -1,13 +1,14 @@
-package com.pokemon.battle.engine.item
+package com.pokemon.battle.data.item
 
 import com.pokemon.battle.engine.BattleState
 import com.pokemon.battle.engine.GameEvent
 import com.pokemon.battle.engine.ItemHealing
+import com.pokemon.battle.engine.item.ItemEffect
 import com.pokemon.battle.model.Item
 import com.pokemon.battle.model.Slot
 
 /** Leftovers: restores 1/16 max HP at end of turn if below full HP. Persistent (not consumed). */
-internal object LeftoversEffect : ItemEffect {
+object LeftoversEffect : ItemEffect {
     override val item = Item.LEFTOVERS
 
     override fun endOfTurn(

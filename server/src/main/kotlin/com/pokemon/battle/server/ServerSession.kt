@@ -1,5 +1,6 @@
 package com.pokemon.battle.server
 
+import com.pokemon.battle.data.GenVRegistries
 import com.pokemon.battle.data.Pokedex
 import com.pokemon.battle.engine.BattleState
 import com.pokemon.battle.engine.SwitchIn
@@ -85,7 +86,12 @@ class ServerSession(
 
         val pipeline =
             TurnPipeline(
-                listOf(MoveOrderPhase(), SwitchPhase(), MoveExecutionPhase(), EndOfTurnPhase()),
+                listOf(
+                    MoveOrderPhase(GenVRegistries),
+                    SwitchPhase(GenVRegistries),
+                    MoveExecutionPhase(GenVRegistries),
+                    EndOfTurnPhase(GenVRegistries),
+                ),
             )
 
         var turnNumber = 1
@@ -209,7 +215,7 @@ class ServerSession(
             val switchIn = SwitchIn(slot, chosen)
             events.add(switchIn)
             current = switchIn.apply(current)
-            for (abilityEvent in resolveSwitchInAbility(current, slot)) {
+            for (abilityEvent in resolveSwitchInAbility(current, slot, GenVRegistries.abilities)) {
                 events.add(abilityEvent)
                 current = abilityEvent.apply(current)
             }
