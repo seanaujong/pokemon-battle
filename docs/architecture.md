@@ -460,6 +460,17 @@ seam for gen-specific variants (`GenIVItemRegistry` vs `GenVItemRegistry`). Do t
 *when* the pattern is visible, not before — three items was the sweet spot for us.
 Diary 026 has the full story.
 
+**The event log is a first-class data asset, not just a rendering input.** Every
+structural decision that keeps events complete, ordered, and serializable pays off in
+three directions: rendering (text/HTML/JSON), analytics (win rates, usage stats,
+correctness audits), and replay (save, reload, debug). The engine's contribution is
+emitting faithful events; everything else — text, metrics, replay viewers — is a
+consumer module that reads the stream. Diary 042 makes this framing explicit and walks
+through the three analytics categories (gameplay insights, engine self-consistency,
+dev performance). The minimum-viable investment to unlock all of this: add
+`@Serializable` to every event. Most of the value comes for free from the
+event-sourcing shape we already adopted.
+
 **Behavior and rendering want separate registries once the entity count is non-trivial.**
 Early on, colocating render strings with effect behavior (one `ItemEffect` file owning
 both "what Leftovers does" and "what Leftovers prints") is the right simplicity. Past
