@@ -1,16 +1,23 @@
 package com.pokemon.battle.engine
 
 import com.pokemon.battle.model.FieldState
+import com.pokemon.battle.model.GimmickKind
 import com.pokemon.battle.model.PokemonState
 import com.pokemon.battle.model.Side
 import com.pokemon.battle.model.SideCondition
 import com.pokemon.battle.model.Slot
+import com.pokemon.battle.model.UsedGimmick
 
+@Suppress("TooManyFunctions") // Query helpers for slots, bench, side conditions, gimmicks
 data class BattleState(
     val slots: Map<Slot, PokemonState>,
     val bench: Map<Side, List<PokemonState>> = emptyMap(),
     val field: FieldState = FieldState(),
     val sideConditions: Map<Side, Map<SideCondition, Int>> = emptyMap(),
+    /** Raw record of gimmick activations per side; legality is decided by [ruleset]. */
+    val gimmicksUsedBySide: Map<Side, List<UsedGimmick>> = emptyMap(),
+    /** Format-specific policy object. Defaults to [NoGimmicksRuleset] (matches pre-gimmick behavior). */
+    val ruleset: Ruleset = NoGimmicksRuleset,
     val turn: Int = 1,
 ) {
     /** Conditions currently active on [side], with remaining-turn counts. */
@@ -27,6 +34,21 @@ data class BattleState(
         val newMap =
             if (updated.isEmpty()) sideConditions - side else sideConditions + (side to updated)
         return copy(sideConditions = newMap)
+    }
+
+    /** Gimmick activations on [side], in the order they happened. */
+    fun gimmicksUsedBy(side: Side): List<UsedGimmick> = gimmicksUsedBySide[side] ?: emptyList()
+
+    /** Delegates to [ruleset] to decide if [kind] is legal on [side] right now. */
+    fun canUseGimmick(
+        kind: GimmickKind,
+        side: Side,
+    ): Boolean = ruleset.canUseGimmick(kind, gimmicksUsedBy(side))
+
+    /** Append a gimmick activation to the history for that side. */
+    fun withGimmickUsed(used: UsedGimmick): BattleState {
+        val updated = gimmicksUsedBy(used.slot.side) + used
+        return copy(gimmicksUsedBySide = gimmicksUsedBySide + (used.slot.side to updated))
     }
 
     fun pokemonFor(slot: Slot): PokemonState = slots[slot] ?: error("No Pokemon in slot $slot")

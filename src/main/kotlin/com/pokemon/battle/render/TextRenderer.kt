@@ -5,6 +5,7 @@ import com.pokemon.battle.engine.AbilityTriggered
 import com.pokemon.battle.engine.BattleEvent
 import com.pokemon.battle.engine.BattleState
 import com.pokemon.battle.engine.DamageDealt
+import com.pokemon.battle.engine.GimmickUsed
 import com.pokemon.battle.engine.ItemConsumed
 import com.pokemon.battle.engine.ItemDamage
 import com.pokemon.battle.engine.ItemHealing
@@ -76,7 +77,23 @@ object TextRenderer : BattleRenderer {
             is SideConditionTick -> emptyList()
             is SideConditionExpired -> renderSideConditionExpired(event)
             is TrickRoomSet -> renderTrickRoomSet(event)
+            is GimmickUsed -> renderGimmickUsed(event, stateAfter)
         }
+    }
+
+    private fun renderGimmickUsed(
+        event: GimmickUsed,
+        stateAfter: BattleState,
+    ): List<String> {
+        val pokemonName = name(stateAfter, event.slot)
+        val text =
+            when (event.kind) {
+                com.pokemon.battle.model.GimmickKind.MEGA -> "$pokemonName Mega Evolved!"
+                com.pokemon.battle.model.GimmickKind.Z_MOVE -> "$pokemonName unleashed its Z-Power!"
+                com.pokemon.battle.model.GimmickKind.DYNAMAX -> "$pokemonName Dynamaxed!"
+                com.pokemon.battle.model.GimmickKind.TERA -> "$pokemonName Terastallized!"
+            }
+        return listOf(text)
     }
 
     private fun renderTrickRoomSet(event: TrickRoomSet): List<String> =
