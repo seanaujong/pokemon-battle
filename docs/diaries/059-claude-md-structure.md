@@ -1,7 +1,7 @@
 # Diary 059: Ideal CLAUDE.md structure
 
 **Date:** 2026-04-14
-**Status:** Plan — ready to implement
+**Status:** Complete (2026-04-14). `CLAUDE.md` now groups Preflight, Iteration Loop, and Parallel variant under a single `## Workflow` heading.
 
 ## The observation
 

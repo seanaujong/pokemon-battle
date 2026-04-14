@@ -1,7 +1,7 @@
 # Diary 057: Turn-result naming cleanup
 
 **Date:** 2026-04-14
-**Status:** Plan — ready to implement (small, mechanical)
+**Status:** Complete (2026-04-14). `BattleLoop.TurnResult` renamed to `TurnRecord`; `TurnResolution` now available for the sealed-type role originally proposed.
 
 ## The conflation
 

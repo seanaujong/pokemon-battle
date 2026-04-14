@@ -1,7 +1,7 @@
 # Diary 056: Interactive CLI v1 (pragmatic path)
 
 **Date:** 2026-04-14
-**Status:** Plan — ready to implement
+**Status:** Complete (2026-04-14). `:cli` module scaffolded; `HumanChoiceProvider` and `PlayMain` ship. Diary 055 Phase 3 superseded the mid-turn UX — self-switch prompts are mid-turn, not pre-selected.
 
 ## Goal
 
