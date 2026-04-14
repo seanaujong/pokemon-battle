@@ -253,4 +253,75 @@ class AITest {
         assertTrue(result.turnHistory.isNotEmpty())
         assertTrue(result.winner != null, "Someone should win within 20 turns")
     }
+
+    // --- HeuristicAI ---
+
+    @Test
+    fun `HeuristicAI picks a setup move on turn 1 if one is available and user is unboosted`() {
+        val charizard = Pokemon(pokedex["Charizard"]!!, level = 50)
+        val venusaur = Pokemon(pokedex["Venusaur"]!!, level = 50)
+        val state =
+            BattleState.singles(
+                PokemonState(charizard, currentHp = charizard.maxHp),
+                PokemonState(venusaur, currentHp = venusaur.maxHp),
+            )
+
+        val ai =
+            com.pokemon.battle.ai.HeuristicAI(
+                movePools =
+                    mapOf(
+                        "Charizard" to listOf(flamethrower, MoveDex.NASTY_PLOT),
+                        "Venusaur" to listOf(earthquake),
+                    ),
+            )
+        val p1Choice = ai.getChoices(state).choiceFor(Slot.p1())
+        assertEquals(MoveDex.NASTY_PLOT, (p1Choice as TurnChoice.UseMove).move, "should pick the self-boost move")
+    }
+
+    @Test
+    fun `HeuristicAI delegates to TypeAI once the user has already boosted`() {
+        val charizard = Pokemon(pokedex["Charizard"]!!, level = 50)
+        val venusaur = Pokemon(pokedex["Venusaur"]!!, level = 50)
+        val boosted =
+            PokemonState(charizard, currentHp = charizard.maxHp)
+                .copy(statStages = com.pokemon.battle.model.StatStages(specialAttack = 2))
+        val state =
+            BattleState.singles(
+                boosted,
+                PokemonState(venusaur, currentHp = venusaur.maxHp),
+            )
+
+        val ai =
+            com.pokemon.battle.ai.HeuristicAI(
+                movePools =
+                    mapOf(
+                        "Charizard" to listOf(flamethrower, MoveDex.NASTY_PLOT),
+                        "Venusaur" to listOf(earthquake),
+                    ),
+            )
+        val p1Choice = ai.getChoices(state).choiceFor(Slot.p1()) as TurnChoice.UseMove
+        assertEquals(flamethrower, p1Choice.move, "once boosted, HeuristicAI should attack (TypeAI's highest-score move)")
+    }
+
+    @Test
+    fun `HeuristicAI without a setup move in pool always attacks`() {
+        val charizard = Pokemon(pokedex["Charizard"]!!, level = 50)
+        val venusaur = Pokemon(pokedex["Venusaur"]!!, level = 50)
+        val state =
+            BattleState.singles(
+                PokemonState(charizard, currentHp = charizard.maxHp),
+                PokemonState(venusaur, currentHp = venusaur.maxHp),
+            )
+
+        val ai =
+            com.pokemon.battle.ai.HeuristicAI(
+                movePools =
+                    mapOf(
+                        "Charizard" to listOf(flamethrower, thunderbolt),
+                        "Venusaur" to listOf(earthquake),
+                    ),
+            )
+        val p1Choice = ai.getChoices(state).choiceFor(Slot.p1()) as TurnChoice.UseMove
+        assertTrue(p1Choice.move in listOf(flamethrower, thunderbolt))
+    }
 }

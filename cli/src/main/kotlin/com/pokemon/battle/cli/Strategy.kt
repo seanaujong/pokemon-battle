@@ -11,4 +11,5 @@ package com.pokemon.battle.cli
 enum class Strategy {
     TypeAI,
     RandomAI,
+    HeuristicAI,
 }

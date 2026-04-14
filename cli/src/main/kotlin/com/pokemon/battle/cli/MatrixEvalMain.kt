@@ -1,5 +1,6 @@
 package com.pokemon.battle.cli
 
+import com.pokemon.battle.ai.HeuristicAI
 import com.pokemon.battle.ai.RandomAI
 import com.pokemon.battle.ai.SideProviders
 import com.pokemon.battle.ai.SidedAI
@@ -149,6 +150,7 @@ private fun buildSidedAI(
             Strategy.RandomAI ->
                 RandomAI(movePools = movePools, random = Random(seed))
                     .let { Triple(it, it, null) }
+            Strategy.HeuristicAI -> HeuristicAI(movePools = movePools).let { Triple(it, it, it) }
         }
     }
 
@@ -219,10 +221,10 @@ private data class MatrixTeamPool(val pokemon: List<Pokemon>)
 
 private val DEMO_MOVES: Map<String, List<Move>> =
     mapOf(
-        "Charizard" to listOf(MoveDex.FLAMETHROWER, MoveDex.THUNDERBOLT, MoveDex.EARTHQUAKE, MoveDex.ICE_BEAM),
+        "Charizard" to listOf(MoveDex.FLAMETHROWER, MoveDex.THUNDERBOLT, MoveDex.EARTHQUAKE, MoveDex.NASTY_PLOT),
         "Garchomp" to listOf(MoveDex.EARTHQUAKE, MoveDex.ICE_BEAM, MoveDex.FLAMETHROWER, MoveDex.SWORDS_DANCE),
         "Lucario" to listOf(MoveDex.AURA_SPHERE, MoveDex.ICE_BEAM, MoveDex.THUNDERBOLT, MoveDex.SWORDS_DANCE),
-        "Venusaur" to listOf(MoveDex.SLUDGE_BOMB, MoveDex.EARTHQUAKE, MoveDex.ICE_BEAM, MoveDex.GROWL),
+        "Venusaur" to listOf(MoveDex.SLUDGE_BOMB, MoveDex.EARTHQUAKE, MoveDex.ICE_BEAM, MoveDex.NASTY_PLOT),
         "Blastoise" to listOf(MoveDex.ICE_BEAM, MoveDex.EARTHQUAKE, MoveDex.AURA_SPHERE, MoveDex.SLUDGE_BOMB),
         "Togekiss" to listOf(MoveDex.AURA_SPHERE, MoveDex.ICE_BEAM, MoveDex.THUNDERBOLT, MoveDex.FLAMETHROWER),
     )
