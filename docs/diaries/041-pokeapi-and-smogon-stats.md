@@ -1,7 +1,7 @@
 # Diary 041: Scaling Against PokeAPI + Smogon Stats (Planning)
 
 **Date:** 2026-04-14
-**Status:** Planning — deferred
+**Status:** Phase 1 ready to implement (module split landed in diary 053)
 
 ## The idea
 
@@ -153,3 +153,142 @@ needs to be a real number not a guess.
   pattern scales. This diary would audit *within* a single gen at full breadth.
 - **Diary 028** — data-shape divergence; Gen 1-3 PokeAPI data would exercise the
   projection strategy
+- **Diary 053** — module split; `:data-ingestion` is the first module built on top
+
+---
+
+## Phase 1 — concrete implementation plan (2026-04-14)
+
+The broader framing above still holds. This section locks in the *how* for Phase 1
+after the design conversation that followed the module split.
+
+### Decisions
+
+- **Separation of sources.** PokeAPI fetcher is ignorant of Smogon; takes a target list
+  and executes. Target lists are curated manually (human or agent reading Smogon tier
+  pages) into `targets/*.txt` files. Automated Smogon scraping is explicitly out of
+  scope for Phase 1 — different project, different rate-limit concerns, format drift.
+- **Layering.** `:data-ingestion` depends on `:engine` (for `Species`/`Move`/`Item`/
+  `Ability` data shapes). `:engine` has no reverse dependency. Engine reads JSON from
+  its own `resources/`; the fact that those files came from ingestion is not encoded
+  anywhere in engine code.
+- **ELT model.** Two stages, two directories, **both committed**:
+  - `data/raw/pokeapi/<endpoint>/<slug>.json` — verbatim API response. Committed.
+    Reasons: offline/no-network workflows work (fresh clones + CI need no internet),
+    test fixtures and the cache are literally the same files (no fixture/cache split),
+    upstream-change diffs are visible, transforms are bit-reproducible across machines.
+    Repo-size cost (~10MB of compressible text) is a non-issue for git.
+  - `engine/src/main/resources/pokedex/...` — engine-shaped JSON produced by a pure
+    transform. Committed.
+  - Transform is `(raw JSON) -> Species/Move/...`, pure, testable without network.
+    Re-running transforms does not require re-fetching.
+- **HTTP client.** Kotlin stdlib `HttpURLConnection`. No Ktor, no OkHttp. Batch job
+  against a stable API; a dep isn't warranted.
+- **Cache as politeness + reproducibility, not performance.** PokeAPI asks us to cache;
+  Smogon (future) is volunteer-run. Committing the cache also means anyone re-running
+  ingestion produces identical outputs without re-hitting the API. Our cache hit rule
+  is "file exists" — more aggressive than HTTP caching. No `Cache-Control`/`ETag`
+  handling. Cache invalidation is manual (`rm`). **Failed requests are not cached** —
+  don't poison the cache with a 500.
+- **Politeness layer.** 100ms sleep between *uncached* requests (10 req/s, well under
+  any plausible limit). `User-Agent: pokemon-battle-engine/1.0 (github.com/...)` header.
+- **No ELT framework.** Considered dlt (Python) and JVM-side options; rejected. Our
+  transform must be Kotlin to produce engine-shaped data correctly, so a framework would
+  only own the ~50 lines of E+L we can write ourselves. Two-language cost isn't worth
+  it. Revisit if: third source, incremental/streaming needs, or SQL-based transforms.
+
+### Module shape
+
+```
+data-ingestion/
+├── build.gradle.kts               — depends on :engine + kotlinx-serialization (already in)
+└── src/
+    ├── main/
+    │   ├── kotlin/com/pokemon/battle/ingest/
+    │   │   ├── fetch/PokeApiClient.kt          — HTTP + on-disk cache + rate limit
+    │   │   ├── transform/SpeciesTransform.kt   — raw JSON → engine Species
+    │   │   ├── transform/MoveTransform.kt      — (follow-up; Species proves the shape)
+    │   │   ├── cli/IngestMain.kt               — entry point
+    │   │   └── Targets.kt                      — reads targets/*.txt
+    │   └── resources/                          — (none expected)
+    └── test/kotlin/com/pokemon/battle/ingest/
+        └── SpeciesTransformTest.kt             — committed raw fixtures, no network
+```
+
+Curated target files live at the repo root:
+```
+targets/
+├── species.txt                    — one name per line: pikachu, charizard, ...
+├── moves.txt
+├── items.txt
+└── abilities.txt
+```
+
+### Plan
+
+Incremental; each step compiles green before the next starts.
+
+1. **Create the module.**
+   - [ ] `data-ingestion/build.gradle.kts` (kotlin jvm, serialization plugin, ktlint,
+         detekt, JaCoCo — mirror `engine/`). Depends on `project(":engine")`.
+   - [ ] `settings.gradle.kts` — `include(":data-ingestion")`.
+   - [ ] Cache path is `data/raw/pokeapi/` at repo root — committed, not ignored.
+   - [ ] Confirm `./gradlew :data-ingestion:compileKotlin` runs (empty module OK).
+
+2. **`PokeApiClient` — fetch + cache + rate limit.**
+   - [ ] GET `https://pokeapi.co/api/v2/<endpoint>/<id-or-name>` via `HttpURLConnection`.
+   - [ ] `User-Agent` header.
+   - [ ] Cache path: `data/raw/pokeapi/<endpoint>/<slug>.json`. If exists, return bytes.
+   - [ ] On fetch: 100ms `Thread.sleep` before request (skipped on cache hit).
+   - [ ] On non-2xx: throw, do not write cache file.
+   - [ ] No tests yet — tests come with the transform, which is the pure layer.
+
+3. **`SpeciesTransform` — PokeAPI JSON → engine `Species`.**
+   - [ ] `kotlinx.serialization` DTOs matching the PokeAPI `/pokemon/{id}` response
+         (only the fields we use: name, base stats, types).
+   - [ ] Pure function `fun transform(raw: String): Species`.
+   - [ ] Transform tests read directly from the committed cache
+         (`data/raw/pokeapi/pokemon/<slug>.json`) — no separate fixtures directory.
+         The cache IS the fixture set. Tests assert the produced `Species` matches
+         ground truth for 1–2 species.
+
+4. **`IngestMain` — the CLI.**
+   - [ ] Reads `targets/species.txt` line by line.
+   - [ ] For each: fetch (cached), transform, write JSON into
+         `engine/src/main/resources/pokedex/species/<slug>.json`.
+   - [ ] Prints one line per species: `[cache|fetch] <name> -> <output path>`.
+   - [ ] `application` plugin with `mainClass = "...IngestMainKt"`.
+   - [ ] Manual validation: `./gradlew :data-ingestion:run` with a tiny `species.txt`
+         (pikachu, charizard) produces expected files. Re-run hits cache.
+
+5. **Prove end-to-end with `Pokedex.loadFromClasspath`.**
+   - [ ] One engine test asserts that the ingested species file parses and loads via
+         the existing loader, matching the shape of hand-curated species already there.
+   - [ ] If the shape doesn't match, fix the transform (not the loader).
+
+6. **Diary update.**
+   - [ ] Flip checkboxes, note any schema surprises, list any cases where the PokeAPI
+         shape forced a loader or model change (shouldn't happen for Phase 1; a signal
+         if it does).
+   - [ ] Flip Status to "Phase 1 complete".
+
+### Deferred to later phases
+
+- **Moves / items / abilities.** Follow the same `Transform` pattern once Species proves
+  the end-to-end works. Each is an incremental PR, not a rewrite.
+- **Coverage audit (Phase 2).** Compare ingested data against current registries to
+  count what we support. Pure analysis, no engine changes.
+- **Smogon stats ingestion (Phase 3).** Separate source, separate client, separate
+  cache directory. Different rate limits.
+- **Fuzz-test replay (Phase 4).** Depends on Phases 1–3.
+
+### Non-obvious things to watch
+
+- **PokeAPI slugs use lowercase + hyphens** (`mr-mime`, `ho-oh`). Our engine enum
+  uses `MR_MIME`, `HO_OH`. The transform needs a stable slug↔enum mapping; do not
+  guess. Start with a small mapping function and grow as target lists grow.
+- **PokeAPI returns stats in an array with a `stat.name` field** (not a keyed object).
+  DTOs must handle that shape; trivial but a place to write a wrong transform.
+- **Don't edit engine code from `:data-ingestion`.** The dependency is one-way. If the
+  transform needs something the engine doesn't expose (e.g., an extra Species field),
+  that's an engine PR first, then the transform consumes it.
