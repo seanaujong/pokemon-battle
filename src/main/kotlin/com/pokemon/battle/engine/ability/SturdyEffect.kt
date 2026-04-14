@@ -20,6 +20,4 @@ object SturdyEffect : AbilityEffect {
         if (!atFullHp || !wouldKo) return null
         return DamageAdjustment(adjustedDamage = defender.currentHp - 1, consumed = false)
     }
-
-    override fun renderTriggered(pokemonName: String): String = "$pokemonName endured the hit with Sturdy!"
 }

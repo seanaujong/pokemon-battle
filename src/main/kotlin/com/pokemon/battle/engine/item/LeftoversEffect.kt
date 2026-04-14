@@ -18,9 +18,4 @@ object LeftoversEffect : ItemEffect {
         if (pokemon.currentHp >= pokemon.maxHp) return emptyList()
         return listOf(ItemHealing(target = slot, amount = pokemon.maxHp / 16, item = Item.LEFTOVERS))
     }
-
-    override fun renderHealing(
-        amount: Int,
-        pokemonName: String,
-    ): String = "$pokemonName restored a little HP using its Leftovers!"
 }

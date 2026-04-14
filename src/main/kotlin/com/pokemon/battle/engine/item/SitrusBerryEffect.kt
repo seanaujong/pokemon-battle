@@ -34,12 +34,5 @@ object SitrusBerryEffect : ItemEffect {
         )
     }
 
-    override fun renderHealing(
-        amount: Int,
-        pokemonName: String,
-    ): String = "$pokemonName ate its Sitrus Berry and restored HP!"
-
-    override fun renderConsumed(pokemonName: String): String = "" // already covered by the healing line
-
     private const val HEAL_DIVISOR = 4 // 1/4 max HP = 25%
 }

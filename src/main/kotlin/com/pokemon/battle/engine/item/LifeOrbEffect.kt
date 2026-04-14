@@ -37,9 +37,4 @@ object LifeOrbEffect : ItemEffect {
         val willFaint = user.currentHp <= recoilAmount
         return if (willFaint) listOf(recoil, PokemonFainted(userSlot)) else listOf(recoil)
     }
-
-    override fun renderDamage(
-        amount: Int,
-        pokemonName: String,
-    ): String = "$pokemonName was hurt by its Life Orb!"
 }

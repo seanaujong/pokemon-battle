@@ -30,15 +30,14 @@ import com.pokemon.battle.engine.VolatileRemoved
 import com.pokemon.battle.engine.WeatherDamage
 import com.pokemon.battle.engine.WeatherSet
 import com.pokemon.battle.engine.WeatherTick
-import com.pokemon.battle.engine.ability.AbilityRegistry
-import com.pokemon.battle.engine.item.ItemRegistry
-import com.pokemon.battle.model.Ability
 import com.pokemon.battle.model.Effectiveness
 import com.pokemon.battle.model.FailReason
 import com.pokemon.battle.model.Slot
 import com.pokemon.battle.model.StatType
 import com.pokemon.battle.model.StatusCondition
 import com.pokemon.battle.model.Weather
+import com.pokemon.battle.render.ability.AbilityTextRegistry
+import com.pokemon.battle.render.item.ItemTextRegistry
 
 /** Renders battle events as game-style text messages. */
 @Suppress("TooManyFunctions") // One render function per event type — inherently many
@@ -323,7 +322,7 @@ object TextRenderer : BattleRenderer {
         event: ItemHealing,
         state: BattleState,
     ): List<String> {
-        val text = ItemRegistry.effectFor(event.item)?.renderHealing(event.amount, name(state, event.target))
+        val text = ItemTextRegistry.textFor(event.item)?.renderHealing(event.amount, name(state, event.target))
         return if (text.isNullOrEmpty()) emptyList() else listOf(text)
     }
 
@@ -331,7 +330,7 @@ object TextRenderer : BattleRenderer {
         event: ItemConsumed,
         state: BattleState,
     ): List<String> {
-        val text = ItemRegistry.effectFor(event.item)?.renderConsumed(name(state, event.target))
+        val text = ItemTextRegistry.textFor(event.item)?.renderConsumed(name(state, event.target))
         return if (text.isNullOrEmpty()) emptyList() else listOf(text)
     }
 
@@ -339,7 +338,7 @@ object TextRenderer : BattleRenderer {
         event: ItemDamage,
         state: BattleState,
     ): List<String> {
-        val text = ItemRegistry.effectFor(event.item)?.renderDamage(event.amount, name(state, event.target))
+        val text = ItemTextRegistry.textFor(event.item)?.renderDamage(event.amount, name(state, event.target))
         return if (text.isNullOrEmpty()) emptyList() else listOf(text)
     }
 
@@ -357,17 +356,12 @@ object TextRenderer : BattleRenderer {
 
     // --- Abilities ---
 
-    private fun abilityName(ability: Ability): String = ability.name.lowercase().replace("_", " ").replaceFirstChar { it.uppercase() }
-
     private fun renderAbilityTriggered(
         event: AbilityTriggered,
         stateAfter: BattleState,
     ): List<String> {
         val pokemonName = name(stateAfter, event.slot)
-        val text =
-            AbilityRegistry.effectFor(event.ability)?.renderTriggered(pokemonName)
-                ?: "$pokemonName's ${abilityName(event.ability)}!"
-        return listOf(text)
+        return listOf(AbilityTextRegistry.textFor(event.ability).renderTriggered(pokemonName))
     }
 
     private fun renderAbilityBlocked(
@@ -375,10 +369,7 @@ object TextRenderer : BattleRenderer {
         state: BattleState,
     ): List<String> {
         val pokemonName = name(state, event.slot)
-        val text =
-            AbilityRegistry.effectFor(event.ability)?.renderBlocked(pokemonName)
-                ?: "It doesn't affect $pokemonName... (${abilityName(event.ability)})"
-        return listOf(text)
+        return listOf(AbilityTextRegistry.textFor(event.ability).renderBlocked(pokemonName))
     }
 
     // --- Type changes ---

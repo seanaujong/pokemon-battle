@@ -20,7 +20,6 @@ import com.pokemon.battle.model.Weather
  * Abilities that changed behavior across gens get different effect implementations
  * registered per gen (e.g. Sand Veil's evasion boost changed in Gen 6).
  */
-@Suppress("TooManyFunctions") // Each hook covers a distinct ability capability; grouping would obscure
 interface AbilityEffect {
     val ability: Ability
 
@@ -105,14 +104,5 @@ interface AbilityEffect {
         previousHp: Int,
     ): List<BattleEvent> = emptyList()
 
-    /**
-     * Game-text for when this ability triggers (switch-in announcement, absorb message).
-     * Default renders as "X's <AbilityName>!"; abilities with richer flavor text override.
-     */
-    fun renderTriggered(pokemonName: String): String = "$pokemonName's ${abilityDisplayName()}!"
-
-    /** Game-text for when this ability blocks an attack. */
-    fun renderBlocked(pokemonName: String): String = "It doesn't affect $pokemonName... (${abilityDisplayName()})"
-
-    private fun abilityDisplayName(): String = ability.name.lowercase().replace("_", " ").replaceFirstChar { it.uppercase() }
+    // Rendering lives in render/ability/AbilityText, not here. Split diary 038.
 }

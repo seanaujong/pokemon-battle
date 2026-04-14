@@ -19,6 +19,4 @@ object FocusSashEffect : ItemEffect {
         if (!atFullHp || !wouldKo) return null
         return DamageAdjustment(adjustedDamage = defender.currentHp - 1, consumed = true)
     }
-
-    override fun renderConsumed(pokemonName: String): String = "$pokemonName hung on using its Focus Sash!"
 }

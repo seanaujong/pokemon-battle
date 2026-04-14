@@ -47,6 +47,4 @@ object RedCardEffect : ItemEffect {
 
         return events
     }
-
-    override fun renderConsumed(pokemonName: String): String = "$pokemonName held up a Red Card!"
 }

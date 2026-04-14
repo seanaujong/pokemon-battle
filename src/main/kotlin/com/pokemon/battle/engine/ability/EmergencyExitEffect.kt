@@ -48,6 +48,4 @@ object EmergencyExitEffect : AbilityEffect {
 
         return events
     }
-
-    override fun renderTriggered(pokemonName: String): String = "$pokemonName is retreating with Emergency Exit!"
 }

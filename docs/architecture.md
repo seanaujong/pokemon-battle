@@ -460,6 +460,18 @@ seam for gen-specific variants (`GenIVItemRegistry` vs `GenVItemRegistry`). Do t
 *when* the pattern is visible, not before — three items was the sweet spot for us.
 Diary 026 has the full story.
 
+**Behavior and rendering want separate registries once the entity count is non-trivial.**
+Early on, colocating render strings with effect behavior (one `ItemEffect` file owning
+both "what Leftovers does" and "what Leftovers prints") is the right simplicity. Past
+10+ entities it becomes a drag: every new hook widens the interface, render strings
+bloat effect files, and anything renderer-specific (localization, JSON events, HTML) has
+to subclass every effect or swap whole implementations. The fix — demonstrated in
+diary 038 — is parallel `Text` interfaces and registries next to each `Effect` registry,
+consulted by `TextRenderer` instead of the effect registry. Adding a second renderer
+becomes a new `Text*` registry, zero behavior changes. Don't do this split too early; do
+it when the effect interface bloats past the TooManyFunctions threshold and render
+coupling starts hurting readability.
+
 **Registries should be context-aware at the query level.** Once the engine has multiple
 registries (items, abilities, eventually moves), cross-cutting "X suppresses Y"
 interactions pile up: Klutz suppresses the holder's item; Embargo suppresses a target's

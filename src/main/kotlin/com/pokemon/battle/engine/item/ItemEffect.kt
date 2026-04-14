@@ -24,7 +24,6 @@ import com.pokemon.battle.model.Slot
  * the registry instead of switching on enum values directly — so adding an item means
  * adding a file + registry entry, not editing scattered callers.
  */
-@Suppress("TooManyFunctions") // Each hook covers a distinct item capability
 interface ItemEffect {
     val item: Item
 
@@ -94,17 +93,5 @@ interface ItemEffect {
         damageDealt: Int,
     ): List<BattleEvent> = emptyList()
 
-    // --- Rendering ---
-
-    fun renderHealing(
-        amount: Int,
-        pokemonName: String,
-    ): String = ""
-
-    fun renderConsumed(pokemonName: String): String = ""
-
-    fun renderDamage(
-        amount: Int,
-        pokemonName: String,
-    ): String = ""
+    // Rendering lives in render/item/ItemText, not here. Split diary 038.
 }
