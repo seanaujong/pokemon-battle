@@ -1,7 +1,8 @@
 # Diary 069: External-language client as the isolation litmus test
 
 **Date:** 2026-04-14
-**Status:** Planning — scope, shape, prerequisites.
+**Status:** Complete — all five steps shipped. Python subprocess drove
+a full battle through the JVM server via JSONL. Litmus test passed.
 
 ## Why this diary exists
 
@@ -177,13 +178,15 @@ an out-of-JVM consumer. That's the proof.
 - [ ] Delete generated-catalog path (prerequisite above).
 - [ ] `TurnChoiceJson` DTOs + round-trip tests in `:engine`.
 - [ ] `InputResponseJson` DTOs + round-trip tests.
-- [ ] Smogon set text parser (module TBD — `:server` for v1).
-- [ ] `:server` module scaffold — `ServerMain`, JSONL read/write loop.
-- [ ] Stdin-backed `ChoiceProvider` + `InputResponder`.
-- [ ] Event → stdout JSONL emitter.
-- [ ] Python smoke test script.
-- [ ] Wire protocol documentation in `docs/wire-protocol.md` (or as a
-  section in `:server`'s README).
+- [x] Smogon set text parser (landed in `:server` for v1).
+- [x] `:server` module scaffold — `ServerMain`, `ServerSession`, JSONL loop.
+- [x] Per-turn prompts merged into `ChoiceRequest` + `FaintReplacementRequest` +
+  `InputRequestMessage` rather than stdin-backed providers — the session owns
+  the turn loop so protocol messages and engine callbacks interleave cleanly.
+- [x] Event → stdout JSONL emitter (`TurnEvents` message).
+- [x] Python smoke test script (`scripts/smoke-test-external-client.py`).
+- [ ] Formal wire protocol doc — deferred; the Messages.kt sealed hierarchies
+  with `@SerialName` annotations are the source of truth for v1.
 
 ## Validation signal
 
@@ -209,6 +212,100 @@ an out-of-JVM consumer. That's the proof.
   replaced by `:server` + a thin stdin shim?** Probably peers for now
   — `:cli` is interactive-TTY-shaped, `:server` is machine-to-machine
   shaped.
+
+## What shipped
+
+Five commits, all green under `./gradlew test ktlintCheck detekt`:
+
+1. `4e2ab66` — remove generated-catalog path (prerequisite).
+2. `f0b100b` — `TurnChoice` + `TurnChoices` DTO layer.
+3. `b66a644` — `:server` module with Smogon parser.
+4. `40acd9a` — `ServerSession` JSONL loop + protocol messages.
+5. `9bc828c` — Python smoke test, `@SerialName` annotations for
+   human-readable wire format, full `Move` objects in `Ready.slots` so
+   clients can echo choices without a catalog.
+
+The smoke test runs 5/5 green with random move selection — side 1
+(Charizard with Flamethrower + Earthquake + Thunderbolt) beats side 2
+(Venusaur + Blastoise) in 4–10 turns depending on move rolls.
+
+## The pattern: daemon + thin client speaking a wire protocol
+
+Once the smoke test worked, the shape became recognizable —
+`:server` is the same structural split as Airflow / Docker / K8s:
+
+| Ours | Docker | K8s | Airflow |
+|---|---|---|---|
+| `:server` (JVM) | `dockerd` | `kube-apiserver` | scheduler |
+| Python smoke test | `docker` CLI | `kubectl` | `airflow` CLI |
+| JSONL over stdin/stdout | JSON over Unix socket | REST / gRPC | REST + CLI |
+| `BattleEventJson` stream | event stream | `watch` events | task logs |
+| `team_set` / `choice` | `docker run` / `exec` | `apply` manifest | DAG submit |
+
+**Where we deliberately differ (for now):**
+
+- **One battle per process** vs their long-running daemons. Adding a
+  session multiplexer (outer `session_id` field on every message) is
+  straightforward when pressure arrives — we don't pay for it today.
+- **No auth, no authz.** They need it; we don't, because the transport
+  is a subprocess pipe. When the first network-exposed consumer
+  appears (web UI), that's the forcing function.
+- **Stdin/stdout, not a socket.** Cheapest transport. The JSONL shape
+  itself is transport-agnostic; moving to TCP/WebSocket doesn't change
+  `Messages.kt` at all.
+
+**Why the analogy is load-bearing, not cosmetic:** the reason Docker/K8s/
+Airflow can have Go, Python, JS, Rust clients all speaking the same
+server is that the wire protocol is the *only* contract. Anything not on
+the wire is server-internal and free to change. Our diary 068 `internal`-
+visibility audit is the same principle applied inside the JVM: the
+contract is what crosses the boundary, everything else is free to
+refactor. The Python smoke test proves the boundary is real — it has
+zero Kotlin, zero JVM, and drives a complete battle.
+
+## Should `protocolVersion` actually stay?
+
+We included `protocolVersion: 1` on every message "from day one, with
+migration logic deferred." Now that it's built, the honest question:
+*is this field doing anything?*
+
+Three options:
+
+1. **Remove it until forced.** Consistent with CLAUDE.md's "don't design
+   for hypothetical future requirements." We control both sides of the
+   wire today — if we change the protocol, we change both. A field with
+   no consumer is ceremony.
+2. **Enforce it.** Server rejects messages with mismatched version;
+   client checks server's version on `Ready` and aborts on mismatch.
+   Cheap (a few lines of validation). A field with enforcement at least
+   *means* something.
+3. **Leave inert.** Keep the field, don't validate. This is the worst
+   of the three — a public claim ("this is v1") that isn't backed by
+   behavior. When we add v2, clients that sent `protocolVersion: 1`
+   will have been silently accepted by a v2 server that assumed they
+   meant v2, or rejected with a confusing error, or anything in
+   between.
+
+**Recommendation: option 2, enforce it.** The forcing function for v2
+is a real second consumer (web UI, MCP tool) — when that arrives, the
+field becomes load-bearing. Enforcing it now costs ~10 lines of code
+and means:
+- A mismatched client gets a clear `error` message immediately, not a
+  confusing parse failure three messages in.
+- Protocol migration is a real operation with real semantics when v2
+  lands, not a cosmetic field bump.
+- The `@SerialName("error")` message type already exists; this is the
+  natural use case.
+
+Option 1 is defensible: delete the field, add it back in one commit
+when v2 is forced. The risk is that by then there's a Python client in
+someone's hands that doesn't know about protocolVersion, and we have
+to coordinate a flag day. That risk is low because we have exactly one
+consumer today (`smoke-test-external-client.py`, in this repo).
+
+Leaning toward option 2 — enforce server-side, document the behavior
+("server rejects non-matching protocolVersion with an `error` message
+and closes the stream"). Follow-up to this diary if adopted.
 
 ## Related
 
