@@ -96,49 +96,30 @@ class MoveExecutionPhase(
     ): MoveStep? {
         val choice = choices.choiceFor(slot) as? TurnChoice.UseMove ?: return null
         if (state.pokemonFor(slot).isFainted) return null
-        if (slotAlreadyActed(priorEvents, slot)) return null
-        if (slotIsMidSelfSwitch(priorEvents, slot)) {
+
+        // Phase-progression model (diary 062): the paused slot (if any) comes from
+        // the latest TurnPausedForInput event. Everything else with a MoveAttempted
+        // in priorEvents already finished this turn.
+        val paused = pausedSlot(priorEvents)
+        if (paused == slot) {
             return MoveStep(completeSelfSwitchOnResume(state, slot, priorEvents))
+        }
+        if (priorEvents.any { it is MoveAttempted && it.attacker == slot }) {
+            return null
         }
         return checkStatusThenExecute(state, slot, choice)
     }
 
     /**
-     * A slot already completed its move this turn if its [MoveAttempted] in
-     * [priorEvents] is followed by either a post-self-switch [SwitchIn] for that slot
-     * or no pause marker tied to that slot. For the paused-slot check, see
-     * [slotIsMidSelfSwitch].
+     * Which slot, if any, is mid-move waiting on input. Derived from the most recent
+     * [com.pokemon.battle.engine.TurnPausedForInput] in [priorEvents]. Null on a
+     * fresh turn (no pauses yet) and after a fully-resolved resume cycle.
      */
-    private fun slotAlreadyActed(
-        priorEvents: List<BattleEvent>,
-        slot: Slot,
-    ): Boolean {
-        val lastAttempt = priorEvents.indexOfLast { it is MoveAttempted && it.attacker == slot }
-        if (lastAttempt < 0) return false
-        val pauseAfter =
-            priorEvents.drop(lastAttempt).any {
-                it is com.pokemon.battle.engine.TurnPausedForInput
-            }
-        return !pauseAfter
-    }
-
-    /**
-     * This slot's move emitted [MoveAttempted] and paused before the self-switch
-     * completed. Detection: there's a [com.pokemon.battle.engine.TurnPausedForInput]
-     * after this slot's last [MoveAttempted] but no [SwitchIn] for this slot after
-     * the pause.
-     */
-    private fun slotIsMidSelfSwitch(
-        priorEvents: List<BattleEvent>,
-        slot: Slot,
-    ): Boolean {
-        val lastAttempt = priorEvents.indexOfLast { it is MoveAttempted && it.attacker == slot }
-        if (lastAttempt < 0) return false
-        val afterAttempt = priorEvents.drop(lastAttempt + 1)
-        val paused = afterAttempt.any { it is com.pokemon.battle.engine.TurnPausedForInput }
-        if (!paused) return false
-        val switchedIn = afterAttempt.any { it is SwitchIn && it.slot == slot }
-        return !switchedIn
+    private fun pausedSlot(priorEvents: List<BattleEvent>): Slot? {
+        val lastPause =
+            priorEvents.filterIsInstance<com.pokemon.battle.engine.TurnPausedForInput>().lastOrNull()
+                ?: return null
+        return (lastPause.request as? SwitchTargetRequest)?.userSlot
     }
 
     /**

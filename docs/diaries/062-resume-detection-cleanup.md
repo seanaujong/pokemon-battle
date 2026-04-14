@@ -1,7 +1,7 @@
 # Diary 062: Replace resume-detection heuristics with explicit paused-slot
 
 **Date:** 2026-04-14
-**Status:** Plan — ready to implement (tackling, not deferring)
+**Status:** Complete (2026-04-14). Two event-scanning helpers (`slotAlreadyActed`, `slotIsMidSelfSwitch`) replaced with one `pausedSlot` helper + an inlined `any { MoveAttempted }` check in `stepForSlot`. Nested-pause correctness bug eliminated. All 246 tests green; CLI U-turn flow unchanged.
 
 ## The problem
 
