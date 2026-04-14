@@ -19,7 +19,7 @@ import com.pokemon.battle.model.Slot
  * Limitation: the engine picks the first available bench Pokemon for the attacker.
  * Real games pick randomly. First-available is a pragmatic stand-in.
  */
-object RedCardEffect : ItemEffect {
+internal object RedCardEffect : ItemEffect {
     override val item = Item.RED_CARD
 
     override fun onHolderTookDamage(

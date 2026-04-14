@@ -5,7 +5,7 @@ import com.pokemon.battle.engine.SpeedResolver
 /**
  * Simplified speed: no paralysis modifier, no item/ability/field modifiers. Ignores state.
  */
-val SimplifiedSpeedResolver =
+internal val SimplifiedSpeedResolver =
     SpeedResolver { pokemon, _, _ ->
         pokemon.baseEffectiveSpeed()
     }

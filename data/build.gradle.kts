@@ -6,6 +6,7 @@
 plugins {
     kotlin("jvm")
     kotlin("plugin.serialization")
+    `java-library`
     id("org.jlleitschuh.gradle.ktlint")
     id("io.gitlab.arturbosch.detekt")
     jacoco
@@ -19,7 +20,9 @@ repositories {
 }
 
 dependencies {
-    implementation(project(":engine"))
+    // api — PokedexCatalog.CHARIZARD returns com.pokemon.battle.model.Species;
+    // consumers of :data need :engine's model types transitively visible.
+    api(project(":engine"))
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3")
     testImplementation(kotlin("test"))
 }

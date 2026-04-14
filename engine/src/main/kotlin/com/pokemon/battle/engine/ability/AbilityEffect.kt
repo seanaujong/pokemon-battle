@@ -20,7 +20,7 @@ import com.pokemon.battle.model.Weather
  * Abilities that changed behavior across gens get different effect implementations
  * registered per gen (e.g. Sand Veil's evasion boost changed in Gen 6).
  */
-interface AbilityEffect {
+internal interface AbilityEffect {
     val ability: Ability
 
     /**

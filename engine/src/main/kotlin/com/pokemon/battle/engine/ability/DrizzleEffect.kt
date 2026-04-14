@@ -9,7 +9,7 @@ import com.pokemon.battle.model.Slot
 import com.pokemon.battle.model.Weather
 
 /** Drizzle: sets rain for 5 turns on switch-in. */
-object DrizzleEffect : AbilityEffect {
+internal object DrizzleEffect : AbilityEffect {
     override val ability = Ability.DRIZZLE
 
     override fun onSwitchIn(

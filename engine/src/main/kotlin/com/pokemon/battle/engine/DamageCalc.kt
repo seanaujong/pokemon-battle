@@ -31,7 +31,7 @@ fun interface DamageCalculator {
  * Standard Gen V+ damage formula with IVs/EVs/Nature.
  * Gen-specific rules: burn penalty (0.5x physical), STAB (1.5x), crit (1.5x + ignore stages).
  */
-class GenVDamageCalculator(
+internal class GenVDamageCalculator(
     private val typeChart: TypeChart = StandardTypeChart,
 ) : DamageCalculator {
     @Suppress("CyclomaticComplexMethod") // Single-expression damage formula with many independent modifiers
@@ -112,7 +112,7 @@ internal fun weatherDamageModifier(
 
 /** Convenience function using the default Gen V+ calculator with standard type chart. */
 @Suppress("LongParameterList") // Mirrors DamageCalculator.calculate with defaults
-fun calculateDamage(
+internal fun calculateDamage(
     attacker: PokemonState,
     defender: PokemonState,
     move: Move,

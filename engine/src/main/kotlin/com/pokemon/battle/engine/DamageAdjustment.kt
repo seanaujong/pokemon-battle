@@ -6,7 +6,7 @@ package com.pokemon.battle.engine
  * [adjustedDamage] replaces the raw damage; [consumed] indicates whether the item should
  * be removed (abilities always pass [consumed] = false).
  */
-data class DamageAdjustment(
+internal data class DamageAdjustment(
     val adjustedDamage: Int,
     val consumed: Boolean,
 )

@@ -13,7 +13,7 @@ import com.pokemon.battle.model.Ability
  * register different effect objects for abilities whose behavior changed across gens
  * (e.g. Sand Veil's evasion boost changed in Gen 6, Prankster got Dark immunity in Gen 7).
  */
-object AbilityRegistry {
+internal object AbilityRegistry {
     private val effects: Map<Ability, AbilityEffect> =
         listOf(
             IntimidateEffect,

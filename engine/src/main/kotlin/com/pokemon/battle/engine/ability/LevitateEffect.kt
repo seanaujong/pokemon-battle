@@ -6,7 +6,7 @@ import com.pokemon.battle.model.PokemonState
 import com.pokemon.battle.model.Type
 
 /** Levitate: grants immunity to damaging Ground-type moves. */
-object LevitateEffect : AbilityEffect {
+internal object LevitateEffect : AbilityEffect {
     override val ability = Ability.LEVITATE
 
     override fun blocksMove(

@@ -4,6 +4,7 @@
 
 plugins {
     kotlin("jvm")
+    `java-library`
     id("org.jlleitschuh.gradle.ktlint")
     id("io.gitlab.arturbosch.detekt")
     jacoco
@@ -17,7 +18,9 @@ repositories {
 }
 
 dependencies {
-    implementation(project(":engine"))
+    // api — TextRenderer.render signatures take BattleEvent / BattleState;
+    // consumers of :render need those engine types transitively visible.
+    api(project(":engine"))
     testImplementation(kotlin("test"))
     testImplementation(project(":data"))
 }

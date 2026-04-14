@@ -22,7 +22,7 @@ fun interface SpeedResolver {
  * Trick Room doesn't modify the speed value — it inverts the sort order in
  * [resolveMoveOrder]. Keeping speeds positive keeps the calculation composable.
  */
-val GenVSpeedResolver =
+internal val GenVSpeedResolver =
     SpeedResolver { pokemon, slot, state ->
         val base = pokemon.baseEffectiveSpeed()
         val paralysisMod = if (pokemon.status == StatusCondition.PARALYSIS) 0.5 else 1.0

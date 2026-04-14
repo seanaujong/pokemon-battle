@@ -14,7 +14,7 @@ import com.pokemon.battle.model.PokemonState
  * evolution data lives in the engine; validation belongs in the AI / team-builder layer.
  * (Smogon's engine makes the same choice.)
  */
-object EvioliteEffect : ItemEffect {
+internal object EvioliteEffect : ItemEffect {
     override val item = Item.EVIOLITE
 
     override fun defenderDamageModifier(

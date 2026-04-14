@@ -16,7 +16,7 @@ import com.pokemon.battle.model.StatusCondition
  * Simplified end-of-turn: burn does 1/8 max HP (double Gen V), no weather damage.
  * Weather still ticks down but doesn't deal damage.
  */
-class SimplifiedEndOfTurnPhase : Phase {
+internal class SimplifiedEndOfTurnPhase : Phase {
     override fun resolve(
         pipeline: com.pokemon.battle.engine.PipelineState,
         choices: TurnChoices,

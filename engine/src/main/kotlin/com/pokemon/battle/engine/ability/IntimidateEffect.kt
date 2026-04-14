@@ -9,7 +9,7 @@ import com.pokemon.battle.model.Slot
 import com.pokemon.battle.model.StatType
 
 /** Intimidate: drops each opponent's Attack by one stage on switch-in. */
-object IntimidateEffect : AbilityEffect {
+internal object IntimidateEffect : AbilityEffect {
     override val ability = Ability.INTIMIDATE
 
     override fun onSwitchIn(

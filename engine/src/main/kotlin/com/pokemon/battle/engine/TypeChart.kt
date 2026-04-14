@@ -6,7 +6,7 @@ import com.pokemon.battle.model.typeEffectiveness
 /**
  * Calculates type effectiveness. Injectable for Inverse Battles and custom formats.
  */
-fun interface TypeChart {
+internal fun interface TypeChart {
     fun effectiveness(
         attackingType: Type,
         defendingTypes: List<Type>,
@@ -14,7 +14,7 @@ fun interface TypeChart {
 }
 
 /** Standard type chart — delegates to the model layer's chart data. */
-val StandardTypeChart =
+internal val StandardTypeChart =
     TypeChart { attackingType, defendingTypes ->
         typeEffectiveness(attackingType, defendingTypes)
     }
@@ -23,7 +23,7 @@ val StandardTypeChart =
  * Inverse type chart — super-effective becomes not very effective and vice versa.
  * Immunities become neutral.
  */
-val InverseTypeChart =
+internal val InverseTypeChart =
     TypeChart { attackingType, defendingTypes ->
         val standard = typeEffectiveness(attackingType, defendingTypes)
         when {

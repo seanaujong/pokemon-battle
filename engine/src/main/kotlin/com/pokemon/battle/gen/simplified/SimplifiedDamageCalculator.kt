@@ -15,7 +15,7 @@ import com.pokemon.battle.model.stageMultiplier
  * Simplified damage formula — intentionally different from Gen V to prove multi-gen works.
  * No STAB, no burn penalty, simpler base formula: (power * atk / def) * type * roll / 100.
  */
-class SimplifiedDamageCalculator(
+internal class SimplifiedDamageCalculator(
     private val typeChart: TypeChart = StandardTypeChart,
 ) : DamageCalculator {
     @Suppress("UNUSED_PARAMETER")

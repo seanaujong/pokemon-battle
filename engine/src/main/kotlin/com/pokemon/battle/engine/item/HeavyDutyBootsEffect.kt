@@ -8,7 +8,7 @@ import com.pokemon.battle.model.PokemonState
  * (Stealth Rock, Spikes, Toxic Spikes, Sticky Web) when switching in. Not
  * consumed — persistent. Consulted by [com.pokemon.battle.engine.resolveHazardsOnSwitchIn].
  */
-object HeavyDutyBootsEffect : ItemEffect {
+internal object HeavyDutyBootsEffect : ItemEffect {
     override val item = Item.HEAVY_DUTY_BOOTS
 
     override fun blocksHazards(holder: PokemonState): Boolean = true

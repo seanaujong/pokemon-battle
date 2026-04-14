@@ -8,7 +8,7 @@ import com.pokemon.battle.model.StatType
  * Shared by voluntary switching ([com.pokemon.battle.phase.SwitchPhase]) and
  * self-switch moves like U-turn / Volt Switch.
  */
-fun resolveSwitchOutClearing(
+internal fun resolveSwitchOutClearing(
     state: BattleState,
     slot: Slot,
 ): List<GameEvent> {

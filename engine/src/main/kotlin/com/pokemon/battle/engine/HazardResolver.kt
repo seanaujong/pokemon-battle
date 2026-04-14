@@ -16,7 +16,7 @@ import com.pokemon.battle.model.Type
  * Order (mainline): Stealth Rock → Spikes → Toxic Spikes → Sticky Web. A Pokemon that
  * faints from an earlier hazard doesn't trigger later ones.
  */
-fun resolveHazardsOnSwitchIn(
+internal fun resolveHazardsOnSwitchIn(
     state: BattleState,
     slot: Slot,
 ): List<GameEvent> {

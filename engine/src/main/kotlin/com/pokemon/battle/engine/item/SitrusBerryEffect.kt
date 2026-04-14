@@ -14,7 +14,7 @@ import com.pokemon.battle.model.Slot
  * Triggers at most once per damage event via [onHpThresholdCrossed]. The caller provides
  * the previous HP; this effect compares it against state's current HP to detect the cross.
  */
-object SitrusBerryEffect : ItemEffect {
+internal object SitrusBerryEffect : ItemEffect {
     override val item = Item.SITRUS_BERRY
 
     override fun onHpThresholdCrossed(

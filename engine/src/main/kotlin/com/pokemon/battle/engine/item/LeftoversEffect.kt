@@ -7,7 +7,7 @@ import com.pokemon.battle.model.Item
 import com.pokemon.battle.model.Slot
 
 /** Leftovers: restores 1/16 max HP at end of turn if below full HP. Persistent (not consumed). */
-object LeftoversEffect : ItemEffect {
+internal object LeftoversEffect : ItemEffect {
     override val item = Item.LEFTOVERS
 
     override fun endOfTurn(

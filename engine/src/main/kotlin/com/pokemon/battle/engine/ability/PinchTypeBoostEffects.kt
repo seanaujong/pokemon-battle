@@ -32,8 +32,8 @@ private class PinchTypeBoost(
     }
 }
 
-object BlazeEffect : AbilityEffect by PinchTypeBoost(Ability.BLAZE, Type.FIRE)
+internal object BlazeEffect : AbilityEffect by PinchTypeBoost(Ability.BLAZE, Type.FIRE)
 
-object OvergrowEffect : AbilityEffect by PinchTypeBoost(Ability.OVERGROW, Type.GRASS)
+internal object OvergrowEffect : AbilityEffect by PinchTypeBoost(Ability.OVERGROW, Type.GRASS)
 
-object TorrentEffect : AbilityEffect by PinchTypeBoost(Ability.TORRENT, Type.WATER)
+internal object TorrentEffect : AbilityEffect by PinchTypeBoost(Ability.TORRENT, Type.WATER)

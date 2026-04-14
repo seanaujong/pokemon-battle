@@ -13,7 +13,7 @@ import com.pokemon.battle.model.Slot
  * Life Orb: boosts the holder's damage by 1.3x and deals 10% max HP recoil after any move
  * that landed damage. Persistent (not consumed).
  */
-object LifeOrbEffect : ItemEffect {
+internal object LifeOrbEffect : ItemEffect {
     private const val DAMAGE_MULTIPLIER = 1.3
     private const val RECOIL_FRACTION = 10
 

@@ -12,7 +12,7 @@ import com.pokemon.battle.model.PokemonState
  * of items — e.g. Gen 3 wouldn't include [Item.LIFE_ORB]. For now we ship one registry
  * since all our items are Gen 4+.
  */
-object ItemRegistry {
+internal object ItemRegistry {
     private val effects: Map<Item, ItemEffect> =
         listOf(
             LeftoversEffect,

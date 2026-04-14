@@ -3,7 +3,7 @@ package com.pokemon.battle.engine
 import com.pokemon.battle.model.OrderReason
 import com.pokemon.battle.model.Slot
 
-data class MoveOrderResult(
+internal data class MoveOrderResult(
     val order: List<Slot>,
     val leadReason: OrderReason,
 )
@@ -12,7 +12,7 @@ data class MoveOrderResult(
  * Sorts slots by priority bracket (from their chosen move), then by effective speed.
  * Works for any number of slots — singles returns 2, doubles returns 4, etc.
  */
-fun resolveMoveOrder(
+internal fun resolveMoveOrder(
     state: BattleState,
     choices: TurnChoices,
     speedResolver: SpeedResolver = GenVSpeedResolver,

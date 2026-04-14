@@ -48,7 +48,7 @@ interface Ruleset {
  * are gen-stable (Choice-lock today; Disable / Encore / Taunt / Torment / Heal Block
  * when their setter moves arrive — see diary 039 Deferred section).
  */
-fun volatileBasedMoveLegality(
+internal fun volatileBasedMoveLegality(
     state: BattleState,
     userSlot: Slot,
     move: Move,
@@ -63,10 +63,10 @@ fun volatileBasedMoveLegality(
 }
 
 /** No gimmicks permitted — the safe default matching the engine's current behavior. */
-object NoGimmicksRuleset : Ruleset
+internal object NoGimmicksRuleset : Ruleset
 
 /** Pokemon Champions / modern VGC: one gimmick of any kind per side per battle. */
-object PokemonChampionsRuleset : Ruleset {
+internal object PokemonChampionsRuleset : Ruleset {
     override fun canUseGimmick(
         kind: GimmickKind,
         priorUsage: List<UsedGimmick>,
@@ -80,7 +80,7 @@ object PokemonChampionsRuleset : Ruleset {
 }
 
 /** Smogon National Dex: one of each kind per side per battle (Mega + Z + Dynamax all legal). */
-object NationalDexRuleset : Ruleset {
+internal object NationalDexRuleset : Ruleset {
     override fun canUseGimmick(
         kind: GimmickKind,
         priorUsage: List<UsedGimmick>,
@@ -94,7 +94,7 @@ object NationalDexRuleset : Ruleset {
 }
 
 /** Gen 9 VGC Reg H / similar: Tera only, once per side per battle. */
-object Gen9VgcTeraRuleset : Ruleset {
+internal object Gen9VgcTeraRuleset : Ruleset {
     override fun canUseGimmick(
         kind: GimmickKind,
         priorUsage: List<UsedGimmick>,

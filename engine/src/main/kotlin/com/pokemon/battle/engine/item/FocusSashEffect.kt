@@ -7,7 +7,7 @@ import com.pokemon.battle.model.PokemonState
 /**
  * Focus Sash: if the holder is at full HP and would be KO'd, survive at 1 HP and consume the item.
  */
-object FocusSashEffect : ItemEffect {
+internal object FocusSashEffect : ItemEffect {
     override val item = Item.FOCUS_SASH
 
     override fun interceptIncomingDamage(

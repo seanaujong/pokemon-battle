@@ -17,7 +17,7 @@ import com.pokemon.battle.model.Slot
  * player pick. A future `ForcedSwitchProvider` on the pipeline would lift this.
  * If the bench is empty, the ability does nothing.
  */
-object EmergencyExitEffect : AbilityEffect {
+internal object EmergencyExitEffect : AbilityEffect {
     override val ability = Ability.EMERGENCY_EXIT
 
     override fun onHpThresholdCrossed(

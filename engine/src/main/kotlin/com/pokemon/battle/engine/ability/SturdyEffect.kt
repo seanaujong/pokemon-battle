@@ -8,7 +8,7 @@ import com.pokemon.battle.model.PokemonState
  * Sturdy: if the holder is at full HP and would be KO'd, survive at 1 HP. Not consumed
  * (it's an ability, not an item). Structurally identical to Focus Sash but permanent.
  */
-object SturdyEffect : AbilityEffect {
+internal object SturdyEffect : AbilityEffect {
     override val ability = Ability.STURDY
 
     override fun interceptIncomingDamage(

@@ -54,17 +54,17 @@ private class ChoiceItem(
     }
 }
 
-object ChoiceBandEffect : ItemEffect by ChoiceItem(
+internal object ChoiceBandEffect : ItemEffect by ChoiceItem(
     item = Item.CHOICE_BAND,
     damageBoostCategory = MoveCategory.PHYSICAL,
 )
 
-object ChoiceSpecsEffect : ItemEffect by ChoiceItem(
+internal object ChoiceSpecsEffect : ItemEffect by ChoiceItem(
     item = Item.CHOICE_SPECS,
     damageBoostCategory = MoveCategory.SPECIAL,
 )
 
-object ChoiceScarfEffect : ItemEffect by ChoiceItem(
+internal object ChoiceScarfEffect : ItemEffect by ChoiceItem(
     item = Item.CHOICE_SCARF,
     speedBoost = 1.5,
 )

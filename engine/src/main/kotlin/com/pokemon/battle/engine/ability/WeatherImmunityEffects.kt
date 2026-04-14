@@ -13,14 +13,14 @@ private class WeatherImmunity(
 
 // --- Sandstorm immunity ---
 
-object SandVeilEffect : AbilityEffect by WeatherImmunity(Ability.SAND_VEIL, Weather.SANDSTORM)
+internal object SandVeilEffect : AbilityEffect by WeatherImmunity(Ability.SAND_VEIL, Weather.SANDSTORM)
 
-object SandRushEffect : AbilityEffect by WeatherImmunity(Ability.SAND_RUSH, Weather.SANDSTORM)
+internal object SandRushEffect : AbilityEffect by WeatherImmunity(Ability.SAND_RUSH, Weather.SANDSTORM)
 
-object SandForceEffect : AbilityEffect by WeatherImmunity(Ability.SAND_FORCE, Weather.SANDSTORM)
+internal object SandForceEffect : AbilityEffect by WeatherImmunity(Ability.SAND_FORCE, Weather.SANDSTORM)
 
 // --- Hail immunity ---
 
-object SnowCloakEffect : AbilityEffect by WeatherImmunity(Ability.SNOW_CLOAK, Weather.HAIL)
+internal object SnowCloakEffect : AbilityEffect by WeatherImmunity(Ability.SNOW_CLOAK, Weather.HAIL)
 
-object IceBodyEffect : AbilityEffect by WeatherImmunity(Ability.ICE_BODY, Weather.HAIL)
+internal object IceBodyEffect : AbilityEffect by WeatherImmunity(Ability.ICE_BODY, Weather.HAIL)

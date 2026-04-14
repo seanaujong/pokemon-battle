@@ -24,7 +24,7 @@ import com.pokemon.battle.model.Slot
  * the registry instead of switching on enum values directly — so adding an item means
  * adding a file + registry entry, not editing scattered callers.
  */
-interface ItemEffect {
+internal interface ItemEffect {
     val item: Item
 
     /** Multiplier applied to damage the holder deals. Called from the damage calc, which
