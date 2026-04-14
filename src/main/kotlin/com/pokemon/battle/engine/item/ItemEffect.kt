@@ -93,5 +93,18 @@ interface ItemEffect {
         damageDealt: Int,
     ): List<BattleEvent> = emptyList()
 
+    /**
+     * Whether the holder bypasses entry-hazard damage and effects on switch-in
+     * (Heavy-Duty Boots). When true, [resolveHazardsOnSwitchIn] short-circuits
+     * and emits no hazard events for this Pokemon.
+     *
+     * This is a Boolean gate rather than an event hook because Boots produce
+     * no observable event — they just suppress hazards. If a future item
+     * needs per-hazard control (e.g. Air Balloon, which blocks Spikes /
+     * Toxic Spikes but not Stealth Rock / Sticky Web), generalize to
+     * `blocksHazard(hazard: SideHazard): Boolean` at that point.
+     */
+    fun blocksHazards(holder: PokemonState): Boolean = false
+
     // Rendering lives in render/item/ItemText, not here. Split diary 038.
 }

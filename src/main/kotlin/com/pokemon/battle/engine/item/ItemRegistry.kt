@@ -24,6 +24,7 @@ object ItemRegistry {
             EvioliteEffect,
             SitrusBerryEffect,
             RedCardEffect,
+            HeavyDutyBootsEffect,
         ).associateBy { it.item }
 
     /** Raw lookup — returns the effect regardless of suppression context. Use for rendering. */

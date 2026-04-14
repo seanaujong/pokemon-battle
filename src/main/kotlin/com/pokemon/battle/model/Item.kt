@@ -10,4 +10,5 @@ enum class Item {
     EVIOLITE,
     SITRUS_BERRY,
     RED_CARD,
+    HEAVY_DUTY_BOOTS,
 }
