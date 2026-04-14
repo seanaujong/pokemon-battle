@@ -2,7 +2,6 @@ package com.pokemon.battle.phase
 
 import com.pokemon.battle.engine.BattleEvent
 import com.pokemon.battle.engine.BattleState
-import com.pokemon.battle.engine.ItemHealing
 import com.pokemon.battle.engine.Phase
 import com.pokemon.battle.engine.PokemonFainted
 import com.pokemon.battle.engine.StatusDamage
@@ -10,7 +9,7 @@ import com.pokemon.battle.engine.TurnChoices
 import com.pokemon.battle.engine.VolatileRemoved
 import com.pokemon.battle.engine.WeatherDamage
 import com.pokemon.battle.engine.WeatherTick
-import com.pokemon.battle.model.Item
+import com.pokemon.battle.engine.item.ItemRegistry
 import com.pokemon.battle.model.StatusCondition
 import com.pokemon.battle.model.Type
 import com.pokemon.battle.model.Volatile
@@ -115,24 +114,12 @@ class EndOfTurnPhase : Phase {
         }
     }
 
-    private fun itemEffects(state: BattleState): List<BattleEvent> {
-        return state.allSlots().mapNotNull { slot ->
+    private fun itemEffects(state: BattleState): List<BattleEvent> =
+        state.allSlots().flatMap { slot ->
             val pokemon = state.pokemonFor(slot)
-            if (pokemon.isFainted) return@mapNotNull null
-
-            when (pokemon.item) {
-                Item.LEFTOVERS -> {
-                    if (pokemon.currentHp < pokemon.maxHp) {
-                        val healing = pokemon.maxHp / 16
-                        ItemHealing(target = slot, amount = healing, item = Item.LEFTOVERS)
-                    } else {
-                        null
-                    }
-                }
-                else -> null
-            }
+            if (pokemon.isFainted) return@flatMap emptyList()
+            ItemRegistry.effectFor(pokemon.item)?.endOfTurn(pokemon, slot) ?: emptyList()
         }
-    }
 
     private fun weatherTick(state: BattleState): List<BattleEvent> {
         val weather = state.field.weather ?: return emptyList()

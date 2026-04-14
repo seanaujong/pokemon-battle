@@ -2,13 +2,12 @@ package com.pokemon.battle.gen.simplified
 
 import com.pokemon.battle.engine.BattleEvent
 import com.pokemon.battle.engine.BattleState
-import com.pokemon.battle.engine.ItemHealing
 import com.pokemon.battle.engine.Phase
 import com.pokemon.battle.engine.PokemonFainted
 import com.pokemon.battle.engine.StatusDamage
 import com.pokemon.battle.engine.TurnChoices
 import com.pokemon.battle.engine.WeatherTick
-import com.pokemon.battle.model.Item
+import com.pokemon.battle.engine.item.ItemRegistry
 import com.pokemon.battle.model.StatusCondition
 
 /**
@@ -73,20 +72,10 @@ class SimplifiedEndOfTurnPhase : Phase {
         }
 
     private fun itemEffects(state: BattleState): List<BattleEvent> =
-        state.allSlots().mapNotNull { slot ->
+        state.allSlots().flatMap { slot ->
             val pokemon = state.pokemonFor(slot)
-            if (pokemon.isFainted) return@mapNotNull null
-
-            when (pokemon.item) {
-                Item.LEFTOVERS -> {
-                    if (pokemon.currentHp < pokemon.maxHp) {
-                        ItemHealing(target = slot, amount = pokemon.maxHp / 16, item = Item.LEFTOVERS)
-                    } else {
-                        null
-                    }
-                }
-                else -> null
-            }
+            if (pokemon.isFainted) return@flatMap emptyList()
+            ItemRegistry.effectFor(pokemon.item)?.endOfTurn(pokemon, slot) ?: emptyList()
         }
 
     private fun weatherTick(state: BattleState): List<BattleEvent> {

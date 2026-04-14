@@ -6,6 +6,7 @@ import com.pokemon.battle.engine.BattleEvent
 import com.pokemon.battle.engine.BattleState
 import com.pokemon.battle.engine.DamageDealt
 import com.pokemon.battle.engine.ItemConsumed
+import com.pokemon.battle.engine.ItemDamage
 import com.pokemon.battle.engine.ItemHealing
 import com.pokemon.battle.engine.MoveAttempted
 import com.pokemon.battle.engine.MoveFailed
@@ -24,10 +25,10 @@ import com.pokemon.battle.engine.VolatileRemoved
 import com.pokemon.battle.engine.WeatherDamage
 import com.pokemon.battle.engine.WeatherSet
 import com.pokemon.battle.engine.WeatherTick
+import com.pokemon.battle.engine.item.ItemRegistry
 import com.pokemon.battle.model.Ability
 import com.pokemon.battle.model.Effectiveness
 import com.pokemon.battle.model.FailReason
-import com.pokemon.battle.model.Item
 import com.pokemon.battle.model.Slot
 import com.pokemon.battle.model.StatType
 import com.pokemon.battle.model.StatusCondition
@@ -58,6 +59,7 @@ object TextRenderer : BattleRenderer {
             is WeatherSet -> renderWeatherSet(event)
             is ItemHealing -> renderItemHealing(event, stateBefore)
             is ItemConsumed -> renderItemConsumed(event, stateBefore)
+            is ItemDamage -> renderItemDamage(event, stateBefore)
             is SwitchOut -> renderSwitchOut(event, stateBefore)
             is SwitchIn -> renderSwitchIn(event, stateAfter)
             is AbilityTriggered -> renderAbilityTriggered(event, stateAfter)
@@ -271,26 +273,24 @@ object TextRenderer : BattleRenderer {
         event: ItemHealing,
         state: BattleState,
     ): List<String> {
-        val pokemonName = name(state, event.target)
-        return listOf(
-            when (event.item) {
-                Item.LEFTOVERS -> "$pokemonName restored a little HP using its Leftovers!"
-                Item.FOCUS_SASH -> "$pokemonName restored HP with its Focus Sash!" // unreachable: Focus Sash doesn't heal
-            },
-        )
+        val text = ItemRegistry.effectFor(event.item)?.renderHealing(event.amount, name(state, event.target))
+        return if (text.isNullOrEmpty()) emptyList() else listOf(text)
     }
 
     private fun renderItemConsumed(
         event: ItemConsumed,
         state: BattleState,
     ): List<String> {
-        val pokemonName = name(state, event.target)
-        return listOf(
-            when (event.item) {
-                Item.FOCUS_SASH -> "$pokemonName hung on using its Focus Sash!"
-                Item.LEFTOVERS -> "$pokemonName's Leftovers was consumed." // unreachable: Leftovers isn't consumed
-            },
-        )
+        val text = ItemRegistry.effectFor(event.item)?.renderConsumed(name(state, event.target))
+        return if (text.isNullOrEmpty()) emptyList() else listOf(text)
+    }
+
+    private fun renderItemDamage(
+        event: ItemDamage,
+        state: BattleState,
+    ): List<String> {
+        val text = ItemRegistry.effectFor(event.item)?.renderDamage(event.amount, name(state, event.target))
+        return if (text.isNullOrEmpty()) emptyList() else listOf(text)
     }
 
     // --- Switching ---

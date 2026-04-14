@@ -1,5 +1,6 @@
 package com.pokemon.battle.engine
 
+import com.pokemon.battle.engine.item.ItemRegistry
 import com.pokemon.battle.model.Effectiveness
 import com.pokemon.battle.model.Move
 import com.pokemon.battle.model.MoveCategory
@@ -59,6 +60,9 @@ class GenVDamageCalculator(
         val burnMod = if (attacker.status == StatusCondition.BURN && isPhysical) 0.5 else 1.0
         val critMod = if (isCritical) 1.5 else 1.0
         val weatherMod = weatherDamageModifier(weather, move.type)
+        val attackerItemMod = ItemRegistry.effectFor(attacker.item)?.attackerDamageModifier(attacker, move) ?: 1.0
+        val defenderItemMod = ItemRegistry.effectFor(defender.item)?.defenderDamageModifier(defender, move) ?: 1.0
+        val itemMod = attackerItemMod * defenderItemMod
 
         val typeMultiplier = typeChart.effectiveness(move.type, defender.effectiveTypes)
         val effectiveness = Effectiveness.from(typeMultiplier)
@@ -69,7 +73,7 @@ class GenVDamageCalculator(
 
         val baseDamage = ((2.0 * level / 5.0 + 2.0) * move.power * atk / def) / 50.0 + 2.0
         val damage =
-            (baseDamage * stab * typeMultiplier * burnMod * critMod * weatherMod * spreadModifier * randomRoll / 100.0).toInt()
+            (baseDamage * stab * typeMultiplier * burnMod * critMod * weatherMod * itemMod * spreadModifier * randomRoll / 100.0).toInt()
                 .coerceAtLeast(if (typeMultiplier > 0.0) 1 else 0)
 
         return DamageResult(damage, effectiveness)

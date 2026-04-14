@@ -24,12 +24,12 @@ import com.pokemon.battle.engine.TurnChoices
 import com.pokemon.battle.engine.VolatileAdded
 import com.pokemon.battle.engine.VolatileRemoved
 import com.pokemon.battle.engine.defaultChanceCheck
+import com.pokemon.battle.engine.item.ItemRegistry
 import com.pokemon.battle.engine.resolveMoveOrder
 import com.pokemon.battle.engine.resolveSwitchInAbility
 import com.pokemon.battle.engine.resolveSwitchOutClearing
 import com.pokemon.battle.model.Ability
 import com.pokemon.battle.model.FailReason
-import com.pokemon.battle.model.Item
 import com.pokemon.battle.model.Move
 import com.pokemon.battle.model.MoveEffect
 import com.pokemon.battle.model.MoveTarget
@@ -299,12 +299,9 @@ class MoveExecutionPhase(
             val isCritical = roll(1..24) == 1
             val result = damageCalculator.calculate(attacker, defender, move, roll, spreadMod, isCritical, currentState.field.weather)
 
-            // Focus Sash: if at full HP and the hit would KO, survive at 1 HP and consume the item.
-            val sashTriggers =
-                defender.item == Item.FOCUS_SASH &&
-                    defender.currentHp == defender.maxHp &&
-                    result.damage >= defender.currentHp
-            val finalDamage = if (sashTriggers) defender.currentHp - 1 else result.damage
+            // Defender's item may intercept the damage (e.g. Focus Sash).
+            val intercept = ItemRegistry.effectFor(defender.item)?.interceptIncomingDamage(defender, result.damage)
+            val finalDamage = intercept?.adjustedDamage ?: result.damage
 
             val damageEvent =
                 DamageDealt(
@@ -316,8 +313,8 @@ class MoveExecutionPhase(
             events.add(damageEvent)
             currentState = damageEvent.apply(currentState)
 
-            if (sashTriggers) {
-                val consumed = ItemConsumed(targetSlot, Item.FOCUS_SASH)
+            if (intercept?.consumed == true && defender.item != null) {
+                val consumed = ItemConsumed(targetSlot, defender.item)
                 events.add(consumed)
                 currentState = consumed.apply(currentState)
             }
@@ -329,7 +326,20 @@ class MoveExecutionPhase(
             }
         }
 
+        events.addAll(resolveAttackerItemEffects(currentState, attackerSlot, events))
         return events
+    }
+
+    /** Attacker's held item may fire a post-damage effect (e.g. Life Orb recoil). */
+    private fun resolveAttackerItemEffects(
+        state: BattleState,
+        attackerSlot: Slot,
+        priorEvents: List<BattleEvent>,
+    ): List<BattleEvent> {
+        val attacker = state.pokemonFor(attackerSlot)
+        val effect = ItemRegistry.effectFor(attacker.item) ?: return emptyList()
+        val anyDamage = priorEvents.any { it is DamageDealt && it.amount > 0 }
+        return effect.afterUserMoveDamage(attacker, attackerSlot, anyDamage)
     }
 
     // --- Effect resolution ---

@@ -24,3 +24,16 @@ data class ItemConsumed(
         return state.withPokemon(target, pokemon.copy(item = null))
     }
 }
+
+/** HP loss caused by a held item (e.g. Life Orb recoil). */
+data class ItemDamage(
+    val target: Slot,
+    val amount: Int,
+    val item: Item,
+) : BattleEvent {
+    override fun apply(state: BattleState): BattleState {
+        val pokemon = state.pokemonFor(target)
+        val newHp = (pokemon.currentHp - amount).coerceAtLeast(0)
+        return state.withPokemon(target, pokemon.copy(currentHp = newHp))
+    }
+}

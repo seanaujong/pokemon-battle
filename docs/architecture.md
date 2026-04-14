@@ -312,11 +312,54 @@ by building different phase implementations, not config flags.
 - **`DamageCalculator`** — `fun interface`. `GenVDamageCalculator` default.
 - **`SpeedResolver`** — `fun interface`. `GenVSpeedResolver` default.
 
+### Registry pattern for items, abilities, and moves
+
+Items, abilities, and moves all follow the same shape: a large enum-like catalog where
+each entry has its own behavior, and the catalog differs across gens (e.g. Life Orb
+didn't exist in Gen 3; Fairy type didn't exist before Gen 6; Eviolite is Gen 5+).
+Hardcoding `when (item)` branches inside calculators and phases doesn't scale — at 5 gens
+and 50 items you get O(items × callers) scattered `if` branches.
+
+**The pattern:** each entity has an `Effect` interface with default no-op hooks into the
+pipeline. Each instance is a small singleton implementing only the hooks that apply. A
+registry maps enum values to their effects. Callers consult the registry:
+
+```kotlin
+interface ItemEffect {
+    val item: Item
+    fun attackerDamageModifier(attacker: PokemonState, move: Move): Double = 1.0
+    fun interceptIncomingDamage(defender: PokemonState, rawDamage: Int): DamageAdjustment? = null
+    fun afterUserMoveDamage(user: PokemonState, userSlot: Slot, damageLanded: Boolean): List<BattleEvent> = emptyList()
+    fun endOfTurn(pokemon: PokemonState, slot: Slot): List<BattleEvent> = emptyList()
+    // + rendering hooks
+}
+
+// Per-item:
+object LifeOrbEffect : ItemEffect { override fun attackerDamageModifier(...) = 1.3; ... }
+
+// Callers:
+val itemMod = ItemRegistry.effectFor(attacker.item)?.attackerDamageModifier(attacker, move) ?: 1.0
+```
+
+**Benefits:**
+- Adding a new entity is one file + one registry entry — no scattered edits
+- Gen-specific registries (`GenIVItemRegistry`, `GenVItemRegistry`) become the natural
+  seam for multi-gen support — the calc stays untouched, only the registry changes
+- Behavior is colocated with identity
+- No unreachable branches in `when (enum)` switches elsewhere
+
+**Applies to:** items (implemented in `engine/item/`), abilities (TODO), move-level effects
+beyond `MoveEffect` data class (TODO).
+
+See diary 026 for the full refactoring story.
+
 ### What NOT to do
 
 - Don't add gen parameters to phases — separate implementations instead
 - Don't put gen-specific constants in the model
 - Don't put gen-specific logic in events — `apply()` is mechanical
+- Don't scatter `when (item)` / `when (ability)` branches inside calculators or phases.
+  Extract behavior into per-entity `Effect` objects and consult the registry.
 
 ## Custom Format Compatibility
 
@@ -377,8 +420,7 @@ Resolved by paired `SwitchIn`. Only a problem if `SwitchOut` is emitted alone.
 - Entry hazards (Stealth Rock, Spikes)
 - Multi-turn moves (Fly, Dig, Solar Beam)
 - Choice locks, Encore, Disable
-- Critical hit calculation
-- Protect / Substitute mechanics
+- Substitute
 - CLI / REPL for interactive play
 
 These can all be modeled as new phases, events, effects, and injectable interfaces.
@@ -407,6 +449,16 @@ to `SwitchPhase` made Baton Pass possible without changing the event. If an even
 `when` dispatch in phases. The damage calc started as a free function. Speed
 calculation started on `PokemonState`. Each became injectable (`DamageCalculator`,
 `SpeedResolver`, `TypeChart`) only when multi-gen support demanded it — not before.
+
+**The registry pattern is the right answer for large, gen-varying catalogs.** Items,
+abilities, and move-level effects are all "large enum-like catalogs where each entry has
+its own behavior, and the set differs across gens." Hardcoding `when (item)` branches
+inside the damage calc worked at 1 item, looked rough at 3, and would be unmaintainable
+at 50 across 5 gens. Extraction to `ItemEffect` objects + `ItemRegistry` put behavior next
+to identity, eliminated cross-branch noise in exhaustive `when`s, and gave us the natural
+seam for gen-specific variants (`GenIVItemRegistry` vs `GenVItemRegistry`). Do this
+*when* the pattern is visible, not before — three items was the sweet spot for us.
+Diary 026 has the full story.
 
 **The engine doesn't enforce legality.** No learnset validation, no move count limits,
 no species-ability restrictions. This wasn't a shortcut — it's a design choice that
