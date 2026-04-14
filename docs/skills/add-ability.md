@@ -19,10 +19,11 @@ different hooks. Read `add-item.md` first if you haven't added an item before.
 
 - Your ability maps to an existing hook on `AbilityEffect`. Check the source
   for the current hook inventory — this doc drifts otherwise. As of diary
-  072, the hooks are `onSwitchIn`, `blocksMove`, `onMoveAbsorbed`,
-  `blocksWeatherDamage`, `attackerDamageModifier`, `defenderDamageModifier`,
-  `interceptIncomingDamage`, `suppressesHeldItem`, `speedModifier`,
-  `onHpThresholdCrossed`. If your ability needs a new hook, see *Extensions*.
+  075, the hooks are `onSwitchIn`, `onSwitchOut`, `blocksMove`,
+  `onMoveAbsorbed`, `blocksWeatherDamage`, `attackerDamageModifier`,
+  `defenderDamageModifier`, `interceptIncomingDamage`, `suppressesHeldItem`,
+  `speedModifier`, `onHpThresholdCrossed`. If your ability needs a new
+  hook, see *Extensions*.
 - Green `./gradlew test` as a baseline.
 
 ## Minimum guarantees
@@ -67,11 +68,24 @@ You want a Pokemon to have a passive battle effect the engine doesn't model.
 ## Extensions
 
 **1a. The hook you need doesn't exist.** Add a defaulted method to
-   `AbilityEffect` and wire it in the *one* place that triggers it in the
-   pipeline (a phase, a resolver, or `BattleLoop`). The `internal` types in
-   `:engine` that phases already consult (`DamageAdjustment`, event types)
-   are available to you. Do not add `when (ability)` dispatch at the call
-   site — the registry is the dispatch.
+   `AbilityEffect` and wire it in at *every* place that triggers the
+   mechanic — it may be more than one. Switch-out is the canonical
+   example: `onSwitchOut` fires from both `SwitchPhase` (voluntary
+   switches) *and* `MoveExecutionPhase.doSelfSwitch` (U-turn / Volt
+   Switch). Missing the second site silently breaks half the trigger.
+   And note the *deliberate exclusions*: faint replacement runs through
+   `BattleLoop.handleFaintReplacements` and is semantically distinct —
+   a fainted Pokemon is replaced, not switched out. Document these in
+   the hook's docstring so the next reader doesn't have to re-derive.
+
+   Also: when adding the N-th hook to `AbilityEffect`, detekt's
+   `TooManyFunctions` threshold (11) will fire. Land an inline
+   `@Suppress("TooManyFunctions")` on the interface with a one-line
+   rationale (e.g. "hooks grow as mechanics are added; each ability
+   overrides only what applies"). Diary 075 is the worked precedent.
+
+   Do not add `when (ability)` dispatch at the call site — the registry
+   is the dispatch.
 
 **2a. Your ability suppresses another effect.** Klutz is the worked example —
    see `KlutzEffect` and the `suppressesHeldItem` hook. The `ItemRegistry`

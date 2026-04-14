@@ -87,13 +87,27 @@ today.
    Juice: effect TBD, catalog only"). When you later implement the behavior,
    remove it from the identity-only set and follow steps 3–6.
 
-**5a. Your item needs a hook that doesn't exist yet.** Example: a "taunt on
-   switch-in" item would need a new `onSwitchIn` hook on `ItemEffect`. Add
-   the defaulted method to `ItemEffect` in
-   `engine/src/main/kotlin/com/pokemon/battle/engine/item/ItemEffect.kt` with
-   a clear doc string, then wire it in at the one natural call site (e.g.
-   `SwitchPhase` or `BattleLoop.handleFaintReplacements`). Do **not** add
-   `when (item)` branches in the caller — the registry dispatch is the point.
+**5a(i). Your item needs a hook that doesn't exist yet.** Example: a
+   "taunt on switch-in" item would need a new `onSwitchIn` hook on
+   `ItemEffect`. Add the defaulted method to
+   `engine/src/main/kotlin/com/pokemon/battle/engine/item/ItemEffect.kt`
+   with a clear doc string, then wire it in at *every* call site that
+   triggers the mechanic (a single phase, or a resolver, or both — see
+   `add-ability.md`'s 1a for the switch-out example where two sites
+   fire). Do **not** add `when (item)` branches in the caller — the
+   registry dispatch is the point.
+
+**5a(ii). Your item needs an *existing* hook to carry more context**
+   (example: Weakness Policy needed `onHolderTookDamage` to know the
+   incoming move's effectiveness). Extend the hook's parameter list
+   in `ItemEffect.kt`, update the one call site, and update every
+   existing override to accept-and-ignore the new param. Expect
+   detekt's `LongParameterList` threshold (6) to fire once a hook
+   passes ~5 args — land an inline `@Suppress("LongParameterList")`
+   with a one-line rationale (e.g. "on-hit items need full
+   attacker/defender/damage/type-eff context"). Diary 074 is the
+   worked precedent; Weakness Policy hit 7 params and the suppress is
+   documented there.
 
 **5b. Your item needs a new `BattleEvent` variant.** Example: a unique item
    that needs its own audit-log entry beyond generic damage/healing. Follow
