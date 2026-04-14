@@ -2,6 +2,7 @@ package com.pokemon.battle.analytics
 
 import com.pokemon.battle.engine.AbilityTriggered
 import com.pokemon.battle.engine.BattleEvent
+import com.pokemon.battle.engine.CriticalHit
 import com.pokemon.battle.engine.DamageDealt
 import com.pokemon.battle.engine.GameEvent
 import com.pokemon.battle.engine.ItemConsumed
@@ -66,8 +67,7 @@ object BattleAnalyzer {
                 .toList()
         val itemsTriggered = itemEvents.groupingBy { it }.eachCount()
 
-        val criticalHits =
-            gameEvents.filterIsInstance<DamageDealt>().count { it.critical }
+        val criticalHits = gameEvents.filterIsInstance<CriticalHit>().count()
 
         val damageDealt =
             gameEvents.filterIsInstance<DamageDealt>()

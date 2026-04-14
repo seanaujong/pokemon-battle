@@ -114,6 +114,43 @@ class BattleAnalyzerTest {
         assertTrue(summary.damageDealt.isEmpty())
     }
 
+    @Test
+    fun `criticalHits counts CriticalHit events in the stream`() {
+        // roll = { 1 } makes every crit roll succeed (1..24 == 1 guaranteed), so every
+        // damaging move lands a crit. We expect one CriticalHit per damaging move.
+        val charizard = pokemon(pokedex.getValue("Charizard"))
+        val squirtle = pokemon(pokedex.getValue("Squirtle"))
+
+        val state = BattleState.singles(charizard, squirtle)
+        val choices =
+            TurnChoices.singles(
+                TurnChoice.UseMove(MoveDex.FLAMETHROWER),
+                TurnChoice.UseMove(MoveDex.TACKLE),
+            )
+
+        val critPipeline =
+            TurnPipeline(
+                listOf(
+                    MoveOrderPhase(GenVRegistries),
+                    SwitchPhase(GenVRegistries),
+                    MoveExecutionPhase(GenVRegistries, roll = { 1 }, chanceCheck = noChance),
+                    EndOfTurnPhase(GenVRegistries),
+                ),
+            )
+        val loop =
+            BattleLoop(
+                pipeline = critPipeline,
+                choiceProvider = { choices },
+                faintReplacementProvider = { _, _ -> 0 },
+                registries = GenVRegistries,
+                maxTurns = 1,
+            )
+        val result = loop.run(state)
+        val summary = BattleAnalyzer.analyze(result)
+
+        assertTrue(summary.criticalHits >= 1, "at least one crit should be counted; got ${summary.criticalHits}")
+    }
+
     // Extensibility / corner cases
     //
     // BattleSummary intentionally projects only a slice of the event stream. These
