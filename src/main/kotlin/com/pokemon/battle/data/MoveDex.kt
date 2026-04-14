@@ -173,6 +173,54 @@ object MoveDex {
             ),
         )
 
+    val STEALTH_ROCK =
+        register(
+            Move(
+                "Stealth Rock",
+                Type.ROCK,
+                MoveCategory.STATUS,
+                0,
+                target = MoveTarget.ONE_OPPONENT,
+                effects = listOf(MoveEffect.SetHazardOnOpposingSide(com.pokemon.battle.model.SideHazard.STEALTH_ROCK, maxLayers = 1)),
+            ),
+        )
+
+    val SPIKES =
+        register(
+            Move(
+                "Spikes",
+                Type.GROUND,
+                MoveCategory.STATUS,
+                0,
+                target = MoveTarget.ONE_OPPONENT,
+                effects = listOf(MoveEffect.SetHazardOnOpposingSide(com.pokemon.battle.model.SideHazard.SPIKES, maxLayers = 3)),
+            ),
+        )
+
+    val TOXIC_SPIKES =
+        register(
+            Move(
+                "Toxic Spikes",
+                Type.POISON,
+                MoveCategory.STATUS,
+                0,
+                target = MoveTarget.ONE_OPPONENT,
+                effects = listOf(MoveEffect.SetHazardOnOpposingSide(com.pokemon.battle.model.SideHazard.TOXIC_SPIKES, maxLayers = 2)),
+            ),
+        )
+
+    val STICKY_WEB =
+        register(
+            Move(
+                "Sticky Web",
+                Type.BUG,
+                MoveCategory.STATUS,
+                0,
+                target = MoveTarget.ONE_OPPONENT,
+                effects = listOf(MoveEffect.SetHazardOnOpposingSide(com.pokemon.battle.model.SideHazard.STICKY_WEB, maxLayers = 1)),
+            ),
+        )
+
     val PROTECT =
         register(
             Move(

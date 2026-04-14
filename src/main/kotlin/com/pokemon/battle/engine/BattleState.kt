@@ -5,6 +5,7 @@ import com.pokemon.battle.model.GimmickKind
 import com.pokemon.battle.model.PokemonState
 import com.pokemon.battle.model.Side
 import com.pokemon.battle.model.SideCondition
+import com.pokemon.battle.model.SideHazard
 import com.pokemon.battle.model.Slot
 import com.pokemon.battle.model.UsedGimmick
 
@@ -14,6 +15,8 @@ data class BattleState(
     val bench: Map<Side, List<PokemonState>> = emptyMap(),
     val field: FieldState = FieldState(),
     val sideConditions: Map<Side, Map<SideCondition, Int>> = emptyMap(),
+    /** Persistent switch-in traps (Stealth Rock, Spikes, etc.). Layer count per hazard. */
+    val sideHazards: Map<Side, Map<SideHazard, Int>> = emptyMap(),
     /** Raw record of gimmick activations per side; legality is decided by [ruleset]. */
     val gimmicksUsedBySide: Map<Side, List<UsedGimmick>> = emptyMap(),
     /** Format-specific policy object. Defaults to [NoGimmicksRuleset] (matches pre-gimmick behavior). */
@@ -34,6 +37,20 @@ data class BattleState(
         val newMap =
             if (updated.isEmpty()) sideConditions - side else sideConditions + (side to updated)
         return copy(sideConditions = newMap)
+    }
+
+    /** Hazards currently set on [side], with layer counts. Empty if none. */
+    fun hazardsOn(side: Side): Map<SideHazard, Int> = sideHazards[side] ?: emptyMap()
+
+    fun withHazardLayers(
+        side: Side,
+        hazard: SideHazard,
+        layers: Int,
+    ): BattleState {
+        val existing = hazardsOn(side)
+        val updated = if (layers <= 0) existing - hazard else existing + (hazard to layers)
+        val newMap = if (updated.isEmpty()) sideHazards - side else sideHazards + (side to updated)
+        return copy(sideHazards = newMap)
     }
 
     /** Gimmick activations on [side], in the order they happened. */

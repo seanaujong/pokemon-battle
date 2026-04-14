@@ -32,4 +32,11 @@ data class PokemonState(
 
     /** Base speed with stat stages applied. No status/ability/item modifiers — those are gen-specific. */
     fun baseEffectiveSpeed(): Double = pokemon.calcStat(StatType.SPEED) * stageMultiplier(statStages.speed)
+
+    /**
+     * True if the Pokemon is subject to ground-based effects (Spikes, Toxic Spikes,
+     * Sticky Web, Ground-type moves). Minimal check: not a Flying type and not Levitate.
+     * Future: Air Balloon item, Magnet Rise volatile, Ingrain, Gravity field, Iron Ball.
+     */
+    val isGrounded: Boolean get() = Type.FLYING !in effectiveTypes && (abilityOverride ?: ability) != Ability.LEVITATE
 }

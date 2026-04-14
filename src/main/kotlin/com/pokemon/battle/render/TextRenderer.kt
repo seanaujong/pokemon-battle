@@ -6,6 +6,9 @@ import com.pokemon.battle.engine.BattleEvent
 import com.pokemon.battle.engine.BattleState
 import com.pokemon.battle.engine.DamageDealt
 import com.pokemon.battle.engine.GimmickUsed
+import com.pokemon.battle.engine.HazardDamage
+import com.pokemon.battle.engine.HazardRemoved
+import com.pokemon.battle.engine.HazardSet
 import com.pokemon.battle.engine.ItemConsumed
 import com.pokemon.battle.engine.ItemDamage
 import com.pokemon.battle.engine.ItemHealing
@@ -77,7 +80,49 @@ object TextRenderer : BattleRenderer {
             is SideConditionExpired -> renderSideConditionExpired(event)
             is TrickRoomSet -> renderTrickRoomSet(event)
             is GimmickUsed -> renderGimmickUsed(event, stateAfter)
+            is HazardSet -> renderHazardSet(event)
+            is HazardRemoved -> renderHazardRemoved(event)
+            is HazardDamage -> renderHazardDamage(event, stateBefore)
         }
+    }
+
+    private fun renderHazardSet(event: HazardSet): List<String> {
+        val text =
+            when (event.hazard) {
+                com.pokemon.battle.model.SideHazard.STEALTH_ROCK ->
+                    "Pointed stones float in the air around the opposing team!"
+                com.pokemon.battle.model.SideHazard.SPIKES ->
+                    "Spikes were scattered on the ground around the opposing team! (${event.layers})"
+                com.pokemon.battle.model.SideHazard.TOXIC_SPIKES ->
+                    "Poison spikes were scattered around the opposing team! (${event.layers})"
+                com.pokemon.battle.model.SideHazard.STICKY_WEB ->
+                    "A sticky web was laid around the opposing team!"
+            }
+        return listOf(text)
+    }
+
+    private fun renderHazardRemoved(event: HazardRemoved): List<String> =
+        listOf(
+            when (event.hazard) {
+                com.pokemon.battle.model.SideHazard.STEALTH_ROCK -> "The pointed stones disappeared."
+                com.pokemon.battle.model.SideHazard.SPIKES -> "The spikes were cleared."
+                com.pokemon.battle.model.SideHazard.TOXIC_SPIKES -> "The toxic spikes were absorbed."
+                com.pokemon.battle.model.SideHazard.STICKY_WEB -> "The sticky web was swept away."
+            },
+        )
+
+    private fun renderHazardDamage(
+        event: HazardDamage,
+        state: BattleState,
+    ): List<String> {
+        val pokemonName = name(state, event.target)
+        return listOf(
+            when (event.hazard) {
+                com.pokemon.battle.model.SideHazard.STEALTH_ROCK -> "Pointed stones dug into $pokemonName!"
+                com.pokemon.battle.model.SideHazard.SPIKES -> "$pokemonName is hurt by the spikes!"
+                else -> "$pokemonName was hurt by hazard!"
+            },
+        )
     }
 
     private fun renderGimmickUsed(

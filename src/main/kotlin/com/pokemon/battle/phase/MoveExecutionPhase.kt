@@ -9,6 +9,7 @@ import com.pokemon.battle.engine.DamageCalculator
 import com.pokemon.battle.engine.DamageDealt
 import com.pokemon.battle.engine.GenVDamageCalculator
 import com.pokemon.battle.engine.GenVSpeedResolver
+import com.pokemon.battle.engine.HazardSet
 import com.pokemon.battle.engine.ItemConsumed
 import com.pokemon.battle.engine.MoveAttempted
 import com.pokemon.battle.engine.MoveFailed
@@ -29,6 +30,7 @@ import com.pokemon.battle.engine.VolatileRemoved
 import com.pokemon.battle.engine.ability.AbilityRegistry
 import com.pokemon.battle.engine.defaultChanceCheck
 import com.pokemon.battle.engine.item.ItemRegistry
+import com.pokemon.battle.engine.resolveHazardsOnSwitchIn
 import com.pokemon.battle.engine.resolveMoveOrder
 import com.pokemon.battle.engine.resolveSwitchInAbility
 import com.pokemon.battle.engine.resolveSwitchOutClearing
@@ -229,6 +231,11 @@ class MoveExecutionPhase(
         currentState = justSwitchedIn.apply(currentState)
 
         for (event in resolveSwitchInAbility(currentState, attackerSlot)) {
+            events.add(event)
+            currentState = event.apply(currentState)
+        }
+
+        for (event in resolveHazardsOnSwitchIn(currentState, attackerSlot)) {
             events.add(event)
             currentState = event.apply(currentState)
         }
@@ -465,6 +472,16 @@ class MoveExecutionPhase(
             }
             is MoveEffect.SetSideConditionOnUserSide ->
                 listOf(SideConditionSet(targetSlot.side, effect.condition, effect.turns))
+            is MoveEffect.SetHazardOnOpposingSide -> {
+                // Target resolution already selected the opposing side's slot; the hazard
+                // lands on THAT slot's side (the opposing side from the user).
+                val currentLayers = state.hazardsOn(targetSlot.side)[effect.hazard] ?: 0
+                if (currentLayers >= effect.maxLayers) {
+                    emptyList()
+                } else {
+                    listOf(HazardSet(targetSlot.side, effect.hazard, currentLayers + 1))
+                }
+            }
         }
     }
 

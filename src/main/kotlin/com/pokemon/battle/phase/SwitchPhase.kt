@@ -10,6 +10,7 @@ import com.pokemon.battle.engine.SwitchOut
 import com.pokemon.battle.engine.TurnChoice
 import com.pokemon.battle.engine.TurnChoices
 import com.pokemon.battle.engine.VolatileAdded
+import com.pokemon.battle.engine.resolveHazardsOnSwitchIn
 import com.pokemon.battle.engine.resolveSwitchInAbility
 import com.pokemon.battle.engine.resolveSwitchOutClearing
 import com.pokemon.battle.model.Volatile
@@ -61,6 +62,12 @@ class SwitchPhase(
 
             // Switch-in ability triggers (shared with BattleLoop faint replacements)
             for (event in resolveSwitchInAbility(currentState, slot)) {
+                events.add(event)
+                currentState = event.apply(currentState)
+            }
+
+            // Entry hazards fire after abilities
+            for (event in resolveHazardsOnSwitchIn(currentState, slot)) {
                 events.add(event)
                 currentState = event.apply(currentState)
             }
