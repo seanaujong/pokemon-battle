@@ -1,0 +1,10 @@
+#!/bin/sh
+# Launch the interactive battle CLI.
+#
+# Flags explained:
+#   --quiet         — suppresses Gradle's build output so only game text shows
+#   --console=plain — disables Gradle's rich console, which would otherwise
+#                     intercept stdin and break human input
+
+cd "$(dirname "$0")/.."
+exec ./gradlew :cli:run --quiet --console=plain "$@"
