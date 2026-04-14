@@ -1,7 +1,16 @@
-// Root build file. Intentionally minimal — each module owns its own plugins, deps,
-// and config. Shared concerns (detekt.yml, CLAUDE.md, docs/) live at this level.
+// Root build file. Plugin *versions* are declared here with `apply false` so each
+// subproject applies without restating the version. This matches Gradle's guidance
+// and silences the "Kotlin Gradle plugin was loaded multiple times" warning that
+// fires when two subprojects declare the same plugin version independently.
 //
 // Module layout:
-//   :engine — the battle engine (see engine/build.gradle.kts)
-//
-// Future modules (diaries 041/042): :data-ingestion, :analytics, clients.
+//   :engine          — the battle engine
+//   :data-ingestion  — PokeAPI ingestion (diary 041)
+//   :cli             — interactive CLI (diary 056)
+
+plugins {
+    kotlin("jvm") version "2.2.10" apply false
+    kotlin("plugin.serialization") version "2.2.10" apply false
+    id("org.jlleitschuh.gradle.ktlint") version "12.1.2" apply false
+    id("io.gitlab.arturbosch.detekt") version "1.23.7" apply false
+}
