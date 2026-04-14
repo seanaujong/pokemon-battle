@@ -14,6 +14,7 @@ import com.pokemon.battle.engine.HazardSet
 import com.pokemon.battle.engine.ItemConsumed
 import com.pokemon.battle.engine.MoveAttempted
 import com.pokemon.battle.engine.MoveFailed
+import com.pokemon.battle.engine.MoveLegality
 import com.pokemon.battle.engine.Phase
 import com.pokemon.battle.engine.PokemonFainted
 import com.pokemon.battle.engine.ProtectBlocked
@@ -139,6 +140,16 @@ class MoveExecutionPhase(
             Volatile.JustSwitchedIn !in state.pokemonFor(attackerSlot).volatiles
         ) {
             events.add(MoveFailed(attackerSlot, FailReason.NOT_FIRST_TURN))
+            return events
+        }
+
+        // Ruleset legality check (choice-lock today; disable/taunt/encore future). The
+        // engine enforces the restrictions that volatiles and format policy imply — a
+        // buggy AI that submits an illegal move produces a MoveFailed rather than a
+        // silent execution. See diary 039.
+        val legality = state.ruleset.canUseMove(state, attackerSlot, move)
+        if (legality is MoveLegality.Forbidden) {
+            events.add(MoveFailed(attackerSlot, legality.reason))
             return events
         }
 

@@ -8,4 +8,5 @@ enum class FailReason {
     CONFUSION_SELF_HIT,
     PROTECT_FAILED,
     NOT_FIRST_TURN,
+    CHOICE_LOCKED,
 }

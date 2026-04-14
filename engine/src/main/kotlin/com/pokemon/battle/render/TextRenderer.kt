@@ -189,6 +189,13 @@ object TextRenderer : BattleRenderer {
                 FailReason.CONFUSION_SELF_HIT -> "$pokemonName hurt itself in its confusion!"
                 FailReason.PROTECT_FAILED -> "But it failed!"
                 FailReason.NOT_FIRST_TURN -> "But it failed!"
+                FailReason.CHOICE_LOCKED -> {
+                    val lock =
+                        state.pokemonFor(event.attacker).volatiles
+                            .filterIsInstance<com.pokemon.battle.model.Volatile.ChoiceLocked>()
+                            .firstOrNull()
+                    if (lock != null) "$pokemonName is locked into ${lock.move.name}!" else "But it failed!"
+                }
             },
         )
     }

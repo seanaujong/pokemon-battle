@@ -1,7 +1,7 @@
 # Diary 039: Choice-Layer Validation (Planning)
 
 **Date:** 2026-04-14
-**Status:** Planning — not yet implemented
+**Status:** Complete
 
 ## The gap
 
@@ -146,28 +146,42 @@ the check.
 ## Plan
 
 ### Step 1: `MoveLegality` sealed + `canUseMove` on Ruleset
-- [ ] `MoveLegality` sealed type
-- [ ] Default `Ruleset.canUseMove(...)` returns `Allowed`
-- [ ] Shared `volatileBasedMoveLegality` helper
-- [ ] `PokemonChampionsRuleset`, `NationalDexRuleset`, `Gen9VgcTeraRuleset` all override
+- [x] `MoveLegality` sealed type
+- [x] Default `Ruleset.canUseMove(...)` returns `Allowed`
+- [x] Shared `volatileBasedMoveLegality` helper
+- [x] `PokemonChampionsRuleset`, `NationalDexRuleset`, `Gen9VgcTeraRuleset` all override
       `canUseMove` to delegate to the shared helper
 
 ### Step 2: `FailReason.CHOICE_LOCKED`
-- [ ] Enum entry
-- [ ] TextRenderer branch ("X is locked into <move>!")
+- [x] Enum entry
+- [x] TextRenderer branch ("X is locked into <move>!")
 
 ### Step 3: Enforce in MoveExecutionPhase
-- [ ] Check `state.ruleset.canUseMove(...)` near the start of `executeMove`
-- [ ] Emit `MoveFailed` with the reason; return without executing
+- [x] Check `state.ruleset.canUseMove(...)` near the start of `executeMove`
+- [x] Emit `MoveFailed` with the reason; return without executing
 
 ### Step 4: BattleState.validMovesFor helper
-- [ ] Convenience for AI/UI — not consumed by the engine
+- [x] Convenience for AI/UI — not consumed by the engine
 
 ### Step 5: Tests
-- [ ] Choice-locked user submitting a different move fails with CHOICE_LOCKED
-- [ ] Choice-locked user submitting the locked move succeeds normally
-- [ ] Pokemon without ChoiceLocked can use any move under the same ruleset
-- [ ] `validMovesFor` returns only the legal subset under a lock
+- [x] Choice-locked user submitting a different move fails with CHOICE_LOCKED
+- [x] Choice-locked user submitting the locked move succeeds normally
+- [x] Pokemon without ChoiceLocked can use any move under the same ruleset
+- [x] `validMovesFor` returns only the legal subset under a lock
+
+## Implementation notes (2026-04-14)
+
+- Placed the legality check in `executeMove` after `requiresJustSwitchedIn`, as the
+  design section specified. Status-induced failures (sleep/paralyze/freeze) still run
+  *before* `executeMove`; a sleeping choice-locked Pokemon will report "is fast asleep!"
+  rather than "locked into X!" on the turn it's asleep. Consistent with mainline
+  games — sleep gates the whole attempt.
+- `TextRenderer.renderMoveFailed` reads the `ChoiceLocked` volatile off
+  `stateBefore.pokemonFor(event.attacker)` to name the locked move. Falls back to
+  "But it failed!" if the volatile is absent (defensive — shouldn't happen in practice).
+- Tests use `BattleState.singles(...).copy(ruleset = PokemonChampionsRuleset)` to opt
+  into enforcement. `NoGimmicksRuleset` (the default) also allows everything by default,
+  so production setups that haven't picked a ruleset remain unchanged.
 
 ## Deferred
 

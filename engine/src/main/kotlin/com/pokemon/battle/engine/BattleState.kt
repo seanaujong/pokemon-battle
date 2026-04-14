@@ -2,6 +2,7 @@ package com.pokemon.battle.engine
 
 import com.pokemon.battle.model.FieldState
 import com.pokemon.battle.model.GimmickKind
+import com.pokemon.battle.model.Move
 import com.pokemon.battle.model.PokemonState
 import com.pokemon.battle.model.Side
 import com.pokemon.battle.model.SideCondition
@@ -69,6 +70,17 @@ data class BattleState(
     }
 
     fun pokemonFor(slot: Slot): PokemonState = slots[slot] ?: error("No Pokemon in slot $slot")
+
+    /**
+     * Filter [candidates] down to the moves the [ruleset] would currently allow [slot]
+     * to use. Convenience for AI/UI so the choice layer can skip offering an illegal
+     * move; not consumed by the engine (the engine enforces via [Ruleset.canUseMove]
+     * during [com.pokemon.battle.phase.MoveExecutionPhase]). See diary 039.
+     */
+    fun validMovesFor(
+        slot: Slot,
+        candidates: List<Move>,
+    ): List<Move> = candidates.filter { ruleset.canUseMove(this, slot, it) is MoveLegality.Allowed }
 
     fun withPokemon(
         slot: Slot,
