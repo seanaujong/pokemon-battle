@@ -20,7 +20,7 @@ fun interface FaintReplacementProvider {
     ): Int
 }
 
-data class TurnResult(
+data class TurnRecord(
     val turnNumber: Int,
     val events: List<BattleEvent>,
     val replacementEvents: List<BattleEvent> = emptyList(),
@@ -29,7 +29,7 @@ data class TurnResult(
 data class BattleResult(
     val winner: Side?,
     val finalState: BattleState,
-    val turnHistory: List<TurnResult>,
+    val turnHistory: List<TurnRecord>,
 )
 
 class BattleLoop(
@@ -40,7 +40,7 @@ class BattleLoop(
 ) {
     fun run(initialState: BattleState): BattleResult {
         var state = initialState
-        val turnHistory = mutableListOf<TurnResult>()
+        val turnHistory = mutableListOf<TurnRecord>()
 
         while (turnHistory.size < maxTurns) {
             val choices = choiceProvider.getChoices(state)
@@ -54,7 +54,7 @@ class BattleLoop(
             val replacementEvents = mutableListOf<BattleEvent>()
             state = handleFaintReplacements(state, replacementEvents)
 
-            turnHistory.add(TurnResult(state.turn - 1, result.events, replacementEvents))
+            turnHistory.add(TurnRecord(state.turn - 1, result.events, replacementEvents))
 
             // Check win condition
             val side1Defeated = state.isDefeated(Side.SIDE_1)

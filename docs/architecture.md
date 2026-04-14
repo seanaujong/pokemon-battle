@@ -240,9 +240,9 @@ class BattleLoop(
 ```
 
 Collects choices, runs the pipeline, handles faint replacements (with switch-in
-ability triggers), and checks win conditions. `TurnResult` separates pipeline
-events from replacement events. `BattleResult` reports the winner, final state,
-and full turn history.
+ability triggers), and checks win conditions. `TurnRecord` (one per resolved
+turn) separates pipeline events from replacement events. `BattleResult` reports
+the winner, final state, and full turn history.
 
 ## Application Layer
 
