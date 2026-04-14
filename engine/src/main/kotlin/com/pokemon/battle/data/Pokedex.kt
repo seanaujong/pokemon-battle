@@ -2,9 +2,16 @@ package com.pokemon.battle.data
 
 import com.pokemon.battle.model.Species
 import com.pokemon.battle.model.Type
+import kotlinx.serialization.json.Json
 import java.io.InputStream
+import java.nio.file.Files
+import java.nio.file.Path
+import kotlin.io.path.extension
+import kotlin.io.path.readText
 
 object Pokedex {
+    private val json = Json { ignoreUnknownKeys = true }
+
     fun load(input: InputStream): Map<String, Species> {
         return input.bufferedReader().useLines { lines ->
             lines.drop(1) // skip header
@@ -19,6 +26,21 @@ object Pokedex {
             Pokedex::class.java.classLoader.getResourceAsStream(path)
                 ?: error("Species CSV not found on classpath: $path")
         return load(stream)
+    }
+
+    /**
+     * Loads every `*.json` file under [directory] as a [SpeciesJson] and returns a
+     * map keyed by species name. Complements [loadFromClasspath] (CSV); see diary 041.
+     */
+    fun loadFromJsonDirectory(directory: Path): Map<String, Species> {
+        require(Files.isDirectory(directory)) { "Not a directory: $directory" }
+        return Files.list(directory).use { stream ->
+            stream
+                .filter { it.extension == "json" }
+                .map { json.decodeFromString(SpeciesJson.serializer(), it.readText()).toDomain() }
+                .toList()
+                .associateBy { it.name }
+        }
     }
 
     private fun parseLine(line: String): Species {
