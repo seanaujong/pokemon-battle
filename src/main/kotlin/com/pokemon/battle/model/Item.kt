@@ -4,4 +4,9 @@ enum class Item {
     LEFTOVERS,
     FOCUS_SASH,
     LIFE_ORB,
+    CHOICE_BAND,
+    CHOICE_SPECS,
+    CHOICE_SCARF,
+    EVIOLITE,
+    SITRUS_BERRY,
 }

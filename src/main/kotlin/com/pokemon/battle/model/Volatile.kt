@@ -11,4 +11,12 @@ sealed interface Volatile {
 
     /** Consecutive uses of a protection move (Protect, Detect, …). Drives diminishing success. */
     data class ProtectCounter(val consecutive: Int) : Volatile
+
+    /**
+     * Move lock from a Choice item (Band, Specs, Scarf). Cleared on switch by
+     * [com.pokemon.battle.engine.resolveSwitchOutClearing] along with other volatiles.
+     * Enforcement is a choice-layer concern (AI/UI should restrict move selection);
+     * the engine emits the volatile so choice layers can read it.
+     */
+    data class ChoiceLocked(val move: Move) : Volatile
 }

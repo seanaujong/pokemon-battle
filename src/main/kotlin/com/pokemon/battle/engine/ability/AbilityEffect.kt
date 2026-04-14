@@ -19,6 +19,7 @@ import com.pokemon.battle.model.Weather
  * Abilities that changed behavior across gens get different effect implementations
  * registered per gen (e.g. Sand Veil's evasion boost changed in Gen 6).
  */
+@Suppress("TooManyFunctions") // Each hook covers a distinct ability capability; grouping would obscure
 interface AbilityEffect {
     val ability: Ability
 
@@ -76,6 +77,9 @@ interface AbilityEffect {
      * item's effect should fire.
      */
     fun suppressesHeldItem(holder: PokemonState): Boolean = false
+
+    /** Speed multiplier on the holder (future: Swift Swim 2x in rain, Sand Rush 2x in sand). */
+    fun speedModifier(holder: PokemonState): Double = 1.0
 
     /**
      * Game-text for when this ability triggers (switch-in announcement, absorb message).

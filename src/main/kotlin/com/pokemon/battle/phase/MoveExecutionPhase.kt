@@ -319,6 +319,19 @@ class MoveExecutionPhase(
                 currentState = consumed.apply(currentState)
             }
 
+            // Post-damage HP-threshold items (Sitrus Berry, pinch berries).
+            val defenderAfter = currentState.pokemonFor(targetSlot)
+            if (!defenderAfter.isFainted) {
+                val thresholdEvents =
+                    ItemRegistry.effectForHolder(defenderAfter)
+                        ?.onHpThresholdCrossed(defenderAfter, targetSlot, defender.currentHp, defenderAfter.currentHp)
+                        ?: emptyList()
+                for (event in thresholdEvents) {
+                    events.add(event)
+                    currentState = event.apply(currentState)
+                }
+            }
+
             if (currentState.pokemonFor(targetSlot).isFainted) {
                 val faintEvent = PokemonFainted(targetSlot)
                 events.add(faintEvent)
@@ -326,20 +339,21 @@ class MoveExecutionPhase(
             }
         }
 
-        events.addAll(resolveAttackerItemEffects(currentState, attackerSlot, events))
+        events.addAll(resolveAttackerItemEffects(currentState, attackerSlot, move, events))
         return events
     }
 
-    /** Attacker's held item may fire a post-damage effect (e.g. Life Orb recoil). */
+    /** Attacker's held item may fire a post-damage effect (e.g. Life Orb recoil, Choice lock). */
     private fun resolveAttackerItemEffects(
         state: BattleState,
         attackerSlot: Slot,
+        move: Move,
         priorEvents: List<BattleEvent>,
     ): List<BattleEvent> {
         val attacker = state.pokemonFor(attackerSlot)
         val effect = ItemRegistry.effectForHolder(attacker) ?: return emptyList()
         val anyDamage = priorEvents.any { it is DamageDealt && it.amount > 0 }
-        return effect.afterUserMoveDamage(attacker, attackerSlot, anyDamage)
+        return effect.afterUserMoveDamage(attacker, attackerSlot, move, anyDamage)
     }
 
     // --- Effect resolution ---

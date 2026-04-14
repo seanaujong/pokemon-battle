@@ -18,6 +18,11 @@ object ItemRegistry {
             LeftoversEffect,
             FocusSashEffect,
             LifeOrbEffect,
+            ChoiceBandEffect,
+            ChoiceSpecsEffect,
+            ChoiceScarfEffect,
+            EvioliteEffect,
+            SitrusBerryEffect,
         ).associateBy { it.item }
 
     /** Raw lookup — returns the effect regardless of suppression context. Use for rendering. */

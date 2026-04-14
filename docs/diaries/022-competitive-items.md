@@ -1,7 +1,7 @@
 # Diary 022: Competitive Items — Choice, Life Orb, Focus Sash, Eviolite
 
 **Date:** 2026-04-13
-**Status:** In progress — Focus Sash done
+**Status:** Complete
 
 ## Goal
 
@@ -63,18 +63,54 @@ Choice Scarf modifies speed — belongs in `GenVSpeedResolver`.
 - No PokemonFainted event fires (Pokemon survives).
 - 4 tests in `FocusSashTest.kt`.
 
-### Step 3: Life Orb (post-damage attacker self-damage)
-### Step 4: Choice items (stat boost + move locking)
-### Step 5: Eviolite (defensive stat boost in calc)
-### Step 6: Sitrus Berry (HP threshold trigger)
+### Step 3: Life Orb (post-damage attacker self-damage) ✅
+- 1.3x `attackerDamageModifier` in GenVDamageCalculator
+- After damage loop: 10% max HP recoil via `afterUserMoveDamage` hook
+- Fires once per move (not per-target for spread)
+- 8 tests in LifeOrbTest.kt
+- Triggered the diary-026 registry refactor mid-flight
+
+### Step 4: Choice items (stat boost + move locking) ✅
+- Choice Band: 1.5x physical `attackerDamageModifier`
+- Choice Specs: 1.5x special `attackerDamageModifier`
+- Choice Scarf: 1.5x `speedModifier` (new hook on ItemEffect, wired into GenVSpeedResolver)
+- All three emit `Volatile.ChoiceLocked(move)` via `afterUserMoveDamage` after first damaging move
+- Lock clears on switch-out via existing volatile-clearing in SwitchPhase
+- 9 tests in ChoiceItemsTest.kt
+- Kotlin `by ChoiceItem(...)` delegation shares the three implementations cleanly
+- Enforcement of the lock is a choice-layer concern (AI/UI reads the volatile and restricts move selection); the engine just publishes it
+
+### Step 5: Eviolite (defensive stat boost in calc) ✅
+- `defenderDamageModifier` returns 1/1.5 (≈0.667) for Physical/Special moves
+- Eligibility (not-fully-evolved species) is trusted at team-build time; the engine doesn't gate it
+- 2 tests in EvioliteAndSitrusTest.kt
+
+### Step 6: Sitrus Berry (HP threshold trigger) ✅
+- New `onHpThresholdCrossed(holder, slot, previousHp, currentHp)` hook on ItemEffect
+- Wired into `MoveExecutionPhase.resolveDamage` immediately after each `DamageDealt` apply
+- Triggers once, at most, when HP drops from above 50% to at-or-below 50%
+- Emits `ItemHealing` + `ItemConsumed`
+- 3 tests in EvioliteAndSitrusTest.kt
 
 ## Notes
 
-- **Item-enum modeling smell noticed.** TextRenderer's `when (event.item)` branches for both
-  `ItemHealing` and `ItemConsumed` have cross-branches that are unreachable (Leftovers in
-  ItemConsumed, Focus Sash in ItemHealing) because one `Item` enum spans all behaviors.
-  As items grow, these unreachable branches multiply. Revisit when 5+ items exist; possibly
-  split into behavior-specific enums or use event-specific item subtypes.
+- **Item-enum modeling smell noticed — addressed.** TextRenderer's `when (event.item)`
+  branches originally forced unreachable branches for items that don't emit the relevant
+  event type (e.g. Leftovers in `ItemConsumed`). Diary 026's item registry refactor
+  eliminated this by delegating rendering to per-item `renderHealing/Consumed/Damage`
+  methods on `ItemEffect`. Each item provides only the strings it needs.
+- **Choice lock is state-only, not enforcement.** The engine publishes
+  `Volatile.ChoiceLocked(move)` after the holder uses a damaging move; it does not prevent
+  future `TurnChoice.UseMove(otherMove)` from executing. Enforcement belongs in the AI /
+  UI / choice-validation layer that reads the volatile and restricts selection. The engine
+  doesn't need a validation phase for this.
+- **New hooks introduced during 022:** `speedModifier(holder)` on both ItemEffect and
+  AbilityEffect (used by Choice Scarf, future Swift Swim); `onHpThresholdCrossed(holder,
+  slot, previousHp, currentHp)` on ItemEffect (used by Sitrus, future pinch berries);
+  `move: Move` parameter added to `afterUserMoveDamage` (Life Orb ignores it, Choice
+  items use it to emit the lock).
+- **6 items registered total:** Leftovers, Focus Sash, Life Orb, Choice Band/Specs/Scarf,
+  Eviolite, Sitrus Berry. Each is one file, one registry entry.
 
 ## Validation
 

@@ -48,10 +48,16 @@ interface ItemEffect {
         rawDamage: Int,
     ): DamageAdjustment? = null
 
-    /** Fired once after the holder's move resolution if the move landed any damage (Life Orb). */
+    /**
+     * Fired once after the holder's move resolution. The [move] parameter is the move
+     * that was used (needed by Choice items to emit a move-specific lock volatile; Life
+     * Orb ignores it and just uses [damageLanded]). [damageLanded] is false if the move
+     * was fully blocked / missed / immune.
+     */
     fun afterUserMoveDamage(
         user: PokemonState,
         userSlot: Slot,
+        move: Move,
         damageLanded: Boolean,
     ): List<BattleEvent> = emptyList()
 
@@ -60,6 +66,22 @@ interface ItemEffect {
         pokemon: PokemonState,
         slot: Slot,
     ): List<BattleEvent> = emptyList()
+
+    /**
+     * Fired after the holder takes damage and HP drops to or below an item-specific
+     * threshold (Sitrus Berry at 50%, pinch berries at 25%, etc.). Triggered at most
+     * once per damage event — the caller checks previous HP > threshold AND new HP
+     * <= threshold.
+     */
+    fun onHpThresholdCrossed(
+        holder: PokemonState,
+        slot: Slot,
+        previousHp: Int,
+        currentHp: Int,
+    ): List<BattleEvent> = emptyList()
+
+    /** Speed multiplier on the holder (Choice Scarf: 1.5x; Iron Ball: 0.5x; etc.). */
+    fun speedModifier(holder: PokemonState): Double = 1.0
 
     // --- Rendering ---
 

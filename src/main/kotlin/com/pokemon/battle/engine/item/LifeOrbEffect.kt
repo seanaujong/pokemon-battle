@@ -26,6 +26,7 @@ object LifeOrbEffect : ItemEffect {
     override fun afterUserMoveDamage(
         user: PokemonState,
         userSlot: Slot,
+        move: Move,
         damageLanded: Boolean,
     ): List<BattleEvent> {
         if (!damageLanded || user.isFainted) return emptyList()
