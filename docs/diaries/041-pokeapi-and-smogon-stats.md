@@ -1,7 +1,7 @@
 # Diary 041: Scaling Against PokeAPI + Smogon Stats (Planning)
 
 **Date:** 2026-04-14
-**Status:** Phase 1 complete (2026-04-14). Phase 3 complete (2026-04-14) — Smogon chaos ingestion with three-tier ELT; first target ingested (gen9ou 2026-02 cutoff=1825): 10.8MB raw → 1.3MB projected → 16KB top-sets JSON.
+**Status:** Phase 1 complete (2026-04-14). Phase 3 complete (2026-04-14) — Smogon chaos ingestion with three-tier ELT; first target ingested (gen9ou 2026-02 cutoff=1825): 10.8MB raw → 1.3MB projected → 16KB top-sets JSON. **Phase 2 subsumed by `:data-ingestion:auditModelGap`** (diary 064): that task covers item/ability coverage against PokeAPI structure, and species coverage is implicit (we ingest more species than we currently use). No standalone Phase 2 deliverable remains — diary is complete.
 
 ## The idea
 

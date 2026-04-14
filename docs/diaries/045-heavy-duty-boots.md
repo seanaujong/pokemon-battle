@@ -1,5 +1,7 @@
 # 045 — Heavy-Duty Boots
 
+**Status:** Complete. `HeavyDutyBootsEffect` ships in `:data`; tested in `HeavyDutyBootsTest.kt`.
+
 ## Goal
 
 Implement the Heavy-Duty Boots held item. The holder ignores all entry-hazard

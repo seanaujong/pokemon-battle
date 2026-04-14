@@ -1,5 +1,7 @@
 # 050 — Event serialization (JSON round-trip)
 
+**Status:** Superseded by diary 060, which split domain types from serialization DTOs (`BattleEventJson`). The round-trip guarantee this diary targeted is upheld by `EventSerializationTest`; the mechanism is now the DTO layer, not direct `@Serializable` on domain classes.
+
 ## Goal
 
 Unlock `BattleEvent` as a first-class data asset by making the sealed hierarchy

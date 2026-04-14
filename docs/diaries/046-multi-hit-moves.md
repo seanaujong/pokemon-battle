@@ -1,5 +1,7 @@
 # 046 — Multi-hit moves (Rock Blast, Double Slap)
 
+**Status:** Complete. Both moves ship in `MoveDex`; tests in `MultiHitMovesTest.kt`.
+
 ## Goal
 
 Implement multi-hit moves: ROCK_BLAST (Rock, Physical, 25 BP) and DOUBLE_SLAP
