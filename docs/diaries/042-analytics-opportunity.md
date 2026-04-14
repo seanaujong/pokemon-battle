@@ -1,7 +1,7 @@
 # Diary 042: Analytics — The Event Log as a Data Asset
 
 **Date:** 2026-04-14
-**Status:** Planning — opportunity exploration
+**Status:** Complete (2026-04-14). Shipped the MVP sketched below: `:analytics` module with `BattleAnalyzer.analyze(result) → BattleSummary` (winner, turn count, KOs, moves, items, abilities, crits, damage) and `ReplayExporter.toJson(result)` (pretty JSON over the DTO layer from diary 060). Engine untouched — analytics is a pure consumer of the existing event stream.
 
 ## The insight
 
