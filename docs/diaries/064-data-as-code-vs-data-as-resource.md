@@ -1,7 +1,7 @@
 # Diary 064: Data as code vs data as resource — a deliberate parallel implementation
 
 **Date:** 2026-04-14
-**Status:** Plan + parallel implementations to land
+**Status:** Both implementations landed (2026-04-14). `Pokedex.loadJsonFromClasspath` (runtime resource path) and the generated `PokedexCatalog` (compile-time symbol path) coexist; tests pass for both. `:data-ingestion:codegenSpecies` regenerates the catalog after any ingestion refresh.
 
 ## The setup
 

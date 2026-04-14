@@ -38,6 +38,16 @@ tasks.register<JavaExec>("smogonToTargets") {
     workingDir = rootProject.projectDir
 }
 
+// Generate `engine/.../data/PokedexCatalog.kt` from the ingested species JSON
+// (diary 064: data as code vs data as resource). Run after :data-ingestion:run.
+tasks.register<JavaExec>("codegenSpecies") {
+    group = "application"
+    description = "Generate PokedexCatalog.kt from ingested species JSON."
+    mainClass.set("com.pokemon.battle.ingest.codegen.PokedexCodegenMainKt")
+    classpath = sourceSets["main"].runtimeClasspath
+    workingDir = rootProject.projectDir
+}
+
 group = "com.pokemon.battle"
 version = "1.0-SNAPSHOT"
 
