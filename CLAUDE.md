@@ -82,6 +82,67 @@ Each feature or chunk of work follows this cycle:
 
 Diary entries are the paper trail. They capture *why* decisions were made, not just *what* was built.
 
+## Parallel Work (multi-agent orchestration)
+
+When a chunk of work can be split into independent tasks, running them as parallel
+subagents in isolated git worktrees is often faster than serial work (we saw ~2.6× on a
+recent 3-agent run — see diary 052). The workflow:
+
+### 1. Conflict analysis before launch
+
+List each task's expected touched files. Check pairwise for overlap. Classify each
+task as "parallelizable with all," "parallelizable with subset," or "must run alone."
+Invasive tasks (module splits, sweeping renames, build-config rewrites) are usually
+"must run alone" — don't launch them alongside other work.
+
+Record the conflict analysis in the message that launches the run, so it's auditable
+later.
+
+### 2. Launch pattern
+
+Spawn subagents with `isolation: "worktree"` so each gets its own branch. Each agent's
+prompt must include:
+- Project context (point to this CLAUDE.md and `CONTRIBUTING.md`)
+- Clear scope, with the specific files or areas the task should touch
+- Anti-scope ("don't touch X, Y, Z") to reduce accidental conflicts
+- Diary-entry requirement at a specific diary number
+- Convention reminders: iteration loop, no co-author trailer, pre-commit lint expectations
+- A concise-return-summary request
+
+### 3. Merge strategy
+
+Fast-forward-only (`merge.ff = only` in `.git/config`). Merge the first branch directly;
+rebase subsequent branches onto main before fast-forwarding. Any rebase conflict is a
+real signal — don't paper over it.
+
+Gradle daemon gotcha: if you `cd` into a worktree to rebase, the daemon caches that
+directory as its project root. Run `gradlew -p /absolute/path/to/repo test` or
+`pkill -f GradleDaemon` before switching back. (Learned in diary 052.)
+
+### 4. Post-run retrospective (5-question checklist)
+
+Write a short diary entry — proportional to the run. For a 3-agent run, ~10 minutes.
+The five questions:
+
+1. **Did the tasks conflict during merge?** Which files, which hunks?
+2. **Did any agent drift from conventions?** Signal for prompt improvements.
+3. **Did any agent independently arrive at a useful abstraction worth adopting broadly?**
+4. **Wall-clock time vs serial estimate — was parallelism worth it?**
+5. **Did the tasks expose anything about the codebase that was previously hidden?**
+
+Each recurring entry in question 2 is either (a) a CLAUDE.md rule to add, or (b) a
+prompt-template improvement. The retro feeds back into this document.
+
+### When NOT to parallelize
+
+- The task is small (single feature, <1 hour serial). Overhead isn't worth it.
+- Tasks are semantically coupled (one depends on the other's output).
+- The work involves a sweeping refactor that touches the module's skeleton.
+
+See diaries 043 and 047 for the broader parallelism analysis and the empirical
+finding that chokepoints are latent at current scale. Diary 052 is the canonical
+worked example of a successful 3-agent run.
+
 ## Tooling Principles
 
 When adding or configuring linters, static analysis, or other tools:
