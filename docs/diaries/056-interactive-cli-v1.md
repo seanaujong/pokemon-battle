@@ -112,6 +112,34 @@ concrete drivers instead of aesthetic ones.
   if something crashes or computes wrong, that's a real engine issue,
   not a CLI issue. Flag and fix outside this diary.
 
+## Design note: humans and agents as incidental co-users
+
+Three distinct input use cases, even though only (1) is in scope here:
+
+1. **Human plays via CLI** — stdin/stdout, optimized for reading and typing.
+2. **AI plays** — direct in-process `ChoiceProvider` implementation. Already
+   works today (`TypeAI`); no CLI involvement.
+3. **Agent plays via CLI** — wraps (1); drives stdin, parses stdout.
+
+The tempting design mistake is to *explicitly* engineer the CLI to serve both
+humans and agents — which typically compromises human ergonomics to earn
+agent-friendliness that a direct-API path would serve better anyway. The
+better framing: **a CLI that is maximally simple and predictable for humans
+is incidentally trivial for agents to drive.** Numbered menus, plain prompts,
+one decision per line, no flourishes — humans parse these fastest, and agents
+parse them trivially.
+
+If serious agent-evaluation (self-play, regression, training) ever becomes a
+first-class need, the right answer is a separate `AgentHarness` that
+implements `ChoiceProvider` directly (reading scripts, receiving decisions
+over a socket, etc.) — not a dual-purpose CLI. That's a future diary,
+tracked here only so the thought isn't lost.
+
+**Principle to carry forward:** designs that optimize for one clear audience
+often serve adjacent audiences for free. The cost of trying to serve two
+audiences *explicitly* is almost always worse than either single-audience
+design.
+
 ## Related
 
 - **Diary 055** — the architectural alternative; this diary's output
