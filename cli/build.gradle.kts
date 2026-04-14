@@ -37,6 +37,8 @@ repositories {
 dependencies {
     implementation(project(":engine"))
     implementation(project(":data"))
+    implementation(project(":render"))
+    implementation(project(":ai"))
     testImplementation(kotlin("test"))
 }
 

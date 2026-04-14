@@ -5,6 +5,8 @@ rootProject.name = "pokemon-battle"
 
 include(":engine")
 include(":data")
+include(":render")
+include(":ai")
 include(":data-ingestion")
 include(":cli")
 include(":analytics")

@@ -1,6 +1,9 @@
+// :render — turns BattleEvents into player-visible text. Pure transform; no I/O.
+// Pokemon Showdown puts rendering in client code (separate repo); diary 066
+// extracted this from :engine to put presentation outside mechanics.
+
 plugins {
     kotlin("jvm")
-    kotlin("plugin.serialization")
     id("org.jlleitschuh.gradle.ktlint")
     id("io.gitlab.arturbosch.detekt")
     jacoco
@@ -14,15 +17,9 @@ repositories {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3")
+    implementation(project(":engine"))
     testImplementation(kotlin("test"))
-    // Engine tests use catalogs (MoveDex.FLAMETHROWER, PokedexCatalog.CHARIZARD).
-    // Engine main is data-free per diary 065.
     testImplementation(project(":data"))
-    // Engine tests also use render/AI utilities (e.g. ScenarioTest's TypeAI fixture,
-    // SecondGenTest's renderBattle output check). Engine main has neither per diary 066.
-    testImplementation(project(":render"))
-    testImplementation(project(":ai"))
 }
 
 tasks.test {
@@ -38,7 +35,6 @@ tasks.jacocoTestReport {
 }
 
 detekt {
-    // detekt.yml stays at the repo root — shared across any future modules.
     config.setFrom(rootProject.files("detekt.yml"))
     buildUponDefaultConfig = true
 }
