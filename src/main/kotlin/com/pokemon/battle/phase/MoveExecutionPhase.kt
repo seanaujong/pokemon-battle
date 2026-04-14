@@ -23,6 +23,7 @@ import com.pokemon.battle.engine.TurnChoice
 import com.pokemon.battle.engine.TurnChoices
 import com.pokemon.battle.engine.VolatileAdded
 import com.pokemon.battle.engine.VolatileRemoved
+import com.pokemon.battle.engine.ability.AbilityRegistry
 import com.pokemon.battle.engine.defaultChanceCheck
 import com.pokemon.battle.engine.item.ItemRegistry
 import com.pokemon.battle.engine.resolveMoveOrder
@@ -36,7 +37,6 @@ import com.pokemon.battle.model.MoveTarget
 import com.pokemon.battle.model.PokemonState
 import com.pokemon.battle.model.Slot
 import com.pokemon.battle.model.StatusCondition
-import com.pokemon.battle.model.Type
 import com.pokemon.battle.model.Volatile
 
 @Suppress("TooManyFunctions") // Move execution decomposed into focused helpers
@@ -401,9 +401,9 @@ class MoveExecutionPhase(
     private fun abilityBlockingMove(
         defender: PokemonState,
         move: Move,
-    ): Ability? =
-        when (defender.ability) {
-            Ability.LEVITATE -> if (move.type == Type.GROUND && move.power > 0) Ability.LEVITATE else null
-            else -> null
-        }
+    ): Ability? {
+        val ability = defender.ability ?: return null
+        val effect = AbilityRegistry.effectFor(ability) ?: return null
+        return if (effect.blocksMove(defender, move)) ability else null
+    }
 }

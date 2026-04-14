@@ -9,12 +9,12 @@ import com.pokemon.battle.engine.TurnChoices
 import com.pokemon.battle.engine.VolatileRemoved
 import com.pokemon.battle.engine.WeatherDamage
 import com.pokemon.battle.engine.WeatherTick
+import com.pokemon.battle.engine.ability.AbilityRegistry
 import com.pokemon.battle.engine.item.ItemRegistry
 import com.pokemon.battle.model.StatusCondition
 import com.pokemon.battle.model.Type
 import com.pokemon.battle.model.Volatile
 import com.pokemon.battle.model.Weather
-import com.pokemon.battle.model.isWeatherImmune
 
 class EndOfTurnPhase : Phase {
     override fun resolve(
@@ -88,7 +88,7 @@ class EndOfTurnPhase : Phase {
             val pokemon = state.pokemonFor(slot)
             if (pokemon.isFainted) return@mapNotNull null
             if (pokemon.effectiveTypes.any { it in immuneTypes }) return@mapNotNull null
-            if (isWeatherImmune(pokemon.ability, weather)) return@mapNotNull null
+            if (AbilityRegistry.effectFor(pokemon.ability)?.blocksWeatherDamage(weather) == true) return@mapNotNull null
 
             val damage = pokemon.maxHp / 16
             WeatherDamage(target = slot, amount = damage, weather = weather)

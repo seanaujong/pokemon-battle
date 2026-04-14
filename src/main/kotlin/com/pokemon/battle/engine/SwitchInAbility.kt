@@ -1,36 +1,20 @@
 package com.pokemon.battle.engine
 
-import com.pokemon.battle.model.Ability
+import com.pokemon.battle.engine.ability.AbilityRegistry
 import com.pokemon.battle.model.Slot
-import com.pokemon.battle.model.StatType
-import com.pokemon.battle.model.Weather
 
 /**
  * Resolves switch-in ability triggers for a Pokemon that just entered a slot.
  * Called by SwitchPhase (voluntary switches), BattleLoop (faint replacements),
- * and future forced-switch logic.
+ * and self-switch moves (U-turn / Volt Switch).
+ *
+ * Delegates to [AbilityRegistry] — adding a new switch-in ability means a new
+ * [com.pokemon.battle.engine.ability.AbilityEffect] file + registry entry, no edits here.
  */
 fun resolveSwitchInAbility(
     state: BattleState,
     slot: Slot,
 ): List<BattleEvent> {
     val pokemon = state.pokemonFor(slot)
-    return when (pokemon.ability) {
-        Ability.INTIMIDATE -> {
-            val events = mutableListOf<BattleEvent>(AbilityTriggered(slot, Ability.INTIMIDATE))
-            for (opponentSlot in state.opponentSlots(slot)) {
-                val opponent = state.pokemonFor(opponentSlot)
-                if (!opponent.isFainted) {
-                    events.add(StatChanged(opponentSlot, StatType.ATTACK, -1))
-                }
-            }
-            events
-        }
-        Ability.DRIZZLE ->
-            listOf(
-                AbilityTriggered(slot, Ability.DRIZZLE),
-                WeatherSet(Weather.RAIN, 5),
-            )
-        else -> emptyList()
-    }
+    return AbilityRegistry.effectFor(pokemon.ability)?.onSwitchIn(state, slot) ?: emptyList()
 }

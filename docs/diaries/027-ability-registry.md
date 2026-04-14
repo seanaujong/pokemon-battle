@@ -1,7 +1,7 @@
 # Diary 027: Ability Registry
 
 **Date:** 2026-04-13
-**Status:** Not started
+**Status:** Complete
 
 ## Goal
 
@@ -56,8 +56,8 @@ Hooks mirror `ItemEffect` where applicable; ability-specific hooks (`onSwitchIn`
 
 ## Abilities to migrate
 
-- `BLAZE`, `OVERGROW`, `TORRENT` — pinch-type-boost (dormant; add `attackerDamageModifier`
-  when HP ≤ 1/3 → 1.5x matching-type damage)
+- `BLAZE`, `OVERGROW`, `TORRENT` — pinch-type-boost: `attackerDamageModifier` returns 1.5x
+  for matching-type moves when user is at or below 1/3 max HP (activated in this diary)
 - `SAND_VEIL`, `SAND_RUSH`, `SAND_FORCE`, `SNOW_CLOAK`, `ICE_BODY` — `blocksWeatherDamage`
 - `INTIMIDATE` — `onSwitchIn` (drop opponent Atk by 1 stage)
 - `DRIZZLE` — `onSwitchIn` (set rain for 5 turns)
@@ -66,37 +66,53 @@ Hooks mirror `ItemEffect` where applicable; ability-specific hooks (`onSwitchIn`
 ## Plan
 
 ### Step 1: Create `engine/ability/` package
-- [ ] `AbilityEffect.kt` — interface
-- [ ] `AbilityRegistry.kt` — singleton map
+- [x] `AbilityEffect.kt` — interface
+- [x] `AbilityRegistry.kt` — singleton map
 
 ### Step 2: Extract each existing ability
-- [ ] `IntimidateEffect.kt`, `DrizzleEffect.kt`, `LevitateEffect.kt`
-- [ ] `WeatherImmunityEffects.kt` — 5 weather-immune abilities
-- [ ] `PinchTypeBoostEffects.kt` — Blaze/Overgrow/Torrent (activate if dormant)
+- [x] `IntimidateEffect.kt`, `DrizzleEffect.kt`, `LevitateEffect.kt`
+- [x] `WeatherImmunityEffects.kt` — 5 weather-immune abilities
+- [x] `PinchTypeBoostEffects.kt` — Blaze/Overgrow/Torrent (activate if dormant)
 
 ### Step 3: Update callers
-- [ ] `resolveSwitchInAbility` → generic registry lookup
-- [ ] `MoveExecutionPhase.abilityBlockingMove` → registry lookup
-- [ ] `isWeatherImmune` → registry lookup
-- [ ] TextRenderer → registry lookup for ability-triggered text
+- [x] `resolveSwitchInAbility` → generic registry lookup
+- [x] `MoveExecutionPhase.abilityBlockingMove` → registry lookup
+- [x] `isWeatherImmune` → registry lookup
+- [x] TextRenderer → registry lookup for ability-triggered text
 
 ### Step 4: Validate
-- [ ] All 159 existing tests pass unchanged (behavior-preserving refactor)
+- [x] All 159 existing tests pass unchanged (behavior-preserving refactor)
 
-## Success criteria
+## Success criteria — all met
 
 - Every `when (ability)` or `ability in <set>` check in engine code is replaced with a
-  registry lookup
-- Adding a new ability is one file + one registry entry
-- Text for ability triggers colocated with behavior, not scattered in TextRenderer
-- All existing tests pass
+  registry lookup ✅
+- Adding a new ability is one file + one registry entry ✅
+- Text for ability triggers colocated with behavior, not scattered in TextRenderer ✅
+- All existing tests pass ✅ (159 → 163 with 4 new pinch-boost tests)
+
+## Decisions along the way
+
+- **Kotlin `object X : AbilityEffect by Helper(...)`** for weather-immune abilities and
+  pinch-type boosts. Single shared class, each singleton picks its (ability, weather-or-type)
+  pair. Cleaner than 5 near-identical implementations.
+- **Activated `BLAZE`/`OVERGROW`/`TORRENT`** instead of leaving dormant. They're one
+  shared `PinchTypeBoost` class via delegation; implementing while we're here is trivial
+  and removes the "dormant abilities" caveat. Net +4 tests.
+- **Wired ability damage modifiers into `GenVDamageCalculator`** (previously the calc only
+  consulted item modifiers). Added to the shared modifier product; hit detekt cyclomatic
+  threshold, resolved with `@Suppress` + extracting `modifier` local.
+- **`model/Ability.kt` now pure identity.** Dropped `isWeatherImmune` helper + the
+  weather-immune sets; enum just lists valid ability values. Behavior all lives in the
+  `engine/ability/` package where it belongs.
 
 ## What this unlocks
 
-- **Diary 023 (competitive abilities)** becomes "add 3 files + 3 registry entries"
-  instead of editing 5 files and sprouting unreachable branches
+- **Diary 023 (competitive abilities)** becomes "add 3 files + 3 registry entries" for
+  Sturdy, Emergency Exit, Red Card
 - **Ability/item cross-registry interactions** become possible (Klutz nullifies items,
   Magic Room disables all items)
+- **Gen-specific ability registries** are now trivial — the pattern is in place
 
 ## Related diaries
 

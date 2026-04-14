@@ -1,5 +1,6 @@
 package com.pokemon.battle.engine
 
+import com.pokemon.battle.engine.ability.AbilityRegistry
 import com.pokemon.battle.engine.item.ItemRegistry
 import com.pokemon.battle.model.Effectiveness
 import com.pokemon.battle.model.Move
@@ -33,6 +34,7 @@ fun interface DamageCalculator {
 class GenVDamageCalculator(
     private val typeChart: TypeChart = StandardTypeChart,
 ) : DamageCalculator {
+    @Suppress("CyclomaticComplexMethod") // Single-expression damage formula with many independent modifiers
     override fun calculate(
         attacker: PokemonState,
         defender: PokemonState,
@@ -62,7 +64,10 @@ class GenVDamageCalculator(
         val weatherMod = weatherDamageModifier(weather, move.type)
         val attackerItemMod = ItemRegistry.effectFor(attacker.item)?.attackerDamageModifier(attacker, move) ?: 1.0
         val defenderItemMod = ItemRegistry.effectFor(defender.item)?.defenderDamageModifier(defender, move) ?: 1.0
+        val attackerAbilityMod = AbilityRegistry.effectFor(attacker.ability)?.attackerDamageModifier(attacker, move) ?: 1.0
+        val defenderAbilityMod = AbilityRegistry.effectFor(defender.ability)?.defenderDamageModifier(defender, move) ?: 1.0
         val itemMod = attackerItemMod * defenderItemMod
+        val abilityMod = attackerAbilityMod * defenderAbilityMod
 
         val typeMultiplier = typeChart.effectiveness(move.type, defender.effectiveTypes)
         val effectiveness = Effectiveness.from(typeMultiplier)
@@ -72,8 +77,9 @@ class GenVDamageCalculator(
         val randomRoll = roll(85..100)
 
         val baseDamage = ((2.0 * level / 5.0 + 2.0) * move.power * atk / def) / 50.0 + 2.0
+        val modifier = stab * typeMultiplier * burnMod * critMod * weatherMod * itemMod * abilityMod * spreadModifier
         val damage =
-            (baseDamage * stab * typeMultiplier * burnMod * critMod * weatherMod * itemMod * spreadModifier * randomRoll / 100.0).toInt()
+            (baseDamage * modifier * randomRoll / 100.0).toInt()
                 .coerceAtLeast(if (typeMultiplier > 0.0) 1 else 0)
 
         return DamageResult(damage, effectiveness)

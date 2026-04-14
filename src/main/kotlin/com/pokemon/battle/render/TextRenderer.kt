@@ -25,6 +25,7 @@ import com.pokemon.battle.engine.VolatileRemoved
 import com.pokemon.battle.engine.WeatherDamage
 import com.pokemon.battle.engine.WeatherSet
 import com.pokemon.battle.engine.WeatherTick
+import com.pokemon.battle.engine.ability.AbilityRegistry
 import com.pokemon.battle.engine.item.ItemRegistry
 import com.pokemon.battle.model.Ability
 import com.pokemon.battle.model.Effectiveness
@@ -312,12 +313,24 @@ object TextRenderer : BattleRenderer {
     private fun renderAbilityTriggered(
         event: AbilityTriggered,
         stateAfter: BattleState,
-    ): List<String> = listOf("${name(stateAfter, event.slot)}'s ${abilityName(event.ability)}!")
+    ): List<String> {
+        val pokemonName = name(stateAfter, event.slot)
+        val text =
+            AbilityRegistry.effectFor(event.ability)?.renderTriggered(pokemonName)
+                ?: "$pokemonName's ${abilityName(event.ability)}!"
+        return listOf(text)
+    }
 
     private fun renderAbilityBlocked(
         event: AbilityBlocked,
         state: BattleState,
-    ): List<String> = listOf("It doesn't affect ${name(state, event.slot)}... (${abilityName(event.ability)})")
+    ): List<String> {
+        val pokemonName = name(state, event.slot)
+        val text =
+            AbilityRegistry.effectFor(event.ability)?.renderBlocked(pokemonName)
+                ?: "It doesn't affect $pokemonName... (${abilityName(event.ability)})"
+        return listOf(text)
+    }
 
     // --- Type changes ---
 
