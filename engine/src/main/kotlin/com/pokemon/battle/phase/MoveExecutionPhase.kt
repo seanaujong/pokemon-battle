@@ -492,6 +492,12 @@ class MoveExecutionPhase(
         val intercept = abilityIntercept ?: itemIntercept
         val finalDamage = intercept?.adjustedDamage ?: result.damage
 
+        if (isCritical && finalDamage > 0) {
+            val critEvent = com.pokemon.battle.engine.CriticalHit(targetSlot)
+            events.add(critEvent)
+            currentState = critEvent.apply(currentState)
+        }
+
         val damageEvent = DamageDealt(targetSlot, finalDamage, result.effectiveness, isCritical)
         events.add(damageEvent)
         currentState = damageEvent.apply(currentState)

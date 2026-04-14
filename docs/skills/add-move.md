@@ -38,9 +38,24 @@ behavior (e.g. add a burn chance to an existing fire move).
    `data/src/main/kotlin/com/pokemon/battle/data/MoveDex.kt` and add your move
    using the existing `register(Move(...))` pattern. Set power, accuracy,
    priority, target, and `effects` as a list of existing `MoveEffect`
-   variants (StatBoost, SetVolatile, SelfSwitch, SetTrickRoom,
-   SetSideConditionOnUserSide, SetHazardOnOpposingSide,
-   ClearHazardsOnUserSide, UserStatBoost).
+   variants. Current variants (check `model/MoveEffect.kt` for the
+   authoritative list):
+   - **`StatBoost(stat, stages)`** — stat change applied to the move's
+     *target*. Works for self-boost moves (Swords Dance, Quiver Dance)
+     when `target = SELF`, and for target-debuff moves (Growl) when the
+     target is an opponent. Most common.
+   - **`UserStatBoost(stat, stages)`** — stat change applied to the *user*,
+     independent of target. Used for damaging moves with a secondary
+     self-boost (U-turn / Volt Switch emit Speed+1 on the user after
+     hitting the opponent). Don't confuse with StatBoost+target=SELF.
+   - **`SetVolatile(volatile)`** — Protect, Leech Seed, future Substitute.
+   - **`SelfSwitch`** — U-turn, Volt Switch.
+   - **`SetTrickRoom(turns)`** — the field-level flip.
+   - **`SetSideConditionOnUserSide(condition, turns)`** — Tailwind,
+     Reflect, Light Screen.
+   - **`SetHazardOnOpposingSide(hazard, maxLayers)`** — Stealth Rock,
+     Spikes, Toxic Spikes, Sticky Web.
+   - **`ClearHazardsOnUserSide`** — Rapid Spin, Defog (on own side).
 2. **If the existing `MoveEffect` variants cover your move, you're done** —
    run `./gradlew test`, assert on the move's behavior in an existing or new
    test file, and commit. No engine-side changes.

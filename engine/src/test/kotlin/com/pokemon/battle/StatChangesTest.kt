@@ -77,6 +77,26 @@ class StatChangesTest {
     }
 
     @Test
+    fun `Quiver Dance raises SpA, SpD, and Speed each by 1 stage`() {
+        val state = makeState()
+        val choices =
+            TurnChoices.singles(
+                TurnChoice.UseMove(com.pokemon.battle.data.MoveDex.QUIVER_DANCE),
+                TurnChoice.UseMove(tackle),
+            )
+        val phase = MoveExecutionPhase(GenVRegistries, roll = { 100 }, chanceCheck = { _, _ -> false })
+        val events = phase.resolve(PipelineState(state), choices).events
+
+        val statChanged = events.filterIsInstance<StatChanged>().filter { it.target == Slot.p1() }
+        val byStat = statChanged.associate { it.stat to it.stages }
+
+        assertEquals(1, byStat[StatType.SPECIAL_ATTACK])
+        assertEquals(1, byStat[StatType.SPECIAL_DEFENSE])
+        assertEquals(1, byStat[StatType.SPEED])
+        assertEquals(3, statChanged.size, "expected exactly three stat changes on the user")
+    }
+
+    @Test
     fun `Swords Dance raises user attack by 2 stages`() {
         val state = makeState()
         val choices =

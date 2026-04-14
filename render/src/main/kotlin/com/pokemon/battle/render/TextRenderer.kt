@@ -3,6 +3,7 @@ package com.pokemon.battle.render
 import com.pokemon.battle.engine.AbilityBlocked
 import com.pokemon.battle.engine.AbilityTriggered
 import com.pokemon.battle.engine.BattleState
+import com.pokemon.battle.engine.CriticalHit
 import com.pokemon.battle.engine.DamageDealt
 import com.pokemon.battle.engine.GameEvent
 import com.pokemon.battle.engine.GimmickUsed
@@ -55,6 +56,7 @@ object TextRenderer : BattleRenderer {
             is MoveOrderDecided -> emptyList()
             is MoveAttempted -> renderMoveAttempted(event, stateBefore)
             is MoveFailed -> renderMoveFailed(event, stateBefore)
+            is CriticalHit -> renderCriticalHit(event, stateBefore)
             is DamageDealt -> renderDamageDealt(event, stateBefore, stateAfter)
             is PokemonFainted -> renderFainted(event, stateBefore)
             is ProtectBlocked -> renderProtectBlocked(event, stateBefore)
@@ -202,6 +204,12 @@ object TextRenderer : BattleRenderer {
 
     // --- Damage ---
 
+    @Suppress("UNUSED_PARAMETER") // state not needed today; kept for parity with other render methods
+    private fun renderCriticalHit(
+        event: CriticalHit,
+        state: BattleState,
+    ): List<String> = listOf("A critical hit!")
+
     private fun renderDamageDealt(
         event: DamageDealt,
         stateBefore: BattleState,
@@ -216,9 +224,10 @@ object TextRenderer : BattleRenderer {
             Effectiveness.NEUTRAL -> {}
         }
 
-        if (event.critical) {
-            lines.add("A critical hit!")
-        }
+        // NOTE: the "A critical hit!" line is emitted by a separate `CriticalHit` event
+        // (rendered via `renderCriticalHit` ahead of this DamageDealt). The boolean on
+        // DamageDealt is kept for backward compat with consumers that inspect it
+        // directly, but the render path is single-sourced.
 
         val hpBefore = stateBefore.pokemonFor(event.target).currentHp
         val hpAfter = stateAfter.pokemonFor(event.target).currentHp

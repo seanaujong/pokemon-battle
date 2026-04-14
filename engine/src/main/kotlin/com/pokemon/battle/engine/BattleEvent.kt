@@ -79,6 +79,21 @@ data class DamageDealt(
     }
 }
 
+/**
+ * Informational: the pending damage will be a critical hit. Emitted immediately
+ * before the corresponding [DamageDealt] (which also carries `critical = true`).
+ * Splitting the event out lets analytics count crits without scanning for a
+ * boolean field, and lets renderers place the "Critical hit!" line cleanly
+ * ahead of the damage line.
+ *
+ * Pure informational — [apply] returns state unchanged.
+ */
+data class CriticalHit(
+    val target: Slot,
+) : GameEvent {
+    override fun apply(state: BattleState): BattleState = state
+}
+
 data class PokemonFainted(
     val slot: Slot,
 ) : GameEvent {

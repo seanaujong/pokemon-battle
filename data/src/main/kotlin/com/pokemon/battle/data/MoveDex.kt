@@ -120,6 +120,23 @@ object MoveDex {
             ),
         )
 
+    val QUIVER_DANCE =
+        register(
+            Move(
+                "Quiver Dance",
+                Type.BUG,
+                MoveCategory.STATUS,
+                0,
+                target = MoveTarget.SELF,
+                effects =
+                    listOf(
+                        MoveEffect.StatBoost(StatType.SPECIAL_ATTACK, 1),
+                        MoveEffect.StatBoost(StatType.SPECIAL_DEFENSE, 1),
+                        MoveEffect.StatBoost(StatType.SPEED, 1),
+                    ),
+            ),
+        )
+
     val GROWL =
         register(
             Move(

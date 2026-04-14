@@ -5,6 +5,7 @@ import com.pokemon.battle.data.MoveDex
 import com.pokemon.battle.data.Pokedex
 import com.pokemon.battle.engine.BattleState
 import com.pokemon.battle.engine.ChanceCheck
+import com.pokemon.battle.engine.CriticalHit
 import com.pokemon.battle.engine.DamageDealt
 import com.pokemon.battle.engine.TurnChoice
 import com.pokemon.battle.engine.TurnChoices
@@ -157,5 +158,53 @@ class CriticalHitTest {
         val damageEvents = result.events.filterIsInstance<DamageDealt>()
 
         assertTrue(damageEvents.none { it.critical }, "Roll of 100 should never trigger crits")
+    }
+
+    @Test
+    fun `CriticalHit event fires alongside DamageDealt on a crit`() {
+        val charizard = Pokemon(pokedex["Charizard"]!!, level = 50)
+        val venusaur = Pokemon(pokedex["Venusaur"]!!, level = 50)
+        val state =
+            BattleState.singles(
+                PokemonState(charizard, currentHp = charizard.maxHp),
+                PokemonState(venusaur, currentHp = venusaur.maxHp),
+            )
+        val choices =
+            TurnChoices.singles(
+                TurnChoice.UseMove(MoveDex.FLAMETHROWER),
+                TurnChoice.UseMove(MoveDex.SLUDGE_BOMB),
+            )
+
+        // roll = { 1 } → crit roll hits (1..24 == 1 guaranteed)
+        val critPipeline =
+            TurnPipeline(
+                listOf(
+                    MoveOrderPhase(GenVRegistries),
+                    SwitchPhase(GenVRegistries),
+                    MoveExecutionPhase(GenVRegistries, roll = { 1 }, chanceCheck = noChance),
+                    EndOfTurnPhase(GenVRegistries),
+                ),
+            )
+        val events = critPipeline.resolveToCompletion(state, choices).events
+
+        val crits = events.filterIsInstance<CriticalHit>()
+        val crittedDamage = events.filterIsInstance<DamageDealt>().filter { it.critical }
+        assertTrue(crits.isNotEmpty(), "at least one CriticalHit event should fire")
+        assertEquals(
+            crittedDamage.size,
+            crits.size,
+            "each DamageDealt(critical=true) should be preceded by exactly one CriticalHit event",
+        )
+
+        // Ordering: each CriticalHit must appear immediately before its DamageDealt.
+        val indexedEvents = events.withIndex().toList()
+        for (crit in crits) {
+            val critIdx = indexedEvents.first { it.value === crit }.index
+            val nextRelevant = indexedEvents.drop(critIdx + 1).firstOrNull { it.value is DamageDealt }
+            assertTrue(
+                nextRelevant != null && (nextRelevant.value as DamageDealt).target == crit.target,
+                "CriticalHit at index $critIdx should be followed by matching DamageDealt",
+            )
+        }
     }
 }

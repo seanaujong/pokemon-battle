@@ -44,11 +44,15 @@ pause reason, etc.
    `PipelineState` and is used for mid-turn input and resumption bookkeeping
    (diary 061). Almost every new event is a `GameEvent`.
 2. **Find the topical events file** in
-   `engine/src/main/kotlin/com/pokemon/battle/engine/`
-   (`StatEvents.kt`, `HazardEvents.kt`, `ItemEvents.kt`,
-   `AbilityEvents.kt`, `StatusEvents.kt`, `WeatherEvents.kt`,
-   `SideConditionEvents.kt`, `SwitchEvents.kt`, or `TurnInputEvents.kt` for
-   control events). Add your `data class` there.
+   `engine/src/main/kotlin/com/pokemon/battle/engine/`. Core events
+   (`MoveAttempted`, `DamageDealt`, `PokemonFainted`, `ProtectBlocked`,
+   `MoveOrderDecided`, `MoveFailed`) live in `BattleEvent.kt` itself next
+   to the sealed hierarchy. Per-concern events live in grouped files:
+   `StatEvents.kt`, `HazardEvents.kt`, `ItemEvents.kt`, `AbilityEvents.kt`,
+   `StatusEvents.kt`, `WeatherEvents.kt`, `SideConditionEvents.kt`,
+   `SwitchEvents.kt`, or `TurnInputEvents.kt` for control events. Add
+   your `data class` in the topically-closest file; if none fits,
+   `BattleEvent.kt` is a reasonable default.
 3. **Implement `apply`.** It must be pure and deterministic. Use
    `state.withPokemon(slot, pokemon.copy(...))` or `state.copy(field = ...)`
    — never mutate. If you find yourself writing `if (someGameRule) { ... }
@@ -100,6 +104,17 @@ pause reason, etc.
    the relevant trigger (e.g. post-damage hooks, end-of-turn). Do not add a
    new phase just to emit a new event — phases are for *orchestration*,
    not for single events.
+
+**6b. You're splitting an existing field into a dedicated event** (e.g. the
+   `CriticalHit` event was extracted from `DamageDealt.critical`). Three
+   steps: (1) leave the original field in place for backward compat unless
+   you've audited every consumer; (2) add the emit site immediately
+   *before* the original event so renderers and analytics see the split
+   event first; (3) migrate the render path to the new event —
+   searching `"original line"` across `TextRenderer.kt` catches any
+   conditional rendering that needs to move. `CriticalHitTest`'s
+   "fires alongside DamageDealt" assertion is the template for testing
+   the ordering.
 
 ## Related information
 

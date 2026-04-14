@@ -4,6 +4,7 @@ import com.pokemon.battle.engine.AbilityBlocked
 import com.pokemon.battle.engine.AbilityTriggered
 import com.pokemon.battle.engine.BattleEvent
 import com.pokemon.battle.engine.ControlEvent
+import com.pokemon.battle.engine.CriticalHit
 import com.pokemon.battle.engine.DamageDealt
 import com.pokemon.battle.engine.GameEvent
 import com.pokemon.battle.engine.GimmickUsed
@@ -112,6 +113,11 @@ data class DamageDealtJson(
     val critical: Boolean,
 ) : GameEventJson {
     override fun toDomain() = DamageDealt(target, amount, effectiveness, critical)
+}
+
+@Serializable
+data class CriticalHitJson(val target: Slot) : GameEventJson {
+    override fun toDomain() = CriticalHit(target)
 }
 
 @Serializable
@@ -365,6 +371,7 @@ fun BattleEvent.toJson(): BattleEventJson =
         is MoveAttempted -> MoveAttemptedJson(attacker, move)
         is MoveFailed -> MoveFailedJson(attacker, reason)
         is DamageDealt -> DamageDealtJson(target, amount, effectiveness, critical)
+        is CriticalHit -> CriticalHitJson(target)
         is PokemonFainted -> PokemonFaintedJson(slot)
         is ProtectBlocked -> ProtectBlockedJson(slot)
         is StatChanged -> StatChangedJson(target, stat, stages)
