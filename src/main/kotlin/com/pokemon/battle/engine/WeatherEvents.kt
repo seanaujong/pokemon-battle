@@ -2,7 +2,9 @@ package com.pokemon.battle.engine
 
 import com.pokemon.battle.model.Slot
 import com.pokemon.battle.model.Weather
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class WeatherDamage(
     val target: Slot,
     val amount: Int,
@@ -15,6 +17,7 @@ data class WeatherDamage(
     }
 }
 
+@Serializable
 data class WeatherTick(
     val weather: Weather,
     val turnsRemaining: Int,
@@ -30,6 +33,7 @@ data class WeatherTick(
     }
 }
 
+@Serializable
 data class WeatherSet(
     val weather: Weather,
     val turnsRemaining: Int,
@@ -39,6 +43,7 @@ data class WeatherSet(
 }
 
 /** Sets or clears Trick Room. `turnsRemaining = 0` clears it. */
+@Serializable
 data class TrickRoomSet(
     val turnsRemaining: Int,
 ) : BattleEvent {

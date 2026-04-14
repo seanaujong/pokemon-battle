@@ -1,5 +1,8 @@
 package com.pokemon.battle.model
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class Slot(val side: Side, val position: Int = 0) {
     companion object {
         /** Singles shorthand: side 1's only slot. */

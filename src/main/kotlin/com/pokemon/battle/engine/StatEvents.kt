@@ -4,7 +4,9 @@ import com.pokemon.battle.model.Slot
 import com.pokemon.battle.model.StatType
 import com.pokemon.battle.model.Type
 import com.pokemon.battle.model.Volatile
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class StatChanged(
     val target: Slot,
     val stat: StatType,
@@ -16,6 +18,7 @@ data class StatChanged(
     }
 }
 
+@Serializable
 data class TypeChanged(
     val target: Slot,
     val newTypes: List<Type>,
@@ -26,6 +29,7 @@ data class TypeChanged(
     }
 }
 
+@Serializable
 data class VolatileAdded(
     val target: Slot,
     val volatile: Volatile,
@@ -36,6 +40,7 @@ data class VolatileAdded(
     }
 }
 
+@Serializable
 data class VolatileRemoved(
     val target: Slot,
     val volatile: Volatile,

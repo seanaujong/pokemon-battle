@@ -1,7 +1,11 @@
 package com.pokemon.battle.model
 
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.Transient
+
 enum class MoveCategory { PHYSICAL, SPECIAL, STATUS }
 
+@Serializable
 data class Move(
     val name: String,
     val type: Type,
@@ -24,6 +28,12 @@ data class Move(
      * Each hit independently rolls damage and crit, runs through per-hit
      * intercepts (Sturdy, Focus Sash), and stops early if the target faints.
      * `null` means the move strikes exactly once (default).
+     *
+     * Marked `@Transient` because `IntRange` has no kotlinx-serialization support
+     * out of the box. Multi-hit count is not needed for event auditing — the
+     * emitted `DamageDealt` events per hit tell the complete story — so we
+     * accept losing this field on round-trip.
      */
+    @Transient
     val hitCount: IntRange? = null,
 )
