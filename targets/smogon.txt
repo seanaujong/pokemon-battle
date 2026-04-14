@@ -1,0 +1,4 @@
+# Smogon monthly stats to ingest.
+# Format: <YYYY-MM> <format> <ratingCutoff>
+# See diary 041 Phase 3.
+2026-02 gen9ou 1825

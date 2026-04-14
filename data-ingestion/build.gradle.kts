@@ -16,6 +16,17 @@ tasks.named<JavaExec>("run") {
     workingDir = rootProject.projectDir
 }
 
+// Smogon chaos-stats ingestion (diary 041 Phase 3) — second entrypoint, reads
+// `targets/smogon.txt`, writes `.cache/smogon/` (gitignored) + `data/raw/smogon/`
+// + `data/smogon/` (both committed).
+tasks.register<JavaExec>("ingestSmogon") {
+    group = "application"
+    description = "Fetch Smogon monthly chaos stats and transform to top-sets JSON."
+    mainClass.set("com.pokemon.battle.ingest.smogon.SmogonIngestMainKt")
+    classpath = sourceSets["main"].runtimeClasspath
+    workingDir = rootProject.projectDir
+}
+
 group = "com.pokemon.battle"
 version = "1.0-SNAPSHOT"
 

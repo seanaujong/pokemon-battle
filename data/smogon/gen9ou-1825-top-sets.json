@@ -1,0 +1,621 @@
+{
+    "format": "gen9ou",
+    "month": "2026-02",
+    "ratingCutoff": 1825,
+    "numberOfBattles": 1034254,
+    "topSpecies": [
+        {
+            "name": "Great Tusk",
+            "usageRank": 1,
+            "rawCount": 630196,
+            "topAbilities": [
+                "protosynthesis"
+            ],
+            "topItems": [
+                "boosterenergy",
+                "rockyhelmet",
+                "heavydutyboots",
+                "leftovers"
+            ],
+            "topMoves": [
+                "rapidspin",
+                "headlongrush",
+                "icespinner",
+                "stealthrock"
+            ]
+        },
+        {
+            "name": "Kingambit",
+            "usageRank": 2,
+            "rawCount": 425975,
+            "topAbilities": [
+                "supremeoverlord",
+                "defiant"
+            ],
+            "topItems": [
+                "leftovers",
+                "blackglasses",
+                "airballoon",
+                "lumberry"
+            ],
+            "topMoves": [
+                "suckerpunch",
+                "swordsdance",
+                "ironhead",
+                "kowtowcleave"
+            ]
+        },
+        {
+            "name": "Gholdengo",
+            "usageRank": 3,
+            "rawCount": 394036,
+            "topAbilities": [
+                "goodasgold"
+            ],
+            "topItems": [
+                "choicescarf",
+                "airballoon",
+                "grassyseed",
+                "metalcoat"
+            ],
+            "topMoves": [
+                "shadowball",
+                "makeitrain",
+                "recover",
+                "nastyplot"
+            ]
+        },
+        {
+            "name": "Dragapult",
+            "usageRank": 4,
+            "rawCount": 335477,
+            "topAbilities": [
+                "infiltrator",
+                "clearbody"
+            ],
+            "topItems": [
+                "heavydutyboots",
+                "choiceband",
+                "choicespecs",
+                "lifeorb"
+            ],
+            "topMoves": [
+                "uturn",
+                "willowisp",
+                "dragondarts",
+                "dracometeor"
+            ]
+        },
+        {
+            "name": "Dragonite",
+            "usageRank": 5,
+            "rawCount": 324454,
+            "topAbilities": [
+                "multiscale",
+                "innerfocus"
+            ],
+            "topItems": [
+                "heavydutyboots",
+                "leftovers",
+                "silkscarf",
+                "loadeddice"
+            ],
+            "topMoves": [
+                "dragondance",
+                "earthquake",
+                "roost",
+                "extremespeed"
+            ]
+        },
+        {
+            "name": "Iron Valiant",
+            "usageRank": 6,
+            "rawCount": 322645,
+            "topAbilities": [
+                "quarkdrive"
+            ],
+            "topItems": [
+                "boosterenergy",
+                "choicespecs",
+                "choicescarf",
+                "expertbelt"
+            ],
+            "topMoves": [
+                "moonblast",
+                "shadowball",
+                "knockoff",
+                "calmmind"
+            ]
+        },
+        {
+            "name": "Ogerpon-Wellspring",
+            "usageRank": 7,
+            "rawCount": 284779,
+            "topAbilities": [
+                "waterabsorb"
+            ],
+            "topItems": [
+                "wellspringmask"
+            ],
+            "topMoves": [
+                "ivycudgel",
+                "swordsdance",
+                "knockoff",
+                "playrough"
+            ]
+        },
+        {
+            "name": "Corviknight",
+            "usageRank": 8,
+            "rawCount": 272666,
+            "topAbilities": [
+                "pressure",
+                "mirrorarmor"
+            ],
+            "topItems": [
+                "rockyhelmet",
+                "leftovers",
+                "covertcloak",
+                "heavydutyboots"
+            ],
+            "topMoves": [
+                "roost",
+                "defog",
+                "bravebird",
+                "uturn"
+            ]
+        },
+        {
+            "name": "Raging Bolt",
+            "usageRank": 9,
+            "rawCount": 267307,
+            "topAbilities": [
+                "protosynthesis"
+            ],
+            "topItems": [
+                "boosterenergy",
+                "choicespecs",
+                "leftovers",
+                "heavydutyboots"
+            ],
+            "topMoves": [
+                "thunderclap",
+                "dragonpulse",
+                "calmmind",
+                "thunderbolt"
+            ]
+        },
+        {
+            "name": "Slowking-Galar",
+            "usageRank": 10,
+            "rawCount": 255296,
+            "topAbilities": [
+                "regenerator",
+                "curiousmedicine"
+            ],
+            "topItems": [
+                "assaultvest",
+                "heavydutyboots",
+                "shucaberry",
+                "blacksludge"
+            ],
+            "topMoves": [
+                "sludgebomb",
+                "chillyreception",
+                "icebeam",
+                "futuresight"
+            ]
+        },
+        {
+            "name": "Gliscor",
+            "usageRank": 11,
+            "rawCount": 255136,
+            "topAbilities": [
+                "poisonheal",
+                "hypercutter"
+            ],
+            "topItems": [
+                "toxicorb",
+                "focussash",
+                "weaknesspolicy",
+                "redcard"
+            ],
+            "topMoves": [
+                "protect",
+                "knockoff",
+                "toxic",
+                "earthquake"
+            ]
+        },
+        {
+            "name": "Zamazenta",
+            "usageRank": 12,
+            "rawCount": 239935,
+            "topAbilities": [
+                "dauntlessshield"
+            ],
+            "topItems": [
+                "leftovers",
+                "heavydutyboots",
+                "lifeorb",
+                "lightclay"
+            ],
+            "topMoves": [
+                "crunch",
+                "bodypress",
+                "irondefense",
+                "heavyslam"
+            ]
+        },
+        {
+            "name": "Hatterene",
+            "usageRank": 13,
+            "rawCount": 215957,
+            "topAbilities": [
+                "magicbounce",
+                "healer"
+            ],
+            "topItems": [
+                "rockyhelmet",
+                "leftovers",
+                "redcard",
+                "assaultvest"
+            ],
+            "topMoves": [
+                "psychicnoise",
+                "drainingkiss",
+                "nuzzle",
+                "painsplit"
+            ]
+        },
+        {
+            "name": "Cinderace",
+            "usageRank": 14,
+            "rawCount": 211609,
+            "topAbilities": [
+                "blaze",
+                "libero"
+            ],
+            "topItems": [
+                "heavydutyboots",
+                "choicescarf",
+                "focussash",
+                "choiceband"
+            ],
+            "topMoves": [
+                "pyroball",
+                "uturn",
+                "courtchange",
+                "willowisp"
+            ]
+        },
+        {
+            "name": "Alomomola",
+            "usageRank": 15,
+            "rawCount": 208129,
+            "topAbilities": [
+                "regenerator",
+                "healer"
+            ],
+            "topItems": [
+                "assaultvest",
+                "rockyhelmet",
+                "heavydutyboots",
+                "choiceband"
+            ],
+            "topMoves": [
+                "flipturn",
+                "wish",
+                "protect",
+                "mirrorcoat"
+            ]
+        },
+        {
+            "name": "Landorus-Therian",
+            "usageRank": 16,
+            "rawCount": 201226,
+            "topAbilities": [
+                "intimidate"
+            ],
+            "topItems": [
+                "rockyhelmet",
+                "choicescarf",
+                "leftovers",
+                "earthplate"
+            ],
+            "topMoves": [
+                "uturn",
+                "stealthrock",
+                "earthquake",
+                "taunt"
+            ]
+        },
+        {
+            "name": "Glimmora",
+            "usageRank": 17,
+            "rawCount": 200985,
+            "topAbilities": [
+                "toxicdebris",
+                "corrosion"
+            ],
+            "topItems": [
+                "redcard",
+                "powerherb",
+                "focussash",
+                "choicescarf"
+            ],
+            "topMoves": [
+                "earthpower",
+                "mortalspin",
+                "stealthrock",
+                "powergem"
+            ]
+        },
+        {
+            "name": "Samurott-Hisui",
+            "usageRank": 18,
+            "rawCount": 198652,
+            "topAbilities": [
+                "sharpness",
+                "torrent"
+            ],
+            "topItems": [
+                "assaultvest",
+                "heavydutyboots",
+                "focussash",
+                "blackglasses"
+            ],
+            "topMoves": [
+                "ceaselessedge",
+                "suckerpunch",
+                "knockoff",
+                "razorshell"
+            ]
+        },
+        {
+            "name": "Iron Treads",
+            "usageRank": 19,
+            "rawCount": 196994,
+            "topAbilities": [
+                "quarkdrive"
+            ],
+            "topItems": [
+                "boosterenergy",
+                "leftovers",
+                "airballoon",
+                "clearamulet"
+            ],
+            "topMoves": [
+                "rapidspin",
+                "stealthrock",
+                "earthquake",
+                "knockoff"
+            ]
+        },
+        {
+            "name": "Pecharunt",
+            "usageRank": 20,
+            "rawCount": 193381,
+            "topAbilities": [
+                "poisonpuppeteer"
+            ],
+            "topItems": [
+                "heavydutyboots",
+                "airballoon",
+                "rockyhelmet",
+                "covertcloak"
+            ],
+            "topMoves": [
+                "recover",
+                "malignantchain",
+                "shadowball",
+                "partingshot"
+            ]
+        },
+        {
+            "name": "Ceruledge",
+            "usageRank": 21,
+            "rawCount": 189339,
+            "topAbilities": [
+                "weakarmor",
+                "flashfire"
+            ],
+            "topItems": [
+                "lifeorb",
+                "focussash",
+                "airballoon",
+                "leftovers"
+            ],
+            "topMoves": [
+                "swordsdance",
+                "bitterblade",
+                "poltergeist",
+                "shadowsneak"
+            ]
+        },
+        {
+            "name": "Rillaboom",
+            "usageRank": 22,
+            "rawCount": 178792,
+            "topAbilities": [
+                "grassysurge",
+                "overgrow"
+            ],
+            "topItems": [
+                "lifeorb",
+                "choiceband",
+                "terrainextender",
+                "choicescarf"
+            ],
+            "topMoves": [
+                "grassyglide",
+                "knockoff",
+                "swordsdance",
+                "woodhammer"
+            ]
+        },
+        {
+            "name": "Kyurem",
+            "usageRank": 23,
+            "rawCount": 177494,
+            "topAbilities": [
+                "pressure"
+            ],
+            "topItems": [
+                "leftovers",
+                "choicespecs",
+                "loadeddice",
+                "assaultvest"
+            ],
+            "topMoves": [
+                "freezedry",
+                "earthpower",
+                "icebeam",
+                "substitute"
+            ]
+        },
+        {
+            "name": "Garganacl",
+            "usageRank": 24,
+            "rawCount": 163587,
+            "topAbilities": [
+                "purifyingsalt",
+                "clearbody"
+            ],
+            "topItems": [
+                "leftovers",
+                "heavydutyboots",
+                "mentalherb",
+                "covertcloak"
+            ],
+            "topMoves": [
+                "saltcure",
+                "recover",
+                "protect",
+                "stealthrock"
+            ]
+        },
+        {
+            "name": "Darkrai",
+            "usageRank": 25,
+            "rawCount": 161037,
+            "topAbilities": [
+                "baddreams"
+            ],
+            "topItems": [
+                "heavydutyboots",
+                "choicespecs",
+                "leftovers",
+                "lifeorb"
+            ],
+            "topMoves": [
+                "darkpulse",
+                "icebeam",
+                "sludgebomb",
+                "nastyplot"
+            ]
+        },
+        {
+            "name": "Ting-Lu",
+            "usageRank": 26,
+            "rawCount": 160649,
+            "topAbilities": [
+                "vesselofruin"
+            ],
+            "topItems": [
+                "leftovers",
+                "rockyhelmet",
+                "redcard",
+                "weaknesspolicy"
+            ],
+            "topMoves": [
+                "ruination",
+                "earthquake",
+                "stealthrock",
+                "whirlwind"
+            ]
+        },
+        {
+            "name": "Zapdos",
+            "usageRank": 27,
+            "rawCount": 154646,
+            "topAbilities": [
+                "static",
+                "pressure"
+            ],
+            "topItems": [
+                "heavydutyboots",
+                "rockyhelmet",
+                "choicespecs",
+                "assaultvest"
+            ],
+            "topMoves": [
+                "hurricane",
+                "roost",
+                "voltswitch",
+                "thunderwave"
+            ]
+        },
+        {
+            "name": "Iron Moth",
+            "usageRank": 28,
+            "rawCount": 153116,
+            "topAbilities": [
+                "quarkdrive"
+            ],
+            "topItems": [
+                "boosterenergy",
+                "heavydutyboots",
+                "choicespecs",
+                "powerherb"
+            ],
+            "topMoves": [
+                "fierydance",
+                "sludgewave",
+                "substitute",
+                "terablast"
+            ]
+        },
+        {
+            "name": "Walking Wake",
+            "usageRank": 29,
+            "rawCount": 150662,
+            "topAbilities": [
+                "protosynthesis"
+            ],
+            "topItems": [
+                "choicespecs",
+                "heavydutyboots",
+                "wiseglasses",
+                "boosterenergy"
+            ],
+            "topMoves": [
+                "dracometeor",
+                "hydrosteam",
+                "flipturn",
+                "knockoff"
+            ]
+        },
+        {
+            "name": "Tyranitar",
+            "usageRank": 30,
+            "rawCount": 149397,
+            "topAbilities": [
+                "sandstream",
+                "unnerve"
+            ],
+            "topItems": [
+                "smoothrock",
+                "choiceband",
+                "heavydutyboots",
+                "leftovers"
+            ],
+            "topMoves": [
+                "knockoff",
+                "stealthrock",
+                "icebeam",
+                "thunderwave"
+            ]
+        }
+    ]
+}
