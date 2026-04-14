@@ -1,5 +1,6 @@
 package com.pokemon.battle.ingest.smogon
 
+import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
 import java.nio.file.Files
 import java.nio.file.Path
@@ -9,6 +10,10 @@ import kotlin.io.path.readText
 
 private val SMOGON_DIR: Path = Path.of("data/smogon")
 private val SPECIES_TARGETS: Path = Path.of("targets/species.txt")
+private val ALIASES_FILE: Path = Path.of("data/aliases.json")
+
+@Serializable
+private data class AliasesFile(val aliases: Map<String, String>)
 
 /**
  * Bridges Smogon top-sets into the PokeAPI ingestion target list.
@@ -62,28 +67,23 @@ fun main() {
 /**
  * Smogon writes a species' base name when the species has multiple forms but
  * Smogon's competitive context implies a default. PokeAPI requires the explicit
- * default-form slug. This table maps the basenames we know about; extend as
- * Smogon surfaces new ones.
+ * default-form slug. The mapping lives in [ALIASES_FILE] — a committed data
+ * file per diary 067's aliases seam. Extending a mapping is a JSON edit, not a
+ * code change.
  */
-private val SLUG_ALIASES =
-    mapOf(
-        "indeedee-f" to "indeedee-female",
-        "indeedee-m" to "indeedee-male",
-        "jellicent" to "jellicent-male",
-        "keldeo" to "keldeo-ordinary",
-        "landorus" to "landorus-incarnate",
-        "ogerpon-hearthflame" to "ogerpon-hearthflame-mask",
-        "ogerpon-wellspring" to "ogerpon-wellspring-mask",
-        "tatsugiri" to "tatsugiri-curly",
-        "tornadus" to "tornadus-incarnate",
-        "urshifu" to "urshifu-single-strike",
-    )
+private val SLUG_ALIASES: Map<String, String> by lazy { loadAliases() }
+
+private fun loadAliases(): Map<String, String> {
+    require(Files.exists(ALIASES_FILE)) { "Alias file missing: $ALIASES_FILE" }
+    val json = Json { ignoreUnknownKeys = true }
+    return json.decodeFromString(AliasesFile.serializer(), ALIASES_FILE.readText()).aliases
+}
 
 // Smogon display name to PokeAPI slug. Lowercase, spaces to dashes, drop dots
 // and apostrophes (so "Mr. Mime" becomes "mr-mime", "Farfetch'd" becomes "farfetchd").
 // Form-suffixed names like "Tatsugiri-Stretchy" mostly pass through; for
 // default-form basenames PokeAPI rejects (Tatsugiri, Urshifu, etc.), see
-// [SLUG_ALIASES] above.
+// [ALIASES_FILE] above.
 fun toPokeApiSlug(displayName: String): String {
     val basic =
         displayName

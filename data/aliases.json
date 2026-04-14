@@ -1,0 +1,15 @@
+{
+  "_comment": "Smogon basename → PokeAPI default-form slug. Extracted from SmogonToTargetsMain per diary 067's aliases seam. When Smogon emits a basename (e.g. 'urshifu') that PokeAPI rejects without a form suffix, list the explicit default form here. Extend as new species surface; no code change needed if the name mapping is all that's new.",
+  "aliases": {
+    "indeedee-f": "indeedee-female",
+    "indeedee-m": "indeedee-male",
+    "jellicent": "jellicent-male",
+    "keldeo": "keldeo-ordinary",
+    "landorus": "landorus-incarnate",
+    "ogerpon-hearthflame": "ogerpon-hearthflame-mask",
+    "ogerpon-wellspring": "ogerpon-wellspring-mask",
+    "tatsugiri": "tatsugiri-curly",
+    "tornadus": "tornadus-incarnate",
+    "urshifu": "urshifu-single-strike"
+  }
+}
