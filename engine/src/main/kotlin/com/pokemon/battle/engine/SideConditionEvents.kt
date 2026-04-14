@@ -2,10 +2,8 @@ package com.pokemon.battle.engine
 
 import com.pokemon.battle.model.Side
 import com.pokemon.battle.model.SideCondition
-import kotlinx.serialization.Serializable
 
 /** A new side condition is established (e.g. Tailwind set by a move). */
-@Serializable
 data class SideConditionSet(
     val side: Side,
     val condition: SideCondition,
@@ -15,7 +13,6 @@ data class SideConditionSet(
 }
 
 /** A side condition's counter ticks down. */
-@Serializable
 data class SideConditionTick(
     val side: Side,
     val condition: SideCondition,
@@ -25,7 +22,6 @@ data class SideConditionTick(
 }
 
 /** A side condition expires (counter hit 0). */
-@Serializable
 data class SideConditionExpired(
     val side: Side,
     val condition: SideCondition,

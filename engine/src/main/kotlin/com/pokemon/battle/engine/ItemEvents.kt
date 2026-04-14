@@ -2,9 +2,7 @@ package com.pokemon.battle.engine
 
 import com.pokemon.battle.model.Item
 import com.pokemon.battle.model.Slot
-import kotlinx.serialization.Serializable
 
-@Serializable
 data class ItemHealing(
     val target: Slot,
     val amount: Int,
@@ -17,7 +15,6 @@ data class ItemHealing(
     }
 }
 
-@Serializable
 data class ItemConsumed(
     val target: Slot,
     val item: Item,
@@ -29,7 +26,6 @@ data class ItemConsumed(
 }
 
 /** HP loss caused by a held item (e.g. Life Orb recoil). */
-@Serializable
 data class ItemDamage(
     val target: Slot,
     val amount: Int,

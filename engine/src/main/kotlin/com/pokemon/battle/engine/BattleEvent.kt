@@ -5,7 +5,6 @@ import com.pokemon.battle.model.FailReason
 import com.pokemon.battle.model.Move
 import com.pokemon.battle.model.OrderReason
 import com.pokemon.battle.model.Slot
-import kotlinx.serialization.Serializable
 
 /**
  * Marker for everything that goes in the per-turn event log. Two sub-hierarchies
@@ -16,13 +15,11 @@ import kotlinx.serialization.Serializable
  * - [ControlEvent] — pipeline state transitions (pause for input, resume). These
  *   transform [PipelineState]; renderers and game-logic consumers ignore them.
  */
-@Serializable
 sealed interface BattleEvent
 
 /**
  * An in-battle event with game-meaningful semantics. Mutates [BattleState] via [apply].
  */
-@Serializable
 sealed interface GameEvent : BattleEvent {
     fun apply(state: BattleState): BattleState
 }
@@ -31,7 +28,6 @@ sealed interface GameEvent : BattleEvent {
  * A pipeline-machinery event (pause, resume). Mutates [PipelineState] via [apply].
  * Not rendered; not part of the game's mechanical narrative.
  */
-@Serializable
 sealed interface ControlEvent : BattleEvent {
     fun apply(state: PipelineState): PipelineState
 }
@@ -49,7 +45,6 @@ fun BattleEvent.applyTo(state: PipelineState): PipelineState =
 
 // --- Core move events ---
 
-@Serializable
 data class MoveOrderDecided(
     val order: List<Slot>,
     val leadReason: OrderReason,
@@ -57,7 +52,6 @@ data class MoveOrderDecided(
     override fun apply(state: BattleState): BattleState = state
 }
 
-@Serializable
 data class MoveAttempted(
     val attacker: Slot,
     val move: Move,
@@ -65,7 +59,6 @@ data class MoveAttempted(
     override fun apply(state: BattleState): BattleState = state
 }
 
-@Serializable
 data class MoveFailed(
     val attacker: Slot,
     val reason: FailReason,
@@ -73,7 +66,6 @@ data class MoveFailed(
     override fun apply(state: BattleState): BattleState = state
 }
 
-@Serializable
 data class DamageDealt(
     val target: Slot,
     val amount: Int,
@@ -87,14 +79,12 @@ data class DamageDealt(
     }
 }
 
-@Serializable
 data class PokemonFainted(
     val slot: Slot,
 ) : GameEvent {
     override fun apply(state: BattleState): BattleState = state
 }
 
-@Serializable
 data class ProtectBlocked(
     val slot: Slot,
 ) : GameEvent {

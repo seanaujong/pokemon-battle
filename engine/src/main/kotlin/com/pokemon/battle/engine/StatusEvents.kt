@@ -3,9 +3,7 @@ package com.pokemon.battle.engine
 import com.pokemon.battle.model.Slot
 import com.pokemon.battle.model.StatusCondition
 import com.pokemon.battle.model.Volatile
-import kotlinx.serialization.Serializable
 
-@Serializable
 data class StatusApplied(
     val target: Slot,
     val status: StatusCondition,
@@ -16,7 +14,6 @@ data class StatusApplied(
     }
 }
 
-@Serializable
 data class StatusDamage(
     val target: Slot,
     val amount: Int,
@@ -29,7 +26,6 @@ data class StatusDamage(
     }
 }
 
-@Serializable
 data class StatusCleared(
     val target: Slot,
     val status: StatusCondition,

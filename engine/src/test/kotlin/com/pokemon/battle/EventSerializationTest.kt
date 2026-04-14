@@ -5,6 +5,8 @@ import com.pokemon.battle.engine.BattleState
 import com.pokemon.battle.engine.TurnChoice
 import com.pokemon.battle.engine.TurnChoices
 import com.pokemon.battle.engine.TurnPipeline
+import com.pokemon.battle.engine.serialization.BattleEventJson
+import com.pokemon.battle.engine.serialization.toJson
 import com.pokemon.battle.model.Move
 import com.pokemon.battle.model.MoveCategory
 import com.pokemon.battle.model.Pokemon
@@ -21,12 +23,9 @@ import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
 /**
- * Validates that every [BattleEvent] subclass (and all referenced model types)
- * can round-trip through JSON via kotlinx-serialization's sealed polymorphism.
- *
- * This is the integration-level unlock described in diary 050: events are
- * the project's universal data asset; making them serializable enables
- * analytics, replay, logging, and JSON wire formats.
+ * Validates that every [BattleEvent] can round-trip through JSON via the
+ * [BattleEventJson] DTO layer (diary 060). Domain events are *not* serializable
+ * directly; the DTO is the on-disk contract.
  */
 class EventSerializationTest {
     private val charizardSpecies =
@@ -94,10 +93,12 @@ class EventSerializationTest {
 
         assertTrue(events.isNotEmpty(), "Battle should produce at least one event")
 
-        val serializer = ListSerializer(BattleEvent.serializer())
-        val encoded = json.encodeToString(serializer, events)
-        val decoded = json.decodeFromString(serializer, encoded)
+        // Convert domain → DTO, serialize, deserialize, convert DTO → domain.
+        val serializer = ListSerializer(BattleEventJson.serializer())
+        val encoded = json.encodeToString(serializer, events.map { it.toJson() })
+        val decoded: List<BattleEventJson> = json.decodeFromString(serializer, encoded)
+        val roundTripped: List<BattleEvent> = decoded.map { it.toDomain() }
 
-        assertEquals(events, decoded, "Round-tripped events should equal originals")
+        assertEquals(events, roundTripped, "Round-tripped events should equal originals")
     }
 }

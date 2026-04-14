@@ -1,9 +1,7 @@
 package com.pokemon.battle.engine
 
 import com.pokemon.battle.model.Slot
-import kotlinx.serialization.Serializable
 
-@Serializable
 data class SwitchOut(
     val slot: Slot,
 ) : GameEvent {
@@ -15,7 +13,6 @@ data class SwitchOut(
     }
 }
 
-@Serializable
 data class SwitchIn(
     val slot: Slot,
     val benchIndex: Int,

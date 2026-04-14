@@ -1,7 +1,7 @@
 # Diary 060: Event + Input serialization DTO split (plan)
 
 **Date:** 2026-04-14
-**Status:** Plan — deferred until a forcing function arrives
+**Status:** Complete (2026-04-14). All 33 `BattleEvent` subclasses mirrored to `BattleEventJson` DTOs with `toDomain()`; domain types no longer carry `@Serializable`. `InputRequest` / `InputResponse` mirrored too. `EventSerializationTest` round-trips via the DTO layer. Nested domain types (`Slot`, `Move`, enums) left `@Serializable` — event-hierarchy decoupling was the shipping win; deeper decoupling is a separate refactor if a forcing function arrives.
 
 ## The problem
 
