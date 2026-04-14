@@ -20,7 +20,7 @@ repositories {
 }
 
 dependencies {
-    // api — PokedexCatalog.CHARIZARD returns com.pokemon.battle.model.Species;
+    // api — Pokedex loader returns Map<String, com.pokemon.battle.model.Species>;
     // consumers of :data need :engine's model types transitively visible.
     api(project(":engine"))
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3")
@@ -42,14 +42,6 @@ tasks.jacocoTestReport {
 detekt {
     config.setFrom(rootProject.files("detekt.yml"))
     buildUponDefaultConfig = true
-}
-
-// Generated catalog (diary 064) — its format is owned by the codegen template,
-// not ktlint. The PokedexCodegenTest in :data-ingestion enforces format drift.
-ktlint {
-    filter {
-        exclude { it.file.path.endsWith("PokedexCatalog.kt") }
-    }
 }
 
 kotlin {

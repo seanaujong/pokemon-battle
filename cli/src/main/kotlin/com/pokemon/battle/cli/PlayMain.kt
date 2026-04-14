@@ -4,7 +4,7 @@ import com.pokemon.battle.ai.SideProviders
 import com.pokemon.battle.ai.SidedAI
 import com.pokemon.battle.ai.TypeAI
 import com.pokemon.battle.data.MoveDex
-import com.pokemon.battle.data.PokedexCatalog
+import com.pokemon.battle.data.Pokedex
 import com.pokemon.battle.engine.BattleState
 import com.pokemon.battle.engine.SwitchIn
 import com.pokemon.battle.engine.TurnPipeline
@@ -22,15 +22,13 @@ import com.pokemon.battle.render.TextRenderer
 private const val MAX_TURNS = 100
 
 fun main() {
-    // Symbol-keyed access via the generated catalog (diary 064). Compare
-    // `pokedex.getValue("Charizard")` (string lookup, runtime null check) to
-    // `PokedexCatalog.CHARIZARD` (compile-time symbol, IDE-discoverable).
-    val charizard = Pokemon(PokedexCatalog.CHARIZARD, level = 50)
-    val garchomp = Pokemon(PokedexCatalog.GARCHOMP, level = 50)
-    val lucario = Pokemon(PokedexCatalog.LUCARIO, level = 50)
-    val venusaur = Pokemon(PokedexCatalog.VENUSAUR, level = 50)
-    val blastoise = Pokemon(PokedexCatalog.BLASTOISE, level = 50)
-    val togekiss = Pokemon(PokedexCatalog.TOGEKISS, level = 50)
+    val pokedex = Pokedex.loadFromClasspath()
+    val charizard = Pokemon(pokedex.getValue("Charizard"), level = 50)
+    val garchomp = Pokemon(pokedex.getValue("Garchomp"), level = 50)
+    val lucario = Pokemon(pokedex.getValue("Lucario"), level = 50)
+    val venusaur = Pokemon(pokedex.getValue("Venusaur"), level = 50)
+    val blastoise = Pokemon(pokedex.getValue("Blastoise"), level = 50)
+    val togekiss = Pokemon(pokedex.getValue("Togekiss"), level = 50)
 
     val side1MovePools: Map<String, List<Move>> =
         mapOf(

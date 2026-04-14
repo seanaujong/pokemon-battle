@@ -16,7 +16,7 @@ repositories {
 dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3")
     testImplementation(kotlin("test"))
-    // Engine tests use catalogs (MoveDex.FLAMETHROWER, PokedexCatalog.CHARIZARD).
+    // Engine tests use catalogs (MoveDex.FLAMETHROWER, Pokedex loader).
     // Engine main is data-free per diary 065.
     testImplementation(project(":data"))
     // Engine tests also use render/AI utilities (e.g. ScenarioTest's TypeAI fixture,
