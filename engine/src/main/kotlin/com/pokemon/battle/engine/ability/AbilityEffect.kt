@@ -1,8 +1,8 @@
 package com.pokemon.battle.engine.ability
 
-import com.pokemon.battle.engine.BattleEvent
 import com.pokemon.battle.engine.BattleState
 import com.pokemon.battle.engine.DamageAdjustment
+import com.pokemon.battle.engine.GameEvent
 import com.pokemon.battle.model.Ability
 import com.pokemon.battle.model.Move
 import com.pokemon.battle.model.PokemonState
@@ -31,7 +31,7 @@ interface AbilityEffect {
     fun onSwitchIn(
         state: BattleState,
         slot: Slot,
-    ): List<BattleEvent> = emptyList()
+    ): List<GameEvent> = emptyList()
 
     /**
      * True if this ability blocks the incoming move based on its type. Examples:
@@ -54,7 +54,7 @@ interface AbilityEffect {
         state: BattleState,
         slot: Slot,
         move: Move,
-    ): List<BattleEvent> = emptyList()
+    ): List<GameEvent> = emptyList()
 
     /** True if this ability grants immunity to weather chip damage. */
     fun blocksWeatherDamage(weather: Weather): Boolean = false
@@ -102,7 +102,7 @@ interface AbilityEffect {
         state: BattleState,
         slot: Slot,
         previousHp: Int,
-    ): List<BattleEvent> = emptyList()
+    ): List<GameEvent> = emptyList()
 
     // Rendering lives in render/ability/AbilityText, not here. Split diary 038.
 }

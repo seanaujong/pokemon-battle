@@ -8,7 +8,7 @@ import kotlinx.serialization.Serializable
 data class AbilityTriggered(
     val slot: Slot,
     val ability: Ability,
-) : BattleEvent {
+) : GameEvent {
     override fun apply(state: BattleState): BattleState = state
 }
 
@@ -16,6 +16,6 @@ data class AbilityTriggered(
 data class AbilityBlocked(
     val slot: Slot,
     val ability: Ability,
-) : BattleEvent {
+) : GameEvent {
     override fun apply(state: BattleState): BattleState = state
 }

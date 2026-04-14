@@ -63,7 +63,7 @@ class CompetitiveAbilitiesTest {
             )
 
         val result = pipeline().resolveToCompletion(state, choices)
-        val finalState = result.events.fold(state) { s, e -> e.apply(s) }
+        val finalState = result.events.filterIsInstance<com.pokemon.battle.engine.GameEvent>().fold(state) { s, e -> e.apply(s) }
 
         assertEquals(1, finalState.pokemonFor(Slot.p2()).currentHp, "Sturdy leaves holder at 1 HP")
         assertFalse(finalState.pokemonFor(Slot.p2()).isFainted)
@@ -121,7 +121,7 @@ class CompetitiveAbilitiesTest {
             )
 
         val result = pipeline().resolveToCompletion(state, choices)
-        val finalState = result.events.fold(state) { s, e -> e.apply(s) }
+        val finalState = result.events.filterIsInstance<com.pokemon.battle.engine.GameEvent>().fold(state) { s, e -> e.apply(s) }
 
         // Emergency Exit triggered
         assertTrue(
@@ -185,7 +185,7 @@ class CompetitiveAbilitiesTest {
             )
 
         val result = pipeline().resolveToCompletion(state, choices)
-        val finalState = result.events.fold(state) { s, e -> e.apply(s) }
+        val finalState = result.events.filterIsInstance<com.pokemon.battle.engine.GameEvent>().fold(state) { s, e -> e.apply(s) }
 
         // Red Card consumed
         assertTrue(
@@ -216,7 +216,7 @@ class CompetitiveAbilitiesTest {
             )
 
         val result = pipeline().resolveToCompletion(state, choices)
-        val finalState = result.events.fold(state) { s, e -> e.apply(s) }
+        val finalState = result.events.filterIsInstance<com.pokemon.battle.engine.GameEvent>().fold(state) { s, e -> e.apply(s) }
 
         assertTrue(
             result.events.filterIsInstance<ItemConsumed>().none { it.item == Item.RED_CARD },
@@ -245,7 +245,7 @@ class CompetitiveAbilitiesTest {
             )
 
         val result = pipeline().resolveToCompletion(state, choices)
-        val finalState = result.events.fold(state) { s, e -> e.apply(s) }
+        val finalState = result.events.filterIsInstance<com.pokemon.battle.engine.GameEvent>().fold(state) { s, e -> e.apply(s) }
 
         assertTrue(
             result.events.filterIsInstance<ItemConsumed>().none { it.item == Item.RED_CARD },

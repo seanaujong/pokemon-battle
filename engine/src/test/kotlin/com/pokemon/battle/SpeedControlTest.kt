@@ -138,7 +138,7 @@ class SpeedControlTest {
             )
 
         val result = pipeline().resolveToCompletion(state, choices)
-        val finalState = result.events.fold(state) { s, e -> e.apply(s) }
+        val finalState = result.events.filterIsInstance<com.pokemon.battle.engine.GameEvent>().fold(state) { s, e -> e.apply(s) }
 
         assertEquals(4, finalState.field.trickRoomTurnsRemaining, "Trick Room should tick from 5 to 4")
     }
@@ -230,7 +230,7 @@ class SpeedControlTest {
             )
 
         val result = pipeline().resolveToCompletion(state, choices)
-        val finalState = result.events.fold(state) { s, e -> e.apply(s) }
+        val finalState = result.events.filterIsInstance<com.pokemon.battle.engine.GameEvent>().fold(state) { s, e -> e.apply(s) }
 
         assertTrue(
             result.events.filterIsInstance<SideConditionExpired>().any { it.condition == SideCondition.TAILWIND },
@@ -324,7 +324,7 @@ class SpeedControlTest {
             )
 
         val result = pipeline().resolveToCompletion(state, choices)
-        val finalState = result.events.fold(state) { s, e -> e.apply(s) }
+        val finalState = result.events.filterIsInstance<com.pokemon.battle.engine.GameEvent>().fold(state) { s, e -> e.apply(s) }
 
         // After end-of-turn, JustSwitchedIn is cleared
         assertTrue(

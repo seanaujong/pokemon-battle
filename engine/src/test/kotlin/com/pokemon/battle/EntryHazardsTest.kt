@@ -261,7 +261,7 @@ class EntryHazardsTest {
             )
 
         val result = pipeline().resolveToCompletion(state, choices)
-        val finalState = result.events.fold(state) { s, e -> e.apply(s) }
+        val finalState = result.events.filterIsInstance<com.pokemon.battle.engine.GameEvent>().fold(state) { s, e -> e.apply(s) }
 
         // Poison type absorbs — no status applied
         assertTrue(
@@ -359,14 +359,14 @@ class EntryHazardsTest {
         // Three turns of Spikes
         repeat(3) {
             val result = pipeline().resolveToCompletion(state, choices)
-            state = result.events.fold(state) { s, e -> e.apply(s) }
+            state = result.events.filterIsInstance<com.pokemon.battle.engine.GameEvent>().fold(state) { s, e -> e.apply(s) }
         }
 
         assertEquals(3, state.hazardsOn(Side.SIDE_2)[SideHazard.SPIKES])
 
         // 4th cast shouldn't increment
         val result = pipeline().resolveToCompletion(state, choices)
-        val afterFourth = result.events.fold(state) { s, e -> e.apply(s) }
+        val afterFourth = result.events.filterIsInstance<com.pokemon.battle.engine.GameEvent>().fold(state) { s, e -> e.apply(s) }
         assertEquals(3, afterFourth.hazardsOn(Side.SIDE_2)[SideHazard.SPIKES])
 
         // ...and no new HazardSet event for layer > 3

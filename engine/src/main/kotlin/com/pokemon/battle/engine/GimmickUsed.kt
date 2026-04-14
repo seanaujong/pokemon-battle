@@ -15,6 +15,6 @@ import kotlinx.serialization.Serializable
 data class GimmickUsed(
     val kind: GimmickKind,
     val slot: Slot,
-) : BattleEvent {
+) : GameEvent {
     override fun apply(state: BattleState): BattleState = state.withGimmickUsed(UsedGimmick(kind, slot, turn = state.turn))
 }

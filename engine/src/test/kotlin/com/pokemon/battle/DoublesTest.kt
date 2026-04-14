@@ -5,6 +5,7 @@ import com.pokemon.battle.engine.ChanceCheck
 import com.pokemon.battle.engine.DamageDealt
 import com.pokemon.battle.engine.ItemHealing
 import com.pokemon.battle.engine.MoveAttempted
+import com.pokemon.battle.engine.PipelineState
 import com.pokemon.battle.engine.PokemonFainted
 import com.pokemon.battle.engine.StatusDamage
 import com.pokemon.battle.engine.TurnChoice
@@ -105,7 +106,7 @@ class DoublesTest {
             )
 
         val phase = MoveExecutionPhase(roll = fixedRoll, chanceCheck = noChance)
-        val events = phase.resolve(battleState, choices).events
+        val events = phase.resolve(PipelineState(battleState), choices).events
 
         val attempts = events.filterIsInstance<MoveAttempted>()
         assertEquals(4, attempts.size, "All 4 Pokemon should attempt a move")
@@ -134,7 +135,7 @@ class DoublesTest {
             )
 
         val phase = MoveExecutionPhase(roll = fixedRoll, chanceCheck = noChance)
-        val events = phase.resolve(battleState, choices).events
+        val events = phase.resolve(PipelineState(battleState), choices).events
 
         // The fastest Pokemon (P1 slot 0) should deal damage to P2 slot 1
         val firstDamage = events.filterIsInstance<DamageDealt>().first()
@@ -163,7 +164,7 @@ class DoublesTest {
             )
 
         val phase = MoveExecutionPhase(roll = fixedRoll, chanceCheck = noChance)
-        val events = phase.resolve(battleState, choices).events
+        val events = phase.resolve(PipelineState(battleState), choices).events
 
         // P1 slot 0 (fastest) uses Hyper Voice — should hit both P2 slots
         // Find damage events right after the first MoveAttempted
@@ -196,7 +197,7 @@ class DoublesTest {
             )
 
         val phase = MoveExecutionPhase(roll = fixedRoll, chanceCheck = noChance)
-        val events = phase.resolve(battleState, choices).events
+        val events = phase.resolve(PipelineState(battleState), choices).events
 
         // P1 slot 0 (fastest) uses Earthquake — should hit P1 slot 1, P2 slot 0, P2 slot 1
         val firstAttempt = events.indexOfFirst { it is MoveAttempted && (it as MoveAttempted).attacker == Slot.p1(0) }
@@ -252,7 +253,7 @@ class DoublesTest {
             )
 
         val phase = MoveExecutionPhase(roll = fixedRoll, chanceCheck = noChance)
-        val events = phase.resolve(battleState, choices).events
+        val events = phase.resolve(PipelineState(battleState), choices).events
 
         // P2 slot 0 should faint from Earthquake
         val faints = events.filterIsInstance<PokemonFainted>()
@@ -285,7 +286,7 @@ class DoublesTest {
                 ),
             )
 
-        val events = EndOfTurnPhase().resolve(battleState, choices).events
+        val events = EndOfTurnPhase().resolve(PipelineState(battleState), choices).events
 
         // Weather damage: Fire types take sandstorm, Ground types immune
         val weatherDmg = events.filterIsInstance<WeatherDamage>()

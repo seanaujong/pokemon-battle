@@ -78,7 +78,7 @@ class HazardRemovalTest {
             )
 
         val result = pipeline().resolveToCompletion(state, choices)
-        val finalState = result.events.fold(state) { s, e -> e.apply(s) }
+        val finalState = result.events.filterIsInstance<com.pokemon.battle.engine.GameEvent>().fold(state) { s, e -> e.apply(s) }
 
         val removals =
             result.events.filterIsInstance<HazardRemoved>().filter { it.side == Side.SIDE_1 }
@@ -141,7 +141,7 @@ class HazardRemovalTest {
             )
 
         val result = pipeline().resolveToCompletion(state, choices)
-        val finalState = result.events.fold(state) { s, e -> e.apply(s) }
+        val finalState = result.events.filterIsInstance<com.pokemon.battle.engine.GameEvent>().fold(state) { s, e -> e.apply(s) }
 
         val removals =
             result.events.filterIsInstance<HazardRemoved>().filter { it.side == Side.SIDE_1 }
@@ -174,7 +174,7 @@ class HazardRemovalTest {
             )
 
         val result = pipeline().resolveToCompletion(state, choices)
-        val finalState = result.events.fold(state) { s, e -> e.apply(s) }
+        val finalState = result.events.filterIsInstance<com.pokemon.battle.engine.GameEvent>().fold(state) { s, e -> e.apply(s) }
 
         // User side cleared, opposing side intact
         assertTrue(finalState.hazardsOn(Side.SIDE_1).isEmpty())

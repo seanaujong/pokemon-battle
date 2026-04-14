@@ -13,7 +13,7 @@ data class HazardSet(
     val side: Side,
     val hazard: SideHazard,
     val layers: Int,
-) : BattleEvent {
+) : GameEvent {
     override fun apply(state: BattleState): BattleState = state.withHazardLayers(side, hazard, layers)
 }
 
@@ -22,7 +22,7 @@ data class HazardSet(
 data class HazardRemoved(
     val side: Side,
     val hazard: SideHazard,
-) : BattleEvent {
+) : GameEvent {
     override fun apply(state: BattleState): BattleState = state.withHazardLayers(side, hazard, 0)
 }
 
@@ -33,7 +33,7 @@ data class HazardDamage(
     val target: com.pokemon.battle.model.Slot,
     val amount: Int,
     val hazard: SideHazard,
-) : BattleEvent {
+) : GameEvent {
     override fun apply(state: BattleState): BattleState {
         val pokemon = state.pokemonFor(target)
         val newHp = (pokemon.currentHp - amount).coerceAtLeast(0)

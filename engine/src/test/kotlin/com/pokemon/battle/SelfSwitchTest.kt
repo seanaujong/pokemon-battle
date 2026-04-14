@@ -79,7 +79,7 @@ class SelfSwitchTest {
         assertEquals(Slot.p1(), switchIn[0].slot)
         assertEquals(0, switchIn[0].benchIndex)
 
-        val finalState = result.events.fold(state) { s, e -> e.apply(s) }
+        val finalState = result.events.filterIsInstance<com.pokemon.battle.engine.GameEvent>().fold(state) { s, e -> e.apply(s) }
         assertEquals("Blastoise", finalState.pokemonFor(Slot.p1()).pokemon.species.name)
     }
 
@@ -130,7 +130,7 @@ class SelfSwitchTest {
             )
 
         val result = pipeline().resolveToCompletion(state, choices)
-        val finalState = result.events.fold(state) { s, e -> e.apply(s) }
+        val finalState = result.events.filterIsInstance<com.pokemon.battle.engine.GameEvent>().fold(state) { s, e -> e.apply(s) }
 
         // Charizard is on the bench now — its stat stages should be reset
         val benched = finalState.benchFor(Side.SIDE_1).first { it.pokemon.species.name == "Charizard" }
@@ -353,7 +353,7 @@ class SelfSwitchTest {
                 TurnChoice.UseMove(MoveDex.SLUDGE_BOMB),
             )
         val turn1 = pipeline().resolveToCompletion(state, turn1Choices)
-        val afterTurn1 = turn1.events.fold(state) { s, e -> e.apply(s) }
+        val afterTurn1 = turn1.events.filterIsInstance<com.pokemon.battle.engine.GameEvent>().fold(state) { s, e -> e.apply(s) }
         assertEquals("Blastoise", afterTurn1.pokemonFor(Slot.p1()).pokemon.species.name)
         assertFalse(afterTurn1.pokemonFor(Slot.p1()).isFainted)
 

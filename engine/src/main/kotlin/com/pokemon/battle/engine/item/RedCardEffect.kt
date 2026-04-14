@@ -1,7 +1,7 @@
 package com.pokemon.battle.engine.item
 
-import com.pokemon.battle.engine.BattleEvent
 import com.pokemon.battle.engine.BattleState
+import com.pokemon.battle.engine.GameEvent
 import com.pokemon.battle.engine.ItemConsumed
 import com.pokemon.battle.engine.SwitchIn
 import com.pokemon.battle.engine.SwitchOut
@@ -27,7 +27,7 @@ object RedCardEffect : ItemEffect {
         holderSlot: Slot,
         attackerSlot: Slot,
         damageDealt: Int,
-    ): List<BattleEvent> {
+    ): List<GameEvent> {
         if (damageDealt <= 0) return emptyList()
         val attacker = state.pokemonFor(attackerSlot)
         if (attacker.isFainted) return emptyList()
@@ -36,7 +36,7 @@ object RedCardEffect : ItemEffect {
         val replacementIndex = attackerBench.indexOfFirst { !it.isFainted }
         if (replacementIndex < 0) return emptyList()
 
-        val events = mutableListOf<BattleEvent>()
+        val events = mutableListOf<GameEvent>()
         events.add(ItemConsumed(holderSlot, Item.RED_CARD))
         events.addAll(resolveSwitchOutClearing(state, attackerSlot))
         events.add(SwitchOut(attackerSlot))

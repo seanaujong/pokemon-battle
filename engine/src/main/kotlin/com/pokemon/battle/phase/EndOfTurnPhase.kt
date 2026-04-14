@@ -2,6 +2,7 @@ package com.pokemon.battle.phase
 
 import com.pokemon.battle.engine.BattleEvent
 import com.pokemon.battle.engine.BattleState
+import com.pokemon.battle.engine.GameEvent
 import com.pokemon.battle.engine.Phase
 import com.pokemon.battle.engine.PhaseOutput
 import com.pokemon.battle.engine.PokemonFainted
@@ -19,10 +20,11 @@ import com.pokemon.battle.model.Weather
 
 class EndOfTurnPhase : Phase {
     override fun resolve(
-        state: BattleState,
+        pipeline: com.pokemon.battle.engine.PipelineState,
         choices: TurnChoices,
     ): PhaseOutput {
-        val events = mutableListOf<BattleEvent>()
+        val state = pipeline.battle
+        val events = mutableListOf<GameEvent>()
         var currentState = state
 
         // Fixed order per game rules: weather → status → items → weather tick
@@ -49,13 +51,13 @@ class EndOfTurnPhase : Phase {
         return PhaseOutput.Completed(events)
     }
 
-    private fun tickTrickRoom(state: BattleState): List<BattleEvent> {
+    private fun tickTrickRoom(state: BattleState): List<GameEvent> {
         val remaining = state.field.trickRoomTurnsRemaining
         if (remaining <= 0) return emptyList()
         return listOf(com.pokemon.battle.engine.TrickRoomSet(remaining - 1))
     }
 
-    private fun tickSideConditions(state: BattleState): List<BattleEvent> =
+    private fun tickSideConditions(state: BattleState): List<GameEvent> =
         state.sideConditions.flatMap { (side, conditions) ->
             conditions.map { (condition, turns) ->
                 if (turns <= 1) {
@@ -66,7 +68,7 @@ class EndOfTurnPhase : Phase {
             }
         }
 
-    private fun clearJustSwitchedIn(state: BattleState): List<BattleEvent> =
+    private fun clearJustSwitchedIn(state: BattleState): List<GameEvent> =
         state.allSlots().mapNotNull { slot ->
             if (Volatile.JustSwitchedIn in state.pokemonFor(slot).volatiles) {
                 VolatileRemoved(slot, Volatile.JustSwitchedIn)
@@ -75,7 +77,7 @@ class EndOfTurnPhase : Phase {
             }
         }
 
-    private fun clearProtect(state: BattleState): List<BattleEvent> =
+    private fun clearProtect(state: BattleState): List<GameEvent> =
         state.allSlots().mapNotNull { slot ->
             if (Volatile.Protect in state.pokemonFor(slot).volatiles) {
                 VolatileRemoved(slot, Volatile.Protect)
@@ -87,7 +89,7 @@ class EndOfTurnPhase : Phase {
     private fun checkFaint(
         event: BattleEvent,
         state: BattleState,
-        events: MutableList<BattleEvent>,
+        events: MutableList<GameEvent>,
     ): BattleState {
         val target =
             when (event) {
@@ -103,7 +105,7 @@ class EndOfTurnPhase : Phase {
         return state
     }
 
-    private fun weatherDamage(state: BattleState): List<BattleEvent> {
+    private fun weatherDamage(state: BattleState): List<GameEvent> {
         val weather = state.field.weather ?: return emptyList()
         if (weather != Weather.SANDSTORM && weather != Weather.HAIL) return emptyList()
 
@@ -125,7 +127,7 @@ class EndOfTurnPhase : Phase {
         }
     }
 
-    private fun statusDamage(state: BattleState): List<BattleEvent> {
+    private fun statusDamage(state: BattleState): List<GameEvent> {
         return state.allSlots().mapNotNull { slot ->
             val pokemon = state.pokemonFor(slot)
             if (pokemon.isFainted) return@mapNotNull null
@@ -144,14 +146,14 @@ class EndOfTurnPhase : Phase {
         }
     }
 
-    private fun itemEffects(state: BattleState): List<BattleEvent> =
+    private fun itemEffects(state: BattleState): List<GameEvent> =
         state.allSlots().flatMap { slot ->
             val pokemon = state.pokemonFor(slot)
             if (pokemon.isFainted) return@flatMap emptyList()
             ItemRegistry.effectForHolder(pokemon)?.endOfTurn(state, slot) ?: emptyList()
         }
 
-    private fun weatherTick(state: BattleState): List<BattleEvent> {
+    private fun weatherTick(state: BattleState): List<GameEvent> {
         val weather = state.field.weather ?: return emptyList()
         val remaining = state.field.weatherTurnsRemaining - 1
         return listOf(WeatherTick(weather = weather, turnsRemaining = remaining))

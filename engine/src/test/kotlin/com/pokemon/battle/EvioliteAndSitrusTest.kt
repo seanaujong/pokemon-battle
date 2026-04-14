@@ -159,7 +159,7 @@ class EvioliteAndSitrusTest {
             )
 
         val result = pipeline().resolveToCompletion(state, choices)
-        val finalState = result.events.fold(state) { s, e -> e.apply(s) }
+        val finalState = result.events.filterIsInstance<com.pokemon.battle.engine.GameEvent>().fold(state) { s, e -> e.apply(s) }
 
         val healing = result.events.filterIsInstance<ItemHealing>().filter { it.item == Item.SITRUS_BERRY }
         assertTrue(healing.isEmpty(), "Sitrus should not trigger if hit doesn't cross threshold")

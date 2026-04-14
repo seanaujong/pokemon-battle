@@ -9,7 +9,7 @@ data class WeatherDamage(
     val target: Slot,
     val amount: Int,
     val weather: Weather,
-) : BattleEvent {
+) : GameEvent {
     override fun apply(state: BattleState): BattleState {
         val pokemon = state.pokemonFor(target)
         val newHp = (pokemon.currentHp - amount).coerceAtLeast(0)
@@ -21,7 +21,7 @@ data class WeatherDamage(
 data class WeatherTick(
     val weather: Weather,
     val turnsRemaining: Int,
-) : BattleEvent {
+) : GameEvent {
     override fun apply(state: BattleState): BattleState {
         val newField =
             if (turnsRemaining <= 0) {
@@ -37,7 +37,7 @@ data class WeatherTick(
 data class WeatherSet(
     val weather: Weather,
     val turnsRemaining: Int,
-) : BattleEvent {
+) : GameEvent {
     override fun apply(state: BattleState): BattleState =
         state.copy(field = state.field.copy(weather = weather, weatherTurnsRemaining = turnsRemaining))
 }
@@ -46,6 +46,6 @@ data class WeatherSet(
 @Serializable
 data class TrickRoomSet(
     val turnsRemaining: Int,
-) : BattleEvent {
+) : GameEvent {
     override fun apply(state: BattleState): BattleState = state.copy(field = state.field.copy(trickRoomTurnsRemaining = turnsRemaining))
 }

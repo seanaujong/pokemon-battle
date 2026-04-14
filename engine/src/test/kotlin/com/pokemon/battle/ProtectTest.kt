@@ -122,7 +122,7 @@ class ProtectTest {
             removed.any { it.target == Slot.p1() && it.volatile == Volatile.Protect },
             "Protect should be removed at end of turn",
         )
-        val finalState = result.events.fold(state) { s, e -> e.apply(s) }
+        val finalState = result.events.filterIsInstance<com.pokemon.battle.engine.GameEvent>().fold(state) { s, e -> e.apply(s) }
         assertFalse(Volatile.Protect in finalState.pokemonFor(Slot.p1()).volatiles)
     }
 
@@ -169,7 +169,7 @@ class ProtectTest {
                 TurnChoice.UseMove(MoveDex.FLAMETHROWER),
             )
         val turn1 = pipeline().resolveToCompletion(state, turn1Choices)
-        val stateAfterTurn1 = turn1.events.fold(state) { s, e -> e.apply(s) }
+        val stateAfterTurn1 = turn1.events.filterIsInstance<com.pokemon.battle.engine.GameEvent>().fold(state) { s, e -> e.apply(s) }
 
         // Turn 2: No Protect, Flamethrower should hit
         val turn2Choices =
@@ -267,7 +267,7 @@ class ProtectTest {
         )
 
         // Counter still increments to 3 (failed attempts still count)
-        val finalState = result.events.fold(state) { s, e -> e.apply(s) }
+        val finalState = result.events.filterIsInstance<com.pokemon.battle.engine.GameEvent>().fold(state) { s, e -> e.apply(s) }
         val counter = finalState.pokemonFor(Slot.p1()).volatiles.filterIsInstance<Volatile.ProtectCounter>().first()
         assertEquals(3, counter.consecutive, "Counter increments even on failure")
 
@@ -293,7 +293,7 @@ class ProtectTest {
             )
 
         val result = pipeline().resolveToCompletion(state, choices)
-        val finalState = result.events.fold(state) { s, e -> e.apply(s) }
+        val finalState = result.events.filterIsInstance<com.pokemon.battle.engine.GameEvent>().fold(state) { s, e -> e.apply(s) }
 
         val counter = finalState.pokemonFor(Slot.p1()).volatiles.filterIsInstance<Volatile.ProtectCounter>()
         assertTrue(counter.isEmpty(), "Counter should be cleared after a non-Protect move")

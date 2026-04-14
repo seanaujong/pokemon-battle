@@ -63,7 +63,7 @@ class FocusSashTest {
         val result = pipeline().resolveToCompletion(state, choices)
 
         val damage = result.events.filterIsInstance<DamageDealt>().first { it.target == Slot.p2() }
-        val finalState = result.events.fold(state) { s, e -> e.apply(s) }
+        val finalState = result.events.filterIsInstance<com.pokemon.battle.engine.GameEvent>().fold(state) { s, e -> e.apply(s) }
         val venusaurAfter = finalState.pokemonFor(Slot.p2())
 
         // Damage should leave Venusaur at exactly 1 HP
@@ -99,7 +99,7 @@ class FocusSashTest {
             )
 
         val result = pipeline().resolveToCompletion(state, choices)
-        val finalState = result.events.fold(state) { s, e -> e.apply(s) }
+        val finalState = result.events.filterIsInstance<com.pokemon.battle.engine.GameEvent>().fold(state) { s, e -> e.apply(s) }
 
         // Venusaur should be KO'd — Sash doesn't trigger
         assertTrue(
@@ -129,7 +129,7 @@ class FocusSashTest {
             )
 
         val result = pipeline().resolveToCompletion(state, choices)
-        val finalState = result.events.fold(state) { s, e -> e.apply(s) }
+        val finalState = result.events.filterIsInstance<com.pokemon.battle.engine.GameEvent>().fold(state) { s, e -> e.apply(s) }
 
         // Blastoise takes some damage but isn't KO'd — Sash should NOT trigger
         val damage = result.events.filterIsInstance<DamageDealt>().first { it.target == Slot.p2() }
@@ -157,7 +157,7 @@ class FocusSashTest {
                 TurnChoice.UseMove(MoveDex.SLUDGE_BOMB),
             )
         val turn1 = pipeline().resolveToCompletion(state, turn1Choices)
-        val afterTurn1 = turn1.events.fold(state) { s, e -> e.apply(s) }
+        val afterTurn1 = turn1.events.filterIsInstance<com.pokemon.battle.engine.GameEvent>().fold(state) { s, e -> e.apply(s) }
         assertEquals(1, afterTurn1.pokemonFor(Slot.p2()).currentHp)
         assertEquals(null, afterTurn1.pokemonFor(Slot.p2()).item)
 

@@ -146,7 +146,7 @@ private fun resolveTurnWithPauses(
         val request =
             resolution.state.pendingInput
                 ?: error("NeedInput without pendingInput — engine bug")
-        val response = responder.respond(resolution.state, request)
+        val response = responder.respond(resolution.state.battle, request)
         resolution = pipeline.resume(resolution.state, choices, response)
     }
     val completed = resolution as com.pokemon.battle.engine.TurnResolution.Completed
@@ -155,13 +155,17 @@ private fun resolveTurnWithPauses(
     return completed
 }
 
-/** Render a span of events from [stateBefore], returning the state after applying them. */
+/**
+ * Render a span of events from [stateBefore], returning the state after applying them.
+ * Filters to [com.pokemon.battle.engine.GameEvent]s — control events (pause/resume)
+ * are not rendered.
+ */
 private fun renderSpan(
     events: List<com.pokemon.battle.engine.BattleEvent>,
     stateBefore: BattleState,
 ): BattleState {
     var s = stateBefore
-    for (event in events) {
+    for (event in events.filterIsInstance<com.pokemon.battle.engine.GameEvent>()) {
         val after = event.apply(s)
         TextRenderer.render(event, s, after).forEach(::println)
         s = after
@@ -174,7 +178,7 @@ private fun renderEvents(
     stateBefore: BattleState,
 ) {
     var s = stateBefore
-    for (event in events) {
+    for (event in events.filterIsInstance<com.pokemon.battle.engine.GameEvent>()) {
         val after = event.apply(s)
         TextRenderer.render(event, s, after).forEach(::println)
         s = after

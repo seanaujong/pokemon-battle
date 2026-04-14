@@ -1,7 +1,7 @@
 package com.pokemon.battle.engine.item
 
-import com.pokemon.battle.engine.BattleEvent
 import com.pokemon.battle.engine.BattleState
+import com.pokemon.battle.engine.GameEvent
 import com.pokemon.battle.engine.VolatileAdded
 import com.pokemon.battle.model.Item
 import com.pokemon.battle.model.Move
@@ -42,7 +42,7 @@ private class ChoiceItem(
         userSlot: Slot,
         move: Move,
         damageLanded: Boolean,
-    ): List<BattleEvent> {
+    ): List<GameEvent> {
         if (!damageLanded) return emptyList()
         val user = state.pokemonFor(userSlot)
         if (user.volatiles.any { it is Volatile.ChoiceLocked }) return emptyList()

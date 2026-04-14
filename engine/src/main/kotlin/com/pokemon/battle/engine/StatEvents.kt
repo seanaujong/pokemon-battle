@@ -11,7 +11,7 @@ data class StatChanged(
     val target: Slot,
     val stat: StatType,
     val stages: Int,
-) : BattleEvent {
+) : GameEvent {
     override fun apply(state: BattleState): BattleState {
         val pokemon = state.pokemonFor(target)
         return state.withPokemon(target, pokemon.copy(statStages = pokemon.statStages.withChange(stat, stages)))
@@ -22,7 +22,7 @@ data class StatChanged(
 data class TypeChanged(
     val target: Slot,
     val newTypes: List<Type>,
-) : BattleEvent {
+) : GameEvent {
     override fun apply(state: BattleState): BattleState {
         val pokemon = state.pokemonFor(target)
         return state.withPokemon(target, pokemon.copy(typeOverride = newTypes))
@@ -33,7 +33,7 @@ data class TypeChanged(
 data class VolatileAdded(
     val target: Slot,
     val volatile: Volatile,
-) : BattleEvent {
+) : GameEvent {
     override fun apply(state: BattleState): BattleState {
         val pokemon = state.pokemonFor(target)
         return state.withPokemon(target, pokemon.copy(volatiles = pokemon.volatiles + volatile))
@@ -44,7 +44,7 @@ data class VolatileAdded(
 data class VolatileRemoved(
     val target: Slot,
     val volatile: Volatile,
-) : BattleEvent {
+) : GameEvent {
     override fun apply(state: BattleState): BattleState {
         val pokemon = state.pokemonFor(target)
         return state.withPokemon(target, pokemon.copy(volatiles = pokemon.volatiles - volatile))

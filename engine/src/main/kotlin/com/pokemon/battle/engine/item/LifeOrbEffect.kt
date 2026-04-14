@@ -1,7 +1,7 @@
 package com.pokemon.battle.engine.item
 
-import com.pokemon.battle.engine.BattleEvent
 import com.pokemon.battle.engine.BattleState
+import com.pokemon.battle.engine.GameEvent
 import com.pokemon.battle.engine.ItemDamage
 import com.pokemon.battle.engine.PokemonFainted
 import com.pokemon.battle.model.Item
@@ -29,7 +29,7 @@ object LifeOrbEffect : ItemEffect {
         userSlot: Slot,
         move: Move,
         damageLanded: Boolean,
-    ): List<BattleEvent> {
+    ): List<GameEvent> {
         val user = state.pokemonFor(userSlot)
         if (!damageLanded || user.isFainted) return emptyList()
         val recoilAmount = user.maxHp / RECOIL_FRACTION

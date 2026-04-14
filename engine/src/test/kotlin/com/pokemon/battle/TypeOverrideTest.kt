@@ -5,6 +5,7 @@ import com.pokemon.battle.data.Pokedex
 import com.pokemon.battle.engine.BattleState
 import com.pokemon.battle.engine.ChanceCheck
 import com.pokemon.battle.engine.DamageDealt
+import com.pokemon.battle.engine.PipelineState
 import com.pokemon.battle.engine.TurnChoice
 import com.pokemon.battle.engine.TurnChoices
 import com.pokemon.battle.engine.TypeChanged
@@ -52,7 +53,7 @@ class TypeOverrideTest {
             )
 
         val phase = MoveExecutionPhase(roll = fixedRoll, chanceCheck = noChance)
-        val events = phase.resolve(state, choices).events
+        val events = phase.resolve(PipelineState(state), choices).events
 
         val damage = events.filterIsInstance<DamageDealt>().first { it.target == Slot.p2() }
         assertEquals(
@@ -131,7 +132,7 @@ class TypeOverrideTest {
                 TurnChoice.UseMove(MoveDex.TACKLE),
             )
 
-        val events = EndOfTurnPhase().resolve(state, choices).events
+        val events = EndOfTurnPhase().resolve(PipelineState(state), choices).events
         val weatherDamage = events.filterIsInstance<WeatherDamage>()
 
         // P1 (Ground override) should be immune, P2 (Normal) takes damage

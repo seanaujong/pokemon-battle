@@ -19,7 +19,7 @@ import com.pokemon.battle.model.Type
 fun resolveHazardsOnSwitchIn(
     state: BattleState,
     slot: Slot,
-): List<BattleEvent> {
+): List<GameEvent> {
     val hazards = state.hazardsOn(slot.side)
     if (hazards.isEmpty()) return emptyList()
     if (bypassesHazards(state.pokemonFor(slot))) return emptyList()
@@ -36,11 +36,11 @@ private fun applyHazardsInOrder(
     state: BattleState,
     slot: Slot,
     hazards: Map<SideHazard, Int>,
-): List<BattleEvent> {
-    val events = mutableListOf<BattleEvent>()
+): List<GameEvent> {
+    val events = mutableListOf<GameEvent>()
     var currentState = state
 
-    fun applyAll(hazardEvents: List<BattleEvent>) {
+    fun applyAll(hazardEvents: List<GameEvent>) {
         events.addAll(hazardEvents)
         currentState = hazardEvents.fold(currentState) { s, e -> e.apply(s) }
     }
@@ -77,11 +77,11 @@ private fun applyHazardsInOrder(
 private fun stealthRockEvents(
     pokemon: PokemonState,
     slot: Slot,
-): List<BattleEvent> {
+): List<GameEvent> {
     val rockEff = StandardTypeChart.effectiveness(Type.ROCK, pokemon.effectiveTypes)
     if (rockEff == 0.0) return emptyList() // Pokemon fully immune to Rock
     val damage = (pokemon.maxHp * rockEff / STEALTH_ROCK_DIVISOR).toInt().coerceAtLeast(1)
-    val events = mutableListOf<BattleEvent>(HazardDamage(slot, damage, SideHazard.STEALTH_ROCK))
+    val events = mutableListOf<GameEvent>(HazardDamage(slot, damage, SideHazard.STEALTH_ROCK))
     if (pokemon.currentHp <= damage) events.add(PokemonFainted(slot))
     return events
 }
@@ -90,14 +90,14 @@ private fun spikesEvents(
     pokemon: PokemonState,
     slot: Slot,
     layers: Int,
-): List<BattleEvent> {
+): List<GameEvent> {
     val damage =
         when (layers.coerceIn(1, SPIKES_MAX_LAYERS)) {
             1 -> pokemon.maxHp / SPIKES_1L_DIVISOR
             2 -> pokemon.maxHp / SPIKES_2L_DIVISOR
             else -> pokemon.maxHp / SPIKES_3L_DIVISOR
         }.coerceAtLeast(1)
-    val events = mutableListOf<BattleEvent>(HazardDamage(slot, damage, SideHazard.SPIKES))
+    val events = mutableListOf<GameEvent>(HazardDamage(slot, damage, SideHazard.SPIKES))
     if (pokemon.currentHp <= damage) events.add(PokemonFainted(slot))
     return events
 }
@@ -106,7 +106,7 @@ private fun toxicSpikesEvents(
     pokemon: PokemonState,
     slot: Slot,
     layers: Int,
-): List<BattleEvent> {
+): List<GameEvent> {
     if (Type.STEEL in pokemon.effectiveTypes) return emptyList()
     if (Type.POISON in pokemon.effectiveTypes) {
         // Grounded Poison type absorbs all layers.

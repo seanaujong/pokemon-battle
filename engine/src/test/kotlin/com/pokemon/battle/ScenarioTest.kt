@@ -13,6 +13,7 @@ import com.pokemon.battle.engine.ChanceCheck
 import com.pokemon.battle.engine.DamageDealt
 import com.pokemon.battle.engine.ItemHealing
 import com.pokemon.battle.engine.MoveAttempted
+import com.pokemon.battle.engine.PipelineState
 import com.pokemon.battle.engine.PokemonFainted
 import com.pokemon.battle.engine.StatusDamage
 import com.pokemon.battle.engine.TurnChoice
@@ -92,7 +93,7 @@ class ScenarioTest {
             )
 
         val result = pipeline().resolveToCompletion(state, choices)
-        val finalState = result.events.fold(state) { s, e -> e.apply(s) }
+        val finalState = result.events.filterIsInstance<com.pokemon.battle.engine.GameEvent>().fold(state) { s, e -> e.apply(s) }
 
         assertEquals(Weather.RAIN, finalState.field.weather, "Drizzle should set rain")
 
@@ -137,7 +138,7 @@ class ScenarioTest {
             )
 
         val phase = MoveExecutionPhase(roll = fixedRoll, chanceCheck = noChance)
-        val events = phase.resolve(state, choices).events
+        val events = phase.resolve(PipelineState(state), choices).events
 
         // Find events from Earthquake (first attacker, fastest at speed 100)
         val eqAttemptIdx =
@@ -199,7 +200,7 @@ class ScenarioTest {
             )
 
         val result = pipeline().resolveToCompletion(state, choices)
-        val finalState = result.events.fold(state) { s, e -> e.apply(s) }
+        val finalState = result.events.filterIsInstance<com.pokemon.battle.engine.GameEvent>().fold(state) { s, e -> e.apply(s) }
 
         // Faster Intimidate (speed 120) fires first, lowers Side 2's Attack
         // Slower Intimidate (speed 40) fires second, lowers Side 1's Attack
@@ -400,7 +401,7 @@ class ScenarioTest {
             )
 
         val phase = MoveExecutionPhase(roll = fixedRoll, chanceCheck = noChance)
-        val events = phase.resolve(state, choices).events
+        val events = phase.resolve(PipelineState(state), choices).events
 
         val blocked = events.filterIsInstance<AbilityBlocked>()
         assertEquals(1, blocked.size)
@@ -449,7 +450,7 @@ class ScenarioTest {
             )
 
         val phase = MoveExecutionPhase(roll = fixedRoll, chanceCheck = noChance)
-        val events = phase.resolve(state, choices).events
+        val events = phase.resolve(PipelineState(state), choices).events
 
         val firstAttempt = events.filterIsInstance<MoveAttempted>().first()
         assertEquals(Slot.p1(), firstAttempt.attacker, "Mega Snorlax should go first (speed 200 vs 1)")
@@ -477,7 +478,7 @@ class ScenarioTest {
             )
 
         val phase = MoveExecutionPhase(roll = fixedRoll, chanceCheck = noChance)
-        val events = phase.resolve(state, choices).events
+        val events = phase.resolve(PipelineState(state), choices).events
 
         val damage = events.filterIsInstance<DamageDealt>().filter { it.target == Slot.p2() }
         assertTrue(damage.isNotEmpty(), "Pikachu using Flamethrower should work")

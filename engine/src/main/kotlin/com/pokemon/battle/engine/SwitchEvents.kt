@@ -6,7 +6,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class SwitchOut(
     val slot: Slot,
-) : BattleEvent {
+) : GameEvent {
     override fun apply(state: BattleState): BattleState {
         val pokemon = state.pokemonFor(slot)
         val side = slot.side
@@ -19,7 +19,7 @@ data class SwitchOut(
 data class SwitchIn(
     val slot: Slot,
     val benchIndex: Int,
-) : BattleEvent {
+) : GameEvent {
     override fun apply(state: BattleState): BattleState {
         val side = slot.side
         val bench = state.benchFor(side)

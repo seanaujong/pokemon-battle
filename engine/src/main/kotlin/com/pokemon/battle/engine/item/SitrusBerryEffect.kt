@@ -1,7 +1,7 @@
 package com.pokemon.battle.engine.item
 
-import com.pokemon.battle.engine.BattleEvent
 import com.pokemon.battle.engine.BattleState
+import com.pokemon.battle.engine.GameEvent
 import com.pokemon.battle.engine.ItemConsumed
 import com.pokemon.battle.engine.ItemHealing
 import com.pokemon.battle.model.Item
@@ -21,7 +21,7 @@ object SitrusBerryEffect : ItemEffect {
         state: BattleState,
         slot: Slot,
         previousHp: Int,
-    ): List<BattleEvent> {
+    ): List<GameEvent> {
         val holder = state.pokemonFor(slot)
         val threshold = holder.maxHp / 2
         if (previousHp <= threshold) return emptyList()

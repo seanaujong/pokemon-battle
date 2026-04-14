@@ -71,7 +71,7 @@ class RendererTest {
         val result = pipeline().resolveToCompletion(state, choices)
         var currentState = state
         val allLines = mutableListOf<String>()
-        for (event in result.events) {
+        for (event in result.events.filterIsInstance<com.pokemon.battle.engine.GameEvent>()) {
             val stateAfter = event.apply(currentState)
             allLines.addAll(TextRenderer.render(event, currentState, stateAfter))
             currentState = stateAfter

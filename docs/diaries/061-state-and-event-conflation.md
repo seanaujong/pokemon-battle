@@ -1,7 +1,7 @@
 # Diary 061: Game vs pipeline conflation in state and events
 
 **Date:** 2026-04-14
-**Status:** In progress (2026-04-14). Backlog review concluded this is the next refactor.
+**Status:** Complete (2026-04-14). `BattleState` is game-only; `PipelineState` wraps it with resumption bookkeeping. `BattleEvent` is a marker with `GameEvent` and `ControlEvent` sub-hierarchies. Renderer sees only `GameEvent`s. All 246 tests green; CLI plays U-turn mid-turn correctly.
 
 ## The observation
 

@@ -8,6 +8,7 @@ import com.pokemon.battle.engine.DamageDealt
 import com.pokemon.battle.engine.GenVDamageCalculator
 import com.pokemon.battle.engine.GenVSpeedResolver
 import com.pokemon.battle.engine.MoveOrderDecided
+import com.pokemon.battle.engine.PipelineState
 import com.pokemon.battle.engine.StatusDamage
 import com.pokemon.battle.engine.TurnChoice
 import com.pokemon.battle.engine.TurnChoices
@@ -167,12 +168,12 @@ class SecondGenTest {
             )
 
         // GenV end-of-turn
-        val genVEvents = EndOfTurnPhase().resolve(state, choices).events
+        val genVEvents = EndOfTurnPhase().resolve(PipelineState(state), choices).events
         val genVBurn = genVEvents.filterIsInstance<StatusDamage>().first()
         val genVWeather = genVEvents.filterIsInstance<WeatherDamage>()
 
         // Simplified end-of-turn
-        val simpleEvents = SimplifiedEndOfTurnPhase().resolve(state, choices).events
+        val simpleEvents = SimplifiedEndOfTurnPhase().resolve(PipelineState(state), choices).events
         val simpleBurn = simpleEvents.filterIsInstance<StatusDamage>().first()
         val simpleWeather = simpleEvents.filterIsInstance<WeatherDamage>()
 

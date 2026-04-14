@@ -7,6 +7,7 @@ import com.pokemon.battle.engine.BattleState
 import com.pokemon.battle.engine.ChanceCheck
 import com.pokemon.battle.engine.DamageCalculator
 import com.pokemon.battle.engine.DamageDealt
+import com.pokemon.battle.engine.GameEvent
 import com.pokemon.battle.engine.GenVDamageCalculator
 import com.pokemon.battle.engine.GenVSpeedResolver
 import com.pokemon.battle.engine.HazardRemoved
@@ -59,15 +60,17 @@ class MoveExecutionPhase(
     private val chanceCheck: ChanceCheck = defaultChanceCheck,
 ) : Phase {
     override fun resolve(
-        state: BattleState,
+        pipeline: com.pokemon.battle.engine.PipelineState,
         choices: TurnChoices,
     ): PhaseOutput {
+        val state = pipeline.battle
+        val priorEvents = pipeline.partialTurnEvents
         val order = resolveMoveOrder(state, choices, speedResolver).order
-        val events = mutableListOf<BattleEvent>()
+        val events = mutableListOf<GameEvent>()
         var currentState = state
 
         for (slot in order) {
-            val step = stepForSlot(currentState, state.partialTurnEvents, choices, slot) ?: continue
+            val step = stepForSlot(currentState, priorEvents, choices, slot) ?: continue
             for (event in step.events) {
                 events.add(event)
                 currentState = event.apply(currentState)
@@ -146,7 +149,7 @@ class MoveExecutionPhase(
         state: BattleState,
         attackerSlot: Slot,
         priorEvents: List<BattleEvent>,
-    ): List<BattleEvent> {
+    ): List<GameEvent> {
         val response =
             priorEvents
                 .filterIsInstance<TurnInputResolved>()
@@ -161,7 +164,7 @@ class MoveExecutionPhase(
 
     /** Events accumulated + an optional mid-turn pause request to propagate up. */
     private data class MoveStep(
-        val events: List<BattleEvent>,
+        val events: List<GameEvent>,
         val pauseRequest: SwitchTargetRequest? = null,
     )
 
@@ -212,7 +215,7 @@ class MoveExecutionPhase(
     }
 
     private fun prepend(
-        event: BattleEvent,
+        event: GameEvent,
         step: MoveStep,
     ): MoveStep = MoveStep(listOf(event) + step.events, step.pauseRequest)
 
@@ -224,7 +227,7 @@ class MoveExecutionPhase(
         choice: TurnChoice.UseMove,
     ): MoveStep {
         val move = choice.move
-        val events = mutableListOf<BattleEvent>(MoveAttempted(attackerSlot, move))
+        val events = mutableListOf<GameEvent>(MoveAttempted(attackerSlot, move))
         var currentState = state
 
         // Fake Out / First Impression / Mat Block fail unless the user just switched in.
@@ -338,8 +341,8 @@ class MoveExecutionPhase(
         state: BattleState,
         attackerSlot: Slot,
         benchIndex: Int,
-    ): List<BattleEvent> {
-        val events = mutableListOf<BattleEvent>()
+    ): List<GameEvent> {
+        val events = mutableListOf<GameEvent>()
         var currentState = state
 
         for (event in resolveSwitchOutClearing(currentState, attackerSlot)) {
@@ -379,7 +382,7 @@ class MoveExecutionPhase(
     private fun resolveProtectionMove(
         state: BattleState,
         attackerSlot: Slot,
-    ): List<BattleEvent> {
+    ): List<GameEvent> {
         val attacker = state.pokemonFor(attackerSlot)
         val existingCounter = attacker.volatiles.filterIsInstance<Volatile.ProtectCounter>().firstOrNull()
         val consecutive = existingCounter?.consecutive ?: 0
@@ -388,7 +391,7 @@ class MoveExecutionPhase(
         val successPercent = (100 shr consecutive).coerceAtLeast(1)
         val succeeded = chanceCheck(successPercent, FailReason.PROTECT_FAILED)
 
-        val events = mutableListOf<BattleEvent>()
+        val events = mutableListOf<GameEvent>()
         // Counter increments regardless of success
         if (existingCounter != null) events.add(VolatileRemoved(attackerSlot, existingCounter))
         events.add(VolatileAdded(attackerSlot, Volatile.ProtectCounter(consecutive + 1)))
@@ -404,7 +407,7 @@ class MoveExecutionPhase(
     private fun clearProtectCounter(
         state: BattleState,
         slot: Slot,
-    ): List<BattleEvent> =
+    ): List<GameEvent> =
         state.pokemonFor(slot).volatiles
             .filterIsInstance<Volatile.ProtectCounter>()
             .map { VolatileRemoved(slot, it) }
@@ -413,7 +416,7 @@ class MoveExecutionPhase(
         state: BattleState,
         attackerSlot: Slot,
         targets: List<Slot>,
-    ): Pair<List<Slot>, List<BattleEvent>> {
+    ): Pair<List<Slot>, List<GameEvent>> {
         val (protected, unblocked) =
             targets.partition { target ->
                 target != attackerSlot && Volatile.Protect in state.pokemonFor(target).volatiles
@@ -428,8 +431,8 @@ class MoveExecutionPhase(
         attackerSlot: Slot,
         move: Move,
         targets: List<Slot>,
-    ): List<BattleEvent> {
-        val events = mutableListOf<BattleEvent>()
+    ): List<GameEvent> {
+        val events = mutableListOf<GameEvent>()
         var currentState = state
         val isSpread = targets.size > 1
         val spreadMod = if (isSpread) 0.75 else 1.0
@@ -452,7 +455,7 @@ class MoveExecutionPhase(
         targetSlot: Slot,
         move: Move,
         spreadMod: Double,
-    ): List<BattleEvent> {
+    ): List<GameEvent> {
         val defender = state.pokemonFor(targetSlot)
         if (defender.isFainted) return emptyList()
 
@@ -462,7 +465,7 @@ class MoveExecutionPhase(
         // Multi-hit moves (Rock Blast, Double Slap): sample hit count once, then loop.
         // Ability-block (above) checks once — blocked moves are blocked for all hits.
         val hits = move.hitCount?.let { roll(it) } ?: 1
-        val events = mutableListOf<BattleEvent>()
+        val events = mutableListOf<GameEvent>()
         var currentState = state
         repeat(hits) {
             if (currentState.pokemonFor(targetSlot).isFainted) return@repeat
@@ -485,11 +488,11 @@ class MoveExecutionPhase(
         targetSlot: Slot,
         move: Move,
         spreadMod: Double,
-    ): List<BattleEvent> {
+    ): List<GameEvent> {
         val attacker = state.pokemonFor(attackerSlot)
         val defender = state.pokemonFor(targetSlot)
 
-        val events = mutableListOf<BattleEvent>()
+        val events = mutableListOf<GameEvent>()
         var currentState = state
 
         // Crit roll: 1 in 24 chance (~4.2%) in Gen V+
@@ -546,10 +549,10 @@ class MoveExecutionPhase(
         state: BattleState,
         targetSlot: Slot,
         previousHp: Int,
-    ): List<BattleEvent> {
+    ): List<GameEvent> {
         val defenderAfter = state.pokemonFor(targetSlot)
         if (defenderAfter.isFainted) return emptyList()
-        val events = mutableListOf<BattleEvent>()
+        val events = mutableListOf<GameEvent>()
         events.addAll(
             ItemRegistry.effectForHolder(defenderAfter)
                 ?.onHpThresholdCrossed(state, targetSlot, previousHp)
@@ -569,7 +572,7 @@ class MoveExecutionPhase(
         targetSlot: Slot,
         attackerSlot: Slot,
         damageDealt: Int,
-    ): List<BattleEvent> {
+    ): List<GameEvent> {
         val defender = state.pokemonFor(targetSlot)
         if (defender.isFainted || damageDealt <= 0) return emptyList()
         return ItemRegistry.effectForHolder(defender)
@@ -583,7 +586,7 @@ class MoveExecutionPhase(
         attackerSlot: Slot,
         move: Move,
         priorEvents: List<BattleEvent>,
-    ): List<BattleEvent> {
+    ): List<GameEvent> {
         val attacker = state.pokemonFor(attackerSlot)
         val effect = ItemRegistry.effectForHolder(attacker) ?: return emptyList()
         val anyDamage = priorEvents.any { it is DamageDealt && it.amount > 0 }
@@ -598,8 +601,8 @@ class MoveExecutionPhase(
         effects: List<MoveEffect>,
         targets: List<Slot>,
         faintedSlots: Set<Slot>,
-    ): List<BattleEvent> {
-        val events = mutableListOf<BattleEvent>()
+    ): List<GameEvent> {
+        val events = mutableListOf<GameEvent>()
         for (effect in effects) {
             // User-sided effects fire once per move (not per target). They're keyed off the
             // attacker's side, not any target.
@@ -620,7 +623,7 @@ class MoveExecutionPhase(
         effect: MoveEffect,
         attackerSlot: Slot,
         targetSlot: Slot,
-    ): List<BattleEvent> {
+    ): List<GameEvent> {
         return when (effect) {
             is MoveEffect.StatBoost -> listOf(StatChanged(targetSlot, effect.stat, effect.stages))
             is MoveEffect.SetVolatile -> listOf(VolatileAdded(targetSlot, effect.volatile))

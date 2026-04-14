@@ -77,7 +77,7 @@ class LifeOrbTest {
             )
 
         val result = pipeline().resolveToCompletion(state, choices)
-        val finalState = result.events.fold(state) { s, e -> e.apply(s) }
+        val finalState = result.events.filterIsInstance<com.pokemon.battle.engine.GameEvent>().fold(state) { s, e -> e.apply(s) }
 
         val recoil = result.events.filterIsInstance<ItemDamage>()
         assertEquals(1, recoil.size)
@@ -241,7 +241,7 @@ class LifeOrbTest {
             )
 
         val result = pipeline().resolveToCompletion(state, choices)
-        val finalState = result.events.fold(state) { s, e -> e.apply(s) }
+        val finalState = result.events.filterIsInstance<com.pokemon.battle.engine.GameEvent>().fold(state) { s, e -> e.apply(s) }
 
         assertEquals(Item.LIFE_ORB, finalState.pokemonFor(Slot.p1()).item, "Life Orb persists across turns")
     }

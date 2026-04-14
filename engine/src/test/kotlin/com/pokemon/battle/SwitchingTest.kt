@@ -4,6 +4,7 @@ import com.pokemon.battle.engine.BattleState
 import com.pokemon.battle.engine.ChanceCheck
 import com.pokemon.battle.engine.DamageDealt
 import com.pokemon.battle.engine.MoveAttempted
+import com.pokemon.battle.engine.PipelineState
 import com.pokemon.battle.engine.StatChanged
 import com.pokemon.battle.engine.SwitchIn
 import com.pokemon.battle.engine.SwitchOut
@@ -63,7 +64,7 @@ class SwitchingTest {
             )
 
         val phase = SwitchPhase()
-        val events = phase.resolve(battleState, choices).events
+        val events = phase.resolve(PipelineState(battleState), choices).events
 
         // Should see SwitchOut, SwitchIn, then VolatileAdded(JustSwitchedIn)
         assertEquals(3, events.size)
@@ -75,7 +76,7 @@ class SwitchingTest {
         assertEquals(0, (events[1] as SwitchIn).benchIndex)
 
         // Apply events — slot should now have SpeciesC
-        val newState = events.fold(battleState) { s, e -> e.apply(s) }
+        val newState = events.filterIsInstance<com.pokemon.battle.engine.GameEvent>().fold(battleState) { s, e -> e.apply(s) }
         assertEquals("SpeciesC", newState.pokemonFor(Slot.p1()).pokemon.species.name)
 
         // SpeciesA should be on the bench
@@ -148,8 +149,8 @@ class SwitchingTest {
             )
 
         val phase = SwitchPhase()
-        val events = phase.resolve(battleState, choices).events
-        val newState = events.fold(battleState) { s, e -> e.apply(s) }
+        val events = phase.resolve(PipelineState(battleState), choices).events
+        val newState = events.filterIsInstance<com.pokemon.battle.engine.GameEvent>().fold(battleState) { s, e -> e.apply(s) }
 
         // The Pokemon on bench should have cleared volatiles and stat stages
         val benchedPokemon = newState.benchFor(Side.SIDE_1).last()
@@ -180,8 +181,8 @@ class SwitchingTest {
             )
 
         val phase = SwitchPhase()
-        val events = phase.resolve(battleState, choices).events
-        val newState = events.fold(battleState) { s, e -> e.apply(s) }
+        val events = phase.resolve(PipelineState(battleState), choices).events
+        val newState = events.filterIsInstance<com.pokemon.battle.engine.GameEvent>().fold(battleState) { s, e -> e.apply(s) }
 
         // Status should persist on the benched Pokemon
         val benchedPokemon = newState.benchFor(Side.SIDE_1).last()

@@ -10,7 +10,7 @@ data class SideConditionSet(
     val side: Side,
     val condition: SideCondition,
     val turnsRemaining: Int,
-) : BattleEvent {
+) : GameEvent {
     override fun apply(state: BattleState): BattleState = state.withSideCondition(side, condition, turnsRemaining)
 }
 
@@ -20,7 +20,7 @@ data class SideConditionTick(
     val side: Side,
     val condition: SideCondition,
     val turnsRemaining: Int,
-) : BattleEvent {
+) : GameEvent {
     override fun apply(state: BattleState): BattleState = state.withSideCondition(side, condition, turnsRemaining)
 }
 
@@ -29,6 +29,6 @@ data class SideConditionTick(
 data class SideConditionExpired(
     val side: Side,
     val condition: SideCondition,
-) : BattleEvent {
+) : GameEvent {
     override fun apply(state: BattleState): BattleState = state.withSideCondition(side, condition, 0)
 }

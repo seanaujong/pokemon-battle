@@ -1,8 +1,8 @@
 package com.pokemon.battle.engine.ability
 
 import com.pokemon.battle.engine.AbilityTriggered
-import com.pokemon.battle.engine.BattleEvent
 import com.pokemon.battle.engine.BattleState
+import com.pokemon.battle.engine.GameEvent
 import com.pokemon.battle.engine.SwitchIn
 import com.pokemon.battle.engine.SwitchOut
 import com.pokemon.battle.engine.resolveSwitchInAbility
@@ -24,7 +24,7 @@ object EmergencyExitEffect : AbilityEffect {
         state: BattleState,
         slot: Slot,
         previousHp: Int,
-    ): List<BattleEvent> {
+    ): List<GameEvent> {
         val holder = state.pokemonFor(slot)
         val threshold = holder.maxHp / 2
         // Only trigger on crossing the threshold (not if already below it).
@@ -36,7 +36,7 @@ object EmergencyExitEffect : AbilityEffect {
         val replacementIndex = bench.indexOfFirst { !it.isFainted }
         if (replacementIndex < 0) return emptyList() // no valid replacement
 
-        val events = mutableListOf<BattleEvent>()
+        val events = mutableListOf<GameEvent>()
         events.add(AbilityTriggered(slot, Ability.EMERGENCY_EXIT))
         events.addAll(resolveSwitchOutClearing(state, slot))
         events.add(SwitchOut(slot))

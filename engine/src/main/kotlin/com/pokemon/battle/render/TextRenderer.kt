@@ -2,9 +2,9 @@ package com.pokemon.battle.render
 
 import com.pokemon.battle.engine.AbilityBlocked
 import com.pokemon.battle.engine.AbilityTriggered
-import com.pokemon.battle.engine.BattleEvent
 import com.pokemon.battle.engine.BattleState
 import com.pokemon.battle.engine.DamageDealt
+import com.pokemon.battle.engine.GameEvent
 import com.pokemon.battle.engine.GimmickUsed
 import com.pokemon.battle.engine.HazardDamage
 import com.pokemon.battle.engine.HazardRemoved
@@ -27,8 +27,6 @@ import com.pokemon.battle.engine.StatusDamage
 import com.pokemon.battle.engine.SwitchIn
 import com.pokemon.battle.engine.SwitchOut
 import com.pokemon.battle.engine.TrickRoomSet
-import com.pokemon.battle.engine.TurnInputResolved
-import com.pokemon.battle.engine.TurnPausedForInput
 import com.pokemon.battle.engine.TypeChanged
 import com.pokemon.battle.engine.VolatileAdded
 import com.pokemon.battle.engine.VolatileRemoved
@@ -47,9 +45,9 @@ import com.pokemon.battle.render.item.ItemTextRegistry
 /** Renders battle events as game-style text messages. */
 @Suppress("TooManyFunctions") // One render function per event type — inherently many
 object TextRenderer : BattleRenderer {
-    @Suppress("CyclomaticComplexMethod") // Exhaustive when over all event types — not complex, just thorough
+    @Suppress("CyclomaticComplexMethod") // Exhaustive when over all game event types — not complex, just thorough
     override fun render(
-        event: BattleEvent,
+        event: GameEvent,
         stateBefore: BattleState,
         stateAfter: BattleState,
     ): List<String> {
@@ -85,8 +83,6 @@ object TextRenderer : BattleRenderer {
             is HazardSet -> renderHazardSet(event)
             is HazardRemoved -> renderHazardRemoved(event)
             is HazardDamage -> renderHazardDamage(event, stateBefore)
-            is TurnPausedForInput -> emptyList()
-            is TurnInputResolved -> emptyList()
         }
     }
 

@@ -9,7 +9,7 @@ import kotlinx.serialization.Serializable
 data class StatusApplied(
     val target: Slot,
     val status: StatusCondition,
-) : BattleEvent {
+) : GameEvent {
     override fun apply(state: BattleState): BattleState {
         val pokemon = state.pokemonFor(target)
         return state.withPokemon(target, pokemon.copy(status = status))
@@ -21,7 +21,7 @@ data class StatusDamage(
     val target: Slot,
     val amount: Int,
     val source: StatusCondition,
-) : BattleEvent {
+) : GameEvent {
     override fun apply(state: BattleState): BattleState {
         val pokemon = state.pokemonFor(target)
         val newHp = (pokemon.currentHp - amount).coerceAtLeast(0)
@@ -33,7 +33,7 @@ data class StatusDamage(
 data class StatusCleared(
     val target: Slot,
     val status: StatusCondition,
-) : BattleEvent {
+) : GameEvent {
     override fun apply(state: BattleState): BattleState {
         val pokemon = state.pokemonFor(target)
         val newVolatiles =

@@ -11,9 +11,9 @@ import com.pokemon.battle.model.StatType
 fun resolveSwitchOutClearing(
     state: BattleState,
     slot: Slot,
-): List<BattleEvent> {
+): List<GameEvent> {
     val pokemon = state.pokemonFor(slot)
-    val events = mutableListOf<BattleEvent>()
+    val events = mutableListOf<GameEvent>()
 
     for (volatile in pokemon.volatiles) {
         events.add(VolatileRemoved(slot, volatile))

@@ -5,6 +5,7 @@ import com.pokemon.battle.engine.DamageDealt
 import com.pokemon.battle.engine.ItemHealing
 import com.pokemon.battle.engine.MoveAttempted
 import com.pokemon.battle.engine.MoveOrderDecided
+import com.pokemon.battle.engine.PipelineState
 import com.pokemon.battle.engine.StatusDamage
 import com.pokemon.battle.engine.TurnChoice
 import com.pokemon.battle.engine.TurnChoices
@@ -165,7 +166,7 @@ class InfernapeVsSwampertTest {
                 TurnChoice.UseMove(machPunch),
                 TurnChoice.UseMove(earthquake),
             )
-        val events = EndOfTurnPhase().resolve(state, choices).events
+        val events = EndOfTurnPhase().resolve(PipelineState(state), choices).events
 
         val weatherEvents = events.filterIsInstance<WeatherDamage>()
         assertEquals(1, weatherEvents.size)
@@ -185,7 +186,7 @@ class InfernapeVsSwampertTest {
                 TurnChoice.UseMove(machPunch),
                 TurnChoice.UseMove(earthquake),
             )
-        val events = EndOfTurnPhase().resolve(state, choices).events
+        val events = EndOfTurnPhase().resolve(PipelineState(state), choices).events
 
         assertEquals(0, events.filterIsInstance<WeatherDamage>().size)
     }

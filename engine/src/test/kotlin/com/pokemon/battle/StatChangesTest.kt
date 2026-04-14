@@ -3,6 +3,7 @@ package com.pokemon.battle
 import com.pokemon.battle.engine.BattleState
 import com.pokemon.battle.engine.DamageDealt
 import com.pokemon.battle.engine.MoveAttempted
+import com.pokemon.battle.engine.PipelineState
 import com.pokemon.battle.engine.StatChanged
 import com.pokemon.battle.engine.TurnChoice
 import com.pokemon.battle.engine.TurnChoices
@@ -83,7 +84,7 @@ class StatChangesTest {
                 TurnChoice.UseMove(tackle),
             )
         val phase = MoveExecutionPhase(roll = { 100 }, chanceCheck = { _, _ -> false })
-        val events = phase.resolve(state, choices).events
+        val events = phase.resolve(PipelineState(state), choices).events
 
         val statChanged = events.filterIsInstance<StatChanged>()
         assertEquals(1, statChanged.size)
@@ -107,8 +108,8 @@ class StatChangesTest {
                 TurnChoice.UseMove(swordsDance),
                 TurnChoice.UseMove(tackle),
             )
-        val turn1Events = phase.resolve(state, turn1Choices).events
-        val stateAfterTurn1 = turn1Events.fold(state) { s, e -> e.apply(s) }
+        val turn1Events = phase.resolve(PipelineState(state), turn1Choices).events
+        val stateAfterTurn1 = turn1Events.filterIsInstance<com.pokemon.battle.engine.GameEvent>().fold(state) { s, e -> e.apply(s) }
 
         assertEquals(2, stateAfterTurn1.pokemonFor(Slot.p1()).statStages.attack)
 
@@ -117,7 +118,7 @@ class StatChangesTest {
                 TurnChoice.UseMove(tackle),
                 TurnChoice.UseMove(tackle),
             )
-        val turn2Events = phase.resolve(stateAfterTurn1, turn2Choices).events
+        val turn2Events = phase.resolve(PipelineState(stateAfterTurn1), turn2Choices).events
 
         val damageEvents = turn2Events.filterIsInstance<DamageDealt>()
         val p1Damage = damageEvents.first { it.target == Slot.p2() }.amount
@@ -142,7 +143,7 @@ class StatChangesTest {
                 TurnChoice.UseMove(tackle),
             )
         val phase = MoveExecutionPhase(roll = { 100 }, chanceCheck = { _, _ -> false })
-        val events = phase.resolve(state, choices).events
+        val events = phase.resolve(PipelineState(state), choices).events
 
         val statChanged = events.filterIsInstance<StatChanged>()
         assertEquals(1, statChanged.size)
@@ -161,8 +162,8 @@ class StatChangesTest {
                 TurnChoice.UseMove(growl),
                 TurnChoice.UseMove(tackle),
             )
-        val turn1Events = phase.resolve(state, choices).events
-        val stateAfterGrowl = turn1Events.fold(state) { s, e -> e.apply(s) }
+        val turn1Events = phase.resolve(PipelineState(state), choices).events
+        val stateAfterGrowl = turn1Events.filterIsInstance<com.pokemon.battle.engine.GameEvent>().fold(state) { s, e -> e.apply(s) }
 
         assertEquals(-1, stateAfterGrowl.pokemonFor(Slot.p2()).statStages.attack)
 
@@ -171,7 +172,7 @@ class StatChangesTest {
                 TurnChoice.UseMove(tackle),
                 TurnChoice.UseMove(tackle),
             )
-        val turn2Events = phase.resolve(stateAfterGrowl, turn2Choices).events
+        val turn2Events = phase.resolve(PipelineState(stateAfterGrowl), turn2Choices).events
 
         val damageEvents = turn2Events.filterIsInstance<DamageDealt>()
         val p1Damage = damageEvents.first { it.target == Slot.p2() }.amount

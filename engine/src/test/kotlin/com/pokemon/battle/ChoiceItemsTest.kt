@@ -217,7 +217,7 @@ class ChoiceItemsTest {
             )
 
         val result = pipeline().resolveToCompletion(state, choices)
-        val finalState = result.events.fold(state) { s, e -> e.apply(s) }
+        val finalState = result.events.filterIsInstance<com.pokemon.battle.engine.GameEvent>().fold(state) { s, e -> e.apply(s) }
 
         // Infernape is now on the bench; its ChoiceLocked should be gone
         val benched =

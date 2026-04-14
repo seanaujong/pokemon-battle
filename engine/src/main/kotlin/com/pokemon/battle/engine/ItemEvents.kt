@@ -9,7 +9,7 @@ data class ItemHealing(
     val target: Slot,
     val amount: Int,
     val item: Item,
-) : BattleEvent {
+) : GameEvent {
     override fun apply(state: BattleState): BattleState {
         val pokemon = state.pokemonFor(target)
         val newHp = (pokemon.currentHp + amount).coerceAtMost(pokemon.maxHp)
@@ -21,7 +21,7 @@ data class ItemHealing(
 data class ItemConsumed(
     val target: Slot,
     val item: Item,
-) : BattleEvent {
+) : GameEvent {
     override fun apply(state: BattleState): BattleState {
         val pokemon = state.pokemonFor(target)
         return state.withPokemon(target, pokemon.copy(item = null))
@@ -34,7 +34,7 @@ data class ItemDamage(
     val target: Slot,
     val amount: Int,
     val item: Item,
-) : BattleEvent {
+) : GameEvent {
     override fun apply(state: BattleState): BattleState {
         val pokemon = state.pokemonFor(target)
         val newHp = (pokemon.currentHp - amount).coerceAtLeast(0)

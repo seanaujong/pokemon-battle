@@ -96,7 +96,7 @@ class BattleLoop(
             val request =
                 resolution.state.pendingInput
                     ?: error("TurnResolution.NeedInput without pendingInput on state — engine bug")
-            val response = responder.respond(resolution.state, request)
+            val response = responder.respond(resolution.state.battle, request)
             resolution = pipeline.resume(resolution.state, choices, response)
         }
         return resolution as TurnResolution.Completed

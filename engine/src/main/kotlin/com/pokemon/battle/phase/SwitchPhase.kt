@@ -1,7 +1,6 @@
 package com.pokemon.battle.phase
 
-import com.pokemon.battle.engine.BattleEvent
-import com.pokemon.battle.engine.BattleState
+import com.pokemon.battle.engine.GameEvent
 import com.pokemon.battle.engine.GenVSpeedResolver
 import com.pokemon.battle.engine.Phase
 import com.pokemon.battle.engine.PhaseOutput
@@ -28,10 +27,11 @@ class SwitchPhase(
     private val speedResolver: SpeedResolver = GenVSpeedResolver,
 ) : Phase {
     override fun resolve(
-        state: BattleState,
+        pipeline: com.pokemon.battle.engine.PipelineState,
         choices: TurnChoices,
     ): PhaseOutput {
-        val events = mutableListOf<BattleEvent>()
+        val state = pipeline.battle
+        val events = mutableListOf<GameEvent>()
         var currentState = state
 
         val switchingSlots =
