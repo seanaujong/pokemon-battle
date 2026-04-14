@@ -221,7 +221,7 @@ class AbilityTest {
                     EndOfTurnPhase(),
                 ),
             )
-        val result = pipeline.resolve(battleState, choices)
+        val result = pipeline.resolveToCompletion(battleState, choices)
 
         // Intimidate should fire during SwitchPhase, before MoveExecutionPhase
         val intimidateIndex = result.events.indexOfFirst { it is AbilityTriggered }

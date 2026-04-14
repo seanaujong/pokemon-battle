@@ -100,7 +100,7 @@ class CharizardVsVenusaurTest {
                 ),
             )
 
-        val result = pipeline.resolve(initialState, choices)
+        val result = pipeline.resolveToCompletion(initialState, choices)
         val events = result.events
 
         // Event 1: Charizard goes first (higher speed)
@@ -128,9 +128,9 @@ class CharizardVsVenusaurTest {
         assertEquals(4, events.size, "Expected exactly 4 events: order, attempt, damage, faint")
 
         // Final state checks
-        assertEquals(0, result.finalState.pokemonFor(Slot.p2()).currentHp, "Venusaur should have 0 HP")
-        assertTrue(result.finalState.pokemonFor(Slot.p2()).isFainted)
-        assertEquals(charizardState.currentHp, result.finalState.pokemonFor(Slot.p1()).currentHp, "Charizard should be untouched")
+        assertEquals(0, result.state.pokemonFor(Slot.p2()).currentHp, "Venusaur should have 0 HP")
+        assertTrue(result.state.pokemonFor(Slot.p2()).isFainted)
+        assertEquals(charizardState.currentHp, result.state.pokemonFor(Slot.p1()).currentHp, "Charizard should be untouched")
     }
 
     @Test

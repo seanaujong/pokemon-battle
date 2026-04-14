@@ -106,7 +106,7 @@ class SwitchingTest {
                 ),
             )
 
-        val result = pipeline.resolve(battleState, choices)
+        val result = pipeline.resolveToCompletion(battleState, choices)
         val events = result.events
 
         // Order: MoveOrderDecided, SwitchOut, SwitchIn, MoveAttempted, DamageDealt
@@ -239,7 +239,7 @@ class SwitchingTest {
                 ),
             )
 
-        val result = pipeline.resolve(battleState, choices)
+        val result = pipeline.resolveToCompletion(battleState, choices)
         val events = result.events
 
         // Switch happens

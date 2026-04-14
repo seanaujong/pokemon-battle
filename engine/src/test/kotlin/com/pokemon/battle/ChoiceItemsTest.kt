@@ -158,7 +158,7 @@ class ChoiceItemsTest {
                 TurnChoice.UseMove(MoveDex.SLUDGE_BOMB),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
         val order = result.events.filterIsInstance<MoveOrderDecided>().first()
 
         assertEquals(Slot.p2(), order.order.first(), "Venusaur with Scarf should outspeed Charizard")
@@ -182,7 +182,7 @@ class ChoiceItemsTest {
                 TurnChoice.UseMove(MoveDex.ICE_BEAM),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
 
         val lockEvents =
             result.events.filterIsInstance<VolatileAdded>()
@@ -216,7 +216,7 @@ class ChoiceItemsTest {
                 TurnChoice.UseMove(MoveDex.ICE_BEAM),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
         val finalState = result.events.fold(state) { s, e -> e.apply(s) }
 
         // Infernape is now on the bench; its ChoiceLocked should be gone
@@ -251,7 +251,7 @@ class ChoiceItemsTest {
                 TurnChoice.UseMove(MoveDex.ICE_BEAM),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
 
         val newLockEvents =
             result.events.filterIsInstance<VolatileAdded>()

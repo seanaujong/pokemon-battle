@@ -90,7 +90,7 @@ class ScenarioTest {
                 TurnChoice.UseMove(MoveDex.TACKLE),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
         val finalState = result.events.fold(state) { s, e -> e.apply(s) }
 
         assertEquals(Weather.RAIN, finalState.field.weather, "Drizzle should set rain")
@@ -197,7 +197,7 @@ class ScenarioTest {
                 TurnChoice.Switch(benchIndex = 0),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
         val finalState = result.events.fold(state) { s, e -> e.apply(s) }
 
         // Faster Intimidate (speed 120) fires first, lowers Side 2's Attack

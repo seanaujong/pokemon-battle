@@ -123,7 +123,7 @@ class DataLayerTest {
             )
 
         val result =
-            pipeline.resolve(
+            pipeline.resolveToCompletion(
                 state,
                 TurnChoices.singles(
                     TurnChoice.UseMove(MoveDex["Flamethrower"]),

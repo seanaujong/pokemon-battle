@@ -88,8 +88,8 @@ private fun playBattle(
         println("\n=== Turn $turn ===")
         val choices = providers.getChoices(state)
         val preTurnState = state
-        val result = pipeline.resolve(state, choices)
-        state = result.finalState.copy(turn = result.finalState.turn + 1)
+        val result = pipeline.resolveToCompletion(state, choices)
+        state = result.state.copy(turn = result.state.turn + 1)
         renderEvents(result.events, preTurnState)
 
         val preReplacementState = state

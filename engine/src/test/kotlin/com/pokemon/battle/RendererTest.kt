@@ -68,7 +68,7 @@ class RendererTest {
                 TurnChoice.UseMove(MoveDex.SLUDGE_BOMB),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
         var currentState = state
         val allLines = mutableListOf<String>()
         for (event in result.events) {

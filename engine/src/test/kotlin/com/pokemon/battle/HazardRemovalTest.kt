@@ -77,7 +77,7 @@ class HazardRemovalTest {
                 TurnChoice.UseMove(MoveDex.SLUDGE_BOMB),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
         val finalState = result.events.fold(state) { s, e -> e.apply(s) }
 
         val removals =
@@ -104,7 +104,7 @@ class HazardRemovalTest {
                 TurnChoice.UseMove(MoveDex.SLUDGE_BOMB),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
 
         val speedBoost =
             result.events.filterIsInstance<StatChanged>()
@@ -140,7 +140,7 @@ class HazardRemovalTest {
                 TurnChoice.UseMove(MoveDex.SLUDGE_BOMB),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
         val finalState = result.events.fold(state) { s, e -> e.apply(s) }
 
         val removals =
@@ -173,7 +173,7 @@ class HazardRemovalTest {
                 TurnChoice.UseMove(MoveDex.SLUDGE_BOMB),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
         val finalState = result.events.fold(state) { s, e -> e.apply(s) }
 
         // User side cleared, opposing side intact
@@ -201,7 +201,7 @@ class HazardRemovalTest {
                 TurnChoice.UseMove(MoveDex.SLUDGE_BOMB),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
 
         assertTrue(result.events.filterIsInstance<HazardRemoved>().isEmpty())
         assertTrue(

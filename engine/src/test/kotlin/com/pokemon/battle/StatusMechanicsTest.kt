@@ -239,7 +239,7 @@ class StatusMechanicsTest {
             )
         val phase = MoveExecutionPhase(roll = { 100 }, chanceCheck = { _, _ -> false })
         val pipeline = TurnPipeline(listOf(MoveOrderPhase(), phase, EndOfTurnPhase()))
-        val result = pipeline.resolve(state, bothTackle)
+        val result = pipeline.resolveToCompletion(state, bothTackle)
         val events = result.events
 
         val order = assertIs<MoveOrderDecided>(events[0])

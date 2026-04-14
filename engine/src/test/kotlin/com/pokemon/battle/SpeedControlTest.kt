@@ -69,7 +69,7 @@ class SpeedControlTest {
                 TurnChoice.UseMove(MoveDex.SLUDGE_BOMB),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
         val order = result.events.filterIsInstance<MoveOrderDecided>().first()
 
         assertEquals(Slot.p2(), order.order.first(), "Venusaur (slower) should go first under Trick Room")
@@ -91,7 +91,7 @@ class SpeedControlTest {
                 TurnChoice.UseMove(MoveDex.SLUDGE_BOMB),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
         val trickRoomEvents = result.events.filterIsInstance<TrickRoomSet>()
         assertTrue(trickRoomEvents.any { it.turnsRemaining > 0 }, "Trick Room should be set")
     }
@@ -114,7 +114,7 @@ class SpeedControlTest {
                 TurnChoice.UseMove(MoveDex.TRICK_ROOM),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
         val order = result.events.filterIsInstance<MoveOrderDecided>().first()
 
         assertEquals(Slot.p1(), order.order.first(), "Flamethrower (priority 0) goes before Trick Room (priority -7)")
@@ -137,7 +137,7 @@ class SpeedControlTest {
                 TurnChoice.UseMove(MoveDex.SLUDGE_BOMB),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
         val finalState = result.events.fold(state) { s, e -> e.apply(s) }
 
         assertEquals(4, finalState.field.trickRoomTurnsRemaining, "Trick Room should tick from 5 to 4")
@@ -163,7 +163,7 @@ class SpeedControlTest {
                 TurnChoice.UseMove(MoveDex.SLUDGE_BOMB),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
         val set =
             result.events.filterIsInstance<SideConditionSet>()
                 .firstOrNull { it.condition == SideCondition.TAILWIND && it.side == Side.SIDE_1 }
@@ -206,7 +206,7 @@ class SpeedControlTest {
                 TurnChoice.UseMove(MoveDex.SLUDGE_BOMB),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
         val order = result.events.filterIsInstance<MoveOrderDecided>().first()
 
         assertEquals(Slot.p2(), order.order.first(), "Venusaur with Tailwind (160) outspeeds Charizard (100)")
@@ -229,7 +229,7 @@ class SpeedControlTest {
                 TurnChoice.UseMove(MoveDex.SLUDGE_BOMB),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
         val finalState = result.events.fold(state) { s, e -> e.apply(s) }
 
         assertTrue(
@@ -259,7 +259,7 @@ class SpeedControlTest {
                 TurnChoice.UseMove(MoveDex.SLUDGE_BOMB),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
 
         val damage = result.events.filterIsInstance<DamageDealt>().firstOrNull { it.target == Slot.p2() }
         assertTrue(damage != null && damage.amount > 0, "Fake Out should hit")
@@ -289,7 +289,7 @@ class SpeedControlTest {
                 TurnChoice.UseMove(MoveDex.SLUDGE_BOMB),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
 
         assertTrue(
             result.events.filterIsInstance<MoveFailed>().any {
@@ -323,7 +323,7 @@ class SpeedControlTest {
                 TurnChoice.UseMove(MoveDex.SLUDGE_BOMB),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
         val finalState = result.events.fold(state) { s, e -> e.apply(s) }
 
         // After end-of-turn, JustSwitchedIn is cleared

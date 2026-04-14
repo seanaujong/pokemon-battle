@@ -75,7 +75,7 @@ class MoveLegalityTest {
                 TurnChoice.UseMove(MoveDex.ICE_BEAM),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
 
         val fail =
             result.events.filterIsInstance<MoveFailed>()
@@ -112,7 +112,7 @@ class MoveLegalityTest {
                 TurnChoice.UseMove(MoveDex.ICE_BEAM),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
 
         val lockFail =
             result.events.filterIsInstance<MoveFailed>()
@@ -144,7 +144,7 @@ class MoveLegalityTest {
                 TurnChoice.UseMove(MoveDex.ICE_BEAM),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
 
         val lockFail =
             result.events.filterIsInstance<MoveFailed>()

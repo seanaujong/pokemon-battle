@@ -60,7 +60,7 @@ class FocusSashTest {
                 TurnChoice.UseMove(MoveDex.SLUDGE_BOMB),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
 
         val damage = result.events.filterIsInstance<DamageDealt>().first { it.target == Slot.p2() }
         val finalState = result.events.fold(state) { s, e -> e.apply(s) }
@@ -98,7 +98,7 @@ class FocusSashTest {
                 TurnChoice.UseMove(MoveDex.SLUDGE_BOMB),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
         val finalState = result.events.fold(state) { s, e -> e.apply(s) }
 
         // Venusaur should be KO'd — Sash doesn't trigger
@@ -128,7 +128,7 @@ class FocusSashTest {
                 TurnChoice.UseMove(MoveDex.ICE_BEAM),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
         val finalState = result.events.fold(state) { s, e -> e.apply(s) }
 
         // Blastoise takes some damage but isn't KO'd — Sash should NOT trigger
@@ -156,7 +156,7 @@ class FocusSashTest {
                 TurnChoice.UseMove(MoveDex.FLAMETHROWER),
                 TurnChoice.UseMove(MoveDex.SLUDGE_BOMB),
             )
-        val turn1 = pipeline().resolve(state, turn1Choices)
+        val turn1 = pipeline().resolveToCompletion(state, turn1Choices)
         val afterTurn1 = turn1.events.fold(state) { s, e -> e.apply(s) }
         assertEquals(1, afterTurn1.pokemonFor(Slot.p2()).currentHp)
         assertEquals(null, afterTurn1.pokemonFor(Slot.p2()).item)
@@ -167,7 +167,7 @@ class FocusSashTest {
                 TurnChoice.UseMove(MoveDex.FLAMETHROWER),
                 TurnChoice.UseMove(MoveDex.SLUDGE_BOMB),
             )
-        val turn2 = pipeline().resolve(afterTurn1, turn2Choices)
+        val turn2 = pipeline().resolveToCompletion(afterTurn1, turn2Choices)
         assertTrue(
             turn2.events.filterIsInstance<PokemonFainted>().any { it.slot == Slot.p2() },
             "Venusaur should faint on turn 2 with no Sash",

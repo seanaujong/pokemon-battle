@@ -76,7 +76,7 @@ class LifeOrbTest {
                 TurnChoice.UseMove(MoveDex.SLUDGE_BOMB),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
         val finalState = result.events.fold(state) { s, e -> e.apply(s) }
 
         val recoil = result.events.filterIsInstance<ItemDamage>()
@@ -107,7 +107,7 @@ class LifeOrbTest {
                 TurnChoice.UseMove(MoveDex.SLUDGE_BOMB),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
 
         // No ItemDamage from Charizard
         val lifeOrb = result.events.filterIsInstance<ItemDamage>().filter { it.item == Item.LIFE_ORB }
@@ -143,7 +143,7 @@ class LifeOrbTest {
                     EndOfTurnPhase(),
                 ),
             )
-        val result = pipe.resolve(state, choices)
+        val result = pipe.resolveToCompletion(state, choices)
 
         val lifeOrb = result.events.filterIsInstance<ItemDamage>().filter { it.item == Item.LIFE_ORB }
         assertTrue(lifeOrb.isEmpty(), "Life Orb should not trigger when move is blocked by Protect")
@@ -166,7 +166,7 @@ class LifeOrbTest {
                 TurnChoice.UseMove(MoveDex.EARTHQUAKE),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
 
         val lifeOrb = result.events.filterIsInstance<ItemDamage>().filter { it.item == Item.LIFE_ORB }
         assertTrue(lifeOrb.isEmpty(), "Life Orb should not trigger on type-immune hit")
@@ -189,7 +189,7 @@ class LifeOrbTest {
                 TurnChoice.UseMove(MoveDex.SLUDGE_BOMB),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
 
         // Life Orb recoil then faint event
         val lifeOrbRecoil = result.events.filterIsInstance<ItemDamage>()
@@ -218,7 +218,7 @@ class LifeOrbTest {
                 TurnChoice.UseMove(MoveDex.SLUDGE_BOMB),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
 
         val lifeOrb = result.events.filterIsInstance<ItemDamage>().filter { it.item == Item.LIFE_ORB }
         assertEquals(1, lifeOrb.size, "Life Orb recoil should fire exactly once per move")
@@ -240,7 +240,7 @@ class LifeOrbTest {
                 TurnChoice.UseMove(MoveDex.SLUDGE_BOMB),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
         val finalState = result.events.fold(state) { s, e -> e.apply(s) }
 
         assertEquals(Item.LIFE_ORB, finalState.pokemonFor(Slot.p1()).item, "Life Orb persists across turns")

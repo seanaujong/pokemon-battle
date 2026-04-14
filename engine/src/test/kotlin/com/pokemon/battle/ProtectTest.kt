@@ -65,7 +65,7 @@ class ProtectTest {
                 TurnChoice.UseMove(MoveDex.FLAMETHROWER),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
 
         val blocked = result.events.filterIsInstance<ProtectBlocked>()
         assertEquals(1, blocked.size, "Flamethrower should be blocked")
@@ -92,7 +92,7 @@ class ProtectTest {
                 TurnChoice.UseMove(MoveDex.FLAMETHROWER),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
         val order = result.events.filterIsInstance<MoveOrderDecided>().first()
 
         assertEquals(Slot.p1(), order.order.first(), "Protect (+4 priority) should act first")
@@ -114,7 +114,7 @@ class ProtectTest {
                 TurnChoice.UseMove(MoveDex.FLAMETHROWER),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
 
         // End-of-turn clears Protect
         val removed = result.events.filterIsInstance<VolatileRemoved>()
@@ -142,7 +142,7 @@ class ProtectTest {
                 TurnChoice.UseMove(MoveDex.FLAMETHROWER),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
 
         val added = result.events.filterIsInstance<VolatileAdded>()
         assertTrue(
@@ -168,7 +168,7 @@ class ProtectTest {
                 TurnChoice.UseMove(MoveDex.PROTECT),
                 TurnChoice.UseMove(MoveDex.FLAMETHROWER),
             )
-        val turn1 = pipeline().resolve(state, turn1Choices)
+        val turn1 = pipeline().resolveToCompletion(state, turn1Choices)
         val stateAfterTurn1 = turn1.events.fold(state) { s, e -> e.apply(s) }
 
         // Turn 2: No Protect, Flamethrower should hit
@@ -177,7 +177,7 @@ class ProtectTest {
                 TurnChoice.UseMove(MoveDex.SLUDGE_BOMB),
                 TurnChoice.UseMove(MoveDex.FLAMETHROWER),
             )
-        val turn2 = pipeline().resolve(stateAfterTurn1, turn2Choices)
+        val turn2 = pipeline().resolveToCompletion(stateAfterTurn1, turn2Choices)
 
         val damage = turn2.events.filterIsInstance<DamageDealt>()
         assertTrue(
@@ -206,7 +206,7 @@ class ProtectTest {
 
         // Use a chanceCheck that requires 100% to succeed — first Protect should still pass
         val strict: ChanceCheck = { percent, _ -> percent >= 100 }
-        val result = pipeline(strict).resolve(state, choices)
+        val result = pipeline(strict).resolveToCompletion(state, choices)
 
         assertTrue(
             result.events.any { it is ProtectBlocked },
@@ -233,7 +233,7 @@ class ProtectTest {
 
         // chanceCheck that needs >=50% — first use would pass at 100, second at 50, third at 25 fails
         val needsAtLeast50: ChanceCheck = { percent, _ -> percent >= 50 }
-        val result = pipeline(needsAtLeast50).resolve(state, choices)
+        val result = pipeline(needsAtLeast50).resolveToCompletion(state, choices)
 
         // 50% > 50% threshold succeeds in our test ChanceCheck — Protect goes through
         assertTrue(result.events.any { it is ProtectBlocked }, "Second Protect at 50% should succeed at threshold 50")
@@ -258,7 +258,7 @@ class ProtectTest {
 
         // Threshold above 25% → Protect fails
         val needsAtLeast50: ChanceCheck = { percent, _ -> percent >= 50 }
-        val result = pipeline(needsAtLeast50).resolve(state, choices)
+        val result = pipeline(needsAtLeast50).resolveToCompletion(state, choices)
 
         val failed = result.events.filterIsInstance<MoveFailed>()
         assertTrue(
@@ -292,7 +292,7 @@ class ProtectTest {
                 TurnChoice.UseMove(MoveDex.FLAMETHROWER),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
         val finalState = result.events.fold(state) { s, e -> e.apply(s) }
 
         val counter = finalState.pokemonFor(Slot.p1()).volatiles.filterIsInstance<Volatile.ProtectCounter>()
@@ -323,7 +323,7 @@ class ProtectTest {
                 TurnChoice.UseMove(MoveDex.GROWL),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
 
         // Growl should be blocked (no StatChanged on Venusaur)
         val statChangesOnVenusaur =
@@ -361,7 +361,7 @@ class ProtectTest {
                 TurnChoice.UseMove(MoveDex.FLAMETHROWER),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
 
         // Flamethrower is blocked, but Venusaur's own Swords Dance goes through
         val blocked = result.events.filterIsInstance<ProtectBlocked>()

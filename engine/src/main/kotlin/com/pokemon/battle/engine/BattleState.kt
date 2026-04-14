@@ -23,6 +23,16 @@ data class BattleState(
     /** Format-specific policy object. Defaults to [NoGimmicksRuleset] (matches pre-gimmick behavior). */
     val ruleset: Ruleset = NoGimmicksRuleset,
     val turn: Int = 1,
+    /**
+     * Mid-turn prompt the engine is waiting on, or null if the turn is not paused.
+     * See diary 055. Phase 1: always null (no phase emits pauses yet).
+     */
+    val pendingInput: InputRequest? = null,
+    /**
+     * Events already emitted in a paused turn, so the caller can render progress
+     * while waiting for input. Empty when [pendingInput] is null.
+     */
+    val partialTurnEvents: List<BattleEvent> = emptyList(),
 ) {
     /** Conditions currently active on [side], with remaining-turn counts. */
     fun sideConditionsFor(side: Side): Map<SideCondition, Int> = sideConditions[side] ?: emptyMap()

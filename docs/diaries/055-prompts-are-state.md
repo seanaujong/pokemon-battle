@@ -1,7 +1,7 @@
 # Diary 055: Prompts Are State
 
 **Date:** 2026-04-14
-**Status:** Plan — decision recorded, phase 1 ready to implement
+**Status:** Phase 1 complete (2026-04-14). Phase 2 next.
 
 ## The decision
 
@@ -109,18 +109,26 @@ Phases that *do* need input return a new sealed variant signaling
 
 Three phases, each independently shippable.
 
-### Phase 1 — plumbing only, no consumer
+### Phase 1 — plumbing only, no consumer ✅ shipped 2026-04-14
 
-- Add `InputRequest` / `InputResponse` sealed hierarchies
-- Add `pendingInput` + `mostlyResolvedTurnEvents` fields to `BattleState`
-  (default `null` / empty — no existing behavior changes)
-- Add `TurnResult` sealed type
-- `TurnPipeline.resolve` returns `TurnResult`; existing phases always
-  produce `Completed` (no phase signals a pause yet)
-- `BattleLoop` handles `Completed` the same way it does today and throws
-  on `NeedInput` (defensive — we haven't wired a responder)
+- [x] Add `InputRequest` / `InputResponse` sealed hierarchies (empty — Phase
+      2 adds concrete variants)
+- [x] Add `pendingInput: InputRequest?` + `partialTurnEvents: List<BattleEvent>`
+      fields to `BattleState` (both default — no existing behavior changes).
+      Chose `partialTurnEvents` over the diary's `mostlyResolvedTurnEvents`
+      (shorter, same semantics).
+- [x] Add `TurnResolution` sealed type (note: renamed from diary's `TurnResult`
+      per diary 057 to avoid collision with `BattleLoop.TurnRecord`)
+- [x] `TurnPipeline.resolve` returns `TurnResolution`; all existing phases
+      produce `Completed`
+- [x] Added `resolveToCompletion` convenience: asserts `Completed`, returns
+      the inner variant. Tests and CLI's PlayMain use this since they don't
+      yet handle pauses. `BattleLoop` uses `resolve` directly and
+      pattern-matches (throws defensively on `NeedInput`).
+- [x] All existing tests pass without logic changes (30+ test files touched
+      for the call-site rename; no behavior-level changes anywhere).
 
-Green signal: all existing tests pass with no logic changes.
+Green signal achieved: `./gradlew test ktlintCheck detekt` green on main.
 
 ### Phase 2 — migrate U-turn as first real consumer
 

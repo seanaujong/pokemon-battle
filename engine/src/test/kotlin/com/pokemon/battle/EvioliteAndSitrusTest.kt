@@ -102,7 +102,7 @@ class EvioliteAndSitrusTest {
                 TurnChoice.UseMove(MoveDex.ICE_BEAM),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
 
         val healing = result.events.filterIsInstance<ItemHealing>().filter { it.item == Item.SITRUS_BERRY }
         val consumed = result.events.filterIsInstance<ItemConsumed>().filter { it.item == Item.SITRUS_BERRY }
@@ -134,7 +134,7 @@ class EvioliteAndSitrusTest {
                 TurnChoice.UseMove(MoveDex.SLUDGE_BOMB),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
 
         val healing = result.events.filterIsInstance<ItemHealing>().filter { it.item == Item.SITRUS_BERRY }
         assertTrue(healing.isEmpty(), "Sitrus should not trigger when already below threshold")
@@ -158,7 +158,7 @@ class EvioliteAndSitrusTest {
                 TurnChoice.UseMove(MoveDex.ICE_BEAM),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
         val finalState = result.events.fold(state) { s, e -> e.apply(s) }
 
         val healing = result.events.filterIsInstance<ItemHealing>().filter { it.item == Item.SITRUS_BERRY }

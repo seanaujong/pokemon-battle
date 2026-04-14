@@ -122,7 +122,7 @@ class EffectiveAbilityTest {
                 TurnChoice.UseMove(MoveDex.SLUDGE_BOMB),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
 
         assertTrue(
             result.events.filterIsInstance<ItemDamage>().none { it.item == Item.LIFE_ORB },

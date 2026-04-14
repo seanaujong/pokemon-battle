@@ -64,7 +64,7 @@ class MultiHitMovesTest {
                 TurnChoice.UseMove(MoveDex.TACKLE),
             )
 
-        val result = pipeline(fixedHitCountRoll(5)).resolve(state, choices)
+        val result = pipeline(fixedHitCountRoll(5)).resolveToCompletion(state, choices)
 
         val hits = result.events.filterIsInstance<DamageDealt>().filter { it.target == Slot.p2() }
         assertEquals(5, hits.size, "Rock Blast should produce 5 DamageDealt events against the target")
@@ -87,7 +87,7 @@ class MultiHitMovesTest {
                 TurnChoice.UseMove(MoveDex.TACKLE),
             )
 
-        val result = pipeline(fixedHitCountRoll(2)).resolve(state, choices)
+        val result = pipeline(fixedHitCountRoll(2)).resolveToCompletion(state, choices)
 
         val hits = result.events.filterIsInstance<DamageDealt>().filter { it.target == Slot.p2() }
         assertEquals(2, hits.size)
@@ -109,7 +109,7 @@ class MultiHitMovesTest {
                 TurnChoice.UseMove(MoveDex.TACKLE),
             )
 
-        val result = pipeline(fixedHitCountRoll(4)).resolve(state, choices)
+        val result = pipeline(fixedHitCountRoll(4)).resolveToCompletion(state, choices)
 
         val hits = result.events.filterIsInstance<DamageDealt>().filter { it.target == Slot.p2() }
         assertEquals(4, hits.size, "Double Slap with hitCount=4 should produce 4 DamageDealt events")
@@ -134,7 +134,7 @@ class MultiHitMovesTest {
                 TurnChoice.UseMove(MoveDex.TACKLE),
             )
 
-        val result = pipeline(fixedHitCountRoll(5)).resolve(state, choices)
+        val result = pipeline(fixedHitCountRoll(5)).resolveToCompletion(state, choices)
 
         // Sash should have been consumed exactly once — on the first lethal hit.
         val sashConsumed = result.events.filterIsInstance<ItemConsumed>().filter { it.item == Item.FOCUS_SASH }
@@ -166,7 +166,7 @@ class MultiHitMovesTest {
                 TurnChoice.UseMove(MoveDex.TACKLE),
             )
 
-        val result = pipeline(fixedHitCountRoll(5)).resolve(state, choices)
+        val result = pipeline(fixedHitCountRoll(5)).resolveToCompletion(state, choices)
 
         val hits = result.events.filterIsInstance<DamageDealt>().filter { it.target == Slot.p2() }
         assertEquals(1, hits.size, "Multi-hit should stop once the target faints")

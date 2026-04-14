@@ -5,6 +5,7 @@ import com.pokemon.battle.engine.BattleState
 import com.pokemon.battle.engine.SwitchIn
 import com.pokemon.battle.engine.TurnChoices
 import com.pokemon.battle.engine.TurnPipeline
+import com.pokemon.battle.engine.TurnResolution
 import com.pokemon.battle.engine.resolveSwitchInAbility
 import com.pokemon.battle.model.Side
 import com.pokemon.battle.model.Slot
@@ -44,8 +45,16 @@ class BattleLoop(
 
         while (turnHistory.size < maxTurns) {
             val choices = choiceProvider.getChoices(state)
-            val result = pipeline.resolve(state, choices)
-            state = result.finalState
+            val completed =
+                when (val resolution = pipeline.resolve(state, choices)) {
+                    is TurnResolution.Completed -> resolution
+                    is TurnResolution.NeedInput ->
+                        error(
+                            "BattleLoop received TurnResolution.NeedInput but has no mid-turn responder. " +
+                                "Expected by diary 055 Phase 2; not wired yet.",
+                        )
+                }
+            state = completed.state
 
             // Increment turn counter
             state = state.copy(turn = state.turn + 1)
@@ -54,7 +63,7 @@ class BattleLoop(
             val replacementEvents = mutableListOf<BattleEvent>()
             state = handleFaintReplacements(state, replacementEvents)
 
-            turnHistory.add(TurnRecord(state.turn - 1, result.events, replacementEvents))
+            turnHistory.add(TurnRecord(state.turn - 1, completed.events, replacementEvents))
 
             // Check win condition
             val side1Defeated = state.isDefeated(Side.SIDE_1)

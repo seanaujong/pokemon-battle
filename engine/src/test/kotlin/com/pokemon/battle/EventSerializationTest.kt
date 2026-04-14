@@ -90,7 +90,7 @@ class EventSerializationTest {
                     EndOfTurnPhase(),
                 ),
             )
-        val events: List<BattleEvent> = pipeline.resolve(initial, choices).events
+        val events: List<BattleEvent> = pipeline.resolveToCompletion(initial, choices).events
 
         assertTrue(events.isNotEmpty(), "Battle should produce at least one event")
 

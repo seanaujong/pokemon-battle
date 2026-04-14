@@ -206,8 +206,8 @@ class SecondGenTest {
             )
 
         // Run one turn in each gen
-        val genVResult = genVPipeline().resolve(initialState, choices)
-        val simpleResult = simplifiedPipeline().resolve(initialState, choices)
+        val genVResult = genVPipeline().resolveToCompletion(initialState, choices)
+        val simpleResult = simplifiedPipeline().resolveToCompletion(initialState, choices)
 
         // Both produce damage events, but potentially different counts
         // (simplified formula deals more damage and may KO before the second attacker acts)

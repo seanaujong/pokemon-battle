@@ -62,7 +62,7 @@ class CompetitiveAbilitiesTest {
                 TurnChoice.UseMove(MoveDex.SLUDGE_BOMB),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
         val finalState = result.events.fold(state) { s, e -> e.apply(s) }
 
         assertEquals(1, finalState.pokemonFor(Slot.p2()).currentHp, "Sturdy leaves holder at 1 HP")
@@ -89,7 +89,7 @@ class CompetitiveAbilitiesTest {
                 TurnChoice.UseMove(MoveDex.SLUDGE_BOMB),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
         assertTrue(
             result.events.filterIsInstance<PokemonFainted>().any { it.slot == Slot.p2() },
             "Venusaur should faint — Sturdy not at full HP",
@@ -120,7 +120,7 @@ class CompetitiveAbilitiesTest {
                 TurnChoice.UseMove(MoveDex.ICE_BEAM),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
         val finalState = result.events.fold(state) { s, e -> e.apply(s) }
 
         // Emergency Exit triggered
@@ -154,7 +154,7 @@ class CompetitiveAbilitiesTest {
                 TurnChoice.UseMove(MoveDex.ICE_BEAM),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
 
         assertTrue(
             result.events.filterIsInstance<SwitchOut>().isEmpty(),
@@ -184,7 +184,7 @@ class CompetitiveAbilitiesTest {
                 TurnChoice.UseMove(MoveDex.SLUDGE_BOMB),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
         val finalState = result.events.fold(state) { s, e -> e.apply(s) }
 
         // Red Card consumed
@@ -215,7 +215,7 @@ class CompetitiveAbilitiesTest {
                 TurnChoice.UseMove(MoveDex.SLUDGE_BOMB),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
         val finalState = result.events.fold(state) { s, e -> e.apply(s) }
 
         assertTrue(
@@ -244,7 +244,7 @@ class CompetitiveAbilitiesTest {
                 TurnChoice.UseMove(MoveDex.SLUDGE_BOMB),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
         val finalState = result.events.fold(state) { s, e -> e.apply(s) }
 
         assertTrue(

@@ -71,7 +71,7 @@ class EntryHazardsTest {
                 TurnChoice.UseMove(MoveDex.ICE_BEAM),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
 
         val damage =
             result.events.filterIsInstance<HazardDamage>()
@@ -102,7 +102,7 @@ class EntryHazardsTest {
                 TurnChoice.UseMove(MoveDex.SLUDGE_BOMB),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
 
         val damage =
             result.events.filterIsInstance<HazardDamage>()
@@ -138,7 +138,7 @@ class EntryHazardsTest {
                 TurnChoice.UseMove(MoveDex.SLUDGE_BOMB),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
         val damage =
             result.events.filterIsInstance<HazardDamage>()
                 .firstOrNull { it.hazard == SideHazard.SPIKES }
@@ -168,7 +168,7 @@ class EntryHazardsTest {
                 TurnChoice.UseMove(MoveDex.ICE_BEAM),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
         val spikesDamage =
             result.events.filterIsInstance<HazardDamage>()
                 .filter { it.hazard == SideHazard.SPIKES }
@@ -197,7 +197,7 @@ class EntryHazardsTest {
                 TurnChoice.UseMove(MoveDex.ICE_BEAM),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
         val spikesDamage =
             result.events.filterIsInstance<HazardDamage>()
                 .filter { it.hazard == SideHazard.SPIKES }
@@ -230,7 +230,7 @@ class EntryHazardsTest {
                 TurnChoice.UseMove(MoveDex.SLUDGE_BOMB),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
         val status =
             result.events.filterIsInstance<StatusApplied>()
                 .firstOrNull { it.target == Slot.p1() }
@@ -260,7 +260,7 @@ class EntryHazardsTest {
                 TurnChoice.UseMove(MoveDex.ICE_BEAM),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
         val finalState = result.events.fold(state) { s, e -> e.apply(s) }
 
         // Poison type absorbs — no status applied
@@ -304,7 +304,7 @@ class EntryHazardsTest {
                 TurnChoice.UseMove(MoveDex.SLUDGE_BOMB),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
         val speedDrop =
             result.events.filterIsInstance<StatChanged>()
                 .firstOrNull { it.target == Slot.p1() && it.stat == StatType.SPEED }
@@ -332,7 +332,7 @@ class EntryHazardsTest {
                 TurnChoice.UseMove(MoveDex.SLUDGE_BOMB),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
         val set =
             result.events.filterIsInstance<HazardSet>()
                 .firstOrNull { it.hazard == SideHazard.STEALTH_ROCK && it.side == Side.SIDE_2 }
@@ -358,14 +358,14 @@ class EntryHazardsTest {
 
         // Three turns of Spikes
         repeat(3) {
-            val result = pipeline().resolve(state, choices)
+            val result = pipeline().resolveToCompletion(state, choices)
             state = result.events.fold(state) { s, e -> e.apply(s) }
         }
 
         assertEquals(3, state.hazardsOn(Side.SIDE_2)[SideHazard.SPIKES])
 
         // 4th cast shouldn't increment
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
         val afterFourth = result.events.fold(state) { s, e -> e.apply(s) }
         assertEquals(3, afterFourth.hazardsOn(Side.SIDE_2)[SideHazard.SPIKES])
 

@@ -73,7 +73,7 @@ class HeavyDutyBootsTest {
                 TurnChoice.UseMove(MoveDex.ICE_BEAM),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
 
         assertTrue(
             result.events.filterIsInstance<HazardDamage>().none { it.target == Slot.p1() },
@@ -109,7 +109,7 @@ class HeavyDutyBootsTest {
                 TurnChoice.UseMove(MoveDex.SLUDGE_BOMB),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
 
         assertTrue(
             result.events.filterIsInstance<HazardDamage>()
@@ -146,7 +146,7 @@ class HeavyDutyBootsTest {
                 TurnChoice.UseMove(MoveDex.SLUDGE_BOMB),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
 
         assertTrue(
             result.events.filterIsInstance<StatusApplied>().none { it.target == Slot.p1() },
@@ -182,7 +182,7 @@ class HeavyDutyBootsTest {
                 TurnChoice.UseMove(MoveDex.SLUDGE_BOMB),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
 
         assertTrue(
             result.events.filterIsInstance<StatChanged>()
@@ -217,7 +217,7 @@ class HeavyDutyBootsTest {
                 TurnChoice.UseMove(MoveDex.SLUDGE_BOMB),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
         val damage =
             result.events.filterIsInstance<HazardDamage>()
                 .firstOrNull { it.hazard == SideHazard.SPIKES }

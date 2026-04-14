@@ -119,7 +119,7 @@ class CriticalHitTest {
                 ),
             )
 
-        val result = critPipeline.resolve(state, choices)
+        val result = critPipeline.resolveToCompletion(state, choices)
         val damageEvents = result.events.filterIsInstance<DamageDealt>()
 
         // At least one hit should be critical (roll(1..24) == 1 → true)
@@ -152,7 +152,7 @@ class CriticalHitTest {
                 ),
             )
 
-        val result = noCritPipeline.resolve(state, choices)
+        val result = noCritPipeline.resolveToCompletion(state, choices)
         val damageEvents = result.events.filterIsInstance<DamageDealt>()
 
         assertTrue(damageEvents.none { it.critical }, "Roll of 100 should never trigger crits")

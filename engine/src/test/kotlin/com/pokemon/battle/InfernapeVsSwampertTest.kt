@@ -110,7 +110,7 @@ class InfernapeVsSwampertTest {
                 listOf(MoveOrderPhase(), MoveExecutionPhase(roll = fixedRoll), EndOfTurnPhase()),
             )
 
-        val result = pipeline.resolve(initialState, choices)
+        val result = pipeline.resolveToCompletion(initialState, choices)
         val events = result.events
 
         val order = assertIs<MoveOrderDecided>(events[0])
@@ -148,8 +148,8 @@ class InfernapeVsSwampertTest {
 
         assertEquals(9, events.size)
         assertEquals(burnDmg.amount, healing.amount, "Burn and Leftovers should cancel")
-        assertEquals(false, result.finalState.pokemonFor(Slot.p1()).isFainted)
-        assertEquals(false, result.finalState.pokemonFor(Slot.p2()).isFainted)
+        assertEquals(false, result.state.pokemonFor(Slot.p1()).isFainted)
+        assertEquals(false, result.state.pokemonFor(Slot.p2()).isFainted)
     }
 
     @Test

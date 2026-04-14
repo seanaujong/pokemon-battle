@@ -138,7 +138,7 @@ class TypeChartTest {
                 TurnChoice.UseMove(MoveDex.ICE_BEAM),
             )
 
-        val result = inversePipeline.resolve(state, choices)
+        val result = inversePipeline.resolveToCompletion(state, choices)
         val damageEvents = result.events.filterIsInstance<DamageDealt>()
 
         // Charizard's Flamethrower vs Blastoise: Fire vs Water = super effective in inverse

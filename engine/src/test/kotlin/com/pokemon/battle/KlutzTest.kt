@@ -80,7 +80,7 @@ class KlutzTest {
                 TurnChoice.UseMove(MoveDex.SLUDGE_BOMB),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
 
         val lifeOrbRecoil = result.events.filterIsInstance<ItemDamage>().filter { it.item == Item.LIFE_ORB }
         assertTrue(lifeOrbRecoil.isEmpty(), "Klutz should prevent Life Orb recoil")
@@ -102,7 +102,7 @@ class KlutzTest {
                 TurnChoice.UseMove(MoveDex.SLUDGE_BOMB),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
 
         // Klutz should prevent Sash from saving Venusaur — it should faint
         assertTrue(
@@ -128,7 +128,7 @@ class KlutzTest {
                 TurnChoice.UseMove(MoveDex.SLUDGE_BOMB),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
 
         val leftoversHealing = result.events.filterIsInstance<ItemHealing>().filter { it.item == Item.LEFTOVERS }
         assertTrue(leftoversHealing.isEmpty(), "Klutz should prevent Leftovers end-of-turn healing")
@@ -152,7 +152,7 @@ class KlutzTest {
                 TurnChoice.UseMove(MoveDex.SLUDGE_BOMB),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
 
         // Life Orb recoil fires as normal
         val lifeOrbRecoil = result.events.filterIsInstance<ItemDamage>().filter { it.item == Item.LIFE_ORB }

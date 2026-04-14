@@ -63,7 +63,7 @@ class SelfSwitchTest {
                 TurnChoice.UseMove(MoveDex.SLUDGE_BOMB),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
 
         // Damage is dealt (U-turn vs Venusaur)
         val damage = result.events.filterIsInstance<DamageDealt>()
@@ -100,7 +100,7 @@ class SelfSwitchTest {
                 TurnChoice.UseMove(MoveDex.SLUDGE_BOMB),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
 
         val abilityEvents = result.events.filterIsInstance<AbilityTriggered>()
         assertTrue(
@@ -128,7 +128,7 @@ class SelfSwitchTest {
                 TurnChoice.UseMove(MoveDex.SLUDGE_BOMB),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
         val finalState = result.events.fold(state) { s, e -> e.apply(s) }
 
         // Charizard is on the bench now — its stat stages should be reset
@@ -153,7 +153,7 @@ class SelfSwitchTest {
                 TurnChoice.UseMove(MoveDex.SLUDGE_BOMB),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
 
         // Damage still happens
         val damage = result.events.filterIsInstance<DamageDealt>()
@@ -183,7 +183,7 @@ class SelfSwitchTest {
                 TurnChoice.UseMove(MoveDex.SLUDGE_BOMB),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
 
         assertTrue(result.events.filterIsInstance<SwitchOut>().isEmpty(), "No switchTo → no switch")
     }
@@ -208,7 +208,7 @@ class SelfSwitchTest {
                 TurnChoice.UseMove(MoveDex.EARTHQUAKE),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
 
         // Volt Switch deals 0 damage to Garchomp (Dragon/Ground)
         val damage = result.events.filterIsInstance<DamageDealt>().filter { it.target == Slot.p2() }
@@ -236,7 +236,7 @@ class SelfSwitchTest {
                 TurnChoice.UseMove(MoveDex.SLUDGE_BOMB),
             )
 
-        val result = pipeline().resolve(state, choices)
+        val result = pipeline().resolveToCompletion(state, choices)
 
         assertTrue(
             result.events.filterIsInstance<DamageDealt>().none { it.target == Slot.p2() },
@@ -280,7 +280,7 @@ class SelfSwitchTest {
                     EndOfTurnPhase(),
                 ),
             )
-        val result = pipe.resolve(state, choices)
+        val result = pipe.resolveToCompletion(state, choices)
 
         assertTrue(result.events.filterIsInstance<SwitchOut>().isEmpty(), "No switch when Protect blocks the move")
     }
@@ -304,7 +304,7 @@ class SelfSwitchTest {
                 TurnChoice.UseMove(MoveDex.U_TURN, switchTo = 0),
                 TurnChoice.UseMove(MoveDex.SLUDGE_BOMB),
             )
-        val turn1 = pipeline().resolve(state, turn1Choices)
+        val turn1 = pipeline().resolveToCompletion(state, turn1Choices)
         val afterTurn1 = turn1.events.fold(state) { s, e -> e.apply(s) }
         assertEquals("Blastoise", afterTurn1.pokemonFor(Slot.p1()).pokemon.species.name)
         assertFalse(afterTurn1.pokemonFor(Slot.p1()).isFainted)
@@ -315,7 +315,7 @@ class SelfSwitchTest {
                 TurnChoice.UseMove(MoveDex.ICE_BEAM),
                 TurnChoice.UseMove(MoveDex.SLUDGE_BOMB),
             )
-        val turn2 = pipeline().resolve(afterTurn1, turn2Choices)
+        val turn2 = pipeline().resolveToCompletion(afterTurn1, turn2Choices)
         val damage = turn2.events.filterIsInstance<DamageDealt>()
         assertTrue(damage.any { it.target == Slot.p2() && it.amount > 0 }, "Blastoise should attack on turn 2")
     }
