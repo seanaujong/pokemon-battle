@@ -44,7 +44,14 @@ Initial phases: `MoveOrderPhase` → `MoveExecutionPhase` → `EndOfTurnPhase`. 
 - Phases are pure functions testable in isolation
 - Extensibility via new events + phases (open/closed principle)
 
-## Preflight (before starting real work)
+## Workflow
+
+How work moves through this project: **Preflight → Iteration Loop →
+(back to Preflight for the next task)**. The Parallel variant is the
+same loop, sharded across worktree subagents when Preflight #1 says so.
+Code Review is *step 5 of the Iteration Loop*, not a separate gate.
+
+### Preflight (before starting)
 
 Before entering the Iteration Loop, run a quick check for decisions that are
 easy to miss under momentum. These are judgment calls, not steps:
@@ -52,8 +59,8 @@ easy to miss under momentum. These are judgment calls, not steps:
 1. **Can this be parallelized?** If the task splits into ≥2 independent
    chunks that touch disjoint files, launching them as worktree subagents
    is usually faster than serial work. Default *to* parallel when overlap
-   is low; the Parallel Work section below covers conflict analysis and
-   launch shape. Know when *not* to parallelize (small tasks, coupled
+   is low; the Parallel variant subsection below covers conflict analysis
+   and launch shape. Know when *not* to parallelize (small tasks, coupled
    work, skeleton-level refactors).
 
 2. **Tool-match for the change shape.** Large mechanical renames (>3
@@ -73,7 +80,7 @@ The Iteration Loop below starts with scope clarification (step 1) and a
 diary entry for non-trivial work (step 2) — those remain the mandatory
 steps; the preflight is the short pause *before* step 1.
 
-## Iteration Loop
+### Iteration Loop
 
 Each feature or chunk of work follows this cycle:
 
@@ -111,13 +118,13 @@ Each feature or chunk of work follows this cycle:
 
 Diary entries are the paper trail. They capture *why* decisions were made, not just *what* was built.
 
-## Parallel Work (multi-agent orchestration)
+### Parallel variant
 
-When a chunk of work can be split into independent tasks, running them as parallel
-subagents in isolated git worktrees is often faster than serial work (we saw ~2.6× on a
-recent 3-agent run — see diary 052). The workflow:
+When Preflight #1 says shard, this is the Iteration Loop executed across
+worktree subagents. Same steps, same diary discipline, same review — just
+parallelized. We saw ~2.6× speedup on a recent 3-agent run (diary 052).
 
-### 1. Conflict analysis before launch
+#### 1. Conflict analysis before launch
 
 List each task's expected touched files. Check pairwise for overlap. Classify each
 task as "parallelizable with all," "parallelizable with subset," or "must run alone."
@@ -127,7 +134,7 @@ Invasive tasks (module splits, sweeping renames, build-config rewrites) are usua
 Record the conflict analysis in the message that launches the run, so it's auditable
 later.
 
-### 2. Launch pattern
+#### 2. Launch pattern
 
 Spawn subagents with `isolation: "worktree"` so each gets its own branch. Each agent's
 prompt must include:
@@ -138,7 +145,7 @@ prompt must include:
 - Convention reminders: iteration loop, no co-author trailer, pre-commit lint expectations
 - A concise-return-summary request
 
-### 3. Merge strategy
+#### 3. Merge strategy
 
 Fast-forward-only (`merge.ff = only` in `.git/config`). Merge the first branch directly;
 rebase subsequent branches onto main before fast-forwarding. Any rebase conflict is a
@@ -148,7 +155,7 @@ Gradle daemon gotcha: if you `cd` into a worktree to rebase, the daemon caches t
 directory as its project root. Run `gradlew -p /absolute/path/to/repo test` or
 `pkill -f GradleDaemon` before switching back. (Learned in diary 052.)
 
-### 4. Post-run retrospective (5-question checklist)
+#### 4. Post-run retrospective (5-question checklist)
 
 Write a short diary entry — proportional to the run. For a 3-agent run, ~10 minutes.
 The five questions:
@@ -162,7 +169,7 @@ The five questions:
 Each recurring entry in question 2 is either (a) a CLAUDE.md rule to add, or (b) a
 prompt-template improvement. The retro feeds back into this document.
 
-### When NOT to parallelize
+#### When NOT to parallelize
 
 - The task is small (single feature, <1 hour serial). Overhead isn't worth it.
 - Tasks are semantically coupled (one depends on the other's output).
