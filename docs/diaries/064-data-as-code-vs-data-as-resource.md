@@ -1,7 +1,7 @@
 # Diary 064: Data as code vs data as resource — a deliberate parallel implementation
 
 **Date:** 2026-04-14
-**Status:** Both implementations landed (2026-04-14). `Pokedex.loadJsonFromClasspath` (runtime resource path) and the generated `PokedexCatalog` (compile-time symbol path) coexist; tests pass for both. `:data-ingestion:codegenSpecies` regenerates the catalog after any ingestion refresh.
+**Status:** Case study retired (2026-04-14). Both implementations landed and were compared; the generated `PokedexCatalog` path was deleted as a prerequisite to diary 069 — it had one production call site while the JSON classpath loader had ~30, and the external-language client use case made the runtime-string path load-bearing anyway. `Pokedex.loadJsonFromClasspath` (originally described as "loadFromJsonDirectory" / "loadJsonFromClasspath" in this diary) is now the sole catalog path. The comparison below is preserved for the learning; the supporting infrastructure (`PokedexCodegenMain`, drift test, pre-commit hook, ktlint exclude, `:data-ingestion:codegenSpecies` task) is gone. See diary 069's "Prerequisite" section for the deletion rationale.
 
 ## The setup
 
