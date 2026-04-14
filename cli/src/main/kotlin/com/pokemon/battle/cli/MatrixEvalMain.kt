@@ -48,6 +48,10 @@ private const val DEFAULT_BATTLES_PER_MATCHUP = 20
 private const val MAX_TURNS = 30
 private const val DIVIDER_LEN = 72
 
+// Distinct constants mixed into the per-battle seed so AI choice and engine rolls
+// don't share a Random stream. Values are arbitrary; only their distinctness matters.
+private const val SEED_SALT_ENGINE = 0x5A71_5A71_5A71_5A71L
+
 // Matrix runner — reads as a long but linear script; extracting helpers would
 // fragment the narrative.
 @Suppress("LongMethod", "CyclomaticComplexMethod")
@@ -114,12 +118,22 @@ fun main(args: Array<String>) {
                     p2Bench = side2Pool.pokemon.drop(1).map { PokemonState(it, currentHp = it.maxHp) },
                 )
 
+            // Dedicated Random for engine-side rolls (crits, chance checks). Separate
+            // from the AI's Random so AI choice and engine rolls don't interfere;
+            // derived from the same battle seed so whole battles reproduce.
+            // Diary 089: without this, crits/chance-checks use Random.Default and
+            // Gen V vs Gen IV comparisons carry unseeded-randomness noise.
+            val engineRandom = Random(seed xor SEED_SALT_ENGINE)
             val pipeline =
                 TurnPipeline(
                     listOf(
                         MoveOrderPhase(registries),
                         SwitchPhase(registries),
-                        MoveExecutionPhase(registries),
+                        MoveExecutionPhase(
+                            registries,
+                            roll = { range -> range.random(engineRandom) },
+                            chanceCheck = { percent, _ -> engineRandom.nextInt(100) + 1 <= percent },
+                        ),
                         EndOfTurnPhase(registries),
                     ),
                 )

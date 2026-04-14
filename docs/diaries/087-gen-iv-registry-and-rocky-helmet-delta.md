@@ -1,7 +1,35 @@
 # Diary 087: `GenIVRegistries` as forcing function — Rocky Helmet's measurable delta
 
 **Date:** 2026-04-14
-**Status:** Complete.
+**Status:** Complete — with retrospective correction below.
+
+## Retrospective correction (2026-04-14, shipped in diary 089)
+
+The "15-point swing in the RandomAI mirror" this diary reported was
+**inflated by two confounds** caught in diary 088 + diary 089:
+
+1. Rocky Helmet was firing on *any* damaging move rather than only on
+   contact moves. Diary 088 fixed that via the
+   `resolveIsContact` seam.
+2. `MoveExecutionPhase`'s default `roll` and `chanceCheck` used
+   `Random.Default` — genuinely nondeterministic. Diary 089 added
+   seeded engine randomness to `MatrixEvalMain`.
+
+**With both fixes, Gen V and Gen IV produce identical battles
+byte-for-byte** on the current team pools (180/180 outcome-matching
+pairs). Rocky Helmet never fires because none of the team moves are
+contact moves. The original "15-point swing" was entirely artifact.
+
+The directional claim was still valid — *registry swaps produce
+measurably different behavior when the effects those registries
+control are actually reachable*. That's what the seam is for. This
+corpus just doesn't reach Rocky Helmet. A team with contact moves
+(U-turn, Tackle, Mach Punch) would recover a real signal.
+
+Filed as a follow-up exercise: "run the matrix with contact-heavy
+movepools and document the Gen V / Gen IV delta that Rocky Helmet
+genuinely produces." Not urgent; the architectural claim is proven
+and the correction is on the books.
 
 ## Why this diary exists
 
