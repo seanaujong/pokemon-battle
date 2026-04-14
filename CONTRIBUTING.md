@@ -75,8 +75,8 @@ decouple behavior from callers.
    healed), create `render/item/<Name>Text.kt` implementing `ItemText`, and register it
    in `render/item/ItemTextRegistry.kt`. Items with no custom text can skip this entirely
    (diary 038 — rendering separated from behavior).
-5. **Test it.** New test file `src/test/kotlin/.../<Name>Test.kt`. See section 7 for
-   conventions.
+5. **Test it.** New test file `engine/src/test/kotlin/.../<Name>Test.kt`. See section 7
+   for conventions.
 
 Do not edit `GenVDamageCalculator`, `MoveExecutionPhase`, `EndOfTurnPhase`, or
 `TextRenderer` to special-case your item. If you need a new hook, add it as a defaulted

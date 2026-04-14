@@ -1,45 +1,7 @@
-plugins {
-    kotlin("jvm") version "2.2.10"
-    kotlin("plugin.serialization") version "2.2.10"
-    application
-    id("org.jlleitschuh.gradle.ktlint") version "12.1.2"
-    id("io.gitlab.arturbosch.detekt") version "1.23.7"
-    jacoco
-}
-
-application {
-    mainClass.set("MainKt")
-}
-
-group = "com.pokemon.battle"
-version = "1.0-SNAPSHOT"
-
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3")
-    testImplementation(kotlin("test"))
-}
-
-tasks.test {
-    useJUnitPlatform()
-    finalizedBy(tasks.jacocoTestReport)
-}
-
-tasks.jacocoTestReport {
-    dependsOn(tasks.test)
-    reports {
-        html.required.set(true)
-    }
-}
-
-detekt {
-    config.setFrom(files("detekt.yml"))
-    buildUponDefaultConfig = true
-}
-
-kotlin {
-    jvmToolchain(17)
-}
+// Root build file. Intentionally minimal — each module owns its own plugins, deps,
+// and config. Shared concerns (detekt.yml, CLAUDE.md, docs/) live at this level.
+//
+// Module layout:
+//   :engine — the battle engine (see engine/build.gradle.kts)
+//
+// Future modules (diaries 041/042): :data-ingestion, :analytics, clients.

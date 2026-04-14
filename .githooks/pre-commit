@@ -10,7 +10,7 @@ echo "Running ktlint..."
 
 echo "Running detekt..."
 ./gradlew detekt --daemon -q || {
-    echo "detekt failed. See build/reports/detekt/detekt.txt for details."
+    echo "detekt failed. See engine/build/reports/detekt/detekt.txt for details."
     exit 1
 }
 
