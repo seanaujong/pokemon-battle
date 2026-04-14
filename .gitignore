@@ -56,3 +56,4 @@ docs/diaries/temp/
 # Claude Code subagent worktrees (transient, each on their own branch).
 .claude/
 /battles/
+/battles*/

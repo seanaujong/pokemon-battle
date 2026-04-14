@@ -36,4 +36,16 @@ data class Move(
      */
     @Transient
     val hitCount: IntRange? = null,
+    /**
+     * Whether this move makes physical contact. Distinct from [MoveCategory.PHYSICAL]
+     * — Earthquake is physical non-contact, Sludge Bomb is special non-contact, and
+     * Rapid Spin is physical contact. Default false so anyone adding a move without
+     * thinking about contact gets the more common state (non-contact).
+     *
+     * Consumed via [com.pokemon.battle.engine.resolveIsContact], which layers item /
+     * ability overrides on top of this static flag. Diary 088: the Punching Glove
+     * interaction forced this to be dynamic rather than a naive `move.contact`
+     * check.
+     */
+    val contact: Boolean = false,
 )

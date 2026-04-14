@@ -31,9 +31,12 @@ object RedCardEffect : ItemEffect {
         attackerSlot: Slot,
         damageDealt: Int,
         effectiveness: Effectiveness,
+        contact: Boolean,
         abilities: AbilityRegistry,
     ): List<GameEvent> {
         if (damageDealt <= 0) return emptyList()
+        // Red Card triggers regardless of contact — matches real-game mechanics.
+        // The `contact` parameter is accepted for interface uniformity.
         val attacker = state.pokemonFor(attackerSlot)
         if (attacker.isFainted) return emptyList()
 

@@ -26,9 +26,9 @@ object MoveDex {
 
     // --- Physical moves ---
 
-    val TACKLE = register(Move("Tackle", Type.NORMAL, MoveCategory.PHYSICAL, 40))
+    val TACKLE = register(Move("Tackle", Type.NORMAL, MoveCategory.PHYSICAL, 40, contact = true))
 
-    val MACH_PUNCH = register(Move("Mach Punch", Type.FIGHTING, MoveCategory.PHYSICAL, 40, priority = 1))
+    val MACH_PUNCH = register(Move("Mach Punch", Type.FIGHTING, MoveCategory.PHYSICAL, 40, priority = 1, contact = true))
 
     val EARTHQUAKE =
         register(
@@ -43,9 +43,9 @@ object MoveDex {
 
     val MUD_SLAP = register(Move("Mud-Slap", Type.GROUND, MoveCategory.SPECIAL, 20))
 
-    val ROCK_BLAST = register(Move("Rock Blast", Type.ROCK, MoveCategory.PHYSICAL, 25, hitCount = 2..5))
+    val ROCK_BLAST = register(Move("Rock Blast", Type.ROCK, MoveCategory.PHYSICAL, 25, hitCount = 2..5, contact = true))
 
-    val DOUBLE_SLAP = register(Move("Double Slap", Type.NORMAL, MoveCategory.PHYSICAL, 15, hitCount = 2..5))
+    val DOUBLE_SLAP = register(Move("Double Slap", Type.NORMAL, MoveCategory.PHYSICAL, 15, hitCount = 2..5, contact = true))
 
     val U_TURN =
         register(
@@ -55,6 +55,7 @@ object MoveDex {
                 MoveCategory.PHYSICAL,
                 70,
                 effects = listOf(MoveEffect.SelfSwitch),
+                contact = true,
             ),
         )
 
@@ -191,6 +192,7 @@ object MoveDex {
                 target = MoveTarget.ONE_OPPONENT,
                 effects = listOf(MoveEffect.SetVolatile(Volatile.Flinch)),
                 requiresJustSwitchedIn = true,
+                contact = true,
             ),
         )
 
@@ -255,6 +257,7 @@ object MoveDex {
                         MoveEffect.ClearHazardsOnUserSide,
                         MoveEffect.UserStatBoost(StatType.SPEED, 1),
                     ),
+                contact = true,
             ),
         )
 

@@ -40,7 +40,30 @@ class RockyHelmetTest {
     // ============================================================
 
     @Test
-    fun `Rocky Helmet deals 1 over 6 of attacker's max HP as recoil`() {
+    fun `Rocky Helmet deals 1 over 6 of attacker's max HP as recoil on contact move`() {
+        val charizard = Pokemon(pokedex["Charizard"]!!, level = 50)
+        val venusaur = Pokemon(pokedex["Venusaur"]!!, level = 50)
+
+        val attacker = PokemonState(charizard, currentHp = charizard.maxHp)
+        val defender = PokemonState(venusaur, currentHp = venusaur.maxHp, item = Item.ROCKY_HELMET)
+        val state = BattleState.singles(attacker, defender)
+
+        // Tackle is a contact move — Rocky Helmet fires.
+        val choices =
+            TurnChoices.singles(
+                TurnChoice.UseMove(MoveDex.TACKLE),
+                TurnChoice.UseMove(MoveDex.SLUDGE_BOMB),
+            )
+
+        val result = pipeline().resolveToCompletion(state, choices)
+
+        val helmetEvents = result.events.filterIsInstance<ItemDamage>().filter { it.item == Item.ROCKY_HELMET }
+        assertEquals(1, helmetEvents.size, "Rocky Helmet should fire once when its holder is hit by a contact move")
+        assertEquals(attacker.maxHp / 6, helmetEvents.single().amount, "recoil should be 1/6 max HP")
+    }
+
+    @Test
+    fun `Rocky Helmet does not fire on non-contact move (Flamethrower)`() {
         val charizard = Pokemon(pokedex["Charizard"]!!, level = 50)
         val venusaur = Pokemon(pokedex["Venusaur"]!!, level = 50)
 
@@ -57,8 +80,7 @@ class RockyHelmetTest {
         val result = pipeline().resolveToCompletion(state, choices)
 
         val helmetEvents = result.events.filterIsInstance<ItemDamage>().filter { it.item == Item.ROCKY_HELMET }
-        assertEquals(1, helmetEvents.size, "Rocky Helmet should fire once when its holder is hit")
-        assertEquals(attacker.maxHp / 6, helmetEvents.single().amount, "recoil should be 1/6 max HP")
+        assertEquals(0, helmetEvents.size, "Rocky Helmet should not fire on a non-contact move")
     }
 
     @Test
@@ -93,9 +115,11 @@ class RockyHelmetTest {
         val defender = PokemonState(venusaur, currentHp = venusaur.maxHp, item = Item.ROCKY_HELMET)
         val state = BattleState.singles(attacker, defender)
 
+        // Tackle is contact — Rocky Helmet fires. A non-contact move here would not
+        // recoil-KO the attacker; this test specifically exercises the contact path.
         val choices =
             TurnChoices.singles(
-                TurnChoice.UseMove(MoveDex.FLAMETHROWER),
+                TurnChoice.UseMove(MoveDex.TACKLE),
                 TurnChoice.UseMove(MoveDex.SLUDGE_BOMB),
             )
 

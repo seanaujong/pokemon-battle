@@ -530,7 +530,7 @@ class MoveExecutionPhase(
             events.add(event)
             currentState = event.apply(currentState)
         }
-        val onHitEvents = onHitEvents(currentState, targetSlot, attackerSlot, finalDamage, result.effectiveness)
+        val onHitEvents = onHitEvents(currentState, targetSlot, attackerSlot, move, finalDamage, result.effectiveness)
         for (event in onHitEvents) {
             events.add(event)
             currentState = event.apply(currentState)
@@ -565,17 +565,21 @@ class MoveExecutionPhase(
     }
 
     /** On-hit hooks: items that react to the attacker (Red Card, Rocky Helmet, Weakness Policy). */
+    @Suppress("LongParameterList")
     private fun onHitEvents(
         state: BattleState,
         targetSlot: Slot,
         attackerSlot: Slot,
+        move: Move,
         damageDealt: Int,
         effectiveness: com.pokemon.battle.model.Effectiveness,
     ): List<GameEvent> {
         val defender = state.pokemonFor(targetSlot)
         if (defender.isFainted || damageDealt <= 0) return emptyList()
+        val attacker = state.pokemonFor(attackerSlot)
+        val contact = com.pokemon.battle.engine.resolveIsContact(move, attacker, registries.items, registries.abilities)
         return registries.items.effectForHolder(defender)
-            ?.onHolderTookDamage(state, targetSlot, attackerSlot, damageDealt, effectiveness, registries.abilities)
+            ?.onHolderTookDamage(state, targetSlot, attackerSlot, damageDealt, effectiveness, contact, registries.abilities)
             ?: emptyList()
     }
 

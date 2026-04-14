@@ -115,6 +115,15 @@ interface AbilityEffect {
     fun speedModifier(holder: PokemonState): Double = 1.0
 
     /**
+     * Overrides whether the holder's outgoing [move] counts as making contact.
+     * Null = no opinion (default). True = force contact. False = negate contact.
+     * Long Reach is the canonical example — every move becomes non-contact
+     * regardless of its default. Mirrors [com.pokemon.battle.engine.item.ItemEffect.overridesContact];
+     * both are consulted by [com.pokemon.battle.engine.resolveIsContact]. Diary 088.
+     */
+    fun overridesContact(move: com.pokemon.battle.model.Move): Boolean? = null
+
+    /**
      * Fired after the holder takes damage. Mirrors
      * [com.pokemon.battle.engine.item.ItemEffect.onHpThresholdCrossed]. Used for
      * Emergency Exit (forced switch when HP drops to/below 50%) and similar.

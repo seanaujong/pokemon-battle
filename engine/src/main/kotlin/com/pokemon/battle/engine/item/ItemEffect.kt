@@ -99,13 +99,14 @@ interface ItemEffect {
      * trigger the replacement's switch-in ability without reaching for a global
      * registry.
      */
-    @Suppress("LongParameterList") // Intentional: on-hit items need full attacker/defender/damage/type-eff context.
+    @Suppress("LongParameterList") // Intentional: on-hit items need full attacker/defender/damage/type-eff/contact context.
     fun onHolderTookDamage(
         state: BattleState,
         holderSlot: Slot,
         attackerSlot: Slot,
         damageDealt: Int,
         effectiveness: Effectiveness,
+        contact: Boolean,
         abilities: AbilityRegistry,
     ): List<GameEvent> = emptyList()
 
@@ -121,6 +122,20 @@ interface ItemEffect {
      * `blocksHazard(hazard: SideHazard): Boolean` at that point.
      */
     fun blocksHazards(holder: PokemonState): Boolean = false
+
+    /**
+     * Overrides whether the holder's outgoing [move] counts as making contact.
+     * Returning null (the default) means "no opinion, fall through to
+     * [Move.contact]." Returning true forces contact; returning false
+     * negates it. Gen 9's Punching Glove negates contact for punching
+     * moves; Gen 7's Protective Pads negates consequences of contact
+     * (different seam). Consulted by [resolveIsContact].
+     *
+     * Diary 088: adding this hook (rather than gating Rocky Helmet on a
+     * static `move.contact` flag) keeps defender-side effects from having
+     * to know about attacker-side items.
+     */
+    fun overridesContact(move: com.pokemon.battle.model.Move): Boolean? = null
 
     // Rendering lives in render/item/ItemText, not here. Split diary 038.
 }

@@ -40,6 +40,7 @@ object WeaknessPolicyEffect : ItemEffect {
         attackerSlot: Slot,
         damageDealt: Int,
         effectiveness: Effectiveness,
+        contact: Boolean,
         abilities: AbilityRegistry,
     ): List<GameEvent> {
         if (damageDealt <= 0) return emptyList()
