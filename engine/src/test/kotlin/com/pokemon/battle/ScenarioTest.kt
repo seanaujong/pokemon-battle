@@ -136,7 +136,7 @@ class ScenarioTest {
             )
 
         val phase = MoveExecutionPhase(roll = fixedRoll, chanceCheck = noChance)
-        val events = phase.resolve(state, choices)
+        val events = phase.resolve(state, choices).events
 
         // Find events from Earthquake (first attacker, fastest at speed 100)
         val eqAttemptIdx =
@@ -395,7 +395,7 @@ class ScenarioTest {
             )
 
         val phase = MoveExecutionPhase(roll = fixedRoll, chanceCheck = noChance)
-        val events = phase.resolve(state, choices)
+        val events = phase.resolve(state, choices).events
 
         val blocked = events.filterIsInstance<AbilityBlocked>()
         assertEquals(1, blocked.size)
@@ -444,7 +444,7 @@ class ScenarioTest {
             )
 
         val phase = MoveExecutionPhase(roll = fixedRoll, chanceCheck = noChance)
-        val events = phase.resolve(state, choices)
+        val events = phase.resolve(state, choices).events
 
         val firstAttempt = events.filterIsInstance<MoveAttempted>().first()
         assertEquals(Slot.p1(), firstAttempt.attacker, "Mega Snorlax should go first (speed 200 vs 1)")
@@ -472,7 +472,7 @@ class ScenarioTest {
             )
 
         val phase = MoveExecutionPhase(roll = fixedRoll, chanceCheck = noChance)
-        val events = phase.resolve(state, choices)
+        val events = phase.resolve(state, choices).events
 
         val damage = events.filterIsInstance<DamageDealt>().filter { it.target == Slot.p2() }
         assertTrue(damage.isNotEmpty(), "Pikachu using Flamethrower should work")

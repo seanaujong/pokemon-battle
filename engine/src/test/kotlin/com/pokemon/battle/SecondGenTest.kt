@@ -167,12 +167,12 @@ class SecondGenTest {
             )
 
         // GenV end-of-turn
-        val genVEvents = EndOfTurnPhase().resolve(state, choices)
+        val genVEvents = EndOfTurnPhase().resolve(state, choices).events
         val genVBurn = genVEvents.filterIsInstance<StatusDamage>().first()
         val genVWeather = genVEvents.filterIsInstance<WeatherDamage>()
 
         // Simplified end-of-turn
-        val simpleEvents = SimplifiedEndOfTurnPhase().resolve(state, choices)
+        val simpleEvents = SimplifiedEndOfTurnPhase().resolve(state, choices).events
         val simpleBurn = simpleEvents.filterIsInstance<StatusDamage>().first()
         val simpleWeather = simpleEvents.filterIsInstance<WeatherDamage>()
 

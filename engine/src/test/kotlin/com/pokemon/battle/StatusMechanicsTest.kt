@@ -122,7 +122,7 @@ class StatusMechanicsTest {
     fun `fully paralyzed Pokemon cannot act`() {
         val state = makeState(p1Status = StatusCondition.PARALYSIS)
         val phase = MoveExecutionPhase(roll = { 100 }, chanceCheck = { _, _ -> true })
-        val events = phase.resolve(state, bothTackle)
+        val events = phase.resolve(state, bothTackle).events
 
         val moveFailed = events.filterIsInstance<MoveFailed>()
         assertEquals(1, moveFailed.size)
@@ -134,7 +134,7 @@ class StatusMechanicsTest {
     fun `paralyzed Pokemon acts when chance check fails`() {
         val state = makeState(p1Status = StatusCondition.PARALYSIS)
         val phase = MoveExecutionPhase(roll = { 100 }, chanceCheck = { _, _ -> false })
-        val events = phase.resolve(state, bothTackle)
+        val events = phase.resolve(state, bothTackle).events
 
         assertEquals(0, events.filterIsInstance<MoveFailed>().size)
         assertEquals(2, events.filterIsInstance<MoveAttempted>().size)
@@ -150,7 +150,7 @@ class StatusMechanicsTest {
                 p1Volatiles = setOf(Volatile.Sleep(turnsRemaining = 2)),
             )
         val phase = MoveExecutionPhase(roll = { 100 }, chanceCheck = { _, _ -> false })
-        val events = phase.resolve(state, bothTackle)
+        val events = phase.resolve(state, bothTackle).events
 
         val removed = events.filterIsInstance<VolatileRemoved>()
         val added = events.filterIsInstance<VolatileAdded>()
@@ -172,7 +172,7 @@ class StatusMechanicsTest {
                 p1Volatiles = setOf(Volatile.Sleep(turnsRemaining = 1)),
             )
         val phase = MoveExecutionPhase(roll = { 100 }, chanceCheck = { _, _ -> false })
-        val events = phase.resolve(state, bothTackle)
+        val events = phase.resolve(state, bothTackle).events
 
         val cleared = events.filterIsInstance<StatusCleared>()
         assertEquals(1, cleared.size)
@@ -192,12 +192,12 @@ class StatusMechanicsTest {
         val phase = MoveExecutionPhase(roll = { 100 }, chanceCheck = { _, _ -> false })
 
         // Turn 1: P1 sleeps
-        val turn1Events = phase.resolve(state, bothTackle)
+        val turn1Events = phase.resolve(state, bothTackle).events
         assertEquals(FailReason.ASLEEP, turn1Events.filterIsInstance<MoveFailed>()[0].reason)
         state = turn1Events.fold(state) { s, e -> e.apply(s) }
 
         // Turn 2: P1 wakes and acts
-        val turn2Events = phase.resolve(state, bothTackle)
+        val turn2Events = phase.resolve(state, bothTackle).events
         assertEquals(StatusCondition.SLEEP, turn2Events.filterIsInstance<StatusCleared>()[0].status)
         assertTrue(turn2Events.filterIsInstance<MoveAttempted>().any { it.attacker == Slot.p1() })
     }
@@ -208,7 +208,7 @@ class StatusMechanicsTest {
     fun `frozen Pokemon cannot act when thaw fails`() {
         val state = makeState(p1Status = StatusCondition.FREEZE)
         val phase = MoveExecutionPhase(roll = { 100 }, chanceCheck = { _, _ -> false })
-        val events = phase.resolve(state, bothTackle)
+        val events = phase.resolve(state, bothTackle).events
 
         val moveFailed = events.filterIsInstance<MoveFailed>()
         assertEquals(1, moveFailed.size)
@@ -220,7 +220,7 @@ class StatusMechanicsTest {
     fun `frozen Pokemon thaws and acts when thaw succeeds`() {
         val state = makeState(p1Status = StatusCondition.FREEZE)
         val phase = MoveExecutionPhase(roll = { 100 }, chanceCheck = { _, _ -> true })
-        val events = phase.resolve(state, bothTackle)
+        val events = phase.resolve(state, bothTackle).events
 
         assertEquals(StatusCondition.FREEZE, events.filterIsInstance<StatusCleared>()[0].status)
         assertTrue(events.filterIsInstance<MoveAttempted>().any { it.attacker == Slot.p1() })

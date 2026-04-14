@@ -52,7 +52,7 @@ class TypeOverrideTest {
             )
 
         val phase = MoveExecutionPhase(roll = fixedRoll, chanceCheck = noChance)
-        val events = phase.resolve(state, choices)
+        val events = phase.resolve(state, choices).events
 
         val damage = events.filterIsInstance<DamageDealt>().first { it.target == Slot.p2() }
         assertEquals(
@@ -131,7 +131,7 @@ class TypeOverrideTest {
                 TurnChoice.UseMove(MoveDex.TACKLE),
             )
 
-        val events = EndOfTurnPhase().resolve(state, choices)
+        val events = EndOfTurnPhase().resolve(state, choices).events
         val weatherDamage = events.filterIsInstance<WeatherDamage>()
 
         // P1 (Ground override) should be immune, P2 (Normal) takes damage

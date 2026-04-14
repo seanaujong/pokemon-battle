@@ -16,6 +16,7 @@ import com.pokemon.battle.engine.MoveAttempted
 import com.pokemon.battle.engine.MoveFailed
 import com.pokemon.battle.engine.MoveLegality
 import com.pokemon.battle.engine.Phase
+import com.pokemon.battle.engine.PhaseOutput
 import com.pokemon.battle.engine.PokemonFainted
 import com.pokemon.battle.engine.ProtectBlocked
 import com.pokemon.battle.engine.SideConditionSet
@@ -24,9 +25,13 @@ import com.pokemon.battle.engine.StatChanged
 import com.pokemon.battle.engine.StatusCleared
 import com.pokemon.battle.engine.SwitchIn
 import com.pokemon.battle.engine.SwitchOut
+import com.pokemon.battle.engine.SwitchReason
+import com.pokemon.battle.engine.SwitchTargetRequest
+import com.pokemon.battle.engine.SwitchTargetResponse
 import com.pokemon.battle.engine.TrickRoomSet
 import com.pokemon.battle.engine.TurnChoice
 import com.pokemon.battle.engine.TurnChoices
+import com.pokemon.battle.engine.TurnInputResolved
 import com.pokemon.battle.engine.VolatileAdded
 import com.pokemon.battle.engine.VolatileRemoved
 import com.pokemon.battle.engine.ability.AbilityRegistry
@@ -56,73 +61,160 @@ class MoveExecutionPhase(
     override fun resolve(
         state: BattleState,
         choices: TurnChoices,
-    ): List<BattleEvent> {
+    ): PhaseOutput {
         val order = resolveMoveOrder(state, choices, speedResolver).order
         val events = mutableListOf<BattleEvent>()
         var currentState = state
 
         for (slot in order) {
-            val choice = choices.choiceFor(slot)
-            if (choice !is TurnChoice.UseMove) continue
-
-            val attacker = currentState.pokemonFor(slot)
-            if (attacker.isFainted) continue
-
-            val newEvents = checkStatusThenExecute(currentState, slot, choice)
-            for (event in newEvents) {
+            val step = stepForSlot(currentState, state.partialTurnEvents, choices, slot) ?: continue
+            for (event in step.events) {
                 events.add(event)
                 currentState = event.apply(currentState)
             }
+            if (step.pauseRequest != null) {
+                return PhaseOutput.Paused(events, step.pauseRequest)
+            }
         }
 
-        return events
+        return PhaseOutput.Completed(events)
+    }
+
+    /**
+     * Decide what this slot should produce this pass, or `null` to skip the slot
+     * entirely. Consolidates the "not a move choice", "fainted", "already acted",
+     * "mid-self-switch resume", and "normal execution" branches into one decision.
+     */
+    private fun stepForSlot(
+        state: BattleState,
+        priorEvents: List<BattleEvent>,
+        choices: TurnChoices,
+        slot: Slot,
+    ): MoveStep? {
+        val choice = choices.choiceFor(slot) as? TurnChoice.UseMove ?: return null
+        if (state.pokemonFor(slot).isFainted) return null
+        if (slotAlreadyActed(priorEvents, slot)) return null
+        if (slotIsMidSelfSwitch(priorEvents, slot)) {
+            return MoveStep(completeSelfSwitchOnResume(state, slot, priorEvents))
+        }
+        return checkStatusThenExecute(state, slot, choice)
+    }
+
+    /**
+     * A slot already completed its move this turn if its [MoveAttempted] in
+     * [priorEvents] is followed by either a post-self-switch [SwitchIn] for that slot
+     * or no pause marker tied to that slot. For the paused-slot check, see
+     * [slotIsMidSelfSwitch].
+     */
+    private fun slotAlreadyActed(
+        priorEvents: List<BattleEvent>,
+        slot: Slot,
+    ): Boolean {
+        val lastAttempt = priorEvents.indexOfLast { it is MoveAttempted && it.attacker == slot }
+        if (lastAttempt < 0) return false
+        val pauseAfter =
+            priorEvents.drop(lastAttempt).any {
+                it is com.pokemon.battle.engine.TurnPausedForInput
+            }
+        return !pauseAfter
+    }
+
+    /**
+     * This slot's move emitted [MoveAttempted] and paused before the self-switch
+     * completed. Detection: there's a [com.pokemon.battle.engine.TurnPausedForInput]
+     * after this slot's last [MoveAttempted] but no [SwitchIn] for this slot after
+     * the pause.
+     */
+    private fun slotIsMidSelfSwitch(
+        priorEvents: List<BattleEvent>,
+        slot: Slot,
+    ): Boolean {
+        val lastAttempt = priorEvents.indexOfLast { it is MoveAttempted && it.attacker == slot }
+        if (lastAttempt < 0) return false
+        val afterAttempt = priorEvents.drop(lastAttempt + 1)
+        val paused = afterAttempt.any { it is com.pokemon.battle.engine.TurnPausedForInput }
+        if (!paused) return false
+        val switchedIn = afterAttempt.any { it is SwitchIn && it.slot == slot }
+        return !switchedIn
+    }
+
+    /**
+     * Resumes a paused self-switch move. Reads the [SwitchTargetResponse] from the
+     * most recent [TurnInputResolved] in [priorEvents] and emits the switch sequence.
+     */
+    private fun completeSelfSwitchOnResume(
+        state: BattleState,
+        attackerSlot: Slot,
+        priorEvents: List<BattleEvent>,
+    ): List<BattleEvent> {
+        val response =
+            priorEvents
+                .filterIsInstance<TurnInputResolved>()
+                .lastOrNull()
+                ?.response as? SwitchTargetResponse
+                ?: error("Resuming self-switch but no SwitchTargetResponse in partialTurnEvents")
+        val benchIndex = response.benchIndex
+        return doSelfSwitch(state, attackerSlot, benchIndex)
     }
 
     // --- Status checks ---
+
+    /** Events accumulated + an optional mid-turn pause request to propagate up. */
+    private data class MoveStep(
+        val events: List<BattleEvent>,
+        val pauseRequest: SwitchTargetRequest? = null,
+    )
 
     private fun checkStatusThenExecute(
         state: BattleState,
         slot: Slot,
         choice: TurnChoice.UseMove,
-    ): List<BattleEvent> {
+    ): MoveStep {
         val attacker = state.pokemonFor(slot)
 
         if (attacker.status == StatusCondition.SLEEP) {
             val sleepVolatile = attacker.volatiles.filterIsInstance<Volatile.Sleep>().firstOrNull()
             if (sleepVolatile == null) {
                 val cleared = StatusCleared(slot, StatusCondition.SLEEP)
-                return listOf(cleared) + executeMove(cleared.apply(state), slot, choice)
+                return prepend(cleared, executeMove(cleared.apply(state), slot, choice))
             }
             val remaining = sleepVolatile.turnsRemaining - 1
             if (remaining > 0) {
-                return listOf(
-                    VolatileRemoved(slot, sleepVolatile),
-                    VolatileAdded(slot, Volatile.Sleep(remaining)),
-                    MoveFailed(slot, FailReason.ASLEEP),
+                return MoveStep(
+                    listOf(
+                        VolatileRemoved(slot, sleepVolatile),
+                        VolatileAdded(slot, Volatile.Sleep(remaining)),
+                        MoveFailed(slot, FailReason.ASLEEP),
+                    ),
                 )
             } else {
                 val cleared = StatusCleared(slot, StatusCondition.SLEEP)
-                return listOf(cleared) + executeMove(cleared.apply(state), slot, choice)
+                return prepend(cleared, executeMove(cleared.apply(state), slot, choice))
             }
         }
 
         if (attacker.status == StatusCondition.FREEZE) {
             if (chanceCheck(20, FailReason.FROZEN)) {
                 val cleared = StatusCleared(slot, StatusCondition.FREEZE)
-                return listOf(cleared) + executeMove(cleared.apply(state), slot, choice)
+                return prepend(cleared, executeMove(cleared.apply(state), slot, choice))
             } else {
-                return listOf(MoveFailed(slot, FailReason.FROZEN))
+                return MoveStep(listOf(MoveFailed(slot, FailReason.FROZEN)))
             }
         }
 
         if (attacker.status == StatusCondition.PARALYSIS) {
             if (chanceCheck(25, FailReason.FULLY_PARALYZED)) {
-                return listOf(MoveFailed(slot, FailReason.FULLY_PARALYZED))
+                return MoveStep(listOf(MoveFailed(slot, FailReason.FULLY_PARALYZED)))
             }
         }
 
         return executeMove(state, slot, choice)
     }
+
+    private fun prepend(
+        event: BattleEvent,
+        step: MoveStep,
+    ): MoveStep = MoveStep(listOf(event) + step.events, step.pauseRequest)
 
     // --- Move execution ---
 
@@ -130,7 +222,7 @@ class MoveExecutionPhase(
         state: BattleState,
         attackerSlot: Slot,
         choice: TurnChoice.UseMove,
-    ): List<BattleEvent> {
+    ): MoveStep {
         val move = choice.move
         val events = mutableListOf<BattleEvent>(MoveAttempted(attackerSlot, move))
         var currentState = state
@@ -140,7 +232,7 @@ class MoveExecutionPhase(
             Volatile.JustSwitchedIn !in state.pokemonFor(attackerSlot).volatiles
         ) {
             events.add(MoveFailed(attackerSlot, FailReason.NOT_FIRST_TURN))
-            return events
+            return MoveStep(events)
         }
 
         // Ruleset legality check (choice-lock today; disable/taunt/encore future). The
@@ -150,7 +242,7 @@ class MoveExecutionPhase(
         val legality = state.ruleset.canUseMove(state, attackerSlot, move)
         if (legality is MoveLegality.Forbidden) {
             events.add(MoveFailed(attackerSlot, legality.reason))
-            return events
+            return MoveStep(events)
         }
 
         // Protection moves (Protect, Detect, …) have diminishing-success semantics and
@@ -158,7 +250,7 @@ class MoveExecutionPhase(
         if (isProtectionMove(move)) {
             val protectionEvents = resolveProtectionMove(currentState, attackerSlot)
             events.addAll(protectionEvents)
-            return events
+            return MoveStep(events)
         }
 
         // Any non-protection move resets the user's protection counter.
@@ -194,14 +286,15 @@ class MoveExecutionPhase(
 
         // Self-switch (U-turn, Volt Switch): after damage + effects, switch attacker out.
         if (move.effects.any { it is MoveEffect.SelfSwitch }) {
-            val selfSwitchEvents = resolveSelfSwitch(currentState, attackerSlot, choice, events)
-            for (event in selfSwitchEvents) {
+            val selfSwitchStep = resolveSelfSwitch(currentState, attackerSlot, choice, events)
+            for (event in selfSwitchStep.events) {
                 events.add(event)
                 currentState = event.apply(currentState)
             }
+            return MoveStep(events, selfSwitchStep.pauseRequest)
         }
 
-        return events
+        return MoveStep(events)
     }
 
     private fun resolveSelfSwitch(
@@ -209,19 +302,43 @@ class MoveExecutionPhase(
         attackerSlot: Slot,
         choice: TurnChoice.UseMove,
         priorEvents: List<BattleEvent>,
-    ): List<BattleEvent> {
+    ): MoveStep {
         // Don't switch if attacker fainted (recoil etc.) or move was fully blocked
         // (no damage landed because of Protect / type immunity / ability immunity).
-        if (state.pokemonFor(attackerSlot).isFainted) return emptyList()
+        if (state.pokemonFor(attackerSlot).isFainted) return MoveStep(emptyList())
         val damageLanded = priorEvents.any { it is DamageDealt && (it).amount > 0 }
-        if (!damageLanded) return emptyList()
+        if (!damageLanded) return MoveStep(emptyList())
 
-        // Need a valid bench replacement
-        val benchIndex = choice.switchTo ?: return emptyList()
         val bench = state.benchFor(attackerSlot.side)
-        if (benchIndex !in bench.indices) return emptyList()
-        if (bench[benchIndex].isFainted) return emptyList()
+        val eligibleIndices = bench.withIndex().filter { !it.value.isFainted }.map { it.index }
+        if (eligibleIndices.isEmpty()) return MoveStep(emptyList())
 
+        // Pre-selected target (legacy path: choice carries switchTo up front).
+        val preSelected = choice.switchTo?.takeIf { it in eligibleIndices }
+        if (preSelected != null) {
+            return MoveStep(doSelfSwitch(state, attackerSlot, preSelected))
+        }
+
+        // Mid-turn path: ask for a target. The pipeline will halt and return NeedInput;
+        // resume re-enters this phase with a TurnInputResolved in partialTurnEvents,
+        // which is handled by [completeSelfSwitchOnResume] before we reach here.
+        return MoveStep(
+            events = emptyList(),
+            pauseRequest =
+                SwitchTargetRequest(
+                    userSlot = attackerSlot,
+                    reason = SwitchReason.SELF_SWITCH_MOVE,
+                    eligibleBenchIndices = eligibleIndices,
+                ),
+        )
+    }
+
+    /** Pure "do the switch" event sequence. Shared by pre-selected and resume paths. */
+    private fun doSelfSwitch(
+        state: BattleState,
+        attackerSlot: Slot,
+        benchIndex: Int,
+    ): List<BattleEvent> {
         val events = mutableListOf<BattleEvent>()
         var currentState = state
 

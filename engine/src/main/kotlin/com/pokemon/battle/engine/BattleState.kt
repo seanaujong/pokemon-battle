@@ -25,7 +25,7 @@ data class BattleState(
     val turn: Int = 1,
     /**
      * Mid-turn prompt the engine is waiting on, or null if the turn is not paused.
-     * See diary 055. Phase 1: always null (no phase emits pauses yet).
+     * See diary 055.
      */
     val pendingInput: InputRequest? = null,
     /**
@@ -33,6 +33,12 @@ data class BattleState(
      * while waiting for input. Empty when [pendingInput] is null.
      */
     val partialTurnEvents: List<BattleEvent> = emptyList(),
+    /**
+     * Which phase (by index in [TurnPipeline]'s phase list) is currently paused, or
+     * null when the turn is not paused. Set by [TurnPausedForInput] so the pipeline
+     * knows where to resume.
+     */
+    val pausedPhaseIndex: Int? = null,
 ) {
     /** Conditions currently active on [side], with remaining-turn counts. */
     fun sideConditionsFor(side: Side): Map<SideCondition, Int> = sideConditions[side] ?: emptyMap()

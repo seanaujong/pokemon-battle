@@ -63,7 +63,7 @@ class SwitchingTest {
             )
 
         val phase = SwitchPhase()
-        val events = phase.resolve(battleState, choices)
+        val events = phase.resolve(battleState, choices).events
 
         // Should see SwitchOut, SwitchIn, then VolatileAdded(JustSwitchedIn)
         assertEquals(3, events.size)
@@ -148,7 +148,7 @@ class SwitchingTest {
             )
 
         val phase = SwitchPhase()
-        val events = phase.resolve(battleState, choices)
+        val events = phase.resolve(battleState, choices).events
         val newState = events.fold(battleState) { s, e -> e.apply(s) }
 
         // The Pokemon on bench should have cleared volatiles and stat stages
@@ -180,7 +180,7 @@ class SwitchingTest {
             )
 
         val phase = SwitchPhase()
-        val events = phase.resolve(battleState, choices)
+        val events = phase.resolve(battleState, choices).events
         val newState = events.fold(battleState) { s, e -> e.apply(s) }
 
         // Status should persist on the benched Pokemon

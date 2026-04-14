@@ -193,6 +193,16 @@ None of these are expected. If any materialize, the fact that events
 remain plain data (and phases remain the unit of extension) means a
 rewrite isn't catastrophic — but it's also not free.
 
+## Forward notes (surfaced during implementation)
+
+- **Serialization DTO split.** Phase 2 adds `@Serializable` directly to
+  `InputRequest` / `InputResponse` / `SwitchTargetRequest` / `SwitchTargetResponse`.
+  This matches the existing pattern for `BattleEvent` (diary 050), but couples
+  domain field names to the on-disk format. The Species/SpeciesJson split
+  (diary 041) avoided this for data loading; events and inputs still have the
+  coupling. Worth a future diary to migrate the whole event + input hierarchy
+  to a DTO layer at once (piecemeal would be inconsistent).
+
 ## Open questions
 
 - **Request identity.** `InputRequestId` — is it a turn-scoped counter,

@@ -3,6 +3,7 @@ package com.pokemon.battle.gen.simplified
 import com.pokemon.battle.engine.BattleEvent
 import com.pokemon.battle.engine.BattleState
 import com.pokemon.battle.engine.Phase
+import com.pokemon.battle.engine.PhaseOutput
 import com.pokemon.battle.engine.PokemonFainted
 import com.pokemon.battle.engine.StatusDamage
 import com.pokemon.battle.engine.TurnChoices
@@ -18,7 +19,7 @@ class SimplifiedEndOfTurnPhase : Phase {
     override fun resolve(
         state: BattleState,
         choices: TurnChoices,
-    ): List<BattleEvent> {
+    ): PhaseOutput {
         val events = mutableListOf<BattleEvent>()
         var currentState = state
 
@@ -40,7 +41,7 @@ class SimplifiedEndOfTurnPhase : Phase {
         // Weather tick (countdown only, no damage)
         events.addAll(weatherTick(currentState))
 
-        return events
+        return PhaseOutput.Completed(events)
     }
 
     private fun checkFaint(

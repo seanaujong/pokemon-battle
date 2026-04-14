@@ -4,6 +4,7 @@ import com.pokemon.battle.engine.BattleEvent
 import com.pokemon.battle.engine.BattleState
 import com.pokemon.battle.engine.GenVSpeedResolver
 import com.pokemon.battle.engine.Phase
+import com.pokemon.battle.engine.PhaseOutput
 import com.pokemon.battle.engine.SpeedResolver
 import com.pokemon.battle.engine.SwitchIn
 import com.pokemon.battle.engine.SwitchOut
@@ -29,7 +30,7 @@ class SwitchPhase(
     override fun resolve(
         state: BattleState,
         choices: TurnChoices,
-    ): List<BattleEvent> {
+    ): PhaseOutput {
         val events = mutableListOf<BattleEvent>()
         var currentState = state
 
@@ -73,6 +74,6 @@ class SwitchPhase(
             }
         }
 
-        return events
+        return PhaseOutput.Completed(events)
     }
 }

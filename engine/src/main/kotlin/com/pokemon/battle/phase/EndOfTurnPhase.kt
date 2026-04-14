@@ -3,6 +3,7 @@ package com.pokemon.battle.phase
 import com.pokemon.battle.engine.BattleEvent
 import com.pokemon.battle.engine.BattleState
 import com.pokemon.battle.engine.Phase
+import com.pokemon.battle.engine.PhaseOutput
 import com.pokemon.battle.engine.PokemonFainted
 import com.pokemon.battle.engine.StatusDamage
 import com.pokemon.battle.engine.TurnChoices
@@ -20,7 +21,7 @@ class EndOfTurnPhase : Phase {
     override fun resolve(
         state: BattleState,
         choices: TurnChoices,
-    ): List<BattleEvent> {
+    ): PhaseOutput {
         val events = mutableListOf<BattleEvent>()
         var currentState = state
 
@@ -45,7 +46,7 @@ class EndOfTurnPhase : Phase {
         events.addAll(clearProtect(currentState))
         events.addAll(clearJustSwitchedIn(currentState))
 
-        return events
+        return PhaseOutput.Completed(events)
     }
 
     private fun tickTrickRoom(state: BattleState): List<BattleEvent> {

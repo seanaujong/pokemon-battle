@@ -24,6 +24,7 @@ import com.pokemon.battle.phase.SwitchPhase
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
+import kotlin.test.assertIs
 import kotlin.test.assertTrue
 
 class SelfSwitchTest {
@@ -165,7 +166,10 @@ class SelfSwitchTest {
     }
 
     @Test
-    fun `no switch when no switchTo specified`() {
+    fun `U-turn without switchTo pauses for mid-turn target`() {
+        // Phase 2 of diary 055: when the caller omits switchTo, the engine emits
+        // NeedInput with a SwitchTargetRequest instead of silently skipping the switch.
+        // The switch itself happens on resume with a SwitchTargetResponse.
         val charizard = Pokemon(pokedex["Charizard"]!!, level = 50)
         val venusaur = Pokemon(pokedex["Venusaur"]!!, level = 50)
         val blastoise = Pokemon(pokedex["Blastoise"]!!, level = 50)
@@ -176,16 +180,60 @@ class SelfSwitchTest {
                 PokemonState(venusaur, currentHp = venusaur.maxHp),
                 p1Bench = listOf(PokemonState(blastoise, currentHp = blastoise.maxHp)),
             )
-        // switchTo omitted (null) — caller forgot to pick replacement
         val choices =
             TurnChoices.singles(
                 TurnChoice.UseMove(MoveDex.U_TURN),
                 TurnChoice.UseMove(MoveDex.SLUDGE_BOMB),
             )
 
-        val result = pipeline().resolveToCompletion(state, choices)
+        val result = pipeline().resolve(state, choices)
 
-        assertTrue(result.events.filterIsInstance<SwitchOut>().isEmpty(), "No switchTo → no switch")
+        assertIs<com.pokemon.battle.engine.TurnResolution.NeedInput>(result)
+        val request = result.state.pendingInput
+        assertIs<com.pokemon.battle.engine.SwitchTargetRequest>(request)
+        assertEquals(Slot.p1(), request.userSlot)
+        assertEquals(listOf(0), request.eligibleBenchIndices)
+
+        // Damage landed before the pause
+        val damage = result.state.partialTurnEvents.filterIsInstance<DamageDealt>()
+        assertTrue(damage.any { it.target == Slot.p2() }, "U-turn damage lands before the pause")
+    }
+
+    @Test
+    fun `U-turn mid-turn pause resumes into the chosen bench target`() {
+        // Phase 2: pause → caller answers SwitchTargetResponse(0) → resume → switch completes.
+        val charizard = Pokemon(pokedex["Charizard"]!!, level = 50)
+        val venusaur = Pokemon(pokedex["Venusaur"]!!, level = 50)
+        val blastoise = Pokemon(pokedex["Blastoise"]!!, level = 50)
+
+        val state =
+            BattleState.singles(
+                PokemonState(charizard, currentHp = charizard.maxHp),
+                PokemonState(venusaur, currentHp = venusaur.maxHp),
+                p1Bench = listOf(PokemonState(blastoise, currentHp = blastoise.maxHp)),
+            )
+        val choices =
+            TurnChoices.singles(
+                TurnChoice.UseMove(MoveDex.U_TURN),
+                TurnChoice.UseMove(MoveDex.SLUDGE_BOMB),
+            )
+
+        val pipeline = pipeline()
+        val paused = pipeline.resolve(state, choices)
+        assertIs<com.pokemon.battle.engine.TurnResolution.NeedInput>(paused)
+
+        val resumed =
+            pipeline.resume(
+                paused.state,
+                choices,
+                com.pokemon.battle.engine.SwitchTargetResponse(benchIndex = 0),
+            )
+        assertIs<com.pokemon.battle.engine.TurnResolution.Completed>(resumed)
+
+        // Full switch sequence landed on resume
+        assertEquals(1, resumed.events.filterIsInstance<SwitchOut>().size)
+        assertEquals(1, resumed.events.filterIsInstance<SwitchIn>().size)
+        assertEquals(0, (resumed.events.filterIsInstance<SwitchIn>().first()).benchIndex)
     }
 
     @Test

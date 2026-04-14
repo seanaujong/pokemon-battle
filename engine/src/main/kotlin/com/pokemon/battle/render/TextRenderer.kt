@@ -27,6 +27,8 @@ import com.pokemon.battle.engine.StatusDamage
 import com.pokemon.battle.engine.SwitchIn
 import com.pokemon.battle.engine.SwitchOut
 import com.pokemon.battle.engine.TrickRoomSet
+import com.pokemon.battle.engine.TurnInputResolved
+import com.pokemon.battle.engine.TurnPausedForInput
 import com.pokemon.battle.engine.TypeChanged
 import com.pokemon.battle.engine.VolatileAdded
 import com.pokemon.battle.engine.VolatileRemoved
@@ -83,6 +85,8 @@ object TextRenderer : BattleRenderer {
             is HazardSet -> renderHazardSet(event)
             is HazardRemoved -> renderHazardRemoved(event)
             is HazardDamage -> renderHazardDamage(event, stateBefore)
+            is TurnPausedForInput -> emptyList()
+            is TurnInputResolved -> emptyList()
         }
     }
 

@@ -165,7 +165,7 @@ class InfernapeVsSwampertTest {
                 TurnChoice.UseMove(machPunch),
                 TurnChoice.UseMove(earthquake),
             )
-        val events = EndOfTurnPhase().resolve(state, choices)
+        val events = EndOfTurnPhase().resolve(state, choices).events
 
         val weatherEvents = events.filterIsInstance<WeatherDamage>()
         assertEquals(1, weatherEvents.size)
@@ -185,7 +185,7 @@ class InfernapeVsSwampertTest {
                 TurnChoice.UseMove(machPunch),
                 TurnChoice.UseMove(earthquake),
             )
-        val events = EndOfTurnPhase().resolve(state, choices)
+        val events = EndOfTurnPhase().resolve(state, choices).events
 
         assertEquals(0, events.filterIsInstance<WeatherDamage>().size)
     }

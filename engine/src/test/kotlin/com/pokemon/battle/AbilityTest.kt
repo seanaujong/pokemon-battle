@@ -66,7 +66,7 @@ class AbilityTest {
             )
 
         val phase = MoveExecutionPhase(roll = fixedRoll, chanceCheck = noChance)
-        val events = phase.resolve(battleState, choices)
+        val events = phase.resolve(battleState, choices).events
 
         val blocked = events.filterIsInstance<AbilityBlocked>()
         assertEquals(1, blocked.size)
@@ -92,7 +92,7 @@ class AbilityTest {
             )
 
         val phase = MoveExecutionPhase(roll = fixedRoll, chanceCheck = noChance)
-        val events = phase.resolve(battleState, choices)
+        val events = phase.resolve(battleState, choices).events
 
         val blocked = events.filterIsInstance<AbilityBlocked>()
         assertEquals(0, blocked.size, "Levitate should not block Normal moves")
@@ -120,7 +120,7 @@ class AbilityTest {
             )
 
         val phase = MoveExecutionPhase(roll = fixedRoll, chanceCheck = noChance)
-        val events = phase.resolve(battleState, choices)
+        val events = phase.resolve(battleState, choices).events
 
         // Levitate blocks Earthquake for P2 slot 1
         val blocked = events.filterIsInstance<AbilityBlocked>()
@@ -157,7 +157,7 @@ class AbilityTest {
             )
 
         val phase = SwitchPhase()
-        val events = phase.resolve(battleState, choices)
+        val events = phase.resolve(battleState, choices).events
 
         val triggered = events.filterIsInstance<AbilityTriggered>()
         assertEquals(1, triggered.size)
@@ -191,7 +191,7 @@ class AbilityTest {
             )
 
         val phase = SwitchPhase()
-        val events = phase.resolve(battleState, choices)
+        val events = phase.resolve(battleState, choices).events
 
         val statChanged = events.filterIsInstance<StatChanged>()
         assertEquals(2, statChanged.size, "Both opponents should have Attack lowered")
@@ -250,7 +250,7 @@ class AbilityTest {
             )
 
         val phase = SwitchPhase()
-        val events = phase.resolve(battleState, choices)
+        val events = phase.resolve(battleState, choices).events
         val newState = events.fold(battleState) { s, e -> e.apply(s) }
 
         val triggered = events.filterIsInstance<AbilityTriggered>()
@@ -277,7 +277,7 @@ class AbilityTest {
             )
 
         val phase = SwitchPhase()
-        val events = phase.resolve(battleState, choices)
+        val events = phase.resolve(battleState, choices).events
         val newState = events.fold(battleState) { s, e -> e.apply(s) }
 
         assertEquals(Weather.RAIN, newState.field.weather, "Drizzle should overwrite sandstorm")
