@@ -33,6 +33,8 @@ import com.pokemon.battle.engine.SwitchReason
 import com.pokemon.battle.engine.SwitchTargetRequest
 import com.pokemon.battle.engine.SwitchTargetResponse
 import com.pokemon.battle.engine.TrickRoomSet
+import com.pokemon.battle.engine.TurnChoice
+import com.pokemon.battle.engine.TurnChoices
 import com.pokemon.battle.engine.TurnInputResolved
 import com.pokemon.battle.engine.TurnPausedForInput
 import com.pokemon.battle.engine.TypeChanged
@@ -320,6 +322,35 @@ data class SwitchTargetResponseJson(val benchIndex: Int) : InputResponseJson {
     override fun toDomain() = SwitchTargetResponse(benchIndex)
 }
 
+// --- Turn choice DTOs (client → server per-slot decision) ---
+
+@Serializable
+sealed interface TurnChoiceJson {
+    fun toDomain(): TurnChoice
+}
+
+@Serializable
+data class UseMoveJson(
+    val move: Move,
+    val targetSlot: Slot? = null,
+    val switchTo: Int? = null,
+) : TurnChoiceJson {
+    override fun toDomain() = TurnChoice.UseMove(move, targetSlot, switchTo)
+}
+
+@Serializable
+data class SwitchChoiceJson(val benchIndex: Int) : TurnChoiceJson {
+    override fun toDomain() = TurnChoice.Switch(benchIndex)
+}
+
+@Serializable
+data class SlotChoiceJson(val slot: Slot, val choice: TurnChoiceJson)
+
+@Serializable
+data class TurnChoicesJson(val entries: List<SlotChoiceJson>) {
+    fun toDomain() = TurnChoices(entries.associate { it.slot to it.choice.toDomain() })
+}
+
 // --- Domain → DTO conversion ---
 
 @Suppress("CyclomaticComplexMethod") // Exhaustive when over all event variants
@@ -369,3 +400,11 @@ fun InputResponse.toJson(): InputResponseJson =
     when (this) {
         is SwitchTargetResponse -> SwitchTargetResponseJson(benchIndex)
     }
+
+fun TurnChoice.toJson(): TurnChoiceJson =
+    when (this) {
+        is TurnChoice.UseMove -> UseMoveJson(move, targetSlot, switchTo)
+        is TurnChoice.Switch -> SwitchChoiceJson(benchIndex)
+    }
+
+fun TurnChoices.toJson(): TurnChoicesJson = TurnChoicesJson(choices.map { (slot, choice) -> SlotChoiceJson(slot, choice.toJson()) })

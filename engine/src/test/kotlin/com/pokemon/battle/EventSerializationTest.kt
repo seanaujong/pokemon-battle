@@ -6,11 +6,13 @@ import com.pokemon.battle.engine.TurnChoice
 import com.pokemon.battle.engine.TurnChoices
 import com.pokemon.battle.engine.TurnPipeline
 import com.pokemon.battle.engine.serialization.BattleEventJson
+import com.pokemon.battle.engine.serialization.TurnChoicesJson
 import com.pokemon.battle.engine.serialization.toJson
 import com.pokemon.battle.model.Move
 import com.pokemon.battle.model.MoveCategory
 import com.pokemon.battle.model.Pokemon
 import com.pokemon.battle.model.PokemonState
+import com.pokemon.battle.model.Slot
 import com.pokemon.battle.model.Species
 import com.pokemon.battle.model.Type
 import com.pokemon.battle.phase.EndOfTurnPhase
@@ -100,5 +102,21 @@ class EventSerializationTest {
         val roundTripped: List<BattleEvent> = decoded.map { it.toDomain() }
 
         assertEquals(events, roundTripped, "Round-tripped events should equal originals")
+    }
+
+    @Test
+    fun `turn choices round-trip through JSON`() {
+        val choices =
+            TurnChoices(
+                mapOf(
+                    Slot.p1() to TurnChoice.UseMove(flamethrower, switchTo = 1),
+                    Slot.p2() to TurnChoice.Switch(benchIndex = 0),
+                ),
+            )
+
+        val encoded = json.encodeToString(TurnChoicesJson.serializer(), choices.toJson())
+        val decoded = json.decodeFromString(TurnChoicesJson.serializer(), encoded).toDomain()
+
+        assertEquals(choices, decoded, "Round-tripped choices should equal originals")
     }
 }
