@@ -1,0 +1,13 @@
+{
+    "name": "HEATRAN",
+    "types": [
+        "FIRE",
+        "STEEL"
+    ],
+    "baseHp": 91,
+    "baseAttack": 90,
+    "baseDefense": 106,
+    "baseSpecialAttack": 130,
+    "baseSpecialDefense": 106,
+    "baseSpeed": 77
+}

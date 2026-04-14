@@ -1,0 +1,13 @@
+{
+    "name": "ROTOM_WASH",
+    "types": [
+        "ELECTRIC",
+        "WATER"
+    ],
+    "baseHp": 50,
+    "baseAttack": 65,
+    "baseDefense": 107,
+    "baseSpecialAttack": 105,
+    "baseSpecialDefense": 107,
+    "baseSpeed": 86
+}

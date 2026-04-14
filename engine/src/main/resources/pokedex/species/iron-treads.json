@@ -1,0 +1,13 @@
+{
+    "name": "IRON_TREADS",
+    "types": [
+        "GROUND",
+        "STEEL"
+    ],
+    "baseHp": 90,
+    "baseAttack": 112,
+    "baseDefense": 120,
+    "baseSpecialAttack": 72,
+    "baseSpecialDefense": 70,
+    "baseSpeed": 106
+}

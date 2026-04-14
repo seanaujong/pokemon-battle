@@ -1,0 +1,55 @@
+{
+    "name": "ursaluna-bloodmoon",
+    "types": [
+        {
+            "slot": 1,
+            "type": {
+                "name": "ground"
+            }
+        },
+        {
+            "slot": 2,
+            "type": {
+                "name": "normal"
+            }
+        }
+    ],
+    "stats": [
+        {
+            "base_stat": 113,
+            "stat": {
+                "name": "hp"
+            }
+        },
+        {
+            "base_stat": 70,
+            "stat": {
+                "name": "attack"
+            }
+        },
+        {
+            "base_stat": 120,
+            "stat": {
+                "name": "defense"
+            }
+        },
+        {
+            "base_stat": 135,
+            "stat": {
+                "name": "special-attack"
+            }
+        },
+        {
+            "base_stat": 65,
+            "stat": {
+                "name": "special-defense"
+            }
+        },
+        {
+            "base_stat": 52,
+            "stat": {
+                "name": "speed"
+            }
+        }
+    ]
+}

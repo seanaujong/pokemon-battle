@@ -1,0 +1,13 @@
+{
+    "name": "KINGAMBIT",
+    "types": [
+        "DARK",
+        "STEEL"
+    ],
+    "baseHp": 100,
+    "baseAttack": 135,
+    "baseDefense": 120,
+    "baseSpecialAttack": 60,
+    "baseSpecialDefense": 85,
+    "baseSpeed": 50
+}

@@ -2,3 +2,6 @@
 # Format: <YYYY-MM> <format> <ratingCutoff>
 # See diary 041 Phase 3.
 2026-02 gen9ou 1825
+2026-02 gen5ou 1760
+2026-02 gen8ou 1760
+2026-02 gen9vgc2026regf 1760

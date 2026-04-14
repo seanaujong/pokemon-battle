@@ -1,0 +1,13 @@
+{
+    "name": "GREAT_TUSK",
+    "types": [
+        "GROUND",
+        "FIGHTING"
+    ],
+    "baseHp": 115,
+    "baseAttack": 131,
+    "baseDefense": 131,
+    "baseSpecialAttack": 53,
+    "baseSpecialDefense": 53,
+    "baseSpeed": 87
+}

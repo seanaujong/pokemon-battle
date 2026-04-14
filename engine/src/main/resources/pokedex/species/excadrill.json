@@ -1,0 +1,13 @@
+{
+    "name": "EXCADRILL",
+    "types": [
+        "GROUND",
+        "STEEL"
+    ],
+    "baseHp": 110,
+    "baseAttack": 135,
+    "baseDefense": 60,
+    "baseSpecialAttack": 50,
+    "baseSpecialDefense": 65,
+    "baseSpeed": 88
+}

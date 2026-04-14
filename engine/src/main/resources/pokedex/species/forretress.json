@@ -1,0 +1,13 @@
+{
+    "name": "FORRETRESS",
+    "types": [
+        "BUG",
+        "STEEL"
+    ],
+    "baseHp": 75,
+    "baseAttack": 90,
+    "baseDefense": 140,
+    "baseSpecialAttack": 60,
+    "baseSpecialDefense": 60,
+    "baseSpeed": 40
+}

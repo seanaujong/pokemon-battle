@@ -1,0 +1,13 @@
+{
+    "name": "TENTACRUEL",
+    "types": [
+        "WATER",
+        "POISON"
+    ],
+    "baseHp": 80,
+    "baseAttack": 70,
+    "baseDefense": 65,
+    "baseSpecialAttack": 80,
+    "baseSpecialDefense": 120,
+    "baseSpeed": 100
+}

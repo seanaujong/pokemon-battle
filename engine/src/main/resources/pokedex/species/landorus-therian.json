@@ -1,0 +1,13 @@
+{
+    "name": "LANDORUS_THERIAN",
+    "types": [
+        "GROUND",
+        "FLYING"
+    ],
+    "baseHp": 89,
+    "baseAttack": 145,
+    "baseDefense": 90,
+    "baseSpecialAttack": 105,
+    "baseSpecialDefense": 80,
+    "baseSpeed": 91
+}

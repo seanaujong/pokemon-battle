@@ -1,0 +1,13 @@
+{
+    "name": "KARTANA",
+    "types": [
+        "GRASS",
+        "STEEL"
+    ],
+    "baseHp": 59,
+    "baseAttack": 181,
+    "baseDefense": 131,
+    "baseSpecialAttack": 59,
+    "baseSpecialDefense": 31,
+    "baseSpeed": 109
+}

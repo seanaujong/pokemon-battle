@@ -1,0 +1,49 @@
+{
+    "name": "mew",
+    "types": [
+        {
+            "slot": 1,
+            "type": {
+                "name": "psychic"
+            }
+        }
+    ],
+    "stats": [
+        {
+            "base_stat": 100,
+            "stat": {
+                "name": "hp"
+            }
+        },
+        {
+            "base_stat": 100,
+            "stat": {
+                "name": "attack"
+            }
+        },
+        {
+            "base_stat": 100,
+            "stat": {
+                "name": "defense"
+            }
+        },
+        {
+            "base_stat": 100,
+            "stat": {
+                "name": "special-attack"
+            }
+        },
+        {
+            "base_stat": 100,
+            "stat": {
+                "name": "special-defense"
+            }
+        },
+        {
+            "base_stat": 100,
+            "stat": {
+                "name": "speed"
+            }
+        }
+    ]
+}

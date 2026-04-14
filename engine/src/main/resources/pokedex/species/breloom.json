@@ -1,0 +1,13 @@
+{
+    "name": "BRELOOM",
+    "types": [
+        "GRASS",
+        "FIGHTING"
+    ],
+    "baseHp": 60,
+    "baseAttack": 130,
+    "baseDefense": 80,
+    "baseSpecialAttack": 60,
+    "baseSpecialDefense": 60,
+    "baseSpeed": 70
+}

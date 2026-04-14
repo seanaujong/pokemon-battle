@@ -1,0 +1,13 @@
+{
+    "name": "URSALUNA",
+    "types": [
+        "GROUND",
+        "NORMAL"
+    ],
+    "baseHp": 130,
+    "baseAttack": 140,
+    "baseDefense": 105,
+    "baseSpecialAttack": 45,
+    "baseSpecialDefense": 80,
+    "baseSpeed": 50
+}

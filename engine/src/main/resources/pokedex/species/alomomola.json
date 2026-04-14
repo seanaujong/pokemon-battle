@@ -1,0 +1,12 @@
+{
+    "name": "ALOMOMOLA",
+    "types": [
+        "WATER"
+    ],
+    "baseHp": 165,
+    "baseAttack": 75,
+    "baseDefense": 80,
+    "baseSpecialAttack": 40,
+    "baseSpecialDefense": 45,
+    "baseSpeed": 65
+}

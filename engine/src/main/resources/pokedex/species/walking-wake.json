@@ -1,0 +1,13 @@
+{
+    "name": "WALKING_WAKE",
+    "types": [
+        "WATER",
+        "DRAGON"
+    ],
+    "baseHp": 99,
+    "baseAttack": 83,
+    "baseDefense": 91,
+    "baseSpecialAttack": 125,
+    "baseSpecialDefense": 83,
+    "baseSpeed": 109
+}

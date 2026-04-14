@@ -1,0 +1,55 @@
+{
+    "name": "kyurem",
+    "types": [
+        {
+            "slot": 1,
+            "type": {
+                "name": "dragon"
+            }
+        },
+        {
+            "slot": 2,
+            "type": {
+                "name": "ice"
+            }
+        }
+    ],
+    "stats": [
+        {
+            "base_stat": 125,
+            "stat": {
+                "name": "hp"
+            }
+        },
+        {
+            "base_stat": 130,
+            "stat": {
+                "name": "attack"
+            }
+        },
+        {
+            "base_stat": 90,
+            "stat": {
+                "name": "defense"
+            }
+        },
+        {
+            "base_stat": 130,
+            "stat": {
+                "name": "special-attack"
+            }
+        },
+        {
+            "base_stat": 90,
+            "stat": {
+                "name": "special-defense"
+            }
+        },
+        {
+            "base_stat": 95,
+            "stat": {
+                "name": "speed"
+            }
+        }
+    ]
+}

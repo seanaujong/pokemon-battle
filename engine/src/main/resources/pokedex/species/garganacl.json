@@ -1,0 +1,12 @@
+{
+    "name": "GARGANACL",
+    "types": [
+        "ROCK"
+    ],
+    "baseHp": 100,
+    "baseAttack": 100,
+    "baseDefense": 130,
+    "baseSpecialAttack": 45,
+    "baseSpecialDefense": 90,
+    "baseSpeed": 35
+}

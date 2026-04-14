@@ -1,0 +1,13 @@
+{
+    "name": "SLOWKING_GALAR",
+    "types": [
+        "POISON",
+        "PSYCHIC"
+    ],
+    "baseHp": 95,
+    "baseAttack": 65,
+    "baseDefense": 80,
+    "baseSpecialAttack": 110,
+    "baseSpecialDefense": 110,
+    "baseSpeed": 30
+}

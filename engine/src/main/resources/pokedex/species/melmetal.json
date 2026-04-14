@@ -1,0 +1,12 @@
+{
+    "name": "MELMETAL",
+    "types": [
+        "STEEL"
+    ],
+    "baseHp": 135,
+    "baseAttack": 143,
+    "baseDefense": 143,
+    "baseSpecialAttack": 80,
+    "baseSpecialDefense": 65,
+    "baseSpeed": 34
+}

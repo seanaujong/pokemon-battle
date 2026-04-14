@@ -1,0 +1,13 @@
+{
+    "name": "HATTERENE",
+    "types": [
+        "PSYCHIC",
+        "FAIRY"
+    ],
+    "baseHp": 57,
+    "baseAttack": 90,
+    "baseDefense": 95,
+    "baseSpecialAttack": 136,
+    "baseSpecialDefense": 103,
+    "baseSpeed": 29
+}

@@ -1,0 +1,13 @@
+{
+    "name": "RAGING_BOLT",
+    "types": [
+        "ELECTRIC",
+        "DRAGON"
+    ],
+    "baseHp": 125,
+    "baseAttack": 73,
+    "baseDefense": 91,
+    "baseSpecialAttack": 137,
+    "baseSpecialDefense": 89,
+    "baseSpeed": 75
+}

@@ -1,0 +1,13 @@
+{
+    "name": "FARIGIRAF",
+    "types": [
+        "NORMAL",
+        "PSYCHIC"
+    ],
+    "baseHp": 120,
+    "baseAttack": 90,
+    "baseDefense": 70,
+    "baseSpecialAttack": 110,
+    "baseSpecialDefense": 70,
+    "baseSpeed": 60
+}

@@ -1,0 +1,13 @@
+{
+    "name": "ZAPDOS",
+    "types": [
+        "ELECTRIC",
+        "FLYING"
+    ],
+    "baseHp": 90,
+    "baseAttack": 90,
+    "baseDefense": 85,
+    "baseSpecialAttack": 125,
+    "baseSpecialDefense": 90,
+    "baseSpeed": 100
+}

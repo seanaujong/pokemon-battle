@@ -1,0 +1,13 @@
+{
+    "name": "FERROTHORN",
+    "types": [
+        "GRASS",
+        "STEEL"
+    ],
+    "baseHp": 74,
+    "baseAttack": 94,
+    "baseDefense": 131,
+    "baseSpecialAttack": 54,
+    "baseSpecialDefense": 116,
+    "baseSpeed": 20
+}

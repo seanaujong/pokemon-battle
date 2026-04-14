@@ -1,0 +1,12 @@
+{
+    "name": "POLITOED",
+    "types": [
+        "WATER"
+    ],
+    "baseHp": 90,
+    "baseAttack": 75,
+    "baseDefense": 75,
+    "baseSpecialAttack": 90,
+    "baseSpecialDefense": 100,
+    "baseSpeed": 70
+}

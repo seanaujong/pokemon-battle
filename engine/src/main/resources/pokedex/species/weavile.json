@@ -1,0 +1,13 @@
+{
+    "name": "WEAVILE",
+    "types": [
+        "DARK",
+        "ICE"
+    ],
+    "baseHp": 70,
+    "baseAttack": 120,
+    "baseDefense": 65,
+    "baseSpecialAttack": 45,
+    "baseSpecialDefense": 85,
+    "baseSpeed": 125
+}

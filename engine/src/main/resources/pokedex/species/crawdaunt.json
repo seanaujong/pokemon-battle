@@ -1,0 +1,13 @@
+{
+    "name": "CRAWDAUNT",
+    "types": [
+        "WATER",
+        "DARK"
+    ],
+    "baseHp": 63,
+    "baseAttack": 120,
+    "baseDefense": 85,
+    "baseSpecialAttack": 90,
+    "baseSpecialDefense": 55,
+    "baseSpeed": 55
+}

@@ -1,0 +1,55 @@
+{
+    "name": "ninetales-alola",
+    "types": [
+        {
+            "slot": 1,
+            "type": {
+                "name": "ice"
+            }
+        },
+        {
+            "slot": 2,
+            "type": {
+                "name": "fairy"
+            }
+        }
+    ],
+    "stats": [
+        {
+            "base_stat": 73,
+            "stat": {
+                "name": "hp"
+            }
+        },
+        {
+            "base_stat": 67,
+            "stat": {
+                "name": "attack"
+            }
+        },
+        {
+            "base_stat": 75,
+            "stat": {
+                "name": "defense"
+            }
+        },
+        {
+            "base_stat": 81,
+            "stat": {
+                "name": "special-attack"
+            }
+        },
+        {
+            "base_stat": 100,
+            "stat": {
+                "name": "special-defense"
+            }
+        },
+        {
+            "base_stat": 109,
+            "stat": {
+                "name": "speed"
+            }
+        }
+    ]
+}

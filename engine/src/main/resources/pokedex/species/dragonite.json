@@ -1,0 +1,13 @@
+{
+    "name": "DRAGONITE",
+    "types": [
+        "DRAGON",
+        "FLYING"
+    ],
+    "baseHp": 91,
+    "baseAttack": 134,
+    "baseDefense": 95,
+    "baseSpecialAttack": 100,
+    "baseSpecialDefense": 100,
+    "baseSpeed": 80
+}

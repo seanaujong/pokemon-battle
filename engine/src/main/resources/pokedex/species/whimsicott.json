@@ -1,0 +1,13 @@
+{
+    "name": "WHIMSICOTT",
+    "types": [
+        "GRASS",
+        "FAIRY"
+    ],
+    "baseHp": 60,
+    "baseAttack": 67,
+    "baseDefense": 85,
+    "baseSpecialAttack": 77,
+    "baseSpecialDefense": 75,
+    "baseSpeed": 116
+}

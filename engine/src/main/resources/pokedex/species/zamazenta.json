@@ -1,0 +1,12 @@
+{
+    "name": "ZAMAZENTA",
+    "types": [
+        "FIGHTING"
+    ],
+    "baseHp": 92,
+    "baseAttack": 120,
+    "baseDefense": 115,
+    "baseSpecialAttack": 80,
+    "baseSpecialDefense": 115,
+    "baseSpeed": 138
+}

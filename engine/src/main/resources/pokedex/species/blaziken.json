@@ -1,0 +1,13 @@
+{
+    "name": "BLAZIKEN",
+    "types": [
+        "FIRE",
+        "FIGHTING"
+    ],
+    "baseHp": 80,
+    "baseAttack": 120,
+    "baseDefense": 70,
+    "baseSpecialAttack": 110,
+    "baseSpecialDefense": 70,
+    "baseSpeed": 80
+}

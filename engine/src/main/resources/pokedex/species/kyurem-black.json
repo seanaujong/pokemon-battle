@@ -1,0 +1,13 @@
+{
+    "name": "KYUREM_BLACK",
+    "types": [
+        "DRAGON",
+        "ICE"
+    ],
+    "baseHp": 125,
+    "baseAttack": 170,
+    "baseDefense": 100,
+    "baseSpecialAttack": 120,
+    "baseSpecialDefense": 90,
+    "baseSpeed": 95
+}

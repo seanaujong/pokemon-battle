@@ -1,0 +1,55 @@
+{
+    "name": "rotom-wash",
+    "types": [
+        {
+            "slot": 1,
+            "type": {
+                "name": "electric"
+            }
+        },
+        {
+            "slot": 2,
+            "type": {
+                "name": "water"
+            }
+        }
+    ],
+    "stats": [
+        {
+            "base_stat": 50,
+            "stat": {
+                "name": "hp"
+            }
+        },
+        {
+            "base_stat": 65,
+            "stat": {
+                "name": "attack"
+            }
+        },
+        {
+            "base_stat": 107,
+            "stat": {
+                "name": "defense"
+            }
+        },
+        {
+            "base_stat": 105,
+            "stat": {
+                "name": "special-attack"
+            }
+        },
+        {
+            "base_stat": 107,
+            "stat": {
+                "name": "special-defense"
+            }
+        },
+        {
+            "base_stat": 86,
+            "stat": {
+                "name": "speed"
+            }
+        }
+    ]
+}

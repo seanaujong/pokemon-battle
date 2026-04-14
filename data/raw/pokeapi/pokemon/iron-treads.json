@@ -1,0 +1,55 @@
+{
+    "name": "iron-treads",
+    "types": [
+        {
+            "slot": 1,
+            "type": {
+                "name": "ground"
+            }
+        },
+        {
+            "slot": 2,
+            "type": {
+                "name": "steel"
+            }
+        }
+    ],
+    "stats": [
+        {
+            "base_stat": 90,
+            "stat": {
+                "name": "hp"
+            }
+        },
+        {
+            "base_stat": 112,
+            "stat": {
+                "name": "attack"
+            }
+        },
+        {
+            "base_stat": 120,
+            "stat": {
+                "name": "defense"
+            }
+        },
+        {
+            "base_stat": 72,
+            "stat": {
+                "name": "special-attack"
+            }
+        },
+        {
+            "base_stat": 70,
+            "stat": {
+                "name": "special-defense"
+            }
+        },
+        {
+            "base_stat": 106,
+            "stat": {
+                "name": "speed"
+            }
+        }
+    ]
+}

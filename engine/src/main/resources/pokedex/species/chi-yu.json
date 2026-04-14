@@ -1,0 +1,13 @@
+{
+    "name": "CHI_YU",
+    "types": [
+        "DARK",
+        "FIRE"
+    ],
+    "baseHp": 55,
+    "baseAttack": 80,
+    "baseDefense": 80,
+    "baseSpecialAttack": 135,
+    "baseSpecialDefense": 120,
+    "baseSpeed": 100
+}

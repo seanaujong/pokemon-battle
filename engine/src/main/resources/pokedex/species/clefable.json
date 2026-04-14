@@ -1,0 +1,12 @@
+{
+    "name": "CLEFABLE",
+    "types": [
+        "FAIRY"
+    ],
+    "baseHp": 95,
+    "baseAttack": 70,
+    "baseDefense": 73,
+    "baseSpecialAttack": 95,
+    "baseSpecialDefense": 90,
+    "baseSpeed": 60
+}

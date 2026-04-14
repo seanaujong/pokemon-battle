@@ -1,0 +1,13 @@
+{
+    "name": "IRON_VALIANT",
+    "types": [
+        "FAIRY",
+        "FIGHTING"
+    ],
+    "baseHp": 74,
+    "baseAttack": 130,
+    "baseDefense": 90,
+    "baseSpecialAttack": 120,
+    "baseSpecialDefense": 60,
+    "baseSpeed": 116
+}

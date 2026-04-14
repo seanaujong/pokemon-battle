@@ -1,0 +1,13 @@
+{
+    "name": "MAGNEZONE",
+    "types": [
+        "ELECTRIC",
+        "STEEL"
+    ],
+    "baseHp": 70,
+    "baseAttack": 70,
+    "baseDefense": 115,
+    "baseSpecialAttack": 130,
+    "baseSpecialDefense": 90,
+    "baseSpeed": 60
+}

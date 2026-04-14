@@ -1,0 +1,12 @@
+{
+    "name": "CONKELDURR",
+    "types": [
+        "FIGHTING"
+    ],
+    "baseHp": 105,
+    "baseAttack": 140,
+    "baseDefense": 95,
+    "baseSpecialAttack": 55,
+    "baseSpecialDefense": 65,
+    "baseSpeed": 45
+}

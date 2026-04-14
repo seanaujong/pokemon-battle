@@ -1,0 +1,626 @@
+{
+    "format": "gen5ou",
+    "month": "2026-02",
+    "ratingCutoff": 1760,
+    "numberOfBattles": 40185,
+    "topSpecies": [
+        {
+            "name": "Ferrothorn",
+            "usageRank": 1,
+            "rawCount": 22992,
+            "topAbilities": [
+                "ironbarbs"
+            ],
+            "topItems": [
+                "leftovers",
+                "lumberry",
+                "chopleberry",
+                "rawstberry"
+            ],
+            "topMoves": [
+                "powerwhip",
+                "spikes",
+                "stealthrock",
+                "leechseed"
+            ]
+        },
+        {
+            "name": "Starmie",
+            "usageRank": 2,
+            "rawCount": 20516,
+            "topAbilities": [
+                "analytic",
+                "naturalcure"
+            ],
+            "topItems": [
+                "airballoon",
+                "choicespecs",
+                "leftovers",
+                "lifeorb"
+            ],
+            "topMoves": [
+                "rapidspin",
+                "hydropump",
+                "icebeam",
+                "thunderbolt"
+            ]
+        },
+        {
+            "name": "Latios",
+            "usageRank": 3,
+            "rawCount": 20387,
+            "topAbilities": [
+                "levitate"
+            ],
+            "topItems": [
+                "choicespecs",
+                "choicescarf",
+                "colburberry",
+                "whiteherb"
+            ],
+            "topMoves": [
+                "surf",
+                "dracometeor",
+                "trick",
+                "roost"
+            ]
+        },
+        {
+            "name": "Tyranitar",
+            "usageRank": 4,
+            "rawCount": 19699,
+            "topAbilities": [
+                "sandstream",
+                "unnerve"
+            ],
+            "topItems": [
+                "chopleberry",
+                "choicescarf",
+                "custapberry",
+                "leftovers"
+            ],
+            "topMoves": [
+                "crunch",
+                "pursuit",
+                "superpower",
+                "thunderwave"
+            ]
+        },
+        {
+            "name": "Garchomp",
+            "usageRank": 5,
+            "rawCount": 19035,
+            "topAbilities": [
+                "roughskin"
+            ],
+            "topItems": [
+                "focussash",
+                "yacheberry",
+                "choicescarf",
+                "lifeorb"
+            ],
+            "topMoves": [
+                "earthquake",
+                "outrage",
+                "swordsdance",
+                "stealthrock"
+            ]
+        },
+        {
+            "name": "Scizor",
+            "usageRank": 6,
+            "rawCount": 16338,
+            "topAbilities": [
+                "technician",
+                "swarm"
+            ],
+            "topItems": [
+                "choiceband",
+                "lifeorb",
+                "choicescarf",
+                "metalcoat"
+            ],
+            "topMoves": [
+                "bulletpunch",
+                "pursuit",
+                "superpower",
+                "uturn"
+            ]
+        },
+        {
+            "name": "Politoed",
+            "usageRank": 7,
+            "rawCount": 15929,
+            "topAbilities": [
+                "drizzle",
+                "waterabsorb"
+            ],
+            "topItems": [
+                "leftovers",
+                "choicescarf",
+                "choicespecs",
+                "chestoberry"
+            ],
+            "topMoves": [
+                "encore",
+                "scald",
+                "protect",
+                "icebeam"
+            ]
+        },
+        {
+            "name": "Dragonite",
+            "usageRank": 8,
+            "rawCount": 14757,
+            "topAbilities": [
+                "multiscale",
+                "innerfocus"
+            ],
+            "topItems": [
+                "leftovers",
+                "lumberry",
+                "choiceband",
+                "yacheberry"
+            ],
+            "topMoves": [
+                "outrage",
+                "extremespeed",
+                "dragondance",
+                "firepunch"
+            ]
+        },
+        {
+            "name": "Landorus-Therian",
+            "usageRank": 9,
+            "rawCount": 13946,
+            "topAbilities": [
+                "intimidate"
+            ],
+            "topItems": [
+                "choicescarf",
+                "leftovers",
+                "yacheberry",
+                "rockyhelmet"
+            ],
+            "topMoves": [
+                "earthquake",
+                "uturn",
+                "hiddenpowerice",
+                "stealthrock"
+            ]
+        },
+        {
+            "name": "Keldeo",
+            "usageRank": 10,
+            "rawCount": 13613,
+            "topAbilities": [
+                "justified"
+            ],
+            "topItems": [
+                "choicespecs",
+                "leftovers",
+                "choicescarf",
+                "payapaberry"
+            ],
+            "topMoves": [
+                "secretsword",
+                "hydropump",
+                "surf",
+                "scald"
+            ]
+        },
+        {
+            "name": "Excadrill",
+            "usageRank": 11,
+            "rawCount": 13529,
+            "topAbilities": [
+                "sandforce",
+                "moldbreaker"
+            ],
+            "topItems": [
+                "leftovers",
+                "choicescarf",
+                "airballoon",
+                "focussash"
+            ],
+            "topMoves": [
+                "earthquake",
+                "rapidspin",
+                "ironhead",
+                "swordsdance"
+            ]
+        },
+        {
+            "name": "Jirachi",
+            "usageRank": 12,
+            "rawCount": 13384,
+            "topAbilities": [
+                "serenegrace"
+            ],
+            "topItems": [
+                "choicescarf",
+                "leftovers",
+                "shucaberry",
+                "expertbelt"
+            ],
+            "topMoves": [
+                "ironhead",
+                "uturn",
+                "healingwish",
+                "icepunch"
+            ]
+        },
+        {
+            "name": "Volcarona",
+            "usageRank": 13,
+            "rawCount": 11803,
+            "topAbilities": [
+                "flamebody"
+            ],
+            "topItems": [
+                "lifeorb",
+                "sitrusberry",
+                "insectplate",
+                "leftovers"
+            ],
+            "topMoves": [
+                "bugbuzz",
+                "quiverdance",
+                "fireblast",
+                "gigadrain"
+            ]
+        },
+        {
+            "name": "Alakazam",
+            "usageRank": 14,
+            "rawCount": 10503,
+            "topAbilities": [
+                "magicguard",
+                "synchronize"
+            ],
+            "topItems": [
+                "focussash",
+                "lifeorb",
+                "choicespecs",
+                "choicescarf"
+            ],
+            "topMoves": [
+                "focusblast",
+                "hiddenpowerice",
+                "signalbeam",
+                "psyshock"
+            ]
+        },
+        {
+            "name": "Rotom-Wash",
+            "usageRank": 15,
+            "rawCount": 10411,
+            "topAbilities": [
+                "levitate"
+            ],
+            "topItems": [
+                "leftovers",
+                "choicescarf",
+                "chestoberry",
+                "choicespecs"
+            ],
+            "topMoves": [
+                "hydropump",
+                "voltswitch",
+                "painsplit",
+                "willowisp"
+            ]
+        },
+        {
+            "name": "Heatran",
+            "usageRank": 16,
+            "rawCount": 10046,
+            "topAbilities": [
+                "flashfire"
+            ],
+            "topItems": [
+                "leftovers",
+                "airballoon",
+                "choicescarf",
+                "choicespecs"
+            ],
+            "topMoves": [
+                "magmastorm",
+                "hiddenpowerice",
+                "taunt",
+                "lavaplume"
+            ]
+        },
+        {
+            "name": "Tentacruel",
+            "usageRank": 17,
+            "rawCount": 9611,
+            "topAbilities": [
+                "raindish",
+                "clearbody"
+            ],
+            "topItems": [
+                "blacksludge",
+                "leftovers",
+                "nothing",
+                "lifeorb"
+            ],
+            "topMoves": [
+                "scald",
+                "rapidspin",
+                "protect",
+                "toxic"
+            ]
+        },
+        {
+            "name": "Gliscor",
+            "usageRank": 18,
+            "rawCount": 8908,
+            "topAbilities": [
+                "poisonheal",
+                "hypercutter"
+            ],
+            "topItems": [
+                "toxicorb",
+                "choicescarf",
+                "yacheberry",
+                "leftovers"
+            ],
+            "topMoves": [
+                "earthquake",
+                "protect",
+                "swordsdance",
+                "icefang"
+            ]
+        },
+        {
+            "name": "Thundurus-Therian",
+            "usageRank": 19,
+            "rawCount": 8742,
+            "topAbilities": [
+                "voltabsorb"
+            ],
+            "topItems": [
+                "leftovers",
+                "choicescarf",
+                "sitrusberry",
+                "rockyhelmet"
+            ],
+            "topMoves": [
+                "hiddenpowerice",
+                "thunder",
+                "focusblast",
+                "nastyplot"
+            ]
+        },
+        {
+            "name": "Skarmory",
+            "usageRank": 20,
+            "rawCount": 8482,
+            "topAbilities": [
+                "sturdy",
+                "keeneye"
+            ],
+            "topItems": [
+                "rockyhelmet",
+                "custapberry",
+                "leftovers",
+                "redcard"
+            ],
+            "topMoves": [
+                "spikes",
+                "bravebird",
+                "roost",
+                "whirlwind"
+            ]
+        },
+        {
+            "name": "Reuniclus",
+            "usageRank": 21,
+            "rawCount": 8020,
+            "topAbilities": [
+                "magicguard",
+                "overcoat"
+            ],
+            "topItems": [
+                "leftovers",
+                "lifeorb",
+                "flameorb",
+                "rockyhelmet"
+            ],
+            "topMoves": [
+                "recover",
+                "calmmind",
+                "psychic",
+                "focusblast"
+            ]
+        },
+        {
+            "name": "Jellicent",
+            "usageRank": 22,
+            "rawCount": 7695,
+            "topAbilities": [
+                "waterabsorb",
+                "cursedbody"
+            ],
+            "topItems": [
+                "leftovers",
+                "airballoon",
+                "sitrusberry",
+                "ejectbutton"
+            ],
+            "topMoves": [
+                "recover",
+                "willowisp",
+                "taunt",
+                "nightshade"
+            ]
+        },
+        {
+            "name": "Breloom",
+            "usageRank": 23,
+            "rawCount": 7607,
+            "topAbilities": [
+                "technician",
+                "poisonheal"
+            ],
+            "topItems": [
+                "choiceband",
+                "lifeorb",
+                "toxicorb",
+                "yacheberry"
+            ],
+            "topMoves": [
+                "machpunch",
+                "bulletseed",
+                "lowsweep",
+                "superpower"
+            ]
+        },
+        {
+            "name": "Conkeldurr",
+            "usageRank": 24,
+            "rawCount": 7544,
+            "topAbilities": [
+                "guts",
+                "sheerforce"
+            ],
+            "topItems": [
+                "leftovers",
+                "lifeorb",
+                "flameorb",
+                "fistplate"
+            ],
+            "topMoves": [
+                "drainpunch",
+                "machpunch",
+                "bulkup",
+                "payback"
+            ]
+        },
+        {
+            "name": "Ninetales",
+            "usageRank": 25,
+            "rawCount": 7439,
+            "topAbilities": [
+                "drought",
+                "flashfire"
+            ],
+            "topItems": [
+                "leftovers",
+                "chestoberry",
+                "lifeorb",
+                "choicespecs"
+            ],
+            "topMoves": [
+                "willowisp",
+                "flamethrower",
+                "sunnyday",
+                "protect"
+            ]
+        },
+        {
+            "name": "Forretress",
+            "usageRank": 26,
+            "rawCount": 6380,
+            "topAbilities": [
+                "sturdy",
+                "overcoat"
+            ],
+            "topItems": [
+                "leftovers",
+                "custapberry",
+                "occaberry",
+                "chestoberry"
+            ],
+            "topMoves": [
+                "rapidspin",
+                "spikes",
+                "earthquake",
+                "gyroball"
+            ]
+        },
+        {
+            "name": "Magnezone",
+            "usageRank": 27,
+            "rawCount": 6206,
+            "topAbilities": [
+                "magnetpull",
+                "analytic"
+            ],
+            "topItems": [
+                "airballoon",
+                "choicespecs",
+                "choicescarf",
+                "leftovers"
+            ],
+            "topMoves": [
+                "hiddenpowerfire",
+                "thunderbolt",
+                "sunnyday",
+                "magnetrise"
+            ]
+        },
+        {
+            "name": "Kyurem-Black",
+            "usageRank": 28,
+            "rawCount": 6171,
+            "topAbilities": [
+                "teravolt"
+            ],
+            "topItems": [
+                "leftovers",
+                "choicescarf",
+                "powerherb",
+                "choiceband"
+            ],
+            "topMoves": [
+                "fusionbolt",
+                "icebeam",
+                "outrage",
+                "substitute"
+            ]
+        },
+        {
+            "name": "Gengar",
+            "usageRank": 29,
+            "rawCount": 5867,
+            "topAbilities": [
+                "levitate"
+            ],
+            "topItems": [
+                "choicescarf",
+                "expertbelt",
+                "blacksludge",
+                "lifeorb"
+            ],
+            "topMoves": [
+                "shadowball",
+                "focusblast",
+                "trick",
+                "thunderbolt"
+            ]
+        },
+        {
+            "name": "Blissey",
+            "usageRank": 30,
+            "rawCount": 5252,
+            "topAbilities": [
+                "naturalcure",
+                "serenegrace"
+            ],
+            "topItems": [
+                "leftovers",
+                "mail",
+                "choicespecs",
+                "ejectbutton"
+            ],
+            "topMoves": [
+                "softboiled",
+                "seismictoss",
+                "thunderwave",
+                "stealthrock"
+            ]
+        }
+    ]
+}

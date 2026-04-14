@@ -1,0 +1,13 @@
+{
+    "name": "STARMIE",
+    "types": [
+        "WATER",
+        "PSYCHIC"
+    ],
+    "baseHp": 60,
+    "baseAttack": 75,
+    "baseDefense": 85,
+    "baseSpecialAttack": 100,
+    "baseSpecialDefense": 85,
+    "baseSpeed": 115
+}

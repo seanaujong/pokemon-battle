@@ -1,0 +1,13 @@
+{
+    "name": "LATIOS",
+    "types": [
+        "DRAGON",
+        "PSYCHIC"
+    ],
+    "baseHp": 80,
+    "baseAttack": 90,
+    "baseDefense": 80,
+    "baseSpecialAttack": 130,
+    "baseSpecialDefense": 110,
+    "baseSpeed": 110
+}

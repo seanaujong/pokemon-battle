@@ -1,0 +1,12 @@
+{
+    "name": "DARKRAI",
+    "types": [
+        "DARK"
+    ],
+    "baseHp": 70,
+    "baseAttack": 90,
+    "baseDefense": 90,
+    "baseSpecialAttack": 135,
+    "baseSpecialDefense": 90,
+    "baseSpeed": 125
+}

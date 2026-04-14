@@ -1,0 +1,49 @@
+{
+    "name": "ninetales",
+    "types": [
+        {
+            "slot": 1,
+            "type": {
+                "name": "fire"
+            }
+        }
+    ],
+    "stats": [
+        {
+            "base_stat": 73,
+            "stat": {
+                "name": "hp"
+            }
+        },
+        {
+            "base_stat": 76,
+            "stat": {
+                "name": "attack"
+            }
+        },
+        {
+            "base_stat": 75,
+            "stat": {
+                "name": "defense"
+            }
+        },
+        {
+            "base_stat": 81,
+            "stat": {
+                "name": "special-attack"
+            }
+        },
+        {
+            "base_stat": 100,
+            "stat": {
+                "name": "special-defense"
+            }
+        },
+        {
+            "base_stat": 100,
+            "stat": {
+                "name": "speed"
+            }
+        }
+    ]
+}

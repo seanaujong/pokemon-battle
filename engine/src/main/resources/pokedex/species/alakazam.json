@@ -1,0 +1,12 @@
+{
+    "name": "ALAKAZAM",
+    "types": [
+        "PSYCHIC"
+    ],
+    "baseHp": 55,
+    "baseAttack": 50,
+    "baseDefense": 45,
+    "baseSpecialAttack": 135,
+    "baseSpecialDefense": 95,
+    "baseSpeed": 120
+}

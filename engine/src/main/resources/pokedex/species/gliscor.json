@@ -1,0 +1,13 @@
+{
+    "name": "GLISCOR",
+    "types": [
+        "GROUND",
+        "FLYING"
+    ],
+    "baseHp": 75,
+    "baseAttack": 95,
+    "baseDefense": 125,
+    "baseSpecialAttack": 45,
+    "baseSpecialDefense": 75,
+    "baseSpeed": 95
+}

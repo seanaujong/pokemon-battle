@@ -1,0 +1,13 @@
+{
+    "name": "TAPU_KOKO",
+    "types": [
+        "ELECTRIC",
+        "FAIRY"
+    ],
+    "baseHp": 70,
+    "baseAttack": 115,
+    "baseDefense": 85,
+    "baseSpecialAttack": 95,
+    "baseSpecialDefense": 75,
+    "baseSpeed": 130
+}

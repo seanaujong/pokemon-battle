@@ -1,0 +1,13 @@
+{
+    "name": "IRON_MOTH",
+    "types": [
+        "FIRE",
+        "POISON"
+    ],
+    "baseHp": 80,
+    "baseAttack": 70,
+    "baseDefense": 60,
+    "baseSpecialAttack": 140,
+    "baseSpecialDefense": 110,
+    "baseSpeed": 110
+}

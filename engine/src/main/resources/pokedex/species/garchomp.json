@@ -1,0 +1,13 @@
+{
+    "name": "GARCHOMP",
+    "types": [
+        "DRAGON",
+        "GROUND"
+    ],
+    "baseHp": 108,
+    "baseAttack": 130,
+    "baseDefense": 95,
+    "baseSpecialAttack": 80,
+    "baseSpecialDefense": 85,
+    "baseSpeed": 102
+}

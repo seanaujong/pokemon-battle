@@ -1,0 +1,55 @@
+{
+    "name": "blacephalon",
+    "types": [
+        {
+            "slot": 1,
+            "type": {
+                "name": "fire"
+            }
+        },
+        {
+            "slot": 2,
+            "type": {
+                "name": "ghost"
+            }
+        }
+    ],
+    "stats": [
+        {
+            "base_stat": 53,
+            "stat": {
+                "name": "hp"
+            }
+        },
+        {
+            "base_stat": 127,
+            "stat": {
+                "name": "attack"
+            }
+        },
+        {
+            "base_stat": 53,
+            "stat": {
+                "name": "defense"
+            }
+        },
+        {
+            "base_stat": 151,
+            "stat": {
+                "name": "special-attack"
+            }
+        },
+        {
+            "base_stat": 79,
+            "stat": {
+                "name": "special-defense"
+            }
+        },
+        {
+            "base_stat": 107,
+            "stat": {
+                "name": "speed"
+            }
+        }
+    ]
+}

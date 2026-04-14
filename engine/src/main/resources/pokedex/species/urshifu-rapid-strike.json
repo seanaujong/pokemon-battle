@@ -1,0 +1,13 @@
+{
+    "name": "URSHIFU_RAPID_STRIKE",
+    "types": [
+        "FIGHTING",
+        "WATER"
+    ],
+    "baseHp": 100,
+    "baseAttack": 130,
+    "baseDefense": 100,
+    "baseSpecialAttack": 63,
+    "baseSpecialDefense": 60,
+    "baseSpeed": 97
+}

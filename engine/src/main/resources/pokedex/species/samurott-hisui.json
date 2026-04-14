@@ -1,0 +1,13 @@
+{
+    "name": "SAMUROTT_HISUI",
+    "types": [
+        "WATER",
+        "DARK"
+    ],
+    "baseHp": 90,
+    "baseAttack": 108,
+    "baseDefense": 80,
+    "baseSpecialAttack": 100,
+    "baseSpecialDefense": 65,
+    "baseSpeed": 85
+}

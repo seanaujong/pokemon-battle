@@ -1,0 +1,13 @@
+{
+    "name": "SLOWBRO",
+    "types": [
+        "WATER",
+        "PSYCHIC"
+    ],
+    "baseHp": 95,
+    "baseAttack": 75,
+    "baseDefense": 110,
+    "baseSpecialAttack": 100,
+    "baseSpecialDefense": 80,
+    "baseSpeed": 30
+}

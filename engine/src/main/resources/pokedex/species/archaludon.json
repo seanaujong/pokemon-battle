@@ -1,0 +1,13 @@
+{
+    "name": "ARCHALUDON",
+    "types": [
+        "STEEL",
+        "DRAGON"
+    ],
+    "baseHp": 90,
+    "baseAttack": 105,
+    "baseDefense": 130,
+    "baseSpecialAttack": 125,
+    "baseSpecialDefense": 65,
+    "baseSpeed": 85
+}

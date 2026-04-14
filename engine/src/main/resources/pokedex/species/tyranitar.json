@@ -1,0 +1,13 @@
+{
+    "name": "TYRANITAR",
+    "types": [
+        "ROCK",
+        "DARK"
+    ],
+    "baseHp": 100,
+    "baseAttack": 134,
+    "baseDefense": 110,
+    "baseSpecialAttack": 95,
+    "baseSpecialDefense": 100,
+    "baseSpeed": 61
+}

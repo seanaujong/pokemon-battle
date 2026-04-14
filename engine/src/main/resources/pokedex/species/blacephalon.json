@@ -1,0 +1,13 @@
+{
+    "name": "BLACEPHALON",
+    "types": [
+        "FIRE",
+        "GHOST"
+    ],
+    "baseHp": 53,
+    "baseAttack": 127,
+    "baseDefense": 53,
+    "baseSpecialAttack": 151,
+    "baseSpecialDefense": 79,
+    "baseSpeed": 107
+}

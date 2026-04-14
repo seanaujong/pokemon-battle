@@ -1,0 +1,13 @@
+{
+    "name": "SKARMORY",
+    "types": [
+        "STEEL",
+        "FLYING"
+    ],
+    "baseHp": 65,
+    "baseAttack": 80,
+    "baseDefense": 140,
+    "baseSpecialAttack": 40,
+    "baseSpecialDefense": 70,
+    "baseSpeed": 70
+}

@@ -1,0 +1,13 @@
+{
+    "name": "AMOONGUSS",
+    "types": [
+        "GRASS",
+        "POISON"
+    ],
+    "baseHp": 114,
+    "baseAttack": 85,
+    "baseDefense": 70,
+    "baseSpecialAttack": 85,
+    "baseSpecialDefense": 80,
+    "baseSpeed": 30
+}

@@ -1,0 +1,13 @@
+{
+    "name": "TAPU_LELE",
+    "types": [
+        "PSYCHIC",
+        "FAIRY"
+    ],
+    "baseHp": 70,
+    "baseAttack": 85,
+    "baseDefense": 75,
+    "baseSpecialAttack": 130,
+    "baseSpecialDefense": 115,
+    "baseSpeed": 95
+}

@@ -1,0 +1,55 @@
+{
+    "name": "skarmory",
+    "types": [
+        {
+            "slot": 1,
+            "type": {
+                "name": "steel"
+            }
+        },
+        {
+            "slot": 2,
+            "type": {
+                "name": "flying"
+            }
+        }
+    ],
+    "stats": [
+        {
+            "base_stat": 65,
+            "stat": {
+                "name": "hp"
+            }
+        },
+        {
+            "base_stat": 80,
+            "stat": {
+                "name": "attack"
+            }
+        },
+        {
+            "base_stat": 140,
+            "stat": {
+                "name": "defense"
+            }
+        },
+        {
+            "base_stat": 40,
+            "stat": {
+                "name": "special-attack"
+            }
+        },
+        {
+            "base_stat": 70,
+            "stat": {
+                "name": "special-defense"
+            }
+        },
+        {
+            "base_stat": 70,
+            "stat": {
+                "name": "speed"
+            }
+        }
+    ]
+}

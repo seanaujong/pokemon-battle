@@ -1,0 +1,12 @@
+{
+    "name": "REGIDRAGO",
+    "types": [
+        "DRAGON"
+    ],
+    "baseHp": 200,
+    "baseAttack": 100,
+    "baseDefense": 50,
+    "baseSpecialAttack": 100,
+    "baseSpecialDefense": 50,
+    "baseSpeed": 80
+}

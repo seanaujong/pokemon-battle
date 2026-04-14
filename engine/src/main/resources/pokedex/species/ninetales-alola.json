@@ -1,0 +1,13 @@
+{
+    "name": "NINETALES_ALOLA",
+    "types": [
+        "ICE",
+        "FAIRY"
+    ],
+    "baseHp": 73,
+    "baseAttack": 67,
+    "baseDefense": 75,
+    "baseSpecialAttack": 81,
+    "baseSpecialDefense": 100,
+    "baseSpeed": 109
+}

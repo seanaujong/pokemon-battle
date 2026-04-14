@@ -1,0 +1,13 @@
+{
+    "name": "CORVIKNIGHT",
+    "types": [
+        "FLYING",
+        "STEEL"
+    ],
+    "baseHp": 98,
+    "baseAttack": 87,
+    "baseDefense": 105,
+    "baseSpecialAttack": 53,
+    "baseSpecialDefense": 85,
+    "baseSpeed": 67
+}

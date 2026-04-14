@@ -1,0 +1,12 @@
+{
+    "name": "REUNICLUS",
+    "types": [
+        "PSYCHIC"
+    ],
+    "baseHp": 110,
+    "baseAttack": 65,
+    "baseDefense": 75,
+    "baseSpecialAttack": 125,
+    "baseSpecialDefense": 85,
+    "baseSpeed": 30
+}

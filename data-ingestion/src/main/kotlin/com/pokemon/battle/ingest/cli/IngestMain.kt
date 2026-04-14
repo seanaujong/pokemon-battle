@@ -28,9 +28,17 @@ fun main() {
     Files.createDirectories(OUTPUT_DIR)
     Files.createDirectories(projectedDir)
 
+    val skipped = mutableListOf<String>()
     for (slug in targets) {
         val hitCache = Files.exists(FULL_CACHE_ROOT.resolve(SPECIES_ENDPOINT).resolve("$slug.json"))
-        val rawJson = client.fetch(SPECIES_ENDPOINT, slug)
+        val rawJson =
+            try {
+                client.fetch(SPECIES_ENDPOINT, slug)
+            } catch (e: PokeApiClient.FetchException) {
+                println("[skip] $slug — ${e.message?.lines()?.firstOrNull()}")
+                skipped += slug
+                continue
+            }
         val projected = PokeApiProjection.projectPokemon(rawJson)
         Files.writeString(projectedDir.resolve("$slug.json"), projected)
 
@@ -40,5 +48,10 @@ fun main() {
 
         val source = if (hitCache) "cache" else "fetch"
         println("[$source] $slug -> $outputPath")
+    }
+    if (skipped.isNotEmpty()) {
+        println()
+        println("${skipped.size} target(s) skipped (not found in PokeAPI; check the slug):")
+        skipped.forEach { println("  $it") }
     }
 }

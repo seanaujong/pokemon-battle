@@ -1,0 +1,12 @@
+{
+    "name": "TORNADUS_THERIAN",
+    "types": [
+        "FLYING"
+    ],
+    "baseHp": 79,
+    "baseAttack": 100,
+    "baseDefense": 80,
+    "baseSpecialAttack": 110,
+    "baseSpecialDefense": 90,
+    "baseSpeed": 121
+}

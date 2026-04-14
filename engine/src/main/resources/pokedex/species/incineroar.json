@@ -1,0 +1,13 @@
+{
+    "name": "INCINEROAR",
+    "types": [
+        "FIRE",
+        "DARK"
+    ],
+    "baseHp": 95,
+    "baseAttack": 115,
+    "baseDefense": 90,
+    "baseSpecialAttack": 80,
+    "baseSpecialDefense": 90,
+    "baseSpeed": 60
+}

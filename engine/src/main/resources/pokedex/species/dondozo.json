@@ -1,0 +1,12 @@
+{
+    "name": "DONDOZO",
+    "types": [
+        "WATER"
+    ],
+    "baseHp": 150,
+    "baseAttack": 100,
+    "baseDefense": 115,
+    "baseSpecialAttack": 65,
+    "baseSpecialDefense": 65,
+    "baseSpeed": 35
+}

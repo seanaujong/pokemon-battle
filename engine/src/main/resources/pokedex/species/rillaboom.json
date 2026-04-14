@@ -1,0 +1,12 @@
+{
+    "name": "RILLABOOM",
+    "types": [
+        "GRASS"
+    ],
+    "baseHp": 100,
+    "baseAttack": 125,
+    "baseDefense": 90,
+    "baseSpecialAttack": 60,
+    "baseSpecialDefense": 70,
+    "baseSpeed": 85
+}

@@ -1,0 +1,13 @@
+{
+    "name": "URSALUNA_BLOODMOON",
+    "types": [
+        "GROUND",
+        "NORMAL"
+    ],
+    "baseHp": 113,
+    "baseAttack": 70,
+    "baseDefense": 120,
+    "baseSpecialAttack": 135,
+    "baseSpecialDefense": 65,
+    "baseSpeed": 52
+}

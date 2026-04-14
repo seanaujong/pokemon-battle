@@ -1,0 +1,12 @@
+{
+    "name": "TORKOAL",
+    "types": [
+        "FIRE"
+    ],
+    "baseHp": 70,
+    "baseAttack": 85,
+    "baseDefense": 140,
+    "baseSpecialAttack": 85,
+    "baseSpecialDefense": 70,
+    "baseSpeed": 20
+}

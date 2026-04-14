@@ -1,0 +1,13 @@
+{
+    "name": "TAPU_FINI",
+    "types": [
+        "WATER",
+        "FAIRY"
+    ],
+    "baseHp": 70,
+    "baseAttack": 75,
+    "baseDefense": 115,
+    "baseSpecialAttack": 95,
+    "baseSpecialDefense": 130,
+    "baseSpeed": 85
+}

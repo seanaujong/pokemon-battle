@@ -1,0 +1,12 @@
+{
+    "name": "CINDERACE",
+    "types": [
+        "FIRE"
+    ],
+    "baseHp": 80,
+    "baseAttack": 116,
+    "baseDefense": 75,
+    "baseSpecialAttack": 65,
+    "baseSpecialDefense": 75,
+    "baseSpeed": 119
+}

@@ -1,0 +1,13 @@
+{
+    "name": "GHOLDENGO",
+    "types": [
+        "STEEL",
+        "GHOST"
+    ],
+    "baseHp": 87,
+    "baseAttack": 60,
+    "baseDefense": 95,
+    "baseSpecialAttack": 133,
+    "baseSpecialDefense": 91,
+    "baseSpeed": 84
+}

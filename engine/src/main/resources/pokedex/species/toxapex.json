@@ -1,0 +1,13 @@
+{
+    "name": "TOXAPEX",
+    "types": [
+        "POISON",
+        "WATER"
+    ],
+    "baseHp": 50,
+    "baseAttack": 63,
+    "baseDefense": 152,
+    "baseSpecialAttack": 53,
+    "baseSpecialDefense": 142,
+    "baseSpeed": 35
+}

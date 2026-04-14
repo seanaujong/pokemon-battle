@@ -1,0 +1,49 @@
+{
+    "name": "zamazenta",
+    "types": [
+        {
+            "slot": 1,
+            "type": {
+                "name": "fighting"
+            }
+        }
+    ],
+    "stats": [
+        {
+            "base_stat": 92,
+            "stat": {
+                "name": "hp"
+            }
+        },
+        {
+            "base_stat": 120,
+            "stat": {
+                "name": "attack"
+            }
+        },
+        {
+            "base_stat": 115,
+            "stat": {
+                "name": "defense"
+            }
+        },
+        {
+            "base_stat": 80,
+            "stat": {
+                "name": "special-attack"
+            }
+        },
+        {
+            "base_stat": 115,
+            "stat": {
+                "name": "special-defense"
+            }
+        },
+        {
+            "base_stat": 138,
+            "stat": {
+                "name": "speed"
+            }
+        }
+    ]
+}

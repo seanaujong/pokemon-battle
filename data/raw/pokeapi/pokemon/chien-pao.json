@@ -1,0 +1,55 @@
+{
+    "name": "chien-pao",
+    "types": [
+        {
+            "slot": 1,
+            "type": {
+                "name": "dark"
+            }
+        },
+        {
+            "slot": 2,
+            "type": {
+                "name": "ice"
+            }
+        }
+    ],
+    "stats": [
+        {
+            "base_stat": 80,
+            "stat": {
+                "name": "hp"
+            }
+        },
+        {
+            "base_stat": 120,
+            "stat": {
+                "name": "attack"
+            }
+        },
+        {
+            "base_stat": 80,
+            "stat": {
+                "name": "defense"
+            }
+        },
+        {
+            "base_stat": 90,
+            "stat": {
+                "name": "special-attack"
+            }
+        },
+        {
+            "base_stat": 65,
+            "stat": {
+                "name": "special-defense"
+            }
+        },
+        {
+            "base_stat": 135,
+            "stat": {
+                "name": "speed"
+            }
+        }
+    ]
+}

@@ -1,0 +1,55 @@
+{
+    "name": "dragapult",
+    "types": [
+        {
+            "slot": 1,
+            "type": {
+                "name": "dragon"
+            }
+        },
+        {
+            "slot": 2,
+            "type": {
+                "name": "ghost"
+            }
+        }
+    ],
+    "stats": [
+        {
+            "base_stat": 88,
+            "stat": {
+                "name": "hp"
+            }
+        },
+        {
+            "base_stat": 120,
+            "stat": {
+                "name": "attack"
+            }
+        },
+        {
+            "base_stat": 75,
+            "stat": {
+                "name": "defense"
+            }
+        },
+        {
+            "base_stat": 100,
+            "stat": {
+                "name": "special-attack"
+            }
+        },
+        {
+            "base_stat": 75,
+            "stat": {
+                "name": "special-defense"
+            }
+        },
+        {
+            "base_stat": 142,
+            "stat": {
+                "name": "speed"
+            }
+        }
+    ]
+}

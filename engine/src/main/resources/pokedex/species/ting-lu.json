@@ -1,0 +1,13 @@
+{
+    "name": "TING_LU",
+    "types": [
+        "DARK",
+        "GROUND"
+    ],
+    "baseHp": 155,
+    "baseAttack": 110,
+    "baseDefense": 125,
+    "baseSpecialAttack": 55,
+    "baseSpecialDefense": 80,
+    "baseSpeed": 45
+}

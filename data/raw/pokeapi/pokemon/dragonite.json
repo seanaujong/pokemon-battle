@@ -1,0 +1,55 @@
+{
+    "name": "dragonite",
+    "types": [
+        {
+            "slot": 1,
+            "type": {
+                "name": "dragon"
+            }
+        },
+        {
+            "slot": 2,
+            "type": {
+                "name": "flying"
+            }
+        }
+    ],
+    "stats": [
+        {
+            "base_stat": 91,
+            "stat": {
+                "name": "hp"
+            }
+        },
+        {
+            "base_stat": 134,
+            "stat": {
+                "name": "attack"
+            }
+        },
+        {
+            "base_stat": 95,
+            "stat": {
+                "name": "defense"
+            }
+        },
+        {
+            "base_stat": 100,
+            "stat": {
+                "name": "special-attack"
+            }
+        },
+        {
+            "base_stat": 100,
+            "stat": {
+                "name": "special-defense"
+            }
+        },
+        {
+            "base_stat": 80,
+            "stat": {
+                "name": "speed"
+            }
+        }
+    ]
+}

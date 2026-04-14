@@ -1,0 +1,12 @@
+{
+    "name": "BLISSEY",
+    "types": [
+        "NORMAL"
+    ],
+    "baseHp": 255,
+    "baseAttack": 10,
+    "baseDefense": 10,
+    "baseSpecialAttack": 75,
+    "baseSpecialDefense": 135,
+    "baseSpeed": 55
+}

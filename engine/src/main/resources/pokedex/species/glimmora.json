@@ -1,0 +1,13 @@
+{
+    "name": "GLIMMORA",
+    "types": [
+        "ROCK",
+        "POISON"
+    ],
+    "baseHp": 83,
+    "baseAttack": 55,
+    "baseDefense": 90,
+    "baseSpecialAttack": 130,
+    "baseSpecialDefense": 81,
+    "baseSpeed": 86
+}

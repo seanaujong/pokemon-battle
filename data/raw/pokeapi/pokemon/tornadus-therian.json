@@ -1,0 +1,49 @@
+{
+    "name": "tornadus-therian",
+    "types": [
+        {
+            "slot": 1,
+            "type": {
+                "name": "flying"
+            }
+        }
+    ],
+    "stats": [
+        {
+            "base_stat": 79,
+            "stat": {
+                "name": "hp"
+            }
+        },
+        {
+            "base_stat": 100,
+            "stat": {
+                "name": "attack"
+            }
+        },
+        {
+            "base_stat": 80,
+            "stat": {
+                "name": "defense"
+            }
+        },
+        {
+            "base_stat": 110,
+            "stat": {
+                "name": "special-attack"
+            }
+        },
+        {
+            "base_stat": 90,
+            "stat": {
+                "name": "special-defense"
+            }
+        },
+        {
+            "base_stat": 121,
+            "stat": {
+                "name": "speed"
+            }
+        }
+    ]
+}

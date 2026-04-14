@@ -1,0 +1,13 @@
+{
+    "name": "VOLCARONA",
+    "types": [
+        "BUG",
+        "FIRE"
+    ],
+    "baseHp": 85,
+    "baseAttack": 60,
+    "baseDefense": 65,
+    "baseSpecialAttack": 135,
+    "baseSpecialDefense": 105,
+    "baseSpeed": 100
+}

@@ -1,0 +1,13 @@
+{
+    "name": "DRAGAPULT",
+    "types": [
+        "DRAGON",
+        "GHOST"
+    ],
+    "baseHp": 88,
+    "baseAttack": 120,
+    "baseDefense": 75,
+    "baseSpecialAttack": 100,
+    "baseSpecialDefense": 75,
+    "baseSpeed": 142
+}

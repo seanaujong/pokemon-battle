@@ -1,0 +1,55 @@
+{
+    "name": "thundurus-therian",
+    "types": [
+        {
+            "slot": 1,
+            "type": {
+                "name": "electric"
+            }
+        },
+        {
+            "slot": 2,
+            "type": {
+                "name": "flying"
+            }
+        }
+    ],
+    "stats": [
+        {
+            "base_stat": 79,
+            "stat": {
+                "name": "hp"
+            }
+        },
+        {
+            "base_stat": 105,
+            "stat": {
+                "name": "attack"
+            }
+        },
+        {
+            "base_stat": 70,
+            "stat": {
+                "name": "defense"
+            }
+        },
+        {
+            "base_stat": 145,
+            "stat": {
+                "name": "special-attack"
+            }
+        },
+        {
+            "base_stat": 80,
+            "stat": {
+                "name": "special-defense"
+            }
+        },
+        {
+            "base_stat": 101,
+            "stat": {
+                "name": "speed"
+            }
+        }
+    ]
+}

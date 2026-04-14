@@ -1,0 +1,13 @@
+{
+    "name": "IRON_CROWN",
+    "types": [
+        "STEEL",
+        "PSYCHIC"
+    ],
+    "baseHp": 90,
+    "baseAttack": 72,
+    "baseDefense": 100,
+    "baseSpecialAttack": 122,
+    "baseSpecialDefense": 108,
+    "baseSpeed": 98
+}

@@ -27,6 +27,17 @@ tasks.register<JavaExec>("ingestSmogon") {
     workingDir = rootProject.projectDir
 }
 
+// Bridge Smogon top-sets → PokeAPI targets (diary 041 Phase 3, "use Smogon to
+// recommend what to pull from PokeAPI"). Runs after :ingestSmogon; updates
+// targets/species.txt with the union of Smogon-recommended species.
+tasks.register<JavaExec>("smogonToTargets") {
+    group = "application"
+    description = "Extend targets/species.txt with species from data/smogon/*-top-sets.json."
+    mainClass.set("com.pokemon.battle.ingest.smogon.SmogonToTargetsMainKt")
+    classpath = sourceSets["main"].runtimeClasspath
+    workingDir = rootProject.projectDir
+}
+
 group = "com.pokemon.battle"
 version = "1.0-SNAPSHOT"
 

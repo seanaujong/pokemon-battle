@@ -1,0 +1,55 @@
+{
+    "name": "flutter-mane",
+    "types": [
+        {
+            "slot": 1,
+            "type": {
+                "name": "ghost"
+            }
+        },
+        {
+            "slot": 2,
+            "type": {
+                "name": "fairy"
+            }
+        }
+    ],
+    "stats": [
+        {
+            "base_stat": 55,
+            "stat": {
+                "name": "hp"
+            }
+        },
+        {
+            "base_stat": 55,
+            "stat": {
+                "name": "attack"
+            }
+        },
+        {
+            "base_stat": 55,
+            "stat": {
+                "name": "defense"
+            }
+        },
+        {
+            "base_stat": 135,
+            "stat": {
+                "name": "special-attack"
+            }
+        },
+        {
+            "base_stat": 135,
+            "stat": {
+                "name": "special-defense"
+            }
+        },
+        {
+            "base_stat": 135,
+            "stat": {
+                "name": "speed"
+            }
+        }
+    ]
+}

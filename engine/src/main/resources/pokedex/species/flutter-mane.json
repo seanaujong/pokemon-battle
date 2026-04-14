@@ -1,0 +1,13 @@
+{
+    "name": "FLUTTER_MANE",
+    "types": [
+        "GHOST",
+        "FAIRY"
+    ],
+    "baseHp": 55,
+    "baseAttack": 55,
+    "baseDefense": 55,
+    "baseSpecialAttack": 135,
+    "baseSpecialDefense": 135,
+    "baseSpeed": 135
+}

@@ -1,0 +1,619 @@
+{
+    "format": "gen9vgc2026regf",
+    "month": "2026-02",
+    "ratingCutoff": 1760,
+    "numberOfBattles": 785309,
+    "topSpecies": [
+        {
+            "name": "Incineroar",
+            "usageRank": 1,
+            "rawCount": 647459,
+            "topAbilities": [
+                "intimidate",
+                "blaze"
+            ],
+            "topItems": [
+                "assaultvest",
+                "sitrusberry",
+                "safetygoggles",
+                "rockyhelmet"
+            ],
+            "topMoves": [
+                "fakeout",
+                "flareblitz",
+                "knockoff",
+                "partingshot"
+            ]
+        },
+        {
+            "name": "Flutter Mane",
+            "usageRank": 2,
+            "rawCount": 618277,
+            "topAbilities": [
+                "protosynthesis"
+            ],
+            "topItems": [
+                "boosterenergy",
+                "choicespecs",
+                "focussash",
+                "fairyfeather"
+            ],
+            "topMoves": [
+                "moonblast",
+                "shadowball",
+                "dazzlinggleam",
+                "icywind"
+            ]
+        },
+        {
+            "name": "Urshifu-Rapid-Strike",
+            "usageRank": 3,
+            "rawCount": 585332,
+            "topAbilities": [
+                "unseenfist"
+            ],
+            "topItems": [
+                "mysticwater",
+                "focussash",
+                "choicescarf",
+                "choiceband"
+            ],
+            "topMoves": [
+                "surgingstrikes",
+                "closecombat",
+                "aquajet",
+                "detect"
+            ]
+        },
+        {
+            "name": "Tornadus",
+            "usageRank": 4,
+            "rawCount": 399029,
+            "topAbilities": [
+                "prankster",
+                "defiant"
+            ],
+            "topItems": [
+                "covertcloak",
+                "focussash",
+                "rockyhelmet",
+                "sharpbeak"
+            ],
+            "topMoves": [
+                "tailwind",
+                "bleakwindstorm",
+                "protect",
+                "raindance"
+            ]
+        },
+        {
+            "name": "Raging Bolt",
+            "usageRank": 5,
+            "rawCount": 390962,
+            "topAbilities": [
+                "protosynthesis"
+            ],
+            "topItems": [
+                "assaultvest",
+                "boosterenergy",
+                "leftovers",
+                "lifeorb"
+            ],
+            "topMoves": [
+                "thunderclap",
+                "dragonpulse",
+                "thunderbolt",
+                "protect"
+            ]
+        },
+        {
+            "name": "Rillaboom",
+            "usageRank": 6,
+            "rawCount": 387634,
+            "topAbilities": [
+                "grassysurge",
+                "overgrow"
+            ],
+            "topItems": [
+                "assaultvest",
+                "clearamulet",
+                "miracleseed",
+                "meadowplate"
+            ],
+            "topMoves": [
+                "grassyglide",
+                "fakeout",
+                "woodhammer",
+                "highhorsepower"
+            ]
+        },
+        {
+            "name": "Amoonguss",
+            "usageRank": 7,
+            "rawCount": 320875,
+            "topAbilities": [
+                "regenerator",
+                "effectspore"
+            ],
+            "topItems": [
+                "rockyhelmet",
+                "sitrusberry",
+                "mentalherb",
+                "covertcloak"
+            ],
+            "topMoves": [
+                "spore",
+                "ragepowder",
+                "sludgebomb",
+                "protect"
+            ]
+        },
+        {
+            "name": "Ogerpon-Wellspring",
+            "usageRank": 8,
+            "rawCount": 284187,
+            "topAbilities": [
+                "waterabsorb"
+            ],
+            "topItems": [
+                "wellspringmask"
+            ],
+            "topMoves": [
+                "ivycudgel",
+                "spikyshield",
+                "followme",
+                "hornleech"
+            ]
+        },
+        {
+            "name": "Landorus",
+            "usageRank": 9,
+            "rawCount": 269207,
+            "topAbilities": [
+                "sheerforce",
+                "sandforce"
+            ],
+            "topItems": [
+                "lifeorb",
+                "choicescarf",
+                "adrenalineorb",
+                "choicespecs"
+            ],
+            "topMoves": [
+                "sludgebomb",
+                "protect",
+                "earthpower",
+                "sandsearstorm"
+            ]
+        },
+        {
+            "name": "Ogerpon-Hearthflame",
+            "usageRank": 10,
+            "rawCount": 242286,
+            "topAbilities": [
+                "moldbreaker"
+            ],
+            "topItems": [
+                "hearthflamemask"
+            ],
+            "topMoves": [
+                "ivycudgel",
+                "spikyshield",
+                "followme",
+                "woodhammer"
+            ]
+        },
+        {
+            "name": "Chien-Pao",
+            "usageRank": 11,
+            "rawCount": 239652,
+            "topAbilities": [
+                "swordofruin"
+            ],
+            "topItems": [
+                "focussash",
+                "lifeorb",
+                "clearamulet",
+                "covertcloak"
+            ],
+            "topMoves": [
+                "protect",
+                "suckerpunch",
+                "sacredsword",
+                "iciclecrash"
+            ]
+        },
+        {
+            "name": "Farigiraf",
+            "usageRank": 12,
+            "rawCount": 236508,
+            "topAbilities": [
+                "armortail",
+                "sapsipper"
+            ],
+            "topItems": [
+                "throatspray",
+                "sitrusberry",
+                "mentalherb",
+                "psychicseed"
+            ],
+            "topMoves": [
+                "trickroom",
+                "hypervoice",
+                "psychic",
+                "protect"
+            ]
+        },
+        {
+            "name": "Indeedee-F",
+            "usageRank": 13,
+            "rawCount": 205054,
+            "topAbilities": [
+                "psychicsurge",
+                "owntempo"
+            ],
+            "topItems": [
+                "rockyhelmet",
+                "psychicseed",
+                "safetygoggles",
+                "mentalherb"
+            ],
+            "topMoves": [
+                "followme",
+                "helpinghand",
+                "trickroom",
+                "dazzlinggleam"
+            ]
+        },
+        {
+            "name": "Gholdengo",
+            "usageRank": 14,
+            "rawCount": 184752,
+            "topAbilities": [
+                "goodasgold"
+            ],
+            "topItems": [
+                "choicespecs",
+                "lifeorb",
+                "metalcoat",
+                "sitrusberry"
+            ],
+            "topMoves": [
+                "makeitrain",
+                "shadowball",
+                "protect",
+                "nastyplot"
+            ]
+        },
+        {
+            "name": "Ursaluna",
+            "usageRank": 15,
+            "rawCount": 174285,
+            "topAbilities": [
+                "guts",
+                "unnerve"
+            ],
+            "topItems": [
+                "flameorb",
+                "masterball",
+                "toxicorb",
+                "sitrusberry"
+            ],
+            "topMoves": [
+                "protect",
+                "facade",
+                "headlongrush",
+                "earthquake"
+            ]
+        },
+        {
+            "name": "Torkoal",
+            "usageRank": 16,
+            "rawCount": 171433,
+            "topAbilities": [
+                "drought",
+                "whitesmoke"
+            ],
+            "topItems": [
+                "charcoal",
+                "choicespecs",
+                "heatrock",
+                "ejectpack"
+            ],
+            "topMoves": [
+                "eruption",
+                "heatwave",
+                "protect",
+                "earthpower"
+            ]
+        },
+        {
+            "name": "Dragonite",
+            "usageRank": 17,
+            "rawCount": 153531,
+            "topAbilities": [
+                "innerfocus",
+                "multiscale"
+            ],
+            "topItems": [
+                "choiceband",
+                "loadeddice",
+                "assaultvest",
+                "lifeorb"
+            ],
+            "topMoves": [
+                "extremespeed",
+                "ironhead",
+                "aerialace",
+                "stompingtantrum"
+            ]
+        },
+        {
+            "name": "Whimsicott",
+            "usageRank": 18,
+            "rawCount": 149731,
+            "topAbilities": [
+                "prankster",
+                "chlorophyll"
+            ],
+            "topItems": [
+                "covertcloak",
+                "focussash",
+                "sitrusberry",
+                "rockyhelmet"
+            ],
+            "topMoves": [
+                "tailwind",
+                "moonblast",
+                "encore",
+                "faketears"
+            ]
+        },
+        {
+            "name": "Urshifu",
+            "usageRank": 19,
+            "rawCount": 143353,
+            "topAbilities": [
+                "unseenfist"
+            ],
+            "topItems": [
+                "focussash",
+                "choiceband",
+                "lifeorb",
+                "blackglasses"
+            ],
+            "topMoves": [
+                "wickedblow",
+                "closecombat",
+                "suckerpunch",
+                "detect"
+            ]
+        },
+        {
+            "name": "Chi-Yu",
+            "usageRank": 20,
+            "rawCount": 135316,
+            "topAbilities": [
+                "beadsofruin"
+            ],
+            "topItems": [
+                "choicespecs",
+                "focussash",
+                "choicescarf",
+                "lifeorb"
+            ],
+            "topMoves": [
+                "heatwave",
+                "overheat",
+                "darkpulse",
+                "snarl"
+            ]
+        },
+        {
+            "name": "Archaludon",
+            "usageRank": 21,
+            "rawCount": 131128,
+            "topAbilities": [
+                "stamina",
+                "stalwart"
+            ],
+            "topItems": [
+                "assaultvest",
+                "powerherb",
+                "leftovers",
+                "scopelens"
+            ],
+            "topMoves": [
+                "electroshot",
+                "flashcannon",
+                "bodypress",
+                "dragonpulse"
+            ]
+        },
+        {
+            "name": "Pelipper",
+            "usageRank": 22,
+            "rawCount": 114225,
+            "topAbilities": [
+                "drizzle",
+                "keeneye"
+            ],
+            "topItems": [
+                "focussash",
+                "safetygoggles",
+                "rockyhelmet",
+                "lifeorb"
+            ],
+            "topMoves": [
+                "hurricane",
+                "weatherball",
+                "wideguard",
+                "tailwind"
+            ]
+        },
+        {
+            "name": "Ursaluna-Bloodmoon",
+            "usageRank": 23,
+            "rawCount": 109565,
+            "topAbilities": [
+                "mindseye"
+            ],
+            "topItems": [
+                "lifeorb",
+                "assaultvest",
+                "choicespecs",
+                "throatspray"
+            ],
+            "topMoves": [
+                "earthpower",
+                "hypervoice",
+                "bloodmoon",
+                "protect"
+            ]
+        },
+        {
+            "name": "Iron Crown",
+            "usageRank": 24,
+            "rawCount": 97803,
+            "topAbilities": [
+                "quarkdrive"
+            ],
+            "topItems": [
+                "boosterenergy",
+                "assaultvest",
+                "lifeorb",
+                "leftovers"
+            ],
+            "topMoves": [
+                "tachyoncutter",
+                "expandingforce",
+                "protect",
+                "terablast"
+            ]
+        },
+        {
+            "name": "Dondozo",
+            "usageRank": 25,
+            "rawCount": 97589,
+            "topAbilities": [
+                "oblivious",
+                "unaware"
+            ],
+            "topItems": [
+                "leftovers",
+                "rockyhelmet",
+                "covertcloak",
+                "clearamulet"
+            ],
+            "topMoves": [
+                "protect",
+                "wavecrash",
+                "orderup",
+                "earthquake"
+            ]
+        },
+        {
+            "name": "Arcanine-Hisui",
+            "usageRank": 26,
+            "rawCount": 92807,
+            "topAbilities": [
+                "intimidate",
+                "rockhead"
+            ],
+            "topItems": [
+                "choiceband",
+                "lifeorb",
+                "clearamulet",
+                "abilityshield"
+            ],
+            "topMoves": [
+                "flareblitz",
+                "rockslide",
+                "extremespeed",
+                "headsmash"
+            ]
+        },
+        {
+            "name": "Regidrago",
+            "usageRank": 27,
+            "rawCount": 92030,
+            "topAbilities": [
+                "dragonsmaw"
+            ],
+            "topItems": [
+                "lifeorb",
+                "dragonfang",
+                "choicescarf",
+                "dracoplate"
+            ],
+            "topMoves": [
+                "dragonenergy",
+                "dracometeor",
+                "protect",
+                "earthpower"
+            ]
+        },
+        {
+            "name": "Tatsugiri",
+            "usageRank": 28,
+            "rawCount": 86550,
+            "topAbilities": [
+                "commander",
+                "stormdrain"
+            ],
+            "topItems": [
+                "choicescarf",
+                "safetygoggles",
+                "focussash",
+                "assaultvest"
+            ],
+            "topMoves": [
+                "muddywater",
+                "dracometeor",
+                "icywind",
+                "protect"
+            ]
+        },
+        {
+            "name": "Landorus-Therian",
+            "usageRank": 29,
+            "rawCount": 83195,
+            "topAbilities": [
+                "intimidate"
+            ],
+            "topItems": [
+                "choiceband",
+                "choicescarf",
+                "assaultvest",
+                "lifeorb"
+            ],
+            "topMoves": [
+                "stompingtantrum",
+                "rockslide",
+                "uturn",
+                "earthquake"
+            ]
+        },
+        {
+            "name": "Ninetales-Alola",
+            "usageRank": 30,
+            "rawCount": 81475,
+            "topAbilities": [
+                "snowwarning",
+                "snowcloak"
+            ],
+            "topItems": [
+                "lightclay",
+                "covertcloak",
+                "focussash",
+                "rockyhelmet"
+            ],
+            "topMoves": [
+                "auroraveil",
+                "blizzard",
+                "moonblast",
+                "helpinghand"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,49 @@
+{
+    "name": "cinderace",
+    "types": [
+        {
+            "slot": 1,
+            "type": {
+                "name": "fire"
+            }
+        }
+    ],
+    "stats": [
+        {
+            "base_stat": 80,
+            "stat": {
+                "name": "hp"
+            }
+        },
+        {
+            "base_stat": 116,
+            "stat": {
+                "name": "attack"
+            }
+        },
+        {
+            "base_stat": 75,
+            "stat": {
+                "name": "defense"
+            }
+        },
+        {
+            "base_stat": 65,
+            "stat": {
+                "name": "special-attack"
+            }
+        },
+        {
+            "base_stat": 75,
+            "stat": {
+                "name": "special-defense"
+            }
+        },
+        {
+            "base_stat": 119,
+            "stat": {
+                "name": "speed"
+            }
+        }
+    ]
+}

@@ -1,0 +1,13 @@
+{
+    "name": "CHIEN_PAO",
+    "types": [
+        "DARK",
+        "ICE"
+    ],
+    "baseHp": 80,
+    "baseAttack": 120,
+    "baseDefense": 80,
+    "baseSpecialAttack": 90,
+    "baseSpecialDefense": 65,
+    "baseSpeed": 135
+}

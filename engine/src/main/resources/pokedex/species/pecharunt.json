@@ -1,0 +1,13 @@
+{
+    "name": "PECHARUNT",
+    "types": [
+        "POISON",
+        "GHOST"
+    ],
+    "baseHp": 88,
+    "baseAttack": 88,
+    "baseDefense": 160,
+    "baseSpecialAttack": 88,
+    "baseSpecialDefense": 88,
+    "baseSpeed": 88
+}

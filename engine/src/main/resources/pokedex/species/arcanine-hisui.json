@@ -1,0 +1,13 @@
+{
+    "name": "ARCANINE_HISUI",
+    "types": [
+        "FIRE",
+        "ROCK"
+    ],
+    "baseHp": 95,
+    "baseAttack": 115,
+    "baseDefense": 80,
+    "baseSpecialAttack": 95,
+    "baseSpecialDefense": 80,
+    "baseSpeed": 90
+}

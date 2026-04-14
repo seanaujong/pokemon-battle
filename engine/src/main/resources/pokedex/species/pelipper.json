@@ -1,0 +1,13 @@
+{
+    "name": "PELIPPER",
+    "types": [
+        "WATER",
+        "FLYING"
+    ],
+    "baseHp": 60,
+    "baseAttack": 50,
+    "baseDefense": 100,
+    "baseSpecialAttack": 95,
+    "baseSpecialDefense": 70,
+    "baseSpeed": 65
+}

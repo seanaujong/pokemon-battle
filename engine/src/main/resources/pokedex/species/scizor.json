@@ -1,0 +1,13 @@
+{
+    "name": "SCIZOR",
+    "types": [
+        "BUG",
+        "STEEL"
+    ],
+    "baseHp": 70,
+    "baseAttack": 130,
+    "baseDefense": 100,
+    "baseSpecialAttack": 55,
+    "baseSpecialDefense": 80,
+    "baseSpeed": 65
+}

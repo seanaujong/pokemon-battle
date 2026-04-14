@@ -1,0 +1,13 @@
+{
+    "name": "CERULEDGE",
+    "types": [
+        "FIRE",
+        "GHOST"
+    ],
+    "baseHp": 75,
+    "baseAttack": 125,
+    "baseDefense": 80,
+    "baseSpecialAttack": 60,
+    "baseSpecialDefense": 100,
+    "baseSpeed": 85
+}
