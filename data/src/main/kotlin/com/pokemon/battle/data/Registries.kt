@@ -87,6 +87,47 @@ val GenVRegistries: Registries =
     }
 
 /**
+ * The Gen III [Registries] bundle — strict subset of [GenIVRegistries] dropping
+ * effects that debuted in Gen IV. Pairs with
+ * [com.pokemon.battle.engine.genIIIDamageCalculator] to model the Gen III rule
+ * that physical/special is determined by move type.
+ *
+ * Dropped items (Gen IV+): Life Orb, Focus Sash, Choice Scarf, Choice Specs.
+ * Dropped abilities: Snow Cloak (Gen IV), Ice Body (Gen IV), Klutz (Gen IV).
+ * Kept: items/abilities introduced in Gen III or earlier. Same Sturdy-fidelity
+ * caveat as GenIVRegistries applies.
+ */
+val GenIIIRegistries: Registries =
+    run {
+        val abilities =
+            AbilityRegistry(
+                listOf(
+                    IntimidateEffect,
+                    DrizzleEffect,
+                    DroughtEffect,
+                    LevitateEffect,
+                    SandVeilEffect,
+                    BlazeEffect,
+                    OvergrowEffect,
+                    TorrentEffect,
+                    SturdyEffect,
+                    NaturalCureEffect,
+                ),
+            )
+        val items =
+            ItemRegistry(
+                effects =
+                    listOf(
+                        LeftoversEffect,
+                        ChoiceBandEffect,
+                        SitrusBerryEffect,
+                    ),
+                abilities = abilities,
+            )
+        Registries(items = items, abilities = abilities)
+    }
+
+/**
  * The Gen IV [Registries] bundle — a strict subset of [GenVRegistries] dropping
  * effects introduced in Gen V or later. Built from Smogon-style generational
  * data (diary 087): items / abilities present in Gen IV metagames, excluding

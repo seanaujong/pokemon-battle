@@ -2,7 +2,6 @@ package com.pokemon.battle.engine
 
 import com.pokemon.battle.model.Effectiveness
 import com.pokemon.battle.model.Move
-import com.pokemon.battle.model.MoveCategory
 import com.pokemon.battle.model.PokemonState
 import com.pokemon.battle.model.StatType
 import com.pokemon.battle.model.StatusCondition
@@ -10,30 +9,32 @@ import com.pokemon.battle.model.Type
 import com.pokemon.battle.model.Weather
 import com.pokemon.battle.model.stageMultiplier
 
-data class DamageResult(val damage: Int, val effectiveness: Effectiveness)
-
-fun interface DamageCalculator {
-    @Suppress("LongParameterList") // Core damage calc — each param is a distinct modifier
-    fun calculate(
-        attacker: PokemonState,
-        defender: PokemonState,
-        move: Move,
-        roll: (IntRange) -> Int,
-        spreadModifier: Double,
-        isCritical: Boolean,
-        weather: Weather?,
-    ): DamageResult
-}
-
 /**
- * Standard Gen V+ damage formula with IVs/EVs/Nature.
- * Gen-specific rules: burn penalty (0.5x physical), STAB (1.5x), crit (1.5x + ignore stages).
+ * Gen III (Ruby/Sapphire/Emerald, FR/LG) damage calculator.
+ *
+ * The one mainline-mechanical difference from [GenVDamageCalculator] we're
+ * modelling: in Gen I–III, physical/special is determined by **move type**, not
+ * by a per-move [com.pokemon.battle.model.MoveCategory] field. Shadow Ball is
+ * Special→Physical, Sludge Bomb is Special→Physical, etc. From Gen IV onward,
+ * category is a per-move property; our [com.pokemon.battle.model.Move.category]
+ * field matches that later convention, so here we override with type-derived
+ * classification.
+ *
+ * Other Gen III mechanics we do NOT yet differentiate from Gen V (pragmatic
+ * scope — matrix team pool doesn't exercise these):
+ * - Crit formula (Gen III uses speed-based Focus Energy etc.; we use a flat
+ *   multiplier regardless).
+ * - Burn atk drop (same 0.5× in Gen III and V — no delta).
+ * - Weather mechanics (broadly the same for rain/sun).
+ *
+ * If the matrix surfaces a behavioural delta beyond the P/S split, that's a
+ * signal to deepen the model — same forcing-function discipline as diary 087.
  */
-internal class GenVDamageCalculator(
+internal class GenIIIDamageCalculator(
     private val registries: Registries = Registries.empty,
     private val typeChart: TypeChart = StandardTypeChart,
 ) : DamageCalculator {
-    @Suppress("CyclomaticComplexMethod") // Single-expression damage formula with many independent modifiers
+    @Suppress("CyclomaticComplexMethod") // Parallel shape to GenVDamageCalculator; single-expression formula.
     override fun calculate(
         attacker: PokemonState,
         defender: PokemonState,
@@ -45,13 +46,13 @@ internal class GenVDamageCalculator(
     ): DamageResult {
         val level = attacker.pokemon.level
 
-        val isPhysical = move.category == MoveCategory.PHYSICAL
+        // Gen III: physical/special split is determined by move type, not move.category.
+        val isPhysical = isPhysicalType(move.type)
         val atkStat = if (isPhysical) StatType.ATTACK else StatType.SPECIAL_ATTACK
         val defStat = if (isPhysical) StatType.DEFENSE else StatType.SPECIAL_DEFENSE
         val atkStage = if (isPhysical) attacker.statStages.attack else attacker.statStages.specialAttack
         val defStage = if (isPhysical) defender.statStages.defense else defender.statStages.specialDefense
 
-        // Crits: ignore attacker's negative stages and defender's positive stages
         val effectiveAtkStage = if (isCritical) maxOf(atkStage, 0) else atkStage
         val effectiveDefStage = if (isCritical) minOf(defStage, 0) else defStage
 
@@ -86,51 +87,14 @@ internal class GenVDamageCalculator(
 }
 
 /**
- * Gen V+ weather damage modifier. Rain boosts Water and weakens Fire; Sun inverts.
- * Hail and Sandstorm don't modify move damage. Returns 1.0 when there's no relevant weather.
+ * Gen I–III physical/special split: classification by type. "Physical" types are
+ * the nine listed below; everything else is Special. This is the defining rule
+ * that Gen IV replaced with a per-move category field.
  */
-internal fun weatherDamageModifier(
-    weather: Weather?,
-    moveType: Type,
-): Double =
-    when (weather) {
-        Weather.RAIN ->
-            when (moveType) {
-                Type.WATER -> 1.5
-                Type.FIRE -> 0.5
-                else -> 1.0
-            }
-        Weather.SUN ->
-            when (moveType) {
-                Type.FIRE -> 1.5
-                Type.WATER -> 0.5
-                else -> 1.0
-            }
-        else -> 1.0
+internal fun isPhysicalType(type: Type): Boolean =
+    when (type) {
+        Type.NORMAL, Type.FIGHTING, Type.POISON, Type.GROUND,
+        Type.FLYING, Type.BUG, Type.ROCK, Type.GHOST, Type.STEEL,
+        -> true
+        else -> false
     }
-
-/**
- * Public factory for the Gen V+ damage calculator. Callers outside `:engine`
- * (e.g. the matrix-eval runner) use this to pick a gen-specific calc without
- * depending on the internal [TypeChart] type.
- */
-fun genVDamageCalculator(registries: Registries = Registries.empty): DamageCalculator = GenVDamageCalculator(registries)
-
-/**
- * Public factory for the Gen III damage calculator (type-derived physical/
- * special split). Mirrors [genVDamageCalculator].
- */
-fun genIIIDamageCalculator(registries: Registries = Registries.empty): DamageCalculator = GenIIIDamageCalculator(registries)
-
-/** Convenience function using the default Gen V+ calculator with standard type chart. */
-@Suppress("LongParameterList") // Mirrors DamageCalculator.calculate with defaults
-internal fun calculateDamage(
-    attacker: PokemonState,
-    defender: PokemonState,
-    move: Move,
-    roll: (IntRange) -> Int = { range -> range.random() },
-    spreadModifier: Double = 1.0,
-    isCritical: Boolean = false,
-    weather: Weather? = null,
-    registries: Registries = Registries.empty,
-): DamageResult = GenVDamageCalculator(registries).calculate(attacker, defender, move, roll, spreadModifier, isCritical, weather)

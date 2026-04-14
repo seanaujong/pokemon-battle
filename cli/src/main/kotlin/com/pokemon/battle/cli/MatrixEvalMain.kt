@@ -6,12 +6,17 @@ import com.pokemon.battle.ai.SideProviders
 import com.pokemon.battle.ai.SidedAI
 import com.pokemon.battle.ai.TypeAI
 import com.pokemon.battle.analytics.BattleCorpus
+import com.pokemon.battle.data.GenIIIRegistries
 import com.pokemon.battle.data.GenIVRegistries
 import com.pokemon.battle.data.GenVRegistries
 import com.pokemon.battle.data.MoveDex
 import com.pokemon.battle.data.Pokedex
 import com.pokemon.battle.engine.BattleState
+import com.pokemon.battle.engine.DamageCalculator
+import com.pokemon.battle.engine.Registries
 import com.pokemon.battle.engine.TurnPipeline
+import com.pokemon.battle.engine.genIIIDamageCalculator
+import com.pokemon.battle.engine.genVDamageCalculator
 import com.pokemon.battle.loop.BattleLoop
 import com.pokemon.battle.loop.ChoiceProvider
 import com.pokemon.battle.loop.FaintReplacementProvider
@@ -60,9 +65,15 @@ fun main(args: Array<String>) {
     val genArg = args.getOrNull(1)?.lowercase() ?: "genv"
     val registries =
         when (genArg) {
+            "geniii", "gen3" -> GenIIIRegistries
             "geniv", "gen4" -> GenIVRegistries
             "genv", "gen5", "gen5+" -> GenVRegistries
-            else -> error("Unknown gen: $genArg (expected geniv | genv)")
+            else -> error("Unknown gen: $genArg (expected gen3 | geniv | genv)")
+        }
+    val damageCalculatorFor: (Registries) -> DamageCalculator =
+        when (genArg) {
+            "geniii", "gen3" -> ::genIIIDamageCalculator
+            else -> ::genVDamageCalculator
         }
     val outputDir = Path.of("battles/$genArg")
     val recorder = FileBattleRecorder(outputDir)
@@ -131,6 +142,7 @@ fun main(args: Array<String>) {
                         SwitchPhase(registries),
                         MoveExecutionPhase(
                             registries,
+                            damageCalculator = damageCalculatorFor(registries),
                             roll = { range -> range.random(engineRandom) },
                             chanceCheck = { percent, _ -> engineRandom.nextInt(100) + 1 <= percent },
                         ),
