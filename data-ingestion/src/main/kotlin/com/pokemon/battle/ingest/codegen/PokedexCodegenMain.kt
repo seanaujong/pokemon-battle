@@ -6,9 +6,9 @@ import java.nio.file.Files
 import java.nio.file.Path
 import kotlin.io.path.readText
 
-private val SPECIES_DIR: Path = Path.of("engine/src/main/resources/pokedex/species")
+private val SPECIES_DIR: Path = Path.of("data/src/main/resources/pokedex/species")
 private val MANIFEST: Path = SPECIES_DIR.resolve("index.txt")
-private val OUTPUT: Path = Path.of("engine/src/main/kotlin/com/pokemon/battle/data/PokedexCatalog.kt")
+private val OUTPUT: Path = Path.of("data/src/main/kotlin/com/pokemon/battle/data/PokedexCatalog.kt")
 
 /**
  * Reads the JSON species the ingestion pipeline produced and emits a generated

@@ -36,6 +36,7 @@ repositories {
 
 dependencies {
     implementation(project(":engine"))
+    implementation(project(":data"))
     testImplementation(kotlin("test"))
 }
 

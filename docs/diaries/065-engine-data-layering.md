@@ -1,7 +1,7 @@
 # Diary 065: Engine vs. data layering — a structural reframe
 
 **Date:** 2026-04-14
-**Status:** Plan + regret accounting; refactor not yet executed
+**Status:** Partial refactor shipped (2026-04-14). Species + MoveDex moved to new `:data` module; items / abilities deferred (engine-internal coupling — see "what shipped" below).
 
 ## The reframe
 
@@ -180,6 +180,62 @@ Mechanical:
 Estimate: 2-3 hours, mostly an IntelliJ "Move" refactor + import fixups.
 Tests should not require logic changes. The codegen output target shifts
 from `engine/.../PokedexCatalog.kt` to `data/.../PokedexCatalog.kt`.
+
+## What shipped
+
+Scope was tightened during execution after grepping engine internals for
+references to the registries that were originally in this diary's "move"
+list:
+
+**Moved to `:data`:**
+- `data/Pokedex.kt` (loader: CSV legacy, JSON dir, JSON classpath)
+- `data/MoveDex.kt` (28 hand-written moves)
+- `data/PokedexCatalog.kt` (98 generated species)
+- `data/SpeciesJson.kt` (DTO)
+- `data/PokedexJsonLoaderTest.kt`, `data/PokedexCatalogTest.kt`
+- `engine/src/main/resources/pokedex/` (98 species JSON + manifest)
+- `engine/src/main/resources/data/species.csv` (legacy)
+
+**Deferred — items and abilities:**
+
+- `ItemRegistry`, every `*Effect.kt`, the `engine/item/` and `engine/ability/`
+  packages stay in `:engine` for now.
+- Reason: `engine/phase/MoveExecutionPhase.kt`, `EndOfTurnPhase.kt`,
+  `SwitchInAbility.kt`, `SpeedResolver.kt`, etc. **directly call**
+  `ItemRegistry.effectFor(...)` and `AbilityRegistry.effectFor(...)`. Moving
+  the registries to `:data` would require `:engine` to depend on `:data` —
+  an inversion of the layering this diary establishes.
+- The fix is a separate diary: invert the registry pattern so phases take a
+  registry parameter (DI), or use a service locator. Either is a real
+  design choice; punting was right.
+
+**Build wiring:**
+- `:data` → `:engine` (for `Species`, `Move`, `Type`, etc. types)
+- `:cli` → `:engine`, `:data`
+- `:data-ingestion` → `:engine`, `:data` (writes catalog files into `:data`)
+- `:engine` test → `:data` (tests use `MoveDex.FLAMETHROWER`,
+  `PokedexCatalog.CHARIZARD` for fixtures)
+- `:analytics` test → `:data` (same reason)
+
+**What didn't change:**
+- Domain types (`Species`, `Move`, `Item`, `Ability`, `Type`, `BattleEvent`,
+  `BattleState`, `Phase`, etc.) all stay in `:engine`. They're the contract.
+- Identity enums (`Item`, `Ability`) stay in `:engine` because the engine
+  pattern-matches on them.
+- Item / ability *behavior interfaces* (`ItemEffect`, `AbilityEffect`)
+  stay in `:engine` because the engine internals call into them.
+- Per-item / per-ability behavior implementations stay in `:engine` for
+  now (coupled to the registries above).
+- Codegen target updated: `PokedexCatalog.kt` now emits to
+  `data/src/main/kotlin/...` instead of `engine/src/main/kotlin/...`.
+- ktlint exclusion for `PokedexCatalog.kt` moved from `engine/build.gradle.kts`
+  to `data/build.gradle.kts`.
+
+**Validation:**
+- All tests green across all 5 modules (`:engine`, `:data`, `:cli`,
+  `:analytics`, `:data-ingestion`).
+- `./scripts/play` runs U-turn flow end-to-end with PokedexCatalog symbols.
+- `./gradlew test ktlintCheck detekt` clean.
 
 ## Why we're not doing it this session
 

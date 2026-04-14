@@ -22,9 +22,9 @@ class PokedexCodegenTest {
     @Test
     fun `committed PokedexCatalog matches what codegen would produce now`() {
         val repoRoot = Path.of("..").toAbsolutePath().normalize()
-        val speciesDir = repoRoot.resolve("engine/src/main/resources/pokedex/species")
+        val speciesDir = repoRoot.resolve("data/src/main/resources/pokedex/species")
         val manifest = speciesDir.resolve("index.txt")
-        val catalogPath = repoRoot.resolve("engine/src/main/kotlin/com/pokemon/battle/data/PokedexCatalog.kt")
+        val catalogPath = repoRoot.resolve("data/src/main/kotlin/com/pokemon/battle/data/PokedexCatalog.kt")
 
         val expected = renderCatalog(manifest, speciesDir)
         val actual = catalogPath.readText()

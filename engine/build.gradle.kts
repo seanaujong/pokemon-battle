@@ -16,6 +16,9 @@ repositories {
 dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3")
     testImplementation(kotlin("test"))
+    // Engine tests use catalogs (MoveDex.FLAMETHROWER, PokedexCatalog.CHARIZARD).
+    // Engine main is data-free per diary 065.
+    testImplementation(project(":data"))
 }
 
 tasks.test {
@@ -34,14 +37,6 @@ detekt {
     // detekt.yml stays at the repo root — shared across any future modules.
     config.setFrom(rootProject.files("detekt.yml"))
     buildUponDefaultConfig = true
-}
-
-// Generated catalog (diary 064) — its format is owned by the codegen template,
-// not ktlint. The PokedexCodegenTest in :data-ingestion enforces format drift.
-ktlint {
-    filter {
-        exclude { it.file.path.endsWith("PokedexCatalog.kt") }
-    }
 }
 
 kotlin {

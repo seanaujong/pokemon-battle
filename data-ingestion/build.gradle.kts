@@ -68,6 +68,7 @@ repositories {
 
 dependencies {
     implementation(project(":engine"))
+    implementation(project(":data"))
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3")
     testImplementation(kotlin("test"))
 }

@@ -13,7 +13,7 @@ private const val SPECIES_ENDPOINT = "pokemon"
 private val TARGETS_FILE: Path = Path.of("targets/species.txt")
 private val FULL_CACHE_ROOT: Path = Path.of(".cache/pokeapi")
 private val PROJECTED_ROOT: Path = Path.of("data/raw/pokeapi")
-private val OUTPUT_DIR: Path = Path.of("engine/src/main/resources/pokedex/species")
+private val OUTPUT_DIR: Path = Path.of("data/src/main/resources/pokedex/species")
 
 fun main() {
     val targets =
