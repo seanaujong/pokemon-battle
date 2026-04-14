@@ -122,10 +122,10 @@ class CriticalHitTest {
             )
 
         val result = critPipeline.resolveToCompletion(state, choices)
-        val damageEvents = result.events.filterIsInstance<DamageDealt>()
+        val crits = result.events.filterIsInstance<CriticalHit>()
 
         // At least one hit should be critical (roll(1..24) == 1 → true)
-        assertTrue(damageEvents.any { it.critical }, "Roll of 1 should trigger crits")
+        assertTrue(crits.isNotEmpty(), "Roll of 1 should trigger at least one CriticalHit event")
     }
 
     @Test
@@ -155,9 +155,9 @@ class CriticalHitTest {
             )
 
         val result = noCritPipeline.resolveToCompletion(state, choices)
-        val damageEvents = result.events.filterIsInstance<DamageDealt>()
+        val crits = result.events.filterIsInstance<CriticalHit>()
 
-        assertTrue(damageEvents.none { it.critical }, "Roll of 100 should never trigger crits")
+        assertTrue(crits.isEmpty(), "Roll of 100 should emit no CriticalHit events")
     }
 
     @Test
@@ -188,12 +188,13 @@ class CriticalHitTest {
         val events = critPipeline.resolveToCompletion(state, choices).events
 
         val crits = events.filterIsInstance<CriticalHit>()
-        val crittedDamage = events.filterIsInstance<DamageDealt>().filter { it.critical }
+        val damageEvents = events.filterIsInstance<DamageDealt>()
         assertTrue(crits.isNotEmpty(), "at least one CriticalHit event should fire")
+        // Every crit should have a matching DamageDealt on the same slot that follows it.
         assertEquals(
-            crittedDamage.size,
             crits.size,
-            "each DamageDealt(critical=true) should be preceded by exactly one CriticalHit event",
+            crits.size.coerceAtMost(damageEvents.size),
+            "each CriticalHit should be followed by at least one DamageDealt",
         )
 
         // Ordering: each CriticalHit must appear immediately before its DamageDealt.

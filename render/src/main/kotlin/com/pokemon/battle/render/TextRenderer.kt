@@ -224,10 +224,9 @@ object TextRenderer : BattleRenderer {
             Effectiveness.NEUTRAL -> {}
         }
 
-        // NOTE: the "A critical hit!" line is emitted by a separate `CriticalHit` event
-        // (rendered via `renderCriticalHit` ahead of this DamageDealt). The boolean on
-        // DamageDealt is kept for backward compat with consumers that inspect it
-        // directly, but the render path is single-sourced.
+        // The "A critical hit!" line is emitted by a separate `CriticalHit` event
+        // (rendered ahead of this DamageDealt). Diary 076 removed the `critical`
+        // boolean from DamageDealt — the event is the single source of truth.
 
         val hpBefore = stateBefore.pokemonFor(event.target).currentHp
         val hpAfter = stateAfter.pokemonFor(event.target).currentHp

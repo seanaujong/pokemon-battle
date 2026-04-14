@@ -509,7 +509,7 @@ class MoveExecutionPhase(
             currentState = critEvent.apply(currentState)
         }
 
-        val damageEvent = DamageDealt(targetSlot, finalDamage, result.effectiveness, isCritical)
+        val damageEvent = DamageDealt(targetSlot, finalDamage, result.effectiveness)
         events.add(damageEvent)
         currentState = damageEvent.apply(currentState)
 

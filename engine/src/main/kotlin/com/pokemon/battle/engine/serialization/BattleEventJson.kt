@@ -110,9 +110,8 @@ data class DamageDealtJson(
     val target: Slot,
     val amount: Int,
     val effectiveness: Effectiveness,
-    val critical: Boolean,
 ) : GameEventJson {
-    override fun toDomain() = DamageDealt(target, amount, effectiveness, critical)
+    override fun toDomain() = DamageDealt(target, amount, effectiveness)
 }
 
 @Serializable
@@ -370,7 +369,7 @@ fun BattleEvent.toJson(): BattleEventJson =
         is MoveOrderDecided -> MoveOrderDecidedJson(order, leadReason)
         is MoveAttempted -> MoveAttemptedJson(attacker, move)
         is MoveFailed -> MoveFailedJson(attacker, reason)
-        is DamageDealt -> DamageDealtJson(target, amount, effectiveness, critical)
+        is DamageDealt -> DamageDealtJson(target, amount, effectiveness)
         is CriticalHit -> CriticalHitJson(target)
         is PokemonFainted -> PokemonFaintedJson(slot)
         is ProtectBlocked -> ProtectBlockedJson(slot)
