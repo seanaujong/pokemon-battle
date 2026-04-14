@@ -307,6 +307,33 @@ Leaning toward option 2 — enforce server-side, document the behavior
 ("server rejects non-matching protocolVersion with an `error` message
 and closes the stream"). Follow-up to this diary if adopted.
 
+### Update: option 2 shipped (commit `314876c`)
+
+Enforcement landed: `ServerSession.readClient` validates
+`protocolVersion` on every incoming message and emits an `error`
+before closing if it mismatches. Test:
+`ServerSessionTest.mismatched protocolVersion produces an error
+message`.
+
+**What this is NOT:** a backwards-compatibility commitment. The user's
+reality check on this is correct — this is a solo project where the
+server and every checked-in client (smoke test, `:cli`) live in the
+same repo and change together. If the protocol bumps to v2, both
+sides move in one commit; there are no v1 clients in the wild to
+break.
+
+**What it IS:** a mismatch-detector. The specific bug it catches is
+"I changed the server and forgot to update the Python script" — the
+two get out of sync, the field catches it with a clear error message
+instead of a confusing parse failure three messages in. Cheap
+insurance for the exact risk a solo project has.
+
+The comment at the top of `Messages.kt` spells this out so a reader
+doesn't mistake the field for a BC promise. If/when deployed clients
+we can't coordinate with appear, that's the point to revisit — add
+migration logic, deprecation windows, the usual BC machinery. Not
+before.
+
 ## Related
 
 - **Diary 054** — deferred event streaming until a UI consumer arrived.

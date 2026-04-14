@@ -15,6 +15,13 @@ import kotlinx.serialization.Serializable
  * JSON over stdin/stdout. One JSON object per line, no pretty printing.
  *
  * See diary 069 for design.
+ *
+ * **[PROTOCOL_VERSION] is a mismatch-detector, not a backwards-compatibility promise.**
+ * Server and every checked-in client (smoke test, `:cli`) live in this repo and move
+ * together. If this project ever grows deployed clients we can't update in lockstep,
+ * that's the point to revisit — add migration logic, deprecation windows, the usual
+ * BC machinery. Until then, bumping to v2 is a single atomic commit across both
+ * sides and no old v1 clients exist to break.
  */
 const val PROTOCOL_VERSION: Int = 1
 
