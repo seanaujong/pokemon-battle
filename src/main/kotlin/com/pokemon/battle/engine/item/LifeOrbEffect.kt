@@ -1,6 +1,7 @@
 package com.pokemon.battle.engine.item
 
 import com.pokemon.battle.engine.BattleEvent
+import com.pokemon.battle.engine.BattleState
 import com.pokemon.battle.engine.ItemDamage
 import com.pokemon.battle.engine.PokemonFainted
 import com.pokemon.battle.model.Item
@@ -24,11 +25,12 @@ object LifeOrbEffect : ItemEffect {
     ): Double = DAMAGE_MULTIPLIER
 
     override fun afterUserMoveDamage(
-        user: PokemonState,
+        state: BattleState,
         userSlot: Slot,
         move: Move,
         damageLanded: Boolean,
     ): List<BattleEvent> {
+        val user = state.pokemonFor(userSlot)
         if (!damageLanded || user.isFainted) return emptyList()
         val recoilAmount = user.maxHp / RECOIL_FRACTION
         val recoil = ItemDamage(userSlot, recoilAmount, Item.LIFE_ORB)

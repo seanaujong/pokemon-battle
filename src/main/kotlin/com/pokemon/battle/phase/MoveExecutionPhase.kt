@@ -378,12 +378,12 @@ class MoveExecutionPhase(
         val events = mutableListOf<BattleEvent>()
         events.addAll(
             ItemRegistry.effectForHolder(defenderAfter)
-                ?.onHpThresholdCrossed(defenderAfter, targetSlot, state, previousHp, defenderAfter.currentHp)
+                ?.onHpThresholdCrossed(state, targetSlot, previousHp)
                 ?: emptyList(),
         )
         events.addAll(
             AbilityRegistry.effectFor(defenderAfter.ability)
-                ?.onHpThresholdCrossed(defenderAfter, targetSlot, state, previousHp, defenderAfter.currentHp)
+                ?.onHpThresholdCrossed(state, targetSlot, previousHp)
                 ?: emptyList(),
         )
         return events
@@ -399,7 +399,7 @@ class MoveExecutionPhase(
         val defender = state.pokemonFor(targetSlot)
         if (defender.isFainted || damageDealt <= 0) return emptyList()
         return ItemRegistry.effectForHolder(defender)
-            ?.onHolderTookDamage(defender, targetSlot, state.pokemonFor(attackerSlot), attackerSlot, state, damageDealt)
+            ?.onHolderTookDamage(state, targetSlot, attackerSlot, damageDealt)
             ?: emptyList()
     }
 
@@ -413,7 +413,7 @@ class MoveExecutionPhase(
         val attacker = state.pokemonFor(attackerSlot)
         val effect = ItemRegistry.effectForHolder(attacker) ?: return emptyList()
         val anyDamage = priorEvents.any { it is DamageDealt && it.amount > 0 }
-        return effect.afterUserMoveDamage(attacker, attackerSlot, move, anyDamage)
+        return effect.afterUserMoveDamage(state, attackerSlot, move, anyDamage)
     }
 
     // --- Effect resolution ---

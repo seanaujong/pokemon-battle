@@ -1,33 +1,32 @@
 package com.pokemon.battle.engine.item
 
 import com.pokemon.battle.engine.BattleEvent
+import com.pokemon.battle.engine.BattleState
 import com.pokemon.battle.engine.ItemConsumed
 import com.pokemon.battle.engine.ItemHealing
 import com.pokemon.battle.model.Item
-import com.pokemon.battle.model.PokemonState
 import com.pokemon.battle.model.Slot
 
 /**
  * Sitrus Berry: restores 25% max HP when the holder's HP drops to or below 50%. Consumed
  * after use.
  *
- * Triggers at most once per damage event via [onHpThresholdCrossed]. Caller provides the
- * previous and current HP; this effect decides whether the threshold was crossed.
+ * Triggers at most once per damage event via [onHpThresholdCrossed]. The caller provides
+ * the previous HP; this effect compares it against state's current HP to detect the cross.
  */
 object SitrusBerryEffect : ItemEffect {
     override val item = Item.SITRUS_BERRY
 
     override fun onHpThresholdCrossed(
-        holder: PokemonState,
+        state: BattleState,
         slot: Slot,
-        state: com.pokemon.battle.engine.BattleState,
         previousHp: Int,
-        currentHp: Int,
     ): List<BattleEvent> {
+        val holder = state.pokemonFor(slot)
         val threshold = holder.maxHp / 2
         if (previousHp <= threshold) return emptyList()
-        if (currentHp > threshold) return emptyList()
-        if (currentHp <= 0) return emptyList() // faint cases handled elsewhere
+        if (holder.currentHp > threshold) return emptyList()
+        if (holder.currentHp <= 0) return emptyList() // faint cases handled elsewhere
         val healing = holder.maxHp / HEAL_DIVISOR
         return listOf(
             ItemHealing(slot, healing, Item.SITRUS_BERRY),

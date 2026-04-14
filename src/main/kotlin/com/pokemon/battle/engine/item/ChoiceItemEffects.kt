@@ -1,6 +1,7 @@
 package com.pokemon.battle.engine.item
 
 import com.pokemon.battle.engine.BattleEvent
+import com.pokemon.battle.engine.BattleState
 import com.pokemon.battle.engine.VolatileAdded
 import com.pokemon.battle.model.Item
 import com.pokemon.battle.model.Move
@@ -37,15 +38,13 @@ private class ChoiceItem(
     override fun speedModifier(holder: PokemonState): Double = speedBoost
 
     override fun afterUserMoveDamage(
-        user: PokemonState,
+        state: BattleState,
         userSlot: Slot,
         move: Move,
         damageLanded: Boolean,
     ): List<BattleEvent> {
-        // Only lock if the move actually landed damage. Real games lock on attempted use
-        // including misses — we defer that until a hook for "after any attempted move"
-        // exists (would be cleaner than piggybacking on damageLanded).
         if (!damageLanded) return emptyList()
+        val user = state.pokemonFor(userSlot)
         if (user.volatiles.any { it is Volatile.ChoiceLocked }) return emptyList()
         return listOf(VolatileAdded(userSlot, Volatile.ChoiceLocked(move)))
     }

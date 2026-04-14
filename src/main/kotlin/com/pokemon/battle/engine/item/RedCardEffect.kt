@@ -8,7 +8,6 @@ import com.pokemon.battle.engine.SwitchOut
 import com.pokemon.battle.engine.resolveSwitchInAbility
 import com.pokemon.battle.engine.resolveSwitchOutClearing
 import com.pokemon.battle.model.Item
-import com.pokemon.battle.model.PokemonState
 import com.pokemon.battle.model.Slot
 
 /**
@@ -18,21 +17,19 @@ import com.pokemon.battle.model.Slot
  * we match that behavior).
  *
  * Limitation: the engine picks the first available bench Pokemon for the attacker.
- * Real games pick randomly (actually the opposing player doesn't choose either — it
- * really is random). First-available is a pragmatic stand-in.
+ * Real games pick randomly. First-available is a pragmatic stand-in.
  */
 object RedCardEffect : ItemEffect {
     override val item = Item.RED_CARD
 
     override fun onHolderTookDamage(
-        holder: PokemonState,
-        holderSlot: Slot,
-        attacker: PokemonState,
-        attackerSlot: Slot,
         state: BattleState,
+        holderSlot: Slot,
+        attackerSlot: Slot,
         damageDealt: Int,
     ): List<BattleEvent> {
         if (damageDealt <= 0) return emptyList()
+        val attacker = state.pokemonFor(attackerSlot)
         if (attacker.isFainted) return emptyList()
 
         val attackerBench = state.benchFor(attackerSlot.side)

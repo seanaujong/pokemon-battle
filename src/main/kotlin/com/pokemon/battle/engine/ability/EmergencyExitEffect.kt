@@ -8,7 +8,6 @@ import com.pokemon.battle.engine.SwitchOut
 import com.pokemon.battle.engine.resolveSwitchInAbility
 import com.pokemon.battle.engine.resolveSwitchOutClearing
 import com.pokemon.battle.model.Ability
-import com.pokemon.battle.model.PokemonState
 import com.pokemon.battle.model.Slot
 
 /**
@@ -22,17 +21,16 @@ object EmergencyExitEffect : AbilityEffect {
     override val ability = Ability.EMERGENCY_EXIT
 
     override fun onHpThresholdCrossed(
-        holder: PokemonState,
-        slot: Slot,
         state: BattleState,
+        slot: Slot,
         previousHp: Int,
-        currentHp: Int,
     ): List<BattleEvent> {
+        val holder = state.pokemonFor(slot)
         val threshold = holder.maxHp / 2
         // Only trigger on crossing the threshold (not if already below it).
         if (previousHp <= threshold) return emptyList()
-        if (currentHp > threshold) return emptyList()
-        if (currentHp <= 0) return emptyList() // fainted — no switch
+        if (holder.currentHp > threshold) return emptyList()
+        if (holder.currentHp <= 0) return emptyList() // fainted — no switch
 
         val bench = state.benchFor(slot.side)
         val replacementIndex = bench.indexOfFirst { !it.isFainted }

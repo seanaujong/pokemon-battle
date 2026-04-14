@@ -52,7 +52,7 @@ interface AbilityEffect {
      * Called only when [blocksMove] returned true. Returns empty by default (simple block).
      */
     fun onMoveAbsorbed(
-        defender: PokemonState,
+        state: BattleState,
         slot: Slot,
         move: Move,
     ): List<BattleEvent> = emptyList()
@@ -100,11 +100,9 @@ interface AbilityEffect {
      * Emergency Exit (forced switch when HP drops to/below 50%) and similar.
      */
     fun onHpThresholdCrossed(
-        holder: PokemonState,
-        slot: Slot,
         state: BattleState,
+        slot: Slot,
         previousHp: Int,
-        currentHp: Int,
     ): List<BattleEvent> = emptyList()
 
     /**
