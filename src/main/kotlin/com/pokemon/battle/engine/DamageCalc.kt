@@ -64,8 +64,8 @@ class GenVDamageCalculator(
         val weatherMod = weatherDamageModifier(weather, move.type)
         val attackerItemMod = ItemRegistry.effectForHolder(attacker)?.attackerDamageModifier(attacker, move) ?: 1.0
         val defenderItemMod = ItemRegistry.effectForHolder(defender)?.defenderDamageModifier(defender, move) ?: 1.0
-        val attackerAbilityMod = AbilityRegistry.effectFor(attacker.ability)?.attackerDamageModifier(attacker, move) ?: 1.0
-        val defenderAbilityMod = AbilityRegistry.effectFor(defender.ability)?.defenderDamageModifier(defender, move) ?: 1.0
+        val attackerAbilityMod = AbilityRegistry.effectFor(attacker.effectiveAbility)?.attackerDamageModifier(attacker, move) ?: 1.0
+        val defenderAbilityMod = AbilityRegistry.effectFor(defender.effectiveAbility)?.defenderDamageModifier(defender, move) ?: 1.0
         val itemMod = attackerItemMod * defenderItemMod
         val abilityMod = attackerAbilityMod * defenderAbilityMod
 

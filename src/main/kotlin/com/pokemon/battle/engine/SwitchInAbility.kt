@@ -16,5 +16,5 @@ fun resolveSwitchInAbility(
     slot: Slot,
 ): List<BattleEvent> {
     val pokemon = state.pokemonFor(slot)
-    return AbilityRegistry.effectFor(pokemon.ability)?.onSwitchIn(state, slot) ?: emptyList()
+    return AbilityRegistry.effectFor(pokemon.effectiveAbility)?.onSwitchIn(state, slot) ?: emptyList()
 }

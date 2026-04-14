@@ -338,7 +338,7 @@ class MoveExecutionPhase(
 
         // Defender's ability (Sturdy) or item (Focus Sash) may intercept the damage.
         // Ability checked first — if Sturdy saves, the Sash isn't consumed.
-        val abilityIntercept = AbilityRegistry.effectFor(defender.ability)?.interceptIncomingDamage(defender, result.damage)
+        val abilityIntercept = AbilityRegistry.effectFor(defender.effectiveAbility)?.interceptIncomingDamage(defender, result.damage)
         val itemIntercept =
             if (abilityIntercept == null) {
                 ItemRegistry.effectForHolder(defender)?.interceptIncomingDamage(defender, result.damage)
@@ -352,8 +352,8 @@ class MoveExecutionPhase(
         events.add(damageEvent)
         currentState = damageEvent.apply(currentState)
 
-        if (abilityIntercept != null && defender.ability != null) {
-            val triggered = AbilityTriggered(targetSlot, defender.ability)
+        if (abilityIntercept != null && defender.effectiveAbility != null) {
+            val triggered = AbilityTriggered(targetSlot, defender.effectiveAbility!!)
             events.add(triggered)
             currentState = triggered.apply(currentState)
         }
@@ -396,7 +396,7 @@ class MoveExecutionPhase(
                 ?: emptyList(),
         )
         events.addAll(
-            AbilityRegistry.effectFor(defenderAfter.ability)
+            AbilityRegistry.effectFor(defenderAfter.effectiveAbility)
                 ?.onHpThresholdCrossed(state, targetSlot, previousHp)
                 ?: emptyList(),
         )
@@ -499,7 +499,7 @@ class MoveExecutionPhase(
         defender: PokemonState,
         move: Move,
     ): Ability? {
-        val ability = defender.ability ?: return null
+        val ability = defender.effectiveAbility ?: return null
         val effect = AbilityRegistry.effectFor(ability) ?: return null
         return if (effect.blocksMove(defender, move)) ability else null
     }

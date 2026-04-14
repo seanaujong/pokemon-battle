@@ -27,7 +27,7 @@ val GenVSpeedResolver =
         val base = pokemon.baseEffectiveSpeed()
         val paralysisMod = if (pokemon.status == StatusCondition.PARALYSIS) 0.5 else 1.0
         val itemMod = ItemRegistry.effectForHolder(pokemon)?.speedModifier(pokemon) ?: 1.0
-        val abilityMod = AbilityRegistry.effectFor(pokemon.ability)?.speedModifier(pokemon) ?: 1.0
+        val abilityMod = AbilityRegistry.effectFor(pokemon.effectiveAbility)?.speedModifier(pokemon) ?: 1.0
         val tailwindMod = if (state.sideConditionsFor(slot.side).containsKey(com.pokemon.battle.model.SideCondition.TAILWIND)) 2.0 else 1.0
         base * paralysisMod * itemMod * abilityMod * tailwindMod
     }

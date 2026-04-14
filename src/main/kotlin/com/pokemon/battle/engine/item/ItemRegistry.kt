@@ -44,5 +44,5 @@ object ItemRegistry {
     }
 
     private fun isItemSuppressedFor(holder: PokemonState): Boolean =
-        AbilityRegistry.effectFor(holder.ability)?.suppressesHeldItem(holder) == true
+        AbilityRegistry.effectFor(holder.effectiveAbility)?.suppressesHeldItem(holder) == true
 }
