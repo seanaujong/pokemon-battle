@@ -76,6 +76,19 @@ easy to miss under momentum. These are judgment calls, not steps:
    up front. Diary 057 is the canonical example of the collision we
    *did* catch; diary 058 is the broader review pattern.
 
+4. **Scan the diary backlog.**
+   `grep -nE "^\*\*Status:\*\*" docs/diaries/*.md` lists each diary's
+   status. Skim for anything marked *deferred*, *planning*, or
+   *not started* that might touch the area you're about to work on.
+   Diaries 058/060/061 are the canonical deferred-refactor set at the
+   time of writing; the point isn't those specific diaries, it's the
+   habit. Two outcomes:
+   - A deferred refactor is directly relevant → fold it in, or
+     consciously skip it and note why.
+   - Nothing relevant → proceed, but the backlog grew one entry taller;
+     schedule the refactor-backlog review mentioned in diary 061 if
+     the pile keeps growing.
+
 The Iteration Loop below starts with scope clarification (step 1) and a
 diary entry for non-trivial work (step 2) — those remain the mandatory
 steps; the preflight is the short pause *before* step 1.
