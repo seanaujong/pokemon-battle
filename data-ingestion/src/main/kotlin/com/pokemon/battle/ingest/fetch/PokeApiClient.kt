@@ -13,7 +13,7 @@ import java.nio.file.Path
  * Failed responses are NOT written to cache — do not poison with transient 5xx.
  */
 class PokeApiClient(
-    private val cacheRoot: Path = Path.of("data/raw/pokeapi"),
+    private val cacheRoot: Path = Path.of(".cache/pokeapi"),
     private val baseUrl: String = "https://pokeapi.co/api/v2",
     private val userAgent: String = "pokemon-battle-engine/1.0 (github.com/seanaujong/pokemon-battle)",
     private val requestDelayMillis: Long = REQUEST_DELAY_MILLIS,

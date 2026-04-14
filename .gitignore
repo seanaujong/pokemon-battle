@@ -48,3 +48,7 @@ bin/
 
 ### Project ###
 docs/diaries/temp/
+
+# Full verbatim PokeAPI responses — politeness cache only. Committed, filtered
+# versions of just the fields our DTOs read live under data/raw/pokeapi/.
+.cache/

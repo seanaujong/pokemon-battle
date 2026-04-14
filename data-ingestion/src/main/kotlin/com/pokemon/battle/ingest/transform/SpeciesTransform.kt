@@ -1,12 +1,11 @@
 package com.pokemon.battle.ingest.transform
 
 import com.pokemon.battle.data.SpeciesJson
-import kotlinx.serialization.SerialName
-import kotlinx.serialization.Serializable
+import com.pokemon.battle.ingest.fetch.PokeApiPokemon
 import kotlinx.serialization.json.Json
 
 /**
- * Transforms a raw PokeAPI `/pokemon/{id}` response into our on-disk [SpeciesJson].
+ * Transforms a projected PokeAPI `/pokemon/{id}` response into our on-disk [SpeciesJson].
  * Pure; testable without network.
  */
 object SpeciesTransform {
@@ -35,22 +34,3 @@ object SpeciesTransform {
     /** PokeAPI uses lowercase-hyphen slugs (`mr-mime`); engine names are SCREAMING_SNAKE. */
     private fun normalizeName(slug: String): String = slug.uppercase().replace('-', '_')
 }
-
-@Serializable
-internal data class PokeApiPokemon(
-    val name: String,
-    val types: List<TypeSlot>,
-    val stats: List<StatEntry>,
-)
-
-@Serializable
-internal data class TypeSlot(val slot: Int, val type: NamedResource)
-
-@Serializable
-internal data class StatEntry(
-    @SerialName("base_stat") val baseStat: Int,
-    val stat: NamedResource,
-)
-
-@Serializable
-internal data class NamedResource(val name: String)

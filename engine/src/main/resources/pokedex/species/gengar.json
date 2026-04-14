@@ -1,0 +1,13 @@
+{
+    "name": "GENGAR",
+    "types": [
+        "GHOST",
+        "POISON"
+    ],
+    "baseHp": 60,
+    "baseAttack": 65,
+    "baseDefense": 60,
+    "baseSpecialAttack": 130,
+    "baseSpecialDefense": 75,
+    "baseSpeed": 110
+}

@@ -2,3 +2,4 @@ pikachu
 venusaur
 charizard
 blastoise
+gengar

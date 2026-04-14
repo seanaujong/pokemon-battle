@@ -172,16 +172,20 @@ after the design conversation that followed the module split.
   `Ability` data shapes). `:engine` has no reverse dependency. Engine reads JSON from
   its own `resources/`; the fact that those files came from ingestion is not encoded
   anywhere in engine code.
-- **ELT model.** Two stages, two directories, **both committed**:
-  - `data/raw/pokeapi/<endpoint>/<slug>.json` — verbatim API response. Committed.
-    Reasons: offline/no-network workflows work (fresh clones + CI need no internet),
-    test fixtures and the cache are literally the same files (no fixture/cache split),
-    upstream-change diffs are visible, transforms are bit-reproducible across machines.
-    Repo-size cost (~10MB of compressible text) is a non-issue for git.
+- **ELT model.** Three tiers, three directories:
+  - `.cache/pokeapi/<endpoint>/<slug>.json` — **full verbatim API response. Gitignored.**
+    This is the politeness cache PokeAPI asks us to keep. ~300KB/species; re-fetch
+    is cheap since PokeAPI is stable.
+  - `data/raw/pokeapi/<endpoint>/<slug>.json` — **projected subset, committed.** Produced
+    by deserializing the full response into our DTOs and re-serializing. Definitionally
+    contains only the fields downstream transforms read. ~1KB/species — small enough to
+    commit at full PokeAPI scale. Doubles as documentation: a reviewer sees the exact
+    coupling surface to PokeAPI at a glance.
   - `engine/src/main/resources/pokedex/...` — engine-shaped JSON produced by a pure
-    transform. Committed.
-  - Transform is `(raw JSON) -> Species/Move/...`, pure, testable without network.
-    Re-running transforms does not require re-fetching.
+    transform from the projected raw. Committed.
+  - Pipeline: `fetch() → .cache/` → `project() → data/raw/` → `transform() → engine/resources/`.
+    Transforms read the projected JSON (same DTOs), so offline/no-network workflows
+    work from a fresh clone — `.cache/` is optional.
 - **HTTP client.** Kotlin stdlib `HttpURLConnection`. No Ktor, no OkHttp. Batch job
   against a stable API; a dep isn't warranted.
 - **Cache as politeness + reproducibility, not performance.** PokeAPI asks us to cache;
@@ -325,12 +329,11 @@ change independently.
   via `@SerialName("base_stat")`. Same pattern will be needed for other snake_case
   PokeAPI fields (`special_attack`, `is_default`, etc.) when Move/Item transforms are
   added.
-- **Raw cache size is smaller than feared.** 4 species = ~1.2MB of PokeAPI JSON (each
-  response carries full learnsets, game-indices across all gens, sprite URLs, etc.).
-  Extrapolating: ~300MB for all 1000+ species. That's bigger than I'd want to commit.
-  **Revisit before mass ingestion:** either switch the cache to gitignored, or filter
-  the committed raw JSON to just the fields our transforms read. Phase 1's 4 species
-  is fine; Phase 2's coverage audit is the forcing function.
+- **Raw cache size was 316× bigger than useful** — addressed same day. 4 species =
+  ~1.2MB of PokeAPI JSON (each response carries full learnsets, game-indices across
+  all gens, sprite URLs). Extrapolation: ~300MB for all 1000+ species. Split the
+  cache into **three tiers** (see below) and re-projected the 4 committed files to
+  ~3.8KB total.
 - **Transform tests are inline fixtures, not cache reads.** Flipped from the plan
   because cache-based tests would couple test correctness to arbitrary choices about
   which species are currently cached. Inline fixtures are ~30 lines per test and
