@@ -6,6 +6,7 @@ plugins {
     kotlin("jvm")
     kotlin("plugin.serialization")
     `java-library`
+    `maven-publish`
     id("org.jlleitschuh.gradle.ktlint")
     id("io.gitlab.arturbosch.detekt")
     jacoco
@@ -13,6 +14,14 @@ plugins {
 
 group = "com.pokemon.battle"
 version = "1.0-SNAPSHOT"
+
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            from(components["java"])
+        }
+    }
+}
 
 repositories {
     mavenCentral()

@@ -1,6 +1,8 @@
 plugins {
     kotlin("jvm")
     kotlin("plugin.serialization")
+    `java-library`
+    `maven-publish`
     id("org.jlleitschuh.gradle.ktlint")
     id("io.gitlab.arturbosch.detekt")
     jacoco
@@ -11,6 +13,14 @@ version = "1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            from(components["java"])
+        }
+    }
 }
 
 dependencies {
