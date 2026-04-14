@@ -260,35 +260,62 @@ and full turn history.
 HTML, animation, etc. `renderBattle()` replays from initial state to produce complete
 output.
 
-### AI (implemented)
+### Event-stream consumers
 
-- **`RandomAI`** — picks random moves. Baseline. Injectable `Random` for tests.
-- **`TypeAI`** — scores moves by type effectiveness × STAB × power.
-- **`SidedAI`** — composes two AIs by side.
+The `BattleEvent` stream is the universal output — every consumer reads the same
+stream and interprets it for its own purpose. Diary 042 makes the analytics framing
+explicit; this table catalogs the full expected consumer set.
 
-Move pools are `Map<String, List<Move>>` keyed by species name, owned by the AI.
+| Consumer | Purpose | Lives in | Why |
+|----------|---------|----------|-----|
+| `TextRenderer` (implemented) | Events → game-style text | **engine** | Pure transform, no I/O / no external deps |
+| `BattleAnalyzer` | Single-battle summary (winner, KOs, moves used) | **engine** | Pure aggregation; fits the "events + state → value" shape |
+| `CriticalHitAuditor` / consistency audits | Observed-vs-expected distribution checks | **engine-test** or **analytics** | Pure checks; can live with tests if only dev-facing |
+| `JsonEventSerializer` | Events ↔ JSON for persistence / wire | **analytics** or **replay** | Brings kotlinx-serialization; engine stays dep-free |
+| `ReplayWriter` / `ReplayReader` | Save / load a battle's event log | **replay** | File I/O + serialization |
+| `FileEventLogger` | Append events to rolling log file | **logging** | File I/O |
+| `DatabaseEventLogger` | Persist events to SQL / NoSQL store | **logging** (or its own) | DB driver dep |
+| `MetricsExporter` (Prometheus, etc.) | Dashboard-ready metrics | **analytics** | Metrics format dep |
+| CLI / REPL | stdin choices, text output | **cli** | Stdin/stdout, process lifecycle |
+| TUI | Terminal UI with HP bars | **tui** | Terminal-UI library dep |
+| REST API | HTTP choices, JSON event stream out | **server** | HTTP server framework |
+| Web UI (React / Kotlin/JS) | Browser client consuming event JSON | **web-ui** | JS toolchain, bundler |
+| MCP server | Tool calls for choices, events as tool results | **mcp** | MCP protocol dep |
 
-### UI layer (not yet implemented)
+### The module-placement rule
 
-The true test of layer separation: multiple consumers using the same engine
-interfaces. `ChoiceProvider` and `BattleRenderer` are the integration points.
+> **The engine module has zero I/O and zero serialization deps.** Pure-transform
+> consumers (events in, values out; no file / network / DB / format-specific libs) can
+> live in the engine module. Any consumer that touches I/O, serialization, or a client
+> toolchain goes in a separate module.
 
-| Consumer | ChoiceProvider | Renderer | Transport |
-|----------|---------------|----------|-----------|
-| REPL | stdin reader | `TextRenderer` to stdout | None (in-process) |
-| TUI | terminal UI library | Formatted text with HP bars | None (in-process) |
-| REST API | POST endpoint, waits for response | JSON event stream | HTTP |
-| React site | REST API underneath | Frontend consumes event JSON | HTTP + WebSocket |
-| MCP server | Tool calls for choices | Events as tool responses | MCP protocol |
+Why this rule holds the line:
+- `./gradlew :engine:test` stays fast (no Node, no HTTP, no DB drivers pulled in)
+- Adding a React UI later doesn't slow down engine tests by one millisecond
+- Each consumer module owns its own deps — upgrading `ktor-client` in `data-ingestion`
+  doesn't touch `engine`'s classpath
+- Dependency direction is enforced: engine knows nothing about any client; clients
+  depend on engine's stable data types
 
-The engine doesn't change. `BattleResult` with its event log is the universal
-output format. Each consumer reads it through its own renderer.
+Two consumers *could* go either way today but we choose engine because they're pure:
+- `TextRenderer` (already in engine's `render/` package)
+- `BattleAnalyzer` (future) — pure folds over event lists
 
-### Analytics pipeline (not yet implemented)
+Everything else goes in a dedicated module.
 
-Aggregate event logs across battles for win rates, move usage, balance analysis.
-The event log is structured data — typed events with slot references, damage
-amounts, effectiveness. Natural input for batch analytics.
+### Choice providers (analogous for inputs)
+
+`ChoiceProvider` is the input side of the same layering. Same rule: pure `ChoiceProvider`
+implementations (random AI, heuristic AI) live in the engine; I/O-bound ones (stdin
+reader, HTTP endpoint, MCP tool handler) live in the corresponding consumer module.
+
+Current implementations all live in engine:
+- `RandomAI` — picks random moves. Baseline. Injectable `Random` for tests.
+- `TypeAI` — scores moves by type effectiveness × STAB × power.
+- `SidedAI` — composes two AIs by side.
+
+Move pools are `Map<String, List<Move>>` keyed by species name, owned by the AI
+(not on `Pokemon` — see Lessons Learned).
 
 ## Multi-Gen Support
 
