@@ -51,6 +51,7 @@ kyurem-black
 landorus-incarnate
 landorus-therian
 latios
+lucario
 magnezone
 melmetal
 mew
@@ -80,6 +81,7 @@ tatsugiri-curly
 tentacruel
 thundurus-therian
 ting-lu
+togekiss
 torkoal
 tornadus-incarnate
 tornadus-therian

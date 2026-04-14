@@ -1,0 +1,13 @@
+{
+    "name": "Togekiss",
+    "types": [
+        "FAIRY",
+        "FLYING"
+    ],
+    "baseHp": 85,
+    "baseAttack": 50,
+    "baseDefense": 95,
+    "baseSpecialAttack": 120,
+    "baseSpecialDefense": 115,
+    "baseSpeed": 80
+}

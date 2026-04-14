@@ -1,0 +1,13 @@
+{
+    "name": "Lucario",
+    "types": [
+        "FIGHTING",
+        "STEEL"
+    ],
+    "baseHp": 70,
+    "baseAttack": 110,
+    "baseDefense": 70,
+    "baseSpecialAttack": 115,
+    "baseSpecialDefense": 70,
+    "baseSpeed": 90
+}

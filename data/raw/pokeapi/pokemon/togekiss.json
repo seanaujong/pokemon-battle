@@ -1,0 +1,55 @@
+{
+    "name": "togekiss",
+    "types": [
+        {
+            "slot": 1,
+            "type": {
+                "name": "fairy"
+            }
+        },
+        {
+            "slot": 2,
+            "type": {
+                "name": "flying"
+            }
+        }
+    ],
+    "stats": [
+        {
+            "base_stat": 85,
+            "stat": {
+                "name": "hp"
+            }
+        },
+        {
+            "base_stat": 50,
+            "stat": {
+                "name": "attack"
+            }
+        },
+        {
+            "base_stat": 95,
+            "stat": {
+                "name": "defense"
+            }
+        },
+        {
+            "base_stat": 120,
+            "stat": {
+                "name": "special-attack"
+            }
+        },
+        {
+            "base_stat": 115,
+            "stat": {
+                "name": "special-defense"
+            }
+        },
+        {
+            "base_stat": 80,
+            "stat": {
+                "name": "speed"
+            }
+        }
+    ]
+}

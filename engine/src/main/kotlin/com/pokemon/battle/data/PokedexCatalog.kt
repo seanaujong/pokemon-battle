@@ -596,6 +596,17 @@ object PokedexCatalog {
         baseSpeed = 110,
     )
 
+    val LUCARIO: Species = Species(
+        name = "Lucario",
+        types = listOf(Type.FIGHTING, Type.STEEL),
+        baseHp = 70,
+        baseAttack = 110,
+        baseDefense = 70,
+        baseSpecialAttack = 115,
+        baseSpecialDefense = 70,
+        baseSpeed = 90,
+    )
+
     val MAGNEZONE: Species = Species(
         name = "Magnezone",
         types = listOf(Type.ELECTRIC, Type.STEEL),
@@ -915,6 +926,17 @@ object PokedexCatalog {
         baseSpeed = 45,
     )
 
+    val TOGEKISS: Species = Species(
+        name = "Togekiss",
+        types = listOf(Type.FAIRY, Type.FLYING),
+        baseHp = 85,
+        baseAttack = 50,
+        baseDefense = 95,
+        baseSpecialAttack = 120,
+        baseSpecialDefense = 115,
+        baseSpeed = 80,
+    )
+
     val TORKOAL: Species = Species(
         name = "Torkoal",
         types = listOf(Type.FIRE),
@@ -1146,6 +1168,7 @@ object PokedexCatalog {
         "Landorus Incarnate" to LANDORUS_INCARNATE,
         "Landorus Therian" to LANDORUS_THERIAN,
         "Latios" to LATIOS,
+        "Lucario" to LUCARIO,
         "Magnezone" to MAGNEZONE,
         "Melmetal" to MELMETAL,
         "Mew" to MEW,
@@ -1175,6 +1198,7 @@ object PokedexCatalog {
         "Tentacruel" to TENTACRUEL,
         "Thundurus Therian" to THUNDURUS_THERIAN,
         "Ting Lu" to TING_LU,
+        "Togekiss" to TOGEKISS,
         "Torkoal" to TORKOAL,
         "Tornadus Incarnate" to TORNADUS_INCARNATE,
         "Tornadus Therian" to TORNADUS_THERIAN,
