@@ -58,7 +58,7 @@ fun main(args: Array<String>) {
     val side1Pool = teamFor(pokedex, listOf("Charizard", "Garchomp", "Lucario"))
     val side2Pool = teamFor(pokedex, listOf("Venusaur", "Blastoise", "Togekiss"))
 
-    val strategies = listOf("TypeAI", "RandomAI")
+    val strategies = Strategy.entries
     val matchups = strategies.flatMap { s1 -> strategies.map { s2 -> s1 to s2 } }
 
     println("Matrix eval: ${strategies.size}x${strategies.size} matchups × $battlesPerMatchup battles")
@@ -100,7 +100,11 @@ fun main(args: Array<String>) {
             val metadata =
                 BattleMetadataFactory.forNewBattle(
                     formatTag = "matrixEval",
-                    playerTags = mapOf(Side.SIDE_1.name to side1Strategy, Side.SIDE_2.name to side2Strategy),
+                    playerTags = mapOf(Side.SIDE_1.name to side1Strategy.name, Side.SIDE_2.name to side2Strategy.name),
+                    // Record the RandomAI seed so every battle file is reproducible — drop
+                    // this battleId back into a replay harness and the exact same choices
+                    // fire. Diary 081's experiment-tracking alignment move.
+                    clientInfo = "seed=$seed",
                 )
             val result =
                 BattleLoop(
@@ -129,23 +133,22 @@ fun main(args: Array<String>) {
 }
 
 private fun buildSidedAI(
-    side1Strategy: String,
-    side2Strategy: String,
+    side1Strategy: Strategy,
+    side2Strategy: Strategy,
     side1Pool: MatrixTeamPool,
     side2Pool: MatrixTeamPool,
     seed: Long,
 ): SidedAI {
     fun provider(
-        strategy: String,
+        strategy: Strategy,
         pool: MatrixTeamPool,
     ): Triple<ChoiceProvider, FaintReplacementProvider, InputResponder?> {
         val movePools = pool.pokemon.associate { it.species.name to it.moves }
         return when (strategy) {
-            "TypeAI" -> TypeAI(movePools = movePools).let { Triple(it, it, it) }
-            "RandomAI" ->
+            Strategy.TypeAI -> TypeAI(movePools = movePools).let { Triple(it, it, it) }
+            Strategy.RandomAI ->
                 RandomAI(movePools = movePools, random = Random(seed))
                     .let { Triple(it, it, null) }
-            else -> error("Unknown strategy: $strategy")
         }
     }
 
@@ -161,20 +164,21 @@ private fun buildSidedAI(
 @Suppress("NestedBlockDepth") // Matrix display is inherently doubly-nested (rows × columns).
 private fun printMatchupMatrix(
     corpus: List<com.pokemon.battle.persistence.PersistedBattle>,
-    strategies: List<String>,
+    strategies: List<Strategy>,
 ) {
+    val names = strategies.map { it.name }
     val results = BattleCorpus.matchupWinRates(corpus.asSequence())
 
     // Column header row
     print("  %-10s".format(""))
-    for (s2 in strategies) {
+    for (s2 in names) {
         print(" %14s".format("vs $s2"))
     }
     println()
 
-    for (s1 in strategies) {
+    for (s1 in names) {
         print("  %-10s".format(s1))
-        for (s2 in strategies) {
+        for (s2 in names) {
             val result = results[s1 to s2]
             val cell =
                 if (result == null) {
@@ -193,16 +197,16 @@ private fun printMatchupMatrix(
     println()
 
     // Sanity check: opposite corners should roughly sum to 100% minus draws.
-    for (i in strategies.indices) {
-        for (j in i + 1 until strategies.size) {
-            val ab = results[strategies[i] to strategies[j]]
-            val ba = results[strategies[j] to strategies[i]]
+    for (i in names.indices) {
+        for (j in i + 1 until names.size) {
+            val ab = results[names[i] to names[j]]
+            val ba = results[names[j] to names[i]]
             if (ab != null && ba != null) {
                 val combined =
                     (ab.sideAWins + ba.sideBWins).toDouble() /
                         (ab.battles + ba.battles).coerceAtLeast(1)
                 println(
-                    "${strategies[i]} overall vs ${strategies[j]}: " +
+                    "${names[i]} overall vs ${names[j]}: " +
                         "${"%.1f".format(combined * 100)}% across ${ab.battles + ba.battles} battles " +
                         "(orientation-averaged)",
                 )
