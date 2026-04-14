@@ -34,4 +34,7 @@ enum class Ability {
 
     // Post-damage HP-threshold forced switch
     EMERGENCY_EXIT,
+
+    // Switch-out triggers
+    NATURAL_CURE,
 }

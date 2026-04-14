@@ -20,6 +20,7 @@ import com.pokemon.battle.model.Weather
  * Abilities that changed behavior across gens get different effect implementations
  * registered per gen (e.g. Sand Veil's evasion boost changed in Gen 6).
  */
+@Suppress("TooManyFunctions") // Ability hooks grow as mechanics are added; each ability overrides only what applies.
 interface AbilityEffect {
     val ability: Ability
 
@@ -54,6 +55,26 @@ interface AbilityEffect {
         state: BattleState,
         slot: Slot,
         move: Move,
+    ): List<GameEvent> = emptyList()
+
+    /**
+     * Fired when the holder voluntarily leaves the field — regular switch
+     * (SwitchPhase) or self-switch move (U-turn, Volt Switch). Examples:
+     * - Natural Cure: clear the holder's non-volatile status on switch-out
+     * - Regenerator (future): restore 1/3 max HP on switch-out
+     *
+     * **Not** fired when the holder faints. Faint replacement runs through a
+     * different seam (BattleLoop / faint-replacement flow after
+     * [com.pokemon.battle.engine.PokemonFainted]) and is semantically distinct
+     * — a fainted Pokemon doesn't "switch out", it gets replaced.
+     *
+     * Called before [com.pokemon.battle.engine.SwitchOut] is emitted, so the
+     * outgoing Pokemon's state is still on the field (events produced here
+     * apply to pre-switch state).
+     */
+    fun onSwitchOut(
+        state: BattleState,
+        slot: Slot,
     ): List<GameEvent> = emptyList()
 
     /** True if this ability grants immunity to weather chip damage. */

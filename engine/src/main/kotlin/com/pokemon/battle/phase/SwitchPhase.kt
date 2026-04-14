@@ -44,6 +44,17 @@ class SwitchPhase(
         for (slot in switchingSlots) {
             val choice = choices.choiceFor(slot) as TurnChoice.Switch
 
+            // Switch-out ability triggers (Natural Cure, future Regenerator) — fire before
+            // the generic clearing so the effect sees the outgoing Pokemon's full state.
+            val outgoingAbility = currentState.pokemonFor(slot).effectiveAbility
+            val onSwitchOutEvents =
+                registries.abilities.effectFor(outgoingAbility)
+                    ?.onSwitchOut(currentState, slot) ?: emptyList()
+            for (event in onSwitchOutEvents) {
+                events.add(event)
+                currentState = event.apply(currentState)
+            }
+
             // Clear volatiles and stat stages before switch-out (gen-specific rule)
             for (event in resolveSwitchOutClearing(currentState, slot)) {
                 events.add(event)

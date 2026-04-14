@@ -10,6 +10,8 @@ import com.pokemon.battle.engine.MoveAttempted
 import com.pokemon.battle.engine.PipelineState
 import com.pokemon.battle.engine.PokemonFainted
 import com.pokemon.battle.engine.StatChanged
+import com.pokemon.battle.engine.StatusCleared
+import com.pokemon.battle.engine.SwitchOut
 import com.pokemon.battle.engine.TurnChoice
 import com.pokemon.battle.engine.TurnChoices
 import com.pokemon.battle.engine.TurnPipeline
@@ -23,6 +25,7 @@ import com.pokemon.battle.model.PokemonState
 import com.pokemon.battle.model.Slot
 import com.pokemon.battle.model.Species
 import com.pokemon.battle.model.StatType
+import com.pokemon.battle.model.StatusCondition
 import com.pokemon.battle.model.Type
 import com.pokemon.battle.model.Weather
 import com.pokemon.battle.phase.EndOfTurnPhase
@@ -311,5 +314,165 @@ class AbilityTest {
         val newState = events.filterIsInstance<com.pokemon.battle.engine.GameEvent>().fold(battleState) { s, e -> e.apply(s) }
 
         assertEquals(Weather.RAIN, newState.field.weather, "Drizzle should overwrite sandstorm")
+    }
+
+    // --- Natural Cure ---
+
+    @Test
+    fun `Natural Cure clears status on voluntary switch-out`() {
+        val poisoned =
+            PokemonState(
+                pokemon(normalSpecies),
+                currentHp = pokemon(normalSpecies).maxHp,
+                ability = Ability.NATURAL_CURE,
+                status = StatusCondition.POISON,
+            )
+        val battleState =
+            BattleState.singles(
+                poisoned,
+                state(pokemon(normalSpecies)),
+                p1Bench = listOf(state(pokemon(normalSpecies))),
+            )
+        val choices =
+            TurnChoices.singles(
+                TurnChoice.Switch(benchIndex = 0),
+                TurnChoice.UseMove(tackle),
+            )
+
+        val phase = SwitchPhase(GenVRegistries)
+        val events = phase.resolve(PipelineState(battleState), choices).events
+
+        val triggered = events.filterIsInstance<AbilityTriggered>()
+        assertEquals(1, triggered.size)
+        assertEquals(Ability.NATURAL_CURE, triggered[0].ability)
+
+        val cleared = events.filterIsInstance<StatusCleared>()
+        assertEquals(1, cleared.size)
+        assertEquals(StatusCondition.POISON, cleared[0].status)
+        assertEquals(Slot.p1(), cleared[0].target)
+
+        // AbilityTriggered fires before SwitchOut (status reading must happen while holder is still active)
+        val triggeredIndex = events.indexOfFirst { it is AbilityTriggered }
+        val switchOutIndex = events.indexOfFirst { it is SwitchOut }
+        assertTrue(triggeredIndex < switchOutIndex, "onSwitchOut should fire before SwitchOut")
+
+        // Final state: the benched (originally active) Pokemon's status is cleared
+        val finalState =
+            events.filterIsInstance<com.pokemon.battle.engine.GameEvent>()
+                .fold(battleState) { s, e -> e.apply(s) }
+        val naturalCureHolder =
+            finalState.benchFor(com.pokemon.battle.model.Side.SIDE_1)
+                .first { it.ability == Ability.NATURAL_CURE }
+        assertEquals(null, naturalCureHolder.status, "Status should be cleared on switch-out")
+    }
+
+    @Test
+    fun `Natural Cure clears status on U-turn self-switch`() {
+        val pokedex = com.pokemon.battle.data.Pokedex.loadFromClasspath()
+        val charizard = Pokemon(pokedex["Charizard"]!!, level = 50)
+        val venusaur = Pokemon(pokedex["Venusaur"]!!, level = 50)
+        val blastoise = Pokemon(pokedex["Blastoise"]!!, level = 50)
+
+        val battleState =
+            BattleState.singles(
+                PokemonState(
+                    charizard,
+                    currentHp = charizard.maxHp,
+                    ability = Ability.NATURAL_CURE,
+                    status = StatusCondition.BURN,
+                ),
+                PokemonState(venusaur, currentHp = venusaur.maxHp),
+                p1Bench = listOf(PokemonState(blastoise, currentHp = blastoise.maxHp)),
+            )
+        val choices =
+            TurnChoices.singles(
+                TurnChoice.UseMove(com.pokemon.battle.data.MoveDex.U_TURN, switchTo = 0),
+                TurnChoice.UseMove(com.pokemon.battle.data.MoveDex.SLUDGE_BOMB),
+            )
+
+        val phase = MoveExecutionPhase(GenVRegistries, roll = fixedRoll, chanceCheck = noChance)
+        val events = phase.resolve(PipelineState(battleState), choices).events
+
+        val triggered = events.filterIsInstance<AbilityTriggered>()
+        assertTrue(
+            triggered.any { it.ability == Ability.NATURAL_CURE && it.slot == Slot.p1() },
+            "Natural Cure should trigger on U-turn self-switch",
+        )
+
+        val cleared = events.filterIsInstance<StatusCleared>()
+        assertEquals(1, cleared.size)
+        assertEquals(StatusCondition.BURN, cleared[0].status)
+
+        // onSwitchOut fires before the SwitchOut event
+        val triggeredIndex = events.indexOfFirst { it is AbilityTriggered && it.ability == Ability.NATURAL_CURE }
+        val switchOutIndex = events.indexOfFirst { it is SwitchOut }
+        assertTrue(triggeredIndex < switchOutIndex, "Natural Cure should fire before SwitchOut on self-switch")
+    }
+
+    @Test
+    fun `Natural Cure is a no-op when holder has no status`() {
+        val battleState =
+            BattleState.singles(
+                state(pokemon(normalSpecies), ability = Ability.NATURAL_CURE),
+                state(pokemon(normalSpecies)),
+                p1Bench = listOf(state(pokemon(normalSpecies))),
+            )
+        val choices =
+            TurnChoices.singles(
+                TurnChoice.Switch(benchIndex = 0),
+                TurnChoice.UseMove(tackle),
+            )
+
+        val phase = SwitchPhase(GenVRegistries)
+        val events = phase.resolve(PipelineState(battleState), choices).events
+
+        assertTrue(
+            events.filterIsInstance<AbilityTriggered>().none { it.ability == Ability.NATURAL_CURE },
+            "Natural Cure should not trigger when there's no status to clear",
+        )
+        assertTrue(
+            events.filterIsInstance<StatusCleared>().isEmpty(),
+            "No StatusCleared event when holder has no status",
+        )
+    }
+
+    @Test
+    fun `Natural Cure does not fire when holder faints`() {
+        // A fainted Pokemon is replaced, not switched out. Natural Cure must not fire
+        // on the KO hit — faint replacement happens through a different seam
+        // (after PokemonFainted), not onSwitchOut.
+        val pokedex = com.pokemon.battle.data.Pokedex.loadFromClasspath()
+        val charizard = Pokemon(pokedex["Charizard"]!!, level = 50)
+        val venusaur = Pokemon(pokedex["Venusaur"]!!, level = 50)
+
+        val battleState =
+            BattleState.singles(
+                PokemonState(charizard, currentHp = charizard.maxHp),
+                // Venusaur at 1 HP with poison and Natural Cure — next hit KOs it.
+                PokemonState(
+                    venusaur,
+                    currentHp = 1,
+                    ability = Ability.NATURAL_CURE,
+                    status = StatusCondition.POISON,
+                ),
+            )
+        val choices =
+            TurnChoices.singles(
+                TurnChoice.UseMove(tackle),
+                TurnChoice.UseMove(tackle),
+            )
+
+        val phase = MoveExecutionPhase(GenVRegistries, roll = fixedRoll, chanceCheck = noChance)
+        val events = phase.resolve(PipelineState(battleState), choices).events
+
+        assertTrue(
+            events.filterIsInstance<AbilityTriggered>().none { it.ability == Ability.NATURAL_CURE },
+            "Natural Cure must not fire on faint — faint replacement is a different seam",
+        )
+        // Pokemon did faint, confirming the scenario was set up correctly.
+        assertTrue(
+            events.filterIsInstance<com.pokemon.battle.engine.PokemonFainted>().any { it.slot == Slot.p2() },
+            "Scenario sanity check: Venusaur should have fainted",
+        )
     }
 }

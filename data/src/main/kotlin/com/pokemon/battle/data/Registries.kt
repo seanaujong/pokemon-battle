@@ -8,6 +8,7 @@ import com.pokemon.battle.data.ability.IceBodyEffect
 import com.pokemon.battle.data.ability.IntimidateEffect
 import com.pokemon.battle.data.ability.KlutzEffect
 import com.pokemon.battle.data.ability.LevitateEffect
+import com.pokemon.battle.data.ability.NaturalCureEffect
 import com.pokemon.battle.data.ability.OvergrowEffect
 import com.pokemon.battle.data.ability.SandForceEffect
 import com.pokemon.battle.data.ability.SandRushEffect
@@ -60,6 +61,7 @@ val GenVRegistries: Registries =
                     KlutzEffect,
                     SturdyEffect,
                     EmergencyExitEffect,
+                    NaturalCureEffect,
                 ),
             )
         val items =

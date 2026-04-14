@@ -326,6 +326,17 @@ class MoveExecutionPhase(
         val events = mutableListOf<GameEvent>()
         var currentState = state
 
+        // Switch-out ability triggers (Natural Cure, future Regenerator) — fire before
+        // the generic clearing so the effect sees the outgoing Pokemon's full state.
+        val outgoingAbility = currentState.pokemonFor(attackerSlot).effectiveAbility
+        val onSwitchOutEvents =
+            registries.abilities.effectFor(outgoingAbility)
+                ?.onSwitchOut(currentState, attackerSlot) ?: emptyList()
+        for (event in onSwitchOutEvents) {
+            events.add(event)
+            currentState = event.apply(currentState)
+        }
+
         for (event in resolveSwitchOutClearing(currentState, attackerSlot)) {
             events.add(event)
             currentState = event.apply(currentState)
