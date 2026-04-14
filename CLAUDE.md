@@ -44,6 +44,35 @@ Initial phases: `MoveOrderPhase` → `MoveExecutionPhase` → `EndOfTurnPhase`. 
 - Phases are pure functions testable in isolation
 - Extensibility via new events + phases (open/closed principle)
 
+## Preflight (before starting real work)
+
+Before entering the Iteration Loop, run a quick check for decisions that are
+easy to miss under momentum. These are judgment calls, not steps:
+
+1. **Can this be parallelized?** If the task splits into ≥2 independent
+   chunks that touch disjoint files, launching them as worktree subagents
+   is usually faster than serial work. Default *to* parallel when overlap
+   is low; the Parallel Work section below covers conflict analysis and
+   launch shape. Know when *not* to parallelize (small tasks, coupled
+   work, skeleton-level refactors).
+
+2. **Tool-match for the change shape.** Large mechanical renames (>3
+   files, cross-module, package moves) are IntelliJ's home turf —
+   semantic refactors beat grep/sed because they know which `.resolve(`
+   belongs to a pipeline vs a phase. Ask the user to run the IntelliJ
+   refactor rather than burning iterations on regexes. Small, surgical
+   edits stay inline.
+
+3. **Name collision check.** Before introducing a new type, interface,
+   or package, grep for the name across the repo. A rename discovered
+   after five dependent commits costs more than a 10-second check
+   up front. Diary 057 is the canonical example of the collision we
+   *did* catch; diary 058 is the broader review pattern.
+
+The Iteration Loop below starts with scope clarification (step 1) and a
+diary entry for non-trivial work (step 2) — those remain the mandatory
+steps; the preflight is the short pause *before* step 1.
+
 ## Iteration Loop
 
 Each feature or chunk of work follows this cycle:
