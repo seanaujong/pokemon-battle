@@ -38,6 +38,17 @@ tasks.register<JavaExec>("smogonToTargets") {
     workingDir = rootProject.projectDir
 }
 
+// Audit gap between PokeAPI's item/ability shape and our enum model. Outputs
+// a markdown table; useful when motivating an enum → data-class refactor.
+tasks.register<JavaExec>("auditModelGap") {
+    group = "verification"
+    description = "Print a gap report comparing PokeAPI item/ability fields to our enums."
+    mainClass.set("com.pokemon.battle.ingest.cli.ModelGapAuditMainKt")
+    classpath = sourceSets["main"].runtimeClasspath
+    workingDir = rootProject.projectDir
+    standardOutput = System.out
+}
+
 // Generate `engine/.../data/PokedexCatalog.kt` from the ingested species JSON
 // (diary 064: data as code vs data as resource). Run after :data-ingestion:run.
 tasks.register<JavaExec>("codegenSpecies") {

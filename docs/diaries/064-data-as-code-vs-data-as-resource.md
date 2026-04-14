@@ -223,6 +223,88 @@ file. (The architecture doesn't enforce; we lean on convention.)
   ("tool-match for the change shape") generalized — sometimes the right tool
   is a different shape, not a better hammer.
 
+## Model gap audit (2026-04-14)
+
+Running `:data-ingestion:auditModelGap` (added this session) produces a markdown
+table comparing PokeAPI's item / ability shape to our enum model. The user's
+framing — *"data ingestion DOES motivate architecture and registry"* — was
+right; the audit makes it concrete.
+
+### What PokeAPI exposes that our `Item` enum doesn't
+
+| Field | Example values | What it would unlock |
+|---|---|---|
+| `category` | `held-items`, `choice`, `medicine`, `berries` | Embargo / Magic Room / berry-specific triggers |
+| `attributes` | `holdable`, `holdable-active`, `consumable` | Explicit consumable tracking instead of per-effect logic |
+| `fling_power` | 10–80 (per item) | Fling move implementation |
+| `effect` (short text) | "Held: Restores 1/16 max HP at end of turn" | Rendering, UIs, MCP descriptions |
+
+### What PokeAPI exposes that our `Ability` enum doesn't
+
+| Field | Example values | What it would unlock |
+|---|---|---|
+| `generation` | `generation-iii`, `generation-v`, `generation-vii` | Gen-gated availability checks |
+| `effect` (short text) | "Lowers opponents' Attack one stage upon entering battle" | Rendering, UIs, MCP descriptions |
+
+### What this implies about our model
+
+Our current shape:
+```kotlin
+enum class Item { LEFTOVERS, FOCUS_SASH, LIFE_ORB, ... }
+enum class Ability { INTIMIDATE, BLAZE, ... }
+```
+
+Bare enums. Identity but no metadata. Adjacent metadata (categories, generation
+gates, descriptions) lives nowhere — when we want it, we hand-write it
+duplicate-style next to the effect logic, or we just don't have it.
+
+The shape that would absorb the PokeAPI data cleanly:
+```kotlin
+// Identity stays an enum — call sites still write Item.LEFTOVERS.
+enum class Item { LEFTOVERS, ... }
+
+// Metadata lives in a parallel registry, ingestion-generated.
+data class ItemData(
+    val name: Item,
+    val category: ItemCategory,        // new enum: HELD, CHOICE, BERRY, MEDICINE
+    val attributes: Set<ItemAttribute>,// new enum: HOLDABLE, CONSUMABLE, ...
+    val flingPower: Int?,
+    val effectText: String,
+)
+
+object ItemDataRegistry {
+    val data: Map<Item, ItemData> = ... // generated like PokedexCatalog
+}
+```
+
+This sits *next to* (not inside) `ItemRegistry`'s effect lookup — same
+separation we established for items vs item-rendering in diary 038. Behavior
+in `ItemEffect`, identity in the `Item` enum, metadata in `ItemData`.
+
+### Why this isn't a "do it now" call
+
+- **No active mechanic needs the metadata yet.** Embargo, Magic Room, Fling,
+  multi-gen gating — none are queued. Building the registry without a
+  consumer is the same speculation 060 / 042 warned against.
+- **The cost when we do need it is small.** PokeAPI data is already cached;
+  the codegen template would mirror `PokedexCodegen`. Maybe an hour.
+- **The audit itself is the deliverable**: now we know what we're missing,
+  and a future diary (e.g. when implementing Embargo) can lean on the
+  pre-built data instead of "go figure out which items are berries."
+
+### What changed because of this audit
+
+Nothing in the engine yet — just the new `:data-ingestion:auditModelGap`
+task and this section. Re-run anytime: `./gradlew :data-ingestion:auditModelGap`.
+The output is a markdown table suitable for pasting into a future diary or
+PR description.
+
+The deeper learning: **ingestion is a low-cost way to expose model gaps
+even when we don't act on them yet.** Compare to 042's "build analytics
+without a consumer" speculation trap — auditing requires no new model code,
+no new module, no new abstractions. Just "fetch what they have, look at
+what we don't, write it down."
+
 ## Related
 
 - **Diary 041** — established the JSON ingestion pipeline (the data this
