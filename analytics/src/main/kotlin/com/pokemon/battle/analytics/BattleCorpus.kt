@@ -7,6 +7,21 @@ import com.pokemon.battle.model.Side
 import com.pokemon.battle.persistence.PersistedBattle
 
 /**
+ * A single head-to-head matchup result. Used by [BattleCorpus.matchupWinRates]
+ * to summarize "player X vs player Y" outcomes. Draws are tracked separately
+ * because they're a third-category outcome, not a partial-credit win.
+ */
+data class MatchupResult(
+    val battles: Int,
+    val sideAWins: Int,
+    val sideBWins: Int,
+    val draws: Int,
+) {
+    val sideAWinRate: Double get() = if (battles == 0) 0.0 else sideAWins.toDouble() / battles
+    val sideBWinRate: Double get() = if (battles == 0) 0.0 else sideBWins.toDouble() / battles
+}
+
+/**
  * Aggregations over a corpus of [PersistedBattle]. Pure sequence folds — no I/O,
  * no state, one pass per aggregation. `:persistence` supplies the corpus (from
  * disk, network, test fixtures, wherever); this file answers analytical
@@ -71,6 +86,39 @@ object BattleCorpus {
             .flatMap { it.allEvents() }
             .filterIsInstance<PokemonFaintedJson>()
             .count()
+
+    /**
+     * Group the corpus by `(side1PlayerTag, side2PlayerTag)` pairs and report
+     * win / loss / draw counts per matchup. Battles with no `playerTags` are
+     * bucketed under `(?, ?)` so they don't silently vanish.
+     *
+     * The result distinguishes orientation — "TypeAI (side 1) vs RandomAI
+     * (side 2)" is a different key from "RandomAI (side 1) vs TypeAI (side 2)".
+     * Many AI matchups aren't symmetric (move-order ties, first-turn access
+     * to weather, etc.), and collapsing them would hide that.
+     */
+    fun matchupWinRates(battles: Sequence<PersistedBattle>): Map<Pair<String, String>, MatchupResult> {
+        val buckets = mutableMapOf<Pair<String, String>, MutableMatchupCounts>()
+        for (battle in battles) {
+            val side1Tag = battle.metadata.playerTags[Side.SIDE_1.name] ?: "?"
+            val side2Tag = battle.metadata.playerTags[Side.SIDE_2.name] ?: "?"
+            val counts = buckets.getOrPut(side1Tag to side2Tag) { MutableMatchupCounts() }
+            counts.battles++
+            when (battle.winner) {
+                Side.SIDE_1 -> counts.sideAWins++
+                Side.SIDE_2 -> counts.sideBWins++
+                null -> counts.draws++
+            }
+        }
+        return buckets.mapValues { (_, c) -> MatchupResult(c.battles, c.sideAWins, c.sideBWins, c.draws) }
+    }
+
+    private class MutableMatchupCounts(
+        var battles: Int = 0,
+        var sideAWins: Int = 0,
+        var sideBWins: Int = 0,
+        var draws: Int = 0,
+    )
 
     private fun PersistedBattle.allEvents() = turns.asSequence().flatMap { (it.events + it.replacementEvents).asSequence() }
 }

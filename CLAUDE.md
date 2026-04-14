@@ -118,6 +118,30 @@ easy to miss under momentum. These are judgment calls, not steps:
    block exists for this — fill it with the specific commands or
    diff-shape constraints that mean "done."
 
+6. **Forcing functions can be constructed, not just awaited.** Many
+   diaries (067, 069, 072, 073, 078) end with "wait for a real
+   consumer" — the forcing-function-driven posture that prevents
+   speculative work. That posture is valuable: diary 042's "event log
+   is a first-class data asset" framing didn't become the analytics
+   pipeline until a consumer demanded it, and that delay kept us out
+   of the speculation trap.
+   
+   But *awaiting* and *exercising* are different moves. When
+   architecture is at rest — tests green, diaries current, backlog
+   deferred — there is an active move available: pick a deferred seam
+   and **construct** a consumer that would use it. The matrix-eval
+   runner (diary 079) forced `BattleMetadata.playerTags` and
+   `BattleCorpus.matchupWinRates`; a one-session exercise that
+   validated layering commitments and produced real signal about AI
+   behavior. The discipline is the same as diary 066's audit — plan
+   first, layer honestly, ship one slice — but the motivation is
+   deliberate rather than external.
+   
+   Rule of thumb: if your last three diaries are all "planning — wait
+   for a forcing function," the next active move is probably
+   constructing one. The architecture's claim of "ready for X when X
+   arrives" is untested until you run X against it.
+
 The Iteration Loop below starts with scope clarification (step 1) and a
 diary entry for non-trivial work (step 2) — those remain the mandatory
 steps; the preflight is the short pause *before* step 1.

@@ -23,6 +23,15 @@ data class BattleMetadata(
     val startedAtEpochMs: Long,
     val endedAtEpochMs: Long,
     val formatTag: String,
+    /**
+     * Per-side player labels. Keys are free-form side identifiers (typically
+     * `"SIDE_1"` / `"SIDE_2"` matching [com.pokemon.battle.model.Side.name]); values
+     * are identifiers the recorder cares about — AI strategy name in evaluation
+     * runs, user handle in tournament play, etc. Empty default because the
+     * engine itself is identity-free; callers that need to distinguish
+     * contestants fill this in.
+     */
+    val playerTags: Map<String, String> = emptyMap(),
     val protocolVersion: Int? = null,
     val clientInfo: String? = null,
 )

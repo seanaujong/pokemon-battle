@@ -17,6 +17,7 @@ object BattleMetadataFactory {
     fun forNewBattle(
         formatTag: String,
         clock: Clock = Clock.systemUTC(),
+        playerTags: Map<String, String> = emptyMap(),
         protocolVersion: Int? = null,
         clientInfo: String? = null,
     ): BattleMetadata {
@@ -27,6 +28,7 @@ object BattleMetadataFactory {
             startedAtEpochMs = now,
             endedAtEpochMs = now,
             formatTag = formatTag,
+            playerTags = playerTags,
             protocolVersion = protocolVersion,
             clientInfo = clientInfo,
         )

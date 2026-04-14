@@ -35,6 +35,15 @@ tasks.register<JavaExec>("batchDemo") {
     workingDir = rootProject.projectDir
 }
 
+// Head-to-head AI eval matrix. Forces playerTags + matchup aggregations.
+tasks.register<JavaExec>("matrixEval") {
+    group = "application"
+    description = "Run every AI matchup N times, persist, print win-rate matrix."
+    mainClass.set("com.pokemon.battle.cli.MatrixEvalMainKt")
+    classpath = sourceSets["main"].runtimeClasspath
+    workingDir = rootProject.projectDir
+}
+
 // Engine resources (species JSON) are loaded from the classpath, so no workingDir
 // override is needed here — unlike :data-ingestion which reads repo-root files.
 
