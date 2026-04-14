@@ -26,6 +26,7 @@ import com.pokemon.battle.data.item.LifeOrbEffect
 import com.pokemon.battle.data.item.RedCardEffect
 import com.pokemon.battle.data.item.RockyHelmetEffect
 import com.pokemon.battle.data.item.SitrusBerryEffect
+import com.pokemon.battle.data.item.WeaknessPolicyEffect
 import com.pokemon.battle.engine.Registries
 import com.pokemon.battle.engine.ability.AbilityRegistry
 import com.pokemon.battle.engine.item.ItemRegistry
@@ -76,6 +77,7 @@ val GenVRegistries: Registries =
                         RedCardEffect,
                         HeavyDutyBootsEffect,
                         RockyHelmetEffect,
+                        WeaknessPolicyEffect,
                     ),
                 abilities = abilities,
             )

@@ -4,6 +4,7 @@ import com.pokemon.battle.engine.BattleState
 import com.pokemon.battle.engine.DamageAdjustment
 import com.pokemon.battle.engine.GameEvent
 import com.pokemon.battle.engine.ability.AbilityRegistry
+import com.pokemon.battle.model.Effectiveness
 import com.pokemon.battle.model.Item
 import com.pokemon.battle.model.Move
 import com.pokemon.battle.model.PokemonState
@@ -86,17 +87,25 @@ interface ItemEffect {
     /**
      * Fired after the holder takes damage from an attacker. Used by Red Card (force
      * attacker switch + consume item), Rocky Helmet (damage the contact attacker),
-     * and future "on-hit" items that react to the attacker.
+     * Weakness Policy (boost Attack/SpAtk on super-effective hit), and future
+     * "on-hit" items that react to the attacker.
+     *
+     * [effectiveness] carries the type-effectiveness of the incoming hit so effects
+     * that only fire on a specific effectiveness bucket (Weakness Policy on
+     * [Effectiveness.SUPER_EFFECTIVE]) can gate themselves without reading back
+     * through prior events.
      *
      * [abilities] is threaded through so effects that force a switch (Red Card) can
      * trigger the replacement's switch-in ability without reaching for a global
      * registry.
      */
+    @Suppress("LongParameterList") // Intentional: on-hit items need full attacker/defender/damage/type-eff context.
     fun onHolderTookDamage(
         state: BattleState,
         holderSlot: Slot,
         attackerSlot: Slot,
         damageDealt: Int,
+        effectiveness: Effectiveness,
         abilities: AbilityRegistry,
     ): List<GameEvent> = emptyList()
 

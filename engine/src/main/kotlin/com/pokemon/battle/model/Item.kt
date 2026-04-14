@@ -12,4 +12,5 @@ enum class Item {
     RED_CARD,
     HEAVY_DUTY_BOOTS,
     ROCKY_HELMET,
+    WEAKNESS_POLICY,
 }

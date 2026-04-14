@@ -9,6 +9,7 @@ import com.pokemon.battle.engine.ability.AbilityRegistry
 import com.pokemon.battle.engine.item.ItemEffect
 import com.pokemon.battle.engine.resolveSwitchInAbility
 import com.pokemon.battle.engine.resolveSwitchOutClearing
+import com.pokemon.battle.model.Effectiveness
 import com.pokemon.battle.model.Item
 import com.pokemon.battle.model.Slot
 
@@ -29,6 +30,7 @@ object RedCardEffect : ItemEffect {
         holderSlot: Slot,
         attackerSlot: Slot,
         damageDealt: Int,
+        effectiveness: Effectiveness,
         abilities: AbilityRegistry,
     ): List<GameEvent> {
         if (damageDealt <= 0) return emptyList()
