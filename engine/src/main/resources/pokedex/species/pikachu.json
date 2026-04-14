@@ -1,0 +1,12 @@
+{
+    "name": "PIKACHU",
+    "types": [
+        "ELECTRIC"
+    ],
+    "baseHp": 35,
+    "baseAttack": 55,
+    "baseDefense": 40,
+    "baseSpecialAttack": 50,
+    "baseSpecialDefense": 50,
+    "baseSpeed": 90
+}

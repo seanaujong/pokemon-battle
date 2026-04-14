@@ -1,0 +1,13 @@
+{
+    "name": "CHARIZARD",
+    "types": [
+        "FIRE",
+        "FLYING"
+    ],
+    "baseHp": 78,
+    "baseAttack": 84,
+    "baseDefense": 78,
+    "baseSpecialAttack": 109,
+    "baseSpecialDefense": 85,
+    "baseSpeed": 100
+}

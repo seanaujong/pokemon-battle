@@ -1,0 +1,13 @@
+{
+    "name": "VENUSAUR",
+    "types": [
+        "GRASS",
+        "POISON"
+    ],
+    "baseHp": 80,
+    "baseAttack": 82,
+    "baseDefense": 83,
+    "baseSpecialAttack": 100,
+    "baseSpecialDefense": 100,
+    "baseSpeed": 80
+}

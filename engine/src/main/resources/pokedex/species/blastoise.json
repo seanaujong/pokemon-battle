@@ -1,0 +1,12 @@
+{
+    "name": "BLASTOISE",
+    "types": [
+        "WATER"
+    ],
+    "baseHp": 79,
+    "baseAttack": 83,
+    "baseDefense": 100,
+    "baseSpecialAttack": 85,
+    "baseSpecialDefense": 105,
+    "baseSpeed": 78
+}

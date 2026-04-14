@@ -11,6 +11,11 @@ application {
     mainClass.set("com.pokemon.battle.ingest.cli.IngestMainKt")
 }
 
+// CLI resolves paths (targets/, data/raw/, engine/src/main/resources/) from repo root.
+tasks.named<JavaExec>("run") {
+    workingDir = rootProject.projectDir
+}
+
 group = "com.pokemon.battle"
 version = "1.0-SNAPSHOT"
 
