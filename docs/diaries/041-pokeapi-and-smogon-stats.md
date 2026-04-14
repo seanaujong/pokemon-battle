@@ -109,6 +109,35 @@ runtime, doesn't care where the files came from.
 A realistic initial number might be 40%. The goal isn't 100% — it's to have a
 quantitative baseline and a decay-to-zero plot as we tick off diaries.
 
+#### Phase 3 — concrete plan (2026-04-14)
+
+**Forcing function:** the user wants to "grab common moveset stats — could help
+exercise different gens and rulesets." Real Smogon data feeds target lists for
+PokeAPI ingestion and gives us plausible realistic movesets for play.
+
+**Source URL shape:** `https://www.smogon.com/stats/<YYYY-MM>/chaos/<format>-<rating>.json`
+(e.g. `2026-02/chaos/gen9ou-1825.json`). The "chaos" files are the richest:
+`{info: {...}, data: {<Pokemon name>: {Abilities, Items, Moves, Spreads, Teammates, Checks and Counters}}}`,
+with each inner object mapping identifier→weighted-usage-score.
+
+**Module placement:** sub-package under `:data-ingestion`:
+`data-ingestion/src/main/kotlin/com/pokemon/battle/ingest/smogon/`. No new module.
+
+**Cache model** (same as PokeAPI, per the projection design):
+- `.cache/smogon/<month>/<format>-<rating>.json` — verbatim raw (gitignored).
+- `data/raw/smogon/<month>/<format>-<rating>.json` — projected through DTOs,
+  committed; acts as its own fixture set.
+
+**Transform target:** a compact `SmogonFormatSets` JSON per format with top-N
+Pokemon, each with top-K moves / items / abilities by weight. Committed under
+`data/smogon/<format>-top-sets.json`. This is the useful shape: one small file
+per format, trivially readable.
+
+**Stretch:** auto-generate `targets/smogon-<format>.txt` (lowercased slug list
+for PokeAPI ingestion). Piggybacks on Phase 1's PokeAPI workflow.
+
+**Not in this phase:** coverage audit, fuzz-test replay (those are Phases 2 and 4).
+
 ### Phase 4: Integration tests at scale
 
 - "Replay a random top-100 OU set vs another top-100 set and assert the battle
