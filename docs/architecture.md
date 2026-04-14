@@ -91,11 +91,12 @@ test suite. For the authoritative list see `settings.gradle.kts`.
 
 ```
 :cli             — interactive / demo entry points (PlayMain, DemoMain)
+:server          — JSONL stdin/stdout wrapper for out-of-JVM clients (ServerMain)
 :analytics       — event-stream consumers (BattleAnalyzer, ReplayExporter)
-:data-ingestion  — PokeAPI / Smogon fetchers + codegen (auditModelGap, codegenSpecies)
+:data-ingestion  — PokeAPI / Smogon fetchers (auditModelGap, ingestSmogon)
 :ai              — choice strategies (RandomAI, TypeAI, SidedAI)
 :render          — events-to-text (TextRenderer, BattleRenderer, per-item/ability text)
-:data            — catalogs (PokedexCatalog, MoveDex, Pokedex loader, generated Kotlin)
+:data            — catalogs (Pokedex JSON loader, MoveDex)
 :engine          — pipeline, events, model, phases, loop
 ```
 
@@ -103,6 +104,7 @@ Dependency graph (arrow = "declared dependency"):
 
 ```
 :cli             →  :engine, :data, :render, :ai
+:server          →  :engine, :data, :render, :ai
 :analytics       →  :engine (tests: :data)
 :data-ingestion  →  :data, :engine
 :ai              →  :engine   (api — re-exposes TurnChoice)
@@ -114,9 +116,9 @@ Dependency graph (arrow = "declared dependency"):
 **Three modules re-expose `:engine`'s public types via `api(...)`:** a
 consumer of `:data` / `:render` / `:ai` sees engine types transitively,
 because those modules' signatures return or take engine types
-(`PokedexCatalog.CHARIZARD: Species`, `TextRenderer.render(event:
-BattleEvent, ...)`, AI strategies return `TurnChoice`). Other
-dependencies are `implementation`.
+(`Pokedex.loadFromClasspath().getValue("Charizard"): Species`,
+`TextRenderer.render(event: BattleEvent, ...)`, AI strategies return
+`TurnChoice`). Other dependencies are `implementation`.
 
 **Inside `:engine`, `internal` marks the non-contract surface:** whole
 packages (`engine/item/*`, `engine/ability/*`, `gen/simplified/*`) plus
@@ -206,10 +208,11 @@ Why this rule holds the line:
 
 Consumers live in dedicated peer modules: `:render` (events-to-text),
 `:analytics` (BattleAnalyzer, ReplayExporter), `:cli` (interactive entry
-points), `:data-ingestion` (external catalogs), `:ai` (choice
-strategies). Future web UI / MCP server / replay viewer would each be a
-new peer module depending on `:engine` + whatever else they need. For
-the current module map see `settings.gradle.kts`.
+points), `:server` (JSONL over stdin/stdout for out-of-JVM clients),
+`:data-ingestion` (external catalogs), `:ai` (choice strategies). A
+future web UI / MCP tool / replay viewer would each be a new peer
+module depending on `:engine` + whatever else they need. For the
+current module map see `settings.gradle.kts`.
 
 ### Choice providers (the input side of the same layering)
 

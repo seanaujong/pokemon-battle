@@ -45,6 +45,10 @@ these changes, this is the one place to edit.
 - All state changes happen exclusively through events (event sourcing). No phase
   mutates state directly.
 - All data classes use `val` only — no mutable state anywhere in the engine.
+  Top-level and class-level `var`s under `engine/src/main` are blocked by
+  `EngineImmutabilityInvariantTest` (diary 070); function-local `var`
+  accumulators are fine. This is what lets N battles run concurrently
+  in one JVM without shared-state contamination.
 - Phases are pure functions of `(state, choices) -> List<BattleEvent>`, testable
   in isolation.
 - Sealed hierarchies (`BattleEvent`, `MoveEffect`, `Volatile`, ...) enable
