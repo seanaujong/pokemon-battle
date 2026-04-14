@@ -1,0 +1,565 @@
+{
+    "metadata": {
+        "battleId": "0ba5c9e6-5166-4515-b744-1b2dd09ceefb",
+        "startedAtEpochMs": 1776208670254,
+        "endedAtEpochMs": 1776208670255,
+        "formatTag": "matrixEval-genv",
+        "playerTags": {
+            "SIDE_1": "RandomAI",
+            "SIDE_2": "RandomAI"
+        },
+        "clientInfo": "seed=2832"
+    },
+    "winner": "SIDE_2",
+    "turns": [
+        {
+            "turnNumber": 1,
+            "events": [
+                {
+                    "type": "com.pokemon.battle.engine.serialization.MoveOrderDecidedJson",
+                    "order": [
+                        {
+                            "side": "SIDE_1"
+                        },
+                        {
+                            "side": "SIDE_2"
+                        }
+                    ],
+                    "leadReason": "SPEED"
+                },
+                {
+                    "type": "com.pokemon.battle.engine.serialization.MoveAttemptedJson",
+                    "attacker": {
+                        "side": "SIDE_1"
+                    },
+                    "move": {
+                        "name": "Earthquake",
+                        "type": "GROUND",
+                        "category": "PHYSICAL",
+                        "power": 100,
+                        "target": "ALL_OTHER"
+                    }
+                },
+                {
+                    "type": "com.pokemon.battle.engine.serialization.DamageDealtJson",
+                    "target": {
+                        "side": "SIDE_2"
+                    },
+                    "amount": 52,
+                    "effectiveness": "NEUTRAL"
+                },
+                {
+                    "type": "com.pokemon.battle.engine.serialization.ItemDamageJson",
+                    "target": {
+                        "side": "SIDE_1"
+                    },
+                    "amount": 25,
+                    "item": "ROCKY_HELMET"
+                },
+                {
+                    "type": "com.pokemon.battle.engine.serialization.ItemDamageJson",
+                    "target": {
+                        "side": "SIDE_1"
+                    },
+                    "amount": 15,
+                    "item": "LIFE_ORB"
+                },
+                {
+                    "type": "com.pokemon.battle.engine.serialization.MoveAttemptedJson",
+                    "attacker": {
+                        "side": "SIDE_2"
+                    },
+                    "move": {
+                        "name": "Ice Beam",
+                        "type": "ICE",
+                        "category": "SPECIAL",
+                        "power": 90
+                    }
+                },
+                {
+                    "type": "com.pokemon.battle.engine.serialization.DamageDealtJson",
+                    "target": {
+                        "side": "SIDE_1"
+                    },
+                    "amount": 44,
+                    "effectiveness": "NEUTRAL"
+                }
+            ],
+            "replacementEvents": []
+        },
+        {
+            "turnNumber": 2,
+            "events": [
+                {
+                    "type": "com.pokemon.battle.engine.serialization.MoveOrderDecidedJson",
+                    "order": [
+                        {
+                            "side": "SIDE_1"
+                        },
+                        {
+                            "side": "SIDE_2"
+                        }
+                    ],
+                    "leadReason": "SPEED"
+                },
+                {
+                    "type": "com.pokemon.battle.engine.serialization.MoveAttemptedJson",
+                    "attacker": {
+                        "side": "SIDE_1"
+                    },
+                    "move": {
+                        "name": "Earthquake",
+                        "type": "GROUND",
+                        "category": "PHYSICAL",
+                        "power": 100,
+                        "target": "ALL_OTHER"
+                    }
+                },
+                {
+                    "type": "com.pokemon.battle.engine.serialization.DamageDealtJson",
+                    "target": {
+                        "side": "SIDE_2"
+                    },
+                    "amount": 56,
+                    "effectiveness": "NEUTRAL"
+                },
+                {
+                    "type": "com.pokemon.battle.engine.serialization.ItemDamageJson",
+                    "target": {
+                        "side": "SIDE_1"
+                    },
+                    "amount": 25,
+                    "item": "ROCKY_HELMET"
+                },
+                {
+                    "type": "com.pokemon.battle.engine.serialization.ItemDamageJson",
+                    "target": {
+                        "side": "SIDE_1"
+                    },
+                    "amount": 15,
+                    "item": "LIFE_ORB"
+                },
+                {
+                    "type": "com.pokemon.battle.engine.serialization.MoveAttemptedJson",
+                    "attacker": {
+                        "side": "SIDE_2"
+                    },
+                    "move": {
+                        "name": "Ice Beam",
+                        "type": "ICE",
+                        "category": "SPECIAL",
+                        "power": 90
+                    }
+                },
+                {
+                    "type": "com.pokemon.battle.engine.serialization.CriticalHitJson",
+                    "target": {
+                        "side": "SIDE_1"
+                    }
+                },
+                {
+                    "type": "com.pokemon.battle.engine.serialization.DamageDealtJson",
+                    "target": {
+                        "side": "SIDE_1"
+                    },
+                    "amount": 68,
+                    "effectiveness": "NEUTRAL"
+                },
+                {
+                    "type": "com.pokemon.battle.engine.serialization.PokemonFaintedJson",
+                    "slot": {
+                        "side": "SIDE_1"
+                    }
+                }
+            ],
+            "replacementEvents": [
+                {
+                    "type": "com.pokemon.battle.engine.serialization.SwitchInJson",
+                    "slot": {
+                        "side": "SIDE_1"
+                    },
+                    "benchIndex": 0
+                }
+            ]
+        },
+        {
+            "turnNumber": 3,
+            "events": [
+                {
+                    "type": "com.pokemon.battle.engine.serialization.MoveOrderDecidedJson",
+                    "order": [
+                        {
+                            "side": "SIDE_1"
+                        },
+                        {
+                            "side": "SIDE_2"
+                        }
+                    ],
+                    "leadReason": "SPEED"
+                },
+                {
+                    "type": "com.pokemon.battle.engine.serialization.MoveAttemptedJson",
+                    "attacker": {
+                        "side": "SIDE_1"
+                    },
+                    "move": {
+                        "name": "Flamethrower",
+                        "type": "FIRE",
+                        "category": "SPECIAL",
+                        "power": 90
+                    }
+                },
+                {
+                    "type": "com.pokemon.battle.engine.serialization.DamageDealtJson",
+                    "target": {
+                        "side": "SIDE_2"
+                    },
+                    "amount": 59,
+                    "effectiveness": "SUPER_EFFECTIVE"
+                },
+                {
+                    "type": "com.pokemon.battle.engine.serialization.PokemonFaintedJson",
+                    "slot": {
+                        "side": "SIDE_2"
+                    }
+                }
+            ],
+            "replacementEvents": [
+                {
+                    "type": "com.pokemon.battle.engine.serialization.SwitchInJson",
+                    "slot": {
+                        "side": "SIDE_2"
+                    },
+                    "benchIndex": 0
+                }
+            ]
+        },
+        {
+            "turnNumber": 4,
+            "events": [
+                {
+                    "type": "com.pokemon.battle.engine.serialization.MoveOrderDecidedJson",
+                    "order": [
+                        {
+                            "side": "SIDE_1"
+                        },
+                        {
+                            "side": "SIDE_2"
+                        }
+                    ],
+                    "leadReason": "SPEED"
+                },
+                {
+                    "type": "com.pokemon.battle.engine.serialization.MoveAttemptedJson",
+                    "attacker": {
+                        "side": "SIDE_1"
+                    },
+                    "move": {
+                        "name": "Earthquake",
+                        "type": "GROUND",
+                        "category": "PHYSICAL",
+                        "power": 100,
+                        "target": "ALL_OTHER"
+                    }
+                },
+                {
+                    "type": "com.pokemon.battle.engine.serialization.DamageDealtJson",
+                    "target": {
+                        "side": "SIDE_2"
+                    },
+                    "amount": 74,
+                    "effectiveness": "NEUTRAL"
+                },
+                {
+                    "type": "com.pokemon.battle.engine.serialization.MoveAttemptedJson",
+                    "attacker": {
+                        "side": "SIDE_2"
+                    },
+                    "move": {
+                        "name": "Ice Beam",
+                        "type": "ICE",
+                        "category": "SPECIAL",
+                        "power": 90
+                    }
+                },
+                {
+                    "type": "com.pokemon.battle.engine.serialization.CriticalHitJson",
+                    "target": {
+                        "side": "SIDE_1"
+                    }
+                },
+                {
+                    "type": "com.pokemon.battle.engine.serialization.DamageDealtJson",
+                    "target": {
+                        "side": "SIDE_1"
+                    },
+                    "amount": 232,
+                    "effectiveness": "SUPER_EFFECTIVE"
+                },
+                {
+                    "type": "com.pokemon.battle.engine.serialization.PokemonFaintedJson",
+                    "slot": {
+                        "side": "SIDE_1"
+                    }
+                }
+            ],
+            "replacementEvents": [
+                {
+                    "type": "com.pokemon.battle.engine.serialization.SwitchInJson",
+                    "slot": {
+                        "side": "SIDE_1"
+                    },
+                    "benchIndex": 0
+                }
+            ]
+        },
+        {
+            "turnNumber": 5,
+            "events": [
+                {
+                    "type": "com.pokemon.battle.engine.serialization.MoveOrderDecidedJson",
+                    "order": [
+                        {
+                            "side": "SIDE_1"
+                        },
+                        {
+                            "side": "SIDE_2"
+                        }
+                    ],
+                    "leadReason": "SPEED"
+                },
+                {
+                    "type": "com.pokemon.battle.engine.serialization.MoveAttemptedJson",
+                    "attacker": {
+                        "side": "SIDE_1"
+                    },
+                    "move": {
+                        "name": "Swords Dance",
+                        "type": "NORMAL",
+                        "category": "STATUS",
+                        "power": 0,
+                        "target": "SELF",
+                        "effects": [
+                            {
+                                "type": "com.pokemon.battle.model.MoveEffect.StatBoost",
+                                "stat": "ATTACK",
+                                "stages": 2
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "com.pokemon.battle.engine.serialization.StatChangedJson",
+                    "target": {
+                        "side": "SIDE_1"
+                    },
+                    "stat": "ATTACK",
+                    "stages": 2
+                },
+                {
+                    "type": "com.pokemon.battle.engine.serialization.MoveAttemptedJson",
+                    "attacker": {
+                        "side": "SIDE_2"
+                    },
+                    "move": {
+                        "name": "Sludge Bomb",
+                        "type": "POISON",
+                        "category": "SPECIAL",
+                        "power": 90
+                    }
+                },
+                {
+                    "type": "com.pokemon.battle.engine.serialization.DamageDealtJson",
+                    "target": {
+                        "side": "SIDE_1"
+                    },
+                    "amount": 0,
+                    "effectiveness": "IMMUNE"
+                }
+            ],
+            "replacementEvents": []
+        },
+        {
+            "turnNumber": 6,
+            "events": [
+                {
+                    "type": "com.pokemon.battle.engine.serialization.MoveOrderDecidedJson",
+                    "order": [
+                        {
+                            "side": "SIDE_1"
+                        },
+                        {
+                            "side": "SIDE_2"
+                        }
+                    ],
+                    "leadReason": "SPEED"
+                },
+                {
+                    "type": "com.pokemon.battle.engine.serialization.MoveAttemptedJson",
+                    "attacker": {
+                        "side": "SIDE_1"
+                    },
+                    "move": {
+                        "name": "Aura Sphere",
+                        "type": "FIGHTING",
+                        "category": "SPECIAL",
+                        "power": 80
+                    }
+                },
+                {
+                    "type": "com.pokemon.battle.engine.serialization.DamageDealtJson",
+                    "target": {
+                        "side": "SIDE_2"
+                    },
+                    "amount": 55,
+                    "effectiveness": "NEUTRAL"
+                },
+                {
+                    "type": "com.pokemon.battle.engine.serialization.MoveAttemptedJson",
+                    "attacker": {
+                        "side": "SIDE_2"
+                    },
+                    "move": {
+                        "name": "Ice Beam",
+                        "type": "ICE",
+                        "category": "SPECIAL",
+                        "power": 90
+                    }
+                },
+                {
+                    "type": "com.pokemon.battle.engine.serialization.DamageDealtJson",
+                    "target": {
+                        "side": "SIDE_1"
+                    },
+                    "amount": 21,
+                    "effectiveness": "NOT_VERY_EFFECTIVE"
+                }
+            ],
+            "replacementEvents": []
+        },
+        {
+            "turnNumber": 7,
+            "events": [
+                {
+                    "type": "com.pokemon.battle.engine.serialization.MoveOrderDecidedJson",
+                    "order": [
+                        {
+                            "side": "SIDE_1"
+                        },
+                        {
+                            "side": "SIDE_2"
+                        }
+                    ],
+                    "leadReason": "SPEED"
+                },
+                {
+                    "type": "com.pokemon.battle.engine.serialization.MoveAttemptedJson",
+                    "attacker": {
+                        "side": "SIDE_1"
+                    },
+                    "move": {
+                        "name": "Thunderbolt",
+                        "type": "ELECTRIC",
+                        "category": "SPECIAL",
+                        "power": 90
+                    }
+                },
+                {
+                    "type": "com.pokemon.battle.engine.serialization.DamageDealtJson",
+                    "target": {
+                        "side": "SIDE_2"
+                    },
+                    "amount": 86,
+                    "effectiveness": "SUPER_EFFECTIVE"
+                },
+                {
+                    "type": "com.pokemon.battle.engine.serialization.PokemonFaintedJson",
+                    "slot": {
+                        "side": "SIDE_2"
+                    }
+                }
+            ],
+            "replacementEvents": [
+                {
+                    "type": "com.pokemon.battle.engine.serialization.SwitchInJson",
+                    "slot": {
+                        "side": "SIDE_2"
+                    },
+                    "benchIndex": 0
+                }
+            ]
+        },
+        {
+            "turnNumber": 8,
+            "events": [
+                {
+                    "type": "com.pokemon.battle.engine.serialization.MoveOrderDecidedJson",
+                    "order": [
+                        {
+                            "side": "SIDE_1"
+                        },
+                        {
+                            "side": "SIDE_2"
+                        }
+                    ],
+                    "leadReason": "SPEED"
+                },
+                {
+                    "type": "com.pokemon.battle.engine.serialization.MoveAttemptedJson",
+                    "attacker": {
+                        "side": "SIDE_1"
+                    },
+                    "move": {
+                        "name": "Swords Dance",
+                        "type": "NORMAL",
+                        "category": "STATUS",
+                        "power": 0,
+                        "target": "SELF",
+                        "effects": [
+                            {
+                                "type": "com.pokemon.battle.model.MoveEffect.StatBoost",
+                                "stat": "ATTACK",
+                                "stages": 2
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "com.pokemon.battle.engine.serialization.StatChangedJson",
+                    "target": {
+                        "side": "SIDE_1"
+                    },
+                    "stat": "ATTACK",
+                    "stages": 2
+                },
+                {
+                    "type": "com.pokemon.battle.engine.serialization.MoveAttemptedJson",
+                    "attacker": {
+                        "side": "SIDE_2"
+                    },
+                    "move": {
+                        "name": "Flamethrower",
+                        "type": "FIRE",
+                        "category": "SPECIAL",
+                        "power": 90
+                    }
+                },
+                {
+                    "type": "com.pokemon.battle.engine.serialization.DamageDealtJson",
+                    "target": {
+                        "side": "SIDE_1"
+                    },
+                    "amount": 124,
+                    "effectiveness": "SUPER_EFFECTIVE"
+                },
+                {
+                    "type": "com.pokemon.battle.engine.serialization.PokemonFaintedJson",
+                    "slot": {
+                        "side": "SIDE_1"
+                    }
+                }
+            ],
+            "replacementEvents": []
+        }
+    ]
+}

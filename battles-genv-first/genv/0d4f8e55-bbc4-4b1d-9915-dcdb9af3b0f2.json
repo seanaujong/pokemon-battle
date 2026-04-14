@@ -1,0 +1,262 @@
+{
+    "metadata": {
+        "battleId": "0d4f8e55-bbc4-4b1d-9915-dcdb9af3b0f2",
+        "startedAtEpochMs": 1776208670286,
+        "endedAtEpochMs": 1776208670286,
+        "formatTag": "matrixEval-genv",
+        "playerTags": {
+            "SIDE_1": "HeuristicAI",
+            "SIDE_2": "RandomAI"
+        },
+        "clientInfo": "seed=4852"
+    },
+    "winner": "SIDE_1",
+    "turns": [
+        {
+            "turnNumber": 1,
+            "events": [
+                {
+                    "type": "com.pokemon.battle.engine.serialization.MoveOrderDecidedJson",
+                    "order": [
+                        {
+                            "side": "SIDE_1"
+                        },
+                        {
+                            "side": "SIDE_2"
+                        }
+                    ],
+                    "leadReason": "SPEED"
+                },
+                {
+                    "type": "com.pokemon.battle.engine.serialization.MoveAttemptedJson",
+                    "attacker": {
+                        "side": "SIDE_1"
+                    },
+                    "move": {
+                        "name": "Nasty Plot",
+                        "type": "DARK",
+                        "category": "STATUS",
+                        "power": 0,
+                        "target": "SELF",
+                        "effects": [
+                            {
+                                "type": "com.pokemon.battle.model.MoveEffect.StatBoost",
+                                "stat": "SPECIAL_ATTACK",
+                                "stages": 2
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "com.pokemon.battle.engine.serialization.StatChangedJson",
+                    "target": {
+                        "side": "SIDE_1"
+                    },
+                    "stat": "SPECIAL_ATTACK",
+                    "stages": 2
+                },
+                {
+                    "type": "com.pokemon.battle.engine.serialization.MoveAttemptedJson",
+                    "attacker": {
+                        "side": "SIDE_2"
+                    },
+                    "move": {
+                        "name": "Nasty Plot",
+                        "type": "DARK",
+                        "category": "STATUS",
+                        "power": 0,
+                        "target": "SELF",
+                        "effects": [
+                            {
+                                "type": "com.pokemon.battle.model.MoveEffect.StatBoost",
+                                "stat": "SPECIAL_ATTACK",
+                                "stages": 2
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "com.pokemon.battle.engine.serialization.StatChangedJson",
+                    "target": {
+                        "side": "SIDE_2"
+                    },
+                    "stat": "SPECIAL_ATTACK",
+                    "stages": 2
+                }
+            ],
+            "replacementEvents": []
+        },
+        {
+            "turnNumber": 2,
+            "events": [
+                {
+                    "type": "com.pokemon.battle.engine.serialization.MoveOrderDecidedJson",
+                    "order": [
+                        {
+                            "side": "SIDE_1"
+                        },
+                        {
+                            "side": "SIDE_2"
+                        }
+                    ],
+                    "leadReason": "SPEED"
+                },
+                {
+                    "type": "com.pokemon.battle.engine.serialization.MoveAttemptedJson",
+                    "attacker": {
+                        "side": "SIDE_1"
+                    },
+                    "move": {
+                        "name": "Flamethrower",
+                        "type": "FIRE",
+                        "category": "SPECIAL",
+                        "power": 90
+                    }
+                },
+                {
+                    "type": "com.pokemon.battle.engine.serialization.DamageDealtJson",
+                    "target": {
+                        "side": "SIDE_2"
+                    },
+                    "amount": 322,
+                    "effectiveness": "SUPER_EFFECTIVE"
+                },
+                {
+                    "type": "com.pokemon.battle.engine.serialization.PokemonFaintedJson",
+                    "slot": {
+                        "side": "SIDE_2"
+                    }
+                },
+                {
+                    "type": "com.pokemon.battle.engine.serialization.ItemDamageJson",
+                    "target": {
+                        "side": "SIDE_1"
+                    },
+                    "amount": 15,
+                    "item": "LIFE_ORB"
+                }
+            ],
+            "replacementEvents": [
+                {
+                    "type": "com.pokemon.battle.engine.serialization.SwitchInJson",
+                    "slot": {
+                        "side": "SIDE_2"
+                    },
+                    "benchIndex": 0
+                }
+            ]
+        },
+        {
+            "turnNumber": 3,
+            "events": [
+                {
+                    "type": "com.pokemon.battle.engine.serialization.MoveOrderDecidedJson",
+                    "order": [
+                        {
+                            "side": "SIDE_1"
+                        },
+                        {
+                            "side": "SIDE_2"
+                        }
+                    ],
+                    "leadReason": "SPEED"
+                },
+                {
+                    "type": "com.pokemon.battle.engine.serialization.MoveAttemptedJson",
+                    "attacker": {
+                        "side": "SIDE_1"
+                    },
+                    "move": {
+                        "name": "Thunderbolt",
+                        "type": "ELECTRIC",
+                        "category": "SPECIAL",
+                        "power": 90
+                    }
+                },
+                {
+                    "type": "com.pokemon.battle.engine.serialization.DamageDealtJson",
+                    "target": {
+                        "side": "SIDE_2"
+                    },
+                    "amount": 193,
+                    "effectiveness": "SUPER_EFFECTIVE"
+                },
+                {
+                    "type": "com.pokemon.battle.engine.serialization.PokemonFaintedJson",
+                    "slot": {
+                        "side": "SIDE_2"
+                    }
+                },
+                {
+                    "type": "com.pokemon.battle.engine.serialization.ItemDamageJson",
+                    "target": {
+                        "side": "SIDE_1"
+                    },
+                    "amount": 15,
+                    "item": "LIFE_ORB"
+                }
+            ],
+            "replacementEvents": [
+                {
+                    "type": "com.pokemon.battle.engine.serialization.SwitchInJson",
+                    "slot": {
+                        "side": "SIDE_2"
+                    },
+                    "benchIndex": 0
+                }
+            ]
+        },
+        {
+            "turnNumber": 4,
+            "events": [
+                {
+                    "type": "com.pokemon.battle.engine.serialization.MoveOrderDecidedJson",
+                    "order": [
+                        {
+                            "side": "SIDE_1"
+                        },
+                        {
+                            "side": "SIDE_2"
+                        }
+                    ],
+                    "leadReason": "SPEED"
+                },
+                {
+                    "type": "com.pokemon.battle.engine.serialization.MoveAttemptedJson",
+                    "attacker": {
+                        "side": "SIDE_1"
+                    },
+                    "move": {
+                        "name": "Thunderbolt",
+                        "type": "ELECTRIC",
+                        "category": "SPECIAL",
+                        "power": 90
+                    }
+                },
+                {
+                    "type": "com.pokemon.battle.engine.serialization.DamageDealtJson",
+                    "target": {
+                        "side": "SIDE_2"
+                    },
+                    "amount": 171,
+                    "effectiveness": "SUPER_EFFECTIVE"
+                },
+                {
+                    "type": "com.pokemon.battle.engine.serialization.PokemonFaintedJson",
+                    "slot": {
+                        "side": "SIDE_2"
+                    }
+                },
+                {
+                    "type": "com.pokemon.battle.engine.serialization.ItemDamageJson",
+                    "target": {
+                        "side": "SIDE_1"
+                    },
+                    "amount": 15,
+                    "item": "LIFE_ORB"
+                }
+            ],
+            "replacementEvents": []
+        }
+    ]
+}

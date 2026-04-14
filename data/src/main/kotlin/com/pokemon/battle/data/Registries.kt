@@ -85,3 +85,58 @@ val GenVRegistries: Registries =
             )
         Registries(items = items, abilities = abilities)
     }
+
+/**
+ * The Gen IV [Registries] bundle — a strict subset of [GenVRegistries] dropping
+ * effects introduced in Gen V or later. Built from Smogon-style generational
+ * data (diary 087): items / abilities present in Gen IV metagames, excluding
+ * anything that debuted afterward.
+ *
+ * Dropped items (Gen V+): Eviolite (Gen 5), Rocky Helmet (Gen 5), Red Card
+ * (Gen 5), Weakness Policy (Gen 6), Heavy-Duty Boots (Gen 8).
+ * Dropped abilities: Sand Rush (Gen 5), Sand Force (Gen 5), Emergency Exit (Gen 7).
+ *
+ * Kept: everything introduced in Gen 4 or earlier, plus Sturdy (our
+ * implementation matches Gen 5+'s "survive from full HP" behavior — strictly
+ * speaking wrong for Gen 4, but the inconsistency is noted in diary 087 and
+ * kept pending a gen-specific `SturdyEffect` implementation).
+ *
+ * Not a pre-shipped production bundle — a *forcing function* to exercise the
+ * "swap the registry, everything else compiles" claim from diary 071.
+ */
+val GenIVRegistries: Registries =
+    run {
+        val abilities =
+            AbilityRegistry(
+                listOf(
+                    IntimidateEffect,
+                    DrizzleEffect,
+                    DroughtEffect,
+                    LevitateEffect,
+                    SandVeilEffect,
+                    SnowCloakEffect,
+                    IceBodyEffect,
+                    BlazeEffect,
+                    OvergrowEffect,
+                    TorrentEffect,
+                    KlutzEffect,
+                    SturdyEffect,
+                    NaturalCureEffect,
+                ),
+            )
+        val items =
+            ItemRegistry(
+                effects =
+                    listOf(
+                        LeftoversEffect,
+                        FocusSashEffect,
+                        LifeOrbEffect,
+                        ChoiceBandEffect,
+                        ChoiceSpecsEffect,
+                        ChoiceScarfEffect,
+                        SitrusBerryEffect,
+                    ),
+                abilities = abilities,
+            )
+        Registries(items = items, abilities = abilities)
+    }

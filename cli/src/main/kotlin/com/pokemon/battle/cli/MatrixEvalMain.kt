@@ -6,6 +6,7 @@ import com.pokemon.battle.ai.SideProviders
 import com.pokemon.battle.ai.SidedAI
 import com.pokemon.battle.ai.TypeAI
 import com.pokemon.battle.analytics.BattleCorpus
+import com.pokemon.battle.data.GenIVRegistries
 import com.pokemon.battle.data.GenVRegistries
 import com.pokemon.battle.data.MoveDex
 import com.pokemon.battle.data.Pokedex
@@ -52,7 +53,14 @@ private const val DIVIDER_LEN = 72
 @Suppress("LongMethod", "CyclomaticComplexMethod")
 fun main(args: Array<String>) {
     val battlesPerMatchup = args.firstOrNull()?.toIntOrNull() ?: DEFAULT_BATTLES_PER_MATCHUP
-    val outputDir = Path.of("battles")
+    val genArg = args.getOrNull(1)?.lowercase() ?: "genv"
+    val registries =
+        when (genArg) {
+            "geniv", "gen4" -> GenIVRegistries
+            "genv", "gen5", "gen5+" -> GenVRegistries
+            else -> error("Unknown gen: $genArg (expected geniv | genv)")
+        }
+    val outputDir = Path.of("battles/$genArg")
     val recorder = FileBattleRecorder(outputDir)
 
     val pokedex = Pokedex.loadFromClasspath()
@@ -80,10 +88,28 @@ fun main(args: Array<String>) {
                     seed = seed,
                 )
 
+            // Items and abilities are set at state-construction time. Charizard's Life
+            // Orb is legal in both gens; Venusaur's Rocky Helmet is Gen 5+ — in Gen IV
+            // the item is unregistered so Venusaur holds it inertly. That asymmetry is
+            // the entire point of the Gen IV vs Gen V comparison (diary 087).
+            val side1Active =
+                PokemonState(
+                    side1Pool.pokemon[0],
+                    currentHp = side1Pool.pokemon[0].maxHp,
+                    ability = com.pokemon.battle.model.Ability.BLAZE,
+                    item = com.pokemon.battle.model.Item.LIFE_ORB,
+                )
+            val side2Active =
+                PokemonState(
+                    side2Pool.pokemon[0],
+                    currentHp = side2Pool.pokemon[0].maxHp,
+                    ability = com.pokemon.battle.model.Ability.OVERGROW,
+                    item = com.pokemon.battle.model.Item.ROCKY_HELMET,
+                )
             val initialState =
                 BattleState.singles(
-                    PokemonState(side1Pool.pokemon[0], currentHp = side1Pool.pokemon[0].maxHp),
-                    PokemonState(side2Pool.pokemon[0], currentHp = side2Pool.pokemon[0].maxHp),
+                    side1Active,
+                    side2Active,
                     p1Bench = side1Pool.pokemon.drop(1).map { PokemonState(it, currentHp = it.maxHp) },
                     p2Bench = side2Pool.pokemon.drop(1).map { PokemonState(it, currentHp = it.maxHp) },
                 )
@@ -91,16 +117,16 @@ fun main(args: Array<String>) {
             val pipeline =
                 TurnPipeline(
                     listOf(
-                        MoveOrderPhase(GenVRegistries),
-                        SwitchPhase(GenVRegistries),
-                        MoveExecutionPhase(GenVRegistries),
-                        EndOfTurnPhase(GenVRegistries),
+                        MoveOrderPhase(registries),
+                        SwitchPhase(registries),
+                        MoveExecutionPhase(registries),
+                        EndOfTurnPhase(registries),
                     ),
                 )
 
             val metadata =
                 BattleMetadataFactory.forNewBattle(
-                    formatTag = "matrixEval",
+                    formatTag = "matrixEval-$genArg",
                     playerTags = mapOf(Side.SIDE_1.name to side1Strategy.name, Side.SIDE_2.name to side2Strategy.name),
                     // Record the RandomAI seed so every battle file is reproducible — drop
                     // this battleId back into a replay harness and the exact same choices
@@ -112,7 +138,7 @@ fun main(args: Array<String>) {
                     pipeline = pipeline,
                     choiceProvider = providers,
                     faintReplacementProvider = providers,
-                    registries = GenVRegistries,
+                    registries = registries,
                     maxTurns = MAX_TURNS,
                 ).run(initialState)
             recorder.record(result, metadata.withEnded())
