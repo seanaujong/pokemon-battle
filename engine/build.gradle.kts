@@ -36,6 +36,14 @@ detekt {
     buildUponDefaultConfig = true
 }
 
+// Generated catalog (diary 064) — its format is owned by the codegen template,
+// not ktlint. The PokedexCodegenTest in :data-ingestion enforces format drift.
+ktlint {
+    filter {
+        exclude { it.file.path.endsWith("PokedexCatalog.kt") }
+    }
+}
+
 kotlin {
     jvmToolchain(17)
 }

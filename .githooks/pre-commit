@@ -14,4 +14,10 @@ echo "Running detekt..."
     exit 1
 }
 
+echo "Running PokedexCatalog drift check..."
+./gradlew :data-ingestion:test --tests "*PokedexCodegenTest*" --daemon -q || {
+    echo "PokedexCatalog.kt is stale. Run './gradlew :data-ingestion:codegenSpecies' and re-stage."
+    exit 1
+}
+
 echo "All checks passed."
