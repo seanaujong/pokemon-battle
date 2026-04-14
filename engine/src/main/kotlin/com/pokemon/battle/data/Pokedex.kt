@@ -37,10 +37,43 @@ object Pokedex {
         return Files.list(directory).use { stream ->
             stream
                 .filter { it.extension == "json" }
+                .filter { it.fileName.toString() != "index.txt" }
                 .map { json.decodeFromString(SpeciesJson.serializer(), it.readText()).toDomain() }
                 .toList()
                 .associateBy { it.name }
         }
+    }
+
+    /**
+     * Loads ingested species from the JVM classpath. Reads
+     * `pokedex/species/index.txt` (the manifest written by the ingestion CLI) and
+     * pulls each listed `<slug>.json`. This is the runtime-friendly counterpart to
+     * [loadFromJsonDirectory]; together with [loadFromClasspath] (legacy CSV) the
+     * three loaders cover the test, runtime, and legacy paths.
+     */
+    fun loadJsonFromClasspath(
+        manifestPath: String = "pokedex/species/index.txt",
+        speciesDir: String = "pokedex/species",
+    ): Map<String, Species> {
+        val classLoader = Pokedex::class.java.classLoader
+        val manifestStream =
+            classLoader.getResourceAsStream(manifestPath)
+                ?: error("Species manifest not found on classpath: $manifestPath")
+        val slugs =
+            manifestStream.bufferedReader().useLines { lines ->
+                lines.map { it.trim() }
+                    .filter { it.isNotEmpty() && !it.startsWith("#") }
+                    .toList()
+            }
+        return slugs
+            .map { slug ->
+                val resourcePath = "$speciesDir/$slug.json"
+                val stream =
+                    classLoader.getResourceAsStream(resourcePath)
+                        ?: error("Manifest references missing resource: $resourcePath")
+                json.decodeFromString(SpeciesJson.serializer(), stream.bufferedReader().readText()).toDomain()
+            }
+            .associateBy { it.name }
     }
 
     private fun parseLine(line: String): Species {

@@ -31,6 +31,16 @@ object SpeciesTransform {
         speciesName: String,
     ): Int = this[key] ?: error("Missing stat '$key' in PokeAPI response for '$speciesName'")
 
-    /** PokeAPI uses lowercase-hyphen slugs (`mr-mime`); engine names are SCREAMING_SNAKE. */
-    private fun normalizeName(slug: String): String = slug.uppercase().replace('-', '_')
+    /**
+     * PokeAPI uses lowercase-hyphen slugs (`great-tusk`, `iron-valiant`); the engine
+     * uses display-cased names (`Great Tusk`, `Iron Valiant`) since `Species.name` is
+     * rendered in event text ("Charizard used Flamethrower!"). Hyphens become spaces;
+     * each word title-cased.
+     */
+    private fun normalizeName(slug: String): String =
+        slug
+            .split('-')
+            .joinToString(" ") { word ->
+                word.replaceFirstChar { it.uppercaseChar() }
+            }
 }

@@ -32,7 +32,7 @@ class SpeciesTransformTest {
 
         val result = SpeciesTransform.transform(raw)
 
-        assertEquals("PIKACHU", result.name)
+        assertEquals("Pikachu", result.name)
         assertEquals(listOf("ELECTRIC"), result.types)
         assertEquals(35, result.baseHp)
         assertEquals(55, result.baseAttack)
@@ -69,7 +69,7 @@ class SpeciesTransformTest {
     }
 
     @Test
-    fun `hyphenated slugs are normalized to SCREAMING_SNAKE`() {
+    fun `hyphenated slugs become title-cased display names`() {
         val raw =
             """
             {
@@ -88,7 +88,7 @@ class SpeciesTransformTest {
 
         val result = SpeciesTransform.transform(raw)
 
-        assertEquals("MR_MIME", result.name)
+        assertEquals("Mr Mime", result.name)
     }
 
     @Test

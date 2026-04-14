@@ -54,4 +54,14 @@ fun main() {
         println("${skipped.size} target(s) skipped (not found in PokeAPI; check the slug):")
         skipped.forEach { println("  $it") }
     }
+
+    // Manifest of slugs successfully ingested — the runtime classpath loader reads
+    // this to know which species JSON files to load. Skipped targets are not listed.
+    val manifest =
+        targets.filter { it !in skipped }
+            .sorted()
+            .joinToString("\n", postfix = "\n")
+    val manifestPath = OUTPUT_DIR.resolve("index.txt")
+    Files.writeString(manifestPath, manifest)
+    println("Wrote manifest: $manifestPath (${targets.size - skipped.size} entries)")
 }
