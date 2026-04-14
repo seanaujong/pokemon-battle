@@ -136,19 +136,34 @@ switches need to consult all volatiles and potentially trigger cleanup on partne
 **Scope for us:** Niche. Add `Volatile.SkyDropUser(target: Slot)` and
 `Volatile.SkyDropTarget(captor: Slot)`; forced-switch logic checks both.
 
-### 7. Gimmick slot unification + derived movepool
+### 7. Gimmicks: raw history in engine, budget policy in Ruleset
 
 **Mega** changes stats/ability/type. **Z-Moves** replace the used move and use the slot
 for the battle. **Dynamax** doubles HP, replaces movepool with Max moves, ends after 3
 turns. **Tera** overrides type; Stellar adds per-type-use counters.
 
+**The budget rules vary by format:**
+
+| Ruleset | Gimmick budget |
+|---------|----------------|
+| Pokemon Champions / modern VGC | One gimmick (of any kind) per side per battle |
+| Smogon National Dex | One Mega AND one Z AND one Dynamax per side per battle |
+| Gen 9 VGC (Reg H / Reg I) | Tera only, once per side per battle |
+
+So "single unified slot" is a *Pokemon Champions policy*, not an architectural truth.
+Smogon National Dex explicitly allows multiple gimmick kinds simultaneously.
+
 **Engine impact:**
-- Single `GimmickState` per side (the Pokemon Champions insight)
-- Each gimmick is consumed by a **pre-move phase** that can mutate the Pokemon's effective
+- `Side.gimmicksUsed: List<UsedGimmick>` — raw history only
+- `Ruleset.canUseGimmick(kind, priorUsage): Boolean` — ruleset answers legality
+- Each gimmick is consumed by a **pre-move phase** that mutates the Pokemon's effective
   state for the duration
 - Dynamax especially: max HP temporarily doubles (store the base, derive the double)
 - Movepool derivation: Z-Move computed from held Z-crystal + base move; Max moves
   computed from base move type
+
+**Principle:** the engine holds raw state, the ruleset holds policy. Don't bake budget
+rules into state shape — a different format will always come along with different rules.
 
 **Scope for us:** Approachable as a future phase. Diary 025's weather-boost pattern
 shows the shape: new state field on the side, consulted in calc.
@@ -227,16 +242,21 @@ Wave only hit adjacent slots; positions shift as fainted Pokemon are replaced.
 Synthesizing the research report, there are six design moves worth baking into our
 architecture even before implementing the specific mechanics that demand them:
 
-1. **Pluggable `Ruleset`** that gates choice legality and tweaks calc/format
-2. **Single `GimmickState` slot with a sealed variant** per side per battle (not parallel
-   booleans for Mega/Z/Dynamax/Tera)
+1. **Pluggable `Ruleset`** that gates choice legality, owns cross-cutting policy
+   (gimmick budgets, banlists, win conditions, format-specific calc tweaks), and tweaks
+   the type chart (Inverse, Monotype)
+2. **Raw history in engine, policy in Ruleset.** Gimmick usage is stored as
+   `List<UsedGimmick>` per side; the `Ruleset` decides legality (one-per-battle for
+   Champions, one-per-kind for National Dex, Tera-only for Gen 9 VGC). Don't bake
+   format-specific budget rules into state shape
 3. **`sides: List<Side>`** with variable active-slot counts and a pluggable `WinCondition`,
    not hardcoded 2-side assumptions
 4. **Stats/types/ability/moveset always derived**, never stored post-switch-in
 5. **Event bus with hooks on intent AND resolution**, so Pursuit, Magic Bounce, Dancer,
    Stakeout can fire at the right semantic moment
 6. **Scheduler abstraction general enough** to swap the turn pipeline for an action-speed
-   queue (Legends Arceus) without rewriting phases
+   queue (Legends Arceus) without rewriting phases — but note that LA-scale divergence is
+   probably better served by a sibling engine (see diary 031)
 
 ## What we should actually do about this in our scope
 
@@ -244,7 +264,7 @@ Our project is a tutorial-turned-usable-sim. We don't need to support every gen 
 format. But we *do* want the seams to allow growth without rewriting.
 
 **High-value, low-cost upgrades to do before more features:**
-- (2) Unified `GimmickState` — currently vacuous but the shape prevents regrets later
+- (2) `GimmickState` shape — see addendum below on *policy vs state*
 - (4) Expand `effective*` derivations — we have `effectiveTypes`; add `effectiveAbility`,
   `effectiveBaseStats` as getters on `PokemonState` now, even if they just return defaults
 - (10) `Ruleset` stub — even an empty `Ruleset` object passed through the pipeline
@@ -287,6 +307,7 @@ keep arriving at.
 - **Diary 027** — Ability registry (second application)
 - **Diary 028** — Data-shape divergence (what registries can't fix)
 - **Diary 029** — Move-behavior registry (next pattern application)
+- **Diary 031** — Engine scope and when to fork (the Legends Arceus question)
 - **This diary (030)** — meta-view: what seams the engine will need as gens keep coming
 
 ## Sources
