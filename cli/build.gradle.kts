@@ -10,6 +10,12 @@ application {
     mainClass.set("com.pokemon.battle.cli.PlayMainKt")
 }
 
+// Forward stdin so humans (and scripted agents) can interact with the CLI.
+// Without this, Gradle's daemon swallows input and prompts block forever.
+tasks.named<JavaExec>("run") {
+    standardInput = System.`in`
+}
+
 // Engine resources (species JSON) are loaded from the classpath, so no workingDir
 // override is needed here — unlike :data-ingestion which reads repo-root files.
 
