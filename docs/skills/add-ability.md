@@ -17,11 +17,12 @@ different hooks. Read `add-item.md` first if you haven't added an item before.
 
 ## Preconditions
 
-- Your ability maps to an existing hook on `AbilityEffect`. Today's hooks:
-  `attackerDamageModifier`, `defenderDamageModifier`, `interceptIncomingDamage`,
-  `speedModifier`, `onSwitchIn`, `blocksMove`, `blocksWeatherDamage`,
-  `suppressesHeldItem`, `onHpThresholdCrossed`. If your ability needs a new
-  hook, see *Extensions*.
+- Your ability maps to an existing hook on `AbilityEffect`. Check the source
+  for the current hook inventory — this doc drifts otherwise. As of diary
+  072, the hooks are `onSwitchIn`, `blocksMove`, `onMoveAbsorbed`,
+  `blocksWeatherDamage`, `attackerDamageModifier`, `defenderDamageModifier`,
+  `interceptIncomingDamage`, `suppressesHeldItem`, `speedModifier`,
+  `onHpThresholdCrossed`. If your ability needs a new hook, see *Extensions*.
 - Green `./gradlew test` as a baseline.
 
 ## Minimum guarantees

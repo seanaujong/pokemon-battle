@@ -235,6 +235,34 @@ class AbilityTest {
         assertEquals(-1, statChanged[0].stages)
     }
 
+    // --- Drought ---
+
+    @Test
+    fun `Drought sets sun on switch-in`() {
+        val battleState =
+            BattleState.singles(
+                state(pokemon(normalSpecies)),
+                state(pokemon(normalSpecies)),
+                p1Bench = listOf(state(pokemon(normalSpecies), ability = Ability.DROUGHT)),
+            )
+        val choices =
+            TurnChoices.singles(
+                TurnChoice.Switch(benchIndex = 0),
+                TurnChoice.UseMove(tackle),
+            )
+
+        val phase = SwitchPhase(GenVRegistries)
+        val events = phase.resolve(PipelineState(battleState), choices).events
+        val newState = events.filterIsInstance<com.pokemon.battle.engine.GameEvent>().fold(battleState) { s, e -> e.apply(s) }
+
+        val triggered = events.filterIsInstance<AbilityTriggered>()
+        assertEquals(1, triggered.size)
+        assertEquals(Ability.DROUGHT, triggered[0].ability)
+
+        assertEquals(Weather.SUN, newState.field.weather)
+        assertEquals(5, newState.field.weatherTurnsRemaining)
+    }
+
     // --- Drizzle ---
 
     @Test

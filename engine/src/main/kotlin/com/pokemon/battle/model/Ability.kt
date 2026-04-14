@@ -21,6 +21,7 @@ enum class Ability {
     // Switch-in triggers
     INTIMIDATE,
     DRIZZLE,
+    DROUGHT,
 
     // Damage immunity
     LEVITATE,

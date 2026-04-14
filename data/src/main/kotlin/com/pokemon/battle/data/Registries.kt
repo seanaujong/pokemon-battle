@@ -2,6 +2,7 @@ package com.pokemon.battle.data
 
 import com.pokemon.battle.data.ability.BlazeEffect
 import com.pokemon.battle.data.ability.DrizzleEffect
+import com.pokemon.battle.data.ability.DroughtEffect
 import com.pokemon.battle.data.ability.EmergencyExitEffect
 import com.pokemon.battle.data.ability.IceBodyEffect
 import com.pokemon.battle.data.ability.IntimidateEffect
@@ -45,6 +46,7 @@ val GenVRegistries: Registries =
                 listOf(
                     IntimidateEffect,
                     DrizzleEffect,
+                    DroughtEffect,
                     LevitateEffect,
                     SandVeilEffect,
                     SandRushEffect,
