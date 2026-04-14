@@ -57,8 +57,11 @@ You want a Pokemon to have a passive battle effect the engine doesn't model.
 5. **Optional: custom render text** at
    `render/src/main/kotlin/com/pokemon/battle/render/ability/<Name>Text.kt`.
    The renderer falls back to a generic `"X's AbilityName!"` if you skip this.
-6. **Write a behavior test** in
-   `engine/src/test/kotlin/com/pokemon/battle/<Name>Test.kt`.
+6. **Write a behavior test.** Most abilities get grouped under
+   `engine/src/test/kotlin/com/pokemon/battle/AbilityTest.kt` with a
+   `// --- AbilityName ---` section header; look at the existing sections
+   for the template. A standalone `<Name>Test.kt` is fine if your ability
+   has rich multi-scenario coverage (e.g. `KlutzTest`, `PinchTypeBoostTest`).
 7. **Validate:** `./gradlew test ktlintCheck detekt`. Commit.
 
 ## Extensions
