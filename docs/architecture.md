@@ -460,6 +460,19 @@ seam for gen-specific variants (`GenIVItemRegistry` vs `GenVItemRegistry`). Do t
 *when* the pattern is visible, not before — three items was the sweet spot for us.
 Diary 026 has the full story.
 
+**Registries turn multi-gen support into a data-loading problem, not an engine problem.**
+Once behavior is extracted from the engine into per-entity effect objects, a gen-specific
+variant of the engine is just a different set of objects registered. The engine itself
+never asks "what gen am I?" — it consults whichever registry the pipeline was built with.
+Diary 032 audited every real move change across 9 gens (Knock Off's power and damage
+formula evolution, Defog gaining hazard-clear, Toxic's accuracy changes, Weather Ball's
+weather-type switching, Hidden Power's removal, and dozens more) and found **zero cases**
+requiring `if (gen == X)` branches in engine code. Every change decomposes into a data
+CSV diff or a registry re-registration. This is the strongest architectural validation
+we have for the pattern: it scales not just to more entries per gen, but to more *gens*
+without engine changes. The registry pattern isn't just a convenience — it's the only
+way we've found to keep the engine gen-agnostic.
+
 **The engine doesn't enforce legality.** No learnset validation, no move count limits,
 no species-ability restrictions. This wasn't a shortcut — it's a design choice that
 makes custom formats (Hackmons, Almost Any Ability) work without engine changes.
