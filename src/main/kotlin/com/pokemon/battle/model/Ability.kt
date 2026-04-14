@@ -27,4 +27,10 @@ enum class Ability {
 
     // Item suppression
     KLUTZ,
+
+    // Pre-damage intercept (Focus-Sash-like on ability side)
+    STURDY,
+
+    // Post-damage HP-threshold forced switch
+    EMERGENCY_EXIT,
 }

@@ -9,4 +9,5 @@ enum class Item {
     CHOICE_SCARF,
     EVIOLITE,
     SITRUS_BERRY,
+    RED_CARD,
 }

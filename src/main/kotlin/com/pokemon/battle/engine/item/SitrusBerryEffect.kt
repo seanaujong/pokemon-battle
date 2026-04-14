@@ -20,6 +20,7 @@ object SitrusBerryEffect : ItemEffect {
     override fun onHpThresholdCrossed(
         holder: PokemonState,
         slot: Slot,
+        state: com.pokemon.battle.engine.BattleState,
         previousHp: Int,
         currentHp: Int,
     ): List<BattleEvent> {

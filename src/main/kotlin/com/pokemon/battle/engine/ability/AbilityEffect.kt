@@ -2,6 +2,7 @@ package com.pokemon.battle.engine.ability
 
 import com.pokemon.battle.engine.BattleEvent
 import com.pokemon.battle.engine.BattleState
+import com.pokemon.battle.engine.DamageAdjustment
 import com.pokemon.battle.model.Ability
 import com.pokemon.battle.model.Move
 import com.pokemon.battle.model.PokemonState
@@ -72,6 +73,18 @@ interface AbilityEffect {
     ): Double = 1.0
 
     /**
+     * Intercept incoming damage before it applies (Sturdy). Mirrors
+     * [com.pokemon.battle.engine.item.ItemEffect.interceptIncomingDamage] on the ability
+     * side. Abilities return [DamageAdjustment.consumed] = false (abilities aren't consumed).
+     * Checked before items by the caller; if the ability intercepts, the item hook is
+     * skipped.
+     */
+    fun interceptIncomingDamage(
+        defender: PokemonState,
+        rawDamage: Int,
+    ): DamageAdjustment? = null
+
+    /**
      * True if this ability suppresses the holder's held item (Klutz). Consulted by
      * [com.pokemon.battle.engine.item.ItemRegistry.effectForHolder] to decide if the
      * item's effect should fire.
@@ -80,6 +93,19 @@ interface AbilityEffect {
 
     /** Speed multiplier on the holder (future: Swift Swim 2x in rain, Sand Rush 2x in sand). */
     fun speedModifier(holder: PokemonState): Double = 1.0
+
+    /**
+     * Fired after the holder takes damage. Mirrors
+     * [com.pokemon.battle.engine.item.ItemEffect.onHpThresholdCrossed]. Used for
+     * Emergency Exit (forced switch when HP drops to/below 50%) and similar.
+     */
+    fun onHpThresholdCrossed(
+        holder: PokemonState,
+        slot: Slot,
+        state: BattleState,
+        previousHp: Int,
+        currentHp: Int,
+    ): List<BattleEvent> = emptyList()
 
     /**
      * Game-text for when this ability triggers (switch-in announcement, absorb message).

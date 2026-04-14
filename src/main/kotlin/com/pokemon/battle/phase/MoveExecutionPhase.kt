@@ -1,6 +1,7 @@
 package com.pokemon.battle.phase
 
 import com.pokemon.battle.engine.AbilityBlocked
+import com.pokemon.battle.engine.AbilityTriggered
 import com.pokemon.battle.engine.BattleEvent
 import com.pokemon.battle.engine.BattleState
 import com.pokemon.battle.engine.ChanceCheck
@@ -284,63 +285,122 @@ class MoveExecutionPhase(
         val spreadMod = if (isSpread) 0.75 else 1.0
 
         for (targetSlot in targets) {
-            val attacker = currentState.pokemonFor(attackerSlot)
-            val defender = currentState.pokemonFor(targetSlot)
-
-            if (defender.isFainted) continue
-
-            val blockingAbility = abilityBlockingMove(defender, move)
-            if (blockingAbility != null) {
-                events.add(AbilityBlocked(targetSlot, blockingAbility))
-                continue
-            }
-
-            // Crit roll: 1 in 24 chance (~4.2%) in Gen V+
-            val isCritical = roll(1..24) == 1
-            val result = damageCalculator.calculate(attacker, defender, move, roll, spreadMod, isCritical, currentState.field.weather)
-
-            // Defender's item may intercept the damage (e.g. Focus Sash).
-            val intercept = ItemRegistry.effectForHolder(defender)?.interceptIncomingDamage(defender, result.damage)
-            val finalDamage = intercept?.adjustedDamage ?: result.damage
-
-            val damageEvent =
-                DamageDealt(
-                    target = targetSlot,
-                    amount = finalDamage,
-                    effectiveness = result.effectiveness,
-                    critical = isCritical,
-                )
-            events.add(damageEvent)
-            currentState = damageEvent.apply(currentState)
-
-            if (intercept?.consumed == true && defender.item != null) {
-                val consumed = ItemConsumed(targetSlot, defender.item)
-                events.add(consumed)
-                currentState = consumed.apply(currentState)
-            }
-
-            // Post-damage HP-threshold items (Sitrus Berry, pinch berries).
-            val defenderAfter = currentState.pokemonFor(targetSlot)
-            if (!defenderAfter.isFainted) {
-                val thresholdEvents =
-                    ItemRegistry.effectForHolder(defenderAfter)
-                        ?.onHpThresholdCrossed(defenderAfter, targetSlot, defender.currentHp, defenderAfter.currentHp)
-                        ?: emptyList()
-                for (event in thresholdEvents) {
-                    events.add(event)
-                    currentState = event.apply(currentState)
-                }
-            }
-
-            if (currentState.pokemonFor(targetSlot).isFainted) {
-                val faintEvent = PokemonFainted(targetSlot)
-                events.add(faintEvent)
-                currentState = faintEvent.apply(currentState)
+            val perTargetEvents = resolveDamagePerTarget(currentState, attackerSlot, targetSlot, move, spreadMod)
+            for (event in perTargetEvents) {
+                events.add(event)
+                currentState = event.apply(currentState)
             }
         }
 
         events.addAll(resolveAttackerItemEffects(currentState, attackerSlot, move, events))
         return events
+    }
+
+    @Suppress(
+        "LongMethod",
+        "CyclomaticComplexMethod",
+    ) // Per-target damage pipeline: intercept, apply, post-hooks, faint. Linearly composed.
+    private fun resolveDamagePerTarget(
+        state: BattleState,
+        attackerSlot: Slot,
+        targetSlot: Slot,
+        move: Move,
+        spreadMod: Double,
+    ): List<BattleEvent> {
+        val attacker = state.pokemonFor(attackerSlot)
+        val defender = state.pokemonFor(targetSlot)
+
+        if (defender.isFainted) return emptyList()
+
+        val blockingAbility = abilityBlockingMove(defender, move)
+        if (blockingAbility != null) return listOf(AbilityBlocked(targetSlot, blockingAbility))
+
+        val events = mutableListOf<BattleEvent>()
+        var currentState = state
+
+        // Crit roll: 1 in 24 chance (~4.2%) in Gen V+
+        val isCritical = roll(1..24) == 1
+        val result = damageCalculator.calculate(attacker, defender, move, roll, spreadMod, isCritical, currentState.field.weather)
+
+        // Defender's ability (Sturdy) or item (Focus Sash) may intercept the damage.
+        // Ability checked first — if Sturdy saves, the Sash isn't consumed.
+        val abilityIntercept = AbilityRegistry.effectFor(defender.ability)?.interceptIncomingDamage(defender, result.damage)
+        val itemIntercept =
+            if (abilityIntercept == null) {
+                ItemRegistry.effectForHolder(defender)?.interceptIncomingDamage(defender, result.damage)
+            } else {
+                null
+            }
+        val intercept = abilityIntercept ?: itemIntercept
+        val finalDamage = intercept?.adjustedDamage ?: result.damage
+
+        val damageEvent = DamageDealt(targetSlot, finalDamage, result.effectiveness, isCritical)
+        events.add(damageEvent)
+        currentState = damageEvent.apply(currentState)
+
+        if (abilityIntercept != null && defender.ability != null) {
+            val triggered = AbilityTriggered(targetSlot, defender.ability)
+            events.add(triggered)
+            currentState = triggered.apply(currentState)
+        }
+        if (intercept?.consumed == true && defender.item != null) {
+            val consumed = ItemConsumed(targetSlot, defender.item)
+            events.add(consumed)
+            currentState = consumed.apply(currentState)
+        }
+
+        // Post-damage defender hooks
+        val thresholdEvents = thresholdEvents(currentState, targetSlot, defender.currentHp)
+        for (event in thresholdEvents) {
+            events.add(event)
+            currentState = event.apply(currentState)
+        }
+        val onHitEvents = onHitEvents(currentState, targetSlot, attackerSlot, finalDamage)
+        for (event in onHitEvents) {
+            events.add(event)
+            currentState = event.apply(currentState)
+        }
+
+        if (currentState.pokemonFor(targetSlot).isFainted) {
+            events.add(PokemonFainted(targetSlot))
+        }
+        return events
+    }
+
+    /** Post-damage HP-threshold hooks: items (Sitrus, pinch berries) + abilities (Emergency Exit). */
+    private fun thresholdEvents(
+        state: BattleState,
+        targetSlot: Slot,
+        previousHp: Int,
+    ): List<BattleEvent> {
+        val defenderAfter = state.pokemonFor(targetSlot)
+        if (defenderAfter.isFainted) return emptyList()
+        val events = mutableListOf<BattleEvent>()
+        events.addAll(
+            ItemRegistry.effectForHolder(defenderAfter)
+                ?.onHpThresholdCrossed(defenderAfter, targetSlot, state, previousHp, defenderAfter.currentHp)
+                ?: emptyList(),
+        )
+        events.addAll(
+            AbilityRegistry.effectFor(defenderAfter.ability)
+                ?.onHpThresholdCrossed(defenderAfter, targetSlot, state, previousHp, defenderAfter.currentHp)
+                ?: emptyList(),
+        )
+        return events
+    }
+
+    /** On-hit hooks: items that react to the attacker (Red Card, future Rocky Helmet). */
+    private fun onHitEvents(
+        state: BattleState,
+        targetSlot: Slot,
+        attackerSlot: Slot,
+        damageDealt: Int,
+    ): List<BattleEvent> {
+        val defender = state.pokemonFor(targetSlot)
+        if (defender.isFainted || damageDealt <= 0) return emptyList()
+        return ItemRegistry.effectForHolder(defender)
+            ?.onHolderTookDamage(defender, targetSlot, state.pokemonFor(attackerSlot), attackerSlot, state, damageDealt)
+            ?: emptyList()
     }
 
     /** Attacker's held item may fire a post-damage effect (e.g. Life Orb recoil, Choice lock). */

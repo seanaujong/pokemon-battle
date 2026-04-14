@@ -1,5 +1,6 @@
 package com.pokemon.battle.engine.item
 
+import com.pokemon.battle.engine.DamageAdjustment
 import com.pokemon.battle.model.Item
 import com.pokemon.battle.model.PokemonState
 
