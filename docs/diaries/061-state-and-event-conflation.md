@@ -1,7 +1,7 @@
 # Diary 061: Game vs pipeline conflation in state and events
 
 **Date:** 2026-04-14
-**Status:** Plan — not started. Queued for the refactor-backlog review.
+**Status:** In progress (2026-04-14). Backlog review concluded this is the next refactor.
 
 ## The observation
 
@@ -155,6 +155,49 @@ end-to-end; once that's on main, this diary's split is mechanical.
 
 The cost of waiting is one more session's worth of contributors
 reading "two kinds of state in one type." Acceptable.
+
+## Updated evidence after Phase 2+3 shipped
+
+The backlog review (post-555 Phase 3) found three new pieces of code
+that this refactor would actively *simplify*, not just polish:
+
+1. **`MoveExecutionPhase.slotAlreadyActed` and `slotIsMidSelfSwitch`**
+   reverse-engineer pipeline progress by scanning
+   `state.partialTurnEvents` for `MoveAttempted` + absence of
+   `TurnPausedForInput`. With explicit phase progression on
+   `PipelineState`, these heuristics disappear — the pipeline tells the
+   phase what to do, instead of the phase guessing.
+
+2. **`BattleState.pausedPhaseIndex`** is the third pipeline-state
+   field on the "game state" type (after `pendingInput` and
+   `partialTurnEvents`). Three fields a game-only consumer must ignore.
+
+3. **`MoveStep` data class** threads an optional `pauseRequest`
+   through `resolveSelfSwitch` → `executeMove` → `checkStatusThenExecute`
+   → top-level `resolve`. Fine for one mechanic; will compound for the
+   next. With `PhaseOutput.Paused` already carrying the request and a
+   cleaner pipeline-progression model, this plumbing simplifies.
+
+These weren't smells *before* Phase 2 — they were the natural shape of
+"add mid-turn prompts on top of a single conflated state." Phase 2
+proved the conflation costs real code. The refactor is now load-bearing,
+not aesthetic.
+
+## Tooling note
+
+This refactor includes:
+- Splitting `sealed interface BattleEvent` into a marker + two
+  sub-hierarchies (`GameEvent`, `ControlEvent`) → ~35 event subclasses
+  need their declared supertype changed.
+- Moving 3 fields out of `BattleState`.
+- Updating `apply()` signatures on the two control events to take
+  `PipelineState` instead of `BattleState`.
+
+Per preflight rule #2 in CLAUDE.md, the ~35-event retype is exactly
+IntelliJ's home turf (a semantic refactor knows which subclasses to
+move; sed would be brittle and noisy). The plan: hand-write the new
+types and the pipeline rewiring; ask the user to run IntelliJ for the
+mass retype of event subclasses to `GameEvent`.
 
 ## Meta-note: refactor backlog
 
