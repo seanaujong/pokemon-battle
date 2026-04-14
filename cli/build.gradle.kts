@@ -24,6 +24,17 @@ tasks.register<JavaExec>("demo") {
     standardInput = System.`in`
 }
 
+// Batch runner — plays N AI-vs-AI battles, records each to `./battles/`, and
+// prints aggregate stats. Usage: `./gradlew :cli:batchDemo --args="200"`.
+// See diary 078 for the motivation.
+tasks.register<JavaExec>("batchDemo") {
+    group = "application"
+    description = "Run N AI-vs-AI battles, persist to ./battles/, print aggregates."
+    mainClass.set("com.pokemon.battle.cli.BatchDemoMainKt")
+    classpath = sourceSets["main"].runtimeClasspath
+    workingDir = rootProject.projectDir
+}
+
 // Engine resources (species JSON) are loaded from the classpath, so no workingDir
 // override is needed here — unlike :data-ingestion which reads repo-root files.
 
@@ -39,6 +50,8 @@ dependencies {
     implementation(project(":data"))
     implementation(project(":render"))
     implementation(project(":ai"))
+    implementation(project(":persistence"))
+    implementation(project(":analytics"))
     testImplementation(kotlin("test"))
 }
 
