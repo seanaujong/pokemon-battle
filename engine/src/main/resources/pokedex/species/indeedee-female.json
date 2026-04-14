@@ -1,0 +1,13 @@
+{
+    "name": "INDEEDEE_FEMALE",
+    "types": [
+        "PSYCHIC",
+        "NORMAL"
+    ],
+    "baseHp": 70,
+    "baseAttack": 55,
+    "baseDefense": 65,
+    "baseSpecialAttack": 95,
+    "baseSpecialDefense": 105,
+    "baseSpeed": 85
+}

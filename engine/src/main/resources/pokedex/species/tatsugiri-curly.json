@@ -1,0 +1,13 @@
+{
+    "name": "TATSUGIRI_CURLY",
+    "types": [
+        "DRAGON",
+        "WATER"
+    ],
+    "baseHp": 68,
+    "baseAttack": 50,
+    "baseDefense": 60,
+    "baseSpecialAttack": 120,
+    "baseSpecialDefense": 95,
+    "baseSpeed": 82
+}

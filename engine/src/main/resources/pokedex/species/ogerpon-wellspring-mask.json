@@ -1,0 +1,13 @@
+{
+    "name": "OGERPON_WELLSPRING_MASK",
+    "types": [
+        "GRASS",
+        "WATER"
+    ],
+    "baseHp": 80,
+    "baseAttack": 120,
+    "baseDefense": 84,
+    "baseSpecialAttack": 60,
+    "baseSpecialDefense": 96,
+    "baseSpeed": 110
+}

@@ -1,0 +1,13 @@
+{
+    "name": "KELDEO_ORDINARY",
+    "types": [
+        "WATER",
+        "FIGHTING"
+    ],
+    "baseHp": 91,
+    "baseAttack": 72,
+    "baseDefense": 90,
+    "baseSpecialAttack": 129,
+    "baseSpecialDefense": 90,
+    "baseSpeed": 108
+}

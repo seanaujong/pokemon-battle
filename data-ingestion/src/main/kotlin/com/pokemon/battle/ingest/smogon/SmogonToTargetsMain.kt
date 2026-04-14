@@ -59,14 +59,38 @@ fun main() {
     }
 }
 
+/**
+ * Smogon writes a species' base name when the species has multiple forms but
+ * Smogon's competitive context implies a default. PokeAPI requires the explicit
+ * default-form slug. This table maps the basenames we know about; extend as
+ * Smogon surfaces new ones.
+ */
+private val SLUG_ALIASES =
+    mapOf(
+        "indeedee-f" to "indeedee-female",
+        "indeedee-m" to "indeedee-male",
+        "jellicent" to "jellicent-male",
+        "keldeo" to "keldeo-ordinary",
+        "landorus" to "landorus-incarnate",
+        "ogerpon-hearthflame" to "ogerpon-hearthflame-mask",
+        "ogerpon-wellspring" to "ogerpon-wellspring-mask",
+        "tatsugiri" to "tatsugiri-curly",
+        "tornadus" to "tornadus-incarnate",
+        "urshifu" to "urshifu-single-strike",
+    )
+
 // Smogon display name to PokeAPI slug. Lowercase, spaces to dashes, drop dots
-// and apostrophes (so "Mr. Mime" to "mr-mime", "Farfetch'd" to "farfetchd").
-// Form-suffixed names like "Tatsugiri-Stretchy" come through as-is; PokeAPI uses
-// the same dashed slugs.
-fun toPokeApiSlug(displayName: String): String =
-    displayName
-        .lowercase()
-        .replace(' ', '-')
-        .replace(".", "")
-        .replace("'", "")
-        .replace(":", "")
+// and apostrophes (so "Mr. Mime" becomes "mr-mime", "Farfetch'd" becomes "farfetchd").
+// Form-suffixed names like "Tatsugiri-Stretchy" mostly pass through; for
+// default-form basenames PokeAPI rejects (Tatsugiri, Urshifu, etc.), see
+// [SLUG_ALIASES] above.
+fun toPokeApiSlug(displayName: String): String {
+    val basic =
+        displayName
+            .lowercase()
+            .replace(' ', '-')
+            .replace(".", "")
+            .replace("'", "")
+            .replace(":", "")
+    return SLUG_ALIASES[basic] ?: basic
+}

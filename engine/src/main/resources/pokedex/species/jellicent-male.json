@@ -1,0 +1,13 @@
+{
+    "name": "JELLICENT_MALE",
+    "types": [
+        "WATER",
+        "GHOST"
+    ],
+    "baseHp": 100,
+    "baseAttack": 60,
+    "baseDefense": 70,
+    "baseSpecialAttack": 85,
+    "baseSpecialDefense": 105,
+    "baseSpeed": 60
+}

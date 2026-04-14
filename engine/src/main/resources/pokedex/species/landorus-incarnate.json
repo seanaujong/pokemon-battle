@@ -1,0 +1,13 @@
+{
+    "name": "LANDORUS_INCARNATE",
+    "types": [
+        "GROUND",
+        "FLYING"
+    ],
+    "baseHp": 89,
+    "baseAttack": 125,
+    "baseDefense": 90,
+    "baseSpecialAttack": 115,
+    "baseSpecialDefense": 80,
+    "baseSpeed": 101
+}

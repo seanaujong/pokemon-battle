@@ -1,0 +1,55 @@
+{
+    "name": "urshifu-single-strike",
+    "types": [
+        {
+            "slot": 1,
+            "type": {
+                "name": "fighting"
+            }
+        },
+        {
+            "slot": 2,
+            "type": {
+                "name": "dark"
+            }
+        }
+    ],
+    "stats": [
+        {
+            "base_stat": 100,
+            "stat": {
+                "name": "hp"
+            }
+        },
+        {
+            "base_stat": 130,
+            "stat": {
+                "name": "attack"
+            }
+        },
+        {
+            "base_stat": 100,
+            "stat": {
+                "name": "defense"
+            }
+        },
+        {
+            "base_stat": 63,
+            "stat": {
+                "name": "special-attack"
+            }
+        },
+        {
+            "base_stat": 60,
+            "stat": {
+                "name": "special-defense"
+            }
+        },
+        {
+            "base_stat": 97,
+            "stat": {
+                "name": "speed"
+            }
+        }
+    ]
+}

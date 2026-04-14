@@ -1,0 +1,55 @@
+{
+    "name": "landorus-incarnate",
+    "types": [
+        {
+            "slot": 1,
+            "type": {
+                "name": "ground"
+            }
+        },
+        {
+            "slot": 2,
+            "type": {
+                "name": "flying"
+            }
+        }
+    ],
+    "stats": [
+        {
+            "base_stat": 89,
+            "stat": {
+                "name": "hp"
+            }
+        },
+        {
+            "base_stat": 125,
+            "stat": {
+                "name": "attack"
+            }
+        },
+        {
+            "base_stat": 90,
+            "stat": {
+                "name": "defense"
+            }
+        },
+        {
+            "base_stat": 115,
+            "stat": {
+                "name": "special-attack"
+            }
+        },
+        {
+            "base_stat": 80,
+            "stat": {
+                "name": "special-defense"
+            }
+        },
+        {
+            "base_stat": 101,
+            "stat": {
+                "name": "speed"
+            }
+        }
+    ]
+}
