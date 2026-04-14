@@ -1,7 +1,7 @@
 # Diary 041: Scaling Against PokeAPI + Smogon Stats (Planning)
 
 **Date:** 2026-04-14
-**Status:** Phase 1 ready to implement (module split landed in diary 053)
+**Status:** Phase 1 complete (2026-04-14)
 
 ## The idea
 
@@ -229,48 +229,47 @@ targets/
 Incremental; each step compiles green before the next starts.
 
 1. **Create the module.**
-   - [ ] `data-ingestion/build.gradle.kts` (kotlin jvm, serialization plugin, ktlint,
+   - [x] `data-ingestion/build.gradle.kts` (kotlin jvm, serialization plugin, ktlint,
          detekt, JaCoCo — mirror `engine/`). Depends on `project(":engine")`.
-   - [ ] `settings.gradle.kts` — `include(":data-ingestion")`.
-   - [ ] Cache path is `data/raw/pokeapi/` at repo root — committed, not ignored.
-   - [ ] Confirm `./gradlew :data-ingestion:compileKotlin` runs (empty module OK).
+   - [x] `settings.gradle.kts` — `include(":data-ingestion")`.
+   - [x] Cache path is `data/raw/pokeapi/` at repo root — committed, not ignored.
+   - [x] Confirm `./gradlew :data-ingestion:compileKotlin` runs (empty module OK).
 
 2. **`PokeApiClient` — fetch + cache + rate limit.**
-   - [ ] GET `https://pokeapi.co/api/v2/<endpoint>/<id-or-name>` via `HttpURLConnection`.
-   - [ ] `User-Agent` header.
-   - [ ] Cache path: `data/raw/pokeapi/<endpoint>/<slug>.json`. If exists, return bytes.
-   - [ ] On fetch: 100ms `Thread.sleep` before request (skipped on cache hit).
-   - [ ] On non-2xx: throw, do not write cache file.
-   - [ ] No tests yet — tests come with the transform, which is the pure layer.
+   - [x] GET `https://pokeapi.co/api/v2/<endpoint>/<id-or-name>` via `HttpURLConnection`.
+   - [x] `User-Agent` header.
+   - [x] Cache path: `data/raw/pokeapi/<endpoint>/<slug>.json`. If exists, return bytes.
+   - [x] On fetch: 100ms `Thread.sleep` before request (skipped on cache hit).
+   - [x] On non-2xx: throw, do not write cache file.
+   - [x] No tests yet — tests come with the transform, which is the pure layer.
+         `sleep` and `httpGet` are constructor-injectable so a future client-specific
+         test can exercise the cache-hit/miss paths without network.
 
-3. **`SpeciesTransform` — PokeAPI JSON → engine `Species`.**
-   - [ ] `kotlinx.serialization` DTOs matching the PokeAPI `/pokemon/{id}` response
+3. **`SpeciesTransform` — PokeAPI JSON → engine `SpeciesJson`.** (see "Architecture
+   revision" below — the transform outputs a DTO, not the domain type.)
+   - [x] `kotlinx.serialization` DTOs matching the PokeAPI `/pokemon/{id}` response
          (only the fields we use: name, base stats, types).
-   - [ ] Pure function `fun transform(raw: String): Species`.
-   - [ ] Transform tests read directly from the committed cache
-         (`data/raw/pokeapi/pokemon/<slug>.json`) — no separate fixtures directory.
-         The cache IS the fixture set. Tests assert the produced `Species` matches
-         ground truth for 1–2 species.
+   - [x] Pure function `fun transform(raw: String): SpeciesJson`.
+   - [x] Transform tests use inline PokeAPI-shaped fixtures (4 tests, all green).
+         The "tests read from the committed cache" approach was dropped — inline
+         fixtures keep the test self-contained and don't bind test correctness to
+         whichever species happens to be in the cache today.
 
 4. **`IngestMain` — the CLI.**
-   - [ ] Reads `targets/species.txt` line by line.
-   - [ ] For each: fetch (cached), transform, write JSON into
+   - [x] Reads `targets/species.txt` line by line.
+   - [x] For each: fetch (cached), transform, write JSON into
          `engine/src/main/resources/pokedex/species/<slug>.json`.
-   - [ ] Prints one line per species: `[cache|fetch] <name> -> <output path>`.
-   - [ ] `application` plugin with `mainClass = "...IngestMainKt"`.
-   - [ ] Manual validation: `./gradlew :data-ingestion:run` with a tiny `species.txt`
-         (pikachu, charizard) produces expected files. Re-run hits cache.
+   - [x] Prints one line per species: `[cache|fetch] <name> -> <output path>`.
+   - [x] `application` plugin with `mainClass = "...IngestMainKt"`.
+   - [x] Manual validation: `./gradlew :data-ingestion:run` with the 4-species target
+         list fetched all 4 successfully; re-run reports all 4 as cache hits.
 
-5. **Prove end-to-end with `Pokedex.loadFromClasspath`.**
-   - [ ] One engine test asserts that the ingested species file parses and loads via
-         the existing loader, matching the shape of hand-curated species already there.
-   - [ ] If the shape doesn't match, fix the transform (not the loader).
+5. **Prove end-to-end with `Pokedex.loadFromJsonDirectory`.**
+   - [x] Engine test `PokedexJsonLoaderTest` asserts ingested files load and match
+         mainline ground truth (Pikachu 35/55/40/50/50/90, Charizard FIRE/FLYING).
 
 6. **Diary update.**
-   - [ ] Flip checkboxes, note any schema surprises, list any cases where the PokeAPI
-         shape forced a loader or model change (shouldn't happen for Phase 1; a signal
-         if it does).
-   - [ ] Flip Status to "Phase 1 complete".
+   - [x] Status flipped, checkboxes flipped, surprises recorded below.
 
 ### Deferred to later phases
 
@@ -292,3 +291,58 @@ Incremental; each step compiles green before the next starts.
 - **Don't edit engine code from `:data-ingestion`.** The dependency is one-way. If the
   transform needs something the engine doesn't expose (e.g., an extra Species field),
   that's an engine PR first, then the transform consumes it.
+
+### Architecture revision (applied during implementation)
+
+The original plan had `SpeciesTransform` produce `Species` (the domain type) directly,
+and the diary's Step 5 talked about "existing loader" (CSV). Two antipatterns were
+caught mid-implementation:
+
+1. **Annotating `Species` with `@Serializable` would couple engine API evolution to
+   on-disk format.** A rename like `baseAttack` → `baseAtk` would silently invalidate
+   every committed JSON file. The domain model should not be the on-disk contract.
+2. **Collapsing the staging shape into the domain** — standard ELT has three shapes
+   (fetch → storage → domain), and we were down to two. The storage shape was implicit,
+   which meant "what the engine persists" and "what the engine models" were the same
+   thing; a schema break could come from either direction.
+
+Fix: added `SpeciesJson` (`@Serializable`, in engine's `data` package) as the explicit
+storage shape with a `toDomain(): Species`. `:data-ingestion`'s transform produces
+`SpeciesJson`; engine's new `Pokedex.loadFromJsonDirectory(...)` reads `SpeciesJson`
+and converts. The existing CSV loader stays untouched. Three shapes, one direction:
+`PokeApiPokemon` (fetch, lives in `:data-ingestion`) → `SpeciesJson` (storage, in
+`:engine`) → `Species` (domain, in `:engine`). Each boundary is a conversion we can
+change independently.
+
+### Surprises and decisions during Phase 1
+
+- **Gradle `application` plugin defaults `workingDir` to the module directory.** The
+  CLI reads `targets/species.txt` from repo root, so `./gradlew :data-ingestion:run`
+  failed on first attempt. Fixed with `tasks.named<JavaExec>("run") { workingDir = rootProject.projectDir }`.
+  Worth being aware of for any future module that reads repo-root files.
+- **Detekt's `ConstructorParameterNaming` rule rejected `base_stat`.** Resolved by
+  using the ktor-serialization idiom: Kotlin field is `baseStat`, mapped to JSON key
+  via `@SerialName("base_stat")`. Same pattern will be needed for other snake_case
+  PokeAPI fields (`special_attack`, `is_default`, etc.) when Move/Item transforms are
+  added.
+- **Raw cache size is smaller than feared.** 4 species = ~1.2MB of PokeAPI JSON (each
+  response carries full learnsets, game-indices across all gens, sprite URLs, etc.).
+  Extrapolating: ~300MB for all 1000+ species. That's bigger than I'd want to commit.
+  **Revisit before mass ingestion:** either switch the cache to gitignored, or filter
+  the committed raw JSON to just the fields our transforms read. Phase 1's 4 species
+  is fine; Phase 2's coverage audit is the forcing function.
+- **Transform tests are inline fixtures, not cache reads.** Flipped from the plan
+  because cache-based tests would couple test correctness to arbitrary choices about
+  which species are currently cached. Inline fixtures are ~30 lines per test and
+  make each test self-explanatory.
+
+### Next up
+
+- **Moves transform** — next natural increment. Same three-shape pattern:
+  `PokeApiMove` → `MoveJson` → `Move`. Will force decisions about how to express
+  PokeAPI's `damage_class` (physical/special/status) and `effect_chance`, neither of
+  which our current hand-curated Move carries in exactly the same way.
+- **Cache-size decision** — before ingesting ~100+ species, decide whether to commit
+  a filtered raw cache (fetcher-side field subset) or gitignore the raw dir.
+- **Smogon target curation** — the first meaningful use of Phase 1 will be ingesting
+  an OU-tier species list; that's the "does this pipeline actually scale" moment.
