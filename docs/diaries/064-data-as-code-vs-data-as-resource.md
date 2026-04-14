@@ -111,6 +111,35 @@ Three reasons the user is right to want them side-by-side:
    doesn't — both shapes converge on `Species` domain values. That's a real
    property of the existing layering worth preserving as a checkpoint.
 
+### Update: the deeper reason — different consumer types, not just dev preference
+
+Initial framing above treated the two paths as roughly equivalent ways to
+reach the same data, with dev ergonomics as the main differentiator. That
+undersells the JSON loader. **Generated symbols are a write-time-only
+construct: they only help consumers that know their species at compile
+time.** The moment a consumer is dynamic — meaning the species name comes
+from outside the codebase — symbols are useless and the JSON loader is the
+only working path:
+
+| Consumer | Knows species at | Lookup style required |
+|---|---|---|
+| Tests, internal play setups, hand-coded AI move pools | Compile time | Symbol works (`PokedexCatalog.CHARIZARD`) |
+| Web UI accepting `{"species": "Charizard"}` over JSON | Runtime | String required (`pokedex["Charizard"]`) |
+| MCP tool with a `selectSpecies` argument | Runtime | String required |
+| Networked server reading client team-builder selections | Runtime | String required |
+| Modding system loading user-defined species | Runtime | String required |
+| Analytics tool walking a saved replay's `partialTurnEvents` | Runtime | String required |
+
+A single web UI shipping post-this-diary makes the JSON loader load-bearing.
+The catalog isn't an alternative the project might or might not want — it's
+a dev-time convenience layered on top of the (mandatory) runtime path.
+
+This reframes "keep both" from *"interesting comparison"* to *"both are
+required for any real client beyond local play."* PlayMain happens to be a
+write-time consumer, so it could go either way; we picked symbols there
+because the call site reads better. Anything dynamic must use the JSON
+loader.
+
 ## Codebase isolation design
 
 For "isolated" to mean something concrete:
