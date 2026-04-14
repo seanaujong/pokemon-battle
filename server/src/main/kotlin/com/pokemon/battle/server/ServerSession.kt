@@ -81,6 +81,11 @@ class ServerSession(
             emit(ErrorMessage(ex.message ?: "session aborted"))
         } catch (ex: IllegalArgumentException) {
             emit(ErrorMessage(ex.message ?: "session aborted"))
+        } catch (ex: java.io.IOException) {
+            // Recorder failures (disk full, permissions) or stream failures — emit an
+            // error and close cleanly rather than let the server crash mid-session.
+            // Finding from diary 082's retroactive review.
+            emit(ErrorMessage("I/O error: ${ex.message ?: "unknown"}"))
         }
     }
 

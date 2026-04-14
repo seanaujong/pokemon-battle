@@ -159,25 +159,65 @@ Each feature or chunk of work follows this cycle:
    - Open design questions discovered along the way
 3. **Implement incrementally** — Work through the plan step by step. Run `./gradlew compileKotlin` or `./gradlew test` after each step to stay green.
 4. **Validate** — Every step must have a concrete "green" signal before moving on. Tests are the primary validation mechanism since the core logic is pure functions.
-5. **Code review** — After implementation, review all changed files by asking these diagnostic questions. Write findings to `docs/diaries/temp/` as a temporary review doc. Fix the obvious ones, flag architectural questions for discussion.
+5. **Code review — inside the diary, not a separate temp doc.** After
+   implementation, write a `## Code review` section in the diary for
+   this work. Walking the diagnostic checklist below is the cost of
+   shipping, not an optional extra. Fix the obvious findings in the
+   same commit; flag architectural questions for discussion in a
+   follow-up. If there are *no* findings, that's a fine outcome — note
+   it explicitly ("reviewed, no changes needed") so the section isn't
+   missing.
+
+   **Why in-diary:** the `docs/diaries/temp/` convention let these
+   reviews quietly go missing. Diary 082 retroactively caught this —
+   we'd skipped the step across a whole refactor wave. Embedding the
+   review in the permanent diary makes skipping visible on grep.
+
+   **Mandatory diagnostics:**
    - Is it testable in isolation? If not, what's blocking it?
-   - Is it readable? Is it intuitive? Could a new team member understand the intent and would the API match how you'd explain it?
-   - What layer does each piece belong to? Does it depend on things it shouldn't?
-   - Is understanding colocated, or is one concept scattered across the codebase?
+   - Is it readable? Is it intuitive? Could a new team member
+     understand the intent and would the API match how you'd explain it?
+   - What layer does each piece belong to? Does it depend on things it
+     shouldn't?
+   - Is understanding colocated, or is one concept scattered across the
+     codebase?
    - Are we making a choice that's hard to reverse later?
-   - Is it auditable? If this produced unexpected output, could you trace back *why* from the system's own records?
+   - Is it auditable? If this produced unexpected output, could you
+     trace back *why* from the system's own records?
    - What's the happy path? Can you state the main success flow simply?
-   - What happens when this fails? Are the failure modes visible, not silent?
+   - What happens when this fails? Are the failure modes visible, not
+     silent?
    - Is there duplicated logic?
    - Can this represent an illegal state that shouldn't exist?
-   - What assumptions or invariants does this code rely on? Are they enforced or just in our heads?
+   - What assumptions or invariants does this code rely on? Are they
+     enforced or just in our heads?
    - Is there mutation where a pure function is expected?
-   - Do the names match the domain? Would a domain expert use these words, or have we invented jargon? Are we using one name for two different concepts?
-   - Do the changes fit cleanly into the existing layers, or is the new code blurring them together?
-   - If we needed to remove this, how easy would it be? Is it entangled with code that should be independent?
-   - Does anything else feel off that isn't covered above? Flag it — the checklist has blind spots.
-   - Think about other codebases, domains, or resources on the Internet (use web search). Is there a question we can add to the checklist to catch any problems we had this time? Can we add an axis to our thinking?
-6. **Clean up** — Delete the temp review doc from `docs/diaries/temp/` once fixes are applied.
+   - Do the names match the domain? Would a domain expert use these
+     words, or have we invented jargon? Are we using one name for two
+     different concepts?
+   - Do the changes fit cleanly into the existing layers, or is the
+     new code blurring them together?
+   - If we needed to remove this, how easy would it be? Is it
+     entangled with code that should be independent?
+   - Does anything else feel off that isn't covered above? Flag it —
+     the checklist has blind spots.
+   - Think about other codebases, domains, or resources on the
+     Internet (use web search). Is there a question we can add to the
+     checklist to catch any problems we had this time? Can we add an
+     axis to our thinking?
+
+   **Mandatory for substantial changes — industry comparison.** If the
+   change introduces a new module, a new interface consumers depend
+   on, a new data format, or a new workflow shape, name the closest
+   industry analog and state explicitly where we agree, disagree, or
+   deliberately differ. Diary 081 mapped our batch/analytics pipeline
+   against Parquet / Kafka / Iceberg / Gym / DuckDB; that comparison
+   belongs *in the review*, not as a separate diary that only happens
+   if someone thinks to ask. For small changes (new item, new event,
+   bug fix) the comparison is usually trivial — say so and move on.
+6. **Clean up** — Previous guidance pointed at `docs/diaries/temp/`;
+   that convention is retired as of diary 082. Reviews live in their
+   diary permanently.
 7. **Update the diary** — Mark steps done, record decisions made, note anything surprising.
 8. **Look ahead** — Where should we go from here? What do these changes let us work on next?
 9. **Commit** — When the user asks, commit the completed work.
