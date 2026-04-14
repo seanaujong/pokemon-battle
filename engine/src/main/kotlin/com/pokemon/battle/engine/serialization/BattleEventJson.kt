@@ -58,6 +58,7 @@ import com.pokemon.battle.model.StatusCondition
 import com.pokemon.battle.model.Type
 import com.pokemon.battle.model.Volatile
 import com.pokemon.battle.model.Weather
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
@@ -304,6 +305,7 @@ sealed interface InputRequestJson {
 }
 
 @Serializable
+@SerialName("switch_target_request")
 data class SwitchTargetRequestJson(
     val userSlot: Slot,
     val reason: SwitchReason,
@@ -318,6 +320,7 @@ sealed interface InputResponseJson {
 }
 
 @Serializable
+@SerialName("switch_target_response")
 data class SwitchTargetResponseJson(val benchIndex: Int) : InputResponseJson {
     override fun toDomain() = SwitchTargetResponse(benchIndex)
 }
@@ -330,6 +333,7 @@ sealed interface TurnChoiceJson {
 }
 
 @Serializable
+@SerialName("use_move")
 data class UseMoveJson(
     val move: Move,
     val targetSlot: Slot? = null,
@@ -339,6 +343,7 @@ data class UseMoveJson(
 }
 
 @Serializable
+@SerialName("switch")
 data class SwitchChoiceJson(val benchIndex: Int) : TurnChoiceJson {
     override fun toDomain() = TurnChoice.Switch(benchIndex)
 }

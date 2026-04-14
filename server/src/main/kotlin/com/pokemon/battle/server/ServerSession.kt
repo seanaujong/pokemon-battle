@@ -167,7 +167,7 @@ class ServerSession(
                     slot = slot,
                     species = ps.pokemon.species.name,
                     maxHp = ps.maxHp,
-                    moves = movePools[slot]?.map { it.name } ?: emptyList(),
+                    moves = movePools[slot] ?: emptyList(),
                 )
             }
         val benches =
@@ -186,7 +186,7 @@ class ServerSession(
             index = index,
             species = member.state.pokemon.species.name,
             maxHp = member.state.maxHp,
-            moves = member.moves.map { it.name },
+            moves = member.moves,
         )
 
     private fun handleFaintReplacements(initialState: BattleState): Pair<BattleState, List<com.pokemon.battle.engine.BattleEvent>> {

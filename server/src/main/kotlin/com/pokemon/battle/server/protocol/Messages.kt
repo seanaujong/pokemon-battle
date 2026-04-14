@@ -4,8 +4,10 @@ import com.pokemon.battle.engine.serialization.BattleEventJson
 import com.pokemon.battle.engine.serialization.InputRequestJson
 import com.pokemon.battle.engine.serialization.InputResponseJson
 import com.pokemon.battle.engine.serialization.TurnChoicesJson
+import com.pokemon.battle.model.Move
 import com.pokemon.battle.model.Side
 import com.pokemon.battle.model.Slot
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
@@ -24,6 +26,7 @@ sealed interface ClientMessage {
 }
 
 @Serializable
+@SerialName("team_set")
 data class TeamSet(
     val side: Side,
     val team: String,
@@ -31,18 +34,21 @@ data class TeamSet(
 ) : ClientMessage
 
 @Serializable
+@SerialName("choice")
 data class ChoiceSubmit(
     val choices: TurnChoicesJson,
     override val protocolVersion: Int = PROTOCOL_VERSION,
 ) : ClientMessage
 
 @Serializable
+@SerialName("input_response")
 data class InputResponseSubmit(
     val response: InputResponseJson,
     override val protocolVersion: Int = PROTOCOL_VERSION,
 ) : ClientMessage
 
 @Serializable
+@SerialName("faint_replacement")
 data class FaintReplacement(
     val slot: Slot,
     val benchIndex: Int,
@@ -56,12 +62,17 @@ sealed interface ServerMessage {
     val protocolVersion: Int
 }
 
+/**
+ * Active-slot summary sent in [Ready]. [moves] carries the full [Move] objects — not
+ * just names — so an out-of-JVM client can echo them back in [ChoiceSubmit] without
+ * needing to reconstruct the shape from a catalog.
+ */
 @Serializable
 data class SlotSummary(
     val slot: Slot,
     val species: String,
     val maxHp: Int,
-    val moves: List<String>,
+    val moves: List<Move>,
 )
 
 @Serializable
@@ -70,10 +81,11 @@ data class BenchMember(
     val index: Int,
     val species: String,
     val maxHp: Int,
-    val moves: List<String>,
+    val moves: List<Move>,
 )
 
 @Serializable
+@SerialName("ready")
 data class Ready(
     val slots: List<SlotSummary>,
     val benches: List<BenchMember>,
@@ -82,6 +94,7 @@ data class Ready(
 
 /** Emitted before every turn, telling the client it may submit a choice. */
 @Serializable
+@SerialName("choice_request")
 data class ChoiceRequest(
     val turn: Int,
     val activeSlots: List<Slot>,
@@ -90,6 +103,7 @@ data class ChoiceRequest(
 
 /** Events emitted by one full turn, including any faint-replacement events at the end. */
 @Serializable
+@SerialName("turn_events")
 data class TurnEvents(
     val turn: Int,
     val events: List<BattleEventJson>,
@@ -98,12 +112,14 @@ data class TurnEvents(
 ) : ServerMessage
 
 @Serializable
+@SerialName("input_request")
 data class InputRequestMessage(
     val request: InputRequestJson,
     override val protocolVersion: Int = PROTOCOL_VERSION,
 ) : ServerMessage
 
 @Serializable
+@SerialName("faint_replacement_request")
 data class FaintReplacementRequest(
     val slot: Slot,
     val eligibleBenchIndices: List<Int>,
@@ -111,6 +127,7 @@ data class FaintReplacementRequest(
 ) : ServerMessage
 
 @Serializable
+@SerialName("result")
 data class Result(
     val winner: Side?,
     val turns: Int,
@@ -118,6 +135,7 @@ data class Result(
 ) : ServerMessage
 
 @Serializable
+@SerialName("error")
 data class ErrorMessage(
     val message: String,
     override val protocolVersion: Int = PROTOCOL_VERSION,
