@@ -85,27 +85,47 @@ The AI owns move pools. This prevents Pokemon from becoming a god object.
 
 ## Layers
 
-```
-ai/         — choice logic (RandomAI, TypeAI, SidedAI, ...)
-render/     — presentation (TextRenderer, renderBattle)
-loop/       — game orchestration (BattleLoop, providers, results)
-phase/      — turn resolution logic (gen-specific rules)
-engine/     — pipeline plumbing (events, state, damage calc)
-data/       — loading and lookup (Pokedex, MoveDex)
-model/      — pure data (species, pokemon, moves, types)
-```
-
-Dependency graph (each layer depends only on those below it):
+The repo is a Gradle multi-module build. Modules are peers, not
+sub-packages — each has its own `build.gradle.kts`, dependencies, and
+test suite. For the authoritative list see `settings.gradle.kts`.
 
 ```
-ai      →  engine, model, loop
-render  →  engine, model, loop
-loop    →  engine, model
-phase   →  engine, model
-data    →  model
-engine  →  model
-model   →  (nothing)
+:cli             — interactive / demo entry points (PlayMain, DemoMain)
+:analytics       — event-stream consumers (BattleAnalyzer, ReplayExporter)
+:data-ingestion  — PokeAPI / Smogon fetchers + codegen (auditModelGap, codegenSpecies)
+:ai              — choice strategies (RandomAI, TypeAI, SidedAI)
+:render          — events-to-text (TextRenderer, BattleRenderer, per-item/ability text)
+:data            — catalogs (PokedexCatalog, MoveDex, Pokedex loader, generated Kotlin)
+:engine          — pipeline, events, model, phases, loop
 ```
+
+Dependency graph (arrow = "declared dependency"):
+
+```
+:cli             →  :engine, :data, :render, :ai
+:analytics       →  :engine (tests: :data)
+:data-ingestion  →  :data, :engine
+:ai              →  :engine   (api — re-exposes TurnChoice)
+:render          →  :engine   (api — re-exposes BattleEvent/State)
+:data            →  :engine   (api — re-exposes Species)
+:engine          →  (no project deps; depends only on kotlinx-serialization)
+```
+
+**Three modules re-expose `:engine`'s public types via `api(...)`:** a
+consumer of `:data` / `:render` / `:ai` sees engine types transitively,
+because those modules' signatures return or take engine types
+(`PokedexCatalog.CHARIZARD: Species`, `TextRenderer.render(event:
+BattleEvent, ...)`, AI strategies return `TurnChoice`). Other
+dependencies are `implementation`.
+
+**Inside `:engine`, `internal` marks the non-contract surface:** whole
+packages (`engine/item/*`, `engine/ability/*`, `gen/simplified/*`) plus
+single-file helpers (`HazardResolver`, `SwitchOutClearing`, default
+`DamageCalculator` / `SpeedResolver` implementations, concrete
+`Ruleset` objects, `TypeChart` charts). External modules can import
+only the types that are part of the public contract — domain models,
+events, pipeline/loop contracts, concrete phases, and extensibility
+interfaces. See diary 068 for the full audit.
 
 ## Data layering
 
@@ -184,10 +204,12 @@ Why this rule holds the line:
 - Dependency direction is enforced: engine knows nothing about any client;
   clients depend on engine's stable data types.
 
-Pure consumers that live in-engine today: `TextRenderer`, future `BattleAnalyzer`.
-I/O-bound consumers (CLI, replay, analytics, data ingestion, future server / web
-UI / MCP server) live in dedicated modules. For the current module map see
-`settings.gradle.kts`.
+Consumers live in dedicated peer modules: `:render` (events-to-text),
+`:analytics` (BattleAnalyzer, ReplayExporter), `:cli` (interactive entry
+points), `:data-ingestion` (external catalogs), `:ai` (choice
+strategies). Future web UI / MCP server / replay viewer would each be a
+new peer module depending on `:engine` + whatever else they need. For
+the current module map see `settings.gradle.kts`.
 
 ### Choice providers (the input side of the same layering)
 
@@ -333,6 +355,20 @@ table below captures the shape of the extension rather than the shipping status.
 ## Lessons Learned
 
 Principles discovered during development, not obvious at the start.
+
+**Species pools, item catalogs, and ability catalogs belong in `:data`,
+not `:engine`.** The engine resolves whatever it's given — what
+specific Charizard exists, what the full item list is, what moves are
+in the pool — is data, not mechanics. Our first `:engine` included all
+of `PokedexCatalog` / `MoveDex` as Kotlin objects alongside pipeline
+code; diary 065 extracted them to `:data`. The tell: the engine never
+iterates over "all species" — it operates on whatever `Species`
+instance a consumer hands it. Same shape as "move pools belong to the
+choice layer." Diary 066 then extracted `:render` and `:ai` on the
+same principle (Showdown puts rendering in the client, AI in the
+server; neither belongs in `sim/`). The generalizable test: does the
+engine actually read this catalog, or does it only consume one entry
+at a time? If the latter, the catalog belongs outside.
 
 **Resist the god object.** We almost put `moves: List<Move>` on `Pokemon` because
 "that's how the games work." But the engine never reads a Pokemon's move pool — it
