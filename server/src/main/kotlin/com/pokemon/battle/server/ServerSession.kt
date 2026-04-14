@@ -52,7 +52,11 @@ import java.io.PrintWriter
  * we need to interleave protocol messages into the turn, which would require reshaping
  * BattleLoop's callbacks. The logic mirrors BattleLoop.run() closely; diverging
  * behavior would be a bug.
+ *
+ * Battle orchestration decomposes into stepped helpers (team read, ready message,
+ * replacement loop, etc.) — hence the `TooManyFunctions` suppression.
  */
+@Suppress("TooManyFunctions")
 class ServerSession(
     private val input: BufferedReader,
     private val output: PrintWriter,
@@ -63,17 +67,18 @@ class ServerSession(
     private val movePools = mutableMapOf<Slot, List<Move>>()
 
     fun run() {
-        val (side1, side2) =
-            try {
-                readTeams()
-            } catch (ex: IllegalStateException) {
-                emit(ErrorMessage("team parse failed: ${ex.message}"))
-                return
-            } catch (ex: IllegalArgumentException) {
-                emit(ErrorMessage("team parse failed: ${ex.message}"))
-                return
-            }
+        try {
+            runInner()
+        } catch (ex: IllegalStateException) {
+            emit(ErrorMessage(ex.message ?: "session aborted"))
+        } catch (ex: IllegalArgumentException) {
+            emit(ErrorMessage(ex.message ?: "session aborted"))
+        }
+    }
 
+    @Suppress("CyclomaticComplexMethod") // Turn loop + pause loop + replacement handling
+    private fun runInner() {
+        val (side1, side2) = readTeams()
         var state = initialState(side1, side2)
         populateMovePools(side1, side2)
         emit(readyMessage(state, side1, side2))
@@ -228,6 +233,10 @@ class ServerSession(
     private inline fun <reified T : ClientMessage> readClient(): T {
         val line = input.readLine() ?: error("client closed stream while expecting ${T::class.simpleName}")
         val parsed = json.decodeFromString(ClientMessage.serializer(), line)
+        check(parsed.protocolVersion == com.pokemon.battle.server.protocol.PROTOCOL_VERSION) {
+            "protocol version mismatch: server=${com.pokemon.battle.server.protocol.PROTOCOL_VERSION} " +
+                "client=${parsed.protocolVersion}"
+        }
         return parsed as? T ?: error("expected ${T::class.simpleName}, got ${parsed::class.simpleName}")
     }
 }

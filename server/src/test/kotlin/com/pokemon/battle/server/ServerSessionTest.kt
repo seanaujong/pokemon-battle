@@ -7,6 +7,7 @@ import com.pokemon.battle.model.Move
 import com.pokemon.battle.model.Slot
 import com.pokemon.battle.server.protocol.ChoiceSubmit
 import com.pokemon.battle.server.protocol.ClientMessage
+import com.pokemon.battle.server.protocol.ErrorMessage
 import com.pokemon.battle.server.protocol.FaintReplacement
 import com.pokemon.battle.server.protocol.Ready
 import com.pokemon.battle.server.protocol.Result
@@ -78,6 +79,28 @@ class ServerSessionTest {
         assertNotNull(result, "server never emitted a Result")
         assertTrue(messages.any { it is TurnEvents }, "no TurnEvents emitted")
     }
+
+    @Test
+    fun `mismatched protocolVersion produces an error message`() {
+        val mismatched =
+            encode(
+                TeamSet(
+                    side = com.pokemon.battle.model.Side.SIDE_1,
+                    team = side1Team,
+                    protocolVersion = 999,
+                ),
+            )
+        val input = BufferedReader(StringReader(mismatched + "\n"))
+        val output = PrintWriter(StringWriter().also { stringWriter = it }, true)
+        ServerSession(input, output).run()
+
+        val messages = stringWriter.toString().lines().filter { it.isNotBlank() }.map { decode(it) }
+        val error = messages.filterIsInstance<ErrorMessage>().firstOrNull()
+        assertNotNull(error, "no error emitted for version mismatch")
+        assertTrue("protocol version mismatch" in error.message, "unexpected message: ${error.message}")
+    }
+
+    private lateinit var stringWriter: StringWriter
 
     private fun encode(message: ClientMessage): String = json.encodeToString(ClientMessage.serializer(), message)
 
