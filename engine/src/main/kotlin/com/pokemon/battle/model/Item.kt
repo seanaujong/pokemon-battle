@@ -11,4 +11,5 @@ enum class Item {
     SITRUS_BERRY,
     RED_CARD,
     HEAVY_DUTY_BOOTS,
+    ROCKY_HELMET,
 }

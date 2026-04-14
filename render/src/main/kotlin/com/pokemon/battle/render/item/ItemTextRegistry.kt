@@ -18,6 +18,7 @@ object ItemTextRegistry {
             LifeOrbText,
             SitrusBerryText,
             RedCardText,
+            RockyHelmetText,
         ).associateBy { it.item }
 
     fun textFor(item: Item?): ItemText? = item?.let { texts[it] }
