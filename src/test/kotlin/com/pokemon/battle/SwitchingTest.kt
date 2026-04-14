@@ -65,8 +65,8 @@ class SwitchingTest {
         val phase = SwitchPhase()
         val events = phase.resolve(battleState, choices)
 
-        // Should see SwitchOut then SwitchIn
-        assertEquals(2, events.size)
+        // Should see SwitchOut, SwitchIn, then VolatileAdded(JustSwitchedIn)
+        assertEquals(3, events.size)
         assertIs<SwitchOut>(events[0])
         assertEquals(Slot.p1(), (events[0] as SwitchOut).slot)
 

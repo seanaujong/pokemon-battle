@@ -132,8 +132,10 @@ class ChoiceItemsTest {
         val plain = PokemonState(venusaur, currentHp = venusaur.maxHp)
         val scarf = PokemonState(venusaur, currentHp = venusaur.maxHp, item = Item.CHOICE_SCARF)
 
-        val plainSpeed = GenVSpeedResolver.effectiveSpeed(plain)
-        val scarfSpeed = GenVSpeedResolver.effectiveSpeed(scarf)
+        val plainState = BattleState.singles(plain, plain)
+        val scarfState = BattleState.singles(scarf, plain)
+        val plainSpeed = GenVSpeedResolver.effectiveSpeed(plain, Slot.p1(), plainState)
+        val scarfSpeed = GenVSpeedResolver.effectiveSpeed(scarf, Slot.p1(), scarfState)
 
         assertTrue(scarfSpeed > plainSpeed, "Scarf should increase speed: scarf=$scarfSpeed plain=$plainSpeed")
         assertEquals(plainSpeed * 1.5, scarfSpeed, absoluteTolerance = 0.01)

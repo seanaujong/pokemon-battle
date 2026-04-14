@@ -3,14 +3,32 @@ package com.pokemon.battle.engine
 import com.pokemon.battle.model.FieldState
 import com.pokemon.battle.model.PokemonState
 import com.pokemon.battle.model.Side
+import com.pokemon.battle.model.SideCondition
 import com.pokemon.battle.model.Slot
 
 data class BattleState(
     val slots: Map<Slot, PokemonState>,
     val bench: Map<Side, List<PokemonState>> = emptyMap(),
     val field: FieldState = FieldState(),
+    val sideConditions: Map<Side, Map<SideCondition, Int>> = emptyMap(),
     val turn: Int = 1,
 ) {
+    /** Conditions currently active on [side], with remaining-turn counts. */
+    fun sideConditionsFor(side: Side): Map<SideCondition, Int> = sideConditions[side] ?: emptyMap()
+
+    fun withSideCondition(
+        side: Side,
+        condition: SideCondition,
+        turnsRemaining: Int,
+    ): BattleState {
+        val existing = sideConditionsFor(side)
+        val updated =
+            if (turnsRemaining <= 0) existing - condition else existing + (condition to turnsRemaining)
+        val newMap =
+            if (updated.isEmpty()) sideConditions - side else sideConditions + (side to updated)
+        return copy(sideConditions = newMap)
+    }
+
     fun pokemonFor(slot: Slot): PokemonState = slots[slot] ?: error("No Pokemon in slot $slot")
 
     fun withPokemon(

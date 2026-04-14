@@ -40,10 +40,39 @@ class EndOfTurnPhase : Phase {
             currentState = event.apply(currentState)
         }
         events.addAll(weatherTick(currentState))
+        events.addAll(tickTrickRoom(currentState))
+        events.addAll(tickSideConditions(currentState))
         events.addAll(clearProtect(currentState))
+        events.addAll(clearJustSwitchedIn(currentState))
 
         return events
     }
+
+    private fun tickTrickRoom(state: BattleState): List<BattleEvent> {
+        val remaining = state.field.trickRoomTurnsRemaining
+        if (remaining <= 0) return emptyList()
+        return listOf(com.pokemon.battle.engine.TrickRoomSet(remaining - 1))
+    }
+
+    private fun tickSideConditions(state: BattleState): List<BattleEvent> =
+        state.sideConditions.flatMap { (side, conditions) ->
+            conditions.map { (condition, turns) ->
+                if (turns <= 1) {
+                    com.pokemon.battle.engine.SideConditionExpired(side, condition)
+                } else {
+                    com.pokemon.battle.engine.SideConditionTick(side, condition, turns - 1)
+                }
+            }
+        }
+
+    private fun clearJustSwitchedIn(state: BattleState): List<BattleEvent> =
+        state.allSlots().mapNotNull { slot ->
+            if (Volatile.JustSwitchedIn in state.pokemonFor(slot).volatiles) {
+                VolatileRemoved(slot, Volatile.JustSwitchedIn)
+            } else {
+                null
+            }
+        }
 
     private fun clearProtect(state: BattleState): List<BattleEvent> =
         state.allSlots().mapNotNull { slot ->

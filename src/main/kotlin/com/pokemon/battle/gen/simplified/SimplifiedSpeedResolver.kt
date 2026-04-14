@@ -1,12 +1,11 @@
 package com.pokemon.battle.gen.simplified
 
 import com.pokemon.battle.engine.SpeedResolver
-import com.pokemon.battle.model.PokemonState
 
 /**
- * Simplified speed: no paralysis modifier. Paralyzed Pokemon moves at full speed.
+ * Simplified speed: no paralysis modifier, no item/ability/field modifiers. Ignores state.
  */
 val SimplifiedSpeedResolver =
-    SpeedResolver { pokemon: PokemonState ->
+    SpeedResolver { pokemon, _, _ ->
         pokemon.baseEffectiveSpeed()
     }

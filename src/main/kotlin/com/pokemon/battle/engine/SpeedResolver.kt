@@ -6,19 +6,28 @@ import com.pokemon.battle.model.PokemonState
 import com.pokemon.battle.model.StatusCondition
 
 fun interface SpeedResolver {
-    fun effectiveSpeed(pokemon: PokemonState): Double
+    /**
+     * [state] is passed so resolvers can account for field-level (Trick Room, Gravity)
+     * and side-level (Tailwind, Swamp) effects on top of the Pokemon's own modifiers.
+     */
+    fun effectiveSpeed(
+        pokemon: PokemonState,
+        slot: com.pokemon.battle.model.Slot,
+        state: BattleState,
+    ): Double
 }
 
 /**
- * Gen V+ speed = base * stage * paralysis-penalty * item-mod * ability-mod.
- * Item modifier covers Choice Scarf (1.5x), Iron Ball (0.5x), etc.
- * Ability modifier covers Swift Swim, Sand Rush, Chlorophyll, etc. (currently all return 1.0).
+ * Gen V+ speed = base * stage * paralysis-penalty * item-mod * ability-mod * tailwind-mod.
+ * Trick Room doesn't modify the speed value — it inverts the sort order in
+ * [resolveMoveOrder]. Keeping speeds positive keeps the calculation composable.
  */
 val GenVSpeedResolver =
-    SpeedResolver { pokemon ->
+    SpeedResolver { pokemon, slot, state ->
         val base = pokemon.baseEffectiveSpeed()
         val paralysisMod = if (pokemon.status == StatusCondition.PARALYSIS) 0.5 else 1.0
         val itemMod = ItemRegistry.effectForHolder(pokemon)?.speedModifier(pokemon) ?: 1.0
         val abilityMod = AbilityRegistry.effectFor(pokemon.ability)?.speedModifier(pokemon) ?: 1.0
-        base * paralysisMod * itemMod * abilityMod
+        val tailwindMod = if (state.sideConditionsFor(slot.side).containsKey(com.pokemon.battle.model.SideCondition.TAILWIND)) 2.0 else 1.0
+        base * paralysisMod * itemMod * abilityMod * tailwindMod
     }

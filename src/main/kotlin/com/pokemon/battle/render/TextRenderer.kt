@@ -13,12 +13,16 @@ import com.pokemon.battle.engine.MoveFailed
 import com.pokemon.battle.engine.MoveOrderDecided
 import com.pokemon.battle.engine.PokemonFainted
 import com.pokemon.battle.engine.ProtectBlocked
+import com.pokemon.battle.engine.SideConditionExpired
+import com.pokemon.battle.engine.SideConditionSet
+import com.pokemon.battle.engine.SideConditionTick
 import com.pokemon.battle.engine.StatChanged
 import com.pokemon.battle.engine.StatusApplied
 import com.pokemon.battle.engine.StatusCleared
 import com.pokemon.battle.engine.StatusDamage
 import com.pokemon.battle.engine.SwitchIn
 import com.pokemon.battle.engine.SwitchOut
+import com.pokemon.battle.engine.TrickRoomSet
 import com.pokemon.battle.engine.TypeChanged
 import com.pokemon.battle.engine.VolatileAdded
 import com.pokemon.battle.engine.VolatileRemoved
@@ -68,7 +72,34 @@ object TextRenderer : BattleRenderer {
             is TypeChanged -> renderTypeChanged(event, stateAfter)
             is VolatileAdded -> emptyList()
             is VolatileRemoved -> emptyList()
+            is SideConditionSet -> renderSideConditionSet(event)
+            is SideConditionTick -> emptyList()
+            is SideConditionExpired -> renderSideConditionExpired(event)
+            is TrickRoomSet -> renderTrickRoomSet(event)
         }
+    }
+
+    private fun renderTrickRoomSet(event: TrickRoomSet): List<String> =
+        listOf(
+            if (event.turnsRemaining > 0) "The dimensions twisted — Trick Room is up!" else "The twisted dimensions returned to normal.",
+        )
+
+    private fun renderSideConditionSet(event: SideConditionSet): List<String> {
+        val sideLabel = if (event.side.name == "SIDE_1") "Player 1" else "Player 2"
+        val text =
+            when (event.condition) {
+                com.pokemon.battle.model.SideCondition.TAILWIND -> "A tailwind kicked up on $sideLabel's side!"
+            }
+        return listOf(text)
+    }
+
+    private fun renderSideConditionExpired(event: SideConditionExpired): List<String> {
+        val sideLabel = if (event.side.name == "SIDE_1") "Player 1" else "Player 2"
+        val text =
+            when (event.condition) {
+                com.pokemon.battle.model.SideCondition.TAILWIND -> "The tailwind on $sideLabel's side died down."
+            }
+        return listOf(text)
     }
 
     private fun name(
@@ -96,6 +127,7 @@ object TextRenderer : BattleRenderer {
                 FailReason.FLINCHED -> "$pokemonName flinched!"
                 FailReason.CONFUSION_SELF_HIT -> "$pokemonName hurt itself in its confusion!"
                 FailReason.PROTECT_FAILED -> "But it failed!"
+                FailReason.NOT_FIRST_TURN -> "But it failed!"
             },
         )
     }

@@ -19,4 +19,11 @@ sealed interface Volatile {
      * the engine emits the volatile so choice layers can read it.
      */
     data class ChoiceLocked(val move: Move) : Volatile
+
+    /**
+     * Set when a Pokemon switches in (voluntary, forced, or faint replacement). Consumed /
+     * cleared at the start of the Pokemon's next acting turn (or at end of turn if they
+     * don't act). Gate for Fake Out, First Impression, Mat Block.
+     */
+    data object JustSwitchedIn : Volatile
 }

@@ -128,6 +128,51 @@ object MoveDex {
             ),
         )
 
+    val TRICK_ROOM =
+        register(
+            Move(
+                "Trick Room",
+                Type.PSYCHIC,
+                MoveCategory.STATUS,
+                0,
+                priority = -7,
+                target = MoveTarget.SELF,
+                effects = listOf(MoveEffect.SetTrickRoom(turns = 5)),
+            ),
+        )
+
+    val TAILWIND =
+        register(
+            Move(
+                "Tailwind",
+                Type.FLYING,
+                MoveCategory.STATUS,
+                0,
+                target = MoveTarget.SELF,
+                effects =
+                    listOf(
+                        MoveEffect.SetSideConditionOnUserSide(
+                            com.pokemon.battle.model.SideCondition.TAILWIND,
+                            turns = 4,
+                        ),
+                    ),
+            ),
+        )
+
+    val FAKE_OUT =
+        register(
+            Move(
+                "Fake Out",
+                Type.NORMAL,
+                MoveCategory.PHYSICAL,
+                40,
+                priority = 3,
+                target = MoveTarget.ONE_OPPONENT,
+                effects = listOf(MoveEffect.SetVolatile(Volatile.Flinch)),
+                requiresJustSwitchedIn = true,
+            ),
+        )
+
     val PROTECT =
         register(
             Move(

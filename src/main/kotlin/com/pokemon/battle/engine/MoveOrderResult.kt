@@ -21,14 +21,19 @@ fun resolveMoveOrder(
         state.allSlots().mapNotNull { slot ->
             val choice = choices.choiceFor(slot) as? TurnChoice.UseMove ?: return@mapNotNull null
             val priority = choice.move.priority
-            val speed = speedResolver.effectiveSpeed(state.pokemonFor(slot))
+            val speed = speedResolver.effectiveSpeed(state.pokemonFor(slot), slot, state)
             Triple(slot, priority, speed)
         }
 
+    // Trick Room inverts the speed-tiebreak order within each priority bracket.
+    // Priority brackets still resolve normally (higher first).
+    val trickRoom = state.field.trickRoomTurnsRemaining > 0
     val sorted =
         slotsWithPriority.sortedWith(
             compareByDescending<Triple<Slot, Int, Double>> { it.second }
-                .thenByDescending { it.third },
+                .thenComparator { a, b ->
+                    if (trickRoom) a.third.compareTo(b.third) else b.third.compareTo(a.third)
+                },
         )
 
     val leadReason =

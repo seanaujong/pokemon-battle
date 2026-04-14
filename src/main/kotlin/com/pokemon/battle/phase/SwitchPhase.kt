@@ -9,8 +9,10 @@ import com.pokemon.battle.engine.SwitchIn
 import com.pokemon.battle.engine.SwitchOut
 import com.pokemon.battle.engine.TurnChoice
 import com.pokemon.battle.engine.TurnChoices
+import com.pokemon.battle.engine.VolatileAdded
 import com.pokemon.battle.engine.resolveSwitchInAbility
 import com.pokemon.battle.engine.resolveSwitchOutClearing
+import com.pokemon.battle.model.Volatile
 
 /**
  * Resolves voluntary switches before moves execute.
@@ -33,7 +35,7 @@ class SwitchPhase(
         val switchingSlots =
             currentState.allSlots()
                 .filter { choices.choiceFor(it) is TurnChoice.Switch }
-                .sortedByDescending { speedResolver.effectiveSpeed(currentState.pokemonFor(it)) }
+                .sortedByDescending { speedResolver.effectiveSpeed(currentState.pokemonFor(it), it, currentState) }
 
         for (slot in switchingSlots) {
             val choice = choices.choiceFor(slot) as TurnChoice.Switch
@@ -51,6 +53,11 @@ class SwitchPhase(
             val switchIn = SwitchIn(slot, choice.benchIndex)
             events.add(switchIn)
             currentState = switchIn.apply(currentState)
+
+            // Mark the new Pokemon as just switched-in (gate for Fake Out, First Impression).
+            val justSwitchedIn = VolatileAdded(slot, Volatile.JustSwitchedIn)
+            events.add(justSwitchedIn)
+            currentState = justSwitchedIn.apply(currentState)
 
             // Switch-in ability triggers (shared with BattleLoop faint replacements)
             for (event in resolveSwitchInAbility(currentState, slot)) {

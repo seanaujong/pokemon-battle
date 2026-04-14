@@ -37,3 +37,10 @@ data class WeatherSet(
     override fun apply(state: BattleState): BattleState =
         state.copy(field = state.field.copy(weather = weather, weatherTurnsRemaining = turnsRemaining))
 }
+
+/** Sets or clears Trick Room. `turnsRemaining = 0` clears it. */
+data class TrickRoomSet(
+    val turnsRemaining: Int,
+) : BattleEvent {
+    override fun apply(state: BattleState): BattleState = state.copy(field = state.field.copy(trickRoomTurnsRemaining = turnsRemaining))
+}

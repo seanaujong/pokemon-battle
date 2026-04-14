@@ -15,11 +15,13 @@ import com.pokemon.battle.engine.MoveFailed
 import com.pokemon.battle.engine.Phase
 import com.pokemon.battle.engine.PokemonFainted
 import com.pokemon.battle.engine.ProtectBlocked
+import com.pokemon.battle.engine.SideConditionSet
 import com.pokemon.battle.engine.SpeedResolver
 import com.pokemon.battle.engine.StatChanged
 import com.pokemon.battle.engine.StatusCleared
 import com.pokemon.battle.engine.SwitchIn
 import com.pokemon.battle.engine.SwitchOut
+import com.pokemon.battle.engine.TrickRoomSet
 import com.pokemon.battle.engine.TurnChoice
 import com.pokemon.battle.engine.TurnChoices
 import com.pokemon.battle.engine.VolatileAdded
@@ -129,6 +131,14 @@ class MoveExecutionPhase(
         val events = mutableListOf<BattleEvent>(MoveAttempted(attackerSlot, move))
         var currentState = state
 
+        // Fake Out / First Impression / Mat Block fail unless the user just switched in.
+        if (move.requiresJustSwitchedIn &&
+            Volatile.JustSwitchedIn !in state.pokemonFor(attackerSlot).volatiles
+        ) {
+            events.add(MoveFailed(attackerSlot, FailReason.NOT_FIRST_TURN))
+            return events
+        }
+
         // Protection moves (Protect, Detect, …) have diminishing-success semantics and
         // bypass the standard target/damage/effect flow.
         if (isProtectionMove(move)) {
@@ -162,7 +172,7 @@ class MoveExecutionPhase(
         }
 
         val faintedSlots = events.filterIsInstance<PokemonFainted>().map { it.slot }.toSet()
-        val effectEvents = resolveEffects(move.effects, unblockedTargets, faintedSlots)
+        val effectEvents = resolveEffects(currentState, move.effects, unblockedTargets, faintedSlots)
         for (event in effectEvents) {
             events.add(event)
             currentState = event.apply(currentState)
@@ -213,6 +223,10 @@ class MoveExecutionPhase(
         val switchIn = SwitchIn(attackerSlot, benchIndex)
         events.add(switchIn)
         currentState = switchIn.apply(currentState)
+
+        val justSwitchedIn = VolatileAdded(attackerSlot, Volatile.JustSwitchedIn)
+        events.add(justSwitchedIn)
+        currentState = justSwitchedIn.apply(currentState)
 
         for (event in resolveSwitchInAbility(currentState, attackerSlot)) {
             events.add(event)
@@ -419,6 +433,7 @@ class MoveExecutionPhase(
     // --- Effect resolution ---
 
     private fun resolveEffects(
+        state: BattleState,
         effects: List<MoveEffect>,
         targets: List<Slot>,
         faintedSlots: Set<Slot>,
@@ -427,13 +442,14 @@ class MoveExecutionPhase(
         for (effect in effects) {
             for (target in targets) {
                 if (target in faintedSlots) continue
-                events.addAll(resolveEffect(effect, target))
+                events.addAll(resolveEffect(state, effect, target))
             }
         }
         return events
     }
 
     private fun resolveEffect(
+        state: BattleState,
         effect: MoveEffect,
         targetSlot: Slot,
     ): List<BattleEvent> {
@@ -442,6 +458,13 @@ class MoveExecutionPhase(
             is MoveEffect.SetVolatile -> listOf(VolatileAdded(targetSlot, effect.volatile))
             // SelfSwitch is handled in executeMove after damage + effects (needs state, bench, choice).
             is MoveEffect.SelfSwitch -> emptyList()
+            is MoveEffect.SetTrickRoom -> {
+                // Toggle: if already active, clear; else set for the specified turns.
+                val currentlyActive = state.field.trickRoomTurnsRemaining > 0
+                listOf(TrickRoomSet(if (currentlyActive) 0 else effect.turns))
+            }
+            is MoveEffect.SetSideConditionOnUserSide ->
+                listOf(SideConditionSet(targetSlot.side, effect.condition, effect.turns))
         }
     }
 

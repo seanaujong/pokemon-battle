@@ -7,4 +7,5 @@ enum class FailReason {
     FLINCHED,
     CONFUSION_SELF_HIT,
     PROTECT_FAILED,
+    NOT_FIRST_TURN,
 }
