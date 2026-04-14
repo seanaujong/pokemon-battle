@@ -152,6 +152,7 @@ When adding or configuring linters, static analysis, or other tools:
 3. **Use inline `@Suppress` with rationale over global threshold changes.** A global threshold loosens the net for all future code. An inline suppress documents why *this specific case* is an exception.
 4. **Disable a rule honestly rather than configuring it into irrelevance.** If you're ignoring 25 magic numbers, you've disabled the rule with extra steps. Just disable it and document why.
 5. **Check the tool's version.** Configuration property names change between versions. Search for the exact version's docs instead of guessing.
+6. **Gradle specifically: the wrapper is the source of truth.** `gradle/wrapper/gradle-wrapper.properties` pins our exact Gradle version (currently 8.14). When suggesting Gradle DSL or build config, always match the docs URL to that version (`docs.gradle.org/<version>/userguide/...`), not "current." Gradle 7 → 8 deprecated a lot of DSL, and 8 → 9 turned configuration-cache on by default and removed more APIs — what works in one major doesn't always work in another. Run `./gradlew --warning-mode all test` periodically to surface any deprecations ahead of the next upgrade; those are the early-warning signal for "this will break on Gradle 9." Our current build emits zero deprecation warnings on 8.14 (checked 2026-04-14).
 
 ## Testing Principles
 
