@@ -1,3 +1,5 @@
+package com.pokemon.battle.cli
+
 import com.pokemon.battle.ai.SidedAI
 import com.pokemon.battle.ai.TypeAI
 import com.pokemon.battle.data.MoveDex

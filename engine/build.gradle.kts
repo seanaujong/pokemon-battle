@@ -1,14 +1,9 @@
 plugins {
     kotlin("jvm")
     kotlin("plugin.serialization")
-    application
     id("org.jlleitschuh.gradle.ktlint")
     id("io.gitlab.arturbosch.detekt")
     jacoco
-}
-
-application {
-    mainClass.set("MainKt")
 }
 
 group = "com.pokemon.battle"

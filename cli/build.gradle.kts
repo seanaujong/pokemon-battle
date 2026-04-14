@@ -16,6 +16,14 @@ tasks.named<JavaExec>("run") {
     standardInput = System.`in`
 }
 
+tasks.register<JavaExec>("demo") {
+    group = "application"
+    description = "Run the AI-vs-AI demo battle."
+    mainClass.set("com.pokemon.battle.cli.DemoMainKt")
+    classpath = sourceSets["main"].runtimeClasspath
+    standardInput = System.`in`
+}
+
 // Engine resources (species JSON) are loaded from the classpath, so no workingDir
 // override is needed here — unlike :data-ingestion which reads repo-root files.
 
