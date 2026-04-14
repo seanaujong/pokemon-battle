@@ -89,6 +89,20 @@ easy to miss under momentum. These are judgment calls, not steps:
      schedule the refactor-backlog review mentioned in diary 061 if
      the pile keeps growing.
 
+5. **Identify the validation signal.** Before starting, name the
+   concrete green signal that ends the work — the same kind of signal
+   the Iteration Loop's step 4 demands at every checkbox. For code:
+   usually `./gradlew test ktlintCheck detekt`. For docs: structural
+   (diff is small and intentional, no broken cross-references). For
+   ingestion / config: a measurable behavior change (a new file
+   produced, a new species fetched, a CLI runs end-to-end). If you
+   can't name it now, you'll struggle to know when to stop.
+
+   **For subagent prompts**: restate the validation signal explicitly
+   so the agent doesn't have to guess. The launch templates' "Verify"
+   block exists for this — fill it with the specific commands or
+   diff-shape constraints that mean "done."
+
 The Iteration Loop below starts with scope clarification (step 1) and a
 diary entry for non-trivial work (step 2) — those remain the mandatory
 steps; the preflight is the short pause *before* step 1.
