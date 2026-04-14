@@ -100,6 +100,96 @@ class ServerSessionTest {
         assertTrue("protocol version mismatch" in error.message, "unexpected message: ${error.message}")
     }
 
+    @Test
+    fun `recorder fires with a full BattleResult when metadata is supplied`() {
+        val inputLines = mutableListOf<String>()
+        inputLines.add(encode(TeamSet(side = com.pokemon.battle.model.Side.SIDE_1, team = side1Team)))
+        inputLines.add(encode(TeamSet(side = com.pokemon.battle.model.Side.SIDE_2, team = side2Team)))
+        val flamethrower = Move("Flamethrower", com.pokemon.battle.model.Type.FIRE, com.pokemon.battle.model.MoveCategory.SPECIAL, 90)
+        val sludgeBomb = Move("Sludge Bomb", com.pokemon.battle.model.Type.POISON, com.pokemon.battle.model.MoveCategory.SPECIAL, 90)
+        val choicesPerTurn =
+            encode(
+                ChoiceSubmit(
+                    choices =
+                        TurnChoices(
+                            mapOf(
+                                Slot.p1() to TurnChoice.UseMove(flamethrower),
+                                Slot.p2() to TurnChoice.UseMove(sludgeBomb),
+                            ),
+                        ).toJson(),
+                ),
+            )
+        repeat(50) { inputLines.add(choicesPerTurn) }
+
+        val input = BufferedReader(StringReader(inputLines.joinToString("\n") + "\n"))
+        val output = PrintWriter(StringWriter(), true)
+
+        var recordedResult: com.pokemon.battle.loop.BattleResult? = null
+        var recordedMetadata: com.pokemon.battle.persistence.BattleMetadata? = null
+        val capturingRecorder =
+            com.pokemon.battle.persistence.BattleRecorder { result, metadata ->
+                recordedResult = result
+                recordedMetadata = metadata
+            }
+        val metadata =
+            com.pokemon.battle.persistence.BattleMetadata(
+                battleId = "session-recording-test",
+                startedAtEpochMs = 100L,
+                endedAtEpochMs = 100L,
+                formatTag = "test",
+            )
+
+        ServerSession(
+            input,
+            output,
+            maxTurns = 10,
+            recorder = capturingRecorder,
+            metadata = metadata,
+        ).run()
+
+        assertNotNull(recordedResult, "recorder should have been invoked once the battle ended")
+        assertNotNull(recordedMetadata, "metadata should have been passed to the recorder")
+        assertTrue(recordedResult!!.turnHistory.isNotEmpty(), "captured BattleResult should include turns")
+        // endedAtEpochMs gets re-stamped via withEnded() at record time; verify it was updated.
+        assertTrue(
+            recordedMetadata!!.endedAtEpochMs >= 100L,
+            "endedAtEpochMs should be stamped at record time, got ${recordedMetadata!!.endedAtEpochMs}",
+        )
+    }
+
+    @Test
+    fun `no metadata means no recording (default behavior)`() {
+        val inputLines = mutableListOf<String>()
+        inputLines.add(encode(TeamSet(side = com.pokemon.battle.model.Side.SIDE_1, team = side1Team)))
+        inputLines.add(encode(TeamSet(side = com.pokemon.battle.model.Side.SIDE_2, team = side2Team)))
+        val flamethrower = Move("Flamethrower", com.pokemon.battle.model.Type.FIRE, com.pokemon.battle.model.MoveCategory.SPECIAL, 90)
+        val sludgeBomb = Move("Sludge Bomb", com.pokemon.battle.model.Type.POISON, com.pokemon.battle.model.MoveCategory.SPECIAL, 90)
+        val choicesPerTurn =
+            encode(
+                ChoiceSubmit(
+                    choices =
+                        TurnChoices(
+                            mapOf(
+                                Slot.p1() to TurnChoice.UseMove(flamethrower),
+                                Slot.p2() to TurnChoice.UseMove(sludgeBomb),
+                            ),
+                        ).toJson(),
+                ),
+            )
+        repeat(50) { inputLines.add(choicesPerTurn) }
+        val input = BufferedReader(StringReader(inputLines.joinToString("\n") + "\n"))
+        val output = PrintWriter(StringWriter(), true)
+
+        var invoked = false
+        val recorder = com.pokemon.battle.persistence.BattleRecorder { _, _ -> invoked = true }
+
+        // Passing a recorder but no metadata should skip recording — metadata is
+        // the signal that "this run is being tracked."
+        ServerSession(input, output, maxTurns = 10, recorder = recorder, metadata = null).run()
+
+        assertTrue(!invoked, "recorder must not fire when metadata is null")
+    }
+
     private lateinit var stringWriter: StringWriter
 
     private fun encode(message: ClientMessage): String = json.encodeToString(ClientMessage.serializer(), message)

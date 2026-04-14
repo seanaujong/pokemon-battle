@@ -30,6 +30,7 @@ dependencies {
     implementation(project(":data"))
     implementation(project(":render"))
     implementation(project(":ai"))
+    implementation(project(":persistence"))
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3")
     testImplementation(kotlin("test"))
 }

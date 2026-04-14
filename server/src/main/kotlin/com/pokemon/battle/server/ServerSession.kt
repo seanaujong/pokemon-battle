@@ -12,6 +12,7 @@ import com.pokemon.battle.model.Move
 import com.pokemon.battle.model.Side
 import com.pokemon.battle.model.Slot
 import com.pokemon.battle.model.Species
+import com.pokemon.battle.persistence.withEnded
 import com.pokemon.battle.phase.EndOfTurnPhase
 import com.pokemon.battle.phase.MoveExecutionPhase
 import com.pokemon.battle.phase.MoveOrderPhase
@@ -63,9 +64,15 @@ class ServerSession(
     private val output: PrintWriter,
     private val pokedex: Map<String, Species> = Pokedex.loadFromClasspath(),
     private val maxTurns: Int = 100,
+    // Optional recorder — default no-op keeps callers that don't care from needing
+    // a :persistence dep. Wired by ServerMain based on env var.
+    private val recorder: com.pokemon.battle.persistence.BattleRecorder =
+        com.pokemon.battle.persistence.BattleRecorder.NoOp,
+    private val metadata: com.pokemon.battle.persistence.BattleMetadata? = null,
 ) {
     private val json = Json { classDiscriminator = "type" }
     private val movePools = mutableMapOf<Slot, List<Move>>()
+    private val turnHistory = mutableListOf<com.pokemon.battle.loop.TurnRecord>()
 
     fun run() {
         try {
@@ -113,6 +120,13 @@ class ServerSession(
                 handleFaintReplacements(state).also { (_, _) -> }
             state = replacementEvents.first
 
+            turnHistory.add(
+                com.pokemon.battle.loop.TurnRecord(
+                    turnNumber = turnNumber,
+                    events = completed.events,
+                    replacementEvents = replacementEvents.second,
+                ),
+            )
             emit(
                 TurnEvents(
                     turn = turnNumber,
@@ -124,11 +138,27 @@ class ServerSession(
             val winner = checkWinner(state)
             if (winner != null || state.isDefeated(Side.SIDE_1) && state.isDefeated(Side.SIDE_2)) {
                 emit(Result(winner = winner, turns = turnNumber))
+                recordBattle(state, winner)
                 return
             }
             turnNumber++
         }
         emit(Result(winner = null, turns = maxTurns))
+        recordBattle(state, winner = null)
+    }
+
+    private fun recordBattle(
+        finalState: BattleState,
+        winner: Side?,
+    ) {
+        val meta = metadata ?: return
+        val result =
+            com.pokemon.battle.loop.BattleResult(
+                winner = winner,
+                finalState = finalState,
+                turnHistory = turnHistory.toList(),
+            )
+        recorder.record(result, meta.withEnded())
     }
 
     private fun readTeams(): Pair<List<ResolvedPokemon>, List<ResolvedPokemon>> {
