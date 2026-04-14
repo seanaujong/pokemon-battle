@@ -1,10 +1,15 @@
 package com.pokemon.battle.ai
 
 import com.pokemon.battle.engine.BattleState
+import com.pokemon.battle.engine.InputRequest
+import com.pokemon.battle.engine.InputResponse
+import com.pokemon.battle.engine.SwitchTargetRequest
+import com.pokemon.battle.engine.SwitchTargetResponse
 import com.pokemon.battle.engine.TurnChoice
 import com.pokemon.battle.engine.TurnChoices
 import com.pokemon.battle.loop.ChoiceProvider
 import com.pokemon.battle.loop.FaintReplacementProvider
+import com.pokemon.battle.loop.InputResponder
 import com.pokemon.battle.model.Move
 import com.pokemon.battle.model.MoveTarget
 import com.pokemon.battle.model.PokemonState
@@ -21,7 +26,7 @@ import com.pokemon.battle.model.typeEffectiveness
  */
 class TypeAI(
     private val movePools: Map<String, List<Move>>,
-) : ChoiceProvider, FaintReplacementProvider {
+) : ChoiceProvider, FaintReplacementProvider, InputResponder {
     override fun getChoices(state: BattleState): TurnChoices {
         val choices = mutableMapOf<Slot, TurnChoice>()
 
@@ -106,4 +111,12 @@ class TypeAI(
             } / benchTypes.size
         } ?: 0
     }
+
+    override fun respond(
+        state: BattleState,
+        request: InputRequest,
+    ): InputResponse =
+        when (request) {
+            is SwitchTargetRequest -> SwitchTargetResponse(benchIndex = getReplacement(state, request.userSlot))
+        }
 }

@@ -1,6 +1,7 @@
 package com.pokemon.battle
 
 import com.pokemon.battle.ai.RandomAI
+import com.pokemon.battle.ai.SideProviders
 import com.pokemon.battle.ai.SidedAI
 import com.pokemon.battle.ai.TypeAI
 import com.pokemon.battle.data.MoveDex
@@ -251,10 +252,10 @@ class ScenarioTest {
             SidedAI(
                 side1 =
                     RandomAI(mapOf("FireTank" to listOf(MoveDex.TACKLE)), kotlin.random.Random(1))
-                        .let { it to it },
+                        .let { SideProviders(it, it) },
                 side2 =
                     RandomAI(mapOf("SteelTank" to listOf(MoveDex.TACKLE)), kotlin.random.Random(2))
-                        .let { it to it },
+                        .let { SideProviders(it, it) },
             )
 
         val result =
@@ -348,7 +349,11 @@ class ScenarioTest {
                     ),
             )
 
-        val ai = SidedAI(side1 = side1AI to side1AI, side2 = side2AI to side2AI)
+        val ai =
+            SidedAI(
+                side1 = SideProviders(side1AI, side1AI, side1AI),
+                side2 = SideProviders(side2AI, side2AI, side2AI),
+            )
 
         val result =
             BattleLoop(

@@ -1,12 +1,16 @@
 package com.pokemon.battle.cli
 
 import com.pokemon.battle.engine.BattleState
+import com.pokemon.battle.engine.InputRequest
+import com.pokemon.battle.engine.InputResponse
+import com.pokemon.battle.engine.SwitchTargetRequest
+import com.pokemon.battle.engine.SwitchTargetResponse
 import com.pokemon.battle.engine.TurnChoice
 import com.pokemon.battle.engine.TurnChoices
 import com.pokemon.battle.loop.ChoiceProvider
 import com.pokemon.battle.loop.FaintReplacementProvider
+import com.pokemon.battle.loop.InputResponder
 import com.pokemon.battle.model.Move
-import com.pokemon.battle.model.MoveEffect
 import com.pokemon.battle.model.Side
 import com.pokemon.battle.model.Slot
 
@@ -17,15 +21,16 @@ import com.pokemon.battle.model.Slot
  * Design note (diary 056): prompts are numbered, one decision per line, minimal
  * flourish — predictable for humans and incidentally trivial for agents to drive.
  *
- * For self-switch moves (U-turn, Volt Switch), the switch target is asked *before*
- * the turn runs. That's the awkwardness we're explicitly testing; see diary 055.
+ * For self-switch moves (U-turn, Volt Switch), the switch target is NOT pre-asked;
+ * the engine pauses mid-turn after damage lands and calls [respond] (diary 055
+ * Phase 2). The human picks the replacement with full knowledge of damage dealt.
  */
 class HumanChoiceProvider(
     private val side: Side,
     private val movePools: Map<String, List<Move>>,
     private val input: () -> String? = ::readLine,
     private val output: (String) -> Unit = ::println,
-) : ChoiceProvider, FaintReplacementProvider {
+) : ChoiceProvider, FaintReplacementProvider, InputResponder {
     override fun getChoices(state: BattleState): TurnChoices {
         val choices = mutableMapOf<Slot, TurnChoice>()
         for (slot in state.slotsForSide(side)) {
@@ -82,14 +87,7 @@ class HumanChoiceProvider(
                     continue
                 }
             if (n in 1..moves.size) {
-                val move = moves[n - 1]
-                val switchTo =
-                    if (move.effects.any { it is MoveEffect.SelfSwitch }) {
-                        askSelfSwitchTarget(active.pokemon.species.name, eligibleBench)
-                    } else {
-                        null
-                    }
-                return TurnChoice.UseMove(move, switchTo = switchTo)
+                return TurnChoice.UseMove(moves[n - 1])
             }
             val benchMenuOffset = n - moves.size - 1
             if (benchMenuOffset in eligibleBench.indices) {
@@ -99,22 +97,33 @@ class HumanChoiceProvider(
         }
     }
 
-    private fun askSelfSwitchTarget(
-        userName: String,
-        eligibleBench: List<IndexedValue<com.pokemon.battle.model.PokemonState>>,
-    ): Int? {
-        if (eligibleBench.isEmpty()) return null
-        output("  ($userName will switch out if the move lands. Pick a replacement:)")
-        eligibleBench.forEachIndexed { i, (_, p) ->
-            output("    ${i + 1}. ${p.pokemon.species.name} (${p.currentHp}/${p.pokemon.maxHp} HP)")
+    override fun respond(
+        state: BattleState,
+        request: InputRequest,
+    ): InputResponse =
+        when (request) {
+            is SwitchTargetRequest -> promptSelfSwitchTarget(state, request)
+        }
+
+    private fun promptSelfSwitchTarget(
+        state: BattleState,
+        request: SwitchTargetRequest,
+    ): SwitchTargetResponse {
+        val bench = state.benchFor(request.userSlot.side)
+        val user = state.pokemonFor(request.userSlot)
+        output("")
+        output("${user.pokemon.species.name}'s move landed — pick a replacement:")
+        request.eligibleBenchIndices.forEachIndexed { i, benchIndex ->
+            val p = bench[benchIndex]
+            output("  ${i + 1}. ${p.pokemon.species.name} (${p.currentHp}/${p.pokemon.maxHp} HP)")
         }
         while (true) {
-            val raw = promptLine("  > ")
+            val raw = promptLine("> ")
             val n = raw.toIntOrNull()
-            if (n != null && n in 1..eligibleBench.size) {
-                return eligibleBench[n - 1].index
+            if (n != null && n in 1..request.eligibleBenchIndices.size) {
+                return SwitchTargetResponse(benchIndex = request.eligibleBenchIndices[n - 1])
             }
-            output("  Pick a numbered option above.")
+            output("Pick a numbered option above.")
         }
     }
 

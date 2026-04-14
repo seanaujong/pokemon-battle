@@ -1,5 +1,6 @@
 package com.pokemon.battle.cli
 
+import com.pokemon.battle.ai.SideProviders
 import com.pokemon.battle.ai.SidedAI
 import com.pokemon.battle.ai.TypeAI
 import com.pokemon.battle.data.MoveDex
@@ -61,7 +62,11 @@ fun main() {
 
     val human = HumanChoiceProvider(Side.SIDE_1, side1MovePools)
     val ai = TypeAI(side2MovePools)
-    val providers = SidedAI(side1 = human to human, side2 = ai to ai)
+    val providers =
+        SidedAI(
+            side1 = SideProviders(human, human, human),
+            side2 = SideProviders(ai, ai, ai),
+        )
 
     val pipeline =
         TurnPipeline(
@@ -88,9 +93,8 @@ private fun playBattle(
         println("\n=== Turn $turn ===")
         val choices = providers.getChoices(state)
         val preTurnState = state
-        val result = pipeline.resolveToCompletion(state, choices)
+        val result = resolveTurnWithPauses(pipeline, state, choices, providers, preTurnState)
         state = result.state.copy(turn = result.state.turn + 1)
-        renderEvents(result.events, preTurnState)
 
         val preReplacementState = state
         val (afterReplacement, replacementEvents) = handleFaintReplacements(state, providers)
@@ -115,6 +119,54 @@ private fun playBattle(
         }
     }
     println("\nTurn limit reached.")
+}
+
+/**
+ * Drive a turn through mid-turn pauses by asking the [responder] for each pending
+ * input. Renders progress events as they accumulate so the human sees damage land
+ * before being asked to pick a switch target.
+ */
+private fun resolveTurnWithPauses(
+    pipeline: TurnPipeline,
+    initialState: BattleState,
+    choices: com.pokemon.battle.engine.TurnChoices,
+    responder: com.pokemon.battle.loop.InputResponder,
+    preTurnState: BattleState,
+): com.pokemon.battle.engine.TurnResolution.Completed {
+    var resolution: com.pokemon.battle.engine.TurnResolution = pipeline.resolve(initialState, choices)
+    var renderedSoFar = 0
+    var renderState = preTurnState
+    while (resolution is com.pokemon.battle.engine.TurnResolution.NeedInput) {
+        // Show events accumulated since last render so the human sees damage land
+        // before being asked to pick a replacement.
+        val partial = resolution.state.partialTurnEvents
+        renderState = renderSpan(partial.drop(renderedSoFar), renderState)
+        renderedSoFar = partial.size
+
+        val request =
+            resolution.state.pendingInput
+                ?: error("NeedInput without pendingInput — engine bug")
+        val response = responder.respond(resolution.state, request)
+        resolution = pipeline.resume(resolution.state, choices, response)
+    }
+    val completed = resolution as com.pokemon.battle.engine.TurnResolution.Completed
+    // Render the post-pause tail (or the whole turn if there were no pauses).
+    renderSpan(completed.events.drop(renderedSoFar), renderState)
+    return completed
+}
+
+/** Render a span of events from [stateBefore], returning the state after applying them. */
+private fun renderSpan(
+    events: List<com.pokemon.battle.engine.BattleEvent>,
+    stateBefore: BattleState,
+): BattleState {
+    var s = stateBefore
+    for (event in events) {
+        val after = event.apply(s)
+        TextRenderer.render(event, s, after).forEach(::println)
+        s = after
+    }
+    return s
 }
 
 private fun renderEvents(

@@ -37,6 +37,7 @@ class BattleLoop(
     private val pipeline: TurnPipeline,
     private val choiceProvider: ChoiceProvider,
     private val faintReplacementProvider: FaintReplacementProvider,
+    private val inputResponder: InputResponder? = null,
     private val maxTurns: Int = 100,
 ) {
     fun run(initialState: BattleState): BattleResult {
@@ -45,15 +46,7 @@ class BattleLoop(
 
         while (turnHistory.size < maxTurns) {
             val choices = choiceProvider.getChoices(state)
-            val completed =
-                when (val resolution = pipeline.resolve(state, choices)) {
-                    is TurnResolution.Completed -> resolution
-                    is TurnResolution.NeedInput ->
-                        error(
-                            "BattleLoop received TurnResolution.NeedInput but has no mid-turn responder. " +
-                                "Expected by diary 055 Phase 2; not wired yet.",
-                        )
-                }
+            val completed = resolveTurnWithPauses(state, choices)
             state = completed.state
 
             // Increment turn counter
@@ -81,6 +74,32 @@ class BattleLoop(
         }
 
         return BattleResult(winner = null, finalState = state, turnHistory = turnHistory)
+    }
+
+    /**
+     * Drive a turn through any mid-turn pauses to completion. Each [TurnResolution.NeedInput]
+     * consults [inputResponder]; missing responder with a paused pipeline is an error
+     * (the caller wired themselves into a dead end).
+     */
+    private fun resolveTurnWithPauses(
+        state: BattleState,
+        choices: TurnChoices,
+    ): TurnResolution.Completed {
+        var resolution: TurnResolution = pipeline.resolve(state, choices)
+        while (resolution is TurnResolution.NeedInput) {
+            val responder =
+                inputResponder
+                    ?: error(
+                        "Pipeline paused for mid-turn input but no InputResponder was wired. " +
+                            "Either supply one or ensure callers pre-answer (e.g. TurnChoice.switchTo).",
+                    )
+            val request =
+                resolution.state.pendingInput
+                    ?: error("TurnResolution.NeedInput without pendingInput on state — engine bug")
+            val response = responder.respond(resolution.state, request)
+            resolution = pipeline.resume(resolution.state, choices, response)
+        }
+        return resolution as TurnResolution.Completed
     }
 
     private fun handleFaintReplacements(

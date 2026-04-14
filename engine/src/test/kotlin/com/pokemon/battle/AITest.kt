@@ -1,6 +1,7 @@
 package com.pokemon.battle
 
 import com.pokemon.battle.ai.RandomAI
+import com.pokemon.battle.ai.SideProviders
 import com.pokemon.battle.ai.SidedAI
 import com.pokemon.battle.ai.TypeAI
 import com.pokemon.battle.data.MoveDex
@@ -224,7 +225,11 @@ class AITest {
                 random = kotlin.random.Random(123),
             )
 
-        val ai = SidedAI(side1 = side1AI to side1AI, side2 = side2AI to side2AI)
+        val ai =
+            SidedAI(
+                side1 = SideProviders(side1AI, side1AI, side1AI),
+                side2 = SideProviders(side2AI, side2AI),
+            )
 
         val pipeline =
             TurnPipeline(

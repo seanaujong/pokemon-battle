@@ -116,27 +116,18 @@ class HumanChoiceProviderTest {
         )
     }
 
-    // Extensibility / corner cases — exercises the self-switch pre-select flow
-    // that diary 055 flagged as the awkward bit we expect to rework.
+    // Mainline — self-switch UX moved to mid-turn (diary 055 Phase 2).
 
     @Test
-    fun `self-switch move prompts for switch target and embeds it in UseMove`() {
-        val active = charizard() // U-turn is in Charizard's pool in PlayMain
+    fun `self-switch move returns UseMove with switchTo null — mid-turn prompt handles target`() {
+        val active = charizard()
         val state =
             BattleState.singles(
                 p1 = fullHp(active),
                 p2 = fullHp(venusaur()),
                 p1Bench = listOf(fullHp(pikachu()), fullHp(blastoise())),
             )
-        // Menu:
-        //   1. U-turn              <- self-switch, triggers sub-prompt
-        //   2. Switch to Pikachu   (bench 0)
-        //   3. Switch to Blastoise (bench 1)
-        // After picking "1", a sub-prompt numbers the eligible bench 1..N:
-        //   1. Pikachu   (bench 0)
-        //   2. Blastoise (bench 1)
-        // Selecting "2" in the sub-prompt targets bench index 1.
-        val inputs = ArrayDeque(listOf("1", "2"))
+        val inputs = ArrayDeque(listOf("1"))
         val output = mutableListOf<String>()
         val provider =
             HumanChoiceProvider(
@@ -148,10 +139,41 @@ class HumanChoiceProviderTest {
 
         val choices = provider.getChoices(state)
 
-        assertEquals(TurnChoice.UseMove(MoveDex.U_TURN, switchTo = 1), choices.choiceFor(Slot.p1()))
+        // switchTo is null — the engine will pause after damage and call respond().
+        assertEquals(TurnChoice.UseMove(MoveDex.U_TURN, switchTo = null), choices.choiceFor(Slot.p1()))
+    }
+
+    @Test
+    fun `respond to SwitchTargetRequest returns chosen bench index`() {
+        val active = charizard()
+        val state =
+            BattleState.singles(
+                p1 = fullHp(active),
+                p2 = fullHp(venusaur()),
+                p1Bench = listOf(fullHp(pikachu()), fullHp(blastoise())),
+            )
+        val inputs = ArrayDeque(listOf("2"))
+        val output = mutableListOf<String>()
+        val provider =
+            HumanChoiceProvider(
+                side = Side.SIDE_1,
+                movePools = emptyMap(),
+                input = { inputs.removeFirstOrNull() },
+                output = { output += it },
+            )
+        val request =
+            com.pokemon.battle.engine.SwitchTargetRequest(
+                userSlot = Slot.p1(),
+                reason = com.pokemon.battle.engine.SwitchReason.SELF_SWITCH_MOVE,
+                eligibleBenchIndices = listOf(0, 1),
+            )
+
+        val response = provider.respond(state, request)
+
+        assertEquals(com.pokemon.battle.engine.SwitchTargetResponse(benchIndex = 1), response)
         assertTrue(
-            output.any { it.contains("switch", ignoreCase = true) },
-            "self-switch sub-prompt should mention switching; got $output",
+            output.any { it.contains("replacement", ignoreCase = true) },
+            "mid-turn prompt should mention picking a replacement; got $output",
         )
     }
 }

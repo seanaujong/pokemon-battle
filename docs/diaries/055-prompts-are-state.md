@@ -1,7 +1,7 @@
 # Diary 055: Prompts Are State
 
 **Date:** 2026-04-14
-**Status:** Phase 1 complete (2026-04-14). Phase 2 next.
+**Status:** Phases 1, 2, and 3 complete (2026-04-14). The CLI plays U-turn end-to-end with mid-turn switch prompts.
 
 ## The decision
 
@@ -130,29 +130,43 @@ Three phases, each independently shippable.
 
 Green signal achieved: `./gradlew test ktlintCheck detekt` green on main.
 
-### Phase 2 — migrate U-turn as first real consumer
+### Phase 2 — migrate U-turn as first real consumer ✅ shipped 2026-04-14
 
-- `MoveExecutionPhase` checks `pendingInput` at entry and, if a
-  `SwitchTargetResponse` is present for this turn's U-turn, consumes
-  it instead of re-running the move
-- After damage + effects resolve, the self-switch path emits
-  `NeedInput(SwitchTargetRequest)` instead of reading `choice.switchTo`
-- `TurnChoice.UseMove.switchTo` becomes deprecated but still honored
-  (pre-answered prompt) so existing tests don't break
-- `BattleLoop` gains a `ChoiceProvider`-like responder for input
-  requests (or reuses `ChoiceProvider` with an expanded contract)
-- New test: U-turn hits, pipeline pauses, caller responds, pipeline
-  completes
+- [x] `Phase` signature changed to return `PhaseOutput` (`Completed`
+      or `Paused(events, request)`); 5 phase implementations updated.
+- [x] `MoveExecutionPhase` self-switch branch: pre-selected `switchTo`
+      still works (legacy fallback); otherwise emits `Paused` with a
+      `SwitchTargetRequest`.
+- [x] On resume, `MoveExecutionPhase` looks at
+      `state.partialTurnEvents` for `TurnInputResolved`, extracts the
+      `SwitchTargetResponse`, and runs the post-pause switch sequence.
+      Slot-skipping helpers (`slotAlreadyActed`,
+      `slotIsMidSelfSwitch`) prevent duplicate emission.
+- [x] `TurnPipeline.resolve` returns `NeedInput` when a phase pauses;
+      new `TurnPipeline.resume(state, choices, response)` continues from
+      the paused phase.
+- [x] `BattleLoop` accepts an optional `InputResponder` and drives the
+      pause/resume cycle internally via `resolveTurnWithPauses`.
+- [x] New tests: pause emits `SwitchTargetRequest` with damage
+      visible; resume completes the switch sequence.
+- [x] `TurnChoice.UseMove.switchTo` still honored as the pre-selected
+      path so existing tests keep working without churn.
 
-Green signal: new pause-and-resume test plus all existing U-turn tests
-pass (the pre-selected path still works).
+### Phase 3 — interactive CLI ✅ shipped 2026-04-14
 
-### Phase 3 — interactive CLI
-
-- A `Main` entrypoint that actually plays: picks moves from a text menu,
-  sees events rendered, answers switch prompts when U-turn hits
-- This is the first proof of the capability. Everything up to this
-  point was engine plumbing; this is the feature.
+- [x] New `InputResponder` interface alongside `ChoiceProvider` /
+      `FaintReplacementProvider`.
+- [x] `HumanChoiceProvider` implements `InputResponder` (stdin-driven
+      mid-turn prompt). Removed the pre-select sub-prompt — U-turn now
+      uses the proper mid-turn UX.
+- [x] `TypeAI` and `SidedAI` implement `InputResponder`. `SidedAI`
+      routes by `request.userSlot.side`. `SidedAI` constructor accepts
+      `SideProviders` (data class) instead of `Pair`.
+- [x] `PlayMain.playBattle` drives pauses inline, rendering events
+      incrementally so the human sees damage land before being asked
+      for a switch target.
+- [x] Live smoke test: pick U-turn → see damage → get prompted for
+      replacement → see switch happen → opponent responds.
 
 ## What stays the same
 
