@@ -2,6 +2,10 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Agent / contributor onboarding
+
+New to this repo? Read `CONTRIBUTING.md` at the repo root. It covers the how-tos (adding an item, ability, move, event), testing conventions, build/lint expectations, commit style, and merge discipline — so you don't have to reverse-engineer them. This file (`CLAUDE.md`) covers the *why* and the iteration workflow; `CONTRIBUTING.md` covers the *how*.
+
 ## Project Overview
 
 Kotlin project implementing an event-sourced turn-resolution pipeline for Pokemon singles battles. The design is specified in `docs/`. Implementation is underway — see diary entries in `docs/diaries/` for current progress.
