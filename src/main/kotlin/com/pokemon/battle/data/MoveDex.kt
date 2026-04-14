@@ -43,6 +43,10 @@ object MoveDex {
 
     val MUD_SLAP = register(Move("Mud-Slap", Type.GROUND, MoveCategory.SPECIAL, 20))
 
+    val ROCK_BLAST = register(Move("Rock Blast", Type.ROCK, MoveCategory.PHYSICAL, 25, hitCount = 2..5))
+
+    val DOUBLE_SLAP = register(Move("Double Slap", Type.NORMAL, MoveCategory.PHYSICAL, 15, hitCount = 2..5))
+
     val U_TURN =
         register(
             Move(

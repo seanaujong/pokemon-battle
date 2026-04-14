@@ -17,4 +17,13 @@ data class Move(
      * hook on a `MoveBehavior`.
      */
     val requiresJustSwitchedIn: Boolean = false,
+    /**
+     * If non-null, this move strikes multiple times in a single use. The range
+     * is sampled via `roll(hitCount)` at execution time to pick the hit count
+     * (uniform — the true 35/35/15/15 distribution is a future refinement).
+     * Each hit independently rolls damage and crit, runs through per-hit
+     * intercepts (Sturdy, Focus Sash), and stops early if the target faints.
+     * `null` means the move strikes exactly once (default).
+     */
+    val hitCount: IntRange? = null,
 )

@@ -318,11 +318,40 @@ class MoveExecutionPhase(
         return events
     }
 
+    private fun resolveDamagePerTarget(
+        state: BattleState,
+        attackerSlot: Slot,
+        targetSlot: Slot,
+        move: Move,
+        spreadMod: Double,
+    ): List<BattleEvent> {
+        val defender = state.pokemonFor(targetSlot)
+        if (defender.isFainted) return emptyList()
+
+        val blockingAbility = abilityBlockingMove(defender, move)
+        if (blockingAbility != null) return listOf(AbilityBlocked(targetSlot, blockingAbility))
+
+        // Multi-hit moves (Rock Blast, Double Slap): sample hit count once, then loop.
+        // Ability-block (above) checks once — blocked moves are blocked for all hits.
+        val hits = move.hitCount?.let { roll(it) } ?: 1
+        val events = mutableListOf<BattleEvent>()
+        var currentState = state
+        repeat(hits) {
+            if (currentState.pokemonFor(targetSlot).isFainted) return@repeat
+            val hitEvents = applyOneHit(currentState, attackerSlot, targetSlot, move, spreadMod)
+            for (event in hitEvents) {
+                events.add(event)
+                currentState = event.apply(currentState)
+            }
+        }
+        return events
+    }
+
     @Suppress(
         "LongMethod",
         "CyclomaticComplexMethod",
-    ) // Per-target damage pipeline: intercept, apply, post-hooks, faint. Linearly composed.
-    private fun resolveDamagePerTarget(
+    ) // Per-hit pipeline: crit, calc, intercept, apply, post-hooks, faint. Linearly composed.
+    private fun applyOneHit(
         state: BattleState,
         attackerSlot: Slot,
         targetSlot: Slot,
@@ -331,11 +360,6 @@ class MoveExecutionPhase(
     ): List<BattleEvent> {
         val attacker = state.pokemonFor(attackerSlot)
         val defender = state.pokemonFor(targetSlot)
-
-        if (defender.isFainted) return emptyList()
-
-        val blockingAbility = abilityBlockingMove(defender, move)
-        if (blockingAbility != null) return listOf(AbilityBlocked(targetSlot, blockingAbility))
 
         val events = mutableListOf<BattleEvent>()
         var currentState = state
