@@ -95,6 +95,43 @@ object MoveDex {
 
     val AURA_SPHERE = register(Move("Aura Sphere", Type.FIGHTING, MoveCategory.SPECIAL, 80))
 
+    // --- Gen 5 OU additions (diary 099) ---
+    // Move data class has no accuracy field yet; accuracy-based misses are not modeled.
+    // Accuracy is noted in comments for future reference when the accuracy stat lands.
+
+    // Accuracy 85 in mainline — not modeled (no accuracy field).
+    val POWER_WHIP = register(Move("Power Whip", Type.GRASS, MoveCategory.PHYSICAL, 120, contact = true))
+
+    // Accuracy 80 in mainline — not modeled.
+    val HYDRO_PUMP = register(Move("Hydro Pump", Type.WATER, MoveCategory.SPECIAL, 110))
+
+    val SURF = register(Move("Surf", Type.WATER, MoveCategory.SPECIAL, 90))
+
+    val DRAGON_PULSE = register(Move("Dragon Pulse", Type.DRAGON, MoveCategory.SPECIAL, 85))
+
+    // Accuracy 90 in mainline — not modeled.
+    // Skipped: Draco Meteor drops user's Sp. Atk by 2 stages — add when we model self stat-drop secondaries (diary 099).
+    val DRACO_METEOR = register(Move("Draco Meteor", Type.DRAGON, MoveCategory.SPECIAL, 130))
+
+    // Skipped: Psychic has a 10% chance to lower target Sp. Def by 1 — add when we model secondary chance stat-drops (diary 099).
+    val PSYCHIC = register(Move("Psychic", Type.PSYCHIC, MoveCategory.SPECIAL, 90))
+
+    // Skipped: Crunch has a 20% chance to lower target Def by 1 — add when we model secondary chance stat-drops (diary 099).
+    val CRUNCH = register(Move("Crunch", Type.DARK, MoveCategory.PHYSICAL, 80, contact = true))
+
+    // Accuracy 80 in mainline — not modeled.
+    // Skipped: Stone Edge has a high crit ratio (1/8 in Gen 5) — add when we model crit-ratio-boosting moves (diary 099).
+    val STONE_EDGE = register(Move("Stone Edge", Type.ROCK, MoveCategory.PHYSICAL, 100))
+
+    val DRAGON_CLAW = register(Move("Dragon Claw", Type.DRAGON, MoveCategory.PHYSICAL, 80, contact = true))
+
+    val BULLET_PUNCH = register(Move("Bullet Punch", Type.STEEL, MoveCategory.PHYSICAL, 40, priority = 1, contact = true))
+
+    val X_SCISSOR = register(Move("X-Scissor", Type.BUG, MoveCategory.PHYSICAL, 80, contact = true))
+
+    // Skipped: Iron Head has a 30% flinch chance — add when we model secondary flinch chance (diary 099).
+    val IRON_HEAD = register(Move("Iron Head", Type.STEEL, MoveCategory.PHYSICAL, 80, contact = true))
+
     // --- Status moves ---
 
     val SWORDS_DANCE =
