@@ -15,6 +15,12 @@ data class PokemonState(
      * [ability]". Read via [effectiveAbility]; never dereferenced directly.
      */
     val abilityOverride: Ability? = null,
+    /**
+     * True once this Pokemon has Terastallized this battle. Drives the Tera STAB rule
+     * in [com.pokemon.battle.engine.GenVDamageCalculator] and pairs with [typeOverride]
+     * (set to the tera type on activation). Diary 092.
+     */
+    val terastallized: Boolean = false,
 ) {
     val isFainted: Boolean get() = currentHp <= 0
 

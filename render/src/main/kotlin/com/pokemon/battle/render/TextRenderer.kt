@@ -82,6 +82,7 @@ object TextRenderer : BattleRenderer {
             is SideConditionExpired -> renderSideConditionExpired(event)
             is TrickRoomSet -> renderTrickRoomSet(event)
             is GimmickUsed -> renderGimmickUsed(event, stateAfter)
+            is com.pokemon.battle.engine.Terastallized -> renderTerastallized(event, stateAfter)
             is HazardSet -> renderHazardSet(event)
             is HazardRemoved -> renderHazardRemoved(event)
             is HazardDamage -> renderHazardDamage(event, stateBefore)
@@ -140,6 +141,15 @@ object TextRenderer : BattleRenderer {
                 com.pokemon.battle.model.GimmickKind.TERA -> "$pokemonName Terastallized!"
             }
         return listOf(text)
+    }
+
+    private fun renderTerastallized(
+        event: com.pokemon.battle.engine.Terastallized,
+        stateAfter: BattleState,
+    ): List<String> {
+        val pokemonName = name(stateAfter, event.slot)
+        val teraType = stateAfter.pokemonFor(event.slot).pokemon.teraType
+        return listOf("$pokemonName Terastallized into the ${teraType?.name ?: "???"} type!")
     }
 
     private fun renderTrickRoomSet(event: TrickRoomSet): List<String> =

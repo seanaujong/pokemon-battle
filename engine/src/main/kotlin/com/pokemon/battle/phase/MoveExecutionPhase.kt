@@ -29,6 +29,7 @@ import com.pokemon.battle.engine.SwitchOut
 import com.pokemon.battle.engine.SwitchReason
 import com.pokemon.battle.engine.SwitchTargetRequest
 import com.pokemon.battle.engine.SwitchTargetResponse
+import com.pokemon.battle.engine.Terastallized
 import com.pokemon.battle.engine.TrickRoomSet
 import com.pokemon.battle.engine.TurnChoice
 import com.pokemon.battle.engine.TurnChoices
@@ -43,6 +44,7 @@ import com.pokemon.battle.engine.resolveSwitchInAbility
 import com.pokemon.battle.engine.resolveSwitchOutClearing
 import com.pokemon.battle.model.Ability
 import com.pokemon.battle.model.FailReason
+import com.pokemon.battle.model.GimmickKind
 import com.pokemon.battle.model.Move
 import com.pokemon.battle.model.MoveEffect
 import com.pokemon.battle.model.MoveTarget
@@ -107,7 +109,8 @@ class MoveExecutionPhase(
         if (priorEvents.any { it is MoveAttempted && it.attacker == slot }) {
             return null
         }
-        return checkStatusThenExecute(state, slot, choice)
+        val teraEvent = maybeTerastallize(state, slot, choice) ?: return checkStatusThenExecute(state, slot, choice)
+        return prepend(teraEvent, checkStatusThenExecute(teraEvent.apply(state), slot, choice))
     }
 
     /**
@@ -199,6 +202,24 @@ class MoveExecutionPhase(
         event: GameEvent,
         step: MoveStep,
     ): MoveStep = MoveStep(listOf(event) + step.events, step.pauseRequest)
+
+    /**
+     * Returns a [Terastallized] event if the slot asked to Tera this turn and the
+     * ruleset + state allow it. Null when Tera isn't requested or isn't legal — caller
+     * proceeds with normal move resolution.
+     */
+    private fun maybeTerastallize(
+        state: BattleState,
+        slot: Slot,
+        choice: TurnChoice.UseMove,
+    ): Terastallized? {
+        if (!choice.terastallize) return null
+        val holder = state.pokemonFor(slot)
+        if (holder.terastallized) return null
+        if (holder.pokemon.teraType == null) return null
+        if (!state.canUseGimmick(GimmickKind.TERA, slot.side)) return null
+        return Terastallized(slot)
+    }
 
     // --- Move execution ---
 

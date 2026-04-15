@@ -20,6 +20,12 @@ sealed interface TurnChoice {
         val targetSlot: Slot? = null,
         /** Bench index to send in if the move is a self-switch (U-turn, Volt Switch). */
         val switchTo: Int? = null,
+        /**
+         * Signal that the attacker wants to Terastallize this turn (before the move
+         * resolves). Ignored if the ruleset forbids it or the attacker has no
+         * [com.pokemon.battle.model.Pokemon.teraType] / has already Terastallized.
+         */
+        val terastallize: Boolean = false,
     ) : TurnChoice
 
     data class Switch(

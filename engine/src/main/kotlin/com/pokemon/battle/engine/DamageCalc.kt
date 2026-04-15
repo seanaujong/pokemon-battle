@@ -71,7 +71,7 @@ internal class GenVDamageCalculator(
         val typeMultiplier = typeChart.effectiveness(move.type, defender.effectiveTypes)
         val effectiveness = Effectiveness.from(typeMultiplier)
 
-        val stab = if (move.type in attacker.effectiveTypes) 1.5 else 1.0
+        val stab = teraStab(attacker, move.type)
 
         val randomRoll = roll(85..100)
 
@@ -82,6 +82,34 @@ internal class GenVDamageCalculator(
                 .coerceAtLeast(if (typeMultiplier > 0.0) 1 else 0)
 
         return DamageResult(damage, effectiveness)
+    }
+}
+
+/**
+ * STAB, with the Gen IX Terastallization bonus folded in:
+ *  - If the attacker hasn't Terastallized, this collapses to the vanilla rule
+ *    (1.5× when the move's type is in the attacker's effective types, else 1.0×).
+ *  - If the attacker has Terastallized, STAB is 2.0× when the move type matches
+ *    *both* the original species types AND the tera type, 1.5× when it matches
+ *    one of them, and 1.0× when it matches neither.
+ *
+ * Mechanically additive: the engine happily computes "Tera STAB" even when the
+ * calling context isn't Gen IX — the only way `terastallized` becomes true is via
+ * [com.pokemon.battle.engine.Terastallized], which is gated by the ruleset.
+ */
+internal fun teraStab(
+    attacker: PokemonState,
+    moveType: Type,
+): Double {
+    if (!attacker.terastallized) {
+        return if (moveType in attacker.effectiveTypes) 1.5 else 1.0
+    }
+    val originalMatch = moveType in attacker.pokemon.species.types
+    val teraMatch = moveType in attacker.effectiveTypes
+    return when {
+        originalMatch && teraMatch -> 2.0
+        originalMatch || teraMatch -> 1.5
+        else -> 1.0
     }
 }
 

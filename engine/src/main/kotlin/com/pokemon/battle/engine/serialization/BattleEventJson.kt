@@ -266,6 +266,11 @@ data class GimmickUsedJson(val kind: GimmickKind, val slot: Slot) : GameEventJso
     override fun toDomain() = GimmickUsed(kind, slot)
 }
 
+@Serializable
+data class TerastallizedJson(val slot: Slot) : GameEventJson {
+    override fun toDomain() = com.pokemon.battle.engine.Terastallized(slot)
+}
+
 // --- Hazards ---
 
 @Serializable
@@ -395,6 +400,7 @@ fun BattleEvent.toJson(): BattleEventJson =
         is SideConditionTick -> SideConditionTickJson(side, condition, turnsRemaining)
         is SideConditionExpired -> SideConditionExpiredJson(side, condition)
         is GimmickUsed -> GimmickUsedJson(kind, slot)
+        is com.pokemon.battle.engine.Terastallized -> TerastallizedJson(slot)
         is HazardSet -> HazardSetJson(side, hazard, layers)
         is HazardRemoved -> HazardRemovedJson(side, hazard)
         is HazardDamage -> HazardDamageJson(target, amount, hazard)

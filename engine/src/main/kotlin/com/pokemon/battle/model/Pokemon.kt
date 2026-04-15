@@ -6,6 +6,13 @@ data class Pokemon(
     val ivs: StatBlock = StatBlock.uniform(31),
     val evs: StatBlock = StatBlock.uniform(0),
     val nature: Nature = Nature.HARDY,
+    /**
+     * Tera type chosen at team-build time. Null means the Pokemon cannot Terastallize
+     * (either the format forbids it, or the user hasn't picked one). Activation at
+     * battle time is driven by [com.pokemon.battle.engine.Terastallized]; the preset
+     * type lives here so it survives the whole battle. Diary 092.
+     */
+    val teraType: Type? = null,
 ) {
     init {
         require(ivs.all { it in 0..31 }) { "IVs must be 0-31" }
