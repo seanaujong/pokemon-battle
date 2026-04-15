@@ -66,6 +66,7 @@ fun main(args: Array<String>) {
     val battlesPerMatchup = args.firstOrNull()?.toIntOrNull() ?: DEFAULT_BATTLES_PER_MATCHUP
     val genArg = args.getOrNull(1)?.lowercase() ?: "genv"
     val teraEnabled = args.drop(2).any { it.equals("tera", ignoreCase = true) }
+    val smogonEnabled = args.drop(2).any { it.equals("smogon", ignoreCase = true) }
     val registries =
         when (genArg) {
             "geniii", "gen3" -> GenIIIRegistries
@@ -78,16 +79,32 @@ fun main(args: Array<String>) {
             "geniii", "gen3" -> ::genIIIDamageCalculator
             else -> ::genVDamageCalculator
         }
-    val outputTag = if (teraEnabled) "$genArg-tera" else genArg
+    val outputTag =
+        buildList {
+            add(genArg)
+            if (smogonEnabled) add("smogon")
+            if (teraEnabled) add("tera")
+        }.joinToString("-")
     val outputDir = Path.of("battles/$outputTag")
     val recorder = FileBattleRecorder(outputDir)
 
-    val pokedex = Pokedex.loadFromClasspath()
-    // Tera-type picks: each mon tera'd into the type of one of its strongest STAB
-    // moves, so HeuristicAI's "tera when move.type == tera type" rule triggers
-    // on a move that also matches original types — unlocking the 2.0x Tera STAB.
+    val pokedex = if (smogonEnabled) Pokedex.loadJsonFromClasspath() else Pokedex.loadFromClasspath()
+    // Tera-type picks per pool. Hardcoded pool is calibrated for HeuristicAI to fire Tera on
+    // a move that double-STABs (diary 094). Smogon pool uses the same "tera type matches a
+    // strong STAB move" rule but for the Gen 5 OU 6-mon team.
     val teraTypes =
-        if (teraEnabled) {
+        if (!teraEnabled) {
+            emptyMap()
+        } else if (smogonEnabled) {
+            mapOf(
+                "Ferrothorn" to Type.GRASS,
+                "Starmie" to Type.WATER,
+                "Latios" to Type.DRAGON,
+                "Tyranitar" to Type.DARK,
+                "Garchomp" to Type.GROUND,
+                "Scizor" to Type.STEEL,
+            )
+        } else {
             mapOf(
                 "Charizard" to Type.FIRE,
                 "Garchomp" to Type.GROUND,
@@ -96,11 +113,17 @@ fun main(args: Array<String>) {
                 "Blastoise" to Type.ICE,
                 "Togekiss" to Type.FIGHTING,
             )
-        } else {
-            emptyMap()
         }
-    val side1Pool = teamFor(pokedex, listOf("Charizard", "Garchomp", "Lucario"), teraTypes)
-    val side2Pool = teamFor(pokedex, listOf("Venusaur", "Blastoise", "Togekiss"), teraTypes)
+    val side1Pool: MatrixTeamPool
+    val side2Pool: MatrixTeamPool
+    if (smogonEnabled) {
+        val setsPath = Path.of("data/smogon/gen5ou-1760-top-sets.json")
+        side1Pool = smogonTeam(setsPath, pokedex, listOf("Ferrothorn", "Starmie", "Latios"), teraTypes)
+        side2Pool = smogonTeam(setsPath, pokedex, listOf("Tyranitar", "Garchomp", "Scizor"), teraTypes)
+    } else {
+        side1Pool = hardcodedTeam(pokedex, listOf("Charizard", "Garchomp", "Lucario"), teraTypes)
+        side2Pool = hardcodedTeam(pokedex, listOf("Venusaur", "Blastoise", "Togekiss"), teraTypes)
+    }
 
     val strategies = Strategy.entries
     val matchups = strategies.flatMap { s1 -> strategies.map { s2 -> s1 to s2 } }
@@ -123,30 +146,15 @@ fun main(args: Array<String>) {
                     seed = seed,
                 )
 
-            // Items and abilities are set at state-construction time. Charizard's Life
-            // Orb is legal in both gens; Venusaur's Rocky Helmet is Gen 5+ — in Gen IV
-            // the item is unregistered so Venusaur holds it inertly. That asymmetry is
-            // the entire point of the Gen IV vs Gen V comparison (diary 087).
-            val side1Active =
-                PokemonState(
-                    side1Pool.pokemon[0],
-                    currentHp = side1Pool.pokemon[0].maxHp,
-                    ability = com.pokemon.battle.model.Ability.BLAZE,
-                    item = com.pokemon.battle.model.Item.LIFE_ORB,
-                )
-            val side2Active =
-                PokemonState(
-                    side2Pool.pokemon[0],
-                    currentHp = side2Pool.pokemon[0].maxHp,
-                    ability = com.pokemon.battle.model.Ability.OVERGROW,
-                    item = com.pokemon.battle.model.Item.ROCKY_HELMET,
-                )
+            // Items + abilities come from the team pool's per-Pokemon spec. The hardcoded pool
+            // mirrors the prior matrix calibration (Charizard/Life Orb/Blaze, Venusaur/Rocky
+            // Helmet/Overgrow); the Smogon pool pulls from top-rank picks per species.
             val baseInitialState =
                 BattleState.singles(
-                    side1Active,
-                    side2Active,
-                    p1Bench = side1Pool.pokemon.drop(1).map { PokemonState(it, currentHp = it.maxHp) },
-                    p2Bench = side2Pool.pokemon.drop(1).map { PokemonState(it, currentHp = it.maxHp) },
+                    side1Pool.stateAt(0),
+                    side2Pool.stateAt(0),
+                    p1Bench = (1 until side1Pool.specs.size).map { side1Pool.stateAt(it) },
+                    p2Bench = (1 until side2Pool.specs.size).map { side2Pool.stateAt(it) },
                 )
             val initialState = if (teraEnabled) baseInitialState.copy(ruleset = Gen9VgcTeraRuleset) else baseInitialState
 
@@ -217,7 +225,7 @@ private fun buildSidedAI(
         strategy: Strategy,
         pool: MatrixTeamPool,
     ): Triple<ChoiceProvider, FaintReplacementProvider, InputResponder?> {
-        val movePools = pool.pokemon.associate { it.species.name to it.moves }
+        val movePools = pool.movePools
         return when (strategy) {
             Strategy.TypeAI -> TypeAI(movePools = movePools).let { Triple(it, it, it) }
             Strategy.RandomAI ->
@@ -290,9 +298,37 @@ private fun printMatchupMatrix(
     }
 }
 
-private data class MatrixTeamPool(val pokemon: List<Pokemon>)
+/**
+ * One Pokemon's full team-build entry: identity + held item + ability + moveset. The Smogon
+ * path and the hardcoded path both produce these; downstream code reads only this shape.
+ */
+private data class MatrixTeamSpec(
+    val pokemon: com.pokemon.battle.model.Pokemon,
+    val ability: com.pokemon.battle.model.Ability?,
+    val item: com.pokemon.battle.model.Item?,
+    val moves: List<Move>,
+)
 
-private val DEMO_MOVES: Map<String, List<Move>> =
+private data class MatrixTeamPool(val specs: List<MatrixTeamSpec>) {
+    val pokemon: List<com.pokemon.battle.model.Pokemon> get() = specs.map { it.pokemon }
+
+    fun stateAt(index: Int): com.pokemon.battle.model.PokemonState {
+        val spec = specs[index]
+        return com.pokemon.battle.model.PokemonState(
+            pokemon = spec.pokemon,
+            currentHp = spec.pokemon.maxHp,
+            ability = spec.ability,
+            item = spec.item,
+        )
+    }
+
+    val movePools: Map<String, List<Move>> get() = specs.associate { it.pokemon.species.name to it.moves }
+}
+
+// Hardcoded "Gen 5 starters" pool — Charizard / Garchomp / Lucario / Venusaur / Blastoise / Togekiss
+// with the demo movesets and items that prior diaries (087-094) calibrated against. Kept so
+// the matrix has a stable baseline to diff Smogon-pool runs against.
+private val HARDCODED_DEMO_MOVES: Map<String, List<Move>> =
     mapOf(
         "Charizard" to listOf(MoveDex.FLAMETHROWER, MoveDex.THUNDERBOLT, MoveDex.EARTHQUAKE, MoveDex.NASTY_PLOT),
         "Garchomp" to listOf(MoveDex.EARTHQUAKE, MoveDex.ICE_BEAM, MoveDex.FLAMETHROWER, MoveDex.SWORDS_DANCE),
@@ -302,11 +338,75 @@ private val DEMO_MOVES: Map<String, List<Move>> =
         "Togekiss" to listOf(MoveDex.AURA_SPHERE, MoveDex.ICE_BEAM, MoveDex.THUNDERBOLT, MoveDex.FLAMETHROWER),
     )
 
-private fun teamFor(
+// Hardcoded ability + item per species — only the *active* mons in the original matrix had
+// these set; everything else relied on engine defaults. We carry the active-mon picks for the
+// Charizard / Venusaur leads and leave bench mons abilityless+itemless to preserve prior
+// runs' behavior.
+private val HARDCODED_ABILITIES: Map<String, com.pokemon.battle.model.Ability> =
+    mapOf(
+        "Charizard" to com.pokemon.battle.model.Ability.BLAZE,
+        "Venusaur" to com.pokemon.battle.model.Ability.OVERGROW,
+    )
+private val HARDCODED_ITEMS: Map<String, com.pokemon.battle.model.Item> =
+    mapOf(
+        "Charizard" to com.pokemon.battle.model.Item.LIFE_ORB,
+        "Venusaur" to com.pokemon.battle.model.Item.ROCKY_HELMET,
+    )
+
+private fun hardcodedTeam(
     pokedex: Map<String, Species>,
     names: List<String>,
     teraTypes: Map<String, Type> = emptyMap(),
-): MatrixTeamPool = MatrixTeamPool(names.map { Pokemon(pokedex[it]!!, level = 50, teraType = teraTypes[it]) })
+): MatrixTeamPool =
+    MatrixTeamPool(
+        names.map { name ->
+            MatrixTeamSpec(
+                pokemon = com.pokemon.battle.model.Pokemon(pokedex[name]!!, level = LEVEL, teraType = teraTypes[name]),
+                ability = HARDCODED_ABILITIES[name],
+                item = HARDCODED_ITEMS[name],
+                moves = HARDCODED_DEMO_MOVES[name] ?: emptyList(),
+            )
+        },
+    )
 
-private val Pokemon.moves: List<Move>
-    get() = DEMO_MOVES[species.name] ?: emptyList()
+// Per-species move substitutions for Smogon top picks we can't (yet) implement. Each entry
+// replaces moves named on the LEFT (Smogon canonical) with moves on the RIGHT (engine
+// canonical). Documented in diary 098's "skip list" — restoring the original moves is a
+// future-diary lift each (Leech Seed = volatile drain, Outrage = lock + self-confuse, etc.).
+private val SMOGON_MOVE_SUBSTITUTIONS: Map<String, List<Move>> =
+    mapOf(
+        "Ferrothorn" to listOf(MoveDex.POWER_WHIP, MoveDex.SPIKES, MoveDex.STEALTH_ROCK, MoveDex.PROTECT),
+        "Starmie" to listOf(MoveDex.HYDRO_PUMP, MoveDex.ICE_BEAM, MoveDex.THUNDERBOLT, MoveDex.RAPID_SPIN),
+        "Latios" to listOf(MoveDex.DRACO_METEOR, MoveDex.SURF, MoveDex.DRAGON_PULSE, MoveDex.PSYCHIC),
+        "Tyranitar" to listOf(MoveDex.CRUNCH, MoveDex.STONE_EDGE, MoveDex.EARTHQUAKE, MoveDex.ICE_BEAM),
+        "Garchomp" to listOf(MoveDex.EARTHQUAKE, MoveDex.DRAGON_CLAW, MoveDex.SWORDS_DANCE, MoveDex.STEALTH_ROCK),
+        "Scizor" to listOf(MoveDex.BULLET_PUNCH, MoveDex.X_SCISSOR, MoveDex.IRON_HEAD, MoveDex.U_TURN),
+    )
+
+private fun smogonTeam(
+    setsPath: Path,
+    pokedex: Map<String, Species>,
+    names: List<String>,
+    teraTypes: Map<String, Type> = emptyMap(),
+): MatrixTeamPool {
+    val builder = com.pokemon.battle.ingest.smogon.SmogonTeamBuilder
+    val sets = builder.loadSets(setsPath)
+    val specs =
+        names.map { name ->
+            val state =
+                builder.buildState(sets, name, pokedex, teraTypes, com.pokemon.battle.ingest.smogon.SmogonTeamBuilder.OnUnsupported.FAIL)
+                    ?: error("Smogon team build failed for $name")
+            val moves =
+                SMOGON_MOVE_SUBSTITUTIONS[name]
+                    ?: error("$name: no SMOGON_MOVE_SUBSTITUTIONS entry — add one or pick a different species")
+            MatrixTeamSpec(
+                pokemon = state.pokemon,
+                ability = state.ability,
+                item = state.item,
+                moves = moves,
+            )
+        }
+    return MatrixTeamPool(specs)
+}
+
+private const val LEVEL = 50

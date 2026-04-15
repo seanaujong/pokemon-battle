@@ -57,6 +57,7 @@ repositories {
 dependencies {
     implementation(project(":engine"))
     implementation(project(":data"))
+    implementation(project(":data-ingestion"))
     implementation(project(":render"))
     implementation(project(":ai"))
     implementation(project(":persistence"))
