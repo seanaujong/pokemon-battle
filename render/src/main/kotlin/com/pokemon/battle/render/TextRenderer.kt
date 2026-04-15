@@ -1,6 +1,7 @@
 package com.pokemon.battle.render
 
 import com.pokemon.battle.engine.AbilityBlocked
+import com.pokemon.battle.engine.AbilityDamage
 import com.pokemon.battle.engine.AbilityTriggered
 import com.pokemon.battle.engine.BattleState
 import com.pokemon.battle.engine.CriticalHit
@@ -74,6 +75,7 @@ object TextRenderer : BattleRenderer {
             is SwitchIn -> renderSwitchIn(event, stateAfter)
             is AbilityTriggered -> renderAbilityTriggered(event, stateAfter)
             is AbilityBlocked -> renderAbilityBlocked(event, stateBefore)
+            is AbilityDamage -> renderAbilityDamage(event, stateBefore)
             is TypeChanged -> renderTypeChanged(event, stateAfter)
             is VolatileAdded -> emptyList()
             is VolatileRemoved -> emptyList()
@@ -440,6 +442,14 @@ object TextRenderer : BattleRenderer {
     ): List<String> {
         val pokemonName = name(state, event.slot)
         return listOf(AbilityTextRegistry.textFor(event.ability).renderBlocked(pokemonName))
+    }
+
+    private fun renderAbilityDamage(
+        event: AbilityDamage,
+        state: BattleState,
+    ): List<String> {
+        val pokemonName = name(state, event.target)
+        return listOf("$pokemonName was hurt by ${event.ability.name.lowercase().replace('_', ' ')}!")
     }
 
     // --- Type changes ---

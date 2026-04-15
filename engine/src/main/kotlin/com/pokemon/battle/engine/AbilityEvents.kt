@@ -19,3 +19,20 @@ data class AbilityBlocked(
 ) : GameEvent {
     override fun apply(state: BattleState): BattleState = state
 }
+
+/**
+ * HP loss caused by an opponent's ability (Iron Barbs / Rough Skin contact recoil).
+ * Mirrors [com.pokemon.battle.engine.ItemDamage] on the ability side.
+ */
+@Serializable
+data class AbilityDamage(
+    val target: Slot,
+    val amount: Int,
+    val ability: Ability,
+) : GameEvent {
+    override fun apply(state: BattleState): BattleState {
+        val pokemon = state.pokemonFor(target)
+        val newHp = (pokemon.currentHp - amount).coerceAtLeast(0)
+        return state.withPokemon(target, pokemon.copy(currentHp = newHp))
+    }
+}

@@ -37,4 +37,14 @@ enum class Ability {
 
     // Switch-out triggers
     NATURAL_CURE,
+
+    // Contact recoil (on-hit)
+    IRON_BARBS,
+    ROUGH_SKIN,
+
+    // Weather-setter on switch-in
+    SAND_STREAM,
+
+    // Attacker damage modifier (low-base-power boost)
+    TECHNICIAN,
 }

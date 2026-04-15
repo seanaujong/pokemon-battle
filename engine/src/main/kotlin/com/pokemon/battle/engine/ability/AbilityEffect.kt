@@ -135,5 +135,24 @@ interface AbilityEffect {
         abilities: AbilityRegistry,
     ): List<GameEvent> = emptyList()
 
+    /**
+     * Fired after the holder takes damage from an attacker. Mirrors
+     * [com.pokemon.battle.engine.item.ItemEffect.onHolderTookDamage] on the ability
+     * side. Used by Iron Barbs / Rough Skin (1/8 contact recoil on attacker) and
+     * future on-hit abilities (e.g. Cursed Body, Static, Flame Body).
+     *
+     * [contact] is resolved via [com.pokemon.battle.engine.resolveIsContact] so
+     * attacker-side contact-negating effects (Long Reach, Punching Glove) are
+     * honored. [damageDealt] is the HP the holder actually lost — zero-damage hits
+     * (immunity, absorbed) do not reach this hook's callers.
+     */
+    fun onHolderTookDamage(
+        state: BattleState,
+        holderSlot: Slot,
+        attackerSlot: Slot,
+        damageDealt: Int,
+        contact: Boolean,
+    ): List<GameEvent> = emptyList()
+
     // Rendering lives in render/ability/AbilityText, not here. Split diary 038.
 }

@@ -6,15 +6,19 @@ import com.pokemon.battle.data.ability.DroughtEffect
 import com.pokemon.battle.data.ability.EmergencyExitEffect
 import com.pokemon.battle.data.ability.IceBodyEffect
 import com.pokemon.battle.data.ability.IntimidateEffect
+import com.pokemon.battle.data.ability.IronBarbsEffect
 import com.pokemon.battle.data.ability.KlutzEffect
 import com.pokemon.battle.data.ability.LevitateEffect
 import com.pokemon.battle.data.ability.NaturalCureEffect
 import com.pokemon.battle.data.ability.OvergrowEffect
+import com.pokemon.battle.data.ability.RoughSkinEffect
 import com.pokemon.battle.data.ability.SandForceEffect
 import com.pokemon.battle.data.ability.SandRushEffect
+import com.pokemon.battle.data.ability.SandStreamEffect
 import com.pokemon.battle.data.ability.SandVeilEffect
 import com.pokemon.battle.data.ability.SnowCloakEffect
 import com.pokemon.battle.data.ability.SturdyEffect
+import com.pokemon.battle.data.ability.TechnicianEffect
 import com.pokemon.battle.data.ability.TorrentEffect
 import com.pokemon.battle.data.item.ChoiceBandEffect
 import com.pokemon.battle.data.item.ChoiceScarfEffect
@@ -62,6 +66,10 @@ val GenVRegistries: Registries =
                     SturdyEffect,
                     EmergencyExitEffect,
                     NaturalCureEffect,
+                    IronBarbsEffect,
+                    RoughSkinEffect,
+                    SandStreamEffect,
+                    TechnicianEffect,
                 ),
             )
         val items =
@@ -112,6 +120,8 @@ val GenIIIRegistries: Registries =
                     TorrentEffect,
                     SturdyEffect,
                     NaturalCureEffect,
+                    RoughSkinEffect,
+                    SandStreamEffect,
                 ),
             )
         val items =
@@ -163,6 +173,9 @@ val GenIVRegistries: Registries =
                     KlutzEffect,
                     SturdyEffect,
                     NaturalCureEffect,
+                    RoughSkinEffect,
+                    SandStreamEffect,
+                    TechnicianEffect,
                 ),
             )
         val items =

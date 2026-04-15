@@ -599,9 +599,15 @@ class MoveExecutionPhase(
         if (defender.isFainted || damageDealt <= 0) return emptyList()
         val attacker = state.pokemonFor(attackerSlot)
         val contact = com.pokemon.battle.engine.resolveIsContact(move, attacker, registries.items, registries.abilities)
-        return registries.items.effectForHolder(defender)
-            ?.onHolderTookDamage(state, targetSlot, attackerSlot, damageDealt, effectiveness, contact, registries.abilities)
-            ?: emptyList()
+        val itemEvents =
+            registries.items.effectForHolder(defender)
+                ?.onHolderTookDamage(state, targetSlot, attackerSlot, damageDealt, effectiveness, contact, registries.abilities)
+                ?: emptyList()
+        val abilityEvents =
+            registries.abilities.effectFor(defender.effectiveAbility)
+                ?.onHolderTookDamage(state, targetSlot, attackerSlot, damageDealt, contact)
+                ?: emptyList()
+        return itemEvents + abilityEvents
     }
 
     /** Attacker's held item may fire a post-damage effect (e.g. Life Orb recoil, Choice lock). */

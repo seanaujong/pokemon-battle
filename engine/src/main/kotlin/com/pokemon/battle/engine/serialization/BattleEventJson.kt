@@ -1,6 +1,7 @@
 package com.pokemon.battle.engine.serialization
 
 import com.pokemon.battle.engine.AbilityBlocked
+import com.pokemon.battle.engine.AbilityDamage
 import com.pokemon.battle.engine.AbilityTriggered
 import com.pokemon.battle.engine.BattleEvent
 import com.pokemon.battle.engine.ControlEvent
@@ -231,6 +232,11 @@ data class AbilityBlockedJson(val slot: Slot, val ability: Ability) : GameEventJ
     override fun toDomain() = AbilityBlocked(slot, ability)
 }
 
+@Serializable
+data class AbilityDamageJson(val target: Slot, val amount: Int, val ability: Ability) : GameEventJson {
+    override fun toDomain() = AbilityDamage(target, amount, ability)
+}
+
 // --- Side conditions ---
 
 @Serializable
@@ -396,6 +402,7 @@ fun BattleEvent.toJson(): BattleEventJson =
         is SwitchIn -> SwitchInJson(slot, benchIndex)
         is AbilityTriggered -> AbilityTriggeredJson(slot, ability)
         is AbilityBlocked -> AbilityBlockedJson(slot, ability)
+        is AbilityDamage -> AbilityDamageJson(target, amount, ability)
         is SideConditionSet -> SideConditionSetJson(side, condition, turnsRemaining)
         is SideConditionTick -> SideConditionTickJson(side, condition, turnsRemaining)
         is SideConditionExpired -> SideConditionExpiredJson(side, condition)
