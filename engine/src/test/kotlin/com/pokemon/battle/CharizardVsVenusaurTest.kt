@@ -30,8 +30,11 @@ import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
 /**
- * Replays the worked example from docs/example-simple.md:
- * Charizard KOs Venusaur with Flamethrower.
+ * Worked example: Charizard KOs Venusaur with Flamethrower.
+ *
+ * This test is the canonical "simple turn" example — an executable replacement
+ * for the former docs/example-simple.md. See diary 093 for the rationale (prose
+ * that restates API shapes rots; tests can't).
  */
 class CharizardVsVenusaurTest {
     private val charizardSpecies =

@@ -33,8 +33,19 @@ Initial phases: `MoveOrderPhase` → `MoveExecutionPhase` → `EndOfTurnPhase`. 
 ## Design Documents
 
 - `docs/architecture.md` — complete type definitions, phase pipeline, extensibility model
-- `docs/example-simple.md` — worked example: Charizard KOs Venusaur with Flamethrower
-- `docs/example-extended.md` — worked example: multi-phase turn with priority, status, weather, items
+- `engine/src/test/kotlin/com/pokemon/battle/CharizardVsVenusaurTest.kt` — worked example, executable form
+- `engine/src/test/kotlin/com/pokemon/battle/InfernapeVsSwampertTest.kt` — extended example (priority, burn, weather, items)
+
+## Docs principle
+
+Prose that restates API shapes (constructors, event fields, phase return
+types) rots the moment the engine evolves. Prefer tests as worked examples,
+and let `docs/architecture.md` own the one canonical description. Diary 093
+is the rationale for deleting `guide.md` / `example-simple.md` /
+`example-extended.md`: they were restating API shapes we already had in
+tests, which meant we were maintaining the same thing in two places and
+only the tests were forced to stay correct. New API docs should follow the
+same rule — if it has a signature that can go stale, prefer the test.
 
 ## Design Principles
 
