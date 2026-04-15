@@ -10,6 +10,7 @@ import com.pokemon.battle.engine.TurnChoices
 import com.pokemon.battle.loop.ChoiceProvider
 import com.pokemon.battle.loop.FaintReplacementProvider
 import com.pokemon.battle.loop.InputResponder
+import com.pokemon.battle.model.GimmickKind
 import com.pokemon.battle.model.Move
 import com.pokemon.battle.model.MoveEffect
 import com.pokemon.battle.model.MoveTarget
@@ -43,13 +44,38 @@ class HeuristicAI(
 
             val moves = movePools[pokemon.pokemon.species.name] ?: continue
             val setupMove = pickSetupMove(moves, pokemon.statStages)
-            if (setupMove != null) {
-                choices[slot] = TurnChoice.UseMove(setupMove)
+            val baseChoice =
+                if (setupMove != null) TurnChoice.UseMove(setupMove) else fallback[slot] as? TurnChoice.UseMove
+            if (baseChoice != null) {
+                choices[slot] = maybeRequestTera(state, slot, baseChoice)
             } else {
                 fallback[slot]?.let { choices[slot] = it }
             }
         }
         return TurnChoices(choices)
+    }
+
+    /**
+     * Opt into Terastallization when the holder's tera type matches the move about to
+     * be used — that's the turn the bonus is most impactful. Gated by:
+     * - holder has a [com.pokemon.battle.model.Pokemon.teraType] set,
+     * - holder hasn't already Terastallized,
+     * - the ruleset permits a Tera activation on this side right now,
+     * - the move's type equals the tera type (Tera STAB is maximized when the original
+     *   and tera types both match, but picking by tera-type match alone is the simpler
+     *   heuristic that produces measurable signal).
+     */
+    private fun maybeRequestTera(
+        state: BattleState,
+        slot: Slot,
+        choice: TurnChoice.UseMove,
+    ): TurnChoice.UseMove {
+        val holder = state.pokemonFor(slot)
+        val teraType = holder.pokemon.teraType ?: return choice
+        if (holder.terastallized) return choice
+        if (!state.canUseGimmick(GimmickKind.TERA, slot.side)) return choice
+        if (choice.move.type != teraType) return choice
+        return choice.copy(terastallize = true)
     }
 
     /**

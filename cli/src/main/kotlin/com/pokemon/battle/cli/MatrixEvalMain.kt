@@ -13,6 +13,7 @@ import com.pokemon.battle.data.MoveDex
 import com.pokemon.battle.data.Pokedex
 import com.pokemon.battle.engine.BattleState
 import com.pokemon.battle.engine.DamageCalculator
+import com.pokemon.battle.engine.Gen9VgcTeraRuleset
 import com.pokemon.battle.engine.Registries
 import com.pokemon.battle.engine.TurnPipeline
 import com.pokemon.battle.engine.genIIIDamageCalculator
@@ -26,6 +27,7 @@ import com.pokemon.battle.model.Pokemon
 import com.pokemon.battle.model.PokemonState
 import com.pokemon.battle.model.Side
 import com.pokemon.battle.model.Species
+import com.pokemon.battle.model.Type
 import com.pokemon.battle.persistence.BattleLoader
 import com.pokemon.battle.persistence.BattleMetadataFactory
 import com.pokemon.battle.persistence.FileBattleRecorder
@@ -63,6 +65,7 @@ private const val SEED_SALT_ENGINE = 0x5A71_5A71_5A71_5A71L
 fun main(args: Array<String>) {
     val battlesPerMatchup = args.firstOrNull()?.toIntOrNull() ?: DEFAULT_BATTLES_PER_MATCHUP
     val genArg = args.getOrNull(1)?.lowercase() ?: "genv"
+    val teraEnabled = args.drop(2).any { it.equals("tera", ignoreCase = true) }
     val registries =
         when (genArg) {
             "geniii", "gen3" -> GenIIIRegistries
@@ -75,12 +78,29 @@ fun main(args: Array<String>) {
             "geniii", "gen3" -> ::genIIIDamageCalculator
             else -> ::genVDamageCalculator
         }
-    val outputDir = Path.of("battles/$genArg")
+    val outputTag = if (teraEnabled) "$genArg-tera" else genArg
+    val outputDir = Path.of("battles/$outputTag")
     val recorder = FileBattleRecorder(outputDir)
 
     val pokedex = Pokedex.loadFromClasspath()
-    val side1Pool = teamFor(pokedex, listOf("Charizard", "Garchomp", "Lucario"))
-    val side2Pool = teamFor(pokedex, listOf("Venusaur", "Blastoise", "Togekiss"))
+    // Tera-type picks: each mon tera'd into the type of one of its strongest STAB
+    // moves, so HeuristicAI's "tera when move.type == tera type" rule triggers
+    // on a move that also matches original types — unlocking the 2.0x Tera STAB.
+    val teraTypes =
+        if (teraEnabled) {
+            mapOf(
+                "Charizard" to Type.FIRE,
+                "Garchomp" to Type.GROUND,
+                "Lucario" to Type.FIGHTING,
+                "Venusaur" to Type.POISON,
+                "Blastoise" to Type.ICE,
+                "Togekiss" to Type.FIGHTING,
+            )
+        } else {
+            emptyMap()
+        }
+    val side1Pool = teamFor(pokedex, listOf("Charizard", "Garchomp", "Lucario"), teraTypes)
+    val side2Pool = teamFor(pokedex, listOf("Venusaur", "Blastoise", "Togekiss"), teraTypes)
 
     val strategies = Strategy.entries
     val matchups = strategies.flatMap { s1 -> strategies.map { s2 -> s1 to s2 } }
@@ -121,13 +141,14 @@ fun main(args: Array<String>) {
                     ability = com.pokemon.battle.model.Ability.OVERGROW,
                     item = com.pokemon.battle.model.Item.ROCKY_HELMET,
                 )
-            val initialState =
+            val baseInitialState =
                 BattleState.singles(
                     side1Active,
                     side2Active,
                     p1Bench = side1Pool.pokemon.drop(1).map { PokemonState(it, currentHp = it.maxHp) },
                     p2Bench = side2Pool.pokemon.drop(1).map { PokemonState(it, currentHp = it.maxHp) },
                 )
+            val initialState = if (teraEnabled) baseInitialState.copy(ruleset = Gen9VgcTeraRuleset) else baseInitialState
 
             // Dedicated Random for engine-side rolls (crits, chance checks). Separate
             // from the AI's Random so AI choice and engine rolls don't interfere;
@@ -152,7 +173,7 @@ fun main(args: Array<String>) {
 
             val metadata =
                 BattleMetadataFactory.forNewBattle(
-                    formatTag = "matrixEval-$genArg",
+                    formatTag = "matrixEval-$outputTag",
                     playerTags = mapOf(Side.SIDE_1.name to side1Strategy.name, Side.SIDE_2.name to side2Strategy.name),
                     // Record the RandomAI seed so every battle file is reproducible — drop
                     // this battleId back into a replay harness and the exact same choices
@@ -284,7 +305,8 @@ private val DEMO_MOVES: Map<String, List<Move>> =
 private fun teamFor(
     pokedex: Map<String, Species>,
     names: List<String>,
-): MatrixTeamPool = MatrixTeamPool(names.map { Pokemon(pokedex[it]!!, level = 50) })
+    teraTypes: Map<String, Type> = emptyMap(),
+): MatrixTeamPool = MatrixTeamPool(names.map { Pokemon(pokedex[it]!!, level = 50, teraType = teraTypes[it]) })
 
 private val Pokemon.moves: List<Move>
     get() = DEMO_MOVES[species.name] ?: emptyList()

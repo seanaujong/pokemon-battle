@@ -94,7 +94,7 @@ internal object NationalDexRuleset : Ruleset {
 }
 
 /** Gen 9 VGC Reg H / similar: Tera only, once per side per battle. */
-internal object Gen9VgcTeraRuleset : Ruleset {
+object Gen9VgcTeraRuleset : Ruleset {
     override fun canUseGimmick(
         kind: GimmickKind,
         priorUsage: List<UsedGimmick>,
