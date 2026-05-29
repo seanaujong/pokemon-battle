@@ -91,12 +91,11 @@ structure and event DTOs are the de facto version. Changes:
   that filter by `type`; readers that `when`-match exhaustively will
   fail loud and need a new branch.
 - **Removing a field or renaming:** breaking. Handle via the DTO
-  migration pattern (diary 060) — add a new DTO, keep the old, make
-  the `toDomain` converter tolerate both.
+  migration pattern — add a new DTO, keep the old, make the `toDomain`
+  converter tolerate both.
 
-Diary 076 is the worked precedent — `DamageDealt.critical` was removed
-from the DTO after every in-repo consumer migrated to reading
-`CriticalHit` events.
+The worked precedent: `DamageDealt.critical` was removed from the DTO
+after every in-repo consumer migrated to reading `CriticalHit` events.
 
 ## Reading the corpus
 
@@ -123,9 +122,9 @@ ORDER BY seed;
 ```
 
 Before adding a new `BattleCorpus` Kotlin function, check whether a
-two-line DuckDB query covers it. Diary 081 argues for this as the
-cheap-answer-first discipline. When the same query gets run often
-*and* belongs in the test suite, promote it to `BattleCorpus`.
+two-line DuckDB query covers it — the cheap-answer-first discipline.
+When the same query gets run often *and* belongs in the test suite,
+promote it to `BattleCorpus`.
 
 **External-language consumers** (Python, TS, etc.) can parse the JSON
 with their native libraries and reimplement `PersistedBattle` shape
@@ -140,8 +139,7 @@ partition scheme (trivial to retrofit).
 
 ## Storage layout — deferred
 
-The following are explicitly not here yet (see diary 081 for
-thresholds):
+The following are explicitly not here yet:
 
 - Columnar conversion (Parquet). Forced at ~100K+ battles with whole-
   corpus queries.
@@ -155,7 +153,3 @@ thresholds):
 - `:persistence/src/main/kotlin/com/pokemon/battle/persistence/PersistedBattle.kt` — authoritative shape.
 - `:persistence/src/main/kotlin/com/pokemon/battle/persistence/FileBattleRecorder.kt` — write path.
 - `:persistence/src/main/kotlin/com/pokemon/battle/persistence/BattleLoader.kt` — read path.
-- Diary 078 — pipeline v1 design.
-- Diary 080 — `:server` recording.
-- Diary 081 — industry comparison that motivated DuckDB-as-escape-hatch.
-- Diary 076 — schema-evolution worked example.

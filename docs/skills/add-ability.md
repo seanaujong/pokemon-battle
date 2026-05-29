@@ -18,8 +18,8 @@ different hooks. Read `add-item.md` first if you haven't added an item before.
 ## Preconditions
 
 - Your ability maps to an existing hook on `AbilityEffect`. Check the source
-  for the current hook inventory — this doc drifts otherwise. As of diary
-  075, the hooks are `onSwitchIn`, `onSwitchOut`, `blocksMove`,
+  for the current hook inventory — this doc drifts otherwise. The hooks
+  currently include `onSwitchIn`, `onSwitchOut`, `blocksMove`,
   `onMoveAbsorbed`, `blocksWeatherDamage`, `attackerDamageModifier`,
   `defenderDamageModifier`, `interceptIncomingDamage`, `suppressesHeldItem`,
   `speedModifier`, `onHpThresholdCrossed`. If your ability needs a new
@@ -82,16 +82,16 @@ You want a Pokemon to have a passive battle effect the engine doesn't model.
    `TooManyFunctions` threshold (11) will fire. Land an inline
    `@Suppress("TooManyFunctions")` on the interface with a one-line
    rationale (e.g. "hooks grow as mechanics are added; each ability
-   overrides only what applies"). Diary 075 is the worked precedent.
+   overrides only what applies").
 
    Do not add `when (ability)` dispatch at the call site — the registry
    is the dispatch.
 
 **2a. Your ability suppresses another effect.** Klutz is the worked example —
    see `KlutzEffect` and the `suppressesHeldItem` hook. The `ItemRegistry`
-   already respects suppression via `effectForHolder`. Cross-registry
-   suppression is addressed in diary 033: put the suppression check on the
-   *lookup* (context-aware registry), not on every caller.
+   already respects suppression via `effectForHolder`. The rule for
+   cross-registry suppression: put the suppression check on the *lookup*
+   (context-aware registry), not on every caller.
 
 **3a. Identity-only ability (no battle effect).** Run Away, Pickup, etc.
    Add to `identityOnlyAbilities` in `RegistryCoverageTest.kt` instead of
@@ -105,8 +105,6 @@ You want a Pokemon to have a passive battle effect the engine doesn't model.
 
 ## Related information
 
-- **Canonical design:** diary 027 (ability registry), diary 033 (context-
-  aware registry lookup / Klutz), diary 071 (DI refactor).
 - **Worked examples in repo:** `IntimidateEffect`, `LevitateEffect`,
   `SturdyEffect`, `WeatherImmunityEffects` (shared delegation pattern for
   abilities that differ only in which weather they immunize).

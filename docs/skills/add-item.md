@@ -12,7 +12,7 @@
 - **Future contributors** — want the new item to follow the established shape so
   it's recognisable on sight (no bespoke dispatch, no scattered conditionals).
 - **Engine maintainers** — want `:engine` to stay data-free; the registry-DI
-  split from diary 071 depends on every new item landing in `:data`.
+  split depends on every new item landing in `:data`.
 
 ## Preconditions
 
@@ -48,8 +48,7 @@ today.
    jump to extension *1a*. Otherwise, continue.
 2. **Add the enum value.** Edit
    `engine/src/main/kotlin/com/pokemon/battle/model/Item.kt` — append or group
-   by category. Enum order is cosmetic; additive inserts merge cleanly
-   (diary 043).
+   by category. Enum order is cosmetic; additive inserts merge cleanly.
 3. **Create the effect file** at
    `data/src/main/kotlin/com/pokemon/battle/data/item/<Name>Effect.kt`.
    Implement `com.pokemon.battle.engine.item.ItemEffect`. Override *only* the
@@ -105,9 +104,8 @@ today.
    detekt's `LongParameterList` threshold (6) to fire once a hook
    passes ~5 args — land an inline `@Suppress("LongParameterList")`
    with a one-line rationale (e.g. "on-hit items need full
-   attacker/defender/damage/type-eff context"). Diary 074 is the
-   worked precedent; Weakness Policy hit 7 params and the suppress is
-   documented there.
+   attacker/defender/damage/type-eff context"). Weakness Policy, for
+   instance, hit 7 params and carries a documented suppress.
 
 **5b. Your item needs a new `BattleEvent` variant.** Example: a unique item
    that needs its own audit-log entry beyond generic damage/healing. Follow
@@ -121,16 +119,14 @@ today.
 
 ## Related information
 
-- **Worked example (in repo):** `RockyHelmetEffect` (diary 071's dogfood
-  exercise). Six-file diff: enum value, effect, registry entry, render text,
-  text registry entry, test. About 20 minutes end to end.
-- **Canonical design:** diary 026 (first item extraction), diary 038 (rendering
-  separation), diary 071 (registry DI moving items to `:data`).
+- **Worked example (in repo):** `RockyHelmetEffect`. Six-file diff: enum
+  value, effect, registry entry, render text, text registry entry, test.
+  About 20 minutes end to end.
 - **Gotchas:**
   - The contact-moves simplification: Rocky Helmet should only fire on contact
     moves, but `Move` has no `contact: Boolean` flag yet. Red Card has the
     same gap. If your item legitimately needs the contact distinction, that's
     a `Move`-shape change, not an item-effect change.
   - If the damage calculator or speed resolver needs to consult your item,
-    that's already threaded: both take a `Registries` parameter as of diary 071.
-    Don't reach for a global.
+    that's already threaded: both take a `Registries` parameter. Don't
+    reach for a global.

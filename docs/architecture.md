@@ -4,8 +4,7 @@
 > reference for current type signatures. Code is authoritative for shapes, field
 > lists, and what is currently implemented — this doc drifts the moment you look
 > at it. Read `engine/src/main/kotlin/com/pokemon/battle/` for current types,
-> `docs/diaries/` for the history of decisions, and the sections below for the
-> rationale that ties them together.
+> and the sections below for the rationale that ties them together.
 >
 > The canonical statement of the engine's **key invariants** (immutability, events
 > as sole mutation, pure phases, sealed hierarchies, engine-has-zero-I/O) lives in
@@ -41,8 +40,8 @@ TurnChoices + BattleState
 The pipeline is wrapped by a **game loop** that collects choices, runs turns,
 handles faint replacements, and checks win conditions. For the current set of
 phases, event subclasses, and pipeline/loop signatures — including mid-turn input
-handling added in diary 055 and the `GameEvent` / `ControlEvent` split in diary
-061 — see the source under `engine/src/main/kotlin/com/pokemon/battle/`.
+handling and the `GameEvent` / `ControlEvent` split — see the source under
+`engine/src/main/kotlin/com/pokemon/battle/`.
 
 ## Design Rationale
 
@@ -126,15 +125,15 @@ because those modules' signatures return or take engine types
 implementations, concrete `Ruleset` objects, `TypeChart` charts).
 External modules can import only the types that are part of the public
 contract — domain models, events, pipeline/loop contracts, concrete
-phases, and extensibility interfaces. See diary 068 for the audit.
+phases, and extensibility interfaces.
 
 **`engine/item/` and `engine/ability/`** hold *only* the `ItemEffect` /
 `AbilityEffect` interfaces and the registry classes
 (`ItemRegistry`, `AbilityRegistry`) — the plugin contract. The concrete
 per-item / per-ability effect classes live in `:data` under
-`data/item/` / `data/ability/`. Diary 071 did this split: the engine
-defines the shape of an effect, `:data` registers the specific
-entries. Phases take a `Registries` bundle as a constructor parameter
+`data/item/` / `data/ability/`: the engine defines the shape of an
+effect, `:data` registers the specific entries. Phases take a
+`Registries` bundle as a constructor parameter
 rather than calling global registry singletons.
 
 ## Data layering
@@ -169,8 +168,8 @@ mutation**. Phases never rewrite state directly; they emit events, and events'
   return the state unchanged; they still appear in the log.
 
 For the current split between `GameEvent` (applies to `BattleState`) and
-`ControlEvent` (applies to `PipelineState`, used for mid-turn input), see diary
-061.
+`ControlEvent` (applies to `PipelineState`, used for mid-turn input), see the
+source.
 
 ## Phases and the pipeline
 
@@ -189,14 +188,14 @@ their inputs, which is what makes them testable in isolation.
 replacements (with switch-in ability triggers), and checks win conditions.
 `TurnRecord` separates pipeline events from replacement events. `BattleResult`
 reports the winner, final state, and full turn history. For the current
-constructor — including `InputResponder` for mid-turn prompts added in diary
-055 — see `engine/loop/BattleLoop.kt`.
+constructor — including `InputResponder` for mid-turn prompts — see
+`engine/loop/BattleLoop.kt`.
 
 ## Event-stream consumers
 
 The `BattleEvent` stream is the universal output. Every consumer reads the same
 stream and interprets it for its own purpose (rendering, analytics, persistence,
-replay, metrics, UIs). Diary 042 makes this framing explicit.
+replay, metrics, UIs).
 
 ### The module-placement rule
 
@@ -290,9 +289,8 @@ val itemMod = ItemRegistry.effectForHolder(attacker)?.attackerDamageModifier(att
 
 Applies to: items, abilities, and move-level effects beyond the `MoveEffect`
 data hierarchy (where the `when` in `MoveExecutionPhase.resolveEffect` is the
-current dispatch site; registry extraction tracked in diary 029). See diary 026
-for the first extraction, diary 033 for context-aware lookups (Klutz), and the
-Lessons Learned section below.
+current dispatch site, pending registry extraction). The Lessons Learned section
+below covers the first extraction and context-aware lookups (Klutz).
 
 ### What NOT to do
 
@@ -372,12 +370,12 @@ not `:engine`.** The engine resolves whatever it's given — what
 specific Charizard exists, what the full item list is, what moves are
 in the pool — is data, not mechanics. Our first `:engine` included all
 of `PokedexCatalog` / `MoveDex` as Kotlin objects alongside pipeline
-code; diary 065 extracted them to `:data`. The tell: the engine never
+code; they were extracted to `:data`. The tell: the engine never
 iterates over "all species" — it operates on whatever `Species`
 instance a consumer hands it. Same shape as "move pools belong to the
-choice layer." Diary 066 then extracted `:render` and `:ai` on the
-same principle (Showdown puts rendering in the client, AI in the
-server; neither belongs in `sim/`). The generalizable test: does the
+choice layer." `:render` and `:ai` were extracted on the same principle
+(Showdown puts rendering in the client, AI in the server; neither
+belongs in `sim/`). The generalizable test: does the
 engine actually read this catalog, or does it only consume one entry
 at a time? If the latter, the catalog belongs outside.
 
@@ -410,16 +408,15 @@ at 50 across 5 gens. Extraction to `ItemEffect` objects + `ItemRegistry` put beh
 to identity, eliminated cross-branch noise in exhaustive `when`s, and gave us the natural
 seam for gen-specific variants (`GenIVItemRegistry` vs `GenVItemRegistry`). Do this
 *when* the pattern is visible, not before — three items was the sweet spot for us.
-Diary 026 has the full story.
 
 **The event log is a first-class data asset, not just a rendering input.** Every
 structural decision that keeps events complete, ordered, and serializable pays off in
 three directions: rendering (text/HTML/JSON), analytics (win rates, usage stats,
 correctness audits), and replay (save, reload, debug). The engine's contribution is
 emitting faithful events; everything else — text, metrics, replay viewers — is a
-consumer module that reads the stream. Diary 042 makes this framing explicit and walks
-through the three analytics categories (gameplay insights, engine self-consistency,
-dev performance). The minimum-viable investment to unlock all of this: add
+consumer module that reads the stream. This framing spans three analytics
+categories — gameplay insights, engine self-consistency, and dev performance.
+The minimum-viable investment to unlock all of this: add
 `@Serializable` to every event. Most of the value comes for free from the
 event-sourcing shape we already adopted.
 
@@ -428,9 +425,9 @@ Early on, colocating render strings with effect behavior (one `ItemEffect` file 
 both "what Leftovers does" and "what Leftovers prints") is the right simplicity. Past
 10+ entities it becomes a drag: every new hook widens the interface, render strings
 bloat effect files, and anything renderer-specific (localization, JSON events, HTML) has
-to subclass every effect or swap whole implementations. The fix — demonstrated in
-diary 038 — is parallel `Text` interfaces and registries next to each `Effect` registry,
-consulted by `TextRenderer` instead of the effect registry. Adding a second renderer
+to subclass every effect or swap whole implementations. The fix is parallel `Text`
+interfaces and registries next to each `Effect` registry, consulted by
+`TextRenderer` instead of the effect registry. Adding a second renderer
 becomes a new `Text*` registry, zero behavior changes. Don't do this split too early; do
 it when the effect interface bloats past the TooManyFunctions threshold and render
 coupling starts hurting readability.
@@ -444,16 +441,15 @@ caller. The right shape is for the *lookup itself* to be context-aware:
 `ItemRegistry.effectForHolder(pokemon)` returns null if the item is suppressed, hiding
 the suppression logic inside the registry. Callers remain generic; adding a new
 suppressor (Embargo volatile, Magic Room field) means one signature extension on the
-lookup, not an edit in every caller. Diary 033 establishes this with Klutz as the first
-example.
+lookup, not an edit in every caller. Klutz is the first example of this.
 
 **Registries turn multi-gen support into a data-loading problem, not an engine problem.**
 Once behavior is extracted from the engine into per-entity effect objects, a gen-specific
 variant of the engine is just a different set of objects registered. The engine itself
 never asks "what gen am I?" — it consults whichever registry the pipeline was built with.
-Diary 032 audited every real move change across 9 gens (Knock Off's power and damage
+An audit of every real move change across 9 gens — Knock Off's power and damage
 formula evolution, Defog gaining hazard-clear, Toxic's accuracy changes, Weather Ball's
-weather-type switching, Hidden Power's removal, and dozens more) and found **zero cases**
+weather-type switching, Hidden Power's removal, and dozens more — found **zero cases**
 requiring `if (gen == X)` branches in engine code. Every change decomposes into a data
 CSV diff or a registry re-registration. This is the strongest architectural validation
 we have for the pattern: it scales not just to more entries per gen, but to more *gens*
@@ -472,9 +468,8 @@ code is deterministic; your head isn't.
 **Documentation that describes current shape will drift; documentation that
 describes rationale won't.** The original version of this file listed type
 signatures, field-by-field `BattleState` layouts, a file-by-file event catalog,
-and an "implemented vs future" table. Every refactor (diaries 041, 044, 055,
-056, 061) silently invalidated one of them without anyone back-editing. Diary
-063 stripped the time-sensitive surface and kept rationale + lessons + concepts,
-on the theory that rot-prone prose is worse than no prose. Point readers at
-source for shapes; point readers at diaries for history; keep this doc for the
-*why*.
+and an "implemented vs future" table. Every refactor silently invalidated one of
+them without anyone back-editing. This file was later stripped of the
+time-sensitive surface, keeping rationale + lessons + concepts, on the theory
+that rot-prone prose is worse than no prose. Point readers at source for shapes;
+keep this doc for the *why*.

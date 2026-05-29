@@ -1,12 +1,12 @@
 # Corpus queries cookbook
 
 Before writing a new `BattleCorpus` aggregation function, check whether
-a two-line DuckDB query covers your question. Diary 081 argues for
-DuckDB-as-escape-hatch; this doc is the catalog of worked examples.
+a two-line DuckDB query covers your question — the DuckDB-as-escape-hatch
+discipline; this doc is the catalog of worked examples.
 
-All queries below run against `battles/*.json` — the file format
-described in `docs/corpus-format.md`. Written and tested against
-DuckDB 1.5.2 (the version in `scripts/analyst-env/`).
+All queries below run against `battles/*.json` — the persisted-battle
+JSON format. Written and tested against DuckDB 1.5.2 (the version in
+`scripts/analyst-env/`).
 
 ## Setup
 
@@ -105,9 +105,9 @@ duckdb.execute("""
 """).fetchall()
 ```
 
-Diary 083 records seeds in `clientInfo`; feed the seed back into a
-matrix runner with matching side tags and you reproduce the exact
-battle bit-for-bit.
+Seeds are recorded in `clientInfo`; feed the seed back into a matrix
+runner with matching side tags and you reproduce the exact battle
+bit-for-bit.
 
 ### 6. Move usage in winning battles only
 
@@ -130,7 +130,7 @@ duckdb.execute("""
 Event-level query showing which moves the winning side actually used.
 Nested `UNNEST`s expand the turn → events arrays. The full DTO type
 name (`…MoveAttemptedJson`) in `type` is a current property of the
-on-disk format (see `docs/corpus-format.md`).
+on-disk format.
 
 ## When to lift to `BattleCorpus`
 
@@ -140,12 +140,5 @@ A DuckDB query graduates to a Kotlin function when:
 - It's part of a report you ship (not a one-off exploration).
 - The logic becomes complex enough that SQL obscures the intent.
 
-Until then, DuckDB is cheaper. The corpus format doc is the contract
-both paths depend on.
-
-## Related
-
-- **`docs/corpus-format.md`** — field definitions for the queries above.
-- **Diary 078** — pipeline v1 design.
-- **Diary 081** — DuckDB-as-escape-hatch rationale.
-- **Diary 085** — analyst-interface test that motivated this cookbook.
+Until then, DuckDB is cheaper. The persisted-battle JSON format is the
+contract both paths depend on.

@@ -41,8 +41,8 @@ pause reason, etc.
 
 1. **Pick `GameEvent` vs `ControlEvent`.** `GameEvent.apply(state)` returns a
    new `BattleState`. `ControlEvent.applyTo(pipeline)` returns a new
-   `PipelineState` and is used for mid-turn input and resumption bookkeeping
-   (diary 061). Almost every new event is a `GameEvent`.
+   `PipelineState` and is used for mid-turn input and resumption bookkeeping.
+   Almost every new event is a `GameEvent`.
 2. **Find the topical events file** in
    `engine/src/main/kotlin/com/pokemon/battle/engine/`. Core events
    (`MoveAttempted`, `DamageDealt`, `PokemonFainted`, `ProtectBlocked`,
@@ -95,7 +95,7 @@ pause reason, etc.
    rare; default to serialising.
 
 **5a. Multiple renderers.** If we eventually have `HtmlRenderer` or
-   `JsonRenderer` (speculation in diary 042), each renderer's `when` must
+   `JsonRenderer`, each renderer's `when` must
    exhaustively handle your event. That's the cost of using sealed
    hierarchies — and the benefit, because the compiler enforces it.
 
@@ -118,14 +118,10 @@ pause reason, etc.
 
 ## Related information
 
-- **Canonical design:**
-  - Diary 060 — event serialization DTO split. The reason every event has a
-    `*Json` mirror.
-  - Diary 061 — `GameEvent` vs `ControlEvent` hierarchy. Why the pick in
-    step 1 matters.
-  - Diary 042 — the event stream as a first-class data asset.
-  - `docs/architecture.md` — the "Sealed hierarchies as domain catalogs"
-    rationale.
+- **Why the shape is this way:** every event has a `*Json` mirror so the log
+  is serializable; the `GameEvent` vs `ControlEvent` split (step 1) separates
+  state transitions from mid-turn control flow; the sealed hierarchy is a
+  domain catalog the compiler forces every consumer to handle exhaustively.
 - **Worked examples in repo:** look at files you touched for similar
   mechanics — `ItemHealing` / `ItemConsumed` for item-triggered audit
   events; `StatChanged` for per-slot mutations; `SideConditionSet` for
@@ -133,5 +129,4 @@ pause reason, etc.
 - **Gotcha:** events should be *mechanical*, not carry game-rule
   conditionals. `SwitchOut.apply()` originally cleared volatiles and stat
   stages. That's a game rule — it belongs in `SwitchPhase`, not in
-  `SwitchOut.apply()`. See the "Events are mechanical, rules live in
-  phases" lesson in `docs/architecture.md`.
+  `SwitchOut.apply()`. Events are mechanical; rules live in phases.

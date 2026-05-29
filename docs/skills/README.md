@@ -32,11 +32,11 @@ workflows. Add one when pressure demands:
 - **Add a new species** — today it's done via `:data-ingestion` (fetch
   from PokeAPI, commit the projected JSON). Skill doc would belong
   under `:data-ingestion`'s own README if that module ever gets one.
-- **Add a gen variant** — shaped by diary 067's `data/mods/` row; not
+- **Add a gen variant** — shaped by a planned `data/mods/` row; not
   yet triggered.
 - **Add a new consumer of the event stream** — a new peer module
-  (analytics, alternate renderer, web UI). Diary 069 / 070 sketch the
-  architecture; a skill doc would land when the second such consumer
+  (analytics, alternate renderer, web UI). The architecture is already
+  sketched; a skill doc would land when the second such consumer
   appears.
 - **Add a new choice type** — e.g., Mega Evolution, Z-moves, Tera. Would
   touch `TurnChoice`, the wire protocol, phases. Significant enough that
@@ -47,6 +47,4 @@ workflows. Add one when pressure demands:
 - **`CONTRIBUTING.md`** (repo root) — workflow, testing conventions, build
   commands, commit style. The *how we work*; skills are the *what to do*.
 - **`CLAUDE.md`** — design principles and the iteration loop.
-- **`docs/architecture.md`** — the *why*.
-- **`docs/diaries/`** — the history. Diaries are referenced from specific
-  skill sections where the background matters.
+- **`docs/architecture.md`** — the engine's *why*.

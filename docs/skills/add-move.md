@@ -11,7 +11,7 @@ dispatch branch in `MoveExecutionPhase`).
   Only reaches for new engine-side work when the move has a genuinely novel
   secondary effect.
 - **Engine maintainers** — want new moves to land as *data* wherever possible.
-  The explicit goal (from diary 029) is "behavior-as-data for moves."
+  The explicit goal is "behavior-as-data for moves."
 
 ## Preconditions
 
@@ -70,10 +70,10 @@ behavior (e.g. add a burn chance to an existing fire move).
 
 ## Extensions
 
-**3a. Your move needs a new `MoveEffect` variant.** Before adding one, check
-   diary 029 — the move-behavior registry is planned but deferred. The
-   threshold for extracting a `MoveEffect` registry is "3+ shape-A/B/C moves
-   queued"; we're currently below it.
+**3a. Your move needs a new `MoveEffect` variant.** Note first that the
+   move-behavior registry is planned but deferred. The threshold for
+   extracting a `MoveEffect` registry is "3+ shape-A/B/C moves queued";
+   we're currently below it.
 
    If your move crosses the threshold or is genuinely unique:
    - Add the variant to the sealed `MoveEffect` interface in
@@ -88,10 +88,9 @@ behavior (e.g. add a burn chance to an existing fire move).
 **3b. Your move is shaped more like *data* than *behavior*.** Example: a
    variable-BP move whose power depends on weight, or a stat-dependent
    move. Prefer adding a *field* on `Move` (like `variablePower: (attacker,
-   defender) -> Int`) over adding a sealed variant. Diary 047 observed
-   parallel agents self-routing around the sealed interface using this
-   reasoning — it's a legitimate pattern when the "effect" is really a
-   parameter.
+   defender) -> Int`) over adding a sealed variant. Using a field rather
+   than a sealed variant is a legitimate pattern when the "effect" is
+   really a parameter.
 
 **3c. Your move modifies the engine in a way `MoveEffect` can't express**
    (e.g. a move that alters the field for future turns, or changes
@@ -105,13 +104,13 @@ behavior (e.g. add a burn chance to an existing fire move).
 
 ## Related information
 
-- **Canonical design:** diary 029 (the still-deferred move registry — read
-  this *before* adding a new `MoveEffect` variant; the diary plans the
-  extraction and you may be the forcing function).
-- **Future evolution:** when the threshold is crossed, the `MoveEffect`
-  sealed hierarchy becomes an `IMoveBehavior` interface and per-move
-  behavior objects, mirroring items/abilities after diary 071. The skill
-  doc will update when that lands.
+- **Future evolution:** the move-behavior registry is still deferred. Read
+  the current `MoveExecutionPhase.resolveEffect` dispatch *before* adding a
+  new `MoveEffect` variant — you may be the forcing function for the
+  extraction. When the threshold is crossed, the `MoveEffect` sealed
+  hierarchy becomes an `IMoveBehavior` interface and per-move behavior
+  objects, mirroring how items and abilities already work. The skill doc
+  will update when that lands.
 - **Worked examples in repo:** `MoveDex.FLAMETHROWER` (pure damage),
   `MoveDex.U_TURN` (self-switch), `MoveDex.ROCK_BLAST` (multi-hit),
   `MoveDex.PROTECT` (volatile), `MoveDex.STEALTH_ROCK` (hazard set).
