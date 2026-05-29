@@ -31,3 +31,21 @@
 Diary entries in [`diaries/`](diaries/) track what was built, why decisions
 were made, and what was learned along the way. Each entry follows the
 iteration loop described in [../CLAUDE.md](../CLAUDE.md).
+
+## Documentation conventions
+
+- **Docs are self-contained and cohesive.** Each doc must make sense on its
+  own. Inter-doc links live only in this index — don't cross-link doc bodies,
+  don't add "See also" sections, and don't reference diary entries from a doc
+  body. That web of links is what rots when files move, get renamed, or
+  decisions are superseded.
+- **Canonical docs and diaries are two tiers.** The docs in the reference
+  table are canonical — the system as it is; trust them and the code for
+  current behavior. Diaries are the event log: accurate as *rationale* (why a
+  decision was made, at the time), not as current reference. Distill durable
+  conclusions up into a canonical doc; leave the narrative in the diary.
+- **Each doc opens with an "At a glance" abstract** — skimmable in 10 seconds.
+- **Headings are unnumbered and named descriptively** — the abstract is the
+  TOC; section names are the stable interface.
+- **Within-doc cross-references are by name, never by position** — "the
+  move-order phase", not "step 3".

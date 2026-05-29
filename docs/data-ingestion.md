@@ -14,12 +14,12 @@ the committed artifact in the middle is the **seam**: it decouples
 build-time (hitting the network) from query-time (running offline against
 files). This doc owns the *why* — the invariants each layer holds and the
 assumptions it rests on. For shapes and signatures, read the code and the
-tests named below; per `docs/architecture.md`'s docs principle, prose that
-restates API shapes rots, so this doc deliberately doesn't.
+tests named below; prose that restates API shapes rots, so this doc
+deliberately doesn't.
 
-The evolution-delay pipeline (diary 103) is the worked example throughout,
-because it exercises every layer. The species and Smogon pipelines are
-older instances of the same model, sketched under *The three pipelines*.
+The evolution-delay pipeline is the worked example throughout, because it
+exercises every layer. The species and Smogon pipelines are older instances
+of the same model, sketched under *The three pipelines*.
 
 ## The diagram (evolution-delay pipeline)
 
@@ -150,8 +150,8 @@ it's a table, not a fetch.
 lives **here and nowhere else**. **Assumption:** `level ≥ 2` means
 "reachable by leveling" — named once as `REACHABLE_LEVEL_FLOOR`, so the
 "level-1 is relearn-only" subtlety can't drift between the flag decision and
-the `alternativeAccess` label. (See `EvolutionDelayAdvisor` and diary 103
-for the full rule statement.)
+the `alternativeAccess` label. `EvolutionDelayAdvisor` is the full rule
+statement.
 
 ### Presentation — formatting, never re-deriving
 
@@ -253,12 +253,12 @@ species by usage, keeping each one's top moves/items/abilities. Then:
   `targets/species.txt`, so "what's competitively relevant" *drives* what
   the species pipeline pulls next — a deliberate loop, run between the two
   ingestion passes. Smogon display names → PokéAPI slugs go through
-  `data/aliases.json`, a committed **data-not-code** seam (diary 067):
-  fixing a name mapping is a JSON edit, not a recompile.
+  `data/aliases.json`, a committed **data-not-code** seam: fixing a name
+  mapping is a JSON edit, not a recompile.
 - **Forward (`SmogonTeamBuilder`)** is a *query-time* consumer (it lives in
   ingestion but is called from `MatrixEvalMain`, not during ingestion):
   it materializes engine `Pokemon` from the artifact, picking only
-  moves/abilities the engine actually implements. Diary 101.
+  moves/abilities the engine actually implements.
 
 This is the same thin-shell principle as the evolution CLI: the artifact is
 the seam, and consumers fan out from it without re-deriving it.
@@ -266,7 +266,7 @@ the seam, and consumers fan out from it without re-deriving it.
 ### Evolution-delay lines
 
 The worked example diagrammed above. Two-tier; one artifact per line;
-loaded by `EvolutionLineDex`, analyzed by `EvolutionDelayAdvisor`. Diary 103.
+loaded by `EvolutionLineDex`, analyzed by `EvolutionDelayAdvisor`.
 
 ### Not a pipeline: ModelGapAudit
 
@@ -278,7 +278,7 @@ enum→data-class refactor, not an ingestion stage.
 ## Known assumptions and limitations
 
 These are honest simplifications, recorded so they're not mistaken for
-completeness (cf. `docs/architecture.md`'s *Known Limitations*):
+completeness:
 
 - **Optimistic subtree roll-up.** The advisor keeps a move if *any*
   reachable later form relearns it; correct for linear lines, loose for
@@ -299,20 +299,11 @@ pattern (raw → cleaned → curated) familiar from data engineering, with two
 deliberate differences: we commit the curated artifacts to git (they're
 small and double as test fixtures), and the "curated" stage is a pure
 function with golden tests rather than a scheduled job. The closest in-repo
-analog is the analytics corpus (diaries 079/081) — a derived view over
-catalog data, no new contract imposed on the engine.
+analog is the analytics corpus — a derived view over catalog data, no new
+contract imposed on the engine.
 
-## Cross-references
+## Executable spec
 
-- `docs/architecture.md` — the engine this feeds; the docs principle this
-  doc follows.
-- `docs/diaries/103-evolution-delay-advisor-plan.md` — the worked example's
-  full rationale, rule statement, and code review.
-- `docs/diaries/041-pokeapi-and-smogon-stats.md` — the original PokéAPI +
-  Smogon three-tier ingestion design.
-- `docs/diaries/067-seams-we-lack.md` — the `data/aliases.json`
-  data-not-code seam.
-- `docs/diaries/101-smogon-team-integration.md` — `SmogonTeamBuilder` as a
-  query-time consumer of the Smogon artifact.
-- Tests as executable spec: `EvolutionDelayAdvisorTest` (the rule),
-  `EvolutionLineTransformTrimTest` (the cross-layer guard).
+The behavior described here is pinned by tests, which are the authority for
+current shape: `EvolutionDelayAdvisorTest` (the rule) and
+`EvolutionLineTransformTrimTest` (the cross-layer trim guard).

@@ -47,6 +47,13 @@ tests, which meant we were maintaining the same thing in two places and
 only the tests were forced to stay correct. New API docs should follow the
 same rule — if it has a signature that can go stale, prefer the test.
 
+Docs must also be **self-contained**: each canonical doc makes sense on its
+own, inter-doc links live only in `docs/index.md`, and doc bodies never
+reference diary entries. Diaries are the event log (rationale at the time);
+canonical docs are the materialized view (current truth) — distill durable
+conclusions up, leave the narrative in the diary. The full convention,
+including the canonical-vs-diary two-tier split, lives in `docs/index.md`.
+
 ## Design Principles
 
 These are the engine's **key invariants** — the canonical list. `CONTRIBUTING.md`
