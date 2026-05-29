@@ -21,6 +21,7 @@
 | Doc | What it covers |
 |-----|---------------|
 | [architecture.md](architecture.md) | Technical spec: types, events, phases, pipeline |
+| [data-ingestion.md](data-ingestion.md) | Ingestion architecture: layers, invariants, the committed-artifact seam |
 | [corpus-format.md](corpus-format.md) | Persisted-battle JSON shape |
 | [corpus-queries.md](corpus-queries.md) | DuckDB query cookbook for analysts |
 | [skills/](skills/) | Recipes: how to add a move, event, item, ability |

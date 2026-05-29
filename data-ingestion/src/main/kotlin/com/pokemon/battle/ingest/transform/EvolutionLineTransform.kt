@@ -31,23 +31,34 @@ object EvolutionLineTransform {
         val edges = edgesOf(chain.chain).sortedWith(compareBy({ it.from }, { it.to }))
 
         val parsed = learnsetRawJsonBySpecies.toSortedMap().mapValues { (_, raw) -> learnsetOf(raw) }
-        // A move is only ever flagged if some stage learns it by level-up, and a flag's
-        // alternativeAccess is only read for such moves. So non-level-up acquisitions for
-        // moves no stage level-learns are dead weight (mostly TMs) — drop them line-wide.
-        // Lossless for the advisor; cuts bundle size by ~5x.
+        return EvolutionLineJson(base = base, edges = edges, learnsets = trimToAdvisorRelevant(parsed))
+    }
+
+    /**
+     * Drops acquisitions the delay advisor can never read, line-wide. A move is only
+     * flagged if some stage learns it by level-up, and a flag's `alternativeAccess` is
+     * only computed for an already-flagged move — so non-level-up acquisitions of a move
+     * that *no* stage level-learns are dead weight (mostly TMs). Cuts bundle size ~2.4x.
+     *
+     * This trim encodes a downstream assumption ("the advisor only reads non-level-up
+     * methods for level-up moves") at build time. It is lossless *only while that holds*;
+     * `EvolutionLineTransformTrimTest` is the falsifiable guard that fails if the advisor
+     * ever starts reading what this drops.
+     */
+    internal fun trimToAdvisorRelevant(
+        learnsets: Map<String, Map<String, List<MoveAcquisitionJson>>>,
+    ): Map<String, Map<String, List<MoveAcquisitionJson>>> {
         val levelUpMoves =
-            parsed.values
+            learnsets.values
                 .flatMap { it.values.flatten() }
                 .filter { it.method == LEVEL_UP }
                 .map { it.move }
                 .toSet()
-        val learnsets =
-            parsed.mapValues { (_, byVersionGroup) ->
-                byVersionGroup.mapValues { (_, acquisitions) ->
-                    acquisitions.filter { it.method == LEVEL_UP || it.move in levelUpMoves }
-                }
+        return learnsets.mapValues { (_, byVersionGroup) ->
+            byVersionGroup.mapValues { (_, acquisitions) ->
+                acquisitions.filter { it.method == LEVEL_UP || it.move in levelUpMoves }
             }
-        return EvolutionLineJson(base = base, edges = edges, learnsets = learnsets)
+        }
     }
 
     private fun edgesOf(root: PokeApiChainLink): List<EvolutionEdgeJson> {
