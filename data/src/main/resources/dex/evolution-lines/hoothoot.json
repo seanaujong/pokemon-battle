@@ -1,0 +1,3678 @@
+{
+    "base": "hoothoot",
+    "edges": [
+        {
+            "from": "hoothoot",
+            "to": "noctowl",
+            "trigger": "level-up",
+            "minLevel": 20
+        }
+    ],
+    "learnsets": {
+        "hoothoot": {
+            "black-2-white-2": [
+                {
+                    "move": "air-slash",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "defog",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "level-up",
+                    "level": 57
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "echoed-voice",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "echoed-voice",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "extrasensory",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "foresight",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "psycho-shift",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "reflect",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "roost",
+                    "method": "level-up",
+                    "level": 53
+                },
+                {
+                    "move": "roost",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "sky-attack",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "sky-attack",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "synchronoise",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "uproar",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "uproar",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "zen-headbutt",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "zen-headbutt",
+                    "method": "tutor",
+                    "level": 0
+                }
+            ],
+            "black-white": [
+                {
+                    "move": "air-slash",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "defog",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "level-up",
+                    "level": 57
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "echoed-voice",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "echoed-voice",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "extrasensory",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "foresight",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "psycho-shift",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "reflect",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "roost",
+                    "method": "level-up",
+                    "level": 53
+                },
+                {
+                    "move": "sky-attack",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "synchronoise",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "uproar",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "zen-headbutt",
+                    "method": "level-up",
+                    "level": 37
+                }
+            ],
+            "brilliant-diamond-shining-pearl": [
+                {
+                    "move": "air-slash",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "defog",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "echoed-voice",
+                    "method": "level-up",
+                    "level": 6
+                },
+                {
+                    "move": "extrasensory",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "moonblast",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "psycho-shift",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "reflect",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "roost",
+                    "method": "level-up",
+                    "level": 30
+                },
+                {
+                    "move": "roost",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sky-attack",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 3
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "uproar",
+                    "method": "level-up",
+                    "level": 27
+                }
+            ],
+            "colosseum": [
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "foresight",
+                    "method": "level-up",
+                    "level": 6
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "reflect",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 28
+                }
+            ],
+            "crystal": [
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "foresight",
+                    "method": "level-up",
+                    "level": 6
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "reflect",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "sky-attack",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 28
+                }
+            ],
+            "diamond-pearl": [
+                {
+                    "move": "air-slash",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "defog",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "extrasensory",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "foresight",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "psycho-shift",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "reflect",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "roost",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "roost",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sky-attack",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "zen-headbutt",
+                    "method": "level-up",
+                    "level": 33
+                }
+            ],
+            "emerald": [
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "foresight",
+                    "method": "level-up",
+                    "level": 6
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "reflect",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sky-attack",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 28
+                }
+            ],
+            "firered-leafgreen": [
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "foresight",
+                    "method": "level-up",
+                    "level": 6
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "reflect",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sky-attack",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 28
+                }
+            ],
+            "gold-silver": [
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "foresight",
+                    "method": "level-up",
+                    "level": 6
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "reflect",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 28
+                }
+            ],
+            "heartgold-soulsilver": [
+                {
+                    "move": "air-slash",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "extrasensory",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "foresight",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "psycho-shift",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "reflect",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "roost",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "roost",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sky-attack",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "uproar",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "uproar",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "zen-headbutt",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "zen-headbutt",
+                    "method": "tutor",
+                    "level": 0
+                }
+            ],
+            "omega-ruby-alpha-sapphire": [
+                {
+                    "move": "air-slash",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "defog",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "level-up",
+                    "level": 57
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "echoed-voice",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "echoed-voice",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "extrasensory",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "foresight",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "psycho-shift",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "reflect",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "roost",
+                    "method": "level-up",
+                    "level": 53
+                },
+                {
+                    "move": "roost",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sky-attack",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "sky-attack",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "synchronoise",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "uproar",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "uproar",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "zen-headbutt",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "zen-headbutt",
+                    "method": "tutor",
+                    "level": 0
+                }
+            ],
+            "platinum": [
+                {
+                    "move": "air-slash",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "defog",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "extrasensory",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "foresight",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "psycho-shift",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "reflect",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "roost",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "roost",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sky-attack",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "uproar",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "uproar",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "zen-headbutt",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "zen-headbutt",
+                    "method": "tutor",
+                    "level": 0
+                }
+            ],
+            "ruby-sapphire": [
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "foresight",
+                    "method": "level-up",
+                    "level": 6
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "reflect",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sky-attack",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 28
+                }
+            ],
+            "scarlet-violet": [
+                {
+                    "move": "air-slash",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "air-slash",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "defog",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "echoed-voice",
+                    "method": "level-up",
+                    "level": 6
+                },
+                {
+                    "move": "extrasensory",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "moonblast",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "reflect",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "roost",
+                    "method": "level-up",
+                    "level": 30
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 3
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "take-down",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "uproar",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "uproar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "zen-headbutt",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "sun-moon": [
+                {
+                    "move": "air-slash",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "defog",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "level-up",
+                    "level": 46
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "echoed-voice",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "echoed-voice",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "extrasensory",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "foresight",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "moonblast",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "psycho-shift",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "reflect",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "roost",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "roost",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sky-attack",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "synchronoise",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "uproar",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "zen-headbutt",
+                    "method": "level-up",
+                    "level": 16
+                }
+            ],
+            "sword-shield": [
+                {
+                    "move": "air-slash",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "air-slash",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "defog",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "echoed-voice",
+                    "method": "level-up",
+                    "level": 6
+                },
+                {
+                    "move": "extrasensory",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "moonblast",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "psycho-shift",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "reflect",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "roost",
+                    "method": "level-up",
+                    "level": 30
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 3
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "uproar",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "uproar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "zen-headbutt",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "ultra-sun-ultra-moon": [
+                {
+                    "move": "air-slash",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "defog",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "defog",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "level-up",
+                    "level": 46
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "echoed-voice",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "echoed-voice",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "extrasensory",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "foresight",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "moonblast",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "psycho-shift",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "reflect",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "roost",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "roost",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sky-attack",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "sky-attack",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "synchronoise",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "uproar",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "uproar",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "zen-headbutt",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "zen-headbutt",
+                    "method": "tutor",
+                    "level": 0
+                }
+            ],
+            "x-y": [
+                {
+                    "move": "air-slash",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "defog",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "level-up",
+                    "level": 57
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "echoed-voice",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "echoed-voice",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "extrasensory",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "foresight",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "psycho-shift",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "reflect",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "roost",
+                    "method": "level-up",
+                    "level": 53
+                },
+                {
+                    "move": "roost",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sky-attack",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "synchronoise",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "uproar",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "zen-headbutt",
+                    "method": "level-up",
+                    "level": 37
+                }
+            ],
+            "xd": [
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "foresight",
+                    "method": "level-up",
+                    "level": 6
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "reflect",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sky-attack",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 28
+                }
+            ]
+        },
+        "noctowl": {
+            "black-2-white-2": [
+                {
+                    "move": "air-slash",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "level-up",
+                    "level": 67
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "echoed-voice",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "echoed-voice",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "extrasensory",
+                    "method": "level-up",
+                    "level": 52
+                },
+                {
+                    "move": "foresight",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "psycho-shift",
+                    "method": "level-up",
+                    "level": 57
+                },
+                {
+                    "move": "reflect",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "roost",
+                    "method": "level-up",
+                    "level": 62
+                },
+                {
+                    "move": "roost",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "sky-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sky-attack",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "synchronoise",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "uproar",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "uproar",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "zen-headbutt",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "zen-headbutt",
+                    "method": "tutor",
+                    "level": 0
+                }
+            ],
+            "black-white": [
+                {
+                    "move": "air-slash",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "level-up",
+                    "level": 67
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "echoed-voice",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "echoed-voice",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "extrasensory",
+                    "method": "level-up",
+                    "level": 52
+                },
+                {
+                    "move": "foresight",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "psycho-shift",
+                    "method": "level-up",
+                    "level": 57
+                },
+                {
+                    "move": "reflect",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "roost",
+                    "method": "level-up",
+                    "level": 62
+                },
+                {
+                    "move": "sky-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "synchronoise",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "uproar",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "zen-headbutt",
+                    "method": "level-up",
+                    "level": 42
+                }
+            ],
+            "brilliant-diamond-shining-pearl": [
+                {
+                    "move": "air-slash",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "defog",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "level-up",
+                    "level": 53
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "echoed-voice",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "extrasensory",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "moonblast",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "psycho-shift",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "reflect",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "roost",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "roost",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sky-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "uproar",
+                    "method": "level-up",
+                    "level": 33
+                }
+            ],
+            "colosseum": [
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "level-up",
+                    "level": 57
+                },
+                {
+                    "move": "foresight",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "foresight",
+                    "method": "level-up",
+                    "level": 6
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "reflect",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 33
+                }
+            ],
+            "crystal": [
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "level-up",
+                    "level": 57
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "foresight",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "foresight",
+                    "method": "level-up",
+                    "level": 6
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "reflect",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 33
+                }
+            ],
+            "diamond-pearl": [
+                {
+                    "move": "air-slash",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "defog",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "level-up",
+                    "level": 57
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "extrasensory",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "foresight",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "foresight",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "psycho-shift",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "reflect",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "roost",
+                    "method": "level-up",
+                    "level": 52
+                },
+                {
+                    "move": "roost",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sky-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "zen-headbutt",
+                    "method": "level-up",
+                    "level": 37
+                }
+            ],
+            "emerald": [
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "level-up",
+                    "level": 57
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "foresight",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "foresight",
+                    "method": "level-up",
+                    "level": 6
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "reflect",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 33
+                }
+            ],
+            "firered-leafgreen": [
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "level-up",
+                    "level": 57
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "foresight",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "foresight",
+                    "method": "level-up",
+                    "level": 6
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "reflect",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 33
+                }
+            ],
+            "gold-silver": [
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "level-up",
+                    "level": 57
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "foresight",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "foresight",
+                    "method": "level-up",
+                    "level": 6
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "reflect",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 33
+                }
+            ],
+            "heartgold-soulsilver": [
+                {
+                    "move": "air-slash",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "level-up",
+                    "level": 57
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "extrasensory",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "foresight",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "psycho-shift",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "reflect",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "roost",
+                    "method": "level-up",
+                    "level": 52
+                },
+                {
+                    "move": "roost",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sky-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sky-attack",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "uproar",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "uproar",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "zen-headbutt",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "zen-headbutt",
+                    "method": "tutor",
+                    "level": 0
+                }
+            ],
+            "omega-ruby-alpha-sapphire": [
+                {
+                    "move": "air-slash",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "level-up",
+                    "level": 67
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "echoed-voice",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "echoed-voice",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "extrasensory",
+                    "method": "level-up",
+                    "level": 52
+                },
+                {
+                    "move": "foresight",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "psycho-shift",
+                    "method": "level-up",
+                    "level": 57
+                },
+                {
+                    "move": "reflect",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "roost",
+                    "method": "level-up",
+                    "level": 62
+                },
+                {
+                    "move": "roost",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sky-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sky-attack",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "synchronoise",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "uproar",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "uproar",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "zen-headbutt",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "zen-headbutt",
+                    "method": "tutor",
+                    "level": 0
+                }
+            ],
+            "platinum": [
+                {
+                    "move": "air-slash",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "defog",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "level-up",
+                    "level": 57
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "extrasensory",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "foresight",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "psycho-shift",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "reflect",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "roost",
+                    "method": "level-up",
+                    "level": 52
+                },
+                {
+                    "move": "roost",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sky-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "uproar",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "uproar",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "zen-headbutt",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "zen-headbutt",
+                    "method": "tutor",
+                    "level": 0
+                }
+            ],
+            "ruby-sapphire": [
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "level-up",
+                    "level": 57
+                },
+                {
+                    "move": "foresight",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "foresight",
+                    "method": "level-up",
+                    "level": 6
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "reflect",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 33
+                }
+            ],
+            "scarlet-violet": [
+                {
+                    "move": "air-slash",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "air-slash",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "level-up",
+                    "level": 53
+                },
+                {
+                    "move": "echoed-voice",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "extrasensory",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "moonblast",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "reflect",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "roost",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "sky-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "take-down",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "uproar",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "uproar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "zen-headbutt",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "sun-moon": [
+                {
+                    "move": "air-slash",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "level-up",
+                    "level": 55
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "echoed-voice",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "echoed-voice",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "extrasensory",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "foresight",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "moonblast",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "psycho-shift",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "reflect",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "roost",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "roost",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sky-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "synchronoise",
+                    "method": "level-up",
+                    "level": 51
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "uproar",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "zen-headbutt",
+                    "method": "level-up",
+                    "level": 16
+                }
+            ],
+            "sword-shield": [
+                {
+                    "move": "air-slash",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "air-slash",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "level-up",
+                    "level": 53
+                },
+                {
+                    "move": "echoed-voice",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "extrasensory",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "moonblast",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "psycho-shift",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "reflect",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "roost",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "sky-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "uproar",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "uproar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "zen-headbutt",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "ultra-sun-ultra-moon": [
+                {
+                    "move": "air-slash",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "defog",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "level-up",
+                    "level": 55
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "echoed-voice",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "echoed-voice",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "extrasensory",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "foresight",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "moonblast",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "psycho-shift",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "reflect",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "roost",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "roost",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sky-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sky-attack",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "synchronoise",
+                    "method": "level-up",
+                    "level": 51
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "uproar",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "uproar",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "zen-headbutt",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "zen-headbutt",
+                    "method": "tutor",
+                    "level": 0
+                }
+            ],
+            "x-y": [
+                {
+                    "move": "air-slash",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "level-up",
+                    "level": 67
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "echoed-voice",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "echoed-voice",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "extrasensory",
+                    "method": "level-up",
+                    "level": 52
+                },
+                {
+                    "move": "foresight",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "psycho-shift",
+                    "method": "level-up",
+                    "level": 57
+                },
+                {
+                    "move": "reflect",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "roost",
+                    "method": "level-up",
+                    "level": 62
+                },
+                {
+                    "move": "roost",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sky-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "synchronoise",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "uproar",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "zen-headbutt",
+                    "method": "level-up",
+                    "level": 42
+                }
+            ],
+            "xd": [
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "level-up",
+                    "level": 57
+                },
+                {
+                    "move": "dream-eater",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "foresight",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "foresight",
+                    "method": "level-up",
+                    "level": 6
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "reflect",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sky-attack",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 33
+                }
+            ]
+        }
+    }
+}

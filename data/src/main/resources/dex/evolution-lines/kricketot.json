@@ -1,0 +1,1435 @@
+{
+    "base": "kricketot",
+    "edges": [
+        {
+            "from": "kricketot",
+            "to": "kricketune",
+            "trigger": "level-up",
+            "minLevel": 10
+        }
+    ],
+    "learnsets": {
+        "kricketot": {
+            "black-2-white-2": [
+                {
+                    "move": "bide",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bug-bite",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "bug-bite",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "struggle-bug",
+                    "method": "level-up",
+                    "level": 6
+                }
+            ],
+            "black-white": [
+                {
+                    "move": "bide",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bug-bite",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "struggle-bug",
+                    "method": "level-up",
+                    "level": 6
+                }
+            ],
+            "brilliant-diamond-shining-pearl": [
+                {
+                    "move": "bug-bite",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "pound",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "struggle-bug",
+                    "method": "level-up",
+                    "level": 6
+                }
+            ],
+            "diamond-pearl": [
+                {
+                    "move": "bide",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "heartgold-soulsilver": [
+                {
+                    "move": "bide",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bug-bite",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "bug-bite",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "legends-arceus": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 5
+                }
+            ],
+            "omega-ruby-alpha-sapphire": [
+                {
+                    "move": "bide",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bug-bite",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "bug-bite",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "struggle-bug",
+                    "method": "level-up",
+                    "level": 6
+                },
+                {
+                    "move": "struggle-bug",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "platinum": [
+                {
+                    "move": "bide",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bug-bite",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "scarlet-violet": [
+                {
+                    "move": "bug-bite",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "bug-bite",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "struggle-bug",
+                    "method": "level-up",
+                    "level": 6
+                },
+                {
+                    "move": "struggle-bug",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "sun-moon": [
+                {
+                    "move": "bide",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bug-bite",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "struggle-bug",
+                    "method": "level-up",
+                    "level": 6
+                }
+            ],
+            "ultra-sun-ultra-moon": [
+                {
+                    "move": "bide",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bug-bite",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "bug-bite",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "struggle-bug",
+                    "method": "level-up",
+                    "level": 6
+                }
+            ],
+            "x-y": [
+                {
+                    "move": "bide",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bug-bite",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "struggle-bug",
+                    "method": "level-up",
+                    "level": 6
+                },
+                {
+                    "move": "struggle-bug",
+                    "method": "machine",
+                    "level": 0
+                }
+            ]
+        },
+        "kricketune": {
+            "black-2-white-2": [
+                {
+                    "move": "aerial-ace",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "bide",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bug-bite",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "bug-buzz",
+                    "method": "level-up",
+                    "level": 46
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "fury-cutter",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leech-life",
+                    "method": "level-up",
+                    "level": 14
+                },
+                {
+                    "move": "night-slash",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "screech",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "slash",
+                    "method": "level-up",
+                    "level": 26
+                },
+                {
+                    "move": "struggle-bug",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swords-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "taunt",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "taunt",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "x-scissor",
+                    "method": "level-up",
+                    "level": 30
+                },
+                {
+                    "move": "x-scissor",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "black-white": [
+                {
+                    "move": "aerial-ace",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "bide",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bug-buzz",
+                    "method": "level-up",
+                    "level": 46
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "fury-cutter",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leech-life",
+                    "method": "level-up",
+                    "level": 14
+                },
+                {
+                    "move": "night-slash",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "screech",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "slash",
+                    "method": "level-up",
+                    "level": 26
+                },
+                {
+                    "move": "struggle-bug",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swords-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "taunt",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "taunt",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "x-scissor",
+                    "method": "level-up",
+                    "level": 30
+                },
+                {
+                    "move": "x-scissor",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "brilliant-diamond-shining-pearl": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 14
+                },
+                {
+                    "move": "aerial-ace",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "bug-bite",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bug-buzz",
+                    "method": "level-up",
+                    "level": 46
+                },
+                {
+                    "move": "bug-buzz",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fell-stinger",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "fury-cutter",
+                    "method": "level-up",
+                    "level": 0
+                },
+                {
+                    "move": "fury-cutter",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "night-slash",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "pound",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "screech",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "slash",
+                    "method": "level-up",
+                    "level": 26
+                },
+                {
+                    "move": "sticky-web",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "struggle-bug",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "swords-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "taunt",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "taunt",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "x-scissor",
+                    "method": "level-up",
+                    "level": 30
+                },
+                {
+                    "move": "x-scissor",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "diamond-pearl": [
+                {
+                    "move": "aerial-ace",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "bide",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bug-buzz",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "fury-cutter",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leech-life",
+                    "method": "level-up",
+                    "level": 14
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "screech",
+                    "method": "level-up",
+                    "level": 30
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "swords-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "x-scissor",
+                    "method": "level-up",
+                    "level": 26
+                },
+                {
+                    "move": "x-scissor",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "heartgold-soulsilver": [
+                {
+                    "move": "aerial-ace",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "bide",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bug-bite",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "bug-buzz",
+                    "method": "level-up",
+                    "level": 46
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "fury-cutter",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "fury-cutter",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leech-life",
+                    "method": "level-up",
+                    "level": 14
+                },
+                {
+                    "move": "night-slash",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "screech",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "slash",
+                    "method": "level-up",
+                    "level": 26
+                },
+                {
+                    "move": "swords-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "taunt",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "taunt",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "x-scissor",
+                    "method": "level-up",
+                    "level": 30
+                },
+                {
+                    "move": "x-scissor",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "legends-arceus": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "aerial-ace",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "bug-buzz",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "night-slash",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "slash",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "swords-dance",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "x-scissor",
+                    "method": "level-up",
+                    "level": 29
+                }
+            ],
+            "omega-ruby-alpha-sapphire": [
+                {
+                    "move": "aerial-ace",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "bide",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bug-bite",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "bug-buzz",
+                    "method": "level-up",
+                    "level": 46
+                },
+                {
+                    "move": "fell-stinger",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "fury-cutter",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leech-life",
+                    "method": "level-up",
+                    "level": 14
+                },
+                {
+                    "move": "night-slash",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "screech",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "slash",
+                    "method": "level-up",
+                    "level": 26
+                },
+                {
+                    "move": "sticky-web",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "struggle-bug",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swords-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "taunt",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "taunt",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "x-scissor",
+                    "method": "level-up",
+                    "level": 30
+                },
+                {
+                    "move": "x-scissor",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "platinum": [
+                {
+                    "move": "aerial-ace",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "bide",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bug-buzz",
+                    "method": "level-up",
+                    "level": 46
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "fury-cutter",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "fury-cutter",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leech-life",
+                    "method": "level-up",
+                    "level": 14
+                },
+                {
+                    "move": "night-slash",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "screech",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "slash",
+                    "method": "level-up",
+                    "level": 26
+                },
+                {
+                    "move": "swords-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "taunt",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "x-scissor",
+                    "method": "level-up",
+                    "level": 30
+                },
+                {
+                    "move": "x-scissor",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "scarlet-violet": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 14
+                },
+                {
+                    "move": "aerial-ace",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "bug-bite",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "bug-buzz",
+                    "method": "level-up",
+                    "level": 46
+                },
+                {
+                    "move": "bug-buzz",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fell-stinger",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "fury-cutter",
+                    "method": "level-up",
+                    "level": 0
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leech-life",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "night-slash",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "screech",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "slash",
+                    "method": "level-up",
+                    "level": 26
+                },
+                {
+                    "move": "sticky-web",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "struggle-bug",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swords-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "taunt",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "taunt",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "x-scissor",
+                    "method": "level-up",
+                    "level": 30
+                },
+                {
+                    "move": "x-scissor",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "sun-moon": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 14
+                },
+                {
+                    "move": "aerial-ace",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "bide",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bug-buzz",
+                    "method": "level-up",
+                    "level": 46
+                },
+                {
+                    "move": "fell-stinger",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "fury-cutter",
+                    "method": "level-up",
+                    "level": 0
+                },
+                {
+                    "move": "fury-cutter",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leech-life",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "night-slash",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "screech",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "slash",
+                    "method": "level-up",
+                    "level": 26
+                },
+                {
+                    "move": "sticky-web",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "swords-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "taunt",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "taunt",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "x-scissor",
+                    "method": "level-up",
+                    "level": 30
+                },
+                {
+                    "move": "x-scissor",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "ultra-sun-ultra-moon": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 14
+                },
+                {
+                    "move": "aerial-ace",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "bide",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bug-bite",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "bug-buzz",
+                    "method": "level-up",
+                    "level": 46
+                },
+                {
+                    "move": "fell-stinger",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "fury-cutter",
+                    "method": "level-up",
+                    "level": 0
+                },
+                {
+                    "move": "fury-cutter",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leech-life",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "night-slash",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "screech",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "slash",
+                    "method": "level-up",
+                    "level": 26
+                },
+                {
+                    "move": "sticky-web",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "swords-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "taunt",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "taunt",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "x-scissor",
+                    "method": "level-up",
+                    "level": 30
+                },
+                {
+                    "move": "x-scissor",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "x-y": [
+                {
+                    "move": "aerial-ace",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "bide",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bug-buzz",
+                    "method": "level-up",
+                    "level": 46
+                },
+                {
+                    "move": "fell-stinger",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "fury-cutter",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leech-life",
+                    "method": "level-up",
+                    "level": 14
+                },
+                {
+                    "move": "night-slash",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "screech",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "slash",
+                    "method": "level-up",
+                    "level": 26
+                },
+                {
+                    "move": "sticky-web",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "struggle-bug",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swords-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "taunt",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "taunt",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "x-scissor",
+                    "method": "level-up",
+                    "level": 30
+                },
+                {
+                    "move": "x-scissor",
+                    "method": "machine",
+                    "level": 0
+                }
+            ]
+        }
+    }
+}

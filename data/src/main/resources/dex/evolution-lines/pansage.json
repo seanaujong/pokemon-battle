@@ -1,0 +1,931 @@
+{
+    "base": "pansage",
+    "edges": [
+        {
+            "from": "pansage",
+            "to": "simisage",
+            "trigger": "use-item",
+            "item": "leaf-stone"
+        }
+    ],
+    "learnsets": {
+        "pansage": {
+            "black-2-white-2": [
+                {
+                    "move": "acrobatics",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "acrobatics",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "bite",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "crunch",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "fling",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "fling",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fury-swipes",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "grass-knot",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "grass-knot",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "leech-seed",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "lick",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "recycle",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "recycle",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "scratch",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "seed-bomb",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "seed-bomb",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "torment",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "torment",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "vine-whip",
+                    "method": "level-up",
+                    "level": 10
+                }
+            ],
+            "black-white": [
+                {
+                    "move": "acrobatics",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "acrobatics",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "bite",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "crunch",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "fling",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "fling",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fury-swipes",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "grass-knot",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "grass-knot",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "leech-seed",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "lick",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "recycle",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "scratch",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "seed-bomb",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "torment",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "torment",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "vine-whip",
+                    "method": "level-up",
+                    "level": 10
+                }
+            ],
+            "omega-ruby-alpha-sapphire": [
+                {
+                    "move": "acrobatics",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "acrobatics",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "bite",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "crunch",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "fling",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "fling",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fury-swipes",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "grass-knot",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "grass-knot",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "leech-seed",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "lick",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "play-nice",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "recycle",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "recycle",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "scratch",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "seed-bomb",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "seed-bomb",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "torment",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "torment",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "vine-whip",
+                    "method": "level-up",
+                    "level": 10
+                }
+            ],
+            "sun-moon": [
+                {
+                    "move": "acrobatics",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "acrobatics",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "bite",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "crunch",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "fling",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "fling",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fury-swipes",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "grass-knot",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "grass-knot",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "leech-seed",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "lick",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "play-nice",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "recycle",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "scratch",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "seed-bomb",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "torment",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "torment",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "vine-whip",
+                    "method": "level-up",
+                    "level": 10
+                }
+            ],
+            "ultra-sun-ultra-moon": [
+                {
+                    "move": "acrobatics",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "acrobatics",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "bite",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "crunch",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "fling",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "fling",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fury-swipes",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "grass-knot",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "grass-knot",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "leech-seed",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "lick",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "play-nice",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "recycle",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "recycle",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "scratch",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "seed-bomb",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "seed-bomb",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "torment",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "torment",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "vine-whip",
+                    "method": "level-up",
+                    "level": 10
+                }
+            ],
+            "x-y": [
+                {
+                    "move": "acrobatics",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "acrobatics",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "bite",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "crunch",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "fling",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "fling",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fury-swipes",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "grass-knot",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "grass-knot",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "leech-seed",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "lick",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "play-nice",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "recycle",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "scratch",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "seed-bomb",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "torment",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "torment",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "vine-whip",
+                    "method": "level-up",
+                    "level": 10
+                }
+            ]
+        },
+        "simisage": {
+            "black-2-white-2": [
+                {
+                    "move": "acrobatics",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fling",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fury-swipes",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "grass-knot",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "lick",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "recycle",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "seed-bomb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "seed-bomb",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "torment",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "black-white": [
+                {
+                    "move": "acrobatics",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fling",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fury-swipes",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "grass-knot",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "lick",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "seed-bomb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "torment",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "omega-ruby-alpha-sapphire": [
+                {
+                    "move": "acrobatics",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fling",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fury-swipes",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "grass-knot",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "lick",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "recycle",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "seed-bomb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "seed-bomb",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "torment",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "sun-moon": [
+                {
+                    "move": "acrobatics",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fling",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fury-swipes",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "grass-knot",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "lick",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "seed-bomb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "torment",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "ultra-sun-ultra-moon": [
+                {
+                    "move": "acrobatics",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fling",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fury-swipes",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "grass-knot",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "lick",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "recycle",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "seed-bomb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "seed-bomb",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "torment",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "x-y": [
+                {
+                    "move": "acrobatics",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fling",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fury-swipes",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "grass-knot",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "lick",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "seed-bomb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "torment",
+                    "method": "machine",
+                    "level": 0
+                }
+            ]
+        }
+    }
+}

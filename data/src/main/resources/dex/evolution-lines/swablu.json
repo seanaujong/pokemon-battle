@@ -1,0 +1,3300 @@
+{
+    "base": "swablu",
+    "edges": [
+        {
+            "from": "swablu",
+            "to": "altaria",
+            "trigger": "level-up",
+            "minLevel": 35
+        }
+    ],
+    "learnsets": {
+        "altaria": {
+            "black-2-white-2": [
+                {
+                    "move": "astonish",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "astonish",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "cotton-guard",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "dragon-breath",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "dragon-dance",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "dragon-pulse",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "dragon-pulse",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mist",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 57
+                },
+                {
+                    "move": "pluck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "pluck",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "refresh",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "round",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "round",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "sky-attack",
+                    "method": "level-up",
+                    "level": 64
+                },
+                {
+                    "move": "sky-attack",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 25
+                }
+            ],
+            "black-white": [
+                {
+                    "move": "astonish",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "astonish",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "cotton-guard",
+                    "method": "level-up",
+                    "level": 46
+                },
+                {
+                    "move": "dragon-breath",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "dragon-dance",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "dragon-pulse",
+                    "method": "level-up",
+                    "level": 62
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mist",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 70
+                },
+                {
+                    "move": "pluck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "pluck",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "refresh",
+                    "method": "level-up",
+                    "level": 54
+                },
+                {
+                    "move": "round",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "sky-attack",
+                    "method": "level-up",
+                    "level": 77
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 28
+                }
+            ],
+            "brilliant-diamond-shining-pearl": [
+                {
+                    "move": "cotton-guard",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "disarming-voice",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "dragon-breath",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "dragon-pulse",
+                    "method": "level-up",
+                    "level": 0
+                },
+                {
+                    "move": "dragon-pulse",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "dragon-pulse",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hurricane",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mist",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "moonblast",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "pluck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "pluck",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "round",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "sky-attack",
+                    "method": "level-up",
+                    "level": 56
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 38
+                }
+            ],
+            "colosseum": [
+                {
+                    "move": "astonish",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "astonish",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "dragon-breath",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "dragon-dance",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mist",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 54
+                },
+                {
+                    "move": "refresh",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "sky-attack",
+                    "method": "level-up",
+                    "level": 59
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 31
+                }
+            ],
+            "diamond-pearl": [
+                {
+                    "move": "astonish",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "astonish",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "dragon-breath",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "dragon-dance",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "dragon-pulse",
+                    "method": "level-up",
+                    "level": 54
+                },
+                {
+                    "move": "dragon-pulse",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mist",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 62
+                },
+                {
+                    "move": "pluck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "pluck",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "refresh",
+                    "method": "level-up",
+                    "level": 46
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "sky-attack",
+                    "method": "level-up",
+                    "level": 70
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 28
+                }
+            ],
+            "emerald": [
+                {
+                    "move": "astonish",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "astonish",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "dragon-breath",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "dragon-dance",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mist",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 54
+                },
+                {
+                    "move": "refresh",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "sky-attack",
+                    "method": "level-up",
+                    "level": 59
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 31
+                }
+            ],
+            "firered-leafgreen": [
+                {
+                    "move": "astonish",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "astonish",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "dragon-breath",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "dragon-dance",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mist",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 54
+                },
+                {
+                    "move": "refresh",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "sky-attack",
+                    "method": "level-up",
+                    "level": 59
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 31
+                }
+            ],
+            "heartgold-soulsilver": [
+                {
+                    "move": "astonish",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "astonish",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "dragon-breath",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "dragon-dance",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "dragon-pulse",
+                    "method": "level-up",
+                    "level": 54
+                },
+                {
+                    "move": "dragon-pulse",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mist",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 62
+                },
+                {
+                    "move": "pluck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "pluck",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "refresh",
+                    "method": "level-up",
+                    "level": 46
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "sky-attack",
+                    "method": "level-up",
+                    "level": 70
+                },
+                {
+                    "move": "sky-attack",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 28
+                }
+            ],
+            "omega-ruby-alpha-sapphire": [
+                {
+                    "move": "astonish",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "astonish",
+                    "method": "level-up",
+                    "level": 3
+                },
+                {
+                    "move": "cotton-guard",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "disarming-voice",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "dragon-breath",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "dragon-dance",
+                    "method": "level-up",
+                    "level": 30
+                },
+                {
+                    "move": "dragon-pulse",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "dragon-pulse",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mist",
+                    "method": "level-up",
+                    "level": 14
+                },
+                {
+                    "move": "moonblast",
+                    "method": "level-up",
+                    "level": 52
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 46
+                },
+                {
+                    "move": "pluck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "refresh",
+                    "method": "level-up",
+                    "level": 26
+                },
+                {
+                    "move": "round",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "round",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "sky-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sky-attack",
+                    "method": "level-up",
+                    "level": 59
+                },
+                {
+                    "move": "sky-attack",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 23
+                }
+            ],
+            "platinum": [
+                {
+                    "move": "astonish",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "astonish",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "dragon-breath",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "dragon-dance",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "dragon-pulse",
+                    "method": "level-up",
+                    "level": 54
+                },
+                {
+                    "move": "dragon-pulse",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mist",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 62
+                },
+                {
+                    "move": "pluck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "pluck",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "refresh",
+                    "method": "level-up",
+                    "level": 46
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "sky-attack",
+                    "method": "level-up",
+                    "level": 70
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 28
+                }
+            ],
+            "ruby-sapphire": [
+                {
+                    "move": "astonish",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "astonish",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "dragon-breath",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "dragon-dance",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mist",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 54
+                },
+                {
+                    "move": "refresh",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "sky-attack",
+                    "method": "level-up",
+                    "level": 59
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 31
+                }
+            ],
+            "scarlet-violet": [
+                {
+                    "move": "cotton-guard",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "disarming-voice",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "disarming-voice",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "dragon-breath",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "dragon-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "dragon-pulse",
+                    "method": "level-up",
+                    "level": 0
+                },
+                {
+                    "move": "dragon-pulse",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hurricane",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "mist",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "moonblast",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "pluck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "round",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "sky-attack",
+                    "method": "level-up",
+                    "level": 56
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "take-down",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "sun-moon": [
+                {
+                    "move": "astonish",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "astonish",
+                    "method": "level-up",
+                    "level": 3
+                },
+                {
+                    "move": "cotton-guard",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "disarming-voice",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "dragon-breath",
+                    "method": "level-up",
+                    "level": 0
+                },
+                {
+                    "move": "dragon-breath",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "dragon-dance",
+                    "method": "level-up",
+                    "level": 30
+                },
+                {
+                    "move": "dragon-pulse",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mist",
+                    "method": "level-up",
+                    "level": 14
+                },
+                {
+                    "move": "moonblast",
+                    "method": "level-up",
+                    "level": 52
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 46
+                },
+                {
+                    "move": "pluck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "refresh",
+                    "method": "level-up",
+                    "level": 26
+                },
+                {
+                    "move": "round",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "round",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "sky-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sky-attack",
+                    "method": "level-up",
+                    "level": 59
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 23
+                }
+            ],
+            "sword-shield": [
+                {
+                    "move": "cotton-guard",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "disarming-voice",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "dragon-breath",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "dragon-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "dragon-pulse",
+                    "method": "level-up",
+                    "level": 0
+                },
+                {
+                    "move": "dragon-pulse",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "dragon-pulse",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hurricane",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "mist",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "moonblast",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "pluck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "round",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "round",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "sky-attack",
+                    "method": "level-up",
+                    "level": 56
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 38
+                }
+            ],
+            "ultra-sun-ultra-moon": [
+                {
+                    "move": "astonish",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "astonish",
+                    "method": "level-up",
+                    "level": 3
+                },
+                {
+                    "move": "cotton-guard",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "disarming-voice",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "dragon-breath",
+                    "method": "level-up",
+                    "level": 0
+                },
+                {
+                    "move": "dragon-breath",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "dragon-dance",
+                    "method": "level-up",
+                    "level": 30
+                },
+                {
+                    "move": "dragon-pulse",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "dragon-pulse",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mist",
+                    "method": "level-up",
+                    "level": 14
+                },
+                {
+                    "move": "moonblast",
+                    "method": "level-up",
+                    "level": 52
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 46
+                },
+                {
+                    "move": "pluck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "refresh",
+                    "method": "level-up",
+                    "level": 26
+                },
+                {
+                    "move": "round",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "round",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "sky-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sky-attack",
+                    "method": "level-up",
+                    "level": 59
+                },
+                {
+                    "move": "sky-attack",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 23
+                }
+            ],
+            "x-y": [
+                {
+                    "move": "astonish",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "astonish",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "cotton-guard",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "dragon-breath",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "dragon-dance",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "dragon-pulse",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mist",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "moonblast",
+                    "method": "level-up",
+                    "level": 60
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 57
+                },
+                {
+                    "move": "pluck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "refresh",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "round",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "round",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "sky-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sky-attack",
+                    "method": "level-up",
+                    "level": 64
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 25
+                }
+            ],
+            "xd": [
+                {
+                    "move": "astonish",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "astonish",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "dragon-breath",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "dragon-dance",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mist",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 54
+                },
+                {
+                    "move": "refresh",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "sky-attack",
+                    "method": "level-up",
+                    "level": 59
+                },
+                {
+                    "move": "sky-attack",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 31
+                }
+            ]
+        },
+        "swablu": {
+            "black-2-white-2": [
+                {
+                    "move": "astonish",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "cotton-guard",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "dragon-pulse",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "dragon-pulse",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mirror-move",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "mist",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "pluck",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "refresh",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "round",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "round",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 25
+                }
+            ],
+            "black-white": [
+                {
+                    "move": "astonish",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "cotton-guard",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "dragon-pulse",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mirror-move",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "mist",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 55
+                },
+                {
+                    "move": "pluck",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "refresh",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "round",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 28
+                }
+            ],
+            "brilliant-diamond-shining-pearl": [
+                {
+                    "move": "astonish",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "cotton-guard",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "disarming-voice",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "dragon-breath",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "dragon-pulse",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mist",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "moonblast",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "pluck",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "round",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 36
+                }
+            ],
+            "colosseum": [
+                {
+                    "move": "astonish",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mirror-move",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "mist",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "refresh",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 31
+                }
+            ],
+            "diamond-pearl": [
+                {
+                    "move": "astonish",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "dragon-pulse",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "dragon-pulse",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mirror-move",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "mist",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "pluck",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "refresh",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 28
+                }
+            ],
+            "emerald": [
+                {
+                    "move": "astonish",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mirror-move",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "mist",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "refresh",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 31
+                }
+            ],
+            "firered-leafgreen": [
+                {
+                    "move": "astonish",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mirror-move",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "mist",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "refresh",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 31
+                }
+            ],
+            "heartgold-soulsilver": [
+                {
+                    "move": "astonish",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "dragon-pulse",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "dragon-pulse",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mirror-move",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "mist",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "pluck",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "refresh",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 28
+                }
+            ],
+            "omega-ruby-alpha-sapphire": [
+                {
+                    "move": "astonish",
+                    "method": "level-up",
+                    "level": 3
+                },
+                {
+                    "move": "cotton-guard",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "disarming-voice",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "dragon-pulse",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "dragon-pulse",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mirror-move",
+                    "method": "level-up",
+                    "level": 30
+                },
+                {
+                    "move": "mist",
+                    "method": "level-up",
+                    "level": 14
+                },
+                {
+                    "move": "moonblast",
+                    "method": "level-up",
+                    "level": 46
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "refresh",
+                    "method": "level-up",
+                    "level": 26
+                },
+                {
+                    "move": "round",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "round",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "sky-attack",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 23
+                }
+            ],
+            "platinum": [
+                {
+                    "move": "astonish",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "dragon-pulse",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "dragon-pulse",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mirror-move",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "mist",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "pluck",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "refresh",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 28
+                }
+            ],
+            "ruby-sapphire": [
+                {
+                    "move": "astonish",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mirror-move",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "mist",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "refresh",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 31
+                }
+            ],
+            "scarlet-violet": [
+                {
+                    "move": "astonish",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "cotton-guard",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "disarming-voice",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "disarming-voice",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "dragon-breath",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "dragon-pulse",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hurricane",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "mist",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "moonblast",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "round",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "take-down",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "sun-moon": [
+                {
+                    "move": "astonish",
+                    "method": "level-up",
+                    "level": 3
+                },
+                {
+                    "move": "cotton-guard",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "disarming-voice",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "dragon-pulse",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mirror-move",
+                    "method": "level-up",
+                    "level": 30
+                },
+                {
+                    "move": "mist",
+                    "method": "level-up",
+                    "level": 14
+                },
+                {
+                    "move": "moonblast",
+                    "method": "level-up",
+                    "level": 46
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "refresh",
+                    "method": "level-up",
+                    "level": 26
+                },
+                {
+                    "move": "round",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "round",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 23
+                }
+            ],
+            "sword-shield": [
+                {
+                    "move": "astonish",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "cotton-guard",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "disarming-voice",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "dragon-breath",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "dragon-pulse",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mist",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "moonblast",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "round",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "round",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 36
+                }
+            ],
+            "ultra-sun-ultra-moon": [
+                {
+                    "move": "astonish",
+                    "method": "level-up",
+                    "level": 3
+                },
+                {
+                    "move": "cotton-guard",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "disarming-voice",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "dragon-pulse",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "dragon-pulse",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mirror-move",
+                    "method": "level-up",
+                    "level": 30
+                },
+                {
+                    "move": "mist",
+                    "method": "level-up",
+                    "level": 14
+                },
+                {
+                    "move": "moonblast",
+                    "method": "level-up",
+                    "level": 46
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "refresh",
+                    "method": "level-up",
+                    "level": 26
+                },
+                {
+                    "move": "round",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "round",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "sky-attack",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 23
+                }
+            ],
+            "x-y": [
+                {
+                    "move": "astonish",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "cotton-guard",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "dragon-pulse",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mirror-move",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "mist",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "moonblast",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "refresh",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "round",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "round",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 25
+                }
+            ],
+            "xd": [
+                {
+                    "move": "astonish",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mirror-move",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "mist",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "refresh",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "sky-attack",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 31
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,5677 @@
+{
+    "base": "spheal",
+    "edges": [
+        {
+            "from": "sealeo",
+            "to": "walrein",
+            "trigger": "level-up",
+            "minLevel": 44
+        },
+        {
+            "from": "spheal",
+            "to": "sealeo",
+            "trigger": "level-up",
+            "minLevel": 32
+        }
+    ],
+    "learnsets": {
+        "sealeo": {
+            "black-2-white-2": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "blizzard",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "blizzard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "encore",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "encore",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hail",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "hail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-ball",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "powder-snow",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "rest",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "rest",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sheer-cold",
+                    "method": "level-up",
+                    "level": 55
+                },
+                {
+                    "move": "snore",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "snore",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "black-white": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "blizzard",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "blizzard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "encore",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "encore",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hail",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "hail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-ball",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "powder-snow",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "rest",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "rest",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sheer-cold",
+                    "method": "level-up",
+                    "level": 55
+                },
+                {
+                    "move": "snore",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "brilliant-diamond-shining-pearl": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "blizzard",
+                    "method": "level-up",
+                    "level": 52
+                },
+                {
+                    "move": "blizzard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "brine",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "brine",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "defense-curl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "encore",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hail",
+                    "method": "level-up",
+                    "level": 58
+                },
+                {
+                    "move": "hail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "powder-snow",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "rest",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "rest",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "rollout",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sheer-cold",
+                    "method": "level-up",
+                    "level": 64
+                },
+                {
+                    "move": "snore",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "surf",
+                    "method": "level-up",
+                    "level": 46
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "level-up",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-pulse",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "colosseum": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "blizzard",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "blizzard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "encore",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "encore",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hail",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "hail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-ball",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "powder-snow",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "rest",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "rest",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sheer-cold",
+                    "method": "level-up",
+                    "level": 55
+                },
+                {
+                    "move": "snore",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-pulse",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "diamond-pearl": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "blizzard",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "blizzard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "brine",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "encore",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "encore",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hail",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "hail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-ball",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "powder-snow",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "rest",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "rest",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sheer-cold",
+                    "method": "level-up",
+                    "level": 55
+                },
+                {
+                    "move": "snore",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-pulse",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "emerald": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "blizzard",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "blizzard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "body-slam",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "defense-curl",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "encore",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "encore",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hail",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "hail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-ball",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "powder-snow",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "rest",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "rest",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "rollout",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "sheer-cold",
+                    "method": "level-up",
+                    "level": 55
+                },
+                {
+                    "move": "snore",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "snore",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-pulse",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "firered-leafgreen": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "blizzard",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "blizzard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "body-slam",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "defense-curl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "encore",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hail",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "hail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-ball",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "powder-snow",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "rest",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "rest",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sheer-cold",
+                    "method": "level-up",
+                    "level": 55
+                },
+                {
+                    "move": "snore",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-pulse",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "heartgold-soulsilver": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "blizzard",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "blizzard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "brine",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "encore",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "encore",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hail",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "hail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-ball",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "powder-snow",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "rest",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "rest",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "rollout",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "sheer-cold",
+                    "method": "level-up",
+                    "level": 55
+                },
+                {
+                    "move": "snore",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "snore",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-pulse",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "legends-arceus": [
+                {
+                    "move": "blizzard",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "liquidation",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "powder-snow",
+                    "method": "level-up",
+                    "level": 6
+                },
+                {
+                    "move": "rest",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "rollout",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-pulse",
+                    "method": "level-up",
+                    "level": 11
+                }
+            ],
+            "omega-ruby-alpha-sapphire": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "blizzard",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "blizzard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 26
+                },
+                {
+                    "move": "brine",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "defense-curl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "encore",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hail",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "hail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-ball",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "powder-snow",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "rest",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "rest",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "rollout",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "sheer-cold",
+                    "method": "level-up",
+                    "level": 52
+                },
+                {
+                    "move": "snore",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "snore",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-pulse",
+                    "method": "tutor",
+                    "level": 0
+                }
+            ],
+            "platinum": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "blizzard",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "blizzard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "brine",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "encore",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "encore",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hail",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "hail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-ball",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "powder-snow",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "rest",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "rest",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "rollout",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "sheer-cold",
+                    "method": "level-up",
+                    "level": 55
+                },
+                {
+                    "move": "snore",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "snore",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-pulse",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "ruby-sapphire": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "blizzard",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "blizzard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "encore",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "encore",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hail",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "hail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-ball",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "powder-snow",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "rest",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "rest",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sheer-cold",
+                    "method": "level-up",
+                    "level": 55
+                },
+                {
+                    "move": "snore",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-pulse",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "sun-moon": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "blizzard",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "blizzard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 26
+                },
+                {
+                    "move": "brine",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "defense-curl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "encore",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hail",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "hail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-ball",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "powder-snow",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "rest",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "rest",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "rollout",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "sheer-cold",
+                    "method": "level-up",
+                    "level": 52
+                },
+                {
+                    "move": "snore",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "level-up",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "sword-shield": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "blizzard",
+                    "method": "level-up",
+                    "level": 52
+                },
+                {
+                    "move": "blizzard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "body-slam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "brine",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "brine",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "defense-curl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "encore",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "encore",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hail",
+                    "method": "level-up",
+                    "level": 58
+                },
+                {
+                    "move": "hail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "powder-snow",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "rest",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "rest",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "rollout",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sheer-cold",
+                    "method": "level-up",
+                    "level": 64
+                },
+                {
+                    "move": "snore",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "snore",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "surf",
+                    "method": "level-up",
+                    "level": 46
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "level-up",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "ultra-sun-ultra-moon": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "blizzard",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "blizzard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 26
+                },
+                {
+                    "move": "brine",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "defense-curl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "encore",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hail",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "hail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-ball",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "powder-snow",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "rest",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "rest",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "rollout",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "sheer-cold",
+                    "method": "level-up",
+                    "level": 52
+                },
+                {
+                    "move": "snore",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "snore",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "level-up",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-pulse",
+                    "method": "tutor",
+                    "level": 0
+                }
+            ],
+            "x-y": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "blizzard",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "blizzard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "encore",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "encore",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hail",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "hail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-ball",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "powder-snow",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "rest",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "rest",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sheer-cold",
+                    "method": "level-up",
+                    "level": 55
+                },
+                {
+                    "move": "snore",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "xd": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "blizzard",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "blizzard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "body-slam",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "encore",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "encore",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hail",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "hail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-ball",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "powder-snow",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "rest",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "rest",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sheer-cold",
+                    "method": "level-up",
+                    "level": 55
+                },
+                {
+                    "move": "snore",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-pulse",
+                    "method": "machine",
+                    "level": 0
+                }
+            ]
+        },
+        "spheal": {
+            "black-2-white-2": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "blizzard",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "blizzard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "defense-curl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "encore",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hail",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "hail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-ball",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "powder-snow",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "rest",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "rest",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "rollout",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "sheer-cold",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "snore",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "snore",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-pulse",
+                    "method": "egg",
+                    "level": 0
+                }
+            ],
+            "black-white": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "blizzard",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "blizzard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "defense-curl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "encore",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hail",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "hail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-ball",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "powder-snow",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "rest",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "rest",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "rollout",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "sheer-cold",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "snore",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-pulse",
+                    "method": "egg",
+                    "level": 0
+                }
+            ],
+            "brilliant-diamond-shining-pearl": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "blizzard",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "blizzard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "brine",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "brine",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "defense-curl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "encore",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "hail",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "hail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "powder-snow",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "rest",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "rest",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "rollout",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "rollout",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sheer-cold",
+                    "method": "level-up",
+                    "level": 52
+                },
+                {
+                    "move": "snore",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "surf",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "water-pulse",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "colosseum": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "blizzard",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "blizzard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "encore",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hail",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "hail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-ball",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "powder-snow",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "rest",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "rest",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sheer-cold",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "snore",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-pulse",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "diamond-pearl": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "blizzard",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "blizzard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "brine",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "defense-curl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "encore",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hail",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "hail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-ball",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "powder-snow",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "rest",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "rest",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sheer-cold",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "snore",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-pulse",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "emerald": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "blizzard",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "blizzard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "body-slam",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "defense-curl",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "encore",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hail",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "hail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-ball",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "powder-snow",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "rest",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "rest",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "rollout",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "sheer-cold",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "snore",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "snore",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-pulse",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "firered-leafgreen": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "blizzard",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "blizzard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "body-slam",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "defense-curl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "encore",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hail",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "hail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-ball",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "powder-snow",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "rest",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "rest",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sheer-cold",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "snore",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-pulse",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "heartgold-soulsilver": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "blizzard",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "blizzard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "brine",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "defense-curl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "encore",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hail",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "hail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-ball",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "powder-snow",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "rest",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "rest",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "rollout",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "sheer-cold",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "snore",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "snore",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-pulse",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "legends-arceus": [
+                {
+                    "move": "blizzard",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "liquidation",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "powder-snow",
+                    "method": "level-up",
+                    "level": 6
+                },
+                {
+                    "move": "rest",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "rollout",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-pulse",
+                    "method": "level-up",
+                    "level": 11
+                }
+            ],
+            "omega-ruby-alpha-sapphire": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "blizzard",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "blizzard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 26
+                },
+                {
+                    "move": "brine",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "defense-curl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "encore",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hail",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "hail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-ball",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "powder-snow",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "rest",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "rest",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "rollout",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "rollout",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "sheer-cold",
+                    "method": "level-up",
+                    "level": 46
+                },
+                {
+                    "move": "snore",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "snore",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-pulse",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "water-pulse",
+                    "method": "tutor",
+                    "level": 0
+                }
+            ],
+            "platinum": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "blizzard",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "blizzard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "brine",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "defense-curl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "encore",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hail",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "hail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-ball",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "powder-snow",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "rest",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "rest",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "rollout",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "sheer-cold",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "snore",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "snore",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-pulse",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "ruby-sapphire": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "blizzard",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "blizzard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "encore",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hail",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "hail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-ball",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "powder-snow",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "rest",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "rest",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sheer-cold",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "snore",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-pulse",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "sun-moon": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "blizzard",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "blizzard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 26
+                },
+                {
+                    "move": "brine",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "defense-curl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "encore",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hail",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "hail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-ball",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "powder-snow",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "rest",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "rest",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "rollout",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "rollout",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "sheer-cold",
+                    "method": "level-up",
+                    "level": 46
+                },
+                {
+                    "move": "snore",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-pulse",
+                    "method": "egg",
+                    "level": 0
+                }
+            ],
+            "sword-shield": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "blizzard",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "blizzard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "body-slam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "brine",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "brine",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "defense-curl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "encore",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "encore",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "hail",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "hail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "powder-snow",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "rest",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "rest",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "rollout",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sheer-cold",
+                    "method": "level-up",
+                    "level": 52
+                },
+                {
+                    "move": "snore",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "snore",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "surf",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "water-pulse",
+                    "method": "egg",
+                    "level": 0
+                }
+            ],
+            "ultra-sun-ultra-moon": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "blizzard",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "blizzard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 26
+                },
+                {
+                    "move": "brine",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "defense-curl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "encore",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hail",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "hail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-ball",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "powder-snow",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "rest",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "rest",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "rollout",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "rollout",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "sheer-cold",
+                    "method": "level-up",
+                    "level": 46
+                },
+                {
+                    "move": "snore",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "snore",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-pulse",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "water-pulse",
+                    "method": "tutor",
+                    "level": 0
+                }
+            ],
+            "x-y": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "blizzard",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "blizzard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "defense-curl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "encore",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hail",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "hail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-ball",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "powder-snow",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "rest",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "rest",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "rollout",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "sheer-cold",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "snore",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-pulse",
+                    "method": "egg",
+                    "level": 0
+                }
+            ],
+            "xd": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "blizzard",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "blizzard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "body-slam",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "encore",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hail",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "hail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-ball",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "powder-snow",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "rest",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "rest",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sheer-cold",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "snore",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-pulse",
+                    "method": "machine",
+                    "level": 0
+                }
+            ]
+        },
+        "walrein": {
+            "black-2-white-2": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "blizzard",
+                    "method": "level-up",
+                    "level": 52
+                },
+                {
+                    "move": "blizzard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "crunch",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "encore",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "encore",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hail",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "hail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-ball",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-fang",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "powder-snow",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "rest",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "rest",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sheer-cold",
+                    "method": "level-up",
+                    "level": 65
+                },
+                {
+                    "move": "snore",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "snore",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "black-white": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "blizzard",
+                    "method": "level-up",
+                    "level": 52
+                },
+                {
+                    "move": "blizzard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "crunch",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "encore",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "encore",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hail",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "hail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-ball",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-fang",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "powder-snow",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "rest",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "rest",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sheer-cold",
+                    "method": "level-up",
+                    "level": 65
+                },
+                {
+                    "move": "snore",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "brilliant-diamond-shining-pearl": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "blizzard",
+                    "method": "level-up",
+                    "level": 56
+                },
+                {
+                    "move": "blizzard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "brine",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "brine",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "crunch",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "defense-curl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "encore",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hail",
+                    "method": "level-up",
+                    "level": 64
+                },
+                {
+                    "move": "hail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-fang",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "powder-snow",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "rest",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "rest",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "rollout",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sheer-cold",
+                    "method": "level-up",
+                    "level": 72
+                },
+                {
+                    "move": "snore",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "surf",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-pulse",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "colosseum": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "blizzard",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "blizzard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "encore",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "encore",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hail",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "hail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-ball",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "powder-snow",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "rest",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "rest",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sheer-cold",
+                    "method": "level-up",
+                    "level": 61
+                },
+                {
+                    "move": "snore",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-pulse",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "diamond-pearl": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "blizzard",
+                    "method": "level-up",
+                    "level": 52
+                },
+                {
+                    "move": "blizzard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "brine",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "crunch",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "encore",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "encore",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hail",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "hail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-ball",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-fang",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "powder-snow",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "rest",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "rest",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sheer-cold",
+                    "method": "level-up",
+                    "level": 65
+                },
+                {
+                    "move": "snore",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-pulse",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "emerald": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "blizzard",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "blizzard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "body-slam",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "defense-curl",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "encore",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "encore",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hail",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "hail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-ball",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "powder-snow",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "rest",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "rest",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "rollout",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "sheer-cold",
+                    "method": "level-up",
+                    "level": 61
+                },
+                {
+                    "move": "snore",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "snore",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-pulse",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "firered-leafgreen": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "blizzard",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "blizzard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "body-slam",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "defense-curl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "encore",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hail",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "hail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-ball",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "powder-snow",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "rest",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "rest",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sheer-cold",
+                    "method": "level-up",
+                    "level": 61
+                },
+                {
+                    "move": "snore",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-pulse",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "heartgold-soulsilver": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "blizzard",
+                    "method": "level-up",
+                    "level": 52
+                },
+                {
+                    "move": "blizzard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "brine",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "crunch",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "encore",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "encore",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hail",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "hail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-ball",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-fang",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "powder-snow",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "rest",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "rest",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "rollout",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "sheer-cold",
+                    "method": "level-up",
+                    "level": 65
+                },
+                {
+                    "move": "snore",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "snore",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-pulse",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "legends-arceus": [
+                {
+                    "move": "blizzard",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "liquidation",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "powder-snow",
+                    "method": "level-up",
+                    "level": 6
+                },
+                {
+                    "move": "rest",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "rollout",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-pulse",
+                    "method": "level-up",
+                    "level": 11
+                }
+            ],
+            "omega-ruby-alpha-sapphire": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "blizzard",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "blizzard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "brine",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "crunch",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "defense-curl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "encore",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hail",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "hail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-ball",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-fang",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "powder-snow",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "rest",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "rest",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "rollout",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "sheer-cold",
+                    "method": "level-up",
+                    "level": 60
+                },
+                {
+                    "move": "snore",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "snore",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-pulse",
+                    "method": "tutor",
+                    "level": 0
+                }
+            ],
+            "platinum": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "blizzard",
+                    "method": "level-up",
+                    "level": 52
+                },
+                {
+                    "move": "blizzard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "brine",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "crunch",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "encore",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "encore",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hail",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "hail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-ball",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-fang",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "powder-snow",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "rest",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "rest",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "rollout",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "sheer-cold",
+                    "method": "level-up",
+                    "level": 65
+                },
+                {
+                    "move": "snore",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "snore",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-pulse",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "ruby-sapphire": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "blizzard",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "blizzard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "encore",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "encore",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hail",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "hail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-ball",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "powder-snow",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "rest",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "rest",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sheer-cold",
+                    "method": "level-up",
+                    "level": 61
+                },
+                {
+                    "move": "snore",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-pulse",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "sun-moon": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "blizzard",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "blizzard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "brine",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "crunch",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "defense-curl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "encore",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hail",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "hail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-ball",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-fang",
+                    "method": "level-up",
+                    "level": 0
+                },
+                {
+                    "move": "ice-fang",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "powder-snow",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "rest",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "rest",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "rollout",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "sheer-cold",
+                    "method": "level-up",
+                    "level": 60
+                },
+                {
+                    "move": "snore",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "sword-shield": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "blizzard",
+                    "method": "level-up",
+                    "level": 56
+                },
+                {
+                    "move": "blizzard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "body-slam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "brine",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "brine",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "crunch",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "crunch",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "defense-curl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "encore",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "encore",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hail",
+                    "method": "level-up",
+                    "level": 64
+                },
+                {
+                    "move": "hail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-fang",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "ice-fang",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "liquidation",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "powder-snow",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "rest",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "rest",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "rollout",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sheer-cold",
+                    "method": "level-up",
+                    "level": 72
+                },
+                {
+                    "move": "snore",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "snore",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "surf",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "ultra-sun-ultra-moon": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "blizzard",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "blizzard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "brine",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "crunch",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "defense-curl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "encore",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hail",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "hail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-ball",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-fang",
+                    "method": "level-up",
+                    "level": 0
+                },
+                {
+                    "move": "ice-fang",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "powder-snow",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "rest",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "rest",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "rollout",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "sheer-cold",
+                    "method": "level-up",
+                    "level": 60
+                },
+                {
+                    "move": "snore",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "snore",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-pulse",
+                    "method": "tutor",
+                    "level": 0
+                }
+            ],
+            "x-y": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "blizzard",
+                    "method": "level-up",
+                    "level": 52
+                },
+                {
+                    "move": "blizzard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "crunch",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "encore",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "encore",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hail",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "hail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-ball",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-fang",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "powder-snow",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "rest",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "rest",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sheer-cold",
+                    "method": "level-up",
+                    "level": 65
+                },
+                {
+                    "move": "snore",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "xd": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "blizzard",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "blizzard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "body-slam",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "encore",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "encore",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hail",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "hail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-ball",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "powder-snow",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "rest",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "rest",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sheer-cold",
+                    "method": "level-up",
+                    "level": 61
+                },
+                {
+                    "move": "snore",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-pulse",
+                    "method": "machine",
+                    "level": 0
+                }
+            ]
+        }
+    }
+}

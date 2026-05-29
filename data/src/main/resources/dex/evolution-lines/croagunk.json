@@ -1,0 +1,2904 @@
+{
+    "base": "croagunk",
+    "edges": [
+        {
+            "from": "croagunk",
+            "to": "toxicroak",
+            "trigger": "level-up",
+            "minLevel": 37
+        }
+    ],
+    "learnsets": {
+        "croagunk": {
+            "black-2-white-2": [
+                {
+                    "move": "astonish",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "feint-attack",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "flatter",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "low-kick",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "mud-bomb",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "mud-slap",
+                    "method": "level-up",
+                    "level": 3
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "pursuit",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "revenge",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "rock-smash",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sludge-bomb",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "sludge-bomb",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sucker-punch",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "swagger",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "taunt",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "taunt",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "venoshock",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "venoshock",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "black-white": [
+                {
+                    "move": "astonish",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "feint-attack",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "flatter",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "mud-bomb",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "mud-slap",
+                    "method": "level-up",
+                    "level": 3
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "pursuit",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "revenge",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "rock-smash",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sludge-bomb",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "sludge-bomb",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sucker-punch",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "swagger",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "taunt",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "taunt",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "venoshock",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "venoshock",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "brilliant-diamond-shining-pearl": [
+                {
+                    "move": "astonish",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "belch",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "flatter",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "mud-slap",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "revenge",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "rock-smash",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sludge-bomb",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "sludge-bomb",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sucker-punch",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "swagger",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "taunt",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "taunt",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "venoshock",
+                    "method": "level-up",
+                    "level": 20
+                }
+            ],
+            "diamond-pearl": [
+                {
+                    "move": "astonish",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "feint-attack",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "flatter",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "mud-bomb",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "mud-slap",
+                    "method": "level-up",
+                    "level": 3
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "pursuit",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "revenge",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "rock-smash",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sludge-bomb",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "sludge-bomb",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sucker-punch",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "swagger",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "taunt",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "taunt",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "heartgold-soulsilver": [
+                {
+                    "move": "astonish",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "feint-attack",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "flatter",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "low-kick",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "mud-bomb",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "mud-slap",
+                    "method": "level-up",
+                    "level": 3
+                },
+                {
+                    "move": "mud-slap",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "pursuit",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "revenge",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "rock-smash",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sludge-bomb",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "sludge-bomb",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sucker-punch",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "sucker-punch",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "taunt",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "taunt",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "legends-arceus": [
+                {
+                    "move": "close-combat",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "earth-power",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "mud-bomb",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "rock-smash",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "venoshock",
+                    "method": "level-up",
+                    "level": 15
+                }
+            ],
+            "omega-ruby-alpha-sapphire": [
+                {
+                    "move": "astonish",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "belch",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "feint-attack",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "flatter",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "low-kick",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "mud-bomb",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "mud-slap",
+                    "method": "level-up",
+                    "level": 3
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "pursuit",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "revenge",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "rock-smash",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sludge-bomb",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "sludge-bomb",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sucker-punch",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "swagger",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "taunt",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "taunt",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "venoshock",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "venoshock",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "platinum": [
+                {
+                    "move": "astonish",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "feint-attack",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "flatter",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "mud-bomb",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "mud-slap",
+                    "method": "level-up",
+                    "level": 3
+                },
+                {
+                    "move": "mud-slap",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "pursuit",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "revenge",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "rock-smash",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sludge-bomb",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "sludge-bomb",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sucker-punch",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "sucker-punch",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "taunt",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "taunt",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "scarlet-violet": [
+                {
+                    "move": "astonish",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "belch",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "flatter",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "low-kick",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "low-kick",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "mud-slap",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mud-slap",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sludge-bomb",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "sludge-bomb",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sucker-punch",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "swagger",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "taunt",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "taunt",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "venoshock",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "venoshock",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "sun-moon": [
+                {
+                    "move": "astonish",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "belch",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "feint-attack",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "flatter",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "mud-bomb",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "mud-slap",
+                    "method": "level-up",
+                    "level": 3
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "pursuit",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "revenge",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "sludge-bomb",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "sludge-bomb",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sucker-punch",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "swagger",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "taunt",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "taunt",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "venoshock",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "venoshock",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "sword-shield": [
+                {
+                    "move": "astonish",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "belch",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "flatter",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "low-kick",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "mud-slap",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "revenge",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "revenge",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sludge-bomb",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "sludge-bomb",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sucker-punch",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "swagger",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "taunt",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "taunt",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "venoshock",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "venoshock",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "ultra-sun-ultra-moon": [
+                {
+                    "move": "astonish",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "belch",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "feint-attack",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "flatter",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "low-kick",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "mud-bomb",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "mud-slap",
+                    "method": "level-up",
+                    "level": 3
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "pursuit",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "revenge",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "sludge-bomb",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "sludge-bomb",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sucker-punch",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "swagger",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "taunt",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "taunt",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "venoshock",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "venoshock",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "x-y": [
+                {
+                    "move": "astonish",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "belch",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "feint-attack",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "flatter",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "mud-bomb",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "mud-slap",
+                    "method": "level-up",
+                    "level": 3
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "pursuit",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "revenge",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "rock-smash",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sludge-bomb",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "sludge-bomb",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sucker-punch",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "swagger",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "taunt",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "taunt",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "venoshock",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "venoshock",
+                    "method": "machine",
+                    "level": 0
+                }
+            ]
+        },
+        "toxicroak": {
+            "black-2-white-2": [
+                {
+                    "move": "astonish",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "feint-attack",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "flatter",
+                    "method": "level-up",
+                    "level": 62
+                },
+                {
+                    "move": "low-kick",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "mud-bomb",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "mud-slap",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mud-slap",
+                    "method": "level-up",
+                    "level": 3
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "pursuit",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "revenge",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "rock-smash",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sludge-bomb",
+                    "method": "level-up",
+                    "level": 54
+                },
+                {
+                    "move": "sludge-bomb",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sucker-punch",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "swagger",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "taunt",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "taunt",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "venoshock",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "venoshock",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "black-white": [
+                {
+                    "move": "astonish",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "feint-attack",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "flatter",
+                    "method": "level-up",
+                    "level": 62
+                },
+                {
+                    "move": "mud-bomb",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "mud-slap",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mud-slap",
+                    "method": "level-up",
+                    "level": 3
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "pursuit",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "revenge",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "rock-smash",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sludge-bomb",
+                    "method": "level-up",
+                    "level": 54
+                },
+                {
+                    "move": "sludge-bomb",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sucker-punch",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "swagger",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "taunt",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "taunt",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "venoshock",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "venoshock",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "brilliant-diamond-shining-pearl": [
+                {
+                    "move": "astonish",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "belch",
+                    "method": "level-up",
+                    "level": 54
+                },
+                {
+                    "move": "flatter",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "mud-slap",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "revenge",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "rock-smash",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sludge-bomb",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "sludge-bomb",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sucker-punch",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "swagger",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "taunt",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "taunt",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "venoshock",
+                    "method": "level-up",
+                    "level": 20
+                }
+            ],
+            "diamond-pearl": [
+                {
+                    "move": "astonish",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "feint-attack",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "flatter",
+                    "method": "level-up",
+                    "level": 54
+                },
+                {
+                    "move": "mud-bomb",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "mud-slap",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mud-slap",
+                    "method": "level-up",
+                    "level": 3
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "pursuit",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "revenge",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "rock-smash",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sludge-bomb",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "sludge-bomb",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sucker-punch",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "swagger",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "taunt",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "taunt",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "heartgold-soulsilver": [
+                {
+                    "move": "astonish",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "feint-attack",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "flatter",
+                    "method": "level-up",
+                    "level": 54
+                },
+                {
+                    "move": "low-kick",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "mud-bomb",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "mud-slap",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mud-slap",
+                    "method": "level-up",
+                    "level": 3
+                },
+                {
+                    "move": "mud-slap",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "pursuit",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "revenge",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "rock-smash",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sludge-bomb",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "sludge-bomb",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sucker-punch",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "sucker-punch",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "taunt",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "taunt",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "legends-arceus": [
+                {
+                    "move": "close-combat",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "earth-power",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "mud-bomb",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "rock-smash",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "venoshock",
+                    "method": "level-up",
+                    "level": 15
+                }
+            ],
+            "omega-ruby-alpha-sapphire": [
+                {
+                    "move": "astonish",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "belch",
+                    "method": "level-up",
+                    "level": 58
+                },
+                {
+                    "move": "feint-attack",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "flatter",
+                    "method": "level-up",
+                    "level": 62
+                },
+                {
+                    "move": "low-kick",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "mud-bomb",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "mud-slap",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mud-slap",
+                    "method": "level-up",
+                    "level": 3
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "pursuit",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "revenge",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "rock-smash",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sludge-bomb",
+                    "method": "level-up",
+                    "level": 54
+                },
+                {
+                    "move": "sludge-bomb",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sucker-punch",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "swagger",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "taunt",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "taunt",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "venoshock",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "venoshock",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "platinum": [
+                {
+                    "move": "astonish",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "feint-attack",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "flatter",
+                    "method": "level-up",
+                    "level": 54
+                },
+                {
+                    "move": "mud-bomb",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "mud-slap",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mud-slap",
+                    "method": "level-up",
+                    "level": 3
+                },
+                {
+                    "move": "mud-slap",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "pursuit",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "revenge",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "rock-smash",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sludge-bomb",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "sludge-bomb",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sucker-punch",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "sucker-punch",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "taunt",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "taunt",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "scarlet-violet": [
+                {
+                    "move": "astonish",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "belch",
+                    "method": "level-up",
+                    "level": 54
+                },
+                {
+                    "move": "close-combat",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "flatter",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "low-kick",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "low-kick",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "mud-slap",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mud-slap",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sludge-bomb",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "sludge-bomb",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sucker-punch",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "swagger",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "taunt",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "taunt",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "venoshock",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "venoshock",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "sun-moon": [
+                {
+                    "move": "astonish",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "belch",
+                    "method": "level-up",
+                    "level": 58
+                },
+                {
+                    "move": "feint-attack",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "flatter",
+                    "method": "level-up",
+                    "level": 62
+                },
+                {
+                    "move": "mud-bomb",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "mud-slap",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mud-slap",
+                    "method": "level-up",
+                    "level": 3
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "pursuit",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "revenge",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "sludge-bomb",
+                    "method": "level-up",
+                    "level": 54
+                },
+                {
+                    "move": "sludge-bomb",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sucker-punch",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "swagger",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "taunt",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "taunt",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "venoshock",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "venoshock",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "sword-shield": [
+                {
+                    "move": "astonish",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "belch",
+                    "method": "level-up",
+                    "level": 54
+                },
+                {
+                    "move": "flatter",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "low-kick",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "mud-slap",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "revenge",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "revenge",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sludge-bomb",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "sludge-bomb",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sucker-punch",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "swagger",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "taunt",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "taunt",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "venoshock",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "venoshock",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "ultra-sun-ultra-moon": [
+                {
+                    "move": "astonish",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "belch",
+                    "method": "level-up",
+                    "level": 58
+                },
+                {
+                    "move": "feint-attack",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "flatter",
+                    "method": "level-up",
+                    "level": 62
+                },
+                {
+                    "move": "low-kick",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "mud-bomb",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "mud-slap",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mud-slap",
+                    "method": "level-up",
+                    "level": 3
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "pursuit",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "revenge",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "sludge-bomb",
+                    "method": "level-up",
+                    "level": 54
+                },
+                {
+                    "move": "sludge-bomb",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sucker-punch",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "swagger",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "taunt",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "taunt",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "venoshock",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "venoshock",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "x-y": [
+                {
+                    "move": "astonish",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "belch",
+                    "method": "level-up",
+                    "level": 58
+                },
+                {
+                    "move": "feint-attack",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "flatter",
+                    "method": "level-up",
+                    "level": 62
+                },
+                {
+                    "move": "mud-bomb",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "mud-slap",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mud-slap",
+                    "method": "level-up",
+                    "level": 3
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "pursuit",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "revenge",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "rock-smash",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sludge-bomb",
+                    "method": "level-up",
+                    "level": 54
+                },
+                {
+                    "move": "sludge-bomb",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sucker-punch",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "swagger",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "taunt",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "taunt",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "venoshock",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "venoshock",
+                    "method": "machine",
+                    "level": 0
+                }
+            ]
+        }
+    }
+}

@@ -129,6 +129,15 @@ For the next parallel-launch prompt template:
    `private class X : Effect by ...` delegation pattern as the
    preferred shape.
 
+## Code review
+
+Reviewed, no findings. This diary is a process retrospective — it changes
+no production code, so there is nothing to review against the diagnostic
+checklist. The code it reflects on (the Smogon move/ability expansion)
+carries its own reviews in diaries 099–101. Section added retroactively to
+satisfy the iteration-loop step-5 convention enforced by
+`DiaryConventionTest` (the diary was merged Complete without it).
+
 ## Related
 
 - **Diary 099 / 100 / 101** — the work this retro is about.

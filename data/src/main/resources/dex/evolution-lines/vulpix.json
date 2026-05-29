@@ -1,0 +1,4049 @@
+{
+    "base": "vulpix",
+    "edges": [
+        {
+            "from": "vulpix",
+            "to": "ninetales",
+            "trigger": "use-item",
+            "item": "fire-stone"
+        }
+    ],
+    "learnsets": {
+        "ninetales": {
+            "black-2-white-2": [
+                {
+                    "move": "confuse-ray",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "fire-blast",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "incinerate",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "payback",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "spite",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "will-o-wisp",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "black-white": [
+                {
+                    "move": "confuse-ray",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "fire-blast",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "incinerate",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "payback",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "will-o-wisp",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "brilliant-diamond-shining-pearl": [
+                {
+                    "move": "confuse-ray",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "disable",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "extrasensory",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "fire-blast",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "fire-blast",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fire-spin",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "grudge",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "imprison",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "incinerate",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "inferno",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "payback",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "spite",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "will-o-wisp",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "will-o-wisp",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "colosseum": [
+                {
+                    "move": "confuse-ray",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "fire-blast",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fire-spin",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "crystal": [
+                {
+                    "move": "confuse-ray",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "fire-blast",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fire-spin",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "diamond-pearl": [
+                {
+                    "move": "captivate",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "confuse-ray",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "fire-blast",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "payback",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "will-o-wisp",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "emerald": [
+                {
+                    "move": "confuse-ray",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "fire-blast",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fire-spin",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "firered-leafgreen": [
+                {
+                    "move": "confuse-ray",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "fire-blast",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fire-spin",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "gold-silver": [
+                {
+                    "move": "confuse-ray",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "fire-blast",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fire-spin",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "heartgold-soulsilver": [
+                {
+                    "move": "captivate",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "confuse-ray",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "fire-blast",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "payback",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "spite",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "will-o-wisp",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "legends-arceus": [
+                {
+                    "move": "baby-doll-eyes",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "extrasensory",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "fire-blast",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "flame-wheel",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "hex",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 5
+                }
+            ],
+            "lets-go-pikachu-lets-go-eevee": [
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "fire-blast",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "will-o-wisp",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "omega-ruby-alpha-sapphire": [
+                {
+                    "move": "confuse-ray",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "fire-blast",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "imprison",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "incinerate",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "payback",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "spite",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "will-o-wisp",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "platinum": [
+                {
+                    "move": "captivate",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "confuse-ray",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "fire-blast",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "payback",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "spite",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "will-o-wisp",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "red-blue": [
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "fire-blast",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "roar",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "ruby-sapphire": [
+                {
+                    "move": "confuse-ray",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "fire-blast",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fire-spin",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "scarlet-violet": [
+                {
+                    "move": "baby-doll-eyes",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "confuse-ray",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fire-blast",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fire-spin",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "hex",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "imprison",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "roar",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "spite",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "will-o-wisp",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "sun-moon": [
+                {
+                    "move": "confuse-ray",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "fire-blast",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "imprison",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "payback",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "will-o-wisp",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "sword-shield": [
+                {
+                    "move": "confuse-ray",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "disable",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "extrasensory",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "fire-blast",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "fire-blast",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fire-spin",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "fire-spin",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "grudge",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hex",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "imprison",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "imprison",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "incinerate",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "inferno",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "payback",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "spite",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "will-o-wisp",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "will-o-wisp",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "ultra-sun-ultra-moon": [
+                {
+                    "move": "confuse-ray",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "fire-blast",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "imprison",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "payback",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "spite",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "will-o-wisp",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "x-y": [
+                {
+                    "move": "confuse-ray",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "fire-blast",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "imprison",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "incinerate",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "payback",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "will-o-wisp",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "xd": [
+                {
+                    "move": "confuse-ray",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "fire-blast",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fire-spin",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "yellow": [
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "fire-blast",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "roar",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ]
+        },
+        "vulpix": {
+            "black-2-white-2": [
+                {
+                    "move": "captivate",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "confuse-ray",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "disable",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "extrasensory",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "extrasensory",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "feint-attack",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "feint-attack",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "fire-blast",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "fire-blast",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fire-spin",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "flame-burst",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "grudge",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "hex",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "hex",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "imprison",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "incinerate",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "inferno",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "payback",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "payback",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "roar",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "spite",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "spite",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "will-o-wisp",
+                    "method": "level-up",
+                    "level": 26
+                },
+                {
+                    "move": "will-o-wisp",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "black-white": [
+                {
+                    "move": "captivate",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "confuse-ray",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "disable",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "extrasensory",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "extrasensory",
+                    "method": "level-up",
+                    "level": 51
+                },
+                {
+                    "move": "feint-attack",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "fire-blast",
+                    "method": "level-up",
+                    "level": 54
+                },
+                {
+                    "move": "fire-blast",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fire-spin",
+                    "method": "level-up",
+                    "level": 14
+                },
+                {
+                    "move": "flame-burst",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "grudge",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "hex",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "imprison",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "incinerate",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "inferno",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "payback",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "payback",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "roar",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "spite",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "will-o-wisp",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "will-o-wisp",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "brilliant-diamond-shining-pearl": [
+                {
+                    "move": "baby-doll-eyes",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "confuse-ray",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "disable",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "disable",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "extrasensory",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "extrasensory",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "fire-blast",
+                    "method": "level-up",
+                    "level": 56
+                },
+                {
+                    "move": "fire-blast",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fire-spin",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "grudge",
+                    "method": "level-up",
+                    "level": 52
+                },
+                {
+                    "move": "hex",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "imprison",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "incinerate",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "inferno",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "payback",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "spite",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "spite",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "will-o-wisp",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "will-o-wisp",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "colosseum": [
+                {
+                    "move": "confuse-ray",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "fire-blast",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fire-spin",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "grudge",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "imprison",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "roar",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "will-o-wisp",
+                    "method": "level-up",
+                    "level": 17
+                }
+            ],
+            "crystal": [
+                {
+                    "move": "confuse-ray",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "disable",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "feint-attack",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "fire-blast",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fire-spin",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "roar",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "spite",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "diamond-pearl": [
+                {
+                    "move": "captivate",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "captivate",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "confuse-ray",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "disable",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "extrasensory",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "extrasensory",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "feint-attack",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "fire-blast",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "fire-blast",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fire-spin",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "grudge",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "imprison",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "payback",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "payback",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "roar",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "spite",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "will-o-wisp",
+                    "method": "level-up",
+                    "level": 14
+                },
+                {
+                    "move": "will-o-wisp",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "emerald": [
+                {
+                    "move": "confuse-ray",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "disable",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "feint-attack",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "fire-blast",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fire-spin",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "grudge",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "imprison",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "roar",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "spite",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "will-o-wisp",
+                    "method": "level-up",
+                    "level": 17
+                }
+            ],
+            "firered-leafgreen": [
+                {
+                    "move": "confuse-ray",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "disable",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "feint-attack",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "fire-blast",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fire-spin",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "grudge",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "imprison",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "roar",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "spite",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "will-o-wisp",
+                    "method": "level-up",
+                    "level": 17
+                }
+            ],
+            "gold-silver": [
+                {
+                    "move": "confuse-ray",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "disable",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "feint-attack",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "fire-blast",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fire-spin",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "roar",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "spite",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "heartgold-soulsilver": [
+                {
+                    "move": "captivate",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "captivate",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "confuse-ray",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "disable",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "extrasensory",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "extrasensory",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "feint-attack",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "fire-blast",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "fire-blast",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fire-spin",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "grudge",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "imprison",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "payback",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "payback",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "roar",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "spite",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "spite",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "will-o-wisp",
+                    "method": "level-up",
+                    "level": 14
+                },
+                {
+                    "move": "will-o-wisp",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "legends-arceus": [
+                {
+                    "move": "baby-doll-eyes",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "extrasensory",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "fire-blast",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "flame-wheel",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "hex",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 5
+                }
+            ],
+            "lets-go-pikachu-lets-go-eevee": [
+                {
+                    "move": "confuse-ray",
+                    "method": "level-up",
+                    "level": 14
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "fire-blast",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "fire-blast",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fire-spin",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "roar",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 3
+                },
+                {
+                    "move": "will-o-wisp",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "will-o-wisp",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "omega-ruby-alpha-sapphire": [
+                {
+                    "move": "baby-doll-eyes",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "captivate",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "captivate",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "confuse-ray",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "disable",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "extrasensory",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "extrasensory",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "feint-attack",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "feint-attack",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "fire-blast",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "fire-blast",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fire-spin",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "flame-burst",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "grudge",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "hex",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "hex",
+                    "method": "level-up",
+                    "level": 26
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "imprison",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "incinerate",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "inferno",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "payback",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "payback",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "roar",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "spite",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "spite",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "will-o-wisp",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "will-o-wisp",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "platinum": [
+                {
+                    "move": "captivate",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "captivate",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "confuse-ray",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "disable",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "extrasensory",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "extrasensory",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "feint-attack",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "fire-blast",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "fire-blast",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fire-spin",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "grudge",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "imprison",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "payback",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "payback",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "roar",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "spite",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "spite",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "will-o-wisp",
+                    "method": "level-up",
+                    "level": 14
+                },
+                {
+                    "move": "will-o-wisp",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "red-blue": [
+                {
+                    "move": "confuse-ray",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "fire-blast",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fire-spin",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "roar",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "ruby-sapphire": [
+                {
+                    "move": "confuse-ray",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "disable",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "feint-attack",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "fire-blast",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fire-spin",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "grudge",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "imprison",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "roar",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "spite",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "will-o-wisp",
+                    "method": "level-up",
+                    "level": 17
+                }
+            ],
+            "scarlet-violet": [
+                {
+                    "move": "baby-doll-eyes",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "confuse-ray",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "confuse-ray",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "disable",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "extrasensory",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "fire-blast",
+                    "method": "level-up",
+                    "level": 52
+                },
+                {
+                    "move": "fire-blast",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fire-spin",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "fire-spin",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "hex",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "imprison",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "imprison",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "incinerate",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "inferno",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "roar",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "spite",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "spite",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "will-o-wisp",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "will-o-wisp",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "sun-moon": [
+                {
+                    "move": "baby-doll-eyes",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "captivate",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "captivate",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "confuse-ray",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "disable",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "extrasensory",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "extrasensory",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "feint-attack",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "feint-attack",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "fire-blast",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "fire-blast",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fire-spin",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "flame-burst",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "grudge",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "hex",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "hex",
+                    "method": "level-up",
+                    "level": 26
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "imprison",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "inferno",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "payback",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "payback",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "roar",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "spite",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "will-o-wisp",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "will-o-wisp",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "sword-shield": [
+                {
+                    "move": "baby-doll-eyes",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "confuse-ray",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "disable",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "extrasensory",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "fire-blast",
+                    "method": "level-up",
+                    "level": 56
+                },
+                {
+                    "move": "fire-blast",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fire-spin",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "fire-spin",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "grudge",
+                    "method": "level-up",
+                    "level": 52
+                },
+                {
+                    "move": "hex",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "imprison",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "imprison",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "incinerate",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "inferno",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "payback",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "roar",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "spite",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "will-o-wisp",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "will-o-wisp",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "ultra-sun-ultra-moon": [
+                {
+                    "move": "baby-doll-eyes",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "captivate",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "captivate",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "confuse-ray",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "disable",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "extrasensory",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "extrasensory",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "feint-attack",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "feint-attack",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "fire-blast",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "fire-blast",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fire-spin",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "flame-burst",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "grudge",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "hex",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "hex",
+                    "method": "level-up",
+                    "level": 26
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "imprison",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "inferno",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "payback",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "payback",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "roar",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "spite",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "spite",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "will-o-wisp",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "will-o-wisp",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "x-y": [
+                {
+                    "move": "baby-doll-eyes",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "captivate",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "captivate",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "confuse-ray",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "disable",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "extrasensory",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "extrasensory",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "feint-attack",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "feint-attack",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "fire-blast",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "fire-blast",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fire-spin",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "flame-burst",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "grudge",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "hex",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "hex",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "imprison",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "incinerate",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "inferno",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "payback",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "payback",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "roar",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "spite",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "will-o-wisp",
+                    "method": "level-up",
+                    "level": 26
+                },
+                {
+                    "move": "will-o-wisp",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "xd": [
+                {
+                    "move": "confuse-ray",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "fire-blast",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fire-spin",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "grudge",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "imprison",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "roar",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "will-o-wisp",
+                    "method": "level-up",
+                    "level": 17
+                }
+            ],
+            "yellow": [
+                {
+                    "move": "confuse-ray",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "fire-blast",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fire-spin",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "roar",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ]
+        }
+    }
+}

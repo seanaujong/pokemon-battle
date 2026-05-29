@@ -44,6 +44,17 @@ tasks.register<JavaExec>("matrixEval") {
     workingDir = rootProject.projectDir
 }
 
+// Evolution-delay advisor (diary 103). Pass the species via -Pargs, e.g.
+// `./gradlew adviseDelays -Pargs="kricketot"` or `-Pargs="hoothoot --game platinum"`.
+tasks.register<JavaExec>("adviseDelays") {
+    group = "application"
+    description = "Advise which evolutions are worth delaying for a species' learnset."
+    mainClass.set("com.pokemon.battle.cli.AdviseDelaysMainKt")
+    classpath = sourceSets["main"].runtimeClasspath
+    workingDir = rootProject.projectDir
+    args = (project.findProperty("args") as String?)?.split(" ")?.filter { it.isNotEmpty() } ?: emptyList()
+}
+
 // Engine resources (species JSON) are loaded from the classpath, so no workingDir
 // override is needed here — unlike :data-ingestion which reads repo-root files.
 

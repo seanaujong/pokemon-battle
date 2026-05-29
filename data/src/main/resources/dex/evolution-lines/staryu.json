@@ -1,0 +1,3091 @@
+{
+    "base": "staryu",
+    "edges": [
+        {
+            "from": "staryu",
+            "to": "starmie",
+            "trigger": "use-item",
+            "item": "water-stone"
+        }
+    ],
+    "learnsets": {
+        "starmie": {
+            "black-2-white-2": [
+                {
+                    "move": "confuse-ray",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "gyro-ball",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "rapid-spin",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "recover",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swift",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "black-white": [
+                {
+                    "move": "confuse-ray",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "gyro-ball",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "rapid-spin",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "recover",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swift",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "brilliant-diamond-shining-pearl": [
+                {
+                    "move": "brine",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "brine",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "confuse-ray",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "cosmic-power",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "gyro-ball",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "harden",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "light-screen",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "minimize",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "power-gem",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "psybeam",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "psychic",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "rapid-spin",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "recover",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "surf",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swift",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "colosseum": [
+                {
+                    "move": "confuse-ray",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "rapid-spin",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "recover",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swift",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "crystal": [
+                {
+                    "move": "bubble-beam",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "confuse-ray",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "rapid-spin",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "recover",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swift",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "diamond-pearl": [
+                {
+                    "move": "brine",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "confuse-ray",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "gyro-ball",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "rapid-spin",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "recover",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swift",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "emerald": [
+                {
+                    "move": "confuse-ray",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "rapid-spin",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "recover",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swift",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "swift",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "firered-leafgreen": [
+                {
+                    "move": "confuse-ray",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "rapid-spin",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "recover",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swift",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "gold-silver": [
+                {
+                    "move": "bubble-beam",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "confuse-ray",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "rapid-spin",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "recover",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swift",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "heartgold-soulsilver": [
+                {
+                    "move": "brine",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "confuse-ray",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "gyro-ball",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "rapid-spin",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "recover",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swift",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "swift",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "lets-go-pikachu-lets-go-eevee": [
+                {
+                    "move": "harden",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "psywave",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "omega-ruby-alpha-sapphire": [
+                {
+                    "move": "confuse-ray",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "gyro-ball",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "rapid-spin",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "recover",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swift",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "platinum": [
+                {
+                    "move": "brine",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "confuse-ray",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "gyro-ball",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "rapid-spin",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "recover",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swift",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "swift",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "red-blue": [
+                {
+                    "move": "bubble-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "harden",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "psywave",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swift",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-gun",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "ruby-sapphire": [
+                {
+                    "move": "confuse-ray",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "rapid-spin",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "recover",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swift",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "sun-moon": [
+                {
+                    "move": "confuse-ray",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "gyro-ball",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "rapid-spin",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "recover",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "spotlight",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swift",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "sword-shield": [
+                {
+                    "move": "brine",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "brine",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "confuse-ray",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "cosmic-power",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "cosmic-power",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "gyro-ball",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "harden",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "light-screen",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "minimize",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "power-gem",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "power-gem",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "psybeam",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "psychic",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "rapid-spin",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "recover",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "surf",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swift",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "swift",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "ultra-sun-ultra-moon": [
+                {
+                    "move": "confuse-ray",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "gyro-ball",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "rapid-spin",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "recover",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "spotlight",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swift",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "x-y": [
+                {
+                    "move": "confuse-ray",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "gyro-ball",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "rapid-spin",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "recover",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swift",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "xd": [
+                {
+                    "move": "confuse-ray",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "rapid-spin",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "recover",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swift",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "yellow": [
+                {
+                    "move": "bubble-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "harden",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "psywave",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swift",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-gun",
+                    "method": "machine",
+                    "level": 0
+                }
+            ]
+        },
+        "staryu": {
+            "black-2-white-2": [
+                {
+                    "move": "brine",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "camouflage",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "cosmic-power",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "gyro-ball",
+                    "method": "level-up",
+                    "level": 30
+                },
+                {
+                    "move": "gyro-ball",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "harden",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 52
+                },
+                {
+                    "move": "light-screen",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "minimize",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "power-gem",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "rapid-spin",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "recover",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "reflect-type",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swift",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 6
+                }
+            ],
+            "black-white": [
+                {
+                    "move": "bubble-beam",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "camouflage",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "cosmic-power",
+                    "method": "level-up",
+                    "level": 55
+                },
+                {
+                    "move": "gyro-ball",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "gyro-ball",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "harden",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 60
+                },
+                {
+                    "move": "light-screen",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "minimize",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "power-gem",
+                    "method": "level-up",
+                    "level": 51
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "rapid-spin",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "recover",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "reflect-type",
+                    "method": "level-up",
+                    "level": 46
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swift",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 6
+                }
+            ],
+            "brilliant-diamond-shining-pearl": [
+                {
+                    "move": "brine",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "brine",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "confuse-ray",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "cosmic-power",
+                    "method": "level-up",
+                    "level": 52
+                },
+                {
+                    "move": "gyro-ball",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "harden",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 56
+                },
+                {
+                    "move": "light-screen",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "minimize",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "power-gem",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "psybeam",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "psychic",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "rapid-spin",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "recover",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "surf",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swift",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 4
+                }
+            ],
+            "colosseum": [
+                {
+                    "move": "bubble-beam",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "camouflage",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "cosmic-power",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "harden",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 46
+                },
+                {
+                    "move": "light-screen",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "minimize",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "rapid-spin",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "recover",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swift",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 6
+                }
+            ],
+            "crystal": [
+                {
+                    "move": "bubble-beam",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "harden",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "light-screen",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "minimize",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "rapid-spin",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "recover",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swift",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "swift",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 7
+                }
+            ],
+            "diamond-pearl": [
+                {
+                    "move": "brine",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "camouflage",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "cosmic-power",
+                    "method": "level-up",
+                    "level": 51
+                },
+                {
+                    "move": "gyro-ball",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "gyro-ball",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "harden",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 55
+                },
+                {
+                    "move": "light-screen",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "minimize",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "power-gem",
+                    "method": "level-up",
+                    "level": 46
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "rapid-spin",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "recover",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swift",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 6
+                }
+            ],
+            "emerald": [
+                {
+                    "move": "bubble-beam",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "camouflage",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "cosmic-power",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "harden",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 46
+                },
+                {
+                    "move": "light-screen",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "minimize",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "rapid-spin",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "recover",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swift",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "swift",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 6
+                }
+            ],
+            "firered-leafgreen": [
+                {
+                    "move": "bubble-beam",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "camouflage",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "cosmic-power",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "harden",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 46
+                },
+                {
+                    "move": "light-screen",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "minimize",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "rapid-spin",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "recover",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swift",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 6
+                }
+            ],
+            "gold-silver": [
+                {
+                    "move": "bubble-beam",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "harden",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "light-screen",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "minimize",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "rapid-spin",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "recover",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swift",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "swift",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 7
+                }
+            ],
+            "heartgold-soulsilver": [
+                {
+                    "move": "brine",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "camouflage",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "cosmic-power",
+                    "method": "level-up",
+                    "level": 51
+                },
+                {
+                    "move": "gyro-ball",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "gyro-ball",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "harden",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 55
+                },
+                {
+                    "move": "light-screen",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "minimize",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "power-gem",
+                    "method": "level-up",
+                    "level": 46
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "rapid-spin",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "recover",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swift",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "swift",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 6
+                }
+            ],
+            "lets-go-pikachu-lets-go-eevee": [
+                {
+                    "move": "bubble-beam",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "confuse-ray",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "harden",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "light-screen",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "minimize",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "psychic",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "psywave",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "recover",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swift",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 9
+                }
+            ],
+            "omega-ruby-alpha-sapphire": [
+                {
+                    "move": "brine",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "camouflage",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "confuse-ray",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "cosmic-power",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "gyro-ball",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "gyro-ball",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "harden",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 53
+                },
+                {
+                    "move": "light-screen",
+                    "method": "level-up",
+                    "level": 46
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "minimize",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "power-gem",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "psychic",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "psywave",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "rapid-spin",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "recover",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "reflect-type",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swift",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 4
+                }
+            ],
+            "platinum": [
+                {
+                    "move": "brine",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "camouflage",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "cosmic-power",
+                    "method": "level-up",
+                    "level": 51
+                },
+                {
+                    "move": "gyro-ball",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "gyro-ball",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "harden",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 55
+                },
+                {
+                    "move": "light-screen",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "minimize",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "power-gem",
+                    "method": "level-up",
+                    "level": 46
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "rapid-spin",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "recover",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swift",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "swift",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 6
+                }
+            ],
+            "red-blue": [
+                {
+                    "move": "bubble-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "harden",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "light-screen",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "minimize",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "psywave",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "recover",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swift",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "swift",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "water-gun",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "ruby-sapphire": [
+                {
+                    "move": "bubble-beam",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "camouflage",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "cosmic-power",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "harden",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 46
+                },
+                {
+                    "move": "light-screen",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "minimize",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "rapid-spin",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "recover",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swift",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 6
+                }
+            ],
+            "sun-moon": [
+                {
+                    "move": "brine",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "camouflage",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "confuse-ray",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "cosmic-power",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "gyro-ball",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "gyro-ball",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "harden",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 53
+                },
+                {
+                    "move": "light-screen",
+                    "method": "level-up",
+                    "level": 46
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "minimize",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "power-gem",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "psychic",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "psywave",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "rapid-spin",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "recover",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "reflect-type",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swift",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 4
+                }
+            ],
+            "sword-shield": [
+                {
+                    "move": "brine",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "brine",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "confuse-ray",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "cosmic-power",
+                    "method": "level-up",
+                    "level": 52
+                },
+                {
+                    "move": "cosmic-power",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "gyro-ball",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "harden",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 56
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "light-screen",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "minimize",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "power-gem",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "power-gem",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "psybeam",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "psychic",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "rapid-spin",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "recover",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "surf",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swift",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "swift",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 4
+                }
+            ],
+            "ultra-sun-ultra-moon": [
+                {
+                    "move": "brine",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "camouflage",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "confuse-ray",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "cosmic-power",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "gyro-ball",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "gyro-ball",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "harden",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 53
+                },
+                {
+                    "move": "light-screen",
+                    "method": "level-up",
+                    "level": 46
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "minimize",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "power-gem",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "psychic",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "psywave",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "rapid-spin",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "recover",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "reflect-type",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swift",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 4
+                }
+            ],
+            "x-y": [
+                {
+                    "move": "brine",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "camouflage",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "cosmic-power",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "gyro-ball",
+                    "method": "level-up",
+                    "level": 30
+                },
+                {
+                    "move": "gyro-ball",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "harden",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 52
+                },
+                {
+                    "move": "light-screen",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "minimize",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "power-gem",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "rapid-spin",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "recover",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "reflect-type",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swift",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 6
+                }
+            ],
+            "xd": [
+                {
+                    "move": "bubble-beam",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "camouflage",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "cosmic-power",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "harden",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 46
+                },
+                {
+                    "move": "light-screen",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "minimize",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "rapid-spin",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "recover",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swift",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 6
+                }
+            ],
+            "yellow": [
+                {
+                    "move": "bubble-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "harden",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "light-screen",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "minimize",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "psywave",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "recover",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "surf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swift",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "swift",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "water-gun",
+                    "method": "machine",
+                    "level": 0
+                }
+            ]
+        }
+    }
+}

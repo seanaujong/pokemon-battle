@@ -1,0 +1,4371 @@
+{
+    "base": "nidoran-m",
+    "edges": [
+        {
+            "from": "nidoran-m",
+            "to": "nidorino",
+            "trigger": "level-up",
+            "minLevel": 16
+        },
+        {
+            "from": "nidorino",
+            "to": "nidoking",
+            "trigger": "use-item",
+            "item": "moon-stone"
+        }
+    ],
+    "learnsets": {
+        "nidoking": {
+            "black-2-white-2": [
+                {
+                    "move": "chip-away",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "double-kick",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "earth-power",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "earth-power",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "megahorn",
+                    "method": "level-up",
+                    "level": 58
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sludge-wave",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thrash",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "black-white": [
+                {
+                    "move": "chip-away",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "double-kick",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "earth-power",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "megahorn",
+                    "method": "level-up",
+                    "level": 58
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sludge-wave",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thrash",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "brilliant-diamond-shining-pearl": [
+                {
+                    "move": "double-kick",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "earth-power",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "flatter",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "horn-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "megahorn",
+                    "method": "level-up",
+                    "level": 0
+                },
+                {
+                    "move": "megahorn",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sludge-wave",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "toxic",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic-spikes",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "colosseum": [
+                {
+                    "move": "double-kick",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thrash",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "crystal": [
+                {
+                    "move": "double-kick",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "horn-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thrash",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "diamond-pearl": [
+                {
+                    "move": "captivate",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "double-kick",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "earth-power",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "megahorn",
+                    "method": "level-up",
+                    "level": 58
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thrash",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "emerald": [
+                {
+                    "move": "counter",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "double-kick",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thrash",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "firered-leafgreen": [
+                {
+                    "move": "counter",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "double-kick",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "megahorn",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thrash",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "gold-silver": [
+                {
+                    "move": "double-kick",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "horn-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thrash",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "heartgold-soulsilver": [
+                {
+                    "move": "captivate",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "double-kick",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "earth-power",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "earth-power",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "megahorn",
+                    "method": "level-up",
+                    "level": 58
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thrash",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "lets-go-pikachu-lets-go-eevee": [
+                {
+                    "move": "counter",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "megahorn",
+                    "method": "level-up",
+                    "level": 55
+                },
+                {
+                    "move": "megahorn",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "supersonic",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thrash",
+                    "method": "level-up",
+                    "level": 0
+                },
+                {
+                    "move": "thrash",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "omega-ruby-alpha-sapphire": [
+                {
+                    "move": "chip-away",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "double-kick",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "earth-power",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "earth-power",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "megahorn",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "megahorn",
+                    "method": "level-up",
+                    "level": 58
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sludge-wave",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thrash",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "platinum": [
+                {
+                    "move": "captivate",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "double-kick",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "earth-power",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "earth-power",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "megahorn",
+                    "method": "level-up",
+                    "level": 58
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thrash",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "red-blue": [
+                {
+                    "move": "counter",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "horn-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "horn-attack",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "horn-drill",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 14
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thrash",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thrash",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "ruby-sapphire": [
+                {
+                    "move": "double-kick",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thrash",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "sun-moon": [
+                {
+                    "move": "chip-away",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "double-kick",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "earth-power",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "megahorn",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "megahorn",
+                    "method": "level-up",
+                    "level": 58
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sludge-wave",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thrash",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "sword-shield": [
+                {
+                    "move": "double-kick",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "earth-power",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "earth-power",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "flatter",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "horn-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "megahorn",
+                    "method": "level-up",
+                    "level": 0
+                },
+                {
+                    "move": "megahorn",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "megahorn",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sludge-wave",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "toxic-spikes",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "toxic-spikes",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "ultra-sun-ultra-moon": [
+                {
+                    "move": "chip-away",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "double-kick",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "earth-power",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "earth-power",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "megahorn",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "megahorn",
+                    "method": "level-up",
+                    "level": 58
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sludge-wave",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thrash",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "x-y": [
+                {
+                    "move": "chip-away",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "double-kick",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "earth-power",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "megahorn",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "megahorn",
+                    "method": "level-up",
+                    "level": 58
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sludge-wave",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thrash",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "xd": [
+                {
+                    "move": "double-kick",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thrash",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "yellow": [
+                {
+                    "move": "counter",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "double-kick",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "horn-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "horn-attack",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "horn-drill",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thrash",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thrash",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ]
+        },
+        "nidoran-m": {
+            "black-2-white-2": [
+                {
+                    "move": "captivate",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "chip-away",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "counter",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "double-kick",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "flatter",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "horn-attack",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "horn-drill",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "supersonic",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic-spikes",
+                    "method": "level-up",
+                    "level": 31
+                }
+            ],
+            "black-white": [
+                {
+                    "move": "captivate",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "chip-away",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "counter",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "double-kick",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "flatter",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "horn-attack",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "horn-drill",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "supersonic",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic-spikes",
+                    "method": "level-up",
+                    "level": 31
+                }
+            ],
+            "brilliant-diamond-shining-pearl": [
+                {
+                    "move": "counter",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "double-kick",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "earth-power",
+                    "method": "level-up",
+                    "level": 55
+                },
+                {
+                    "move": "flatter",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "horn-attack",
+                    "method": "level-up",
+                    "level": 30
+                },
+                {
+                    "move": "horn-drill",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "supersonic",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "thrash",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic-spikes",
+                    "method": "level-up",
+                    "level": 20
+                }
+            ],
+            "colosseum": [
+                {
+                    "move": "double-kick",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "flatter",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 30
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "horn-attack",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "horn-drill",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "crystal": [
+                {
+                    "move": "counter",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "double-kick",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 30
+                },
+                {
+                    "move": "horn-attack",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "horn-drill",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "supersonic",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "diamond-pearl": [
+                {
+                    "move": "captivate",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "captivate",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "counter",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "double-kick",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "flatter",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "horn-attack",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "horn-drill",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "supersonic",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic-spikes",
+                    "method": "level-up",
+                    "level": 31
+                }
+            ],
+            "emerald": [
+                {
+                    "move": "counter",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "counter",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "double-kick",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "flatter",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 30
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "horn-attack",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "horn-drill",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "supersonic",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "firered-leafgreen": [
+                {
+                    "move": "counter",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "counter",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "double-kick",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "flatter",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 30
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "horn-attack",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "horn-drill",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "supersonic",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "gold-silver": [
+                {
+                    "move": "counter",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "double-kick",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 30
+                },
+                {
+                    "move": "horn-attack",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "horn-drill",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "supersonic",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "heartgold-soulsilver": [
+                {
+                    "move": "captivate",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "captivate",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "counter",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "double-kick",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "flatter",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "horn-attack",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "horn-drill",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "supersonic",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic-spikes",
+                    "method": "level-up",
+                    "level": 31
+                }
+            ],
+            "lets-go-pikachu-lets-go-eevee": [
+                {
+                    "move": "double-kick",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 3
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "horn-attack",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "horn-drill",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 6
+                },
+                {
+                    "move": "toxic",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "omega-ruby-alpha-sapphire": [
+                {
+                    "move": "captivate",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "chip-away",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "counter",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "double-kick",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "flatter",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "horn-attack",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "horn-drill",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "supersonic",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic-spikes",
+                    "method": "level-up",
+                    "level": 31
+                }
+            ],
+            "platinum": [
+                {
+                    "move": "captivate",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "captivate",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "counter",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "double-kick",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "flatter",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "horn-attack",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "horn-drill",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "supersonic",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic-spikes",
+                    "method": "level-up",
+                    "level": 31
+                }
+            ],
+            "red-blue": [
+                {
+                    "move": "double-kick",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "horn-attack",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "horn-drill",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "horn-drill",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 14
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "ruby-sapphire": [
+                {
+                    "move": "counter",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "double-kick",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "flatter",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 30
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "horn-attack",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "horn-drill",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "supersonic",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "sun-moon": [
+                {
+                    "move": "captivate",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "chip-away",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "counter",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "double-kick",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "flatter",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "horn-attack",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "horn-drill",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "supersonic",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic-spikes",
+                    "method": "level-up",
+                    "level": 31
+                }
+            ],
+            "sword-shield": [
+                {
+                    "move": "counter",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "double-kick",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "earth-power",
+                    "method": "level-up",
+                    "level": 55
+                },
+                {
+                    "move": "earth-power",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "flatter",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "horn-attack",
+                    "method": "level-up",
+                    "level": 30
+                },
+                {
+                    "move": "horn-drill",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "supersonic",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "thrash",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "toxic-spikes",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "toxic-spikes",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "ultra-sun-ultra-moon": [
+                {
+                    "move": "captivate",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "chip-away",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "counter",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "double-kick",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "flatter",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "horn-attack",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "horn-drill",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "supersonic",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic-spikes",
+                    "method": "level-up",
+                    "level": 31
+                }
+            ],
+            "x-y": [
+                {
+                    "move": "captivate",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "chip-away",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "counter",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "double-kick",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "flatter",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "horn-attack",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "horn-drill",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "supersonic",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic-spikes",
+                    "method": "level-up",
+                    "level": 31
+                }
+            ],
+            "xd": [
+                {
+                    "move": "double-kick",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "flatter",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 30
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "horn-attack",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "horn-drill",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "yellow": [
+                {
+                    "move": "double-kick",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 30
+                },
+                {
+                    "move": "horn-attack",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "horn-drill",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "horn-drill",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ]
+        },
+        "nidorino": {
+            "black-2-white-2": [
+                {
+                    "move": "captivate",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "double-kick",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "flatter",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "horn-attack",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "horn-drill",
+                    "method": "level-up",
+                    "level": 58
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic-spikes",
+                    "method": "level-up",
+                    "level": 35
+                }
+            ],
+            "black-white": [
+                {
+                    "move": "captivate",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "double-kick",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "flatter",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "horn-attack",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "horn-drill",
+                    "method": "level-up",
+                    "level": 58
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic-spikes",
+                    "method": "level-up",
+                    "level": 35
+                }
+            ],
+            "brilliant-diamond-shining-pearl": [
+                {
+                    "move": "double-kick",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "earth-power",
+                    "method": "level-up",
+                    "level": 71
+                },
+                {
+                    "move": "flatter",
+                    "method": "level-up",
+                    "level": 57
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "horn-attack",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "level-up",
+                    "level": 64
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "toxic",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic-spikes",
+                    "method": "level-up",
+                    "level": 22
+                }
+            ],
+            "colosseum": [
+                {
+                    "move": "double-kick",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "flatter",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "level-up",
+                    "level": 26
+                },
+                {
+                    "move": "horn-attack",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "horn-drill",
+                    "method": "level-up",
+                    "level": 53
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "crystal": [
+                {
+                    "move": "double-kick",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "horn-attack",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "horn-drill",
+                    "method": "level-up",
+                    "level": 46
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "diamond-pearl": [
+                {
+                    "move": "captivate",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "captivate",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "double-kick",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "flatter",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "horn-attack",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "horn-drill",
+                    "method": "level-up",
+                    "level": 58
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic-spikes",
+                    "method": "level-up",
+                    "level": 35
+                }
+            ],
+            "emerald": [
+                {
+                    "move": "counter",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "double-kick",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "flatter",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "level-up",
+                    "level": 26
+                },
+                {
+                    "move": "horn-attack",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "horn-drill",
+                    "method": "level-up",
+                    "level": 53
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "firered-leafgreen": [
+                {
+                    "move": "counter",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "double-kick",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "flatter",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "level-up",
+                    "level": 26
+                },
+                {
+                    "move": "horn-attack",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "horn-drill",
+                    "method": "level-up",
+                    "level": 53
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "gold-silver": [
+                {
+                    "move": "double-kick",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "horn-attack",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "horn-drill",
+                    "method": "level-up",
+                    "level": 46
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "heartgold-soulsilver": [
+                {
+                    "move": "captivate",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "captivate",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "double-kick",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "flatter",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "horn-attack",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "horn-drill",
+                    "method": "level-up",
+                    "level": 58
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic-spikes",
+                    "method": "level-up",
+                    "level": 35
+                }
+            ],
+            "lets-go-pikachu-lets-go-eevee": [
+                {
+                    "move": "double-kick",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 3
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "horn-attack",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "horn-drill",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 6
+                },
+                {
+                    "move": "toxic",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "omega-ruby-alpha-sapphire": [
+                {
+                    "move": "captivate",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "double-kick",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "flatter",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "horn-attack",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "horn-drill",
+                    "method": "level-up",
+                    "level": 58
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic-spikes",
+                    "method": "level-up",
+                    "level": 35
+                }
+            ],
+            "platinum": [
+                {
+                    "move": "captivate",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "captivate",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "double-kick",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "flatter",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "horn-attack",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "horn-drill",
+                    "method": "level-up",
+                    "level": 58
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic-spikes",
+                    "method": "level-up",
+                    "level": 35
+                }
+            ],
+            "red-blue": [
+                {
+                    "move": "double-kick",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "horn-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "horn-attack",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "horn-drill",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "horn-drill",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 14
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "ruby-sapphire": [
+                {
+                    "move": "double-kick",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "flatter",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "level-up",
+                    "level": 26
+                },
+                {
+                    "move": "horn-attack",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "horn-drill",
+                    "method": "level-up",
+                    "level": 53
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "sun-moon": [
+                {
+                    "move": "captivate",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "double-kick",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "flatter",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "horn-attack",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "horn-drill",
+                    "method": "level-up",
+                    "level": 58
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic-spikes",
+                    "method": "level-up",
+                    "level": 35
+                }
+            ],
+            "sword-shield": [
+                {
+                    "move": "double-kick",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "earth-power",
+                    "method": "level-up",
+                    "level": 71
+                },
+                {
+                    "move": "earth-power",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "flatter",
+                    "method": "level-up",
+                    "level": 57
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "horn-attack",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "level-up",
+                    "level": 64
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "toxic",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "toxic-spikes",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "toxic-spikes",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "ultra-sun-ultra-moon": [
+                {
+                    "move": "captivate",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "double-kick",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "flatter",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "horn-attack",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "horn-drill",
+                    "method": "level-up",
+                    "level": 58
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic-spikes",
+                    "method": "level-up",
+                    "level": 35
+                }
+            ],
+            "x-y": [
+                {
+                    "move": "captivate",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "double-kick",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "flatter",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "horn-attack",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "horn-drill",
+                    "method": "level-up",
+                    "level": 58
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic-spikes",
+                    "method": "level-up",
+                    "level": 35
+                }
+            ],
+            "xd": [
+                {
+                    "move": "double-kick",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "flatter",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "level-up",
+                    "level": 26
+                },
+                {
+                    "move": "horn-attack",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "horn-drill",
+                    "method": "level-up",
+                    "level": 53
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "peck",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "yellow": [
+                {
+                    "move": "double-kick",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "focus-energy",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "fury-attack",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "horn-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "horn-attack",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "horn-drill",
+                    "method": "level-up",
+                    "level": 46
+                },
+                {
+                    "move": "horn-drill",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ]
+        }
+    }
+}

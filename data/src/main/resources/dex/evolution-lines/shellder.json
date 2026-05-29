@@ -1,0 +1,3220 @@
+{
+    "base": "shellder",
+    "edges": [
+        {
+            "from": "shellder",
+            "to": "cloyster",
+            "trigger": "use-item",
+            "item": "water-stone"
+        }
+    ],
+    "learnsets": {
+        "cloyster": {
+            "black-2-white-2": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "icicle-crash",
+                    "method": "level-up",
+                    "level": 52
+                },
+                {
+                    "move": "iron-defense",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "protect",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "protect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "spike-cannon",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "spikes",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "supersonic",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "toxic-spikes",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "withdraw",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "black-white": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "icicle-crash",
+                    "method": "level-up",
+                    "level": 52
+                },
+                {
+                    "move": "protect",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "protect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "spike-cannon",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "spikes",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "supersonic",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "toxic-spikes",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "withdraw",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "brilliant-diamond-shining-pearl": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "brine",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-shard",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "icicle-crash",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "icicle-spear",
+                    "method": "level-up",
+                    "level": 0
+                },
+                {
+                    "move": "icicle-spear",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "iron-defense",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "protect",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "protect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "razor-shell",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "shell-smash",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "spikes",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "supersonic",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "toxic-spikes",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "whirlpool",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "withdraw",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "colosseum": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "protect",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "protect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "spike-cannon",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "spikes",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "supersonic",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "withdraw",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "crystal": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "protect",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "protect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "spike-cannon",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "spikes",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "supersonic",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "whirlpool",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "withdraw",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "diamond-pearl": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "brine",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "protect",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "protect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "spike-cannon",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "spikes",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "supersonic",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "toxic-spikes",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "withdraw",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "emerald": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "protect",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "protect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "spike-cannon",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "spikes",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "supersonic",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "withdraw",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "firered-leafgreen": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "protect",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "protect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "spike-cannon",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "spikes",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "supersonic",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "withdraw",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "gold-silver": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "protect",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "protect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "spike-cannon",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "supersonic",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "whirlpool",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "withdraw",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "heartgold-soulsilver": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "brine",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "iron-defense",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "protect",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "protect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "spike-cannon",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "spikes",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "supersonic",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "toxic-spikes",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "whirlpool",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "withdraw",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "lets-go-pikachu-lets-go-eevee": [
+                {
+                    "move": "barrier",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "protect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "spike-cannon",
+                    "method": "level-up",
+                    "level": 0
+                },
+                {
+                    "move": "spike-cannon",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "twineedle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "withdraw",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "omega-ruby-alpha-sapphire": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "icicle-crash",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "iron-defense",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "protect",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "protect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "shell-smash",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "spike-cannon",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "spikes",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "supersonic",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "toxic-spikes",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "withdraw",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "platinum": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "brine",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "iron-defense",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "protect",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "protect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "spike-cannon",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "spikes",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "supersonic",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "toxic-spikes",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "withdraw",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "red-blue": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "clamp",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "spike-cannon",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "supersonic",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-gun",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "withdraw",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "ruby-sapphire": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "protect",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "protect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "spike-cannon",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "spikes",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "supersonic",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "withdraw",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "scarlet-violet": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-shard",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "icicle-crash",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "icicle-spear",
+                    "method": "level-up",
+                    "level": 0
+                },
+                {
+                    "move": "icicle-spear",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "iron-defense",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "iron-defense",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "protect",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "protect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "razor-shell",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "shell-smash",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "spikes",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "spikes",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "supersonic",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "toxic-spikes",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "toxic-spikes",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "whirlpool",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "whirlpool",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "withdraw",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "sun-moon": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "icicle-crash",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "protect",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "protect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "shell-smash",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "spike-cannon",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "spikes",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "supersonic",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "toxic-spikes",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "withdraw",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "sword-shield": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "brine",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-shard",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "icicle-crash",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "icicle-spear",
+                    "method": "level-up",
+                    "level": 0
+                },
+                {
+                    "move": "icicle-spear",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "icicle-spear",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "iron-defense",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "iron-defense",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "protect",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "protect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "razor-shell",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "razor-shell",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "shell-smash",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "spikes",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "spikes",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "supersonic",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "toxic-spikes",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "toxic-spikes",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "whirlpool",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "whirlpool",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "withdraw",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "ultra-sun-ultra-moon": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "icicle-crash",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "iron-defense",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "protect",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "protect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "shell-smash",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "spike-cannon",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "spikes",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "supersonic",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "toxic-spikes",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "withdraw",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "x-y": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "icicle-crash",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "protect",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "protect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "shell-smash",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "spike-cannon",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "spikes",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "supersonic",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "toxic-spikes",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "withdraw",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "xd": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "protect",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "protect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "spike-cannon",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "spikes",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "supersonic",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "withdraw",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "yellow": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "clamp",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "spike-cannon",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "supersonic",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-gun",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "withdraw",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ]
+        },
+        "shellder": {
+            "black-2-white-2": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "barrier",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "brine",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "clamp",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 61
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "level-up",
+                    "level": 52
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-shard",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "icicle-spear",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "icicle-spear",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "iron-defense",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "iron-defense",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "protect",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "protect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "razor-shell",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "shell-smash",
+                    "method": "level-up",
+                    "level": 56
+                },
+                {
+                    "move": "supersonic",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "twineedle",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "whirlpool",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "withdraw",
+                    "method": "level-up",
+                    "level": 4
+                }
+            ],
+            "black-white": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "barrier",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "brine",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "clamp",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 61
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "level-up",
+                    "level": 52
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-shard",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "icicle-spear",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "icicle-spear",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "iron-defense",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "protect",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "protect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "razor-shell",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "shell-smash",
+                    "method": "level-up",
+                    "level": 56
+                },
+                {
+                    "move": "supersonic",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "twineedle",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "whirlpool",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "withdraw",
+                    "method": "level-up",
+                    "level": 4
+                }
+            ],
+            "brilliant-diamond-shining-pearl": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "brine",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-shard",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "icicle-spear",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "iron-defense",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "protect",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "protect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "razor-shell",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "shell-smash",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "supersonic",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "whirlpool",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "withdraw",
+                    "method": "level-up",
+                    "level": 4
+                }
+            ],
+            "colosseum": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "clamp",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "protect",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "protect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "supersonic",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "withdraw",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "crystal": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "barrier",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "clamp",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "protect",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "protect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "supersonic",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "whirlpool",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "withdraw",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "diamond-pearl": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "barrier",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "brine",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "brine",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "clamp",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-shard",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "icicle-spear",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "icicle-spear",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "iron-defense",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "protect",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "protect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "supersonic",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "whirlpool",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "withdraw",
+                    "method": "level-up",
+                    "level": 4
+                }
+            ],
+            "emerald": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "barrier",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "clamp",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "icicle-spear",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "protect",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "protect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "supersonic",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "withdraw",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "firered-leafgreen": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "barrier",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "clamp",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "icicle-spear",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "icicle-spear",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "protect",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "protect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "supersonic",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "withdraw",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "gold-silver": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "barrier",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "clamp",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "protect",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "protect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "supersonic",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "whirlpool",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "withdraw",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "heartgold-soulsilver": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "barrier",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "brine",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "brine",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "clamp",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-shard",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "icicle-spear",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "icicle-spear",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "iron-defense",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "iron-defense",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "protect",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "protect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "supersonic",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "whirlpool",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "whirlpool",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "withdraw",
+                    "method": "level-up",
+                    "level": 4
+                }
+            ],
+            "lets-go-pikachu-lets-go-eevee": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "clamp",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-shard",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "protect",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "protect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "shell-smash",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "supersonic",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "withdraw",
+                    "method": "level-up",
+                    "level": 4
+                }
+            ],
+            "omega-ruby-alpha-sapphire": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "barrier",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "brine",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "clamp",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 61
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "level-up",
+                    "level": 52
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-shard",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "icicle-spear",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "icicle-spear",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "iron-defense",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "iron-defense",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "protect",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "protect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "razor-shell",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "shell-smash",
+                    "method": "level-up",
+                    "level": 56
+                },
+                {
+                    "move": "supersonic",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "twineedle",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "whirlpool",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "withdraw",
+                    "method": "level-up",
+                    "level": 4
+                }
+            ],
+            "platinum": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "barrier",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "brine",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "brine",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "clamp",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-shard",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "icicle-spear",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "icicle-spear",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "iron-defense",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "iron-defense",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "protect",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "protect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "supersonic",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "whirlpool",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "withdraw",
+                    "method": "level-up",
+                    "level": 4
+                }
+            ],
+            "red-blue": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 30
+                },
+                {
+                    "move": "clamp",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "supersonic",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-gun",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "withdraw",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "ruby-sapphire": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "barrier",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "clamp",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "icicle-spear",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "protect",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "protect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "supersonic",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "withdraw",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "scarlet-violet": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-shard",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "icicle-spear",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "iron-defense",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "iron-defense",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "protect",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "protect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "razor-shell",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "shell-smash",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "spikes",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "supersonic",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "toxic-spikes",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "whirlpool",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "whirlpool",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "withdraw",
+                    "method": "level-up",
+                    "level": 4
+                }
+            ],
+            "sun-moon": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "barrier",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "brine",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "clamp",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 61
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "level-up",
+                    "level": 52
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-shard",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "icicle-spear",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "icicle-spear",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "iron-defense",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "protect",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "protect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "razor-shell",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "shell-smash",
+                    "method": "level-up",
+                    "level": 56
+                },
+                {
+                    "move": "supersonic",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "twineedle",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "whirlpool",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "withdraw",
+                    "method": "level-up",
+                    "level": 4
+                }
+            ],
+            "sword-shield": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "brine",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-shard",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "icicle-spear",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "iron-defense",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "iron-defense",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "protect",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "protect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "razor-shell",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "razor-shell",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "shell-smash",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "supersonic",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "whirlpool",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "whirlpool",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "withdraw",
+                    "method": "level-up",
+                    "level": 4
+                }
+            ],
+            "ultra-sun-ultra-moon": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "barrier",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "brine",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "clamp",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 61
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "level-up",
+                    "level": 52
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-shard",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "icicle-spear",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "icicle-spear",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "iron-defense",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "iron-defense",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "protect",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "protect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "razor-shell",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "shell-smash",
+                    "method": "level-up",
+                    "level": 56
+                },
+                {
+                    "move": "supersonic",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "twineedle",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "whirlpool",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "withdraw",
+                    "method": "level-up",
+                    "level": 4
+                }
+            ],
+            "x-y": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "barrier",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "brine",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "clamp",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 61
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "level-up",
+                    "level": 52
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ice-shard",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "icicle-spear",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "icicle-spear",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "iron-defense",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "protect",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "protect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "razor-shell",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "shell-smash",
+                    "method": "level-up",
+                    "level": 56
+                },
+                {
+                    "move": "supersonic",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "twineedle",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "whirlpool",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "withdraw",
+                    "method": "level-up",
+                    "level": 4
+                }
+            ],
+            "xd": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "clamp",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "protect",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "protect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "supersonic",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "withdraw",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "yellow": [
+                {
+                    "move": "aurora-beam",
+                    "method": "level-up",
+                    "level": 30
+                },
+                {
+                    "move": "clamp",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "ice-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "supersonic",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-gun",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "withdraw",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ]
+        }
+    }
+}

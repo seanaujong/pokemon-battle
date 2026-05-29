@@ -1,0 +1,3900 @@
+{
+    "base": "exeggcute",
+    "edges": [
+        {
+            "from": "exeggcute",
+            "to": "exeggutor",
+            "trigger": "use-item",
+            "item": "leaf-stone"
+        }
+    ],
+    "learnsets": {
+        "exeggcute": {
+            "black-2-white-2": [
+                {
+                    "move": "barrage",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bestow",
+                    "method": "level-up",
+                    "level": 53
+                },
+                {
+                    "move": "bullet-seed",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "extrasensory",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leaf-storm",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "leech-seed",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "reflect",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "seed-bomb",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "synthesis",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "synthesis",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "uproar",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "uproar",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "worry-seed",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "worry-seed",
+                    "method": "tutor",
+                    "level": 0
+                }
+            ],
+            "black-white": [
+                {
+                    "move": "barrage",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bestow",
+                    "method": "level-up",
+                    "level": 53
+                },
+                {
+                    "move": "bullet-seed",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leaf-storm",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "leech-seed",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "psychic",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "reflect",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "synthesis",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "uproar",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "worry-seed",
+                    "method": "level-up",
+                    "level": 33
+                }
+            ],
+            "brilliant-diamond-shining-pearl": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bullet-seed",
+                    "method": "level-up",
+                    "level": 30
+                },
+                {
+                    "move": "bullet-seed",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "extrasensory",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leaf-storm",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "leech-seed",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "reflect",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "level-up",
+                    "level": 55
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "synthesis",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "synthesis",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "uproar",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "worry-seed",
+                    "method": "level-up",
+                    "level": 50
+                }
+            ],
+            "colosseum": [
+                {
+                    "move": "barrage",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bullet-seed",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leech-seed",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "reflect",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "uproar",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "crystal": [
+                {
+                    "move": "barrage",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leech-seed",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "reflect",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "reflect",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "synthesis",
+                    "method": "egg",
+                    "level": 0
+                }
+            ],
+            "diamond-pearl": [
+                {
+                    "move": "barrage",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bullet-seed",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "bullet-seed",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leaf-storm",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "leech-seed",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "psychic",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "reflect",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "reflect",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "synthesis",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "uproar",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "worry-seed",
+                    "method": "level-up",
+                    "level": 33
+                }
+            ],
+            "emerald": [
+                {
+                    "move": "barrage",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bullet-seed",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leech-seed",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "reflect",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "reflect",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "synthesis",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "uproar",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "firered-leafgreen": [
+                {
+                    "move": "barrage",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bullet-seed",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leech-seed",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "reflect",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "reflect",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "synthesis",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "uproar",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "gold-silver": [
+                {
+                    "move": "barrage",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leech-seed",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "reflect",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "reflect",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "synthesis",
+                    "method": "egg",
+                    "level": 0
+                }
+            ],
+            "heartgold-soulsilver": [
+                {
+                    "move": "barrage",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bullet-seed",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "bullet-seed",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leaf-storm",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "leech-seed",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "psychic",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "reflect",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "reflect",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "seed-bomb",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "synthesis",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "synthesis",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "uproar",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "uproar",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "worry-seed",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "worry-seed",
+                    "method": "tutor",
+                    "level": 0
+                }
+            ],
+            "lets-go-pikachu-lets-go-eevee": [
+                {
+                    "move": "barrage",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 14
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "leech-seed",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "psybeam",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "reflect",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 16
+                }
+            ],
+            "omega-ruby-alpha-sapphire": [
+                {
+                    "move": "barrage",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bestow",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "bullet-seed",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "extrasensory",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leaf-storm",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "leech-seed",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "reflect",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "seed-bomb",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "synthesis",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "synthesis",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "uproar",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "uproar",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "worry-seed",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "worry-seed",
+                    "method": "tutor",
+                    "level": 0
+                }
+            ],
+            "platinum": [
+                {
+                    "move": "barrage",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bullet-seed",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "bullet-seed",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leaf-storm",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "leech-seed",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "psychic",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "reflect",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "reflect",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "seed-bomb",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "synthesis",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "synthesis",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "uproar",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "uproar",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "worry-seed",
+                    "method": "level-up",
+                    "level": 33
+                }
+            ],
+            "red-blue": [
+                {
+                    "move": "barrage",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "egg-bomb",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leech-seed",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "reflect",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 32
+                }
+            ],
+            "ruby-sapphire": [
+                {
+                    "move": "barrage",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bullet-seed",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leech-seed",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "reflect",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "reflect",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "synthesis",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "uproar",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "scarlet-violet": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bullet-seed",
+                    "method": "level-up",
+                    "level": 30
+                },
+                {
+                    "move": "bullet-seed",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "extrasensory",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leaf-storm",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "leech-seed",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "psybeam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "psyshock",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "reflect",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "seed-bomb",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "level-up",
+                    "level": 55
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "synthesis",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "uproar",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "uproar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "worry-seed",
+                    "method": "level-up",
+                    "level": 50
+                }
+            ],
+            "sun-moon": [
+                {
+                    "move": "barrage",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bestow",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "bullet-seed",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "extrasensory",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leaf-storm",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "leech-seed",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "reflect",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "synthesis",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "uproar",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "worry-seed",
+                    "method": "level-up",
+                    "level": 33
+                }
+            ],
+            "sword-shield": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bullet-seed",
+                    "method": "level-up",
+                    "level": 30
+                },
+                {
+                    "move": "bullet-seed",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "extrasensory",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leaf-storm",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "leech-seed",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "reflect",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "seed-bomb",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "level-up",
+                    "level": 55
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "synthesis",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "uproar",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "uproar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "worry-seed",
+                    "method": "level-up",
+                    "level": 50
+                }
+            ],
+            "ultra-sun-ultra-moon": [
+                {
+                    "move": "barrage",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bestow",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "bullet-seed",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "extrasensory",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leaf-storm",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "leech-seed",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "reflect",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "seed-bomb",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "synthesis",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "synthesis",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "uproar",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "uproar",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "worry-seed",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "worry-seed",
+                    "method": "tutor",
+                    "level": 0
+                }
+            ],
+            "x-y": [
+                {
+                    "move": "barrage",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bestow",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "bullet-seed",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "extrasensory",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leaf-storm",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "leech-seed",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "reflect",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "synthesis",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "uproar",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "worry-seed",
+                    "method": "level-up",
+                    "level": 33
+                }
+            ],
+            "xd": [
+                {
+                    "move": "barrage",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bullet-seed",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leech-seed",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "reflect",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "uproar",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "yellow": [
+                {
+                    "move": "barrage",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "egg-bomb",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leech-seed",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "reflect",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 32
+                }
+            ]
+        },
+        "exeggutor": {
+            "black-2-white-2": [
+                {
+                    "move": "barrage",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "egg-bomb",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leaf-storm",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "psyshock",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "psyshock",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "seed-bomb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "seed-bomb",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stomp",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "synthesis",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "wood-hammer",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "worry-seed",
+                    "method": "tutor",
+                    "level": 0
+                }
+            ],
+            "black-white": [
+                {
+                    "move": "barrage",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "egg-bomb",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leaf-storm",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "psyshock",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "psyshock",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "seed-bomb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stomp",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "wood-hammer",
+                    "method": "level-up",
+                    "level": 37
+                }
+            ],
+            "brilliant-diamond-shining-pearl": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bullet-seed",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bullet-seed",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "extrasensory",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leaf-storm",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leech-seed",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "psyshock",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "reflect",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "seed-bomb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stomp",
+                    "method": "level-up",
+                    "level": 0
+                },
+                {
+                    "move": "stomp",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "synthesis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "uproar",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "wood-hammer",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "worry-seed",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "colosseum": [
+                {
+                    "move": "barrage",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bullet-seed",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "egg-bomb",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stomp",
+                    "method": "level-up",
+                    "level": 19
+                }
+            ],
+            "crystal": [
+                {
+                    "move": "barrage",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "egg-bomb",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stomp",
+                    "method": "level-up",
+                    "level": 19
+                }
+            ],
+            "diamond-pearl": [
+                {
+                    "move": "barrage",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bullet-seed",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "egg-bomb",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leaf-storm",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "seed-bomb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stomp",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "stomp",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "wood-hammer",
+                    "method": "level-up",
+                    "level": 37
+                }
+            ],
+            "emerald": [
+                {
+                    "move": "barrage",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bullet-seed",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "egg-bomb",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stomp",
+                    "method": "level-up",
+                    "level": 19
+                }
+            ],
+            "firered-leafgreen": [
+                {
+                    "move": "barrage",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bullet-seed",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "egg-bomb",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stomp",
+                    "method": "level-up",
+                    "level": 19
+                }
+            ],
+            "gold-silver": [
+                {
+                    "move": "barrage",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "egg-bomb",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stomp",
+                    "method": "level-up",
+                    "level": 19
+                }
+            ],
+            "heartgold-soulsilver": [
+                {
+                    "move": "barrage",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bullet-seed",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "egg-bomb",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leaf-storm",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "seed-bomb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "seed-bomb",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stomp",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "stomp",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "synthesis",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "wood-hammer",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "worry-seed",
+                    "method": "tutor",
+                    "level": 0
+                }
+            ],
+            "lets-go-pikachu-lets-go-eevee": [
+                {
+                    "move": "barrage",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "egg-bomb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "power-whip",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stomp",
+                    "method": "level-up",
+                    "level": 0
+                },
+                {
+                    "move": "stomp",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "omega-ruby-alpha-sapphire": [
+                {
+                    "move": "barrage",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "egg-bomb",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leaf-storm",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "psyshock",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "psyshock",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "seed-bomb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "seed-bomb",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stomp",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "synthesis",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "wood-hammer",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "worry-seed",
+                    "method": "tutor",
+                    "level": 0
+                }
+            ],
+            "platinum": [
+                {
+                    "move": "barrage",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bullet-seed",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "egg-bomb",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leaf-storm",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "seed-bomb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "seed-bomb",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stomp",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "stomp",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "synthesis",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "wood-hammer",
+                    "method": "level-up",
+                    "level": 37
+                }
+            ],
+            "red-blue": [
+                {
+                    "move": "barrage",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "egg-bomb",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stomp",
+                    "method": "level-up",
+                    "level": 28
+                }
+            ],
+            "ruby-sapphire": [
+                {
+                    "move": "barrage",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bullet-seed",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "egg-bomb",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stomp",
+                    "method": "level-up",
+                    "level": 19
+                }
+            ],
+            "scarlet-violet": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bullet-seed",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bullet-seed",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "extrasensory",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leaf-storm",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leaf-storm",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "leech-seed",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "psybeam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "psyshock",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "psyshock",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "reflect",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "seed-bomb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "seed-bomb",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stomp",
+                    "method": "level-up",
+                    "level": 0
+                },
+                {
+                    "move": "synthesis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "uproar",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "uproar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "wood-hammer",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "worry-seed",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "sun-moon": [
+                {
+                    "move": "barrage",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "egg-bomb",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leaf-storm",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "psyshock",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "psyshock",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "seed-bomb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stomp",
+                    "method": "level-up",
+                    "level": 0
+                },
+                {
+                    "move": "stomp",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "wood-hammer",
+                    "method": "level-up",
+                    "level": 37
+                }
+            ],
+            "sword-shield": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bullet-seed",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bullet-seed",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "extrasensory",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leaf-storm",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leaf-storm",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "leech-seed",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "psyshock",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "psyshock",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "reflect",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "seed-bomb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "seed-bomb",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stomp",
+                    "method": "level-up",
+                    "level": 0
+                },
+                {
+                    "move": "stomp",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "synthesis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "uproar",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "uproar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "wood-hammer",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "worry-seed",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "ultra-sun-ultra-moon": [
+                {
+                    "move": "barrage",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "egg-bomb",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leaf-storm",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "psyshock",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "psyshock",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "seed-bomb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "seed-bomb",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stomp",
+                    "method": "level-up",
+                    "level": 0
+                },
+                {
+                    "move": "stomp",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "synthesis",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "wood-hammer",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "worry-seed",
+                    "method": "tutor",
+                    "level": 0
+                }
+            ],
+            "x-y": [
+                {
+                    "move": "barrage",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "egg-bomb",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leaf-storm",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "psyshock",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "psyshock",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "seed-bomb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stomp",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "wood-hammer",
+                    "method": "level-up",
+                    "level": 37
+                }
+            ],
+            "xd": [
+                {
+                    "move": "barrage",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bullet-seed",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "egg-bomb",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stomp",
+                    "method": "level-up",
+                    "level": 19
+                }
+            ],
+            "yellow": [
+                {
+                    "move": "barrage",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "egg-bomb",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "psychic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "reflect",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stomp",
+                    "method": "level-up",
+                    "level": 28
+                }
+            ]
+        }
+    }
+}

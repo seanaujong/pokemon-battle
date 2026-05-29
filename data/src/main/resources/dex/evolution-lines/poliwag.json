@@ -1,0 +1,6107 @@
+{
+    "base": "poliwag",
+    "edges": [
+        {
+            "from": "poliwag",
+            "to": "poliwhirl",
+            "trigger": "level-up",
+            "minLevel": 25
+        },
+        {
+            "from": "poliwhirl",
+            "to": "politoed",
+            "trigger": "trade"
+        },
+        {
+            "from": "poliwhirl",
+            "to": "poliwrath",
+            "trigger": "use-item",
+            "item": "water-stone"
+        }
+    ],
+    "learnsets": {
+        "politoed": {
+            "black-2-white-2": [
+                {
+                    "move": "bounce",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "bounce",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hyper-voice",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "hyper-voice",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "black-white": [
+                {
+                    "move": "bounce",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hyper-voice",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "brilliant-diamond-shining-pearl": [
+                {
+                    "move": "belly-drum",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bounce",
+                    "method": "level-up",
+                    "level": 0
+                },
+                {
+                    "move": "bounce",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "double-edge",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "earth-power",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hyper-voice",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mud-shot",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "pound",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "colosseum": [
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "level-up",
+                    "level": 51
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "crystal": [
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "dynamic-punch",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "level-up",
+                    "level": 51
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "diamond-pearl": [
+                {
+                    "move": "bounce",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "level-up",
+                    "level": 53
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "emerald": [
+                {
+                    "move": "body-slam",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "double-edge",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "dynamic-punch",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "level-up",
+                    "level": 51
+                },
+                {
+                    "move": "swagger",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "firered-leafgreen": [
+                {
+                    "move": "body-slam",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "double-edge",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "level-up",
+                    "level": 51
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "gold-silver": [
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "dynamic-punch",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "level-up",
+                    "level": 51
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "heartgold-soulsilver": [
+                {
+                    "move": "bounce",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "bounce",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hyper-voice",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "omega-ruby-alpha-sapphire": [
+                {
+                    "move": "bounce",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "bounce",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hyper-voice",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "hyper-voice",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "platinum": [
+                {
+                    "move": "bounce",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "bounce",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hyper-voice",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "ruby-sapphire": [
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "level-up",
+                    "level": 51
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "scarlet-violet": [
+                {
+                    "move": "amnesia",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "belly-drum",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "body-slam",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "body-slam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "bounce",
+                    "method": "level-up",
+                    "level": 0
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "double-edge",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "double-edge",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "earth-power",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "earth-power",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "haze",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "hyper-voice",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "hyper-voice",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "low-kick",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "mist",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "mud-shot",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "mud-shot",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "perish-song",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "pound",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "egg",
+                    "level": 0
+                }
+            ],
+            "sun-moon": [
+                {
+                    "move": "bounce",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hyper-voice",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "sword-shield": [
+                {
+                    "move": "belly-drum",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "body-slam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "bounce",
+                    "method": "level-up",
+                    "level": 0
+                },
+                {
+                    "move": "bounce",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bounce",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "double-edge",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "earth-power",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "earth-power",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "hyper-voice",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hyper-voice",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mud-shot",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mud-shot",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "pound",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "ultra-sun-ultra-moon": [
+                {
+                    "move": "bounce",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "bounce",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hyper-voice",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "hyper-voice",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "x-y": [
+                {
+                    "move": "bounce",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hyper-voice",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "xd": [
+                {
+                    "move": "body-slam",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "double-edge",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "perish-song",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "level-up",
+                    "level": 51
+                },
+                {
+                    "move": "swagger",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ]
+        },
+        "poliwag": {
+            "black-2-white-2": [
+                {
+                    "move": "belly-drum",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "bubble",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "haze",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "mind-reader",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "mist",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "mud-bomb",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "mud-shot",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "mud-shot",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "wake-up-slap",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "water-sport",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "water-sport",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "black-white": [
+                {
+                    "move": "belly-drum",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "bubble",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "haze",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "mind-reader",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "mist",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "mud-bomb",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "mud-shot",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "mud-shot",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "wake-up-slap",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "water-sport",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "water-sport",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "brilliant-diamond-shining-pearl": [
+                {
+                    "move": "belly-drum",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 30
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "double-edge",
+                    "method": "level-up",
+                    "level": 54
+                },
+                {
+                    "move": "earth-power",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "haze",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mind-reader",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "mist",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "mud-shot",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "mud-shot",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "pound",
+                    "method": "level-up",
+                    "level": 6
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "colosseum": [
+                {
+                    "move": "belly-drum",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "bubble",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 13
+                }
+            ],
+            "crystal": [
+                {
+                    "move": "belly-drum",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "bubble",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "haze",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "mind-reader",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "mist",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 13
+                }
+            ],
+            "diamond-pearl": [
+                {
+                    "move": "belly-drum",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "bubble",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "haze",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "mind-reader",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "mist",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "mud-bomb",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "mud-shot",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "mud-shot",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "wake-up-slap",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "water-sport",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "water-sport",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "emerald": [
+                {
+                    "move": "belly-drum",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "body-slam",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "bubble",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "double-edge",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "haze",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "mind-reader",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "mist",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "water-sport",
+                    "method": "egg",
+                    "level": 0
+                }
+            ],
+            "firered-leafgreen": [
+                {
+                    "move": "belly-drum",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "body-slam",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "bubble",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "double-edge",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "haze",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "mind-reader",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "mist",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "water-sport",
+                    "method": "egg",
+                    "level": 0
+                }
+            ],
+            "gold-silver": [
+                {
+                    "move": "belly-drum",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "bubble",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "haze",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "mind-reader",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "mist",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 13
+                }
+            ],
+            "heartgold-soulsilver": [
+                {
+                    "move": "belly-drum",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "bubble",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "haze",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "mind-reader",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "mist",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "mud-bomb",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "mud-shot",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "mud-shot",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "wake-up-slap",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "water-sport",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "water-sport",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "lets-go-pikachu-lets-go-eevee": [
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "bubble",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "low-kick",
+                    "method": "level-up",
+                    "level": 26
+                },
+                {
+                    "move": "pound",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 12
+                }
+            ],
+            "omega-ruby-alpha-sapphire": [
+                {
+                    "move": "belly-drum",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "bubble",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "haze",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "mind-reader",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "mist",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "mud-bomb",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "mud-shot",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "mud-shot",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "wake-up-slap",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "water-sport",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "water-sport",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "platinum": [
+                {
+                    "move": "belly-drum",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "bubble",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "haze",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "mind-reader",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "mist",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "mud-bomb",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "mud-shot",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "mud-shot",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "wake-up-slap",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "water-sport",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "water-sport",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "red-blue": [
+                {
+                    "move": "amnesia",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "body-slam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "bubble",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "double-edge",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "water-gun",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "ruby-sapphire": [
+                {
+                    "move": "belly-drum",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "bubble",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "haze",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "mind-reader",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "mist",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "water-sport",
+                    "method": "egg",
+                    "level": 0
+                }
+            ],
+            "scarlet-violet": [
+                {
+                    "move": "amnesia",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "belly-drum",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 30
+                },
+                {
+                    "move": "body-slam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "double-edge",
+                    "method": "level-up",
+                    "level": 54
+                },
+                {
+                    "move": "double-edge",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "earth-power",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "earth-power",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "haze",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "low-kick",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "mist",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "mud-shot",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "mud-shot",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "pound",
+                    "method": "level-up",
+                    "level": 6
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "sun-moon": [
+                {
+                    "move": "belly-drum",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "bubble",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "haze",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "mind-reader",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "mist",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "mud-bomb",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "mud-shot",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "mud-shot",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "wake-up-slap",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "water-sport",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "water-sport",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "sword-shield": [
+                {
+                    "move": "belly-drum",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 30
+                },
+                {
+                    "move": "body-slam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "double-edge",
+                    "method": "level-up",
+                    "level": 54
+                },
+                {
+                    "move": "earth-power",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "earth-power",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "haze",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mind-reader",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "mist",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "mud-shot",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "mud-shot",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "pound",
+                    "method": "level-up",
+                    "level": 6
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "ultra-sun-ultra-moon": [
+                {
+                    "move": "belly-drum",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "bubble",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "haze",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "mind-reader",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "mist",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "mud-bomb",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "mud-shot",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "mud-shot",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "wake-up-slap",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "water-sport",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "water-sport",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "x-y": [
+                {
+                    "move": "belly-drum",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "bubble",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "haze",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "mind-reader",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "mist",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "mud-bomb",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "mud-shot",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "mud-shot",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "wake-up-slap",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "water-sport",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "water-sport",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "xd": [
+                {
+                    "move": "belly-drum",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "body-slam",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "bubble",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "double-edge",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 13
+                }
+            ],
+            "yellow": [
+                {
+                    "move": "amnesia",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "body-slam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "bubble",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "double-edge",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "water-gun",
+                    "method": "machine",
+                    "level": 0
+                }
+            ]
+        },
+        "poliwhirl": {
+            "black-2-white-2": [
+                {
+                    "move": "belly-drum",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "bubble",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bubble",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "mud-bomb",
+                    "method": "level-up",
+                    "level": 53
+                },
+                {
+                    "move": "mud-shot",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "wake-up-slap",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "water-sport",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "black-white": [
+                {
+                    "move": "belly-drum",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "bubble",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bubble",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "mud-bomb",
+                    "method": "level-up",
+                    "level": 53
+                },
+                {
+                    "move": "mud-shot",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "wake-up-slap",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "water-sport",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "brilliant-diamond-shining-pearl": [
+                {
+                    "move": "belly-drum",
+                    "method": "level-up",
+                    "level": 56
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "double-edge",
+                    "method": "level-up",
+                    "level": 66
+                },
+                {
+                    "move": "earth-power",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mud-shot",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "pound",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "colosseum": [
+                {
+                    "move": "belly-drum",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "bubble",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 51
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 13
+                }
+            ],
+            "crystal": [
+                {
+                    "move": "belly-drum",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "bubble",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 51
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 13
+                }
+            ],
+            "diamond-pearl": [
+                {
+                    "move": "belly-drum",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "bubble",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bubble",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "mud-bomb",
+                    "method": "level-up",
+                    "level": 53
+                },
+                {
+                    "move": "mud-shot",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "wake-up-slap",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "water-sport",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "emerald": [
+                {
+                    "move": "belly-drum",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "body-slam",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "bubble",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "double-edge",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 51
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 13
+                }
+            ],
+            "firered-leafgreen": [
+                {
+                    "move": "belly-drum",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "body-slam",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "bubble",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "double-edge",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 51
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 13
+                }
+            ],
+            "gold-silver": [
+                {
+                    "move": "belly-drum",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "bubble",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 51
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 13
+                }
+            ],
+            "heartgold-soulsilver": [
+                {
+                    "move": "belly-drum",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "bubble",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bubble",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "mud-bomb",
+                    "method": "level-up",
+                    "level": 53
+                },
+                {
+                    "move": "mud-shot",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "wake-up-slap",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "water-sport",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "lets-go-pikachu-lets-go-eevee": [
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "bubble",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "low-kick",
+                    "method": "level-up",
+                    "level": 30
+                },
+                {
+                    "move": "pound",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "pound",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 12
+                }
+            ],
+            "omega-ruby-alpha-sapphire": [
+                {
+                    "move": "belly-drum",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "bubble",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "mud-bomb",
+                    "method": "level-up",
+                    "level": 53
+                },
+                {
+                    "move": "mud-shot",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "wake-up-slap",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "water-sport",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "platinum": [
+                {
+                    "move": "belly-drum",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "bubble",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bubble",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "mud-bomb",
+                    "method": "level-up",
+                    "level": 53
+                },
+                {
+                    "move": "mud-shot",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "wake-up-slap",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "water-sport",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "red-blue": [
+                {
+                    "move": "amnesia",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "body-slam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "bubble",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "double-edge",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 26
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "submission",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "water-gun",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "ruby-sapphire": [
+                {
+                    "move": "belly-drum",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "bubble",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 51
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 13
+                }
+            ],
+            "scarlet-violet": [
+                {
+                    "move": "amnesia",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "belly-drum",
+                    "method": "level-up",
+                    "level": 56
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "body-slam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "double-edge",
+                    "method": "level-up",
+                    "level": 66
+                },
+                {
+                    "move": "double-edge",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "earth-power",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "earth-power",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "haze",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "low-kick",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "mist",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "mud-shot",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mud-shot",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "pound",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "sun-moon": [
+                {
+                    "move": "belly-drum",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "bubble",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "mud-bomb",
+                    "method": "level-up",
+                    "level": 53
+                },
+                {
+                    "move": "mud-shot",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "wake-up-slap",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "water-sport",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "sword-shield": [
+                {
+                    "move": "belly-drum",
+                    "method": "level-up",
+                    "level": 56
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "body-slam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "double-edge",
+                    "method": "level-up",
+                    "level": 66
+                },
+                {
+                    "move": "earth-power",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "earth-power",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mud-shot",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mud-shot",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "pound",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "ultra-sun-ultra-moon": [
+                {
+                    "move": "belly-drum",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "bubble",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "mud-bomb",
+                    "method": "level-up",
+                    "level": 53
+                },
+                {
+                    "move": "mud-shot",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "wake-up-slap",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "water-sport",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "x-y": [
+                {
+                    "move": "belly-drum",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "bubble",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "mud-bomb",
+                    "method": "level-up",
+                    "level": 53
+                },
+                {
+                    "move": "mud-shot",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "wake-up-slap",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "water-sport",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "xd": [
+                {
+                    "move": "belly-drum",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "body-slam",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "bubble",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "double-edge",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 51
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "swagger",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 13
+                }
+            ],
+            "yellow": [
+                {
+                    "move": "amnesia",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "body-slam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "bubble",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "double-edge",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 26
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "submission",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "water-gun",
+                    "method": "machine",
+                    "level": 0
+                }
+            ]
+        },
+        "poliwrath": {
+            "black-2-white-2": [
+                {
+                    "move": "bubble-beam",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bulk-up",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "circle-throw",
+                    "method": "level-up",
+                    "level": 53
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "dynamic-punch",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mind-reader",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "submission",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "black-white": [
+                {
+                    "move": "bubble-beam",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bulk-up",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "circle-throw",
+                    "method": "level-up",
+                    "level": 53
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "dynamic-punch",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mind-reader",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "submission",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "brilliant-diamond-shining-pearl": [
+                {
+                    "move": "belly-drum",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bulk-up",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "circle-throw",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "double-edge",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "dynamic-punch",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "earth-power",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mind-reader",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mud-shot",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "pound",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "submission",
+                    "method": "level-up",
+                    "level": 0
+                },
+                {
+                    "move": "submission",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "colosseum": [
+                {
+                    "move": "bulk-up",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mind-reader",
+                    "method": "level-up",
+                    "level": 51
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "submission",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "submission",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "crystal": [
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "dynamic-punch",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mind-reader",
+                    "method": "level-up",
+                    "level": 51
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "submission",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "submission",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "diamond-pearl": [
+                {
+                    "move": "bubble-beam",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bulk-up",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "dynamic-punch",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mind-reader",
+                    "method": "level-up",
+                    "level": 53
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "submission",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "emerald": [
+                {
+                    "move": "body-slam",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "bulk-up",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "double-edge",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "dynamic-punch",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mind-reader",
+                    "method": "level-up",
+                    "level": 51
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "submission",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "submission",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "swagger",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "firered-leafgreen": [
+                {
+                    "move": "body-slam",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "bulk-up",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "double-edge",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mind-reader",
+                    "method": "level-up",
+                    "level": 51
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "submission",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "submission",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "gold-silver": [
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "dynamic-punch",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mind-reader",
+                    "method": "level-up",
+                    "level": 51
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "submission",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "submission",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "heartgold-soulsilver": [
+                {
+                    "move": "bubble-beam",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bulk-up",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "dynamic-punch",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mind-reader",
+                    "method": "level-up",
+                    "level": 53
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "submission",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "lets-go-pikachu-lets-go-eevee": [
+                {
+                    "move": "bubble",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bulk-up",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bulk-up",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "haze",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mist",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "pound",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "submission",
+                    "method": "level-up",
+                    "level": 0
+                },
+                {
+                    "move": "submission",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "superpower",
+                    "method": "level-up",
+                    "level": 57
+                },
+                {
+                    "move": "superpower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "omega-ruby-alpha-sapphire": [
+                {
+                    "move": "bubble-beam",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bulk-up",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "circle-throw",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "circle-throw",
+                    "method": "level-up",
+                    "level": 53
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "dynamic-punch",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mind-reader",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "submission",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "platinum": [
+                {
+                    "move": "bubble-beam",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bulk-up",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "dynamic-punch",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mind-reader",
+                    "method": "level-up",
+                    "level": 53
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "submission",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "red-blue": [
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "body-slam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "double-edge",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "submission",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "water-gun",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "ruby-sapphire": [
+                {
+                    "move": "bulk-up",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mind-reader",
+                    "method": "level-up",
+                    "level": 51
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "submission",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "submission",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "scarlet-violet": [
+                {
+                    "move": "amnesia",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "belly-drum",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "body-slam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bulk-up",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "circle-throw",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "double-edge",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "double-edge",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "dynamic-punch",
+                    "method": "level-up",
+                    "level": 0
+                },
+                {
+                    "move": "earth-power",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "earth-power",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "haze",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "low-kick",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "mist",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "mud-shot",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "mud-shot",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "pound",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "egg",
+                    "level": 0
+                }
+            ],
+            "sun-moon": [
+                {
+                    "move": "bubble-beam",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bulk-up",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "circle-throw",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "circle-throw",
+                    "method": "level-up",
+                    "level": 53
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "dynamic-punch",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mind-reader",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "submission",
+                    "method": "level-up",
+                    "level": 0
+                },
+                {
+                    "move": "submission",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "sword-shield": [
+                {
+                    "move": "belly-drum",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "body-slam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bulk-up",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "circle-throw",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "double-edge",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "dynamic-punch",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "earth-power",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "earth-power",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hydro-pump",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mind-reader",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mud-shot",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mud-shot",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "pound",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "submission",
+                    "method": "level-up",
+                    "level": 0
+                },
+                {
+                    "move": "submission",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "superpower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "ultra-sun-ultra-moon": [
+                {
+                    "move": "bubble-beam",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bulk-up",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "circle-throw",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "circle-throw",
+                    "method": "level-up",
+                    "level": 53
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "dynamic-punch",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mind-reader",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "submission",
+                    "method": "level-up",
+                    "level": 0
+                },
+                {
+                    "move": "submission",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "x-y": [
+                {
+                    "move": "bubble-beam",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bulk-up",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "circle-throw",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "circle-throw",
+                    "method": "level-up",
+                    "level": 53
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "dynamic-punch",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mind-reader",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "submission",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "swagger",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "xd": [
+                {
+                    "move": "body-slam",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "bulk-up",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "double-edge",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mind-reader",
+                    "method": "level-up",
+                    "level": 51
+                },
+                {
+                    "move": "rain-dance",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "submission",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "submission",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "swagger",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "yellow": [
+                {
+                    "move": "body-slam",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "body-slam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "bubble-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "double-edge",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "hypnosis",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "submission",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "water-gun",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "water-gun",
+                    "method": "machine",
+                    "level": 0
+                }
+            ]
+        }
+    }
+}

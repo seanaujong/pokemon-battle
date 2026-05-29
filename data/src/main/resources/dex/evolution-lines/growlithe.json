@@ -1,0 +1,3550 @@
+{
+    "base": "growlithe",
+    "edges": [
+        {
+            "from": "growlithe",
+            "to": "arcanine",
+            "trigger": "use-item",
+            "item": "fire-stone"
+        }
+    ],
+    "learnsets": {
+        "arcanine": {
+            "black-2-white-2": [
+                {
+                    "move": "bite",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "extreme-speed",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "fire-fang",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "heat-wave",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "odor-sleuth",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "outrage",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "retaliate",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "roar",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-fang",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "black-white": [
+                {
+                    "move": "bite",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "extreme-speed",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "fire-fang",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "odor-sleuth",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "retaliate",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "roar",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-fang",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "brilliant-diamond-shining-pearl": [
+                {
+                    "move": "agility",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bite",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "burn-up",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "crunch",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "extreme-speed",
+                    "method": "level-up",
+                    "level": 0
+                },
+                {
+                    "move": "extreme-speed",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "fire-fang",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "flame-wheel",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "flare-blitz",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "howl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "play-rough",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "retaliate",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "reversal",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "roar",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "colosseum": [
+                {
+                    "move": "bite",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "extreme-speed",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "odor-sleuth",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "roar",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "crystal": [
+                {
+                    "move": "extreme-speed",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "flame-wheel",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "roar",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "diamond-pearl": [
+                {
+                    "move": "bite",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "extreme-speed",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "fire-fang",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "odor-sleuth",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "roar",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-fang",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "emerald": [
+                {
+                    "move": "bite",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "double-edge",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "extreme-speed",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "odor-sleuth",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "roar",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "firered-leafgreen": [
+                {
+                    "move": "bite",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "double-edge",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "extreme-speed",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "odor-sleuth",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "roar",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "gold-silver": [
+                {
+                    "move": "extreme-speed",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "flame-wheel",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "roar",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "heartgold-soulsilver": [
+                {
+                    "move": "bite",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "extreme-speed",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "fire-fang",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "heat-wave",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "odor-sleuth",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "roar",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-fang",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "lets-go-pikachu-lets-go-eevee": [
+                {
+                    "move": "bite",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "double-edge",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "outrage",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "play-rough",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "roar",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "omega-ruby-alpha-sapphire": [
+                {
+                    "move": "bite",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "extreme-speed",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "fire-fang",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "heat-wave",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "odor-sleuth",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "outrage",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "retaliate",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "roar",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-fang",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "platinum": [
+                {
+                    "move": "bite",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "extreme-speed",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "fire-fang",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "heat-wave",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "odor-sleuth",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "roar",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-fang",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "red-blue": [
+                {
+                    "move": "double-edge",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "roar",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "take-down",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "ruby-sapphire": [
+                {
+                    "move": "bite",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "extreme-speed",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "odor-sleuth",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "roar",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "scarlet-violet": [
+                {
+                    "move": "agility",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "agility",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "bite",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "crunch",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "crunch",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "double-edge",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "extreme-speed",
+                    "method": "level-up",
+                    "level": 0
+                },
+                {
+                    "move": "fire-fang",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "fire-fang",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "flame-wheel",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "flare-blitz",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "flare-blitz",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "heat-wave",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "howl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "outrage",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "play-rough",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "play-rough",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "retaliate",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "reversal",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "reversal",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "roar",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "take-down",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-fang",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "sun-moon": [
+                {
+                    "move": "bite",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "extreme-speed",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "fire-fang",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "odor-sleuth",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "roar",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-fang",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "sword-shield": [
+                {
+                    "move": "agility",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "agility",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "bite",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "burn-up",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "crunch",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "crunch",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "extreme-speed",
+                    "method": "level-up",
+                    "level": 0
+                },
+                {
+                    "move": "extreme-speed",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "fire-fang",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "fire-fang",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "flame-wheel",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "flare-blitz",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "flare-blitz",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "heat-wave",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "howl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "outrage",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "play-rough",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "play-rough",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "retaliate",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "retaliate",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "reversal",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "reversal",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "roar",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-fang",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "ultra-sun-ultra-moon": [
+                {
+                    "move": "bite",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "extreme-speed",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "fire-fang",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "heat-wave",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "odor-sleuth",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "outrage",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "roar",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-fang",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "x-y": [
+                {
+                    "move": "bite",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "extreme-speed",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "fire-fang",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "odor-sleuth",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "retaliate",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "roar",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-fang",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "xd": [
+                {
+                    "move": "bite",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "double-edge",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "extreme-speed",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "odor-sleuth",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "roar",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "yellow": [
+                {
+                    "move": "double-edge",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "roar",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "take-down",
+                    "method": "machine",
+                    "level": 0
+                }
+            ]
+        },
+        "growlithe": {
+            "black-2-white-2": [
+                {
+                    "move": "agility",
+                    "method": "level-up",
+                    "level": 30
+                },
+                {
+                    "move": "bite",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "crunch",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "crunch",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "double-edge",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 6
+                },
+                {
+                    "move": "fire-fang",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "flame-burst",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "flame-wheel",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "flare-blitz",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "flare-blitz",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "heat-wave",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "heat-wave",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "heat-wave",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "howl",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "odor-sleuth",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "outrage",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "outrage",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "retaliate",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "retaliate",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "reversal",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "roar",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 23
+                }
+            ],
+            "black-white": [
+                {
+                    "move": "agility",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "bite",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "crunch",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "crunch",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "double-edge",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 6
+                },
+                {
+                    "move": "fire-fang",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "flame-burst",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "flame-wheel",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "flare-blitz",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "flare-blitz",
+                    "method": "level-up",
+                    "level": 56
+                },
+                {
+                    "move": "heat-wave",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "heat-wave",
+                    "method": "level-up",
+                    "level": 51
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "howl",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "odor-sleuth",
+                    "method": "level-up",
+                    "level": 14
+                },
+                {
+                    "move": "retaliate",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "retaliate",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "reversal",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "roar",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 34
+                }
+            ],
+            "brilliant-diamond-shining-pearl": [
+                {
+                    "move": "agility",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "bite",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "burn-up",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "crunch",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "crunch",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "double-edge",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "fire-fang",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "flame-wheel",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "flare-blitz",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "flare-blitz",
+                    "method": "level-up",
+                    "level": 56
+                },
+                {
+                    "move": "heat-wave",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "howl",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "howl",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "play-rough",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "retaliate",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "reversal",
+                    "method": "level-up",
+                    "level": 52
+                },
+                {
+                    "move": "roar",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 36
+                }
+            ],
+            "colosseum": [
+                {
+                    "move": "agility",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "bite",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "flame-wheel",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "odor-sleuth",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "roar",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 25
+                }
+            ],
+            "crystal": [
+                {
+                    "move": "agility",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "bite",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "crunch",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "flame-wheel",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "roar",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 26
+                }
+            ],
+            "diamond-pearl": [
+                {
+                    "move": "agility",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "bite",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "crunch",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "crunch",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "double-edge",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 6
+                },
+                {
+                    "move": "fire-fang",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "flame-wheel",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "flare-blitz",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "flare-blitz",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "heat-wave",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "heat-wave",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "howl",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "odor-sleuth",
+                    "method": "level-up",
+                    "level": 14
+                },
+                {
+                    "move": "reversal",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "roar",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 31
+                }
+            ],
+            "emerald": [
+                {
+                    "move": "agility",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "bite",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "crunch",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "double-edge",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "flame-wheel",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "heat-wave",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "howl",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "odor-sleuth",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "roar",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 25
+                }
+            ],
+            "firered-leafgreen": [
+                {
+                    "move": "agility",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "bite",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "crunch",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "double-edge",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "flame-wheel",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "heat-wave",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "howl",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "odor-sleuth",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "roar",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 25
+                }
+            ],
+            "gold-silver": [
+                {
+                    "move": "agility",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "bite",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "crunch",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "flame-wheel",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "roar",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 26
+                }
+            ],
+            "heartgold-soulsilver": [
+                {
+                    "move": "agility",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "bite",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "crunch",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "crunch",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "double-edge",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 6
+                },
+                {
+                    "move": "fire-fang",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "flame-wheel",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "flare-blitz",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "flare-blitz",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "heat-wave",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "heat-wave",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "heat-wave",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "howl",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "odor-sleuth",
+                    "method": "level-up",
+                    "level": 14
+                },
+                {
+                    "move": "reversal",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "roar",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 31
+                }
+            ],
+            "lets-go-pikachu-lets-go-eevee": [
+                {
+                    "move": "agility",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "bite",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "crunch",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 3
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "flare-blitz",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "heat-wave",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "outrage",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "outrage",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "play-rough",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "play-rough",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "roar",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 14
+                }
+            ],
+            "omega-ruby-alpha-sapphire": [
+                {
+                    "move": "agility",
+                    "method": "level-up",
+                    "level": 30
+                },
+                {
+                    "move": "bite",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "crunch",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "crunch",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "double-edge",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 6
+                },
+                {
+                    "move": "fire-fang",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "flame-burst",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "flame-wheel",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "flare-blitz",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "flare-blitz",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "heat-wave",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "heat-wave",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "heat-wave",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "howl",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "odor-sleuth",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "outrage",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "outrage",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "retaliate",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "retaliate",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "reversal",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "roar",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 23
+                }
+            ],
+            "platinum": [
+                {
+                    "move": "agility",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "bite",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "crunch",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "crunch",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "double-edge",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 6
+                },
+                {
+                    "move": "fire-fang",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "flame-wheel",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "flare-blitz",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "flare-blitz",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "heat-wave",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "heat-wave",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "heat-wave",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "howl",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "odor-sleuth",
+                    "method": "level-up",
+                    "level": 14
+                },
+                {
+                    "move": "reversal",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "roar",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 31
+                }
+            ],
+            "red-blue": [
+                {
+                    "move": "agility",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "bite",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "double-edge",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "roar",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 30
+                },
+                {
+                    "move": "take-down",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "ruby-sapphire": [
+                {
+                    "move": "agility",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "bite",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "crunch",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "flame-wheel",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "heat-wave",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "howl",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "odor-sleuth",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "roar",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 25
+                }
+            ],
+            "scarlet-violet": [
+                {
+                    "move": "agility",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "agility",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "bite",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "crunch",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "crunch",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "double-edge",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "double-edge",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "fire-fang",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "fire-fang",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "flame-wheel",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "flare-blitz",
+                    "method": "level-up",
+                    "level": 56
+                },
+                {
+                    "move": "flare-blitz",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "heat-wave",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "howl",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "outrage",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "play-rough",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "play-rough",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "retaliate",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "reversal",
+                    "method": "level-up",
+                    "level": 52
+                },
+                {
+                    "move": "reversal",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "roar",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "take-down",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-fang",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "sun-moon": [
+                {
+                    "move": "agility",
+                    "method": "level-up",
+                    "level": 30
+                },
+                {
+                    "move": "bite",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "burn-up",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "crunch",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "crunch",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "double-edge",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 6
+                },
+                {
+                    "move": "fire-fang",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "flame-burst",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "flame-wheel",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "flare-blitz",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "flare-blitz",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "heat-wave",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "heat-wave",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "howl",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "odor-sleuth",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "outrage",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "retaliate",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "reversal",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "roar",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 23
+                }
+            ],
+            "sword-shield": [
+                {
+                    "move": "agility",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "agility",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "bite",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "crunch",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "crunch",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "double-edge",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "fire-fang",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "fire-fang",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "flame-wheel",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "flare-blitz",
+                    "method": "level-up",
+                    "level": 56
+                },
+                {
+                    "move": "flare-blitz",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "heat-wave",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "howl",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "outrage",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "play-rough",
+                    "method": "level-up",
+                    "level": 48
+                },
+                {
+                    "move": "play-rough",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "retaliate",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "retaliate",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "reversal",
+                    "method": "level-up",
+                    "level": 52
+                },
+                {
+                    "move": "reversal",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "roar",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 36
+                }
+            ],
+            "ultra-sun-ultra-moon": [
+                {
+                    "move": "agility",
+                    "method": "level-up",
+                    "level": 30
+                },
+                {
+                    "move": "bite",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "burn-up",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "crunch",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "crunch",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "double-edge",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 6
+                },
+                {
+                    "move": "fire-fang",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "flame-burst",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "flame-wheel",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "flare-blitz",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "flare-blitz",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "heat-wave",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "heat-wave",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "heat-wave",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "howl",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "odor-sleuth",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "outrage",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "outrage",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "retaliate",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "reversal",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "roar",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 23
+                }
+            ],
+            "x-y": [
+                {
+                    "move": "agility",
+                    "method": "level-up",
+                    "level": 30
+                },
+                {
+                    "move": "bite",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "crunch",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "crunch",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "double-edge",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 6
+                },
+                {
+                    "move": "fire-fang",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "flame-burst",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "flame-wheel",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "flare-blitz",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "flare-blitz",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "heat-wave",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "heat-wave",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "howl",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "odor-sleuth",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "outrage",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "retaliate",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "retaliate",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "reversal",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "roar",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 23
+                }
+            ],
+            "xd": [
+                {
+                    "move": "agility",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "bite",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "double-edge",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "flame-wheel",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "helping-hand",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "odor-sleuth",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "roar",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "roar",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 25
+                }
+            ],
+            "yellow": [
+                {
+                    "move": "agility",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "bite",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "double-edge",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "ember",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "flamethrower",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "leer",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "roar",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "take-down",
+                    "method": "level-up",
+                    "level": 30
+                },
+                {
+                    "move": "take-down",
+                    "method": "machine",
+                    "level": 0
+                }
+            ]
+        }
+    }
+}

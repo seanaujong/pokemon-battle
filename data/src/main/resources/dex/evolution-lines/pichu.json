@@ -1,0 +1,5416 @@
+{
+    "base": "pichu",
+    "edges": [
+        {
+            "from": "pichu",
+            "to": "pikachu",
+            "trigger": "level-up"
+        },
+        {
+            "from": "pikachu",
+            "to": "raichu",
+            "trigger": "use-item",
+            "item": "thunder-stone"
+        }
+    ],
+    "learnsets": {
+        "pichu": {
+            "black-2-white-2": [
+                {
+                    "move": "charm",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "double-team",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "encore",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "fake-out",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "iron-tail",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "sweet-kiss",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "thunder",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-punch",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-shock",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "wild-charge",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "black-white": [
+                {
+                    "move": "charm",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "double-team",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "encore",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "fake-out",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "sweet-kiss",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "thunder",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-punch",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-shock",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "wild-charge",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "brilliant-diamond-shining-pearl": [
+                {
+                    "move": "charm",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "double-team",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "encore",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "fake-out",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "iron-tail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "nuzzle",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "play-nice",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "sweet-kiss",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-punch",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-shock",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "colosseum": [
+                {
+                    "move": "charm",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "double-team",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "iron-tail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sweet-kiss",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 6
+                },
+                {
+                    "move": "thunder",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-shock",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "crystal": [
+                {
+                    "move": "charm",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "double-team",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "encore",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "iron-tail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sweet-kiss",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "swift",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 6
+                },
+                {
+                    "move": "thunder",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-shock",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "tutor",
+                    "level": 0
+                }
+            ],
+            "diamond-pearl": [
+                {
+                    "move": "charm",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "double-team",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "encore",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "fake-out",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "iron-tail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "sweet-kiss",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "thunder",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-punch",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-shock",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "emerald": [
+                {
+                    "move": "charm",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "double-team",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "encore",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "iron-tail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sweet-kiss",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "swift",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 6
+                },
+                {
+                    "move": "thunder",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-shock",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "firered-leafgreen": [
+                {
+                    "move": "charm",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "double-team",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "encore",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "iron-tail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sweet-kiss",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 6
+                },
+                {
+                    "move": "thunder",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-shock",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "gold-silver": [
+                {
+                    "move": "charm",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "double-team",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "encore",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "iron-tail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sweet-kiss",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "swift",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 6
+                },
+                {
+                    "move": "thunder",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-shock",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "level-up",
+                    "level": 8
+                }
+            ],
+            "heartgold-soulsilver": [
+                {
+                    "move": "charm",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "double-team",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "encore",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "fake-out",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "iron-tail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "sweet-kiss",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "swift",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "thunder",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-punch",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-shock",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "legends-arceus": [
+                {
+                    "move": "iron-tail",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "spark",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "swift",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "thunder",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "thunder-shock",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "level-up",
+                    "level": 29
+                }
+            ],
+            "omega-ruby-alpha-sapphire": [
+                {
+                    "move": "charm",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "double-team",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "encore",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "fake-out",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "iron-tail",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "sweet-kiss",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "thunder",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-punch",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-punch",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-shock",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "wild-charge",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "platinum": [
+                {
+                    "move": "charm",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "double-team",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "encore",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "fake-out",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "iron-tail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "sweet-kiss",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "swift",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "thunder",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-punch",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-shock",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "ruby-sapphire": [
+                {
+                    "move": "charm",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "double-team",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "encore",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "iron-tail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sweet-kiss",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 6
+                },
+                {
+                    "move": "thunder",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-shock",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "scarlet-violet": [
+                {
+                    "move": "charm",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "charm",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "electro-ball",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "encore",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fake-out",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "nuzzle",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "play-nice",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "sweet-kiss",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "swift",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-punch",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-shock",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "wild-charge",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "sun-moon": [
+                {
+                    "move": "charm",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "double-team",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "encore",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "fake-out",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "sweet-kiss",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "thunder",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-punch",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-shock",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "wild-charge",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "sword-shield": [
+                {
+                    "move": "charm",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "charm",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "encore",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fake-out",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "iron-tail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "nuzzle",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "play-nice",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "sweet-kiss",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "swift",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-punch",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-shock",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "wild-charge",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "ultra-sun-ultra-moon": [
+                {
+                    "move": "charm",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "double-team",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "encore",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "fake-out",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "iron-tail",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "sweet-kiss",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "thunder",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-punch",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-punch",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-shock",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "wild-charge",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "x-y": [
+                {
+                    "move": "charm",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "double-team",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "encore",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "fake-out",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "sweet-kiss",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "thunder",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-punch",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-shock",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "wild-charge",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "xd": [
+                {
+                    "move": "charm",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "double-team",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "iron-tail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sweet-kiss",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 6
+                },
+                {
+                    "move": "thunder",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-shock",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "machine",
+                    "level": 0
+                }
+            ]
+        },
+        "pikachu": {
+            "black-2-white-2": [
+                {
+                    "move": "agility",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "discharge",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "double-team",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "double-team",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "electro-ball",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "feint",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "iron-tail",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "light-screen",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "slam",
+                    "method": "level-up",
+                    "level": 26
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "thunder",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "thunder",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-punch",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-shock",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "wild-charge",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "black-white": [
+                {
+                    "move": "agility",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "discharge",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "double-team",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "double-team",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "electro-ball",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "feint",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "light-screen",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "slam",
+                    "method": "level-up",
+                    "level": 26
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "thunder",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "thunder",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-shock",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "wild-charge",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "brilliant-diamond-shining-pearl": [
+                {
+                    "move": "agility",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "charm",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "discharge",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "double-team",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "double-team",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "electro-ball",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "feint",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "iron-tail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "light-screen",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "nuzzle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "play-nice",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "slam",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "spark",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "sweet-kiss",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "thunder",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-shock",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "colosseum": [
+                {
+                    "move": "agility",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "double-team",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "double-team",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "iron-tail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "light-screen",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "slam",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 6
+                },
+                {
+                    "move": "thunder",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "thunder",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-shock",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "level-up",
+                    "level": 26
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "crystal": [
+                {
+                    "move": "agility",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "double-team",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "double-team",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "iron-tail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "light-screen",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "slam",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "swift",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 6
+                },
+                {
+                    "move": "thunder",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "thunder",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-punch",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-shock",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "level-up",
+                    "level": 26
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "tutor",
+                    "level": 0
+                }
+            ],
+            "diamond-pearl": [
+                {
+                    "move": "agility",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "discharge",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "double-team",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "double-team",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "feint",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "iron-tail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "light-screen",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "slam",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "thunder",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "thunder",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-shock",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "level-up",
+                    "level": 26
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "emerald": [
+                {
+                    "move": "agility",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "double-team",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "double-team",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "iron-tail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "light-screen",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "slam",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "swift",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 6
+                },
+                {
+                    "move": "thunder",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "thunder",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-punch",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-shock",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "level-up",
+                    "level": 26
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "firered-leafgreen": [
+                {
+                    "move": "agility",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "double-team",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "double-team",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "iron-tail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "light-screen",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "slam",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 6
+                },
+                {
+                    "move": "thunder",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "thunder",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-shock",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "level-up",
+                    "level": 26
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "gold-silver": [
+                {
+                    "move": "agility",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "double-team",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "double-team",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "iron-tail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "light-screen",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "slam",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "swift",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 6
+                },
+                {
+                    "move": "thunder",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "thunder",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-punch",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-shock",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "level-up",
+                    "level": 26
+                }
+            ],
+            "heartgold-soulsilver": [
+                {
+                    "move": "agility",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "discharge",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "double-team",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "double-team",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "feint",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "iron-tail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "light-screen",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "slam",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "swift",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "thunder",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "thunder",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-punch",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-shock",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "level-up",
+                    "level": 26
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "legends-arceus": [
+                {
+                    "move": "iron-tail",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "spark",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "swift",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "thunder",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "thunder-shock",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "level-up",
+                    "level": 29
+                }
+            ],
+            "lets-go-pikachu-lets-go-eevee": [
+                {
+                    "move": "agility",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "double-kick",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "double-team",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "iron-tail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "light-screen",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 6
+                },
+                {
+                    "move": "slam",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 3
+                },
+                {
+                    "move": "thunder",
+                    "method": "level-up",
+                    "level": 30
+                },
+                {
+                    "move": "thunder",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-punch",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-shock",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "omega-ruby-alpha-sapphire": [
+                {
+                    "move": "agility",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "discharge",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "double-team",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "double-team",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "electro-ball",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "feint",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "iron-tail",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "light-screen",
+                    "method": "level-up",
+                    "level": 53
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "nuzzle",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "play-nice",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "slam",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "spark",
+                    "method": "level-up",
+                    "level": 26
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder",
+                    "method": "level-up",
+                    "level": 58
+                },
+                {
+                    "move": "thunder",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-punch",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-shock",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "wild-charge",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "wild-charge",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "platinum": [
+                {
+                    "move": "agility",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "discharge",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "double-team",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "double-team",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "feint",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "iron-tail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "light-screen",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "slam",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "swift",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "thunder",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "thunder",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-punch",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-shock",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "level-up",
+                    "level": 26
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "red-blue": [
+                {
+                    "move": "agility",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "double-team",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "swift",
+                    "method": "level-up",
+                    "level": 26
+                },
+                {
+                    "move": "swift",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "thunder",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-shock",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "ruby-sapphire": [
+                {
+                    "move": "agility",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "double-team",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "double-team",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "iron-tail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "light-screen",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "slam",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 6
+                },
+                {
+                    "move": "thunder",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "thunder",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-shock",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "level-up",
+                    "level": 26
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "scarlet-violet": [
+                {
+                    "move": "agility",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "agility",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "charm",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "charm",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "discharge",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "double-team",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "electro-ball",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "electro-ball",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "encore",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "feint",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "iron-tail",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "light-screen",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "nuzzle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "play-nice",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "spark",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "sweet-kiss",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "swift",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "thunder",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-punch",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-shock",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "wild-charge",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "sun-moon": [
+                {
+                    "move": "agility",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "discharge",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "double-team",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "double-team",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "electro-ball",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "feint",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "light-screen",
+                    "method": "level-up",
+                    "level": 53
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "nuzzle",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "play-nice",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "slam",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "spark",
+                    "method": "level-up",
+                    "level": 26
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder",
+                    "method": "level-up",
+                    "level": 58
+                },
+                {
+                    "move": "thunder",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-shock",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "wild-charge",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "wild-charge",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "sword-shield": [
+                {
+                    "move": "agility",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "agility",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "charm",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "charm",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "discharge",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "double-team",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "electro-ball",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "electro-ball",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "encore",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "feint",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "iron-tail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "light-screen",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "nuzzle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "play-nice",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "slam",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "spark",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "sweet-kiss",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "swift",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "thunder",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-punch",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-shock",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "wild-charge",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "ultra-sun-ultra-moon": [
+                {
+                    "move": "agility",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "discharge",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "double-team",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "double-team",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "electro-ball",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "feint",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "iron-tail",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "light-screen",
+                    "method": "level-up",
+                    "level": 53
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "nuzzle",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "play-nice",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "slam",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "spark",
+                    "method": "level-up",
+                    "level": 26
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder",
+                    "method": "level-up",
+                    "level": 58
+                },
+                {
+                    "move": "thunder",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-punch",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-shock",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "wild-charge",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "wild-charge",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "x-y": [
+                {
+                    "move": "agility",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "discharge",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "double-team",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "double-team",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "electro-ball",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "feint",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "light-screen",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "nuzzle",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "play-nice",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "slam",
+                    "method": "level-up",
+                    "level": 26
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "thunder",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-shock",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "wild-charge",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "xd": [
+                {
+                    "move": "agility",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "double-team",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "double-team",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "iron-tail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "light-screen",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "slam",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 6
+                },
+                {
+                    "move": "thunder",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "thunder",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-shock",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "level-up",
+                    "level": 26
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "yellow": [
+                {
+                    "move": "agility",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "double-team",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "double-team",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "light-screen",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "slam",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "swift",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 6
+                },
+                {
+                    "move": "thunder",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "thunder",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-shock",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "level-up",
+                    "level": 26
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "machine",
+                    "level": 0
+                }
+            ]
+        },
+        "raichu": {
+            "black-2-white-2": [
+                {
+                    "move": "double-team",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "iron-tail",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-punch",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-shock",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "wild-charge",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "black-white": [
+                {
+                    "move": "double-team",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-shock",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "wild-charge",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "brilliant-diamond-shining-pearl": [
+                {
+                    "move": "agility",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "charm",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "discharge",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "double-team",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "double-team",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "electro-ball",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "feint",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "iron-tail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "light-screen",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "nuzzle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "play-nice",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "slam",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "spark",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sweet-kiss",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-punch",
+                    "method": "level-up",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-punch",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-shock",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "colosseum": [
+                {
+                    "move": "double-team",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "iron-tail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-shock",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "crystal": [
+                {
+                    "move": "double-team",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "iron-tail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "swift",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-punch",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-shock",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "tutor",
+                    "level": 0
+                }
+            ],
+            "diamond-pearl": [
+                {
+                    "move": "double-team",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "iron-tail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-shock",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "emerald": [
+                {
+                    "move": "double-team",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "iron-tail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "swift",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-punch",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-shock",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "firered-leafgreen": [
+                {
+                    "move": "double-team",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "iron-tail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-shock",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "gold-silver": [
+                {
+                    "move": "double-team",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "iron-tail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "swift",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-punch",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-shock",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "heartgold-soulsilver": [
+                {
+                    "move": "double-team",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "iron-tail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "swift",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-punch",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-shock",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "legends-arceus": [
+                {
+                    "move": "iron-tail",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "spark",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "swift",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "thunder",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "thunder-shock",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "level-up",
+                    "level": 29
+                }
+            ],
+            "lets-go-pikachu-lets-go-eevee": [
+                {
+                    "move": "encore",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "fake-out",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "iron-tail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-punch",
+                    "method": "level-up",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-punch",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-punch",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-shock",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "omega-ruby-alpha-sapphire": [
+                {
+                    "move": "double-team",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "iron-tail",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-punch",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-shock",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "wild-charge",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "platinum": [
+                {
+                    "move": "double-team",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "iron-tail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "swift",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-punch",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-shock",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "red-blue": [
+                {
+                    "move": "double-team",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "swift",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-shock",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "ruby-sapphire": [
+                {
+                    "move": "double-team",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "iron-tail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-shock",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "scarlet-violet": [
+                {
+                    "move": "agility",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "agility",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "charm",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "charm",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "discharge",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "double-team",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "electro-ball",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "electro-ball",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "encore",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "feint",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "iron-tail",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "light-screen",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "nuzzle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "play-nice",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "spark",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sweet-kiss",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "swift",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-punch",
+                    "method": "level-up",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-punch",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-shock",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "wild-charge",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "sun-moon": [
+                {
+                    "move": "double-team",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-shock",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "wild-charge",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "sword-shield": [
+                {
+                    "move": "agility",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "agility",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "charm",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "charm",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "discharge",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "double-team",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "electro-ball",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "electro-ball",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "encore",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "feint",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "iron-tail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "light-screen",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "nasty-plot",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "nuzzle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "play-nice",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "slam",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "spark",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sweet-kiss",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "swift",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-punch",
+                    "method": "level-up",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-punch",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-punch",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-shock",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "wild-charge",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "ultra-sun-ultra-moon": [
+                {
+                    "move": "double-team",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "iron-tail",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-punch",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-shock",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "wild-charge",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "x-y": [
+                {
+                    "move": "double-team",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-shock",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "wild-charge",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "xd": [
+                {
+                    "move": "double-team",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "iron-tail",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "light-screen",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "quick-attack",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-shock",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "yellow": [
+                {
+                    "move": "double-team",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "swift",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunder-shock",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "thunder-wave",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "thunderbolt",
+                    "method": "machine",
+                    "level": 0
+                }
+            ]
+        }
+    }
+}

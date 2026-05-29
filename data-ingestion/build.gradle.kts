@@ -38,6 +38,18 @@ tasks.register<JavaExec>("smogonToTargets") {
     workingDir = rootProject.projectDir
 }
 
+// Evolution-line ingestion (diary 103) — resolves chains and pulls per-stage
+// learnsets (reusing the shared .cache/pokeapi/pokemon/ cache), writing self-contained
+// bundles to data/src/main/resources/dex/evolution-lines/ for the delay advisor.
+tasks.register<JavaExec>("ingestEvolutionLines") {
+    group = "application"
+    description = "Fetch evolution chains + learnsets and write delay-advisor line bundles."
+    mainClass.set("com.pokemon.battle.ingest.cli.EvolutionLineIngestMainKt")
+    classpath = sourceSets["main"].runtimeClasspath
+    workingDir = rootProject.projectDir
+    standardOutput = System.out
+}
+
 // Audit gap between PokeAPI's item/ability shape and our enum model. Outputs
 // a markdown table; useful when motivating an enum → data-class refactor.
 tasks.register<JavaExec>("auditModelGap") {

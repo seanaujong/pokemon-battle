@@ -1,0 +1,2232 @@
+{
+    "base": "skitty",
+    "edges": [
+        {
+            "from": "skitty",
+            "to": "delcatty",
+            "trigger": "use-item",
+            "item": "moon-stone"
+        }
+    ],
+    "learnsets": {
+        "delcatty": {
+            "black-2-white-2": [
+                {
+                    "move": "attract",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "attract",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "covet",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "facade",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fake-out",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "heal-bell",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "payback",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "black-white": [
+                {
+                    "move": "attract",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "attract",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "facade",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fake-out",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "payback",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "brilliant-diamond-shining-pearl": [
+                {
+                    "move": "attract",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "attract",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "baby-doll-eyes",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "charm",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "copycat",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "covet",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "disarming-voice",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "double-edge",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "facade",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "facade",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fake-out",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "fury-swipes",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "heal-bell",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "payback",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "payback",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "play-rough",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "colosseum": [
+                {
+                    "move": "attract",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "attract",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "facade",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "diamond-pearl": [
+                {
+                    "move": "attract",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "attract",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "captivate",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "facade",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fake-out",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "payback",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "emerald": [
+                {
+                    "move": "attract",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "attract",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "double-edge",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "facade",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "firered-leafgreen": [
+                {
+                    "move": "attract",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "attract",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "double-edge",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "facade",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "heartgold-soulsilver": [
+                {
+                    "move": "attract",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "attract",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "captivate",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "facade",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fake-out",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "heal-bell",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "payback",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "omega-ruby-alpha-sapphire": [
+                {
+                    "move": "attract",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "attract",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "covet",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "facade",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fake-out",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "heal-bell",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "payback",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "platinum": [
+                {
+                    "move": "attract",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "attract",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "captivate",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "facade",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fake-out",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "payback",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "ruby-sapphire": [
+                {
+                    "move": "attract",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "attract",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "facade",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "sun-moon": [
+                {
+                    "move": "attract",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "attract",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "facade",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fake-out",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "payback",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "ultra-sun-ultra-moon": [
+                {
+                    "move": "attract",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "attract",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "covet",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "facade",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fake-out",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "heal-bell",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "payback",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "x-y": [
+                {
+                    "move": "attract",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "attract",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "facade",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fake-out",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "payback",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "xd": [
+                {
+                    "move": "attract",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "attract",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "double-edge",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "facade",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ]
+        },
+        "skitty": {
+            "black-2-white-2": [
+                {
+                    "move": "assist",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "attract",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "attract",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "captivate",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "captivate",
+                    "method": "level-up",
+                    "level": 46
+                },
+                {
+                    "move": "charm",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "copycat",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "covet",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "covet",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "double-edge",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "facade",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fake-out",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "fake-out",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "feint-attack",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "foresight",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "heal-bell",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "heal-bell",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "payback",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "wake-up-slap",
+                    "method": "level-up",
+                    "level": 32
+                }
+            ],
+            "black-white": [
+                {
+                    "move": "assist",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "attract",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "attract",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "captivate",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "captivate",
+                    "method": "level-up",
+                    "level": 46
+                },
+                {
+                    "move": "charm",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "copycat",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "covet",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "double-edge",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "facade",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fake-out",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "fake-out",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "feint-attack",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "foresight",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "heal-bell",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "payback",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "wake-up-slap",
+                    "method": "level-up",
+                    "level": 32
+                }
+            ],
+            "brilliant-diamond-shining-pearl": [
+                {
+                    "move": "attract",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "attract",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "baby-doll-eyes",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "charm",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "copycat",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "covet",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "disarming-voice",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "double-edge",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "facade",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "facade",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fake-out",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "fake-out",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "fury-swipes",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "heal-bell",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "payback",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "payback",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "play-rough",
+                    "method": "level-up",
+                    "level": 46
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "colosseum": [
+                {
+                    "move": "assist",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "attract",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "attract",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "charm",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "covet",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "double-edge",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "facade",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "feint-attack",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "heal-bell",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 3
+                }
+            ],
+            "diamond-pearl": [
+                {
+                    "move": "assist",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "attract",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "attract",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "captivate",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "captivate",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "charm",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "copycat",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "covet",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "double-edge",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "facade",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fake-out",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "fake-out",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "feint-attack",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "heal-bell",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "payback",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "wake-up-slap",
+                    "method": "level-up",
+                    "level": 29
+                }
+            ],
+            "emerald": [
+                {
+                    "move": "assist",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "attract",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "attract",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "charm",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "covet",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "double-edge",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "double-edge",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "facade",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "feint-attack",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "heal-bell",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 3
+                }
+            ],
+            "firered-leafgreen": [
+                {
+                    "move": "assist",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "attract",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "attract",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "charm",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "covet",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "double-edge",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "double-edge",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "facade",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "feint-attack",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "heal-bell",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 3
+                }
+            ],
+            "heartgold-soulsilver": [
+                {
+                    "move": "assist",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "attract",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "attract",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "captivate",
+                    "method": "level-up",
+                    "level": 46
+                },
+                {
+                    "move": "captivate",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "charm",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "copycat",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "covet",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "double-edge",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "facade",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fake-out",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "fake-out",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "feint-attack",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "foresight",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "heal-bell",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "heal-bell",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "payback",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "wake-up-slap",
+                    "method": "level-up",
+                    "level": 32
+                }
+            ],
+            "omega-ruby-alpha-sapphire": [
+                {
+                    "move": "assist",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "attract",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "attract",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "captivate",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "captivate",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "charm",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "copycat",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "covet",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "covet",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "disarming-voice",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "double-edge",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "facade",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fake-out",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "fake-out",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "feint-attack",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "foresight",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "heal-bell",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "heal-bell",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "payback",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "play-rough",
+                    "method": "level-up",
+                    "level": 46
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "wake-up-slap",
+                    "method": "level-up",
+                    "level": 28
+                }
+            ],
+            "platinum": [
+                {
+                    "move": "assist",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "attract",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "attract",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "captivate",
+                    "method": "level-up",
+                    "level": 46
+                },
+                {
+                    "move": "captivate",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "charm",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "copycat",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "covet",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "double-edge",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "facade",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fake-out",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "fake-out",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "feint-attack",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "foresight",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "heal-bell",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "payback",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "wake-up-slap",
+                    "method": "level-up",
+                    "level": 32
+                }
+            ],
+            "ruby-sapphire": [
+                {
+                    "move": "assist",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "attract",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "attract",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "charm",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "covet",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "double-edge",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "facade",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "feint-attack",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "heal-bell",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 3
+                }
+            ],
+            "sun-moon": [
+                {
+                    "move": "assist",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "attract",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "attract",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "captivate",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "captivate",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "charm",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "copycat",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "covet",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "disarming-voice",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "double-edge",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "facade",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fake-out",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "fake-out",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "feint-attack",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "foresight",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "heal-bell",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "payback",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "play-rough",
+                    "method": "level-up",
+                    "level": 46
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "wake-up-slap",
+                    "method": "level-up",
+                    "level": 28
+                }
+            ],
+            "ultra-sun-ultra-moon": [
+                {
+                    "move": "assist",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "attract",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "attract",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "captivate",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "captivate",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "charm",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "copycat",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "covet",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "covet",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "disarming-voice",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "double-edge",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "facade",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fake-out",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "fake-out",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "feint-attack",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "foresight",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "heal-bell",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "heal-bell",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "payback",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "play-rough",
+                    "method": "level-up",
+                    "level": 46
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "wake-up-slap",
+                    "method": "level-up",
+                    "level": 28
+                }
+            ],
+            "x-y": [
+                {
+                    "move": "assist",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "attract",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "attract",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "captivate",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "captivate",
+                    "method": "level-up",
+                    "level": 46
+                },
+                {
+                    "move": "charm",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "copycat",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "covet",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "double-edge",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "facade",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "fake-out",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "fake-out",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "feint-attack",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "foresight",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "heal-bell",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "payback",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "play-rough",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "wake-up-slap",
+                    "method": "level-up",
+                    "level": 32
+                }
+            ],
+            "xd": [
+                {
+                    "move": "assist",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "attract",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "attract",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "charm",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "covet",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "double-edge",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "double-edge",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "double-slap",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "facade",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "feint-attack",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "growl",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "heal-bell",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "sing",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tail-whip",
+                    "method": "level-up",
+                    "level": 3
+                }
+            ]
+        }
+    }
+}

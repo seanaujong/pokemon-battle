@@ -1,0 +1,3401 @@
+{
+    "base": "budew",
+    "edges": [
+        {
+            "from": "budew",
+            "to": "roselia",
+            "trigger": "level-up"
+        },
+        {
+            "from": "roselia",
+            "to": "roserade",
+            "trigger": "use-item",
+            "item": "shiny-stone"
+        }
+    ],
+    "learnsets": {
+        "budew": {
+            "black-2-white-2": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "energy-ball",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "grass-whistle",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "growth",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "synthesis",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "synthesis",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "venoshock",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-sport",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "worry-seed",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "worry-seed",
+                    "method": "tutor",
+                    "level": 0
+                }
+            ],
+            "black-white": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "energy-ball",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "grass-whistle",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "growth",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "synthesis",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "venoshock",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-sport",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "worry-seed",
+                    "method": "level-up",
+                    "level": 16
+                }
+            ],
+            "brilliant-diamond-shining-pearl": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "energy-ball",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "growth",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "synthesis",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "worry-seed",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "diamond-pearl": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "energy-ball",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "growth",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "synthesis",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-sport",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "worry-seed",
+                    "method": "level-up",
+                    "level": 16
+                }
+            ],
+            "heartgold-soulsilver": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "energy-ball",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "growth",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "synthesis",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "synthesis",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-sport",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "worry-seed",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "worry-seed",
+                    "method": "tutor",
+                    "level": 0
+                }
+            ],
+            "legends-arceus": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 6
+                },
+                {
+                    "move": "energy-ball",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 52
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "venoshock",
+                    "method": "level-up",
+                    "level": 25
+                }
+            ],
+            "omega-ruby-alpha-sapphire": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "energy-ball",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "grass-whistle",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "growth",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "synthesis",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "synthesis",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "venoshock",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-sport",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "worry-seed",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "worry-seed",
+                    "method": "tutor",
+                    "level": 0
+                }
+            ],
+            "platinum": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "energy-ball",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "growth",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "synthesis",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "synthesis",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-sport",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "worry-seed",
+                    "method": "level-up",
+                    "level": 16
+                }
+            ],
+            "sun-moon": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "energy-ball",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "grass-whistle",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "growth",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "synthesis",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "venoshock",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-sport",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "worry-seed",
+                    "method": "level-up",
+                    "level": 16
+                }
+            ],
+            "sword-shield": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "energy-ball",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "growth",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "synthesis",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "venoshock",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "weather-ball",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "worry-seed",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "ultra-sun-ultra-moon": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "energy-ball",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "grass-whistle",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "growth",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "synthesis",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "synthesis",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "venoshock",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-sport",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "worry-seed",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "worry-seed",
+                    "method": "tutor",
+                    "level": 0
+                }
+            ],
+            "x-y": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "energy-ball",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "grass-whistle",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "growth",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "synthesis",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "venoshock",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "water-sport",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "worry-seed",
+                    "method": "level-up",
+                    "level": 16
+                }
+            ]
+        },
+        "roselia": {
+            "black-2-white-2": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "aromatherapy",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "energy-ball",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "grass-whistle",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "grass-whistle",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "growth",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "ingrain",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "leech-seed",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "magical-leaf",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "synthesis",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "synthesis",
+                    "method": "level-up",
+                    "level": 46
+                },
+                {
+                    "move": "synthesis",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic-spikes",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "venoshock",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "worry-seed",
+                    "method": "tutor",
+                    "level": 0
+                }
+            ],
+            "black-white": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "aromatherapy",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "energy-ball",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "grass-whistle",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "grass-whistle",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "growth",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "ingrain",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "leech-seed",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "magical-leaf",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "synthesis",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "synthesis",
+                    "method": "level-up",
+                    "level": 46
+                },
+                {
+                    "move": "toxic",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic-spikes",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "venoshock",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "brilliant-diamond-shining-pearl": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "aromatherapy",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "energy-ball",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "level-up",
+                    "level": 30
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "growth",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "ingrain",
+                    "method": "level-up",
+                    "level": 55
+                },
+                {
+                    "move": "leech-seed",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "magical-leaf",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "petal-blizzard",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 60
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "synthesis",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "synthesis",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "toxic",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic-spikes",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "worry-seed",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "colosseum": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "aromatherapy",
+                    "method": "level-up",
+                    "level": 53
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "grass-whistle",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "growth",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "ingrain",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "leech-seed",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "magical-leaf",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "synthesis",
+                    "method": "level-up",
+                    "level": 57
+                },
+                {
+                    "move": "toxic",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "diamond-pearl": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "aromatherapy",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "energy-ball",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "grass-whistle",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "growth",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "ingrain",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "leech-seed",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "magical-leaf",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "synthesis",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "synthesis",
+                    "method": "level-up",
+                    "level": 46
+                },
+                {
+                    "move": "toxic",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic-spikes",
+                    "method": "level-up",
+                    "level": 28
+                }
+            ],
+            "emerald": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "aromatherapy",
+                    "method": "level-up",
+                    "level": 53
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "grass-whistle",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "growth",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "ingrain",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "leech-seed",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "magical-leaf",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "synthesis",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "synthesis",
+                    "method": "level-up",
+                    "level": 57
+                },
+                {
+                    "move": "toxic",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "firered-leafgreen": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "aromatherapy",
+                    "method": "level-up",
+                    "level": 53
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "grass-whistle",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "growth",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "ingrain",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "leech-seed",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "magical-leaf",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "synthesis",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "synthesis",
+                    "method": "level-up",
+                    "level": 57
+                },
+                {
+                    "move": "toxic",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "heartgold-soulsilver": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "aromatherapy",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "energy-ball",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "grass-whistle",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "growth",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "ingrain",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "leech-seed",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "magical-leaf",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "synthesis",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "synthesis",
+                    "method": "level-up",
+                    "level": 46
+                },
+                {
+                    "move": "synthesis",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic-spikes",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "worry-seed",
+                    "method": "tutor",
+                    "level": 0
+                }
+            ],
+            "legends-arceus": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 6
+                },
+                {
+                    "move": "energy-ball",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 52
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "venoshock",
+                    "method": "level-up",
+                    "level": 25
+                }
+            ],
+            "omega-ruby-alpha-sapphire": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "aromatherapy",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "energy-ball",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "grass-whistle",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "grass-whistle",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "growth",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "ingrain",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "leech-seed",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "magical-leaf",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "petal-blizzard",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "synthesis",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "synthesis",
+                    "method": "level-up",
+                    "level": 46
+                },
+                {
+                    "move": "synthesis",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic-spikes",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "venoshock",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "worry-seed",
+                    "method": "tutor",
+                    "level": 0
+                }
+            ],
+            "platinum": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "aromatherapy",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "energy-ball",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "grass-whistle",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "growth",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "ingrain",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "leech-seed",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "magical-leaf",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "synthesis",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "synthesis",
+                    "method": "level-up",
+                    "level": 46
+                },
+                {
+                    "move": "synthesis",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic-spikes",
+                    "method": "level-up",
+                    "level": 28
+                }
+            ],
+            "ruby-sapphire": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "aromatherapy",
+                    "method": "level-up",
+                    "level": 53
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "grass-whistle",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "growth",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "ingrain",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "leech-seed",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "magical-leaf",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "synthesis",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "synthesis",
+                    "method": "level-up",
+                    "level": 57
+                },
+                {
+                    "move": "toxic",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "sun-moon": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "aromatherapy",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "energy-ball",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "grass-whistle",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "grass-whistle",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "growth",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "ingrain",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "leech-seed",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "magical-leaf",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "petal-blizzard",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "synthesis",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "synthesis",
+                    "method": "level-up",
+                    "level": 46
+                },
+                {
+                    "move": "toxic",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic-spikes",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "venoshock",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "sword-shield": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "aromatherapy",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "energy-ball",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "level-up",
+                    "level": 30
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "growth",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "ingrain",
+                    "method": "level-up",
+                    "level": 55
+                },
+                {
+                    "move": "leech-seed",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "magical-leaf",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "magical-leaf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "petal-blizzard",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 60
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "synthesis",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "toxic",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "toxic-spikes",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "toxic-spikes",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "venoshock",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "weather-ball",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "worry-seed",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "ultra-sun-ultra-moon": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "aromatherapy",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "energy-ball",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "grass-whistle",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "grass-whistle",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "growth",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "ingrain",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "leech-seed",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "magical-leaf",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "petal-blizzard",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "synthesis",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "synthesis",
+                    "method": "level-up",
+                    "level": 46
+                },
+                {
+                    "move": "synthesis",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic-spikes",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "venoshock",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "worry-seed",
+                    "method": "tutor",
+                    "level": 0
+                }
+            ],
+            "x-y": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "aromatherapy",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "energy-ball",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "grass-whistle",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "grass-whistle",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "growth",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "ingrain",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "leech-seed",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "magical-leaf",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "petal-blizzard",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "synthesis",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "synthesis",
+                    "method": "level-up",
+                    "level": 46
+                },
+                {
+                    "move": "toxic",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic-spikes",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "venoshock",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "xd": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "aromatherapy",
+                    "method": "level-up",
+                    "level": 53
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "grass-whistle",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "growth",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "ingrain",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "leech-seed",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "magical-leaf",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "synthesis",
+                    "method": "level-up",
+                    "level": 57
+                },
+                {
+                    "move": "toxic",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ]
+        },
+        "roserade": {
+            "black-2-white-2": [
+                {
+                    "move": "energy-ball",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "magical-leaf",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "synthesis",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "venoshock",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "weather-ball",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "worry-seed",
+                    "method": "tutor",
+                    "level": 0
+                }
+            ],
+            "black-white": [
+                {
+                    "move": "energy-ball",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "magical-leaf",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "venoshock",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "weather-ball",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "brilliant-diamond-shining-pearl": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "aromatherapy",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "energy-ball",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "grassy-terrain",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "growth",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "ingrain",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leech-seed",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "magical-leaf",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "petal-blizzard",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "synthesis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "toxic",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic-spikes",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "venom-drench",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "worry-seed",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "diamond-pearl": [
+                {
+                    "move": "energy-ball",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "magical-leaf",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "weather-ball",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "heartgold-soulsilver": [
+                {
+                    "move": "energy-ball",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "magical-leaf",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "synthesis",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "weather-ball",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "worry-seed",
+                    "method": "tutor",
+                    "level": 0
+                }
+            ],
+            "legends-arceus": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 6
+                },
+                {
+                    "move": "energy-ball",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 52
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "venoshock",
+                    "method": "level-up",
+                    "level": 25
+                }
+            ],
+            "omega-ruby-alpha-sapphire": [
+                {
+                    "move": "energy-ball",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "grassy-terrain",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "magical-leaf",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "synthesis",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "venom-drench",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "venoshock",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "weather-ball",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "worry-seed",
+                    "method": "tutor",
+                    "level": 0
+                }
+            ],
+            "platinum": [
+                {
+                    "move": "energy-ball",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "magical-leaf",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "synthesis",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "weather-ball",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "sun-moon": [
+                {
+                    "move": "energy-ball",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "grassy-terrain",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "magical-leaf",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "venom-drench",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "venoshock",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "weather-ball",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "sword-shield": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "aromatherapy",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "energy-ball",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "grassy-terrain",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "grassy-terrain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "growth",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "ingrain",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leech-seed",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "magical-leaf",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "magical-leaf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "petal-blizzard",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "synthesis",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "toxic",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "toxic-spikes",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "toxic-spikes",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "venom-drench",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "venom-drench",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "venoshock",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "weather-ball",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "worry-seed",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "ultra-sun-ultra-moon": [
+                {
+                    "move": "energy-ball",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "grassy-terrain",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "magical-leaf",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "synthesis",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "venom-drench",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "venoshock",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "weather-ball",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "worry-seed",
+                    "method": "tutor",
+                    "level": 0
+                }
+            ],
+            "x-y": [
+                {
+                    "move": "energy-ball",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "grassy-terrain",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "magical-leaf",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-jab",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "poison-sting",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "venom-drench",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "venoshock",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "weather-ball",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ]
+        }
+    }
+}

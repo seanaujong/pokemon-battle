@@ -1,0 +1,2266 @@
+{
+    "base": "caterpie",
+    "edges": [
+        {
+            "from": "caterpie",
+            "to": "metapod",
+            "trigger": "level-up",
+            "minLevel": 7
+        },
+        {
+            "from": "metapod",
+            "to": "butterfree",
+            "trigger": "level-up",
+            "minLevel": 10
+        }
+    ],
+    "learnsets": {
+        "butterfree": {
+            "black-2-white-2": [
+                {
+                    "move": "bug-bite",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "bug-buzz",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "captivate",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "gust",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "psybeam",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "quiver-dance",
+                    "method": "level-up",
+                    "level": 46
+                },
+                {
+                    "move": "rage-powder",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "silver-wind",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "supersonic",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "tailwind",
+                    "method": "level-up",
+                    "level": 30
+                },
+                {
+                    "move": "tailwind",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "whirlwind",
+                    "method": "level-up",
+                    "level": 22
+                }
+            ],
+            "black-white": [
+                {
+                    "move": "bug-buzz",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "captivate",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "gust",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "psybeam",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "quiver-dance",
+                    "method": "level-up",
+                    "level": 46
+                },
+                {
+                    "move": "rage-powder",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "silver-wind",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "supersonic",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "tailwind",
+                    "method": "level-up",
+                    "level": 30
+                },
+                {
+                    "move": "whirlwind",
+                    "method": "level-up",
+                    "level": 22
+                }
+            ],
+            "brilliant-diamond-shining-pearl": [
+                {
+                    "move": "air-slash",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "bug-bite",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bug-buzz",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "bug-buzz",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "gust",
+                    "method": "level-up",
+                    "level": 0
+                },
+                {
+                    "move": "gust",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "harden",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "psybeam",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "quiver-dance",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "rage-powder",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "string-shot",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "supersonic",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tailwind",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "whirlwind",
+                    "method": "level-up",
+                    "level": 20
+                }
+            ],
+            "colosseum": [
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "gust",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "psybeam",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "silver-wind",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 14
+                },
+                {
+                    "move": "supersonic",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "whirlwind",
+                    "method": "level-up",
+                    "level": 23
+                }
+            ],
+            "crystal": [
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "gust",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "psybeam",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 14
+                },
+                {
+                    "move": "supersonic",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "whirlwind",
+                    "method": "level-up",
+                    "level": 23
+                }
+            ],
+            "diamond-pearl": [
+                {
+                    "move": "bug-buzz",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "captivate",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "captivate",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "gust",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "psybeam",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "silver-wind",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "silver-wind",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "supersonic",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "tailwind",
+                    "method": "level-up",
+                    "level": 30
+                },
+                {
+                    "move": "whirlwind",
+                    "method": "level-up",
+                    "level": 22
+                }
+            ],
+            "emerald": [
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "gust",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "psybeam",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "silver-wind",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 14
+                },
+                {
+                    "move": "supersonic",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "whirlwind",
+                    "method": "level-up",
+                    "level": 23
+                }
+            ],
+            "firered-leafgreen": [
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "gust",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "psybeam",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "silver-wind",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 14
+                },
+                {
+                    "move": "supersonic",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "whirlwind",
+                    "method": "level-up",
+                    "level": 23
+                }
+            ],
+            "gold-silver": [
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "gust",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "psybeam",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 14
+                },
+                {
+                    "move": "supersonic",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "whirlwind",
+                    "method": "level-up",
+                    "level": 23
+                }
+            ],
+            "heartgold-soulsilver": [
+                {
+                    "move": "bug-bite",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "bug-buzz",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "captivate",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "captivate",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "gust",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "psybeam",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "silver-wind",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "silver-wind",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "string-shot",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "supersonic",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "tailwind",
+                    "method": "level-up",
+                    "level": 30
+                },
+                {
+                    "move": "tailwind",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "whirlwind",
+                    "method": "level-up",
+                    "level": 22
+                }
+            ],
+            "lets-go-pikachu-lets-go-eevee": [
+                {
+                    "move": "air-slash",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "bug-buzz",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "gust",
+                    "method": "level-up",
+                    "level": 0
+                },
+                {
+                    "move": "gust",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "psybeam",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "quiver-dance",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "supersonic",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "whirlwind",
+                    "method": "level-up",
+                    "level": 25
+                }
+            ],
+            "omega-ruby-alpha-sapphire": [
+                {
+                    "move": "bug-bite",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "bug-buzz",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "captivate",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "gust",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "psybeam",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "quiver-dance",
+                    "method": "level-up",
+                    "level": 46
+                },
+                {
+                    "move": "rage-powder",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "silver-wind",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "supersonic",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "tailwind",
+                    "method": "level-up",
+                    "level": 30
+                },
+                {
+                    "move": "tailwind",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "whirlwind",
+                    "method": "level-up",
+                    "level": 22
+                }
+            ],
+            "platinum": [
+                {
+                    "move": "bug-buzz",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "captivate",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "captivate",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "gust",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "psybeam",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "silver-wind",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "silver-wind",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "supersonic",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "tailwind",
+                    "method": "level-up",
+                    "level": 30
+                },
+                {
+                    "move": "whirlwind",
+                    "method": "level-up",
+                    "level": 22
+                }
+            ],
+            "red-blue": [
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "psybeam",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "supersonic",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "whirlwind",
+                    "method": "level-up",
+                    "level": 26
+                },
+                {
+                    "move": "whirlwind",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "ruby-sapphire": [
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "gust",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "psybeam",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "silver-wind",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 14
+                },
+                {
+                    "move": "supersonic",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "whirlwind",
+                    "method": "level-up",
+                    "level": 23
+                }
+            ],
+            "sun-moon": [
+                {
+                    "move": "air-slash",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "bug-buzz",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "captivate",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "gust",
+                    "method": "level-up",
+                    "level": 0
+                },
+                {
+                    "move": "gust",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "psybeam",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "quiver-dance",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "rage-powder",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "silver-wind",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "supersonic",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "tailwind",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "whirlwind",
+                    "method": "level-up",
+                    "level": 29
+                }
+            ],
+            "sword-shield": [
+                {
+                    "move": "air-slash",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "air-slash",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "bug-bite",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "bug-buzz",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "bug-buzz",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "gust",
+                    "method": "level-up",
+                    "level": 0
+                },
+                {
+                    "move": "gust",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "harden",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "psybeam",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "quiver-dance",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "rage-powder",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "string-shot",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "supersonic",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tailwind",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "whirlwind",
+                    "method": "level-up",
+                    "level": 20
+                }
+            ],
+            "ultra-sun-ultra-moon": [
+                {
+                    "move": "air-slash",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "bug-bite",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "bug-buzz",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "captivate",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 11
+                },
+                {
+                    "move": "gust",
+                    "method": "level-up",
+                    "level": 0
+                },
+                {
+                    "move": "gust",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "psybeam",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "quiver-dance",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "rage-powder",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "silver-wind",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "supersonic",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "tailwind",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "tailwind",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "whirlwind",
+                    "method": "level-up",
+                    "level": 29
+                }
+            ],
+            "x-y": [
+                {
+                    "move": "bug-buzz",
+                    "method": "level-up",
+                    "level": 42
+                },
+                {
+                    "move": "captivate",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "gust",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "psybeam",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "quiver-dance",
+                    "method": "level-up",
+                    "level": 46
+                },
+                {
+                    "move": "rage-powder",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "silver-wind",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "supersonic",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "tailwind",
+                    "method": "level-up",
+                    "level": 30
+                },
+                {
+                    "move": "whirlwind",
+                    "method": "level-up",
+                    "level": 22
+                }
+            ],
+            "xd": [
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "gust",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "psybeam",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "safeguard",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "safeguard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "silver-wind",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 14
+                },
+                {
+                    "move": "supersonic",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "whirlwind",
+                    "method": "level-up",
+                    "level": 23
+                }
+            ],
+            "yellow": [
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "confusion",
+                    "method": "level-up",
+                    "level": 10
+                },
+                {
+                    "move": "gust",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "psybeam",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 14
+                },
+                {
+                    "move": "supersonic",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "whirlwind",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "whirlwind",
+                    "method": "machine",
+                    "level": 0
+                }
+            ]
+        },
+        "caterpie": {
+            "black-2-white-2": [
+                {
+                    "move": "bug-bite",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "bug-bite",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "string-shot",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "black-white": [
+                {
+                    "move": "bug-bite",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "string-shot",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "brilliant-diamond-shining-pearl": [
+                {
+                    "move": "bug-bite",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "string-shot",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "colosseum": [
+                {
+                    "move": "string-shot",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "crystal": [
+                {
+                    "move": "string-shot",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "diamond-pearl": [
+                {
+                    "move": "string-shot",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "emerald": [
+                {
+                    "move": "string-shot",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "firered-leafgreen": [
+                {
+                    "move": "string-shot",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "gold-silver": [
+                {
+                    "move": "string-shot",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "heartgold-soulsilver": [
+                {
+                    "move": "bug-bite",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "bug-bite",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "string-shot",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "string-shot",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "lets-go-pikachu-lets-go-eevee": [
+                {
+                    "move": "string-shot",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "omega-ruby-alpha-sapphire": [
+                {
+                    "move": "bug-bite",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "bug-bite",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "string-shot",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "platinum": [
+                {
+                    "move": "bug-bite",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "string-shot",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "red-blue": [
+                {
+                    "move": "string-shot",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "ruby-sapphire": [
+                {
+                    "move": "string-shot",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "sun-moon": [
+                {
+                    "move": "bug-bite",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "string-shot",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "sword-shield": [
+                {
+                    "move": "bug-bite",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "string-shot",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "ultra-sun-ultra-moon": [
+                {
+                    "move": "bug-bite",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "bug-bite",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "string-shot",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "x-y": [
+                {
+                    "move": "bug-bite",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "string-shot",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "xd": [
+                {
+                    "move": "string-shot",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "yellow": [
+                {
+                    "move": "string-shot",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "tackle",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ]
+        },
+        "metapod": {
+            "black-2-white-2": [
+                {
+                    "move": "bug-bite",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "harden",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "harden",
+                    "method": "level-up",
+                    "level": 7
+                }
+            ],
+            "black-white": [
+                {
+                    "move": "harden",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "harden",
+                    "method": "level-up",
+                    "level": 7
+                }
+            ],
+            "brilliant-diamond-shining-pearl": [
+                {
+                    "move": "harden",
+                    "method": "level-up",
+                    "level": 0
+                },
+                {
+                    "move": "harden",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "colosseum": [
+                {
+                    "move": "harden",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "harden",
+                    "method": "level-up",
+                    "level": 7
+                }
+            ],
+            "crystal": [
+                {
+                    "move": "harden",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "harden",
+                    "method": "level-up",
+                    "level": 7
+                }
+            ],
+            "diamond-pearl": [
+                {
+                    "move": "harden",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "harden",
+                    "method": "level-up",
+                    "level": 7
+                }
+            ],
+            "emerald": [
+                {
+                    "move": "harden",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "harden",
+                    "method": "level-up",
+                    "level": 7
+                }
+            ],
+            "firered-leafgreen": [
+                {
+                    "move": "harden",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "harden",
+                    "method": "level-up",
+                    "level": 7
+                }
+            ],
+            "gold-silver": [
+                {
+                    "move": "harden",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "harden",
+                    "method": "level-up",
+                    "level": 7
+                }
+            ],
+            "heartgold-soulsilver": [
+                {
+                    "move": "bug-bite",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "harden",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "harden",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "string-shot",
+                    "method": "tutor",
+                    "level": 0
+                }
+            ],
+            "lets-go-pikachu-lets-go-eevee": [
+                {
+                    "move": "harden",
+                    "method": "level-up",
+                    "level": 0
+                },
+                {
+                    "move": "harden",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "omega-ruby-alpha-sapphire": [
+                {
+                    "move": "bug-bite",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "harden",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "harden",
+                    "method": "level-up",
+                    "level": 7
+                }
+            ],
+            "platinum": [
+                {
+                    "move": "harden",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "harden",
+                    "method": "level-up",
+                    "level": 7
+                }
+            ],
+            "red-blue": [
+                {
+                    "move": "harden",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "ruby-sapphire": [
+                {
+                    "move": "harden",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "harden",
+                    "method": "level-up",
+                    "level": 7
+                }
+            ],
+            "sun-moon": [
+                {
+                    "move": "harden",
+                    "method": "level-up",
+                    "level": 0
+                },
+                {
+                    "move": "harden",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "sword-shield": [
+                {
+                    "move": "harden",
+                    "method": "level-up",
+                    "level": 0
+                },
+                {
+                    "move": "harden",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "ultra-sun-ultra-moon": [
+                {
+                    "move": "bug-bite",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "harden",
+                    "method": "level-up",
+                    "level": 0
+                },
+                {
+                    "move": "harden",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "x-y": [
+                {
+                    "move": "harden",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "harden",
+                    "method": "level-up",
+                    "level": 7
+                }
+            ],
+            "xd": [
+                {
+                    "move": "harden",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "harden",
+                    "method": "level-up",
+                    "level": 7
+                }
+            ],
+            "yellow": [
+                {
+                    "move": "harden",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "harden",
+                    "method": "level-up",
+                    "level": 7
+                }
+            ]
+        }
+    }
+}

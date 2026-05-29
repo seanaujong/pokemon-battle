@@ -1,0 +1,6338 @@
+{
+    "base": "oddish",
+    "edges": [
+        {
+            "from": "gloom",
+            "to": "bellossom",
+            "trigger": "use-item",
+            "item": "sun-stone"
+        },
+        {
+            "from": "gloom",
+            "to": "vileplume",
+            "trigger": "use-item",
+            "item": "leaf-stone"
+        },
+        {
+            "from": "oddish",
+            "to": "gloom",
+            "trigger": "level-up",
+            "minLevel": 21
+        }
+    ],
+    "learnsets": {
+        "bellossom": {
+            "black-2-white-2": [
+                {
+                    "move": "giga-drain",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "leaf-blade",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leaf-storm",
+                    "method": "level-up",
+                    "level": 53
+                },
+                {
+                    "move": "magical-leaf",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "black-white": [
+                {
+                    "move": "leaf-blade",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leaf-storm",
+                    "method": "level-up",
+                    "level": 53
+                },
+                {
+                    "move": "magical-leaf",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "brilliant-diamond-shining-pearl": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "acid",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "grassy-terrain",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "growth",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "moonblast",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "moonlight",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "petal-blizzard",
+                    "method": "level-up",
+                    "level": 0
+                },
+                {
+                    "move": "petal-blizzard",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "quiver-dance",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "toxic",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "colosseum": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "magical-leaf",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "level-up",
+                    "level": 55
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "crystal": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "level-up",
+                    "level": 55
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "diamond-pearl": [
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "leaf-storm",
+                    "method": "level-up",
+                    "level": 53
+                },
+                {
+                    "move": "magical-leaf",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "emerald": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "magical-leaf",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "level-up",
+                    "level": 55
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "firered-leafgreen": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "magical-leaf",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "level-up",
+                    "level": 55
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "gold-silver": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "level-up",
+                    "level": 55
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "heartgold-soulsilver": [
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "leaf-blade",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leaf-storm",
+                    "method": "level-up",
+                    "level": 53
+                },
+                {
+                    "move": "magical-leaf",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "omega-ruby-alpha-sapphire": [
+                {
+                    "move": "giga-drain",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "leaf-blade",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leaf-storm",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leaf-storm",
+                    "method": "level-up",
+                    "level": 64
+                },
+                {
+                    "move": "magical-leaf",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "petal-blizzard",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "platinum": [
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "leaf-blade",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leaf-storm",
+                    "method": "level-up",
+                    "level": 53
+                },
+                {
+                    "move": "magical-leaf",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "ruby-sapphire": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "magical-leaf",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "level-up",
+                    "level": 55
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "scarlet-violet": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "acid",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "grassy-terrain",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "grassy-terrain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "growth",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leaf-storm",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "magical-leaf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "moonblast",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "moonlight",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "petal-blizzard",
+                    "method": "level-up",
+                    "level": 0
+                },
+                {
+                    "move": "petal-blizzard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "quiver-dance",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "razor-leaf",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "toxic",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "sun-moon": [
+                {
+                    "move": "leaf-blade",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leaf-storm",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leaf-storm",
+                    "method": "level-up",
+                    "level": 69
+                },
+                {
+                    "move": "magical-leaf",
+                    "method": "level-up",
+                    "level": 0
+                },
+                {
+                    "move": "magical-leaf",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "petal-blizzard",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 59
+                },
+                {
+                    "move": "quiver-dance",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "sword-shield": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "acid",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "grassy-terrain",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "grassy-terrain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "growth",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leaf-blade",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "leaf-storm",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "magical-leaf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "moonblast",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "moonlight",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "petal-blizzard",
+                    "method": "level-up",
+                    "level": 0
+                },
+                {
+                    "move": "petal-blizzard",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "quiver-dance",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "toxic",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "ultra-sun-ultra-moon": [
+                {
+                    "move": "giga-drain",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "leaf-blade",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leaf-storm",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leaf-storm",
+                    "method": "level-up",
+                    "level": 69
+                },
+                {
+                    "move": "magical-leaf",
+                    "method": "level-up",
+                    "level": 0
+                },
+                {
+                    "move": "magical-leaf",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "petal-blizzard",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 59
+                },
+                {
+                    "move": "quiver-dance",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "x-y": [
+                {
+                    "move": "leaf-blade",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leaf-storm",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leaf-storm",
+                    "method": "level-up",
+                    "level": 53
+                },
+                {
+                    "move": "magical-leaf",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "petal-blizzard",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "xd": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "magical-leaf",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "level-up",
+                    "level": 55
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ]
+        },
+        "gloom": {
+            "black-2-white-2": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "acid",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "acid",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "lucky-chant",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "moonlight",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 53
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "black-white": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "acid",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "acid",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "lucky-chant",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "moonlight",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 53
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "brilliant-diamond-shining-pearl": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "acid",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "grassy-terrain",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "growth",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "moonblast",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "moonlight",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 14
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "toxic",
+                    "method": "level-up",
+                    "level": 26
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "colosseum": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "acid",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "moonlight",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 14
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "crystal": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "acid",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "moonlight",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 14
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "diamond-pearl": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "acid",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "acid",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "lucky-chant",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "moonlight",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 53
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "emerald": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "acid",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "moonlight",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 14
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "firered-leafgreen": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "acid",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "moonlight",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 14
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "gold-silver": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "acid",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "moonlight",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 14
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "heartgold-soulsilver": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "acid",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "acid",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "lucky-chant",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "moonlight",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 53
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "lets-go-pikachu-lets-go-eevee": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "acid",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "acid",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "growth",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "growth",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "moonblast",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "razor-leaf",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 14
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "toxic",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "omega-ruby-alpha-sapphire": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "acid",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "acid",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "grassy-terrain",
+                    "method": "level-up",
+                    "level": 54
+                },
+                {
+                    "move": "lucky-chant",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "moonlight",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "petal-blizzard",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 59
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 14
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "toxic",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "platinum": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "acid",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "acid",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "lucky-chant",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "moonlight",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 53
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "red-blue": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "acid",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "level-up",
+                    "level": 52
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "ruby-sapphire": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "acid",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "moonlight",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 14
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "scarlet-violet": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "acid",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "grassy-terrain",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "grassy-terrain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "growth",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leaf-storm",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "magical-leaf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "moonblast",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "moonlight",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "petal-blizzard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 14
+                },
+                {
+                    "move": "razor-leaf",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "toxic",
+                    "method": "level-up",
+                    "level": 26
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "sun-moon": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "acid",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "acid",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "grassy-terrain",
+                    "method": "level-up",
+                    "level": 54
+                },
+                {
+                    "move": "growth",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "lucky-chant",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "moonlight",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "petal-blizzard",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 59
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 14
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "toxic",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "sword-shield": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "acid",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "grassy-terrain",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "grassy-terrain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "growth",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "moonblast",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "moonlight",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 14
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "toxic",
+                    "method": "level-up",
+                    "level": 26
+                }
+            ],
+            "ultra-sun-ultra-moon": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "acid",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "acid",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "level-up",
+                    "level": 34
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "grassy-terrain",
+                    "method": "level-up",
+                    "level": 54
+                },
+                {
+                    "move": "growth",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "lucky-chant",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "moonlight",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "petal-blizzard",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 59
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 14
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "toxic",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "x-y": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "acid",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "acid",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "grassy-terrain",
+                    "method": "level-up",
+                    "level": 56
+                },
+                {
+                    "move": "lucky-chant",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "moonlight",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "petal-blizzard",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 53
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "xd": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "acid",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "moonlight",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 14
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "yellow": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "acid",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 38
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "level-up",
+                    "level": 52
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ]
+        },
+        "oddish": {
+            "black-2-white-2": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "acid",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "lucky-chant",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "moonlight",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "razor-leaf",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "black-white": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "acid",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "lucky-chant",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "moonlight",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "razor-leaf",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "brilliant-diamond-shining-pearl": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "acid",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "grassy-terrain",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "growth",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "moonblast",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "moonlight",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 14
+                },
+                {
+                    "move": "razor-leaf",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "toxic",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "colosseum": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "acid",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "moonlight",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 14
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "crystal": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "acid",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "moonlight",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 14
+                },
+                {
+                    "move": "razor-leaf",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "diamond-pearl": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "acid",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "lucky-chant",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "moonlight",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "razor-leaf",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "emerald": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "acid",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "moonlight",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 14
+                },
+                {
+                    "move": "razor-leaf",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "firered-leafgreen": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "acid",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "moonlight",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 14
+                },
+                {
+                    "move": "razor-leaf",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "gold-silver": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "acid",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "moonlight",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 14
+                },
+                {
+                    "move": "razor-leaf",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "heartgold-soulsilver": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "acid",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "lucky-chant",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "moonlight",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "razor-leaf",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "lets-go-pikachu-lets-go-eevee": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "acid",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "growth",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 22
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "moonblast",
+                    "method": "level-up",
+                    "level": 30
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "razor-leaf",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 14
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "toxic",
+                    "method": "level-up",
+                    "level": 26
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "omega-ruby-alpha-sapphire": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "acid",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "grassy-terrain",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "lucky-chant",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "moonblast",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "moonlight",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 51
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "razor-leaf",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 14
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "toxic",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "platinum": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "acid",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "lucky-chant",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "moonlight",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "razor-leaf",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "red-blue": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "acid",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "level-up",
+                    "level": 46
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "ruby-sapphire": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "acid",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "moonlight",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 14
+                },
+                {
+                    "move": "razor-leaf",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "scarlet-violet": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "acid",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "grassy-terrain",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "grassy-terrain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "growth",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leaf-storm",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "magical-leaf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "moonblast",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "moonlight",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 14
+                },
+                {
+                    "move": "razor-leaf",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "toxic",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "sun-moon": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "acid",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "grassy-terrain",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "growth",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "lucky-chant",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "moonblast",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "moonlight",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 51
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "razor-leaf",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 14
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "toxic",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "sword-shield": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "acid",
+                    "method": "level-up",
+                    "level": 4
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "level-up",
+                    "level": 20
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "grassy-terrain",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "grassy-terrain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "growth",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 12
+                },
+                {
+                    "move": "moonblast",
+                    "method": "level-up",
+                    "level": 28
+                },
+                {
+                    "move": "moonlight",
+                    "method": "level-up",
+                    "level": 36
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 40
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 14
+                },
+                {
+                    "move": "razor-leaf",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 8
+                },
+                {
+                    "move": "toxic",
+                    "method": "level-up",
+                    "level": 24
+                }
+            ],
+            "ultra-sun-ultra-moon": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "acid",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "level-up",
+                    "level": 31
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "grassy-terrain",
+                    "method": "level-up",
+                    "level": 47
+                },
+                {
+                    "move": "growth",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "lucky-chant",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "moonblast",
+                    "method": "level-up",
+                    "level": 43
+                },
+                {
+                    "move": "moonlight",
+                    "method": "level-up",
+                    "level": 27
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 51
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "razor-leaf",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 14
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "toxic",
+                    "method": "level-up",
+                    "level": 35
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "x-y": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "acid",
+                    "method": "level-up",
+                    "level": 9
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "level-up",
+                    "level": 37
+                },
+                {
+                    "move": "grassy-terrain",
+                    "method": "level-up",
+                    "level": 45
+                },
+                {
+                    "move": "lucky-chant",
+                    "method": "level-up",
+                    "level": 25
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 21
+                },
+                {
+                    "move": "moonlight",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "level-up",
+                    "level": 29
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 41
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 13
+                },
+                {
+                    "move": "razor-leaf",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 5
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "xd": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "acid",
+                    "method": "level-up",
+                    "level": 23
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "moonlight",
+                    "method": "level-up",
+                    "level": 32
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 39
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 14
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 18
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 16
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 7
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "yellow": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "acid",
+                    "method": "level-up",
+                    "level": 24
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 33
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "level-up",
+                    "level": 46
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ]
+        },
+        "vileplume": {
+            "black-2-white-2": [
+                {
+                    "move": "aromatherapy",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 53
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "level-up",
+                    "level": 65
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "black-white": [
+                {
+                    "move": "aromatherapy",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 53
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "level-up",
+                    "level": 65
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "brilliant-diamond-shining-pearl": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "acid",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "aromatherapy",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "grassy-terrain",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "growth",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "moonblast",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "moonlight",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "petal-blizzard",
+                    "method": "level-up",
+                    "level": 0
+                },
+                {
+                    "move": "petal-blizzard",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "toxic",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "colosseum": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "aromatherapy",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "crystal": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "diamond-pearl": [
+                {
+                    "move": "aromatherapy",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 53
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "level-up",
+                    "level": 65
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "emerald": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "aromatherapy",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "firered-leafgreen": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "aromatherapy",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "gold-silver": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "heartgold-soulsilver": [
+                {
+                    "move": "aromatherapy",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 53
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "level-up",
+                    "level": 65
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "lets-go-pikachu-lets-go-eevee": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "acid",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "growth",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 54
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "omega-ruby-alpha-sapphire": [
+                {
+                    "move": "aromatherapy",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "petal-blizzard",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 59
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "level-up",
+                    "level": 64
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "platinum": [
+                {
+                    "move": "aromatherapy",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "natural-gift",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 53
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "level-up",
+                    "level": 65
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "red-blue": [
+                {
+                    "move": "acid",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "ruby-sapphire": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "aromatherapy",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "scarlet-violet": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "acid",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "grassy-terrain",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "grassy-terrain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "growth",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "leaf-storm",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "magical-leaf",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "moonblast",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "moonlight",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "petal-blizzard",
+                    "method": "level-up",
+                    "level": 0
+                },
+                {
+                    "move": "petal-blizzard",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "razor-leaf",
+                    "method": "egg",
+                    "level": 0
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "toxic",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "sun-moon": [
+                {
+                    "move": "aromatherapy",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "petal-blizzard",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 59
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "level-up",
+                    "level": 69
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "sword-shield": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "acid",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "aromatherapy",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "grassy-terrain",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "grassy-terrain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "growth",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "moonblast",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "moonlight",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "petal-blizzard",
+                    "method": "level-up",
+                    "level": 0
+                },
+                {
+                    "move": "petal-blizzard",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "sweet-scent",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "toxic",
+                    "method": "level-up",
+                    "level": 1
+                }
+            ],
+            "ultra-sun-ultra-moon": [
+                {
+                    "move": "aromatherapy",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "tutor",
+                    "level": 0
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "petal-blizzard",
+                    "method": "level-up",
+                    "level": 49
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 59
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "level-up",
+                    "level": 69
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "x-y": [
+                {
+                    "move": "aromatherapy",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "petal-blizzard",
+                    "method": "level-up",
+                    "level": 50
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 53
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "level-up",
+                    "level": 65
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "xd": [
+                {
+                    "move": "absorb",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "aromatherapy",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "giga-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 44
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sunny-day",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ],
+            "yellow": [
+                {
+                    "move": "acid",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "mega-drain",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "petal-dance",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "poison-powder",
+                    "method": "level-up",
+                    "level": 15
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "sleep-powder",
+                    "method": "level-up",
+                    "level": 19
+                },
+                {
+                    "move": "solar-beam",
+                    "method": "machine",
+                    "level": 0
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 1
+                },
+                {
+                    "move": "stun-spore",
+                    "method": "level-up",
+                    "level": 17
+                },
+                {
+                    "move": "toxic",
+                    "method": "machine",
+                    "level": 0
+                }
+            ]
+        }
+    }
+}

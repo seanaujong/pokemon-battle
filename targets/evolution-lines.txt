@@ -1,0 +1,23 @@
+# Evolution lines for the delay advisor (diary 103). Base-species slugs; the chain
+# auto-expands to every stage. Curated for famous "should I delay evolving?" cases —
+# the six spiked lines plus stone/trade classics whose evolved forms have gutted
+# level-up learnsets. Eevee is deliberately excluded (a which-evolution decision, not
+# a when-to-evolve one).
+kricketot
+caterpie
+hoothoot
+croagunk
+spheal
+pansage
+pichu
+growlithe
+vulpix
+oddish
+poliwag
+shellder
+staryu
+exeggcute
+nidoran-m
+budew
+swablu
+skitty
