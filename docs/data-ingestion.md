@@ -96,14 +96,22 @@ committed. The cache is endpoint-agnostic, so the evolution pipeline's
 `/pokemon` reads hit the **same** files the species/stats pipeline
 populated — already-fetched species cost no network round-trip.
 
-### Fetch — the only door for bytes
+### Fetch — one door per source
 
-**Invariant:** `PokeApiClient.fetch(endpoint, slug)` is the sole way
-external bytes enter the system, and it is generic over endpoint.
-**Assumption:** every endpoint we need is shaped `{base}/{endpoint}/{slug}`.
-A new endpoint is a new DTO file, never a client change — that's why adding
-`/pokemon-species` and `/evolution-chain` for the evolution pipeline
-touched zero existing fetch code.
+**Invariant:** each source has exactly one client, and that client is the
+sole way its bytes enter the system. All clients share a contract: cache
+first, sleep only before an *uncached* request, never write a failed
+response. **Assumption:** a source's URLs share one shape, so one client
+covers it. `PokeApiClient.fetch(endpoint, slug)` is generic over endpoint
+because PokéAPI is uniformly `{base}/{endpoint}/{slug}` — which is why
+adding `/pokemon-species` and `/evolution-chain` for the evolution pipeline
+touched zero existing fetch code, just new DTOs.
+
+Smogon breaks that shape (`{base}/{month}/chaos/{format}-{rating}.json`),
+so it gets its own `SmogonClient` rather than contorting `PokeApiClient` to
+generalize. Two clients sharing a contract is the honest call here: forcing
+one generic client across two URL grammars would buy nothing and blur the
+politeness difference (PokéAPI 100ms vs Smogon's volunteer-run 500ms).
 
 ### Transform — pure, deterministic, lossless-by-intent
 
@@ -175,22 +183,97 @@ incomplete.
 
 ## The three pipelines
 
-All three are instances of the model above; they differ in source, unit,
-and whether they keep a `data/raw` projection.
+All three are instances of the model above. They differ along three axes:
+the source, the unit of the committed artifact, and how many tiers they
+keep between cache and artifact.
 
-- **Species / stats** (`IngestMain`, `SpeciesTransform`): PokéAPI
-  `/pokemon` → committed `data/raw/pokeapi/pokemon/*.json` (filtered
-  projection: name, types, stats) → `pokedex/species/*.json` loaded by
-  `Pokedex`. Keeps a `data/raw` intermediate.
-- **Smogon top-sets** (`SmogonIngestMain`, `SmogonTransform`): Smogon
-  monthly chaos stats → `data/raw/smogon/` + `data/smogon/`. Diary 041.
-  `SmogonToTargetsMain` bridges back, extending `targets/species.txt` from
-  what Smogon says is worth pulling.
-- **Evolution-delay lines** (`EvolutionLineIngestMain`,
-  `EvolutionLineTransform`): the worked example above. **Skips** a
-  `data/raw` intermediate — the committed bundle *is* the projection, so we
-  don't commit a second full copy of every movepool. The verbatim raws stay
-  in `.cache` for regeneration.
+| Pipeline | Source | Artifact (committed) | Tiers | Loaded by |
+|---|---|---|---|---|
+| Species / stats | PokéAPI `/pokemon` | `pokedex/species/*.json` (per species) | 3 | `Pokedex` (runtime) |
+| Smogon top-sets | Smogon chaos | `data/smogon/*-top-sets.json` (per format) | 3 | bridge + team builder |
+| Evolution lines | PokéAPI ×3 | `dex/evolution-lines/*.json` (per line) | 2 | `EvolutionLineDex` |
+
+"Tiers" counts the committed stages between the gitignored `.cache` and the
+final artifact. A *three-tier* pipeline keeps an intermediate
+`data/raw/<source>/` holding the **projected** response (verbatim minus the
+fields no DTO reads) — useful when the raw projection is itself worth
+diffing in review. The evolution pipeline is *two-tier*: it skips
+`data/raw` because the artifact already *is* a projection, and committing a
+second full copy of every movepool would just bloat the repo.
+
+### Species / stats
+
+`IngestMain` reads `targets/species.txt`, fetches `/pokemon`, projects to
+`data/raw/pokeapi/pokemon/*.json` (name, types, stats — via
+`PokeApiProjection`), then `SpeciesTransform` emits the per-species
+`pokedex/species/*.json` the engine loads through `Pokedex`. An `index.txt`
+manifest lists the slugs that ingested cleanly; skipped targets aren't
+listed.
+
+### Smogon top-sets
+
+A genuine three-tier ELT, and the pipeline with the most interesting shape
+— its one artifact feeds *two* consumers, one of which loops back:
+
+```
+┌────────────────────────────────────────────────────────────────────────┐
+│ external + cache                                                  (I/O)  │
+│ Smogon monthly chaos stats   (SmogonClient, 500ms politeness)          │
+└────────────────────────────────────────────────────────────────────────┘
+                                     │
+                                     ▼
+┌────────────────────────────────────────────────────────────────────────┐
+│ tier 2 — raw projection                                          (PURE)  │
+│ .cache/smogon/  →  data/raw/smogon/   (projected, committed)           │
+└────────────────────────────────────────────────────────────────────────┘
+                                     │
+                                     ▼
+┌────────────────────────────────────────────────────────────────────────┐
+│ ARTIFACT — top-sets                                              (seam)  │
+│ data/smogon/<format>-top-sets.json   (transformed, committed)          │
+│ SmogonTransform: top-N species × top-K moves/items/abilities           │
+└────────────────────────────────────────────────────────────────────────┘
+                  ┌──────────────────┴──────────────────┐
+                  │                                      │
+                  ▼                                      ▼
+┌─────────────────────────────────┐    ┌─────────────────────────────────┐
+│ consumer: feedback             ↺│    │ consumer: forward              →│
+│ SmogonToTargetsMain             │    │ SmogonTeamBuilder               │
+│ unions species into             │    │ materializes engine             │
+│ targets/species.txt             │    │ Pokemon for                     │
+│ (+ data/aliases.json)           │    │ MatrixEvalMain                  │
+└─────────────────────────────────┘    └─────────────────────────────────┘
+```
+
+`SmogonIngestMain` fetches per `targets/smogon.txt` (one
+`<month> <format> <rating>` triple per line) and `SmogonTransform` ranks
+species by usage, keeping each one's top moves/items/abilities. Then:
+
+- **Feedback (`SmogonToTargetsMain`)** unions the ranked species back into
+  `targets/species.txt`, so "what's competitively relevant" *drives* what
+  the species pipeline pulls next — a deliberate loop, run between the two
+  ingestion passes. Smogon display names → PokéAPI slugs go through
+  `data/aliases.json`, a committed **data-not-code** seam (diary 067):
+  fixing a name mapping is a JSON edit, not a recompile.
+- **Forward (`SmogonTeamBuilder`)** is a *query-time* consumer (it lives in
+  ingestion but is called from `MatrixEvalMain`, not during ingestion):
+  it materializes engine `Pokemon` from the artifact, picking only
+  moves/abilities the engine actually implements. Diary 101.
+
+This is the same thin-shell principle as the evolution CLI: the artifact is
+the seam, and consumers fan out from it without re-deriving it.
+
+### Evolution-delay lines
+
+The worked example diagrammed above. Two-tier; one artifact per line;
+loaded by `EvolutionLineDex`, analyzed by `EvolutionDelayAdvisor`. Diary 103.
+
+### Not a pipeline: ModelGapAudit
+
+`ModelGapAuditMain` reads PokéAPI item/ability records and prints a markdown
+table of fields our enums don't model. It produces no committed artifact —
+it's a build-time *diagnostic* (the `auditModelGap` task) for motivating an
+enum→data-class refactor, not an ingestion stage.
 
 ## Known assumptions and limitations
 
@@ -226,6 +309,10 @@ catalog data, no new contract imposed on the engine.
 - `docs/diaries/103-evolution-delay-advisor-plan.md` — the worked example's
   full rationale, rule statement, and code review.
 - `docs/diaries/041-pokeapi-and-smogon-stats.md` — the original PokéAPI +
-  Smogon ingestion design.
+  Smogon three-tier ingestion design.
+- `docs/diaries/067-seams-we-lack.md` — the `data/aliases.json`
+  data-not-code seam.
+- `docs/diaries/101-smogon-team-integration.md` — `SmogonTeamBuilder` as a
+  query-time consumer of the Smogon artifact.
 - Tests as executable spec: `EvolutionDelayAdvisorTest` (the rule),
   `EvolutionLineTransformTrimTest` (the cross-layer guard).
