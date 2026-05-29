@@ -18,8 +18,8 @@ import java.nio.file.Path
  * picks the top-rank ability/item and the top-N moves *that we actually
  * implement*, falling back per `OnUnsupported`.
  *
- * Diary 099: replaces the hardcoded matrix team pool with Smogon-informed sets
- * so matrix outcomes carry meaningful play signal.
+ * Diary 101 (planned in 098): replaces the hardcoded matrix team pool with
+ * Smogon-informed sets so matrix outcomes carry meaningful play signal.
  *
  * Name canonicalization: Smogon writes ability/item/move names as lowercase no
  * whitespace ("ironbarbs", "choicescarf", "powerwhip"). Our enums and move
