@@ -49,8 +49,10 @@ version lives in `CLAUDE.md` — this is the short form.
 4. **Validate.** Each checkbox should flip only when there is a concrete
    green signal (compile, test pass, manual check).
 5. **Self-review** against the checklist in `CLAUDE.md` (section "Iteration
-   Loop" step 5). Write findings to `docs/diaries/temp/`; fix the obvious
-   ones; delete the temp file when done.
+   Loop" step 5). Write findings as a `## Code review` section **in the diary
+   itself** — fix the obvious ones in the same commit, flag architectural ones
+   for a follow-up diary. A "Complete" diary with no `## Code review` section is
+   a bug; `grep -L "## Code review" docs/diaries/*.md` lists offenders.
 6. **Update the diary** — mark steps done, record decisions, note surprises.
 7. **Commit when asked** (see section 5).
 
