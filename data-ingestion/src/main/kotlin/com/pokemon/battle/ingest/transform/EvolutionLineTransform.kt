@@ -74,6 +74,9 @@ object EvolutionLineTransform {
                         trigger = detail?.trigger?.name ?: "other",
                         minLevel = detail?.minLevel,
                         item = detail?.item?.name,
+                        minHappiness = detail?.minHappiness,
+                        heldItem = detail?.heldItem?.name,
+                        timeOfDay = detail?.timeOfDay?.ifBlank { null },
                     )
                 walk(child)
             }

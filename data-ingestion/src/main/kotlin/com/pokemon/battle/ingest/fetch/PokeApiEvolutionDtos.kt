@@ -62,4 +62,7 @@ data class PokeApiEvolutionDetail(
     val trigger: NamedResource,
     @SerialName("min_level") val minLevel: Int? = null,
     val item: NamedResource? = null,
+    @SerialName("min_happiness") val minHappiness: Int? = null,
+    @SerialName("held_item") val heldItem: NamedResource? = null,
+    @SerialName("time_of_day") val timeOfDay: String = "",
 )

@@ -10,7 +10,8 @@
         {
             "from": "poliwhirl",
             "to": "politoed",
-            "trigger": "trade"
+            "trigger": "trade",
+            "heldItem": "kings-rock"
         },
         {
             "from": "poliwhirl",

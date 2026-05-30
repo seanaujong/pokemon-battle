@@ -4,7 +4,9 @@
         {
             "from": "budew",
             "to": "roselia",
-            "trigger": "level-up"
+            "trigger": "level-up",
+            "minHappiness": 160,
+            "timeOfDay": "day"
         },
         {
             "from": "roselia",

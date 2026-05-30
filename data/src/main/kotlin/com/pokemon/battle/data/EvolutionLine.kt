@@ -60,13 +60,23 @@ data class MoveAcquisition(
     val level: Int,
 )
 
-/** A single parent → child evolution step. */
+/**
+ * A single parent → child evolution step. Beyond the trigger and its primary
+ * parameter (level or evolution item), [minHappiness], [heldItem], and [timeOfDay]
+ * carry the secondary conditions PokeAPI attaches — friendship, a held item on a
+ * trade, time of day — so the displayed requirement is complete. All are null when
+ * the trigger doesn't use them. These are the chain's single set of conditions, not
+ * a per-generation history.
+ */
 data class EvolutionEdge(
     val from: String,
     val to: String,
     val trigger: EvolutionTrigger,
     val minLevel: Int?,
     val item: String?,
+    val minHappiness: Int? = null,
+    val heldItem: String? = null,
+    val timeOfDay: String? = null,
 )
 
 /**

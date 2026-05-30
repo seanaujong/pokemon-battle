@@ -4,7 +4,8 @@
         {
             "from": "pichu",
             "to": "pikachu",
-            "trigger": "level-up"
+            "trigger": "level-up",
+            "minHappiness": 220
         },
         {
             "from": "pikachu",

@@ -31,6 +31,9 @@ data class EvolutionEdgeJson(
     val trigger: String,
     val minLevel: Int? = null,
     val item: String? = null,
+    val minHappiness: Int? = null,
+    val heldItem: String? = null,
+    val timeOfDay: String? = null,
 ) {
     fun toDomain(): EvolutionEdge =
         EvolutionEdge(
@@ -39,6 +42,9 @@ data class EvolutionEdgeJson(
             trigger = EvolutionTrigger.fromSlug(trigger),
             minLevel = minLevel,
             item = item,
+            minHappiness = minHappiness,
+            heldItem = heldItem,
+            timeOfDay = timeOfDay,
         )
 }
 
