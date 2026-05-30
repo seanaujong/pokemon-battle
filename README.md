@@ -124,11 +124,15 @@ event stream.
 :server          JSONL over stdin/stdout for out-of-JVM clients
 :analytics       event-stream consumers (win rates, replay export)
 :data-ingestion  PokeAPI / Smogon fetchers
+:persistence     on-disk battle-corpus format (record / load / query)
 :ai              choice strategies (random, type-aware)
 :render          events → text
 :data            catalogs (Pokedex, moves, items, abilities)
 :engine          pipeline, events, model, phases, loop  ← no project deps
 ```
+
+`settings.gradle.kts` is the authoritative module list — if it and this block
+disagree, `settings.gradle.kts` wins and this block needs updating.
 
 ## Where to go next
 
