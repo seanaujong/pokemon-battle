@@ -45,6 +45,7 @@ object EvolutionDelayAdvisor {
     ): List<DelayFlag> {
         val flags = mutableListOf<DelayFlag>()
         for (edge in line.edges) {
+            if (!evolvedFormExists(line, edge, versionGroup)) continue
             val reachable = line.reachableFrom(edge.to)
             for ((move, holdTo) in earliestLevelUpLevels(line.movesOf(edge.from, versionGroup))) {
                 if (!isDelayCandidate(edge, holdTo)) continue
@@ -68,6 +69,23 @@ object EvolutionDelayAdvisor {
             ),
         )
     }
+
+    /**
+     * Whether [edge]'s evolved form exists in [versionGroup]. The bundle records a
+     * version group for a form only in games the form appears in, so a missing entry
+     * means the evolution isn't available there (Roserade and the shiny stone are gen
+     * IV; Roselia pre-dates them). You can't lose a move to an evolution you can't
+     * perform, so the edge contributes no flags — without this, every pre-evo level-up
+     * move would be flagged "must delay" for a generation lacking the evolved form.
+     *
+     * Presence is keyed, not list-non-empty: a form that exists but learns nothing of
+     * interest (a gutted stone-evo learnset) still has an entry, and its edge is real.
+     */
+    private fun evolvedFormExists(
+        line: EvolutionLine,
+        edge: EvolutionEdge,
+        versionGroup: String,
+    ): Boolean = line.hasLearnsetIn(edge.to, versionGroup)
 
     /** move -> earliest level at which the pre-evo learns it by level-up. */
     private fun earliestLevelUpLevels(moves: List<MoveAcquisition>): Map<String, Int> =

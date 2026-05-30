@@ -88,6 +88,17 @@ data class EvolutionLine(
         versionGroup: String,
     ): List<MoveAcquisition> = learnsets[species]?.get(versionGroup).orEmpty()
 
+    /**
+     * Whether [species] has a learnset recorded in [versionGroup]. The bundle writes an
+     * entry only for games a form appears in, so this is the signal that the form exists
+     * in that game — distinct from [movesOf] being empty, which a present-but-gutted
+     * learnset also produces.
+     */
+    fun hasLearnsetIn(
+        species: String,
+        versionGroup: String,
+    ): Boolean = learnsets[species]?.containsKey(versionGroup) == true
+
     /** Version groups that appear anywhere in this line's learnsets. */
     fun versionGroups(): Set<String> = learnsets.values.flatMap { it.keys }.toSet()
 

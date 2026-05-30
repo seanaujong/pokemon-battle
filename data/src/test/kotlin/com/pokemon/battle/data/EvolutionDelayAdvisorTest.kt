@@ -88,6 +88,23 @@ class EvolutionDelayAdvisorTest {
         assertEquals(AlternativeAccess.NONE, flag("skitty", "black-white", "charm")?.alternativeAccess)
     }
 
+    @Test
+    fun `roselia into roserade is not flagged before gen IV — roserade did not exist`() {
+        // Regression: Roselia is gen III, but Roserade and the shiny stone are gen IV.
+        // The evolved form has no gen-III learnset, so the evolution can't be performed
+        // there — flagging every Roselia level-up move "must delay" was nonsense. The edge
+        // must contribute nothing in a gen-III game, yet still apply once Roserade exists.
+        val budew = line("budew")
+        assertTrue(
+            EvolutionDelayAdvisor.adviseDelays(budew, "ruby-sapphire").none { it.edgeTo == "roserade" },
+            "no Roselia -> Roserade advice in gen III — the evolution does not exist yet",
+        )
+        assertTrue(
+            EvolutionDelayAdvisor.adviseDelays(budew, "platinum").any { it.edgeTo == "roserade" },
+            "Roselia -> Roserade advice returns once Roserade exists (gen IV)",
+        )
+    }
+
     // ---------------------------------------------------------------------------------
     // Custom-format / extensibility — synthetic lines, hand-built to isolate the rule
     // ---------------------------------------------------------------------------------
