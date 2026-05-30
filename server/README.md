@@ -5,10 +5,6 @@ out-of-JVM client (Python, TypeScript, anything that can subprocess and
 read lines) drive a Pokemon battle end-to-end without needing a JVM
 dependency.
 
-See **diary 069** for the design rationale (`docs/diaries/069-external-
-language-client.md`). See **diary 071** for the registry-DI refactor
-that `:server` depends on.
-
 ## Quick start
 
 ```bash
@@ -31,7 +27,7 @@ python3 scripts/smoke-test-external-client.py
 One JSON object per line. Every message carries `protocolVersion: 1`;
 mismatched versions produce an `error` message and close the stream.
 The version is a mismatch detector, *not* a backwards-compatibility
-promise (see diary 069).
+promise.
 
 The source of truth for the full message shape is
 `server/src/main/kotlin/com/pokemon/battle/server/protocol/Messages.kt`.
@@ -93,8 +89,7 @@ Tera Type lines are accepted but ignored in v1.
 
 The engine does *not* enforce team legality. Clients are free to send a
 Charizard with Earthquake that it can't learn. A future team-validator
-module (diary 067's `team-validator.ts` row) is where legality would
-live.
+module is where legality would live.
 
 ## Lifecycle
 
@@ -102,9 +97,9 @@ One session per process. The server reads two `team_set` messages,
 builds the battle state, then runs turns until a win / draw / turn
 limit / error. Then it emits a `result` and exits 0.
 
-Multiplexing multiple battles in one process is not supported — see
-diary 070's audit for what it would cost. The supervisor pattern
-(one process per battle, managed externally) is the current shape.
+Multiplexing multiple battles in one process is not supported. The
+supervisor pattern (one process per battle, managed externally) is the
+current shape.
 
 ## Limitations (v1)
 
@@ -121,8 +116,5 @@ diary 070's audit for what it would cost. The supervisor pattern
 
 ## Related
 
-- `docs/diaries/069-external-language-client.md` — design, litmus test results, protocolVersion discussion.
-- `docs/diaries/067-seams-we-lack.md` — catalog of Showdown seams we don't have; the server implemented several.
-- `docs/diaries/070-multiplexing-and-concurrency.md` — audit for running many battles in one JVM.
-- `docs/diaries/071-registry-di-refactor.md` — registry injection that phases rely on.
+- `server/src/main/kotlin/com/pokemon/battle/server/protocol/Messages.kt` — the authoritative message shapes.
 - `scripts/smoke-test-external-client.py` — working Python client demonstrating every message type.

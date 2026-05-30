@@ -55,6 +55,14 @@ iteration loop described in [../CLAUDE.md](../CLAUDE.md).
   current behavior. Diaries are the event log: accurate as *rationale* (why a
   decision was made, at the time), not as current reference. Distill durable
   conclusions up into a canonical doc; leave the narrative in the diary.
+- **Module READMEs are local indexes, not diary logs.** A module's own
+  `README.md` (e.g. `server/README.md`) sits next to its code and *may* act as
+  an index — cross-linking to sibling code, scripts, or other READMEs — since
+  that's the natural way to orient someone working in that module. The one
+  borrowed rule: it must not reference a diary entry. A `diary 069` pointer
+  rots the same way whether it lives in a canonical doc or a README, so
+  `DocConventionTest` enforces the no-diary rule across every `README.md`
+  outside `docs/`.
 - **Each doc opens with an "At a glance" abstract** — skimmable in 10 seconds.
 - **Headings are unnumbered and named descriptively** — the abstract is the
   TOC; section names are the stable interface.
