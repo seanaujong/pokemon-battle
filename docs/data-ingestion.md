@@ -59,9 +59,10 @@ of the same model, sketched under *The three pipelines*.
 └────────────────────────────────────────────────────────────────────┘
 ──────────────── QUERY-TIME  (./gradlew adviseDelays) ────────────────
 ┌────────────────────────────────────────────────────────────────────┐
-│ dex + domain                                                 (load)  │
-│ EvolutionLineDex.load*  →  EvolutionLineJson.toDomain()             │
-│ EvolutionLine / Edge / MoveAcquisition · GenerationMap              │
+│ dex + domain                                               (load)  │
+│ EvolutionLineDex.loadAll = committed (classpath) U cached (dir)    │
+│ MISS -> EvolutionLineIngestor fetches + caches the line under      │
+│ .cache/derived/evolution-lines/ (gitignored), then toDomain()      │
 └────────────────────────────────────────────────────────────────────┘
                                    │
                                    ▼
@@ -134,6 +135,29 @@ down two ways: it's a superset (stores all four learn methods, not just
 level-up), and it regenerates with one Gradle task. It is a transformed
 on-disk artifact, **not a wire/interchange contract** — revisable without
 coordinating external consumers.
+
+### On-demand lines — the gitignored second destination
+
+The line artifact has **two write destinations, one writer**. Build-time
+ingestion (`ingestEvolutionLines`) folds over the curated targets and writes
+**committed** bundles. At query time, `adviseDelays <species>` for a line
+*not* in the committed set ingests it on demand into a **gitignored** cache
+(`.cache/derived/evolution-lines/`); `EvolutionLineDex.loadAll` reads
+committed bundles ∪ that cache. Both destinations share one writer
+(`EvolutionLineIngestor.writeBundle`) and one format, so a cached line is
+byte-identical to what the batch would have committed.
+
+The split is deliberate, and it resolves a trilemma: you can hold at most two
+of *(a)* gitignore the verbatim raw cache, *(b)* don't track derived docs,
+*(c)* deterministic offline tests. The repo keeps **a + c** — the committed
+curated set is the deterministic backbone that `EvolutionDelayAdvisorTest`
+loads with no network. On-demand species get **b**: no test depends on them,
+so they stay out of git as a local, regenerable cache. Promotion is the
+deliberate path — add the base to `targets/evolution-lines.txt` and run the
+batch — which moves a line from the cache into the committed, shared set. A
+read-shaped command that fetches and writes is unusual; it is acceptable here
+only because the write is to a gitignored cache, the side effect is printed,
+and the engine is a dev tool run from the repo.
 
 ### Dex + domain — the single JSON→domain crossing
 

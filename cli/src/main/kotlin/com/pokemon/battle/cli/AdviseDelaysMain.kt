@@ -5,7 +5,6 @@ import com.pokemon.battle.data.DelayFlag
 import com.pokemon.battle.data.EvolutionDelayAdvisor
 import com.pokemon.battle.data.EvolutionEdge
 import com.pokemon.battle.data.EvolutionLine
-import com.pokemon.battle.data.EvolutionLineDex
 import com.pokemon.battle.data.EvolutionTrigger
 import com.pokemon.battle.data.GenerationMap
 
@@ -15,6 +14,9 @@ import com.pokemon.battle.data.GenerationMap
  * rule. With `--game` it reports one version group; without, it organizes the answer by
  * generation (a player reads only their own gen), splitting out individual games where
  * version groups within a generation disagree.
+ *
+ * Any species works: a line absent from the committed set is ingested from PokeAPI on
+ * demand into a gitignored cache (see [OnDemandEvolutionLines]).
  */
 fun main(args: Array<String>) {
     if (args.isEmpty()) {
@@ -25,13 +27,27 @@ fun main(args: Array<String>) {
     val gameIndex = args.indexOf("--game")
     val game = if (gameIndex >= 0 && gameIndex + 1 < args.size) args[gameIndex + 1] else null
 
-    val lines = EvolutionLineDex.loadFromClasspath()
-    val line = EvolutionLineDex.lineContaining(lines, species)
-    if (line == null) {
-        println("No ingested evolution line contains '$species'.")
-        println("Available species: ${lines.values.flatMap { it.species }.toSortedSet().joinToString(", ")}")
-        return
-    }
+    val resolver = OnDemandEvolutionLines()
+    val line =
+        when (val resolution = resolver.resolve(species)) {
+            is OnDemandEvolutionLines.Resolution.Unavailable -> {
+                println("No evolution line for '$species' (${resolution.reason}).")
+                println("Known lines: ${resolver.loadAll().values.flatMap { it.species }.toSortedSet().joinToString(", ")}")
+                return
+            }
+            is OnDemandEvolutionLines.Resolution.Resolved -> {
+                resolution.cachePath?.let { path ->
+                    println("'${titleCase(species)}' wasn't in the committed set — fetched its line from PokeAPI.")
+                    println("Cached locally at $path (gitignored, not tracked).")
+                    println(
+                        "To share it, add '${resolution.line.base}' to targets/evolution-lines.txt " +
+                            "and run ./gradlew :data-ingestion:ingestEvolutionLines.",
+                    )
+                    println()
+                }
+                resolution.line
+            }
+        }
 
     println("Evolution-delay advice for ${titleCase(species)} (line: ${titleCase(line.base)})")
     println()
