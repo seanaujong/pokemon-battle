@@ -49,6 +49,12 @@ bin/
 ### Project ###
 docs/diaries/temp/
 
+# Rendered demo media is regenerable from assets/*.tape (`vhs assets/demo.tape`)
+# and hosted on GitHub's asset CDN, never committed — a binary blob is permanent
+# in git history. "Derive, don't store": the .tape is the source, the GIF is output.
+assets/*.gif
+assets/*.mp4
+
 # Full verbatim PokeAPI responses — politeness cache only. Committed, filtered
 # versions of just the fields our DTOs read live under data/raw/pokeapi/.
 .cache/
