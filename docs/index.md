@@ -25,6 +25,17 @@
 | [corpus-format.md](corpus-format.md) | Persisted-battle JSON shape |
 | [corpus-queries.md](corpus-queries.md) | DuckDB query cookbook for analysts |
 | [skills/](skills/) | Recipes: how to add a move, event, item, ability |
+| [../server/README.md](../server/README.md) | `:server` JSONL wire-protocol contract |
+
+### Top-level directories
+
+Non-obvious top-level directories and the doc that explains each:
+
+| Directory | What it holds | Explained in |
+|-----------|---------------|--------------|
+| `targets/` | Ingestion input lists (species, Smogon, evolution lines) | [data-ingestion.md](data-ingestion.md) |
+| `battles/` | Persisted battle-corpus output | [corpus-format.md](corpus-format.md) |
+| `scripts/` | Smoke-test and dev tooling | [../server/README.md](../server/README.md) |
 
 ## Development log
 
