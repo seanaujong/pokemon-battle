@@ -86,13 +86,16 @@ The AI owns move pools. This prevents Pokemon from becoming a god object.
 
 The repo is a Gradle multi-module build. Modules are peers, not
 sub-packages — each has its own `build.gradle.kts`, dependencies, and
-test suite. For the authoritative list see `settings.gradle.kts`.
+test suite. For the authoritative list see `settings.gradle.kts` — if this
+block and `settings.gradle.kts` disagree, `settings.gradle.kts` wins and this
+block needs updating.
 
 ```
 :cli             — interactive / demo entry points (PlayMain, DemoMain)
 :server          — JSONL stdin/stdout wrapper for out-of-JVM clients (ServerMain)
 :analytics       — event-stream consumers (BattleAnalyzer, ReplayExporter)
 :data-ingestion  — PokeAPI / Smogon fetchers (auditModelGap, ingestSmogon)
+:persistence     — on-disk battle-corpus format (PersistedBattle, BattleRecorder, BattleLoader)
 :ai              — choice strategies (RandomAI, TypeAI, SidedAI)
 :render          — events-to-text (TextRenderer, BattleRenderer, per-item/ability text)
 :data            — catalogs (Pokedex JSON loader, MoveDex, per-item/ability effects, GenVRegistries)
@@ -102,22 +105,24 @@ test suite. For the authoritative list see `settings.gradle.kts`.
 Dependency graph (arrow = "declared dependency"):
 
 ```
-:cli             →  :engine, :data, :render, :ai
-:server          →  :engine, :data, :render, :ai
-:analytics       →  :engine (tests: :data)
+:cli             →  :engine, :data, :data-ingestion, :render, :ai, :persistence, :analytics
+:server          →  :engine, :data, :render, :ai, :persistence
+:analytics       →  :engine, :persistence (tests: :data)
 :data-ingestion  →  :data, :engine
+:persistence     →  :engine   (api — re-exposes PersistedBattle/BattleMetadata)
 :ai              →  :engine   (api — re-exposes TurnChoice)
 :render          →  :engine   (api — re-exposes BattleEvent/State)
 :data            →  :engine   (api — re-exposes Species)
 :engine          →  (no project deps; depends only on kotlinx-serialization)
 ```
 
-**Three modules re-expose `:engine`'s public types via `api(...)`:** a
-consumer of `:data` / `:render` / `:ai` sees engine types transitively,
-because those modules' signatures return or take engine types
+**Four modules re-expose `:engine`'s public types via `api(...)`:** a
+consumer of `:data` / `:render` / `:ai` / `:persistence` sees engine types
+transitively, because those modules' signatures return or take engine types
 (`Pokedex.loadFromClasspath().getValue("Charizard"): Species`,
 `TextRenderer.render(event: BattleEvent, ...)`, AI strategies return
-`TurnChoice`). Other dependencies are `implementation`.
+`TurnChoice`, `PersistedBattle` wraps the engine event stream). Other
+dependencies are `implementation`.
 
 **Inside `:engine`, `internal` marks the non-contract surface:**
 `gen/simplified/*` plus single-file helpers (`HazardResolver`,
