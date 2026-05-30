@@ -6,6 +6,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 New to this repo? Read `CONTRIBUTING.md` at the repo root. It covers the how-tos (adding an item, ability, move, event), testing conventions, build/lint expectations, commit style, and merge discipline — so you don't have to reverse-engineer them. This file (`CLAUDE.md`) covers the *why* and the iteration workflow; `CONTRIBUTING.md` covers the *how*.
 
+For a fast orientation and how to *run* the engine, start at the root `README.md` — `./gradlew :cli:demo` watches an AI-vs-AI battle, `./gradlew :cli:run` lets you play. It links onward to `docs/architecture.md`, `CONTRIBUTING.md`, and `docs/index.md`.
+
 ## Project Overview
 
 Kotlin project implementing an event-sourced turn-resolution pipeline for Pokemon singles battles. The design is specified in `docs/`. Implementation is underway — see diary entries in `docs/diaries/` for current progress.
@@ -32,6 +34,7 @@ Initial phases: `MoveOrderPhase` → `MoveExecutionPhase` → `EndOfTurnPhase`. 
 
 ## Design Documents
 
+- `docs/index.md` — the documentation map: the full doc surface (data-ingestion, corpus-format, corpus-queries, the diary log) plus the canonical-vs-diary convention. Start here when you need a doc this file doesn't name.
 - `docs/architecture.md` — complete type definitions, phase pipeline, extensibility model
 - `engine/src/test/kotlin/com/pokemon/battle/CharizardVsVenusaurTest.kt` — worked example, executable form
 - `engine/src/test/kotlin/com/pokemon/battle/InfernapeVsSwampertTest.kt` — extended example (priority, burn, weather, items)
