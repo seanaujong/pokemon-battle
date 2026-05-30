@@ -6,8 +6,11 @@ import java.nio.file.Files
 import java.nio.file.Path
 
 /**
- * Fetches PokeAPI responses with an on-disk cache. Cache is committed to the repo
- * (see diary 041): the cache IS the fixture set; fresh clones work offline.
+ * Fetches PokeAPI responses with an on-disk cache under [cacheRoot] (default
+ * `.cache/pokeapi`, gitignored — a politeness cache, not version-controlled). Offline
+ * runs of the engine and tests do not depend on it: they read the *committed* derived
+ * docs (`data/src/main/resources/...` and the projected `data/raw/pokeapi/`). This
+ * client is for the dev-time ingestion path, which fetches when the cache is cold.
  *
  * Politeness: 100ms sleep before every uncached request, custom User-Agent header.
  * Failed responses are NOT written to cache — do not poison with transient 5xx.
